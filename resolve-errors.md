@@ -1,0 +1,131 @@
+---
+title: Resolve Errors
+description: Systematic error resolution by identifying root cause, applying minimal changes, and verifying solutions
+auto_execution_mode: 3
+---
+
+## Goal
+
+แก้ไข error อย่างมีประสิทธิภาพโดยระบุ root cause แก้ไขที่จุดเดียว และตรวจสอบว่าแก้ไขถูกต้อง
+
+## Execute
+
+### 1. Analyze Error
+
+วิเคราะห์ error message และ context อย่างละเอียด
+
+1. อ่าน error message ทั้งหมดรวม stack trace
+2. ระบุไฟล์และบรรทัดที่เกิด error
+3. ดู context รอบๆ จุดที่ error เกิด
+4. ระบุประเภทของ error (`syntax`, `runtime`, `type`, `logic`)
+
+### 2. Identify Root Cause
+
+**หมายเหตุ:** ถ้า errors ซับซ้อนหรือไม่ชัดเจน ให้ทำ `/analyze-errors` ก่อนเพื่อวิเคราะห์และจัดลำดับ
+
+วิเคราะห์ error message และ context อย่างละเอียด:
+
+1. ติดตาม call stack ย้อนกลับเพื่อหาจุดเริ่มต้น
+2. ระบุสาเหตุที่แท้จริง ไม่ใช่แก้เฉพาะ symptom
+3. ตรวจสอบ data flow และ dependencies ที่เกี่ยวข้อง
+4. ใช้ debugging tools (`debugger`, `logging`, `breakpoints`) ตามความเหมาะสม
+
+### 3. Apply Minimal Fix
+
+แก้ไขที่จุดเดียวที่เป็นปัญหาจริง หลีกเลี่ยงการแก้หลายจุดพร้อมกัน
+
+1. เขียน fix ที่แก้ root cause โดยตรง
+2. ทำการเปลี่ยนแปลงน้อยที่สุดที่จำเป็น
+3. รักษา consistency กับ code style ที่มีอยู่
+4. เพิ่ม comments อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
+5. ตรวจสอบว่าไม่สร้าง side effects ใหม่
+6. ถ้า error มีจำนวนมาก ให้ทำ `/use-scripts` เพื่อ automate การแก้ไข
+
+### 4. Review Fix
+
+ตรวจสอบว่าการแก้ไขถูกต้องและเหมาะสม
+
+1. ตรวจสอบว่าการแก้ไขแก้ root cause โดยตรง
+2. ตรวจสอบว่าการแก้ไขไม่สร้าง side effects ใหม่
+3. ตรวจสอบว่า code style เหมาะสมและ consistent
+4. ตรวจสอบว่ามี comments อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
+
+### 5. Check for Ignore Patterns
+
+ตรวจสอบว่าไม่มีการใช้ ignore comments/attributes สำหรับ suppress error
+
+1. ทำตาม `/no-use-ignore`
+
+### 6. Document and Learn
+
+บันทึกประสบการณ์เพื่อป้องกันปัญหาซ้ำ
+
+1. เขียน comment หรือ documentation อธิบายสาเหตุของ error
+2. เพิ่ม error handling หรือ validation ถ้าจำเป็น
+3. บันทึก pattern ของปัญหาเพื่อใช้อ้างอิงในอนาคต
+4. พิจารณาเพิ่ม test case เพื่อป้องกัน regression
+
+## Rules
+
+### 1. Root Cause Analysis
+
+วิเคราะห์สาเหตุของ error อย่างละเอียดเพื่อระบุ root cause ที่แท้จริง
+
+- อ่าน error message อย่างละเอียด อย่าข้าม stack trace
+- ติดตาม call stack ย้อนกลับเพื่อหาจุดเริ่มต้น
+- ระบุสาเหตุที่แท้จริง ไม่ใช่แก้เฉพาะ symptom
+- ใช้ debugging tools (`debugger`, `logging`, `breakpoints`) ตามความเหมาะสม
+- ตรวจสอบ data flow และ dependencies ที่เกี่ยวข้อง
+
+### 2. Minimal Change Principle
+
+ทำการแก้ไขน้อยที่สุดที่จำเป็นเพื่อหลีกเลี่ยงการแก้หลายจุดพร้อมกัน
+
+- แก้ไขที่จุดเดียวที่เป็นปัญหาจริง
+- ทำการเปลี่ยนแปลงน้อยที่สุดที่จำเป็น
+- หลีกเลี่ยงการแก้หลายจุดพร้อมกัน
+- รักษา consistency กับ code style ที่มีอยู่
+- ตรวจสอบว่าไม่สร้าง side effects ใหม่
+
+### 3. Verification Standards
+
+ตรวจสอบว่าการแก้ไขถูกต้องและเหมาะสมเพื่อให้แน่ใจว่าไม่มี side effects ใหม่เกิดขึ้น
+
+- ตรวจสอบว่าการแก้ไขแก้ root cause โดยตรง
+- ตรวจสอบว่าการแก้ไขไม่สร้าง side effects ใหม่
+- ตรวจสอบว่า code style เหมาะสมและ consistent
+- ตรวจสอบว่ามี comments อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
+
+### 4. Error Classification
+
+จัดประเภท error เพื่อเลือกวิธีแก้ไขที่เหมาะสมและเพิ่มประสิทธิภาพในการแก้ไข
+
+| Type | Approach |
+|------|----------|
+| `Syntax Error` | ตรวจสอบ syntax, typos, missing brackets, quotes |
+| `Runtime Error` | ตรวจสอบ null/undefined, type mismatches, out of bounds |
+| `Type Error` | ตรวจสอบ type definitions, type assertions, interfaces |
+| `Logic Error` | ตรวจสอบ algorithm, conditions, data transformations |
+| `Network Error` | ตรวจสอบ API calls, endpoints, request/response format |
+
+### 5. No Ignore Patterns
+
+ห้ามใช้ ignore comments/attributes ทุกภาษาเพื่อ suppress errors หรือ warnings
+
+- ทำตาม `/no-use-ignore`
+
+### 6. Documentation
+
+บันทึกประสบการณ์และสร้างเอกสารเพื่อป้องกันปัญหาซ้ำและเพิ่มประสิทธิภาพในการแก้ไข
+
+- เขียน comment อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
+- เพิ่ม error handling หรือ validation ถ้าจำเป็น
+- บันทึก pattern ของปัญหาเพื่อใช้อ้างอิง
+- พิจารณาเพิ่ม test case เพื่อป้องกัน regression
+
+## Expected Outcome
+
+- error ถูกแก้ไขอย่างถาวรจาก root cause
+- ไม่มี side effects ใหม่เกิดขึ้นจากการแก้ไข
+- code quality รักษาไว้หรือดีขึ้นกว่าเดิม
+- มี documentation หรือ comments อธิบายการแก้ไข

@@ -1,0 +1,1 @@
+- เพิม features ให้มากกว่านี้ แต่ไม่เกิน scope ของ project

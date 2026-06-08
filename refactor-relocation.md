@@ -1,0 +1,1 @@
+separate of concern โดย refactor, relocation ให้เหมาะสมตามสิ่งที่ควรจะเป็น
