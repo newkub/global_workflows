@@ -29,3 +29,4 @@ auto_execution_mode: 3
 - MCP ที่เกี่ยวข้องและน่าสนใจ
 - Internet resources ที่เกี่ยวข้อง
 - รายการที่น่าสนใจ
+

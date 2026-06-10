@@ -112,3 +112,4 @@ auto_execution_mode: 3
 - MCP server เชื่อมต่อกับ Cascade สำเร็จ
 - MCP tools ปรากฏและใช้งานได้ใน Cascade
 - Configuration ถูกต้องและปลอดภัย
+

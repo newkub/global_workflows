@@ -19,7 +19,7 @@ related_workflows:
 
 ### 1. Prepare
 
-1. ทำ `/follow-write-workflows` เมื่อสร้างหรือแก้ไข workflow
+1. ทำ `/write-windsurf-global-workflows` เมื่อสร้างหรือแก้ไข workflow
 2. ติดตั้ง ast-grep CLI: `bun add -g @ast-grep/cli`
 3. รัน `ast-grep new` สร้าง project scaffolding (ถ้ายังไม่มี)
 4. สร้าง folder `rules/` สำหรับเก็บ rule files
@@ -137,3 +137,4 @@ related_workflows:
 - Code search ที่มีประสิทธิภาพด้วย AST-based matching
 - Custom lint rules สำหรับ project
 - Automatic code transformation และ refactoring
+

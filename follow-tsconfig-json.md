@@ -150,3 +150,4 @@ auto_execution_mode: 3
 - Monorepo structure ชัดเจนด้วย composite projects
 - Type safety สูงสุดด้วย strict mode
 - Build performance ดีขึ้นด้วย incremental compilation
+

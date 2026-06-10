@@ -125,3 +125,4 @@ export default defineNuxtConfig({
 3. Zero-config auto detection ที่ทำงานได้ถูกต้อง
 4. Integration กับ Nuxt ที่สมบูรณ์
 
+

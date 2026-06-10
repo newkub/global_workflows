@@ -75,3 +75,4 @@ auto_execution_mode: 3
 4. State management ทดสอบแล้ว
 5. Test suite run ได้ใน CI
 6. Documentation ครบถ้วน
+

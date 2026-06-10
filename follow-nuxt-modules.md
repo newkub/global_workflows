@@ -19,15 +19,15 @@ url: https://nuxt.com/docs/4.x/guide/modules/best-practices
 
 ### 2. Setup Structure
 
-1. ทำ `/follow-monorepo` สำหรับ module structure ใน monorepo
+1. ทำ `/monorepo` สำหรับ module structure ใน monorepo
 2. สร้าง `src/module.ts` เป็น main entry point
 3. แยก runtime code ไว้ใน `src/runtime/`
 
 ### 3. Configure Build
 
-1. ทำ `/follow-tsconfig-json` สำหรับ TypeScript configuration
-2. ทำ `/follow-tsdown` สำหรับ build configuration พร้อม plugin vue
-3. ทำ `/follow-biome` สำหรับ linting และ formatting
+1. ทำ `/tsconfig-json` สำหรับ TypeScript configuration
+2. ทำ `/tsdown` สำหรับ build configuration พร้อม plugin vue
+3. ทำ `/biome` สำหรับ linting และ formatting
 4. ตั้งค่า `meta.compatibility` สำหรับ version constraints
 
 ### 4. Implement Best Practices
@@ -45,7 +45,7 @@ url: https://nuxt.com/docs/4.x/guide/modules/best-practices
 
 ### 6. Test And Verify
 
-1. ทำ `/follow-vitest` สำหรับ testing setup
+1. ทำ `/vitest` สำหรับ testing setup
 2. รัน `bun run build` ตรวจสอบ build
 3. รัน `bun run dev` ตรวจสอบ module load
 
@@ -149,3 +149,4 @@ module-name/
 - Runtime code แยกจาก build-time code อย่างชัดเจน
 - รองรับ TypeScript และ type declarations
 - พร้อมใช้งานใน monorepo
+

@@ -131,3 +131,4 @@ url: https://principlesofchaos.org/
 - ❌ ไม่ monitor ระหว่าง experiments
 - ❌ Experiments ที่ไม่มี success criteria
 - ❌ ไม่มี rollback procedures
+

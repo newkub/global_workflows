@@ -190,3 +190,4 @@ crw serve --port 3000
 - ลด AI token ด้วย command ที่เหมาะสม
 - เลือก format และ options ตาม use case
 - Integration กับ MCP และ REST API ได้อย่างราบรื่น
+

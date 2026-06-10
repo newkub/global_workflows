@@ -2,6 +2,8 @@
 title: Write Test
 description: เขียน test ที่มีคุณภาพสูง ครอบคลุมทุกกรณีใช้งาน ใช้ได้กับทุกภาษา
 auto_execution_mode: 3
+related_workflows:
+  - /write-code-explicit
 ---
 
 ## Goal
@@ -14,66 +16,45 @@ auto_execution_mode: 3
 
 1. ทำ `/write-spec` เพื่อสร้างหรืออัพเดท SPEC.md ก่อนเขียน test
 
-### 2. Analyze Test Requirements
+### 2. Analyze Requirements
 
 1. ตรวจสอบ test framework และ conventions ที่ใช้ในโปรเจกต์
-2. อ่านโค้ดที่ต้องการ test เพื่อเข้าใจ logic, edge cases และ dependencies
-3. ระบุประเภท test ที่ต้องเขียน (`unit`, `integration`, `e2e`, `component`, `contract`)
-4. กำหนด coverage goals สำหรับส่วนที่จะ test (เช่น 80% business logic)
+2. อ่าน `package.json`, `Cargo.toml`, หรือ package manifest ตามภาษา
+3. ตรวจสอบ test frameworks และ test utils ที่มีอยู่
+4. อ่านโค้ดที่ต้องการ test เพื่อเข้าใจ logic, edge cases และ dependencies
+5. ระบุประเภท test ที่ต้องเขียน (`unit`, `integration`, `e2e`, `component`, `contract`)
+6. กำหนด coverage goals (เช่น 80% business logic)
 
-### 3. Write Tests by Type
+### 3. Write Tests
 
 เขียน test ตามประเภทและ conventions ของภาษาที่ใช้
 
-1. **Unit Tests**
-   - Location: ใกล้กับ source code (เช่น `*_test.go`, `*.test.ts`, `test_*.py`)
-   - Focus: test functions, methods, classes แยกส่วน
-   - Pattern: `AAA` (`Arrange`, `Act`, `Assert`)
+- Unit tests: ใกล้กับ source code, ใช้ `AAA` pattern
+- Integration tests: ใน `tests/integration/`, test data flow
+- Component tests: ใกล้กับ components, simulate user actions
+- E2E tests: ใน `tests/e2e/`, test critical user flows
 
-2. **Integration Tests**
-   - Location: `tests/integration/` หรือตาม conventions ของภาษา
-   - Focus: test การทำงานร่วมกันของ modules, services, database
-   - Pattern: test data flow ตั้งแต่ input จนถึง output
-
-3. **Component/UI Tests**
-   - Location: ใกล้กับ components (เช่น `__tests__/`, `*.spec.*`)
-   - Focus: test rendering, interactions, state changes
-   - Pattern: simulate user actions, assert output
-
-4. **E2E Tests**
-   - Location: `tests/e2e/` หรือ `e2e/`
-   - Focus: test critical user flows จาก start ถึง end
-   - Pattern: simulate real user journeys
-
-### 4. Sync with Spec
+### 4. Sync and Verify
 
 1. อัพเดท SPEC.md ด้วย test cases ที่เขียนแล้ว
-2. ตรวจสอบว่า test cases ใน SPEC.md ตรงกับ tests ที่เขียนจริง
-3. อัพเดท status เป็น ✅ สำหรับ test cases ที่เขียนแล้ว
-4. อัพเดท coverage ตามผลลัพธ์จริงจาก test run
-
-### 5. Verify and Validate
-
-1. รัน tests ทั้งหมดเพื่อตรวจสอบว่าผ่านทุก test
-2. ตรวจสอบ test coverage ให้บรรลุ goals ที่ตั้งไว้
-3. ตรวจสอบว่า tests ไม่ `brittle` (ไม่พังง่ายเมื่อ refactor)
-4. รัน tests ใน CI environment เพื่อตรวจสอบความเสถียร
-5. รัน `/update-reference` สำหรับไฟล์ที่เพิ่ม
+2. รัน tests ทั้งหมดเพื่อตรวจสอบว่าผ่าน
+3. ตรวจสอบ test coverage ให้บรรลุ goals
+4. รัน `/update-reference` สำหรับไฟล์ที่เพิ่ม
 
 ## Rules
 
-### 1. Universal Test Principles
+### 1. Test Principles
 
 หลักการทั่วไปที่ใช้ได้กับทุกภาษา
 
-- ตั้งชื่อ test ชัดเจน: `should [expected behavior] when [condition]`
+- ตั้งชื่อ test: `should [expected behavior] when [condition]`
 - Follow `AAA` pattern (`Arrange`, `Act`, `Assert`)
 - Test แค่สิ่งเดียวต่อ test case (`Single Responsibility`)
 - ไม่แชร์ state ระหว่าง tests (isolated)
 - Test ทั้ง `happy path`, `edge cases`, `error cases`, `boundary conditions`
 - ใช้ `parameterized tests` สำหรับกรณีที่ test ซ้ำๆ กันหลายค่า
 
-### 2. Language-Specific Conventions
+### 2. Language Conventions
 
 ใช้ conventions ตามภาษาที่ใช้
 
@@ -90,31 +71,72 @@ auto_execution_mode: 3
 
 จัดโครงสร้าง test files ตามประเภท
 
-- **Unit tests**: ใกล้กับ source code (เดียวกันหรือ `__tests__/`)
-- **Integration tests**: ใน `tests/integration/` หรือ `tests/`
-- **E2E tests**: ใน `tests/e2e/` หรือ `e2e/`
-- **Test utilities**: ใน `tests/utils/`, `testhelpers/`, หรือ fixtures
-- **Test data**: ใช้ factories, fixtures, builders สร้าง data
+- Unit tests: อยู่ใกล้กับ source code (`.test.ts`, `.test.tsx`, `*_test.go`, `test_*.py`)
+- Integration tests: ใน `tests/integration/`
+- E2E tests: ใน `tests/e2e/`
+- Test utilities: ใน `tests/utils/`
+- Test data: ใน `tests/fixtures/`
 
-### 4. Mocking and Dependencies
+ตัวอย่าง folder structure:
 
-จัดการ dependencies อย่างเหมาะสม
+```
+project/
+├── src/
+│   ├── components/
+│   │   ├── Button.tsx
+│   │   └── Button.test.tsx
+│   └── services/
+│       ├── auth.ts
+│       └── auth.test.ts
+└── tests/
+    ├── integration/
+    ├── e2e/
+    ├── utils/
+    └── fixtures/
+```
+
+### 4. Naming and Data
+
+ตั้งชื่อและจัดการ test data
+
+- Test files: ใช้ชื่อเดียวกับ source ต่อท้ายด้วย `.test`, `.spec`, หรือ `_test`
+- Test cases: `should [expected behavior] when [condition]`
+- ใช้ `factories`, `fixtures`, `builders` สร้าง test data
+- Clean up test data หลังแต่ละ test (`afterEach`, `teardown`)
+- ไม่ hardcode sensitive data (passwords, API keys, tokens)
+
+### 5. Mocking and Security
+
+จัดการ dependencies และความปลอดภัย
 
 - Mock external dependencies (`API`, `database`, `file system`) เฉพาะที่จำเป็น
 - ใช้ interfaces/ports สำหรับ test doubles (`stubs`, `mocks`, `fakes`, `spies`)
 - Restore/cleanup mocks หลังแต่ละ test
-- ไม่ mock สิ่งที่เป็นส่วนหลักของ logic ที่จะ test
-- ไม่ hardcode sensitive data ใน tests
+- ไม่ hardcode credentials ใน test files
+- ใช้ environment variables สำหรับ secrets
+- ใช้ `test databases` แยกจาก production
 
-### 5. Coverage and Quality
+### 6. Performance and Coverage
 
-รักษาคุณภาพ test suite
+รักษาประสิทธิภาพและ coverage
 
+- Unit tests: `< 10ms` ต่อ test
+- Integration tests: `< 100ms` ต่อ test
+- ใช้ `parallel execution` เมื่อ tests ไม่ dependent กัน
 - `100% coverage` สำหรับทุก test cases ที่ระบุใน spec
-- เขียน test case ให้ครบถ้วนตาม spec ไม่ขาดเคสใด
-- Tests ต้องรวดเร็ว (`< 10ms` ต่อ unit test)
-- Tests ต้อง reliable (ไม่ flaky)
-- ใช้ async/await หรือ equivalents สำหรับ async operations
+- ตรวจสอบ coverage ด้วย tools (เช่น `c8`, `istanbul`, `coverage.py`)
+- ตั้งค่า coverage thresholds ใน CI (เช่น `80%` ขึ้น)
+
+### 7. CI/CD and Documentation
+
+ผนวก tests เข้ากับ CI/CD และเขียน documentation
+
+- รัน tests ในทุก pull request และ commit (pre-commit hooks)
+- ตั้งค่า `test coverage thresholds` ใน CI
+- รัน `lint` ก่อน `test` ใน pipeline
+- Document test setup ใน comments สำหรับ tests ที่ซับซ้อน
+- เขียน `README` ใน `tests/` อธิบายวิธีรัน
+- อัพเดท test docs เมื่อ logic เปลี่ยน
 
 ## Expected Outcome
 
@@ -122,3 +144,4 @@ auto_execution_mode: 3
 - Tests ครอบคลุมทุกกรณีใช้งาน (`happy path`, `edge cases`, `errors`)
 - Tests ไม่ `brittle` และรวดเร็ว
 - โค้ดมีความถูกต้องและเสถียร
+

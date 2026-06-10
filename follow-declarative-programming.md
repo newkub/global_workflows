@@ -161,3 +161,4 @@ auto_execution_mode: 3
 - Configuration ที่ flexible
 - Tests ที่เขียนง่าย
 - ลด side effects
+

@@ -90,3 +90,4 @@ related_workflows:
 - Build artifacts ถูกสร้างอย่างถูกต้อง
 - Tests ผ่านทั้งหมด
 - ไม่มี security vulnerabilities
+

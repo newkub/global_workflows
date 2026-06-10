@@ -85,3 +85,4 @@ auto_execution_mode: 3
 - Approved หรือ requested changes ที่เหมาะสม
 - รายงานผลการรีวิวในรูปแบบตาราง
 - Grouping และ sorting ของ PRs ที่ชัดเจน
+

@@ -67,3 +67,4 @@ auto_execution_mode: 3
 - Technical terminology ที่ถูกต้อง
 - Tone และ style ที่เหมาะสม
 - Code และ commands ที่ไม่ถูกแปล
+

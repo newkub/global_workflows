@@ -32,7 +32,7 @@ auto_execution_mode: 3
    - `all.yml`: `$schema: './cache/schemas/tasks.json'`
    - `toolchains.yml`: `$schema: './cache/schemas/toolchain.json'`
    - `workspace.yml`: `$schema: './cache/schemas/workspace.json'`
-9. สร้าง `.moon/tasks/all.yml` โดยให้ `/setup-tasks`
+9. สร้าง `.moon/tasks/all.yml` โดยให้ `/tasks`
 
 ### 3. Project Configuration
 
@@ -145,14 +145,14 @@ jobs:
 - สร้าง `.moon/tasks/all.yml` สำหรับ reusable tasks
 - สร้าง `workspace.yml` สำหรับ global settings
 - สร้าง `toolchains.yml` สำหรับ language versions
-- ดู directory structure ตาม `/follow-monorepo`
+- ดู directory structure ตาม `/monorepo`
 
 ### 2. Task Synchronization
 
 ให้แต่ละ `moon.yml` ใน workspace มี tasks เท่ากับและตรงกับ `.moon/tasks/all.yml`
 - กำหนด tasks ใน `.moon/tasks/all.yml` สำหรับ reusability
 - ใช้ task inheritance ในแต่ละ project
-- ให้ tasks ตรงกับ scripts ตาม `/setup-package-manifest`
+- ให้ tasks ตรงกับ scripts ตาม `/package-manifest`
 - ใช้ `moon run <project>:<task>` สำหรับ task execution
 - ตรวจสอบ task dependencies อย่างถูกต้อง
 
@@ -189,3 +189,4 @@ vcs:
 - Caching ที่ทำงานได้อย่างมีประสิทธิภาพ
 - Toolchain consistency ทั่วทั้ง team
 - Build times ที่ลดลงอย่างมีนัยสำคัญ
+

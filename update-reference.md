@@ -103,3 +103,4 @@ auto_execution_mode: 3
 
 - References ใน skills ถูกอัพเดททั้งหมด
 - ไม่มี references ที่เสียหายใน skills
+

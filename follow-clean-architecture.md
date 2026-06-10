@@ -8,11 +8,15 @@ auto_execution_mode: 3
 
 Implement Functional Clean Architecture ด้วย Vertical Slice Architecture สำหรับ production-grade applications
 
+## Scope
+
+ใช้สำหรับ projects ที่ต้องการ testability สูง และ maintainability ระยะยาว
+
 ## Execute
 
 ### 1. Setup Project Structure
 
-ทำ `/setup-config` เพื่อตั้งค่า project structure ตาม Clean Architecture:
+ทำ `/config` เพื่อตั้งค่า `src/` ตาม Clean Architecture:
 
 ```
 src/
@@ -62,33 +66,33 @@ test/                             # Test suite (mirror src structure)
 
 ### 2. Create Shared Kernel
 
-ทำ `/follow-functional-programming` เพื่อสร้าง `shared/` สำหรับ common utilities:
+ทำ `/functional-programming` เพื่อสร้าง `shared/`:
 
-- `types/` - Common types (Result, Option)
+- `types/` - Common types (`Result`, `Option`)
 - `utils/` - Pure utility functions
 - `errors/` - Error types
 - `constants/` - Constants
 
 ### 3. Implement Functional Core
 
-ทำ `/follow-functional-core-imperative-shell` เพื่อเขียน business logic ใน `modules/*/domain/`:
+ทำ `/functional-core-imperative-shell` เพื่อเขียน business logic ใน `modules/*/domain/`:
 
-- ใช้ pure functions เท่านั้น
+- ใช้ `pure functions` เท่านั้น
 - Immutable data structures (`readonly`)
 - ไม่มี side effects
 - ไม่พึ่ง infrastructure
 
 ### 4. Implement Application Layer
 
-ทำ `/follow-event-driven` เพื่อสร้าง orchestration layer ใน `modules/*/application/`:
+ทำ `/event-driven` เพื่อสร้าง orchestration layer ใน `modules/*/application/`:
 
 - `usecases/` - Flow orchestration
 - `workflows/` - Complex multi-step workflows
-- ใช้ ports สำหรับ side effects
+- ใช้ `ports` สำหรับ side effects
 
 ### 5. Implement Adapters
 
-ทำ `/follow-layered-architecture` เพื่อสร้าง adapters layer:
+ทำ `/layered-architecture` เพื่อสร้าง adapters layer:
 
 - `adapters/db/` - Database implementations
 - `adapters/http/` - HTTP clients
@@ -97,7 +101,7 @@ test/                             # Test suite (mirror src structure)
 
 ### 6. Implement Presentation Layer
 
-ทำ `/follow-layered-architecture` เพื่อสร้าง presentation layer:
+ทำ `/layered-architecture` เพื่อสร้าง presentation layer:
 
 - `presentation/http/` - HTTP handlers and routes
 - `presentation/cli/` - CLI commands
@@ -107,25 +111,25 @@ test/                             # Test suite (mirror src structure)
 
 ทำ `/refactor` เพื่อย้าย code ไปยัง structure ใหม่:
 
-1. ย้าย business logic จาก adapters/services ไป `modules/*/domain/operations/`
-2. ย้าย data models จาก entities/classes ไป `modules/*/domain/models/` เป็น readonly types
+1. ย้าย business logic ไป `modules/*/domain/operations/`
+2. ย้าย data models ไป `modules/*/domain/models/` เป็น `readonly` types
 3. ย้าย repository implementations ไป `adapters/db/` เป็น functions
 4. ย้าย HTTP handlers ไป `presentation/http/`
 5. ย้าย CLI commands ไป `presentation/cli/`
 6. แยก domain events ไป `modules/*/domain/events/`
-7. สร้าง application functions ใน `modules/*/application/usecases/` จาก controllers
-8. สร้าง module ports ใน `modules/*/ports/` สำหรับ interface definitions
-9. แปลง class methods เป็น pure functions
+7. สร้าง application functions ใน `modules/*/application/usecases/`
+8. สร้าง module ports ใน `modules/*/ports/`
+9. แปลง class methods เป็น `pure functions`
 
 ### 8. Testing Strategy
 
-ทำ `/follow-testing` เพื่อจัดการ tests ตาม layer:
+ทำ `/write-test` เพื่อจัดการ tests ตาม Clean Architecture:
 
-- Unit tests - Pure function tests ใน `test/modules/*/domain/`
-- Integration tests - Adapter tests ใน `test/adapters/`
-- E2E tests - Full workflow tests ใน `test/e2e/`
-- Test fixtures - Shared test data ใน `test/fixtures/`
-- Test helpers - Test utilities ใน `test/helpers/`
+- Unit tests - Pure function tests ใน `test/modules/*/domain/` (AAA pattern)
+- Integration tests - Adapter tests ใน `test/adapters/` (mock ports)
+- E2E tests - Full workflow tests ใน `test/e2e/` (critical flows)
+- Test fixtures - Shared test data ใน `test/fixtures/` (factories)
+- Test helpers - Test utilities ใน `test/helpers/` (setup/teardown)
 
 
 ## Rules
@@ -134,22 +138,22 @@ test/                             # Test suite (mirror src structure)
 
 Clean Architecture มี 3 rules หลัก:
 
-- Domain = business rules (100% pure)
-- Application = orchestration + "what happens next" decisions
-- Adapters = side effects only
+- `Domain` = business rules (100% pure)
+- `Application` = orchestration + "what happens next" decisions
+- `Adapters` = side effects only
 
 ### 2. Folder Structure
 
-| Folder | Purpose | Style | Side Effects |
-|--------|---------|-------|--------------|
-| `modules/*/types/` | Domain type definitions | Pure FP | None |
-| `modules/*/domain/` | Pure business logic | Pure FP | None |
-| `modules/*/application/` | Orchestration layer | FP | Via ports |
-| `modules/*/ports/` | Module-specific interfaces | FP | None |
-| `adapters/` | External systems integration | FP | I/O only |
-| `presentation/` | Entry points | Functional Core/Imperative Shell | I/O only |
-| `shared/` | Common utilities | Pure FP | None |
-| `distributed/` | Cross-module orchestration | FP (Event-Driven) | I/O only |
+| Folder | Purpose | Style | Side Effects | Required | Naming Convention |
+|--------|---------|-------|--------------|----------|------------------|
+| `modules/*/types/` | Domain type definitions | Pure FP | None | Required | PascalCase types |
+| `modules/*/domain/` | Pure business logic | Pure FP | None | Required | camelCase functions |
+| `modules/*/application/` | Orchestration layer | FP | Via ports | Required | useCase, workflow |
+| `modules/*/ports/` | Module-specific interfaces | FP | None | Required | I*Port interfaces |
+| `adapters/` | External systems integration | FP | I/O only | Required | kebab-case files |
+| `presentation/` | Entry points | Functional Core/Imperative Shell | I/O only | Required | kebab-case files |
+| `shared/` | Common utilities | Pure FP | None | Required | camelCase functions |
+| `distributed/` | Cross-module orchestration | FP (Event-Driven) | I/O only | Optional | saga, sagaId |
 
 ### 3. Layer Responsibilities
 
@@ -161,34 +165,7 @@ Clean Architecture มี 3 rules หลัก:
 | Presentation | Entry points | Application | I/O only |
 | Shared | Common utilities | None | None |
 
-### 4. Required Folders
-
-ต้องมีเสมอ:
-
-- `modules/*/types/` - Domain types (type aliases)
-- `modules/*/domain/` - Pure business logic
-- `modules/*/application/` - Orchestration layer
-- `modules/*/ports/` - Module-specific interfaces
-- `presentation/http/` - HTTP handlers and routes
-- `shared/types/` - Common types
-- `shared/utils/` - Pure utility functions
-- `adapters/db/` - Database layer
-- `adapters/config/` - Configuration management
-
-### 5. Optional Folders
-
-เพิ่มตามความจำเป็น:
-
-- `modules/*/domain/events/` - Domain event types
-- `presentation/cli/` - CLI commands
-- `presentation/events/` - Event handlers
-- `adapters/http/` - HTTP clients
-- `adapters/external/` - External services
-- `shared/errors/` - Error types
-- `shared/constants/` - Static constants (compile-time)
-- `distributed/` - Cross-module orchestration (event-driven only)
-
-### 6. When To Use
+### 4. When To Use
 
 เหมาะกับ:
 
@@ -204,12 +181,11 @@ Clean Architecture มี 3 rules หลัก:
 
 ## Expected Outcome
 
-- Final Boss Version Functional Clean Architecture - Enterprise-ready จาก startup ถึง large-scale systems
-- Pure domain logic อยู่ใน `modules/` (100% functional + math-like core)
-- Clear application orchestration - "What happens next" decisions with practical patterns
+- Final Boss Version Functional Clean Architecture - Enterprise-ready
+- Pure domain logic ใน `modules/` (100% functional + math-like core)
+- Clear application orchestration - "What happens next" decisions
 - Architecture drift prevention - Clear decision boundaries + dependency rules
-- Clear port boundaries - Module-specific interfaces only
 - Side effects isolation - Limited to adapters layer
-- Team governance - Simple rules + clear examples
 - Production-grade testability - Pure functions + clear boundaries
 - Developer-friendly - Fast onboarding + minimal complexity
+

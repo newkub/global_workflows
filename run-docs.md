@@ -20,7 +20,7 @@ auto_execution_mode: 3
 
 ### 2. Setup Docus
 
-1. ใช้ `/follow-docus` เพื่อตั้งค่า Docus documentation framework
+1. ใช้ `/docus` เพื่อตั้งค่า Docus documentation framework
 2. ตรวจสอบว่า Docus ถูกตั้งค่าอย่างถูกต้อง
 3. ตรวจสอบ project structure ตามมาตรฐาน Docus
 
@@ -41,9 +41,9 @@ auto_execution_mode: 3
 
 ### 2. Setup
 
-ต้องใช้ `/follow-docus` ก่อนและตรวจสอบว่า setup เสร็จสมบูรณ์
+ต้องใช้ `/docus` ก่อนและตรวจสอบว่า setup เสร็จสมบูรณ์
 
-- ต้องใช้ `/follow-docus` ก่อน
+- ต้องใช้ `/docus` ก่อน
 - ต้องตรวจสอบว่า setup เสร็จสมบูรณ์
 
 ### 3. Development

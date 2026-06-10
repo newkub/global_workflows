@@ -12,7 +12,7 @@ auto_execution_mode: 3
 
 ### 1. Validate Module Structure
 
-ทำ `/follow-feature-module-rules` เพื่อตรวจสอบว่าแต่ละ layer ใน feature module เป็นไปตามมาตรฐาน
+ทำ `/feature-module-rules` เพื่อตรวจสอบว่าแต่ละ layer ใน feature module เป็นไปตามมาตรฐาน
 
 ### 2. Check Layer Dependencies
 
@@ -115,3 +115,4 @@ const user = await userAdapter.getUserById(userId) // แปลง shape + handl
 - ไม่มี duplication ระหว่าง layers
 - DTO และ Adapters ใช้ตามเงื่อนไขที่เหมาะสม
 - Pure domain logic ที่ testable สูง
+

@@ -35,7 +35,7 @@ Refactor แต่ละ workspace ให้มี single responsibility
 
 1. ทำ `/each-workspaces` เพื่อ refactor แต่ละ workspace
 2. ย้าย code ที่ไม่เกี่ยวข้องไปยัง workspaces ที่เหมาะสม
-3. ทำ `/refactor-to-single-responsibility` สำหรับแต่ละ workspace
+3. ทำ `/refactor-file-to-single-responsibility` สำหรับแต่ละ workspace
 4. ทำ `/update-docs` เพื่ออัพเดท references ระหว่าง workspaces
 
 ### 4. Merge Redundant Workspaces
@@ -55,6 +55,12 @@ Refactor แต่ละ workspace ให้มี single responsibility
 2. ทำ `/run-test` เพื่อทดสอบ functionality
 3. ทำ `/run-build` เพื่อตรวจสอบ build
 4. ตรวจสอบ dependencies ระหว่าง workspaces
+
+### 6. Update References
+
+อัปเดท references ทั้งหมดที่เกี่ยวข้อง
+
+1. ทำตาม `@[/edit-relative]`
 
 ## Rules
 
@@ -116,3 +122,4 @@ Refactor แต่ละ workspace ให้มี single responsibility
 - ง่ายต่อการเพิ่ม features
 - ง่ายต่อการทดสอบ
 - ง่ายต่อการ refactor ในอนาคต
+

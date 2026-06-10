@@ -92,3 +92,4 @@ Watch deployment ด้วย browser preview
 - Deployment live และใช้งานได้
 - ไม่มี console errors
 - ไม่มี network errors
+

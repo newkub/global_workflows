@@ -142,3 +142,4 @@ jobs:
 3. Serverless และ Edge functions ที่ทำงานได้ถูกต้อง
 4. CI/CD pipeline ที่ deploy อัตโนมัติทั้ง preview และ production
 5. Environment variables ที่จัดการอย่างปลอดภัย
+

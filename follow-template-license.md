@@ -7,7 +7,7 @@ description: ตั้งค่าและใช้งาน license ตาม 
 auto_execution_mode: 3
 
 related_workflows:
-  - /follow-windsurf-global-workflows
+  - /windsurf-global-workflows
 
 ---
 
@@ -118,3 +118,4 @@ copies or substantial portions of the Software.
 - ❌ ใช้ license ที่ไม่ได้รับอนุญาตจาก dependencies
 - ❌ ใช้ custom license โดยไม่จำเป็น
 - ❌ ไม่อัปเดตปี copyright
+

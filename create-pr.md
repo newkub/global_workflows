@@ -146,3 +146,4 @@ related_workflows:
 - สร้าง PR โดยไม่มี description
 - สร้าง PR จาก branch ที่ไม่ sync
 - ใช้ title ที่ไม่ชัดเจนหรือยาวเกินไป
+

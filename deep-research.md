@@ -3,7 +3,7 @@ title: Deep Research
 description: ค้นหาข้อมูลจาก CRW, NPM, GitHub, DeepWiki, Context7
 auto_execution_mode: 3
 related_workflows:
-  - /follow-crw
+  - /crw
 ---
 
 ## Goal
@@ -24,7 +24,7 @@ related_workflows:
 
 ### 2. Use CRW For Web Research
 
-1. ทำ `/follow-crw` เพื่อใช้ CRW อย่างถูกต้อง
+1. ทำ `/crw` เพื่อใช้ CRW อย่างถูกต้อง
 2. ใช้ `crw map <url>` เพื่อ discover URLs ทั้งหมด
 3. ใช้ `crw <url>` สำหรับ scrape content แต่ละ URL
 4. ใช้ `crw search "query"` สำหรับ web search ผ่าน SearXNG

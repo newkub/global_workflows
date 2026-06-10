@@ -64,3 +64,4 @@ auto_execution_mode: 3
 - Registry พร้อมใช้งาน
 - Docker credentials พร้อมใช้งาน
 - Image build และ push อัตโนมัติ
+

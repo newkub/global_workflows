@@ -288,3 +288,4 @@ require("lazy").setup({
 - [Plugin Examples](https://lazy.folke.io/spec/examples)
 - [Awesome Neovim](https://github.com/rockerBOO/awesome-neovim)
 - [Neovim Craft](https://neovimcraft.com)
+

@@ -3,7 +3,7 @@ title: Web Design
 description: ออกแบบ web interfaces ด้วย design system principles และ best practices
 auto_execution_mode: 3
 related_workflows:
-  - /follow-design-system
+  - /design-system
   - /choose-tech-stack
 ---
 
@@ -17,7 +17,7 @@ related_workflows:
 
 ## Execute
 
-### 1. ทำ `/follow-design-system`
+### 1. ทำ `/design-system`
 
 1. กำหนด design tokens (colors, typography, spacing)
 2. สร้าง component guidelines
@@ -187,3 +187,4 @@ export function Button({ variant, size, disabled, children }: ButtonProps) {
 - [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/WCAG21/quickref/)
 - [MDN Web Docs](https://developer.mozilla.org/)
 - [CSS Tricks](https://css-tricks.com/)
+

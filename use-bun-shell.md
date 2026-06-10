@@ -12,7 +12,7 @@ auto_execution_mode: 3
 
 ### 1. Prepare Bun Shell Environment
 
-1. ทำ `/follow-bun` เพื่อ setup Bun environment
+1. ทำ `/bun` เพื่อ setup Bun environment
 2. ตรวจสอบว่า Bun ติดตั้งและพร้อมใช้งาน
 3. ตั้งค่า environment variables ที่จำเป็นสำหรับ Bun
 
@@ -101,3 +101,4 @@ bun -e "const result = await $`ls -la | grep '.json'`; console.log(result.stdout
 - Faster execution สำหรับ JavaScript/TypeScript tasks
 - Better TypeScript integration สำหรับ shell scripts
 - Consistent development environment ข้าม platforms
+

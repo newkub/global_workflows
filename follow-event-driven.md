@@ -195,6 +195,7 @@ async fn handle_event(event: Event) -> Result<()> {
 
 ## References
 
-- ทำ `/follow-modular-monolith` สำหรับ base architecture
-- ทำ `/follow-microservices` สำหรับ distributed event-driven systems
-- ทำ `/follow-clean-architecture` สำหรับ event handler structure
+- ทำ `/modular-monolith` สำหรับ base architecture
+- ทำ `/microservices` สำหรับ distributed event-driven systems
+- ทำ `/clean-architecture` สำหรับ event handler structure
+

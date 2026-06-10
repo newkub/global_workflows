@@ -79,3 +79,4 @@ Profile performance เพื่อหา bottlenecks และ optimize
 - Memory usage ถูกปรับปรุง
 - Performance improvements ถูกวัด
 - Code ทำงานเร็วขึ้น
+

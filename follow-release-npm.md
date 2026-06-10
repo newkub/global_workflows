@@ -84,3 +84,4 @@ auto_execution_mode: 3
 - GitHub token พร้อมใช้งาน
 - Releases สร้างอัตโนมัติตาม conventional commits
 - Package release ไปยัง npm อัตโนมัติ
+

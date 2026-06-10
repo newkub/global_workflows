@@ -126,3 +126,4 @@ configureVitest({ experimental_defineCacheKeyGenerator }) {
 - [Plugin API | Vitest](https://vitest.dev/api/advanced/plugin)
 - [Test Project | Vitest](https://vitest.dev/api/advanced/test-project)
 - [Vitest Instance | Vitest](https://vitest.dev/api/advanced/vitest)
+

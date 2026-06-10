@@ -3,9 +3,9 @@ title: Follow Wxt
 description: ตั้งค่าและพัฒนา Web Extensions ด้วย WXT framework ตาม best practices
 auto_execution_mode: 3
 related_workflows:
-  - /follow-vite
-  - /follow-typescript
-  - /setup-github-actions
+  - /vite
+  - /typescript
+  - /github-actions
 url: https://wxt.dev
 ---
 
@@ -17,7 +17,7 @@ url: https://wxt.dev
 
 ### 1. Initialize Project
 
-1. ทำ `/setup-tasks` เพื่อตั้งค่า scripts มาตรฐาน
+1. ทำ `/tasks` เพื่อตั้งค่า scripts มาตรฐาน
 2. รัน `bunx wxt init` เพื่อเริ่มต้นโปรเจกต์
 3. เลือก template ที่ต้องการ (vanilla, react, vue)
 4. ติดตั้ง dependencies ด้วย `bun install`
@@ -39,7 +39,7 @@ url: https://wxt.dev
 
 ### 4. Setup CI/CD
 
-1. ทำ `/setup-github-actions` เพื่อตั้งค่า CI/CD
+1. ทำ `/github-actions` เพื่อตั้งค่า CI/CD
 2. ติดตั้ง `chrome-webstore-upload-cli` ด้วย `bun add -D`
 3. สร้าง `.github/workflows/chrome-release.yml`
 4. ตั้งค่า GitHub Secrets สำหรับ Chrome Web Store
@@ -111,3 +111,4 @@ project/
 - Extension structure ถูกต้องตาม best practices
 - CI/CD workflow สามารถ release ไป Chrome Web Store ได้
 - Code มี type safety และ quality สูง
+

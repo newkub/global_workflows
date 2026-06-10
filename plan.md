@@ -64,13 +64,13 @@ related_workflows:
 1. ตัดสินใจว่าจะใช้ DDD (Test-First) หรือไม่ (optional สำหรับงานที่ซับซ้อนหรือแก้ไข code source)
 2. ถ้าใช้ DDD: ออกแบบ test case ที่ครอบคลุมทุก scenario ก่อน implement
 3. กำหนด test coverage requirements (100% สำหรับทุก task ที่ใช้ DDD)
-4. วางแผน loop จนกว่า test จะผ่านทั้งหมด
+4. วางแผน loop จนกว่า test จะผ่านทั้งหมม
 
 ### 6. Create Task Document
 
-สร้าง `.agent/task/<name>-DD-MM-YYYY.md` ใน workspace เพื่อบันทึกแผนงานทั้งหมด
+สร้าง `.agents/task/<name>-DD-MM-YYYY.md` ใน workspace เพื่อบันทึกแผนงานทั้งหมด
 
-1. สร้างไฟล์ `.agent/task/<name>-DD-MM-YYYY.md` ใน workspace
+1. สร้างไฟล์ `.agents/task/<name>-DD-MM-YYYY.md` ใน workspace
 2. บันทึก architecture และ tasks
 3. บันทึก expected outcome
 
@@ -165,7 +165,7 @@ related_workflows:
 
 ## Task Document Template
 
-ตัวอย่าง template สำหรับ `.agent/task/<name>-DD-MM-YYYY.md`:
+ตัวอย่าง template สำหรับ `.agents/task/<name>-DD-MM-YYYY.md`:
 
 ```markdown
 ---
@@ -274,3 +274,4 @@ Success criteria:
 | `status` | ⭕ | enum | pending/in_progress/completed |
 | `estimated_hours` | ⭕ | number | ประมาณการชั่วโมง |
 | `tags` | ⭕ | array | ป้ายกำกับ |
+

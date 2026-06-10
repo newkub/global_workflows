@@ -18,7 +18,7 @@ auto_execution_mode: 3
 2. ระบุ business logic ที่ pure และไม่มี dependencies
 3. ระบุ validation logic ที่สามารถเป็น pure functions
 4. ระบุ data transformation ที่สามารถเป็น pure functions
-5. ทำตาม `/follow-functional-programming`
+5. ทำตาม `/functional-programming`
 
 ### 2. Extract Functional Core
 
@@ -28,7 +28,7 @@ auto_execution_mode: 3
 2. ย้าย business logic เป็น pure functions
 3. ย้าย validation logic เป็น pure functions
 4. ย้าย data transformation เป็น pure functions
-5. ทำตาม `/refactor-to-single-responsibility`
+5. ทำตาม `/refactor-file-to-single-responsibility`
 
 ### 3. Design Imperative Shell
 
@@ -48,7 +48,7 @@ auto_execution_mode: 3
 2. inject dependencies เป็น parameters ใน shell functions
 3. shell functions เรียก core functions เท่านั้น
 4. core functions ไม่รู้จัก shell หรือ external dependencies
-5. ทำตาม `/refactor-to-single-responsibility`
+5. ทำตาม `/refactor-file-to-single-responsibility`
 
 ### 5. Validate Separation
 
@@ -116,3 +116,4 @@ src/
 - Shell เรียก core functions เท่านั้น
 - Code ง่ายต่อการ test และ maintain
 - Dependency flow ชัดเจน
+

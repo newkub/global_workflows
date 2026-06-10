@@ -129,3 +129,4 @@ auto_execution_mode: 3
 
 - `/validate` - ตรวจสอบความถูกต้องก่อนเริ่ม
 - `/run-install` - ติดตั้ง dependencies
+

@@ -85,3 +85,4 @@ auto_execution_mode: 3
 - Crates.io token พร้อมใช้งาน
 - Releases สร้างอัตโนมัติตาม conventional commits
 - Crate publish ไปยัง crates.io อัตโนมัติ
+

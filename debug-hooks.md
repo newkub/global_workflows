@@ -20,7 +20,7 @@ Debug Cascade Hooks issues ทั้ง configuration, script execution, runtime
 
 ### 2. Define Problem
 
-ทำ `/follow-content-quality` เพื่อเขียนปัญหาให้ชัดเจน ระบุ:
+ทำ `/content-quality` เพื่อเขียนปัญหาให้ชัดเจน ระบุ:
 
 - Expected: Hook ควรทำงานอย่างไร
 - Actual: Hook ทำงานอย่างไรจริง
@@ -150,3 +150,4 @@ Debug = Bayesian Search in Hypothesis Space
 - หา root cause ของ hook issues ได้เร็วขึ้น
 - ลดการเดาและแก้หลายอย่างพร้อมกัน
 - มี systematic approach สำหรับ debug hooks ทุกประเภท
+

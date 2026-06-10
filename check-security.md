@@ -100,3 +100,4 @@ related_workflows:
 - Input validation ครบถ้วน
 - Security headers ถูกตั้งค่า
 - Secrets ถูกจัดการอย่างปลอดภัย
+

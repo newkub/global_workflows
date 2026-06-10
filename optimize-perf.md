@@ -14,7 +14,7 @@ auto_execution_mode: 3
 
 วิเคราะห์ performance ปัจจุบันของ application
 
-1. รัน performance profiling tools ด้วย `/follow-unlighthouse`
+1. รัน performance profiling tools ด้วย `/unlighthouse`
 2. วัด Core Web Vitals (LCP, FID, CLS)
 3. ระบุ bottlenecks ใน application
 4. ตรวจสอบ bundle size และ load times
@@ -144,3 +144,4 @@ auto_execution_mode: 3
 - Core Web Vitals ดีขึ้น
 - Memory usage มีประสิทธิภาพมากขึ้น
 - Performance monitoring ตั้งค่าเสร็จสมบูรณ์
+

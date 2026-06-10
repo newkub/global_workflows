@@ -15,7 +15,7 @@ auto_execution_mode: 3
 1. เลือก SDK: TypeScript (`@modelcontextprotocol/sdk`) หรือ Python (`mcp`)
 2. ติดตั้ง dependencies ด้วย `bun add @modelcontextprotocol/sdk` หรือ `uv add mcp[cli]`
 3. สร้าง project structure ตาม Clean Architecture หรือ Layered Architecture
-4. ตั้งค่า TypeScript configuration ตาม `/follow-typescript`
+4. ตั้งค่า TypeScript configuration ตาม `/typescript`
 
 ### 2. Initialize Server
 
@@ -129,3 +129,4 @@ auto_execution_mode: 3
 - Error handling และ logging ที่ robust
 - Documentation ที่ครบถ้วน
 - Tests ที่ครอบคลุม
+

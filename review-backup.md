@@ -143,3 +143,4 @@ Review backup layer ทั้งหมมเพื่อระบุและแ
 - ❌ ไม่มี recovery testing
 - ❌ ไม่มี DR plan
 - ❌ Backup monitoring ไม่มี
+

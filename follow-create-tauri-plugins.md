@@ -88,3 +88,4 @@ auto_execution_mode: 3
 - Lifecycle events implemented
 - Plugin สามารถ configure ใน Tauri application
 - Rust และ JavaScript/TypeScript code build สำเร็จ
+

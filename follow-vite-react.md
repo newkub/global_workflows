@@ -77,8 +77,8 @@ export default [
 
 2.1. ทำตาม workflow ที่เกี่ยวข้อง
 
-- ทำ /follow-components
-- ทำ /follow-unocss
+- ทำ /components
+- ทำ /unocss
 
 2.2. ใช้ TypeScript
 
@@ -95,3 +95,4 @@ export default [
 3.1. ทำ /refactor
 
 - refactor โค้ดให้ถูกต้องตาม framework
+

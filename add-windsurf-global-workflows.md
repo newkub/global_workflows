@@ -6,14 +6,14 @@ auto_execution_mode: 3
 
 ## Goal
 
-เพิ่ม workflow ใหม่ไปยัง global_workflows ตามมาตรฐาน `/follow-write-workflows`
+เพิ่ม workflow ใหม่ไปยัง global_workflows ตามมาตรฐาน `/write-windsurf-global-workflows`
 
 ## Execute
 
 ### 1. Prepare Workflow Content
 
 1. วางแผนเนื้อหา workflow ที่จะสร้าง
-2. ทำ `/follow-write-workflows` เพื่อดูโครงสร้างมาตรฐาน
+2. ทำ `/write-windsurf-global-workflows` เพื่อดูโครงสร้างมาตรฐาน
 3. อ้างอิง workflows ที่คล้ายกันใน global_workflows
 
 ### 2. Create Workflow File
@@ -21,11 +21,11 @@ auto_execution_mode: 3
 1. สร้างไฟล์ `.md` ที่ `C:\Users\Veerapong\.codeium\windsurf\global_workflows`
 2. เขียน frontmatter ตามมาตรฐาน
 3. เขียน Goal, Execute, Rules, Expected Outcome
-4. ใช้ `/follow-content-quality` เพื่อตรวจสอบคุณภาพ
+4. ใช้ `/content-quality` เพื่อตรวจสอบคุณภาพ
 
 ### 3. Validate Workflow
 
-1. ตรวจสอบตาม `/follow-write-workflows`
+1. ตรวจสอบตาม `/write-windsurf-global-workflows`
 2. ตรวจสอบว่าไม่เกิน 300 บรรทัด
 3. ตรวจสอบว่า workflows ที่อ้างอิงมีอยู่จริง
 
@@ -46,7 +46,7 @@ auto_execution_mode: 3
 
 ### 2. Frontmatter Structure
 
-ตาม `/follow-write-workflows`:
+ตาม `/write-windsurf-global-workflows`:
 
 - `title`: Title Case (ตรงกับ filename ไม่รวม follow-)
 - `description`: กระชับไม่เกิน 100 ตัวอักษร
@@ -54,7 +54,7 @@ auto_execution_mode: 3
 
 ### 3. Content Structure
 
-ตาม `/follow-write-workflows`:
+ตาม `/write-windsurf-global-workflows`:
 
 - ## Goal - วัตถุประสงค์กระชับ
 - ## Execute - ขั้นตอนการทำงานแบบ numbered list
@@ -73,7 +73,7 @@ auto_execution_mode: 3
 
 คุณภาพเนื้อหา:
 
-- ใช้ `/follow-content-quality` ก่อนเริ่มเขียน
+- ใช้ `/content-quality` ก่อนเริ่มเขียน
 - เนื้อหาไม่เกิน 300 บรรทัด
 - เขียนเป็นหลักการ how-to ที่ใช้ได้ทั่วไป
 - ไม่ซ้ำซ้อนกับ workflows อื่น
@@ -81,6 +81,7 @@ auto_execution_mode: 3
 ## Expected Outcome
 
 - Workflow file สร้างที่ `C:\Users\Veerapong\.codeium\windsurf\global_workflows`
-- โครงสร้างสอดคล้องกับ `/follow-write-workflows`
+- โครงสร้างสอดคล้องกับ `/write-windsurf-global-workflows`
 - Content อ่านง่าย ไม่ซ้ำซ้อน
 - สอดคล้องกับ workflows อื่นใน global_workflows
+

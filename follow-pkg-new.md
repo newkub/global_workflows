@@ -124,3 +124,4 @@ bunx pkg-pr.new publish --packageManager=bun
 - Workflow ตั้งค่าถูกต้อง
 - Preview packages publish อัตโนมัติ
 - Comments ปรากฏบน pull requests
+

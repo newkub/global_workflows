@@ -92,3 +92,4 @@ related_workflows:
 - Structured data ถูกต้อง
 - Content quality สูง
 - Technical SEO ผ่าน
+

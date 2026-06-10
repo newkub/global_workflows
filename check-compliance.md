@@ -100,3 +100,4 @@ related_workflows:
 - Data privacy ถูกคุ้มครอง
 - Audit trail ครบถ้วน
 - Compliance gaps ถูกระบุ
+

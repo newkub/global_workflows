@@ -47,3 +47,4 @@ find . -name "*.ts" -o -name "*.js" | xargs grep -l "export.*function\|export.*a
 - Helper functions สำหรับ common operations
 - Documentation และ examples ที่ชัดเจน
 - Test coverage สำหรับ API usage
+

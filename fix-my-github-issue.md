@@ -210,3 +210,4 @@ Merge PR และปิด issue
 3. ต้อง merge PR เข้าไปใน target branch
 4. ต้องปิด issue ด้วย comment ที่อธิบาย
 5. ต้องลบ branch ที่ใช้ทำงานหลังจาก merge เสร็จ
+

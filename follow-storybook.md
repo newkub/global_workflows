@@ -144,3 +144,4 @@ auto_execution_mode: 3
 - Auto-documentation สร้างจาก stories
 - Testing workflows ตั้งค่าใน CI
 - Addons ติดตั้งและตั้งค่าเสร็จสิ้น
+

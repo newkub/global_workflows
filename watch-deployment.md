@@ -75,3 +75,4 @@ Watch deployment ด้วย browser จนกว่าจะ live
 - Changes committed และ pushed แล้ว
 - Deployment live และใช้งานได้
 - ไม่มี console หรือ network errors
+

@@ -151,3 +151,4 @@ url: https://www.w3.org/WAI/WCAG21/quickref/
 - ❌ Ignore color contrast issues
 - ❌ ไม่ test keyboard navigation
 - ❌ Skip accessibility สำหรับ "nice to have"
+

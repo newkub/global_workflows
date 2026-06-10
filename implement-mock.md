@@ -108,3 +108,4 @@ Throw error ถ้า required configuration ไม่มี
 - Return user-friendly error messages
 - ไม่ crash application เมื่อ service ล่ม
 - Graceful degradation ถ้าเป็นไปได้
+

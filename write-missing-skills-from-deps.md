@@ -3,8 +3,8 @@ title: Write Missing Skills From Deps
 description: สร้าง skills ที่ขาดจาก dependencies ใน package manifest
 auto_execution_mode: 3
 related_workflows:
-  - /follow-write-skills
-  - /follow-write-workflows
+  - /write-windsurf-skills
+  - /write-windsurf-global-workflows
 ---
 
 ## Goal
@@ -31,7 +31,7 @@ related_workflows:
 
 ### 3. Create Missing Skills
 
-1. ทำ `/follow-write-skills` สำหรับแต่ละ skill ที่ขาด
+1. ทำ `/write-windsurf-skills` สำหรับแต่ละ skill ที่ขาด
 2. สร้าง folder structure ตามมาตรฐาน
 3. เขียน SKILL.md index และ content files
 4. ใช้ `/learn-from-web` ก่อนเขียนเนื้อหา
@@ -39,7 +39,7 @@ related_workflows:
 ### 4. Validate And Finalize
 
 1. ตรวจสอบว่า skills ทั้งหมดถูกสร้างเสร็จ
-2. ใช้ `/follow-content-quality` สำหรับทุกไฟล์
+2. ใช้ `/content-quality` สำหรับทุกไฟล์
 3. ตรวจสอบ folder structure ถูกต้อง
 4. ใช้ `/update-reference` หากมี file operations
 
@@ -74,7 +74,7 @@ related_workflows:
 สร้าง skills แบบ batch:
 
 - สร้าง skills ที่ขาดทั้งหมดในครั้งเดียว
-- ใช้ `/follow-write-skills` สำหรับแต่ละ skill
+- ใช้ `/write-windsurf-skills` สำหรับแต่ละ skill
 - รักษาความสม่ำเสมอทั้งหมด
 
 ### 5. Error Handling
@@ -96,7 +96,7 @@ related_workflows:
 
 - ลืมตรวจสอบว่า dependency มี skill ในระบบหรือไม่
 - สร้าง skills ที่มีอยู่แล้วใน global
-- ไม่ใช้ `/follow-write-skills` ในการสร้าง
+- ไม่ใช้ `/write-windsurf-skills` ในการสร้าง
 - ไม่ตรวจสอบ folder structure หลังสร้าง
 
 ## Anti-Patterns
@@ -105,3 +105,4 @@ related_workflows:
 - ❌ สร้าง skills แบบ manual ไม่ตามมาตรฐาน
 - ❌ ข้าม `/learn-from-web` ก่อนเขียนเนื้อหา
 - ❌ ไม่ตรวจสอบคุณภาพ content
+

@@ -23,7 +23,7 @@ trigger: always_on
 
 ### Libraries
 
-- /follow-unocss
+- /unocss
 
 ## Project Structure
 
@@ -71,7 +71,7 @@ my-react-app/
 </ErrorBoundary>
 ```
 
-4. ใช้ unocss => /follow-unocss
+4. ใช้ unocss => /unocss
 
 5. Memoization / Rendering Optimization
 
@@ -177,3 +177,4 @@ hooks                <-- lib, types
 lib                  <-- types
 types                <-- (no internal dependencies)
 ```
+

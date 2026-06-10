@@ -146,3 +146,4 @@ auto_execution_mode: 3
 - Performance ดีกว่า tsc ประมาณ 10x
 - Migration จาก tsc สำเร็จ
 - Development workflow ราบรื่น
+

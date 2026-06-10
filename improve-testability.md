@@ -34,8 +34,8 @@ auto_execution_mode: 3
 
 ลด coupling ระหว่าง components
 
-1. ทำตาม `/refactor-to-single-responsibility` เพื่อแยก concerns
-2. ทำตาม `/follow-functional-programming` เพื่อสร้าง pure functions
+1. ทำตาม `/refactor-file-to-single-responsibility` เพื่อแยก concerns
+2. ทำตาม `/functional-programming` เพื่อสร้าง pure functions
 3. ใช้ `dependency inversion` สำหรับ external services
 4. ลบ `tight coupling` ระหว่าง layers
 5. ใช้ `events` หรือ `observers` สำหรับ loose coupling
@@ -44,11 +44,12 @@ auto_execution_mode: 3
 
 แยก side effects ออกจาก business logic
 
-1. ทำตาม `/follow-functional-programming` เพื่อแยก core จาก shell
-2. จัดการ `I/O operations` ใน layer แยก
-3. ใช้ `repository pattern` สำหรับ data access
-4. สร้าง `adapters` สำหรับ external services
-5. ใช้ `dependency injection` สำหรับ side effects
+1. ทำตาม `/improve-side-effect` เพื่อจัดการ side effects อย่างเป็นระบบ
+2. ทำตาม `/functional-programming` เพื่อแยก core จาก shell
+3. จัดการ `I/O operations` ใน layer แยก
+4. ใช้ `repository pattern` สำหรับ data access
+5. สร้าง `adapters` สำหรับ external services
+6. ใช้ `dependency injection` สำหรับ side effects
 
 ### 5. Improve Code Structure
 
@@ -130,3 +131,4 @@ auto_execution_mode: 3
 - Pure functions สำหรับ business logic
 - Loose coupling ระหว่าง components
 - Tests ที่เขียนง่ายและรักษาได้
+

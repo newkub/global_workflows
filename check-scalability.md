@@ -93,3 +93,4 @@ related_workflows:
 - Cache strategy มีประสิทธิภาพ
 - Bottlenecks ถูกระบุ
 - Load tests ผ่าน
+

@@ -143,3 +143,4 @@ Review frontend optimization ทั้งหมดเพื่อระบุแ
 - ❌ โหลดทุกอย่างพร้อมกัน
 - ❌ Images ไม่ optimized
 - ❌ ไม่มี caching
+

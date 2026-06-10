@@ -12,7 +12,7 @@ auto_execution_mode: 3
 
 ### 1. Setup Monorepo Structure
 
-1. ทำตาม `/follow-moonrepo` สำหรับ monorepo setup
+1. ทำตาม `/moonrepo` สำหรับ monorepo setup
 2. แยก packages ตาม domain boundaries ไม่ใช่ technical boundaries
 3. ตั้งค่า workspace สำหรับ dependency isolation
 4. ตั้งค่า build pipeline สำหรับ parallel builds
@@ -144,3 +144,4 @@ packages/
 - System ที่ testable, debuggable, maintainable
 - Monorepo structure ที่ support scaling แล decoupling
 - Code ที่ simple, production-ready, แล operational
+

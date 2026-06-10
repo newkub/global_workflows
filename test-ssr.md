@@ -147,3 +147,4 @@ expect(document.querySelector('h1').textContent).toBe('Client Title');
 - ❌ ไม่ test structured data
 - ❌ ไม่ measure performance
 - ❌ Hydration mismatches
+

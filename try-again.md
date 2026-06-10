@@ -8,6 +8,10 @@ auto_execution_mode: 3
 
 ลองทำงานใหม่เมื่อเกิด failure โดยวิเคราะห์สาเหตุ ปรับแก้ปัญหา และ retry จนกว่าจะสำเร็จ
 
+## Scope
+
+ใช้สำหรับงานที่เกิด failure และต้อง retry ด้วยการวิเคราะห์และปรับแก้
+
 ## Execute
 
 ### 1. Analyze Failure
@@ -83,3 +87,4 @@ auto_execution_mode: 3
 - ไม่มี side effects ใหม่เกิดขึ้น
 - มีบันทึก solution สำหรับอนาคต
 - ปัญหาเดิมไม่เกิดซ้ำ
+

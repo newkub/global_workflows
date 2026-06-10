@@ -5,8 +5,8 @@ auto_execution_mode: 3
 related_workflows:
   - /test-function
   - /test-e2e
-  - /follow-vue
-  - /follow-react
+  - /vue
+  - /react
 ---
 
 ## Goal
@@ -141,3 +141,4 @@ related_workflows:
 - ❌ Test CSS หร styling details
 - ❌ ไม่ test accessibility
 - ❌ Test ซ้อนทับกับ e2e tests
+

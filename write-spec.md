@@ -2,6 +2,8 @@
 title: Write Spec
 description: เขียน SPEC.md สำหรับโปรเจกต์ด้วยตาราง test cases ครอบคล้วทุก test suites
 auto_execution_mode: 3
+related_workflows:
+  - /write-content-explicit
 ---
 
 ## Goal
@@ -19,8 +21,10 @@ auto_execution_mode: 3
 
 1. รัน `/analyze-project` เพื่อดูภาพรวม
 2. อ่าน test files ทั้งหมดใน `test/` directory
-3. ระบุ test suites จาก test directory structure
-4. ระบุ test cases จากแต่ละ test file
+3. ระบุ test suites จาก test directory structure และ tags
+4. ระบุ test cases จากแต่ละ test file โดยอ่าน test assertions
+5. ระบุ functions ที่ถูก test จากแต่ละ test file
+6. ดึง expected output จาก test assertions (return values, errors, mock calls)
 
 ### 3. Create Structure
 
@@ -32,6 +36,7 @@ auto_execution_mode: 3
 3. ถ้าไม่ยาวเกิน 500 บรรทัด:
    - สร้างหรืออัพเดท `SPEC.md` ใน root directory
    - สร้าง Test Suites section
+   - เพิ่ม frontmatter ถ้าจำเป็น (title, description)
 
 ### 4. Write Test Suites
 
@@ -68,13 +73,26 @@ auto_execution_mode: 3
 
 ## Rules
 
-### 1. Structure
+### 1. Spec Sources
+
+จำนวน spec ทั้งหมดมาจาก:
+
+- Test directory structure - โครงสร้างของ test files ใน `test/` directory
+- Test files - แต่ละ test file จะมี test cases
+- Test suites - จัดกลุ่มตาม tags (เช่น unit, domain, shell, git)
+- Test assertions - อ่านจาก test assertions ในแต่ละ test file เพื่อดู expected output
+- Functions - จัดกลุ่ม test cases ตาม function ที่ถูก test
+
+ไม่ได้มาจาก fn โดยตรง แต่มาจาก test assertions ในแต่ละ test file และ test directory structure
+
+### 2. Structure
 
 - ถ้า SPEC.md ยาวเกิน 500 บรรทัด ต้องใช้โฟลเดอร์ `spec/` และแยกเป็นไฟล์ย่อย
 - ถ้าไม่ยาวเกิน 500 บรรทัด ใช้ `SPEC.md` ไฟล์เดียว
 - แต่ละ test suite ต้องมีตาราง format เป็นรูปแบบมาตรฐาน
+- ใช้ frontmatter ถ้าจำเป็น (title, description)
 
-### 2. Table Format
+### 3. Table Format
 
 - จัดกลุ่ม test cases ตาม function ด้วย heading level 3 (###)
 - ใช้ตาราง 4 column สำหรับแต่ละ function:
@@ -84,19 +102,19 @@ auto_execution_mode: 3
 - Status ใช้ emoji: ✅ (เขียนแล้ว), ❌ (ยังไม่เขียน)
 - Expected Output ใส่ค่าที่คาดหวังจาก test assertions (เช่น return value, throw error, mock calls) เป็นข้อความ ไม่ใช่ code
 
-### 3. Organization
+### 4. Organization
 
 - จัดเรียง test suites ตาม tags (เช่น unit, domain, shell, git, application)
 - ใช้ heading level 2 (##) สำหรับแต่ละ test suite
 - ใช้ tags เป็นชื่อ heading (เช่น ## unit, domain)
 
-### 4. Content
+### 5. Content
 
 - ครอบคล้วทุก test cases จาก test files
 - ตรวจสอบ status ให้ถูกต้อง
 - อัพเดท status เมื่อมีการเปลี่ยนแปลง
 
-### 5. Documentation
+### 6. Documentation
 
 - อธิบาย test suites ชัดเจน
 
@@ -105,3 +123,4 @@ auto_execution_mode: 3
 มี SPEC.md หรือ spec/ folder ครอบคล้วทุก test cases
 List format ถูกต้องและอัพเดท status ล่าสุด
 ผู้ใช้สามารถดู test examples และ status ได้ทันที
+

@@ -109,3 +109,4 @@ instruction:
 5.2. `Lazy Evaluation` : ประมวลผลข้อมูลจำนวนมาก -> ใช้ lazy evaluation
 
 5.3. `Caching` : function มี cost สูง -> implement caching mechanism
+

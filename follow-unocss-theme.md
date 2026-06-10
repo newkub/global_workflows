@@ -12,7 +12,7 @@ auto_execution_mode: 3
 
 ### 1. Prepare
 
-1. ตรวจสอบว่า UnoCSS ติดตั้งแล้ว (จาก `/follow-unocss`)
+1. ตรวจสอบว่า UnoCSS ติดตั้งแล้ว (จาก `/unocss`)
 2. อ่าน `uno.config.ts` ที่มีอยู่
 3. ระบุตำแหน่ง `theme.css` ตาม framework:
    - Nuxt: `app/assets/theme.css`
@@ -140,3 +140,4 @@ auto_execution_mode: 3
 - CSS variables ทำงานใน light/dark mode
 - Colors เปลี่ยนตาม class `.dark`
 - ใช้ร่วมกับ UnoCSS utilities ได้
+

@@ -143,3 +143,4 @@ Review SEO ทั้งหมดเพื่อระบุและแก้ไ
 - ❌ ไม่มี sitemap
 - ❌ Page speed ช้า
 - ❌ ไม่ mobile-friendly
+

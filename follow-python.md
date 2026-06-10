@@ -182,3 +182,4 @@ utils   <-- (no internal dependencies)
 8.5. `Dependency / Tooling` : package management -> ใช้ uv, pyproject.toml เป็น single source of truth
 
 8.6. `Testing` : test framework -> ใช้ pytest
+

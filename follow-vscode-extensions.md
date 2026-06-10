@@ -33,5 +33,6 @@ packages/
 
 4. follow
 
-- /follow-bun
-- /follow-nuxt (ถ้าต้องใช้)
+- /bun
+- /nuxt (ถ้าต้องใช้)
+

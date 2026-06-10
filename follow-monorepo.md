@@ -45,7 +45,7 @@ monorepo/
 
 ### 3. Setup Monorepo
 
-1. ทำตาม `/follow-moonrepo` สำหรับ tool setup
+1. ทำตาม `/moonrepo` สำหรับ tool setup
 2. แยก packages ตาม concerns
 3. กำหนด dependencies ระหว่าง packages อย่างชัดเจน
 4. ทำตาม `/refactor` หลังจากเสร็จ
@@ -116,3 +116,4 @@ monorepo/
 - Apps และ packages แยกกัน
 - Dependencies ระหว่าง packages ชัดเจน
 - Code สามารถ test และ maintain ได้ง่าย
+

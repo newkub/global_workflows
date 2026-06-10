@@ -73,3 +73,4 @@ auto_execution_mode: 3
 - เลือกใช้ design pattern ที่เหมาะสม
 - Code มีความชัดเจนและบำรุงรักษาง่าย
 - ไม่มี over-engineering
+

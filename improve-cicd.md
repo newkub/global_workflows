@@ -130,3 +130,4 @@ auto_execution_mode: 3
 - Quality gates ที่ครบถ้วน
 - Deployment strategy ที่ปลอดภัย
 - Faster feedback loops
+

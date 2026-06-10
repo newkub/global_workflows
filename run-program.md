@@ -132,3 +132,4 @@ auto_execution_mode: 3
 - `/run-install` - ติดตั้ง dependencies
 - `/run-build` - build โปรแกรม
 - `/analyze-problems-and-fix` - วิเคราะห์และแก้ไขปัญหา
+

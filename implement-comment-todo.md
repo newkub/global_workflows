@@ -62,7 +62,7 @@ Implement production code ตาม priority และ dependencies
 - ผ่าน linting rules ทั้งหมด
 - ผ่าน type checking ไม่มี errors
 - ใช้ import alias ตาม `/use-import-alias`
-- ทำตาม `/follow-code-quality`
+- ทำตาม `/code-quality`
 
 ### Documentation
 
@@ -79,3 +79,4 @@ Implement production code ตาม priority และ dependencies
 - Tests ครอบคลุมและผ่านทั้งหมด
 - Code ผ่าน linting และ type checking
 - Documentation ครบถ้วน
+

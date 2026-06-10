@@ -92,3 +92,4 @@ related_workflows:
 - Config consistency สม่ำเสมอ
 - Config security ปลอดภัย
 - Config documentation ครบถ้วน
+

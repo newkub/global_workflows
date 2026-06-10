@@ -141,3 +141,4 @@ auto_execution_mode: 3
 - Code style ที่ consistent
 - Security ที่เหมาะสม
 - Performance ที่ดี
+

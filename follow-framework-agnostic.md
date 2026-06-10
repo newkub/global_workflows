@@ -140,4 +140,5 @@ src/
 ## Reference
 
 - `/validate` - ตรวจสอบความถูกต้องก่อนเริ่ม
-- `/follow-typescript` - TypeScript best practices
+- `/typescript` - TypeScript best practices
+

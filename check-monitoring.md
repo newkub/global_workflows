@@ -92,3 +92,4 @@ related_workflows:
 - Logging integration ทำงานได้
 - Uptime monitoring ทำงานได้
 - Alerts ส่งถูกต้อง
+

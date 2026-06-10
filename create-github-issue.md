@@ -3,8 +3,8 @@ title: Create GitHub Issue
 description: สร้าง GitHub issue ใหม่พร้อม template, labels, assignees, และ milestones
 auto_execution_mode: 3
 related_workflows:
-  - /github-list-issues
-  - /github-update-issue
+  - /review-github-issue
+  - /fix-my-github-issue
 ---
 
 ## Goal
@@ -41,7 +41,7 @@ related_workflows:
 
 ### 3. Create Issue With MCP Tool
 
-1. ใช้ `mcp3_issue_write` ด้วย method `create`
+1. ใช้ `mcp8_issue_write` ด้วย method `create`
 2. ระบุ owner, repo, title, body
 3. ตั้งค่า labels, assignees, milestones
 4. เชื่อมโยงกับ issues อื่น (blockedBy, blocks, relatedTo, duplicateOf)
@@ -136,3 +136,4 @@ related_workflows:
 - สร้าง issue ที่ไม่มี action items
 - สร้าง issue โดยไม่มี steps to reproduce
 - ใช้ description สั้นเกินไปไม่มี context
+

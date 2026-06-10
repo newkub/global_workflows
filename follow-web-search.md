@@ -3,7 +3,7 @@ title: Follow Web Search with Crw
 description: ใช้ crw สำหรับ web search ที่รวดเร็วและมีประสิทธิภาพ
 auto_execution_mode: 3
 related_workflows:
-  - /follow-content-quality
+  - /content-quality
   - /use-scripts
 ---
 

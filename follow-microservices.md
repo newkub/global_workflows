@@ -22,7 +22,7 @@ auto_execution_mode: 3
 1. กำหนด service boundaries ชัดเจน
 2. ระบุ APIs และ contracts ระหว่าง services
 3. กำหนด data isolation strategy
-4. ทำ `/follow-architecture` สำหรับแต่ละ service
+4. ทำ `/architecture` สำหรับแต่ละ service
 
 ### 3. Implement API Gateway
 
@@ -43,7 +43,7 @@ auto_execution_mode: 3
 1. เลือก communication pattern: REST, gRPC, message queues
 2. ตั้งค่า inter-service communication
 3. กำหนด retry logic แล circuit breakers
-4. ทำ `/follow-event-drive-architecture` สำหรับ async communication
+4. ทำ `/event-drive-architecture` สำหรับ async communication
 
 ### 6. Implement Data Isolation
 
@@ -149,3 +149,4 @@ services/
 - API Gateway สำหรับ unified entry point
 - Communication ที่ reliable แล fault-tolerant
 - Data isolation ที่ชัดเจน
+

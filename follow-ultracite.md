@@ -76,3 +76,4 @@ auto_execution_mode: 3
 - Biome configuration สอดคล้องกับ Ultracite presets
 - Scripts ใน package.json พร้อมใช้งาน
 - Linting และ formatting ทำงานได้อัตโนมัติ
+

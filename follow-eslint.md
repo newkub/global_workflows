@@ -151,3 +151,4 @@ export default defineConfig([
 6. Fast linting ด้วย oxlint
 7. Testing linting ด้วย vitest
 8. Accessibility rules สำหรับ Vue
+

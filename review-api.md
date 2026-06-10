@@ -143,3 +143,4 @@ Review API layer ทั้งหมดเพื่อระบุและแก
 - ❌ Expose stack traces
 - ❌ ไม่มี authentication
 - ❌ ไม่ validate input
+

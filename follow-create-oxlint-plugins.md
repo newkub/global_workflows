@@ -83,3 +83,4 @@ auto_execution_mode: 3
 - Built-in plugins กำหนดอย่างถูกต้อง
 - JS plugins กำหนดอย่างถูกต้อง (ถ้าใช้)
 - Rules ทำงานได้เมื่อรัน `oxlint`
+

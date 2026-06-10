@@ -52,7 +52,7 @@ export default defineConfig({
 
 ### 3. UnoCSS Integration
 
-1. ทำ `/follow-unocss` สำหรับ UnoCSS configuration
+1. ทำ `/unocss` สำหรับ UnoCSS configuration
 
 ### 4. Theme Setup
 
@@ -150,7 +150,7 @@ features:
 
 ### 2. UnoCSS Integration
 
-- ทำ `/follow-unocss` สำหรับ UnoCSS configuration
+- ทำ `/unocss` สำหรับ UnoCSS configuration
 
 ### 3. Theme Customization
 
@@ -179,8 +179,8 @@ features:
 ### 7. Related Workflows
 
 - ทำ `/write-docs` สำหรับ content structure และ organization
-- ทำ `/follow-unocss` สำหรับ UnoCSS integration
-- ทำ `/follow-docus` สำหรับ Docus configuration (ถ้าใช้ Nuxt Content)
+- ทำ `/unocss` สำหรับ UnoCSS integration
+- ทำ `/docus` สำหรับ Docus configuration (ถ้าใช้ Nuxt Content)
 
 ## Expected Outcome
 
@@ -192,3 +192,4 @@ features:
 - VitePress Plugin Group Icons integrated
 - GitHub Actions deployment พร้อมใช้งาน
 - Home page พร้อม frontmatter ตาม VitePress default
+

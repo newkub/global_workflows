@@ -144,3 +144,4 @@ auto_execution_mode: 3
 - CI integration สำเร็จด้วย scripts
 - Performance budgets enforce ได้
 - Reports generate ใน formats ที่ต้องการ
+

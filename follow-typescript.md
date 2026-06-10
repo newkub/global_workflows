@@ -115,3 +115,4 @@ rules: {
 - Code quality ตาม best practices
 - ESLint และ TypeScript ESLint ตั้งค่าเรียบร้อย
 - Type-safe testing ด้วย vitest
+

@@ -17,7 +17,7 @@ Create development lifecycle system covering all steps in continuous loop to mai
 1. ใช้ `/update-reference` เพื่อเก็บ reference
 2. ใช้ `/learn-from-web` เสมอถ้าเป็น dependencies
 3. อ่าน workflows ที่คล้ายกัน
-4. ใช้ `/follow-principles` เพื่อดู principles
+4. ใช้ `/principles` เพื่อดู principles
 
 ### 2. Discover and Plan
 
@@ -29,12 +29,12 @@ Create development lifecycle system covering all steps in continuous loop to mai
 ### 3. Project Setup
 
 1. Run `/ship-run` to verify project structure and run dev server
-2. Run `/follow-architecture` to organize by architecture
+2. Run `/architecture` to organize by architecture
 
 ### 4. Development
 
-1. Run `/make-real` to convert TODO/MOCK to production code
-2. Run `/follow-todo` to implement TODO items
+1. Run `/implement-to-production` to convert TODO/MOCK to production code
+2. Run `/todo` to implement TODO items
 3. Run `/continue` to complete pending work
 4. Run `/write-test` to write tests for new features
 
@@ -72,26 +72,26 @@ Create development lifecycle system covering all steps in continuous loop to mai
 
 ### 9. Deployment
 
-1. Run `/follow-vercel` to deploy on Vercel
-2. Run `/follow-cloudflare-worker` to deploy on Cloudflare
+1. Run `/vercel` to deploy on Vercel
+2. Run `/cloudflare-worker` to deploy on Cloudflare
 3. Verify deployment success
 
 ### 10. Release
 
-1. Run `/commit` to create conventional commits
-2. Run `/setup-changesets` for versioning
-3. Run `/setup-auto-it` or `/setup-release-it` for automation
+1. Run `/commit-all` to create conventional commits
+2. Run `/changesets` for versioning
+3. Run `/auto-it` or `/release-it` for automation
 4. Run `/run-release` to release to registry
 
 ### 11. Improvement
 
-1. Run `/enhance-codebase` for all-around improvements
+1. Run `/improve-codebase` for all-around improvements
 2. Run `/maintain-project` for ongoing maintenance
 
 ### 12. Dependencies
 
 1. Run `/update-dependencies` to update to latest
-2. Run `/setup-renovate` for automated updates
+2. Run `/renovate` for automated updates
 3. Run `/use-taze` to manage monorepo dependencies
 4. Check and apply security patches
 
@@ -109,7 +109,7 @@ Create development lifecycle system covering all steps in continuous loop to mai
 4. ถ้า test fail ให้กลับไป `/write-test`
 5. ถ้า lint fail ให้กลับไป `/resolve-errors`
 6. ถ้า typecheck fail ให้กลับไป `/resolve-errors`
-7. ถ้า review fail ให้กลับไป `/enhance-codebase`
+7. ถ้า review fail ให้กลับไป `/improve-codebase`
 8. เป็น continuous loop ไม่มีจุดสิ้นสุด
 9. สามารถเริ่มจาก phase ใดก็ได้ตามสถานะปัจจุบัน
 10. สามารถข้าม phase ที่ไม่จำเป็นได้
@@ -127,3 +127,4 @@ Create development lifecycle system covering all steps in continuous loop to mai
 - Up-to-date documentation
 - Security compliant system
 - Maintainable high-quality project
+

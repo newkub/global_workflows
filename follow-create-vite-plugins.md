@@ -86,3 +86,4 @@ auto_execution_mode: 3
 - Plugin ใช้ universal hooks สำหรับ Rolldown compatibility
 - Plugin build ด้วย library mode สำเร็จ
 - Examples และ tests สร้างขึ้นครบถ้วน
+

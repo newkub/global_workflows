@@ -20,13 +20,23 @@ auto_execution_mode: 3
 2. กำหนด criteria สำหรับการตรวจสอบ
 3. เลือก tools หรือ workflows ที่เกี่ยวข้อง
 
-### 2. Perform Check
+### 2. Research Best Practices (ถ้าจำเป็น)
+
+1. ตรวจสอบว่าต้องการ research ข้อมูลเพิ่มเติมหรือไม่
+2. ถ้าต้องการ ทำ `/deep-research` เพื่อค้นหา:
+   - Best practices จาก official documentation
+   - Reference implementations จาก GitHub
+   - Package information จาก NPM
+   - Community standards และ conventions
+3. ใช้ findings จาก deep research เพื่อปรับ criteria การตรวจสอบ
+
+### 3. Perform Check
 
 1. ตรวจสอบตาม criteria ที่กำหนด
 2. บันทึก issues ที่พบ
 3. จัดลำดับความสำคัญของ issues
 
-### 3. Report Results
+### 4. Report Results
 
 1. สรุปผลการตรวจสอบ
 2. แนะนำการแก้ไข

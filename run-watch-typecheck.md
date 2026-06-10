@@ -81,3 +81,4 @@ auto_execution_mode: 3
 - Type errors ถูกตรวจสอบและแก้ไขทันที
 - Codebase มี type safety สูง
 - Performance ของ type checking เหมาะสม
+

@@ -28,15 +28,15 @@ auto_execution_mode: 3
 
 ทำให้ code ใช้งานได้จริง
 
-1. รัน `/make-real`
+1. รัน `/implement-to-production`
 2. ตรวจสอบว่า code ใช้งานได้จริง
 
 ### 4. Improve Code Quality
 
 ปรับปรุมคุณภาพโค้ดตาม best practices
 
-1. รัน `/follow-code-quality`
-2. รัน `/follow-design-pattern` ถ้าจำเป็น
+1. รัน `/code-quality`
+2. รัน `/design-pattern` ถ้าจำเป็น
 
 ### 5. Improve Testing
 
@@ -72,7 +72,7 @@ auto_execution_mode: 3
 ทำตามลำดับขั้นตอนอย่างเคร่งครัด
 
 - ต้องทำ `/refactor` ก่อนเสมอ
-- ต้องทำ `/make-real` ก่อนเสมอ
+- ต้องทำ `/implement-to-production` ก่อนเสมอ
 - อ่านไฟล์ก่อนแก้ไขเสมอ
 - ใช้ minimal changes เท่าที่จำเป็น
 - รักษา backward compatibility ถ้าเป็นไปได้
@@ -108,3 +108,4 @@ auto_execution_mode: 3
 - Accessibility ตรงตาม WCAG
 - Error handling ที่ consistent
 - พร้อมใช้งานจริงใน production
+

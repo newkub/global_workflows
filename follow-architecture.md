@@ -18,12 +18,14 @@ auto_execution_mode: 3
 
 ### 2. Select Architecture Pattern
 
-1. ถ้าใช้ Nuxt → ทำ `/follow-nuxt-architecture`
-2. ถ้าใช้ Rust หรือ Bun → ทำ `/follow-clean-architecture`
-3. ถ้าใช้ Next.js → ทำ `/follow-next`
-4. ถ้าใช้ Vue.js → ทำ `/follow-vue`
-5. ถ้าเป็น monorepo → ทำ `/follow-monorepo`
-6. ถ้าเป็น microservices → ทำ `/follow-microservices`
+1. ถ้าใช้ Nuxt → ทำ `/nuxt-architecture`
+2. ถ้าใช้ Next.js → ทำ `/nextjs-architecture`
+3. ถ้าใช้ Vue.js → ทำ `/vue`
+4. ถ้าใช้ SolidJS → ทำ `/solidjs-architecture`
+5. ถ้าใช้ Svelte → ทำ `/svelte-architecture`
+6. ถ้าใช้ Rust หรือ Bun → ทำ `/clean-architecture`
+7. ถ้าเป็น monorepo → ทำ `/monorepo`
+8. ถ้าเป็น microservices → ทำ `/microservices`
 
 ### 3. Setup Base Structure
 
@@ -39,17 +41,19 @@ auto_execution_mode: 3
 
 | Framework | Detection Method | Architecture |
 |-----------|------------------|--------------|
-| Nuxt | `nuxt` in dependencies | `/follow-nuxt-architecture` |
-| Next.js | `next` in dependencies | `/follow-next` |
-| Vue.js | `vue` in dependencies | `/follow-vue` |
-| Rust | `Cargo.toml` exists | `/follow-clean-architecture` |
-| Bun | `bun` in dependencies | `/follow-clean-architecture` |
+| Nuxt | `nuxt` in dependencies | `/nuxt-architecture` |
+| Next.js | `next` in dependencies | `/nextjs-architecture` |
+| Vue.js | `vue` in dependencies | `/vue` |
+| SolidJS | `solid-js` in dependencies | `/solidjs-architecture` |
+| Svelte | `svelte` in dependencies | `/svelte-architecture` |
+| Rust | `Cargo.toml` exists | `/clean-architecture` |
+| Bun | `bun` in dependencies | `/clean-architecture` |
 
 ### 2. Priority Rules
 
 ลำดับความสำคัญในการเลือก architecture
 
-1. **Framework-specific patterns** (Nuxt, Next.js, Vue.js)
+1. **Framework-specific patterns** (Nuxt, Next.js, Vue.js, SolidJS, Svelte)
 2. **Language-specific patterns** (Rust, Bun)
 3. **Scale patterns** (Monorepo, Microservices)
 4. **Default patterns** (Clean Architecture)
@@ -80,3 +84,4 @@ auto_execution_mode: 3
 - โครงสร้างพื้นฐานที่ถูกต้อง
 - Configuration files ที่สมบูรณ์
 - Code organization ตามมาตรฐาน
+

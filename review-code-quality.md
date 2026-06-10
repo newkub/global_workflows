@@ -143,3 +143,4 @@ Review code quality ทั้งหมดเพื่อระบุและแ
 - ❌ Long methods
 - ❌ Poor naming
 - ❌ ไม่มี documentation
+

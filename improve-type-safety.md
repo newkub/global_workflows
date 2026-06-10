@@ -120,3 +120,4 @@ auto_execution_mode: 3
 - type guards ถูกเพิ่มสำหรับ runtime checks
 - type inference ดีขึ้น
 - functionality ทั้งหมดยังทำงานได้ปกติ
+

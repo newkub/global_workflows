@@ -86,3 +86,4 @@ auto_execution_mode: 3
 - Custom rules สร้างขึ้นด้วย structure ถูกต้อง
 - Plugin สามารถ configure ใน ESLint config
 - Rules ทำงานได้เมื่อรัน ESLint
+

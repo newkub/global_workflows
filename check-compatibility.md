@@ -87,3 +87,4 @@ related_workflows:
 - Version compatibility ชัดเจน
 - API compatibility มี fallbacks
 - Responsive design ทำงานได้
+

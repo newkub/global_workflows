@@ -23,11 +23,12 @@ auto_execution_mode: 3
 
 ### 2. Data Collection
 
-1. ทำ `/check-file-structure` เพื่อดูโครงสร้างไฟล์และโฟลเดอร์
+1. ทำ `/check-architecture` เพื่อดูโครงสร้างไฟล์และโฟลเดอร์
 2. ใช้ `/read-all-files` เพื่ออ่านไฟล์ทั้งหมดในโปรเจกต์
-3. อ่าน manifest files เช่น `package.json`, `Cargo.toml`, `tsconfig.json`
-4. ตรวจสอบโครงสร้าง directory ด้วย `list_dir`
-5. ระบุ dependencies และ dev dependencies
+3. ทำ `/search-code` เพื่อค้นหา code patterns, symbols, และ references
+4. อ่าน manifest files เช่น `package.json`, `Cargo.toml`, `tsconfig.json`
+5. ตรวจสอบโครงสร้าง directory ด้วย `list_dir`
+6. ระบุ dependencies และ dev dependencies
 
 ### 3. Architecture Analysis
 

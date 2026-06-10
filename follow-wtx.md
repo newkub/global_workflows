@@ -12,13 +12,13 @@ auto_execution_mode: 3
 
 ### 1. Project Setup
 
-1. ทำ `/follow-wtx` เพื่อตั้งค่าโปรเจกต์ WXT
+1. ทำ `/wtx` เพื่อตั้งค่าโปรเจกต์ WXT
 2. ติดตั้ง dependencies ด้วย `bun install`
 3. ตั้งค่า `wxt.config.ts` ให้เหมาะกับโปรเจกต์
 
 ### 2. Folder Structure
 
-1. ทำ `/follow-nuxt-architecture` เพื่อจัดโครงสร้างโปรเจกต์
+1. ทำ `/nuxt-architecture` เพื่อจัดโครงสร้างโปรเจกต์
 2. ใช้ `src/` directory สำหรับ source code หลัก
 3. จัดระเบียบตามมาตรฐาน WXT:
    - `entrypoints/` - popup, background, content scripts
@@ -29,7 +29,7 @@ auto_execution_mode: 3
 
 ### 3. Configuration
 
-1. ทำ `/follow-unocss` เพื่อตั้งค่า UnoCSS
+1. ทำ `/unocss` เพื่อตั้งค่า UnoCSS
 2. ตั้งค่า auto-imports ใน `wxt.config.ts`
 3. กำหนด target browsers และ manifest version
 4. เพิ่ม modules ที่จำเป็น (Vue, UnoCSS)
@@ -43,7 +43,7 @@ auto_execution_mode: 3
 
 ### 5. Testing and Quality
 
-1. ทำ `/follow-code-quality` เพื่อรักษามาตรฐานโค้ด
+1. ทำ `/code-quality` เพื่อรักษามาตรฐานโค้ด
 2. ตั้งค่า Biome สำหรับ linting และ formatting
 3. ใช้ TypeScript สำหรับ type safety
 4. ทำ `/test-function` สำหรับ unit testing
@@ -183,3 +183,4 @@ export default defineConfig({
 - Code quality ที่สูงด้วย TypeScript และ linting
 - Multi-browser support ด้วย WXT framework
 - Automated deployment สำหรับ extension stores
+

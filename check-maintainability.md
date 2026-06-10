@@ -92,3 +92,4 @@ related_workflows:
 - Documentation ครบถ้วน
 - Testability สูง
 - Coupling ต่ำและ cohesion สูง
+

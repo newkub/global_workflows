@@ -92,3 +92,4 @@ related_workflows:
 - Coverage report ถูกสร้าง
 - Coverage trends ถูกติดตาม
 - Tests มีคุณภาพสูง
+

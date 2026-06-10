@@ -118,3 +118,4 @@ auto_execution_mode: 3
 4. Components ที่มีปัญหาถูก optimize ตามลำดับความสำคัญ
 5. Production build ไม่มี react-scan code หรือ overhead
 6. Developer เข้าใจ performance ของ app มากขึ้น
+

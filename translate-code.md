@@ -84,3 +84,4 @@ class EmailValidator {
 
 - input: email (อีเมลที่ต้องการตรวจสอบ)
 - output: true ถ้ารูปแบบถูกต้อง, false ถ้าไม่ถูกต้อง
+

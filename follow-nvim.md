@@ -186,3 +186,4 @@ jobs:
       - name: Run Tests
         run: nvim --headless -c "PlenaryBustedDirectory tests/ { minimal_init = 'init.lua' }"
 ```
+

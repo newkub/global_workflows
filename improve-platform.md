@@ -120,3 +120,4 @@ auto_execution_mode: 3
 - Deployment process อัตโนมัติ
 - Platform tests ครอบคลุม
 - Performance ดีขึ้นข้าม platforms
+

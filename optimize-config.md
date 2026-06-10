@@ -23,7 +23,7 @@ auto_execution_mode: 3
 
 ตรวจสอบโครงสร้างโปรเจกต์และ configuration files
 
-1. ทำตาม `/check-file-structure` เพื่อดู tree view ของโปรเจกต์
+1. ทำตาม `/check-architecture` เพื่อดู tree view ของโปรเจกต์
 2. อ่าน `package.json` หรือ `Cargo.toml` เพื่อดู dependencies และ scripts
 3. ระบุ configuration files ทั้งหมดในโปรเจกต์
 4. ตรวจสอบว่าเป็น monorepo หรือ single project
@@ -92,7 +92,7 @@ auto_execution_mode: 3
 1. ย้าย secrets และ sensitive data ออกจาก config files
 2. ใช้ environment variables สำหรับค่าที่เป็นความลับ
 3. ตรวจสอบว่าไม่มี credentials หลุดใน config files
-4. ใช้ `/follow-phase-dev` เพื่อจัดการ secrets อย่างปลอดภัย
+4. ใช้ `/phase-dev` เพื่อจัดการ secrets อย่างปลอดภัย
 5. ตรวจสอบ file permissions ของ config files
 6. ใช้ encryption สำหรับ sensitive configuration values
 
@@ -114,7 +114,7 @@ auto_execution_mode: 3
 1. ตรวจสอบว่า configs ทำงานได้ในทุก CI/CD environment
 2. ใช้ environment variables สำหรับ CI/CD-specific values
 3. สร้าง configs สำหรับ testing ใน CI แยกต่างหาก
-4. ใช้ `/follow-github-actions` เพื่อตั้งค่า CI/CD workflows
+4. ใช้ `/github-actions` เพื่อตั้งค่า CI/CD workflows
 5. ตรวจสอบว่า config validation ทำงานได้ใน CI
 6. ใช้ caching สำหรับ dependencies ใน CI configs
 
@@ -193,7 +193,7 @@ auto_execution_mode: 3
 - ย้าย secrets และ sensitive data ออกจาก config files
 - ใช้ environment variables สำหรับค่าที่เป็นความลับ
 - ตรวจสอบว่าไม่มี credentials หลุดใน config files
-- ใช้ `/follow-phase-dev` เพื่อจัดการ secrets อย่างปลอดภัย
+- ใช้ `/phase-dev` เพื่อจัดการ secrets อย่างปลอดภัย
 
 ### Environment Configs
 
@@ -206,7 +206,7 @@ auto_execution_mode: 3
 
 - ตรวจสอบว่า configs ทำงานได้ในทุก CI/CD environment
 - ใช้ environment variables สำหรับ CI/CD-specific values
-- ใช้ `/follow-github-actions` เพื่อตั้งค่า CI/CD workflows
+- ใช้ `/github-actions` เพื่อตั้งค่า CI/CD workflows
 - ใช้ caching สำหรับ dependencies ใน CI configs
 
 ### Migration
@@ -237,3 +237,4 @@ auto_execution_mode: 3
 - CI/CD configs ที่ทำงานร่วมกันได้
 - Migration plan ที่ครบถ้วน
 - ทุก config ทำงานได้อย่างถูกต้องและ safe
+

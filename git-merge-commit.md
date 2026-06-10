@@ -79,6 +79,12 @@ auto_execution_mode: 3
 3. หรือใช้ `git reset HEAD@{1}` เพื่อย้อนกลับสู่สถานะก่อน rebase
 4. ใช้ `git branch -D backup-branch` เมื่อตรวจสอบแล้วถูกต้อง
 
+### 11. Update References
+
+อัปเดท references ทั้งหมดที่เกี่ยวข้อง
+
+1. ทำตาม `@[/edit-relative]`
+
 ## Rules
 
 1. สร้าง backup branch เสมอก่อนทำ rebase
@@ -95,3 +101,4 @@ auto_execution_mode: 3
 - Commit message ตาม conventional commits
 - ไม่มี data loss จากการ rebase
 - Backup branch พร้อมสำหรับ rollback
+

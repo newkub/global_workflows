@@ -80,3 +80,4 @@ auto_execution_mode: 3
 - แต่ละ worktree เป็น isolated environment ที่อิสระจากกัน
 - Repository หลักยังคงทำงานได้ปกติ
 - จัดการ worktrees ได้อย่างมีประสิทธิภาพ
+

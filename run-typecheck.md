@@ -13,7 +13,7 @@ auto_execution_mode: 3
 1. ทำ `/run-format` เพื่อ format code ก่อน
 2. รอให้ format เสร็จสิ้นก่อนดำเนินการต่อ
 3. ถ้ามีข้อผิดพลาดจาก format ให้แก้ไขก่อน
-4. ทำ `/setup-config` เพื่อตรวจสอบ config
+4. ทำ `/config` เพื่อตรวจสอบ config
 5. **ห้ามแก้ไข config ใดๆ**
 6. **ห้ามใช้ ignore comments/attributes ทุกภาษา**
 7. รัน typecheck ตามที่กำหนดใน package manifest
@@ -24,7 +24,7 @@ auto_execution_mode: 3
 
 ## Rules
 
-- ทำ `/setup-config` เพื่อตรวจสอบ config แต่ **ห้ามแก้ไข**
+- ทำ `/config` เพื่อตรวจสอบ config แต่ **ห้ามแก้ไข**
 - **ห้ามใช้ ignore comments/attributes ทุกภาษา** แก้ปัญหาที่ source
 - แก้ไขข้อผิดพลาดที่เกิดขึ้นจาก typecheck ก่อนดำเนินการต่อ
 

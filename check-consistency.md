@@ -4,7 +4,7 @@ description: ตรวจสอบความสม่ำเสมอของ 
 auto_execution_mode: 3
 related_workflows:
   - /improve-naming
-  - /follow-content-quality
+  - /content-quality
 ---
 
 ## Goal
@@ -15,7 +15,10 @@ related_workflows:
 
 ### 1. Check Naming Consistency
 
-1. ทำ `/use-scripts` เพื่อ scan naming patterns, check style consistency, validate conventions, และ generate consistency report ใน script เดียว
+1. ทำ `/search-code` เพื่อ scan naming patterns
+2. ทำ `/search-code` เพื่อ check style consistency
+3. ทำ `/search-code` เพื่อ validate conventions
+4. ทำ `/use-scripts` เพื่อ generate consistency report ใน script เดียว
 
 ### 2. Check Style Consistency
 
@@ -26,7 +29,7 @@ related_workflows:
 
 ### 3. Check Structure Consistency
 
-1. ทำ `/check-file-structure` เพื่อดูโครงสร้างไฟล์และโฟลเดอร์
+1. ทำ `/check-architecture` เพื่อดูโครงสร้างไฟล์และโฟลเดอร์
 2. ตรวจสอบ folder structure สม่ำเสมอ
 3. ตรวจสอบ file organization สม่ำเสมอ
 4. ตรวจสอบ module structure สม่ำเสมอ
@@ -84,3 +87,4 @@ related_workflows:
 - Structure สม่ำเสมอทั่ว codebase
 - Documentation สม่ำเสมอ
 - Patterns สม่ำเสมอ
+

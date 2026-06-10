@@ -3,8 +3,8 @@ title: Check Versioning
 description: ตรวจสอบ version management และ changelog
 auto_execution_mode: 3
 related_workflows:
-  - /follow-release-npm
-  - /follow-release-crates
+  - /release-npm
+  - /release-crates
 ---
 
 ## Goal
@@ -92,3 +92,4 @@ related_workflows:
 - Release process ทำงานได้
 - Dependency versioning ถูกต้อง
 - API versioning ชัดเจน
+

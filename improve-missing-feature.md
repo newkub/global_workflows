@@ -125,3 +125,4 @@ related_workflows:
 - ❌ เพิ่ม features โดยไม่มี tests
 - ❌ ปรับปรุงโดยไม่วัด performance
 - ❌ ไม่อัปเดต documentation
+

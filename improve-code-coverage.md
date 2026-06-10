@@ -120,3 +120,4 @@ auto_execution_mode: 3
 - Coverage thresholds ถูกบังคับ
 - Critical paths ครอบคลุมด้วย tests
 - Bundle size ลดลงจากการลบ dead code
+

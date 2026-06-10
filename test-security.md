@@ -125,3 +125,4 @@ url: https://owasp.org/www-project-top-ten/
 - ❌ ใช้ outdated dependencies ที่มี known vulnerabilities
 - ❌ ไม่ implement authentication/authorization
 - ❌ Disable security headers ใน production
+

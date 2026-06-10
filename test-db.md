@@ -74,3 +74,4 @@ auto_execution_mode: 3
 3. Transaction isolation ทดสอบแล้ว
 4. Factory functions พร้อมใช้
 5. CI integration ready
+

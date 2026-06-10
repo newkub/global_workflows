@@ -144,3 +144,4 @@ if (navigator.userAgent.includes('Chrome')) {
 - ❌ ไม่ test บน mobile
 - ❌ Hardcode browser-specific code
 - ❌ ไม่ implement polyfills
+

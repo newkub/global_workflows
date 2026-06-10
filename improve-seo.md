@@ -14,7 +14,7 @@ auto_execution_mode: 3
 
 วิเคราะห์ SEO ปัจจุบัน
 
-1. รัน SEO audit tools ด้วย `/follow-unlighthouse`
+1. รัน SEO audit tools ด้วย `/unlighthouse`
 2. ตรวจสอบ current ranking
 3. วิเคราะห์ competitors
 4. ระบุ `keywords` ที่สำคัญ
@@ -131,3 +131,4 @@ SEO ต้องเน้น UX
 - `User experience` ดีขึ้น
 - `SEO metrics` ดีขึ้นอย่างต่อเนื่อง
 - Commit เสร็จสมบูรณ์ตาม `conventional commits`
+

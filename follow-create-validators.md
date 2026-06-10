@@ -3,7 +3,7 @@ title: Create Validators
 description: แปลงกฎจาก AGENTS.md และ rules เป็น deterministic validators (ast-grep, linter, etc.)
 auto_execution_mode: 3
 related_workflows:
-  - /follow-write-workflows
+  - /write-windsurf-global-workflows
   - /write-ast-grep-rules
 ---
 
@@ -201,3 +201,4 @@ eslint --rule prefer-bun-shell:error --fix-dry-run src/
 - [ast-grep](https://ast-grep.github.io/)
 - [ESLint](https://eslint.org/)
 - [Zod](https://zod.dev/)
+

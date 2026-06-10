@@ -100,3 +100,4 @@ src/
 - Aggregates และ consistency boundaries ชัดเจน
 - Domain events สำหรับ cross-context communication
 - Code สามารถ test และ maintain ได้ง่าย
+

@@ -130,3 +130,4 @@ related_workflows:
 - ❌ ลบ features โดยไม่มี tests
 - ❌ ลบ features โดยไม่อัปเดต documentation
 - ❌ ลบ features ที่สำคัญโดยไม่ปรึกษาทีม
+

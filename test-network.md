@@ -154,3 +154,4 @@ const retryWithBackoff = async (fn, maxRetries = 3) => {
 - ❌ ไม่ implement retry logic
 - ❌ ไม่ cache critical data
 - ❌ Silent failures
+

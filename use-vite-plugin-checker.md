@@ -157,3 +157,4 @@ auto_execution_mode: 3
 4. Browser overlay แสดงผลตามตำแหน่งและ style ที่กำหนด
 5. Build process ตรวจสอบ errors ก่อน deploy
 6. Development workflow มีประสิทธิภาพยิ่งขึ้นด้วย immediate feedback
+

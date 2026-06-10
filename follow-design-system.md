@@ -3,7 +3,7 @@ title: Design System
 description: Design system principles พื้นฐานที่ใช้ได้กับทุก platform (TUI, Web, Desktop, Mobile)
 auto_execution_mode: 3
 related_workflows:
-  - /follow-web-design
+  - /web-design
 ---
 
 ## Goal
@@ -204,3 +204,4 @@ interface ButtonProps {
 - [Design Systems](https://www.designsystems.com/)
 - [Atomic Design](http://atomicdesign.bradfrost.com/)
 - [WCAG Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+

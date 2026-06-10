@@ -151,3 +151,4 @@ const connect = () => {
 - ❌ ไม่ validate messages
 - ❌ ไม่ test authentication
 - ❌ ไม่ implement retry
+

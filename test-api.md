@@ -81,3 +81,4 @@ bunx k6 run load-test.js
 2. Issues ถูก document
 3. Fixes ถูก implement
 4. API พร้อมใช้งาน
+

@@ -67,3 +67,4 @@ auto_execution_mode: 3
 3. CI/CD pipeline integration
 4. Documentation ของ test scenarios
 5. Flaky test remediation plan
+

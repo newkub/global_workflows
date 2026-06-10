@@ -12,7 +12,7 @@ auto_execution_mode: 3
 
 ### 1. Prepare
 
-1. ทำตาม `/follow-write-workflows` เมื่อสร้างหรือแก้ไข workflow
+1. ทำตาม `/write-windsurf-global-workflows` เมื่อสร้างหรือแก้ไข workflow
 
 ### 2. Create Script
 
@@ -25,7 +25,7 @@ auto_execution_mode: 3
 
 1. รัน script ด้วย `bun run <script>.ts`
 2. ลบ scripts จาก `scripts/temp/` หลังใช้งาน
-3. ลบ scripts ที่สร้างด้วย `/follow-write-workflows` หลังใช้งาน
+3. ลบ scripts ที่สร้างด้วย `/write-windsurf-global-workflows` หลังใช้งาน
 
 ## Rules
 
@@ -121,3 +121,4 @@ await script.run()
 - ไม่ต้อง install dependencies
 - Scripts ใน `scripts/temp/` ที่ root workspace เท่านั้น
 - Scripts ที่ใช้แล้วลบออก
+

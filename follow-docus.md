@@ -168,3 +168,4 @@ navigation:
 - Dark mode และ SEO optimized
 - Nuxt Studio compatible
 - MDC syntax พร้อม Vue components
+

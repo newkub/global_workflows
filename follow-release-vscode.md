@@ -79,3 +79,4 @@ auto_execution_mode: 3
 - Publisher พร้อมใช้งาน
 - VSCE_PAT token พร้อมใช้งาน
 - Extension publish ไปยัง Marketplace อัตโนมัติ
+

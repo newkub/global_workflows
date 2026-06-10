@@ -100,3 +100,4 @@ allow-mixed-uninlined-format-args = true
 - Error handling standards ถูกนำไปใช้
 - ลดการแก้ error แบบ manual
 - Code quality สม่ำเสมอทั่วทั้งโปรเจกต์
+

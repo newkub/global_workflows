@@ -6,6 +6,9 @@ description: เขียน best practices จาก official documentation
 
 auto_execution_mode: 3
 
+related_workflows:
+  - /write-content-explicit
+
 ---
 
 ## Goal
@@ -32,4 +35,5 @@ auto_execution_mode: 3
 - ไฟล์ที่แก้ไขแล้วสอดคล้องกับ best practices
 - Best practices ที่ถูกต้องและเป็นปัจจุบัน
 - Documentation ที่บันทึกไว้สำหรับ future reference
+
 

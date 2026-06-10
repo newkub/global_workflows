@@ -3,7 +3,7 @@ title: Improve Flow
 description: ปรับปรุง flow ให้ถูกต้อง ไหลลื่น และรวดเร็วขึ้น
 auto_execution_mode: 3
 related_workflows:
-  - /follow-content-quality
+  - /content-quality
 ---
 
 ## Goal
@@ -66,7 +66,7 @@ related_workflows:
 ตรวจสอบผลลัพธ์การปรับปรุง
 
 1. ตรวจสอบว่าไม่เกิน 300 บรรทัด
-2. ทำ `/follow-content-quality` เพื่อตรวจสอบคุณภาพ
+2. ทำ `/content-quality` เพื่อตรวจสอบคุณภาพ
 3. ตรวจสอบว่า flows ที่อ้างอิงมีอยู่จริง
 4. ทดสอบ flow ในสถานการณ์จริง
 5. ทดสอบ edge cases และ error scenarios
@@ -129,3 +129,4 @@ flow ต้อง:
 - ลดความซ้ำซ้อนและ bottlenecks
 - ไม่มี circular dependencies
 - ความสอดคล้องกับ best practices
+

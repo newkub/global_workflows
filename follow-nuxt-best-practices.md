@@ -183,3 +183,4 @@ auto_execution_mode: 3
 - Scalability ด้วย feature-based structure
 - SEO ที่ดีด้วย SSR/SSG
 - Hydration ที่ถูกต้อง
+

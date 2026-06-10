@@ -84,3 +84,4 @@ auto_execution_mode: 3
 - Priority Matrix สำหรับการจัดลำดับ (High/Medium/Low)
 - Migration plan ที่ realistic และ prioritized
 - Risk assessment สำหรับการเปลี่ยนแต่ละ dependency
+

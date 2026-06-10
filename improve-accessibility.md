@@ -120,3 +120,4 @@ auto_execution_mode: 3
 - Color contrast ที่ผ่านเกณฑ์
 - Screen reader compatibility ดีขึ้น
 - Accessibility tools ผ่านทั้งหมด
+

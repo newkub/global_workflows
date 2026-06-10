@@ -53,3 +53,4 @@ auto_execution_mode: 3
 - แก้ปัญหาด้วย minimal changes
 - ไม่มี over-engineering
 - Code ยังเรียบง่ายและเข้าใจง่าย
+

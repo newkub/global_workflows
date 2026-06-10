@@ -14,11 +14,12 @@ auto_execution_mode: 3
 
 สแกนไฟล์ทั้งหมดในโปรเจกต์
 
-1. ใช้ `find_by_name` สำหรับค้นหาไฟล์
-2. รวบรวมไฟล์ทั้งหมดใน codebase
-3. แยกประเภทไฟล์ตาม extension
-4. ตรวจสอบไฟล์ใน `.gitignore`
-5. ตรวจสอบ generated files
+1. ทำ `/search-code` เพื่อค้นหา file references และ patterns
+2. ใช้ `find_by_name` สำหรับค้นหาไฟล์
+3. รวบรวมไฟล์ทั้งหมดใน codebase
+4. แยกประเภทไฟล์ตาม extension
+5. ตรวจสอบไฟล์ใน `.gitignore`
+6. ตรวจสอบ generated files
 
 ### 2. Check File References
 

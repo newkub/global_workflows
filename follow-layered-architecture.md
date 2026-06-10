@@ -124,3 +124,4 @@ src/
 - Import ผ่าน alias ง่ายและชัดเจน
 - Code สามารถ test และ maintain ได้ง่าย
 - Reusable composables และ components
+

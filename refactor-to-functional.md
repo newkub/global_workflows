@@ -3,8 +3,8 @@ title: Refactor To Functional
 description: แปลง OOP code เป็น functional programming style
 auto_execution_mode: 3
 connected_workflows:
-  - /follow-functional-programming
-  - /refactor-to-single-responsibility
+  - /functional-programming
+  - /refactor-file-to-single-responsibility
 ---
 
 ## Goal
@@ -79,9 +79,10 @@ connected_workflows:
 
 1. แยก business logic จาก object state
 2. ทำให้ functions เป็น `pure functions` (no side effects)
-3. แยก `side effects` ไปยัง outer layer (I/O boundary)
-4. ใช้ dependency injection สำหรับ external dependencies
-5. Test functions ด้วย input/output เท่านั้น
+3. ทำตาม `/improve-side-effect` เพื่อจัดการ side effects อย่างเป็นระบบ
+4. แยก `side effects` ไปยัง outer layer (I/O boundary)
+5. ใช้ dependency injection สำหรับ external dependencies
+6. Test functions ด้วย input/output เท่านั้น
 
 ### 8. Verify Conversion
 
@@ -92,6 +93,12 @@ connected_workflows:
 3. ตรวจสอบว่าไม่มี `inheritance/subclassing` เหลือ
 4. รัน tests เพื่อ verify behavior
 5. ตรวจสอบ `test coverage`
+
+### 9. Update References
+
+อัปเดท references ทั้งหมดที่เกี่ยวข้อง
+
+1. ทำตาม `@[/edit-relative]`
 
 ## Rules
 
@@ -155,3 +162,4 @@ connected_workflows:
 - Type-safe functional code
 - Tests ที่เขียนง่าย
 - Code ที่ maintain ได้ง่าย
+

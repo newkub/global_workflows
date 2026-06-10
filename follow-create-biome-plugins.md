@@ -88,3 +88,4 @@ auto_execution_mode: 3
 - GritQL patterns เขียนถูกต้อง
 - Plugin กำหนดใน `biome.jsonc` อย่างถูกต้อง
 - Custom rules ทำงานได้เมื่อรัน `biome lint`
+

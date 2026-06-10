@@ -8,15 +8,22 @@ auto_execution_mode: 3
 
 สร้างไอเดีย features ใหม่และปรับปรุง features ที่มีอยู่ วิเคราะห์ gaps, user needs และ market trends ด้วย continuous numbering และ scope ที่ชัดเจน
 
+## Plan
+
+วิเคราะห์โปรเจกต์ สำรวจ library วางแผน architecture กำหนด implementation path และบันทึกใน task document
+
+## Scope
+
+ครอบคลุมการวิเคราะห์โปรเจกต์ การเลือก library การวางแผน architecture การกำหนดลำดับ implement และการบันทึกแผนงาน
+
 ## Execute
 
-### 1. Analyze Existing Features
+### 1. Analyze Project
 
-- ทำ `/analyze-project` เพื่อดูภาพรวมโปรเจกต์
-- สำรวจ features ทั้งหมดในโปรเจกต์
-- ระบุ gaps และ missing capabilities
-- วิเคราะห์ user journeys และ pain points
-- ประเมิน competitive landscape
+วิเคราะห์โปรเจกต์เพื่อเข้าใจโครงสร้างและ dependencies ก่อนเริ่มวางแผน
+
+- ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์
+- บันทึก project structure และ dependencies
 
 ### 2. Analyze Package Structure
 
@@ -48,19 +55,13 @@ auto_execution_mode: 3
 - ระบุ interface type (api, cli, web, library, etc)
 - จัดกลุ่ม features ตาม topics
 
-### 6. Create Feature Report
+### 6. Create Task Document
 
-- สร้างไฟล์ `idea-features.md`
-- สร้างตารางเดียวรวม 20 features (Extends + New)
-- แต่ละ feature มี continuous numbering 1-20
-- ระบุ หมายเลข, ชื่อ Feature, คำอธิบาย, ปัญหาที่แก้, วิธีทำ, Dependencies, หมวดหมู่, ประเภท, ความยาก, ผลกระทบ, Interface, หัวข้อ, Scope
-- Type ระบุเป็น: Extends (ปรับปรุงจากเดิม) หรือ New (ใหม่)
-- Interface ระบุเป็น: api, cli, web, library, sdk, etc
-- Topics ระบุหัวข้อ เช่น authentication, database, ui, etc
-- Scope ระบุขอบเขต เช่น package-level, app-level, cross-package
-- ใช้ impact indicators: 🔴 สูง, 🟡 ปานกลาง, 🟢 ต่ำ
-- ใช้ difficult indicators: 🔴 ยาก, 🟡 ปานกลาง, 🟢 ง่าย
-- เรียงลำดับตารางตาม Impact (สูง → ปานกลาง → ต่ำ)
+สร้างไฟล์ task document ใน workspace
+
+- สร้างไฟล์ `.agents/task/<name>-DD-MM-YYYY.md` ใน workspace
+- บันทึก architecture และ tasks
+- บันทึก expected outcome
 
 ### 7. Prioritize by Value
 
@@ -76,42 +77,31 @@ auto_execution_mode: 3
 - ให้ resource estimates และ timeline
 - สร้าง criteria สำหรับ validate feature success
 
-### 9. Update Implementation Status
-
-- เมื่อ implement feature เสร็จแล้ว ให้ update ไฟล์ `idea-features.md`
-- เพิ่ม column "Status" ในตาราง features พร้อม values:
-  - ⏳ Pending - ยังไม่เริ่มทำ
-  - 🔄 In Progress - กำลังทำ
-  - ✅ Done - เสร็จสมบูรณ์
-  - ❌ Blocked - ถูก block
-  - 🚫 Cancelled - ยกเลิก
-- เพิ่ม column "Implementation Notes" สำหรับบันทึกสิ่งที่ทำไป
-- เพิ่ม column "Completed Date" สำหรับบันทึกวันที่เสร็จ
-- Update roadmap section ด้วย progress จริง
-
 ## Rules
 
-### 1. Single Table (20 Features)
+### 1. Two Tables (Required & Optional)
 
-- ตารางเดียวรวมทั้ง Extends และ New features
-- ทั้งหมด 20 features เรียงลำดับ 1-20
+- แยกเป็น 2 ตาราง: Required Features และ Optional Features
+- Required Features: features ที่จำเป็นสำหรับ MVP
+- Optional Features: features ที่เพิ่ม value แต่ไม่จำเป็นสำหรับ MVP
+- แต่ละตารางมี continuous numbering เริ่มจาก 1
 - Type column ระบุ: Extends (ปรับปรุงจากเดิม) หรือ New (ใหม่)
 
 ### 2. Column Order
 
-- ลำดับคอลัมน์: # | Feature | Description | Problem/Solves | How To | Dependencies | Parent/Category | Type | Difficult | Impact | Interface | Topics | Scope
-- Type ระบุประเภท: Extends (ปรับปรุงจากเดิม) หรือ New (ใหม่)
-- How To อยู่หลัง Problem/Solves (อธิบายวิธีการ implement คร่าวๆ)
-- Dependencies อยู่หลัง How To (libraries หรือ services ที่ใช้, ถ้าไม่มีใส่ -)
-- Difficult อยู่ก่อน Impact (ระบุความยาก: 🔴 ยาก, 🟡 ปานกลาง, 🟢 ง่าย)
-- Impact อยู่ก่อน Interface (ระบุผลกระทบ: 🔴 สูง, 🟡 ปานกลาง, 🟢 ต่ำ)
-- Interface ระบุประเภท interface: api, cli, web, library, sdk, etc
+- ลำดับคอลัมน์: # | Feature | Description | Problem/Solves | How To | Dependencies | Parent/Category | Type | Difficult | Impact | จัดลำดับ | Interface | Status | Topics | Scope
+- Type ระบุ: Extends (ปรับปรุงจากเดิม) หรือ New (ใหม่)
+- Difficult ระบุ: 🔴 ยาก, 🟡 ปานกลาง, 🟢 ง่าย
+- Impact ระบุ: 🔴 สูง, 🟡 ปานกลาง, 🟢 ต่ำ
+- จัดลำดับ ระบุ: 1-N (ต่อเนื่องในแต่ละตาราง)
+- Interface ระบุ: api, cli, web, library, sdk, etc
+- Status ระบุ: ⬜ ยังไม่ทำ, 🔄 กำลังทำ, ✅ เสร็จแล้ว, ❌ ยกเลิก
 - Topics ระบุหัวข้อ เช่น authentication, database, ui, etc
-- Scope อยู่ column สุดท้าย (ระบุขอบเขต: package-level, app-level, cross-package)
+- Scope ระบุ: package-level, app-level, cross-package
 
 ### 3. Continuous Numbering
 
-- เริ่มจาก 1 ถึง 20 ต่อเนื่องกัน
+- แต่ละตารางมี continuous numbering เริ่มจาก 1
 - ไม่แบ่งแยกระหว่าง Extends และ New
 - เรียงตามลำดับ Impact ก่อน แล้วตามลำดับเลข
 
@@ -150,26 +140,30 @@ auto_execution_mode: 3
 
 ### 9. Direct Execution
 
-- ถ้าผู้ใช้บอกว่า "ทำ ... ให้" ให้ทำตาม `/ship-verify` เลย
+- ถ้าผู้ใช้บอกว่า "ทำ ... ให้" ให้ทำตาม `/implement-to-production` เลย
 - ไม่ต้องทำตาม workflow ปกติถ้าผู้ใช้สั่งโดยตรง
 - ทำงานอัตโนมัติโดยไม่หยุดถาม
 
 ### 10. Output Format
 
-- สร้างไฟล์ `idea-features.md` สำหรับเก็บ feature report
+สร้างไฟล์ task document พร้อม 2 ตาราง features
+
+- สร้างไฟล์ `.agents/task/<name>-DD-MM-YYYY.md` ใน workspace
+- บันทึก 2 ตาราง (Required Features และ Optional Features) ในไฟล์
 - ใช้ markdown table สำหรับแสดง features
-- ตารางรวมทั้งหมด 20 อันดับ เรียงตาม Impact
+- แต่ละตารางมี continuous numbering เริ่มจาก 1
 - ตารางเป็นภาษาไทยทั้งหมด
+- บันทึก architecture และ tasks ในไฟล์
 
 ## Expected Outcome
 
-- ตารางเดียว 20 อันดับ (1-20) พร้อม continuous numbering
+- 2 ตาราง (Required Features และ Optional Features) พร้อม continuous numbering
 - Column Type ระบุ Extends หรือ New
 - เรียงลำดับตาม Impact (สูง → ปานกลาง → ต่ำ)
-- Column order: #, Feature, Description, Problem/Solves, How To, Dependencies, Parent/Category, Type, Difficult, Impact, Interface, Topics, Scope
+- Column order: #, Status, Feature, Description, Problem/Solves, How To, Dependencies, Parent/Category, Type, Difficult, Impact, จัดลำดับ, Interface, Topics, Scope
+- Status ระบุสถานะ: ⬜ ยังไม่ทำ, 🔄 กำลังทำ, ✅ เสร็จแล้ว, ❌ ยกเลิก
 - Interface ระบุประเภท: api, cli, web, library, sdk, etc
 - Topics ระบุหัวข้อ เช่น authentication, database, ui, etc
 - Scope ระบุขอบเขต: package-level, app-level, cross-package
-- Feature roadmap พร้อม phasing strategy
-- Resource estimates และ timeline
-- Success criteria สำหรับ validate features
+- เมื่อ implement เสร็จ 1 feature ให้ update Status เป็น ✅ ใน task document
+

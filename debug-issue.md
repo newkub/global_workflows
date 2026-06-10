@@ -20,7 +20,7 @@ Debug issues ทั้ง VSCode, terminal, shell, runtime และ OS layers
 
 ### 2. Define Problem
 
-ทำ `/follow-content-quality` เพื่อเขียนปัญหาให้ชัดเจน ระบุ:
+ทำ `/content-quality` เพื่อเขียนปัญหาให้ชัดเจน ระบุ:
 
 - Expected: สิ่งที่ควรเกิด
 - Actual: สิ่งที่เกิดจริง
@@ -148,3 +148,4 @@ Debug = Bayesian Search in Hypothesis Space
 - หา root cause ได้เร็วขึ้น
 - ลดการเดาและแก้หลายอย่างพร้อมกัน
 - มี systematic approach สำหรับ debug ทุกประเภท
+

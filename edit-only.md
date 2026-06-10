@@ -49,7 +49,7 @@ auto_execution_mode: 3
 
 รักษาคุณภาพโค้ดตามมาตรฐาน
 
-- ทำ `/follow-code-quality` สำหรับการแก้ไข
+- ทำ `/code-quality` สำหรับการแก้ไข
 - รักษา consistency กับ codebase
 - เพิ่ม comments เมื่อจำเป็น
 
@@ -59,3 +59,4 @@ auto_execution_mode: 3
 - การเปลี่ยนแปลงถูกบันทึกลงไฟล์อย่างถูกต้อง
 - ไม่มี process หรือ terminal ถูกรัน
 - Code quality ยังคงอยู่ตามมาตรฐาน
+

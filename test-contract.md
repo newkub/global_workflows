@@ -127,3 +127,4 @@ url: https://docs.pact.io/
 - ❌ Manual contract testing
 - ❌ ไม่ version contracts
 - ❌ Ignore contract violations
+

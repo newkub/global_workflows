@@ -60,3 +60,4 @@ auto_execution_mode: 3
 - Clear and concise documentation
 - Technical accuracy
 - ผลงานที่มีคุณภาพสากล
+

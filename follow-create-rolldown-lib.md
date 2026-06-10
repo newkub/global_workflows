@@ -80,7 +80,7 @@ auto_execution_mode: 3
 
 ### Related Workflows
 
-สำหรับ library bundling ที่ง่ายกว่า ใช้ `/follow-tsdown`
+สำหรับ library bundling ที่ง่ายกว่า ใช้ `/tsdown`
 
 ## Expected Outcome
 
@@ -89,3 +89,4 @@ auto_execution_mode: 3
 - Bundle sizes ที่เล็กลงด้วย tree-shaking
 - Compatible กับ Rollup/Vite plugin ecosystem
 - Cross-platform builds ด้วย native bindings
+

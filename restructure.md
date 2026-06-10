@@ -1,16 +1,12 @@
 ---
-
 title: Restructure
-
 description: ปรับปรุงโครงสร้างไฟล์และโฟลเดอร์ให้มีความสม่ำเสมอ จัดระเบียบ และค้นหาง่าย
-
 auto_execution_mode: 3
-
 related_workflows:
-  - /analyze-project
-  - /use-scripts
-  - /check-file-structure
-
+  - analyze-project
+  - relocation
+  - use-scripts
+  - check-architecture
 ---
 
 ## Goal
@@ -19,13 +15,13 @@ related_workflows:
 
 ## Scope
 
-ครอบคลุมการปรับปรุง naming conventions, การย้ายไฟล์ไปยังโฟลเดอร์ที่เหมาะสม, การจัดกลุ่มไฟล์ตาม domain, และการสร้าง barrel exports
+ครอบคลุมการปรับปรุง physical file/folder structure (naming, relocation, grouping) ไม่ใช่ logical concern separation สำหรับ logical concern separation ให้ใช้ `separate-of-concern`
 
 ## Execute
 
 ### 1. Analyze Current Structure
 
-1. ทำ `/analyze-project` เพื่อดูภาพรวมโครงสร้างปัจจุบัน
+1. ทำ `analyze-project` เพื่อดูภาพรวมโครงสร้างปัจจุบัน
 2. ระบุไฟล์ที่ตั้งชื่อไม่เหมาะสม (snake_case, PascalCase, หรือไม่สื่อความหมาย)
 3. ตรวจสอบจำนวนไฟล์ในแต่ละโฟลเดอร์ เพื่อหาโฟลเดอร์ที่มีไฟล์มากเกินไป (มากกว่า 10-15 ไฟล์)
 
@@ -39,10 +35,9 @@ related_workflows:
 
 ### 3. Relocate To Appropriate Folders
 
-1. ระบุ domain หรือ responsibility ของแต่ละไฟล์ (domain, ui, utils, types, api)
-2. ทำ `/use-scripts` เพื่อย้ายไฟล์ไปยังโฟลเดอร์ที่เหมาะสมตาม responsibility
-3. รักษา dependency direction: domain พึ่งพา shared types ไม่ใช่กลับกัน
-4. อัปเดต import paths ทั้งหมดหลังย้าย
+1. ทำ `/relocation` เพื่อย้ายไฟล์ไปยังโฟลเดอร์ที่เหมาะสม
+2. ตรวจสอบว่า import paths ถูกอัปเดตทั้งหมด
+3. ยืนยันว่าไม่มี circular dependencies ใหม่
 
 ### 4. Group Files By Domain
 
@@ -58,7 +53,13 @@ related_workflows:
 
 1. รัน build หรือ type check เพื่อยืนยันว่า import paths ถูกต้อง
 2. ตรวจสอบว่าไม่มีไฟล์ที่ไม่จำเป็นหลงเหลือ (orphan files)
-3. ทำ `/check-file-structure` เพื่อยืนยันโครงสร้างใหม่
+3. ทำ `/check-architecture` เพื่อยืนยันโครงสร้างใหม่
+
+### 6. Update References
+
+อัปเดท references ทั้งหมดที่เกี่ยวข้อง
+
+1. ทำตาม `/edit-relative`
 
 ## Rules
 
@@ -103,6 +104,7 @@ related_workflows:
 - naming ที่สอดคล้องกันทั่วทั้งโปรเจกต์
 - import paths ที่กระชับและถูกต้อง
 - โฟลเดอร์ที่จัดกลุ่มอย่างเหมาะสมตาม responsibility
+- สำหรับ logical concern separation ให้ใช้ `/separate-of-concern`
 
 ## Common Mistakes
 
@@ -123,3 +125,4 @@ related_workflows:
 - ❌ สร้างโฟลเดอร์ลึกเกินไป (deep nesting)
 - ❌ ใช้ naming conventions ผสมกัน
 - ❌ ทิ้ง orphan files ไว้หลังย้าย
+

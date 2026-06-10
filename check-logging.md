@@ -93,3 +93,4 @@ related_workflows:
 - Log content มีความหมายและ context
 - Log retention ถูกตั้งค่า
 - Log performance ไม่ impact application
+

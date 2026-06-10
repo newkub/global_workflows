@@ -6,7 +6,7 @@ auto_execution_mode: 3
 
 ## Goal
 
-ทำให้ไฟล์หลัก (entry files) เช่น `index.ts`, `mod.rs` มีเฉพาะ re-export เท่านั้น และ refactor logic ออกเป็นไฟล์ย่อยๆ ตาม `/follow-single-responsibility`
+ทำให้ไฟล์หลัก (entry files) เช่น `index.ts`, `mod.rs` มีเฉพาะ re-export เท่านั้น และ refactor logic ออกเป็นไฟล์ย่อยๆ ตาม `/single-responsibility`
 
 ## Execute
 
@@ -18,7 +18,7 @@ auto_execution_mode: 3
 
 ### 2. Refactor Implementation
 
-1. ทำ `/follow-single-responsibility` เพื่อสร้างไฟล์ย่อยตาม responsibility
+1. ทำ `/single-responsibility` เพื่อสร้างไฟล์ย่อยตาม responsibility
 2. ย้าย implementation logic จาก entry file ไปยังไฟล์ย่อย
 3. ตั้งชื่อไฟล์ย่อยให้สะท้อนถึง responsibility
 
@@ -49,7 +49,7 @@ Entry files ต้องมีเฉพาะ re-export เท่านั้น
 
 ไฟล์ย่อยต้องมี single responsibility และจัดโครงสร้างตาม module organization
 
-- แต่ละไฟล์ย่อยต้องมี single responsibility ตาม `/refactor-to-single-responsibility`
+- แต่ละไฟล์ย่อยต้องมี single responsibility ตาม `/refactor-file-to-single-responsibility`
 - ตั้งชื่อไฟล์ให้สะท้อนถึง functionality
 - จัดโครงสร้าง folder ตาม module organization
 - หลีกเลี่ยง circular dependencies

@@ -11,3 +11,4 @@ Scope:
 - Or: review the files given in `$ARGUMENTS`.
 
 Group findings by severity (Critical / Important / Suggestion / Nit) and reference each one with `file_path:line_number`. Quote the offending code. Do not modify any files.
+

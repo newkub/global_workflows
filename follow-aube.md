@@ -133,3 +133,4 @@ Aube รองรับ lockfiles หลายประเภท:
 - Security defaults ที่เหมาะสมที่สุด
 - ลด disk usage ด้วย global store
 - รองรับ lockfiles หลายประเภท
+

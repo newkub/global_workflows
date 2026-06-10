@@ -2,6 +2,8 @@
 title: Write Examples
 description: เขียน examples ครอบคลุมทุก API ในโปรเจกต์
 auto_execution_mode: 3
+related_workflows:
+  - /write-code-explicit
 ---
 
 ## Goal
@@ -84,3 +86,4 @@ auto_execution_mode: 3
 มี examples ครอบคลุมทุก API
 ทุก example runnable ได้จริง
 ผู้ใช้ copy-paste และใช้งานได้ทันที
+

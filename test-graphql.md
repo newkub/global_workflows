@@ -157,3 +157,4 @@ subscription OnUserUpdate($userId: ID!) {
 - ❌ N+1 queries
 - ❌ ไม่ validate schema
 - ❌ ไม่ limit complexity
+

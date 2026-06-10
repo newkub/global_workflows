@@ -97,3 +97,4 @@ auto_execution_mode: 3
 - Code ที่ decoupled และ testable
 - Data flow ที่ชัดเจนและ maintainable
 - Project structure ที่เป็นระเบียบ
+
