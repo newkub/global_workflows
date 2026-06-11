@@ -64,7 +64,7 @@ related_workflows:
 
 1. ทำ `/plan` เพื่อวางแผนการปรับปรุง
 2. ทำ `/ship-code` เพื่อ implement จนดีกว่าคู่แข่ง
-3. ทำ `/optimize-perf` สำหรับ `performance improvements`
+3. ทำ `/improve-perf` สำหรับ `performance improvements`
 4. ทำ `/improve-uxui` สำหรับ `UX/UI improvements`
 5. หยุดเมื่อ project ดีกว่าคู่แข่งทั้งหมมในทุกมิติ
 

@@ -2,15 +2,6 @@
 title: Development Workflows
 description: รวม workflows สำหรับ development lifecycle ตั้งแต่ planning ไปจนถึง deployment
 auto_execution_mode: 3
-related_workflows:
-  - /plan
-  - /development-guidelines
-  - /ship-code
-  - /run-dev
-  - /run-test
-  - /run-build
-  - /deploy
-  - /continue
 ---
 
 ## Goal

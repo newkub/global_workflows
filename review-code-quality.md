@@ -25,12 +25,16 @@ Review code quality ทั้งหมดเพื่อระบุและแ
 
 ### 1. Analyze Code Complexity
 
+ตรวจสอบ code complexity ทั้งหมด
+
 1. ตรวจสอบ cyclomatic complexity
 2. Review function length
 3. Check nesting depth
 4. Analyze cognitive complexity
 
 ### 2. Review Technical Debt
+
+ตรวจสอบ technical debt และ code smells
 
 1. Identify code smells
 2. Check deprecated code
@@ -39,12 +43,16 @@ Review code quality ทั้งหมดเพื่อระบุและแ
 
 ### 3. Check Maintainability
 
+ตรวจสอบ maintainability ของ code
+
 1. Review code readability
 2. Check naming conventions
 3. Validate code organization
 4. Review documentation
 
 ### 4. Review Code Smells
+
+ตรวจสอบ code smells ทั้งหมด
 
 1. Check duplicate code
 2. Review long methods
@@ -53,11 +61,15 @@ Review code quality ทั้งหมดเพื่อระบุและแ
 
 ### 5. Prioritize And Report
 
+จัดลำดับและรายงาน issues ที่พบ
+
 1. Group issues ตาม impact
 2. ใช้ `/report` เพื่อสรุปผล
 3. รอ user confirmation
 
 ### 6. Execute Fixes
+
+แก้ไข issues ตาม priority ที่กำหนด
 
 1. Reduce complexity
 2. Fix code smells

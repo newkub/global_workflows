@@ -2,6 +2,10 @@
 title: Update Documentation
 description: อัพเดท documentation และ references ตามมาตรฐาน
 auto_execution_mode: 3
+related_workflows:
+  - /analyze-features
+  - /analyze-project
+  - /update-reference
 ---
 
 ## Goal
@@ -16,14 +20,15 @@ auto_execution_mode: 3
 
 ### 1. Update Documentation
 
-1. ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์
-2. เลือก template ตามประเภท project
-3. สร้าง `docs/` folder
-4. สร้าง structure ตาม template ที่เลือก
-5. สร้างไฟล์หลักใน `project/` และ `getting-started/`
-6. สร้าง subfolders ตาม template
-7. เขียน content ตาม template
-8. ใช้ frontmatter สำหรับทุกไฟล์
+1. ทำ `/analyze-features` เพื่อวิเคราะห์ features ใน project
+2. ทำ `/analyze-project` เพื่อวิเคราะห์โครงสร้าง project
+3. เลือก template ตามประเภท project
+4. สร้าง `docs/` folder
+5. สร้าง structure ตาม template ที่เลือก
+6. สร้างไฟล์หลักใน `project/` และ `getting-started/`
+7. สร้าง subfolders ตาม template
+8. เขียน content ตาม template
+9. ใช้ frontmatter สำหรับทุกไฟล์
 
 ### 2. Update References
 

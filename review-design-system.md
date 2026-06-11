@@ -8,7 +8,7 @@ auto_execution_mode: 3
 
 related_workflows:
   - /review-uxui
-  - /check-consistency
+  - /analyze-consistency
   - /design-system
 
 ---

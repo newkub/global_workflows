@@ -3,8 +3,8 @@ title: Only Fix Errors
 description: แก้ไข errors เท่านั้น ไม่เพิ่ม features หรือ refactor
 auto_execution_mode: 3
 related_workflows:
-  - /follow-resolve-errors
-  - /follow-analyze-errors
+  - /resolve-errors
+  - /analyze-errors
 ---
 
 ## Goal
@@ -31,8 +31,8 @@ related_workflows:
 
 ห้ามรัน workflows ใดๆ:
 
-- ไม่รัน `/follow-analyze-errors`
-- ไม่รัน `/follow-resolve-errors`
+- ไม่รัน `/analyze-errors`
+- ไม่รัน `/resolve-errors`
 - ไม่รัน workflows อื่นๆ ทั้งหมด
 - แก้ไข error โดยตรงเท่านั้น
 

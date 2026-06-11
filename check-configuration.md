@@ -3,7 +3,7 @@ title: Check Configuration
 description: ตรวจสอบ config files และ environment variables
 auto_execution_mode: 3
 related_workflows:
-  - /optimize-config
+  - /improve-config
 ---
 
 ## Goal

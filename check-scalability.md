@@ -3,7 +3,7 @@ title: Check Scalability
 description: ตรวจสอบ scalability potential และ bottlenecks
 auto_execution_mode: 3
 related_workflows:
-  - /optimize-perf
+  - /improve-perf
   - /run-profile
 ---
 

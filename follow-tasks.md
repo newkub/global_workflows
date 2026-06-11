@@ -67,7 +67,7 @@ related_workflows:
 
 ### 1. Scripts Levels
 
-เลือกระดับตามขนาดและความซับซ้อนของโปรเจกต์:
+เลือกระดับตามขนาดและความซับซ้อนของโปรเจกต์
 - **Minimal** (Default): dev, build, typecheck, lint, format, test, scan, verify, ci, prepare - เหมาะสำหรับโปรเจกต์ส่วนใหญ่
 - **Standard**: Minimal + test:watch, test:coverage, deps:analyze, clean, security, db scripts, predeploy, deploy:staging - เหมาะสำหรับโปรเจกต์ที่ต้องการ testing และ dependency management เพิ่มเติม
 - **Complete**: Standard + build:watch, typecheck:watch, test:integration, test:e2e, benchmarks, prerelease, release, db:studio - เหมาะสำหรับ infra/tooling team

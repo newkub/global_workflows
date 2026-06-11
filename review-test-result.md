@@ -1,12 +1,25 @@
 ---
+
 title: Review Test Result
-description: รีวิวและวิเคราะห์ผลลัพธ์จากการทดสอบเพื่อตรวจสอบคุณภาพและความถูกต้องของ code
+
+description: วิเคราะห์ผลลัพธ์จากการทดสอบ ระบุสาเหตุของการล้มเหลว และสร้างรายงาน
+
 auto_execution_mode: 3
+
+related_workflows:
+  - /run-test
+  - /test-function
+  - /review-test-methodology
+
 ---
 
 ## Goal
 
-รีวิวและวิเคราะห์ผลลัพธ์จากการทดสอบเพื่อตรวจสอบคุณภาพและความถูกต้องของ code ระบุปัญหาที่เกิดขึ้น และวางแผนการแก้ไข
+วิเคราะห์ผลลัพธ์จากการทดสอบเพื่อตรวจสอบคุณภาพและความถูกต้องของ code ระบุปัญหา และวางแผนการแก้ไข
+
+## Scope
+
+ครอบคลุม test execution, failure analysis, coverage analysis, performance review, documentation review, report generation
 
 ## Execute
 
@@ -55,17 +68,7 @@ auto_execution_mode: 3
 2. ระบุ bottleneck ในการรัน test
 3. แนะนำการปรับปรุง performance
 
-### 5. Test Quality Assessment
-
-1. ประเมินคุณภาพของ test cases:
-   - Test มีความชัดเจนและเข้าใจง่ายหรือไม่
-   - Test ทดสอบสิ่งที่ถูกต้องหรือไม่
-   - Test มีความ independent หรือไม่ (ไม่ขึ้นกับ test อื่น)
-   - Test มีการใช้ mock/stub อย่างเหมาะสมหรือไม่
-2. ระบุ test ที่ต้อง refactor
-3. แนะนำ best practices สำหรับการเขียน test
-
-### 6. Documentation Review
+### 5. Documentation Review
 
 1. ตรวจสอบว่า test มี documentation หรือไม่:
    - Comment อธิบายสิ่งที่ test
@@ -73,7 +76,7 @@ auto_execution_mode: 3
    - Comment อธิบาย behavior ที่คาดหวัง
 2. แนะนำการปรับปรุง documentation
 
-### 7. Report Generation
+### 6. Generate Report
 
 สร้างรายงานสรุปประกอบด้วย:
 
@@ -143,5 +146,3 @@ auto_execution_mode: 3
 - คำแนะนำสำหรับการปรับปรุง test coverage
 - คำแนะนำสำหรับการปรับปรุง test performance
 - แผนการดำเนินการที่ชัดเจน
-- เอกสารที่สามารถใช้สำหรับการติดตามและการตัดสินใจ
-

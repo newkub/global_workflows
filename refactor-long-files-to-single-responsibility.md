@@ -13,7 +13,7 @@ related_workflows:
 
 ## Goal
 
-Split ไฟล์ที่ยาวกว่า 250 บรรทัดให้มีขนาดเหมาะสม และจัดเก็บตาม Single Responsibility Principle
+แยกไฟล์ที่เกิน 250 บรรทัดให้มีขนาดเหมาะสม จัดเก็บตาม Single Responsibility Principle
 
 ## Scope
 
@@ -21,122 +21,97 @@ Split ไฟล์ที่ยาวกว่า 250 บรรทัดให้
 
 ## Execute
 
-### 1. Identify Long Files
+### 1. Identify And Prioritize
 
-ตรวจสอบและระบุไฟล์ที่ยาวกว่า 250 บรรทัด
+ค้นหาและจัดลำดับไฟล์ที่ต้อง split
 
-1. ทำ `/check-long-files` เพื่อค้นหาไฟล์ที่ยาวกว่า 250 บรรทัด
-2. กรองไฟล์ที่ต้องเว้นออกตามประเภท (`config`, `types`, `test`, `generated`)
-3. บันทึกรายชื่อไฟล์ที่ต้อง `split`
-4. เรียงลำดับตามขนาด (ใหญ่สุดก่อน)
+1. ทำ `/check-long-files` ค้นหาไฟล์ > 250 บรรทัด
+2. กรองไฟล์ที่เว้นออก (`config`, `types`, `test`, `generated`)
+3. เรียงลำดับตามขนาด (ใหญ่สุดก่อน)
 
-### 2. Analyze File Structure
+### 2. Analyze Structure
 
-วิเคราะห์โครงสร้างไฟล์ที่จะ split
+วิเคราะห์โครงสร้างและ dependencies
 
-1. อ่านไฟล์ที่จะ `split`
-2. ระบุ `sections` หรือ `groups` ของ `code`
-3. ระบุ `dependencies` ระหว่าง `sections`
-4. วิเคราะห์ `folder structure` ที่เหมาะสม
+1. อ่านไฟล์ที่จะ split
+2. ระบุ sections และ groups ของ code
+3. วิเคราะห์ dependencies ระหว่าง sections
+4. ทำ `/separate-of-concern` เข้าใจ layer separation
 
-### 3. Plan Split Strategy
+### 3. Plan Split
 
-วางแผนการ split ตาม Single Responsibility Principle
+วางแผนการ split ตาม responsibilities
 
-1. ทำ `/separate-of-concern` เพื่อเข้าใจ `layer separation` ที่ถูกต้อง
-2. กำหนด `folder` ปลายทางสำหรับแต่ละ `section`
-3. ตั้งชื่อไฟล์ใหม่ตาม `responsibilities`
-4. วางแผน `import/export structure`
+1. กำหนด folder ปลายทางสำหรับแต่ละ section
+2. ตั้งชื่อไฟล์ตาม responsibilities
+3. วางแผน import/export structure
 
-### 4. Split File
+### 4. Execute Split
 
-แยกไฟล์ตาม responsibilities ที่วางแผนไว้
+แยกไฟล์ตามแผนที่วางไว้
 
-1. สร้างไฟล์ใหม่สำหรับแต่ละ `section`
-2. ย้าย `code` ไปยังไฟล์ใหม่
-3. ตั้งชื่อไฟล์ตาม `responsibilities`
-4. เพิ่ม `exports` จากไฟล์ใหม่
+1. สร้างไฟล์ใหม่สำหรับแต่ละ section
+2. ย้าย code ไปยังไฟล์ใหม่
+3. เพิ่ม exports จากไฟล์ใหม่
+4. ทำ `/update-reference` อัพเดท imports ทั้งหมด
+5. ตรวจสอบ circular dependencies
+6. ลบ code ที่ถูกย้ายออกจากไฟล์เดิม
 
-### 5. Update References
+### 5. Verify And Iterate
 
-อัพเดท references ทั้งหมดที่เกี่ยวข้อง
+ตรวจสอบและทำซ้ำจนครบถ้วน
 
-1. ทำ `/update-reference` อัพเดท `imports` ทั้งหมด
-2. อัพเดท `imports` ในไฟล์เดิม
-3. ตรวจสอบ `circular dependencies`
-4. ลบ `code` ที่ถูกย้ายออกจากไฟล์เดิม
-
-### 6. Verify Split
-
-ตรวจสอบผลลัพธ์หลัง split
-
-1. รัน `typecheck` ตรวจสอบไม่มี `type errors`
-2. รัน `lint` ตรวจสอบ `code quality`
-3. รัน `test` ตรวจสอบ `functionality`
-4. ตรวจสอบว่าไฟล์เดิมไม่เกิน 250 บรรทัด
-
-### 7. Repeat Until Complete
-
-ทำซ้ำจนไม่มีไฟล์ > 250 บรรทัด
-
-1. ทำ `/loop-until-complete` ทำซ้ำจนไม่มีไฟล์ > 250 บรรทัด
-2. ทำ `/check-long-files` ยืนยันไม่มีไฟล์ > 250 บรรทัดเหลือ
-3. ตรวจสอบว่าทุกไฟล์อยู่ใน `folder` ที่เหมาะสม
+1. รัน typecheck, lint, test ตรวจสอบความถูกต้อง
+2. ตรวจสอบว่าไฟล์เดิมไม่เกิน 250 บรรทัด
+3. ทำ `/loop-until-complete` ทำซ้ำจนไม่มีไฟล์ > 250 บรรทัด
+4. ทำ `/check-long-files` ยืนยันผลลัพธ์
 
 ## Rules
 
-### 1. File Size Limit
+### 1. File Selection
 
-ตรวจสอบและระบุไฟล์ที่ต้อง split
+เลือกไฟล์ที่เหมาะสมสำหรับ split
 
-- รัน `loc` ก่อนเสมอ
-- กรองไฟล์ที่ต้องเว้นออก (`config`, `types`, `test`, `generated`)
+- รัน loc ก่อนเสมอ
+- กรองไฟล์ที่เว้นออก (`config`, `types`, `test`, `generated`)
 - เลือกไฟล์ > 250 บรรทัดทีละไฟล์
-- `split` แล้วเช็คซ้ำ
+- split แล้วเช็คซ้ำ
 
-### 2. Single Responsibility Principle
+### 2. Responsibility Boundaries
 
-Split ตาม Single Responsibility Principle และ folder ที่เหมาะสม
+Split ตาม Single Responsibility Principle
 
-- ไม่ `split` แบบมั่วๆ หรือแยกโดยไม่คิดถึง `folder structure`
-- ใช้ `/separate-of-concern` เพื่อเข้าใจ `layer separation` ที่ถูกต้อง
-- จัดเก็บไฟล์ตาม `responsibilities`
-- รักษา `folder structure` ที่สม่ำเสมอ
+- ไม่ split แบบมั่วๆ โดยไม่คิดถึง folder structure
+- จัดเก็บไฟล์ตาม responsibilities
+- รักษา folder structure ที่สม่ำเสมอ
+- ใช้ barrel exports สำหรับ folder ที่มีหลายไฟล์
 
-### 3. Minimal Changes
+### 3. Minimal Impact
 
-ใช้ `minimal changes` เสมอเมื่อ `split`
+ใช้ minimal changes เสมอ
 
-- ทำ `/dont-over-engineer` หลีกเลี่ยงการ `over-engineering`
-- ไม่ `split` ทั้งโค้ดเบสเพื่อแก้ปัญหาเล็กๆ
-- ไม่สร้าง `folder` ที่ไม่จำเป็น
-- รักษา `naming conventions` เดิม
+- ทำ `/dont-over-engineer` หลีกเลี่ยง over-engineering
+- ไม่ split ทั้ง codebase เพื่อแก้ปัญหาเล็กๆ
+- ไม่สร้าง folder ที่ไม่จำเป็น
+- รักษา naming conventions เดิม
+- รักษา import aliases ที่มีอยู่
 
-### 4. Dependency Management
+### 4. Verification Standards
 
-จัดการ `dependencies` อย่างถูกต้อง
+ตรวจสอบผลลัพธ์อย่างเข้มงวด
 
-- ใช้ `/update-reference` อัพเดท `imports` และ `references`
-- ตรวจสอบ `circular dependencies`
-- ใช้ `barrel exports` สำหรับ `folder` ที่มีหลายไฟล์
-- รักษา `import aliases` ที่มีอยู่
-
-### 5. Verification
-
-ตรวจสอบผลลัพธ์หลัง `split`
-
-- รัน `typecheck` ตรวจสอบไม่มี `type errors`
-- รัน `lint` ตรวจสอบ `code quality`
-- รัน `test` ตรวจสอบ `functionality`
+- รัน typecheck ตรวจสอบไม่มี type errors
+- รัน lint ตรวจสอบ code quality
+- รัน test ตรวจสอบ functionality
 - ตรวจสอบว่าไฟล์เดิมไม่เกิน 250 บรรทัด
 
 ## Expected Outcome
 
 - ไม่มีไฟล์ > 250 บรรทัดเหลือ (ยกเว้นไฟล์ที่เว้นไว้)
-- ไฟล์อยู่ใน `folder` ที่เหมาะสมตาม Single Responsibility Principle
-- ไม่มี `broken imports` หรือ `missing references`
-- ไม่มี `circular dependencies`
-- `Code` ยังทำงานได้เหมือนเดิม
-- `Naming conventions` สม่ำเสมอ
-- สำหรับ `physical file organization` ให้ใช้ `/restructure`
+- ไฟล์อยู่ใน folder ที่เหมาะสมตาม Single Responsibility Principle
+- ไม่มี broken imports หรือ missing references
+- ไม่มี circular dependencies
+- Code ยังทำงานได้เหมือนเดิม
+- Naming conventions สม่ำเสมอ
+- สำหรับ physical file organization ให้ใช้ `/restructure`
 

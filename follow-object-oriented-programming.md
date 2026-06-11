@@ -103,78 +103,78 @@ auto_execution_mode: 3
 
 ซ่อน implementation details อย่างเหมาะสม
 
-- ใช้ private/#private สำหรับ internal state
-- ใช้ protected สำหรับ subclasses
-- ใช้ public สำหรับ API เท่านั้น
-- ใช้ getters/setters สำหรับ controlled access
-- ใช้ utility types สำหรับ type constraints
-- Avoid exposing internal state
+- ใช้ `private/#private` สำหรับ internal state
+- ใช้ `protected` สำหรับ subclasses
+- ใช้ `public` สำหรับ API เท่านั้น
+- ใช้ `getters/setters` สำหรับ controlled access
+- ใช้ `utility types` สำหรับ type constraints
+- Avoid exposing `internal state`
 
 ### Inheritance
 
 ใช้ inheritance อย่างเหมาะสม
 
-- ใช้ interfaces สำหรับ contracts
-- ใช้ abstract classes สำหรับ base implementations
-- หลีกเลี่ยง deep hierarchies
-- ใช้ composition เมื่อเหมาะสม
-- ใช้ type guards สำหรับ narrowing
-- Favor composition over inheritance
+- ใช้ `interfaces` สำหรับ contracts
+- ใช้ `abstract classes` สำหรับ base implementations
+- หลีกเลี่ยง `deep hierarchies`
+- ใช้ `composition` เมื่อเหมาะสม
+- ใช้ `type guards` สำหรับ narrowing
+- Favor `composition` over inheritance
 
 ### Polymorphism
 
 ใช้ polymorphism สำหรับ flexibility
 
-- ใช้ generics สำหรับ type safety
-- ใช้ interfaces สำหรับ polymorphic behavior
-- ใช้ method overloading อย่างระมัดระวัง
-- ใช้ decorator pattern สำหรับ runtime behavior
-- ใช้ union/intersection types อย่างเหมาะสม
-- Keep polymorphism predictable
+- ใช้ `generics` สำหรับ type safety
+- ใช้ `interfaces` สำหรับ polymorphic behavior
+- ใช้ `method overloading` อย่างระมัดระวัง
+- ใช้ `decorator pattern` สำหรับ runtime behavior
+- ใช้ `union/intersection types` อย่างเหมาะสม
+- Keep `polymorphism` predictable
 
 ### Class Design
 
 ออกแบบ classes ให้มีคุณภาพ
 
-- Single responsibility
-- Meaningful names
+- `Single responsibility`
+- `Meaningful names`
 - Cohesive data and behavior
-- Proper constructors
-- Clear public API
-- Avoid god classes
+- Proper `constructors`
+- Clear `public API`
+- Avoid `god classes`
 
 ### State Management
 
 จัดการ state อย่างปลอดภัย
 
-- ใช้ readonly สำหรับ immutability
-- ใช้ private fields สำหรับ encapsulation
-- ใช้ getters สำหรับ computed values
-- ใช้ setters สำหรับ validation
-- Avoid shared mutable state
-- Prefer immutable state
+- ใช้ `readonly` สำหรับ immutability
+- ใช้ `private fields` สำหรับ encapsulation
+- ใช้ `getters` สำหรับ computed values
+- ใช้ `setters` สำหรับ validation
+- Avoid `shared mutable state`
+- Prefer `immutable state`
 
 ### Composition
 
 ใช้ composition เมื่อเหมาะสม
 
-- ใช้ has-a relationships
-- ใช้ dependency injection
-- ใช้ decorator pattern
-- หลีกเลี่ยง deep inheritance
-- ใช้ composition root
-- Favor composition over inheritance
+- ใช้ `has-a relationships`
+- ใช้ `dependency injection`
+- ใช้ `decorator pattern`
+- หลีกเลี่ยง `deep inheritance`
+- ใช้ `composition root`
+- Favor `composition` over inheritance
 
 ### Type Safety
 
 ใช้ TypeScript เพื่อความปลอดภัย
 
-- ใช้ interfaces สำหรับ contracts
-- ใช้ type guards
-- ใช้ this typing
-- ใช้ instanceof
-- ใช้ discriminated unions
-- Avoid any/unknown
+- ใช้ `interfaces` สำหรับ contracts
+- ใช้ `type guards`
+- ใช้ `this typing`
+- ใช้ `instanceof`
+- ใช้ `discriminated unions`
+- Avoid `any/unknown`
 
 ## Expected Outcome
 

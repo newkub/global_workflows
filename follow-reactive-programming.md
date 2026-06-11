@@ -87,71 +87,71 @@ auto_execution_mode: 3
 
 ใช้ streams อย่างถูกต้องสำหรับ data flow
 
-- Streams emit values, errors, or completion
-- Manage subscriptions properly
-- Use hot streams for shared data
-- Use cold streams for independent data
-- Always unsubscribe when done
+- `streams` emit values, errors, or completion
+- Manage `subscriptions` properly
+- Use `hot streams` for shared data
+- Use `cold streams` for independent data
+- Always `unsubscribe` when done
 
 ### Observables
 
 ใช้ observables สำหรับ reacting ต่อ data
 
-- Lazy evaluation - no work until subscribe
-- Cancel subscriptions when not needed
-- Multiple observers per observable
-- Clean up on unsubscribe
-- Use appropriate observable types
+- `lazy evaluation` - no work until subscribe
+- Cancel `subscriptions` when not needed
+- Multiple `observers` per observable
+- Clean up on `unsubscribe`
+- Use appropriate `observable types`
 
 ### Operators
 
 ใช้ operators สำหรับ transform streams
 
-- Compose operators for complex logic
-- Use map for transformations
-- Use filter for conditional emissions
-- Use combineLatest for dependent streams
-- Use debounce/throttle for performance
+- Compose `operators` for complex logic
+- Use `map` for transformations
+- Use `filter` for conditional emissions
+- Use `combineLatest` for dependent streams
+- Use `debounce`/`throttle` for performance
 
 ### State Management
 
 จัดการ state ด้วย reactive patterns
 
-- Use subjects for multicasting
-- Use behavior subjects for current value
-- Separate state from UI
-- Use state management for complex cases
-- Immutable state updates
+- Use `subjects` for multicasting
+- Use `behavior subjects` for current value
+- Separate `state` from UI
+- Use `state management` for complex cases
+- `Immutable state` updates
 
 ### Side Effects
 
 จัดการ side effects อย่างเหมาะสม
 
-- Use tap for non-mutating side effects
-- Use switchMap for cancellation
-- Use exhaustMap for ignoring
-- Use concatMap for sequential
-- Separate pure logic from effects
+- Use `tap` for non-mutating side effects
+- Use `switchMap` for cancellation
+- Use `exhaustMap` for ignoring
+- Use `concatMap` for sequential
+- Separate `pure logic` from effects
 
 ### Error Handling
 
 จัดการ errors ใน reactive context
 
-- Use catchError for recovery
-- Use retry for transient errors
-- Use finalize for cleanup
-- Propagate errors appropriately
+- Use `catchError` for recovery
+- Use `retry` for transient errors
+- Use `finalize` for cleanup
+- Propagate `errors` appropriately
 - Test error scenarios
 
 ### Performance
 
 ปรับปรุง performance ของ reactive code
 
-- Use debounce/throttle for high-frequency events
-- Avoid memory leaks with unsubscription
-- Use share for multicasting
-- Use async scheduler for heavy operations
-- Profile and optimize hot paths
+- Use `debounce`/`throttle` for high-frequency events
+- Avoid `memory leaks` with unsubscription
+- Use `share` for multicasting
+- Use `async scheduler` for heavy operations
+- Profile and optimize `hot paths`
 
 ## Expected Outcome
 

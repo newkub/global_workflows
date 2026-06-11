@@ -86,71 +86,71 @@ auto_execution_mode: 3
 
 ใช้ control structures อย่างเหมาะสม
 
-- ใช้ conditional statements สำหรับ simple conditions
-- ใช้ branching statements สำหรับ multiple branches
-- ใช้ loops สำหรับ iteration
-- ใช้ flow control statements อย่างระมัดระวัง
-- หลีกเลี่ยง nested conditions ลึกเกินไป
+- ใช้ `conditional statements` สำหรับ simple conditions
+- ใช้ `branching statements` สำหรับ multiple branches
+- ใช้ `loops` สำหรับ iteration
+- ใช้ `flow control statements` อย่างระมัดระวัง
+- หลีกเลี่ยง `nested conditions` ลึกเกินไป
 
 ### Sequential Execution
 
 เขียน code แบบ sequential อย่างชัดเจน
 
-- เรียงลำดับ statements อย่างชัดเจน
-- ใช้ block scopes อย่างเหมาะสม
-- ใช้ early returns
-- ใช้ guard clauses
-- หลีกเลี่ยง deep nesting
+- เรียงลำดับ `statements` อย่างชัดเจน
+- ใช้ `block scopes` อย่างเหมาะสม
+- ใช้ `early returns`
+- ใช้ `guard clauses`
+- หลีกเลี่ยง `deep nesting`
 
 ### Variable Management
 
 จัดการ variables อย่างเหมาะสม
 
-- ใช้ immutable variables สำหรับ immutability
-- ใช้ mutable variables สำหรับ mutability
-- หลีกเลี่ยง deprecated declarations
-- กำหนด scope ชัดเจน
-- ใช้ meaningful names
+- ใช้ `immutable variables` สำหรับ immutability
+- ใช้ `mutable variables` สำหรับ mutability
+- หลีกเลี่ยง `deprecated declarations`
+- กำหนด `scope` ชัดเจน
+- ใช้ `meaningful names`
 
 ### Loop Optimization
 
 ปรับปรุง loops อย่างเหมาะสม
 
-- ใช้ iteration over collections สำหรับ iterables
-- ใช้ iteration over properties สำหรับ objects
-- ใช้ collection operations เมื่อเหมาะสม
-- หลีกเลี่ยง deep nesting
-- ใช้ flow control statements อย่างระมัดระวัง
+- ใช้ `iteration over collections` สำหรับ iterables
+- ใช้ `iteration over properties` สำหรับ objects
+- ใช้ `collection operations` เมื่อเหมาะสม
+- หลีกเลี่ยง `deep nesting`
+- ใช้ `flow control statements` อย่างระมัดระวัง
 
 ### Error Handling
 
 จัดการ errors อย่าง systematic
 
-- ใช้ error handling mechanisms สำหรับ error handling
-- ใช้ cleanup mechanisms สำหรับ cleanup
-- ใช้ error raising สำหรับ custom errors
-- ใช้ error objects ถูกต้อง
-- Propagate errors อย่างเหมาะสม
+- ใช้ `error handling mechanisms` สำหรับ error handling
+- ใช้ `cleanup mechanisms` สำหรับ cleanup
+- ใช้ `error raising` สำหรับ custom errors
+- ใช้ `error objects` ถูกต้อง
+- Propagate `errors` อย่างเหมาะสม
 
 ### State Mutation
 
 จัดการ state mutations อย่างปลอดภัย
 
-- จำกัด mutations
-- ใช้ immutable patterns
-- Document mutations
-- หลีกเลี่ยง side effects
-- Test mutations
+- จำกัด `mutations`
+- ใช้ `immutable patterns`
+- Document `mutations`
+- หลีกเลี่ยง `side effects`
+- Test `mutations`
 
 ### Performance
 
 ปรับปรุง performance
 
-- หลีกเลี่ยง unnecessary calculations
-- ใช้ caching
-- Optimize hot paths
+- หลีกเลี่ยง `unnecessary calculations`
+- ใช้ `caching`
+- Optimize `hot paths`
 - Profile และ benchmark
-- ใช้ efficient algorithms
+- ใช้ `efficient algorithms`
 
 ## Expected Outcome
 

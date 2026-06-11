@@ -1,132 +1,108 @@
+---
 title: Run Test Coverage
 description: รัน test coverage analysis เพื่อวิเคราะห์และปรับปรุง code coverage
 auto_execution_mode: 3
-## Purpose
+related_workflows:
+  - /run-test
+  - /write-test
+---
+
+## Goal
 
 รัน test coverage analysis เพื่อวิเคราะห์ code coverage และแนะนำการปรับปรุง
 
 ## Scope
 
-ใช้สำหรับ:
+ใช้สำหรับวิเคราะห์ code coverage ปัจจุบัน ระบุ areas ที่ขาด coverage แนะนำ tests ที่ควรเพิ่ม และ monitor coverage trends
 
-- วิเคราะห์ code coverage ปัจจุบัน
-- ระบุ areas ที่ขาด coverage
-- แนะนำ tests ที่ควรเพิ่ม
-- Monitor coverage trends
+## Execute
 
-## Inputs
+### 1. Setup Coverage
 
-| Input | Details |
-|-------|---------|
-| Coverage Threshold | (optional) เปอร์เซ็นต์ขั้นต่ำ |
-| Report Format | (optional) format ของ report |
+1. ทำ `/run-install` เพื่อติดตั้ง dependencies
+2. ตรวจสอบ coverage tools ถูกติดตั้ง
+3. ตรวจสอบ coverage config ใน `vitest/jest` config
+4. ตรวจสอบ coverage thresholds ตั้งค่าเป็น 100%
+5. ตรวจสอบ coverage directory
+
+### 2. Run Coverage
+
+1. รัน `bun run test:coverage` หรือ script ที่กำหนด
+2. รอ tests เสร็จสิ้น
+3. บันทึก coverage metrics
+4. สร้าง coverage report files
+5. ตรวจสอบ report ถูกสร้าง
+6. บันทึก report location
+
+### 3. Analyze Coverage
+
+1. ดู coverage percentages ทุก category
+2. ระบุ files ที่มี coverage ต่ำ
+3. ระบุ uncovered lines/branches
+4. หา code ที่ไม่มี tests
+5. หา edge cases ที่ยังไม่ถูก cover
+6. หา error paths ที่ยังไม่ถูก test
+7. วิเคราะห์แต่ละ coverage type แยกกัน:
+   - `lines` - ตรวจสอบทุก executable lines
+   - `branches` - ตรวจสอบทุก conditional branches
+   - `functions` - ตรวจสอบทุก function declarations
+   - `statements` - ตรวจสอบทุก statements
+
+### 4. Report Coverage Gaps
+
+1. รายงาน coverage percentages ทุก category
+2. ระบุ files ที่มี coverage ต่ำ
+3. ระบุ uncovered lines/branches/functions/statements แยกกัน
+4. ระบุ code paths ที่ยังไม่มี tests
+5. ระบุ edge cases ที่ยังไม่ถูก cover
+6. ระบุ error paths ที่ยังไม่ถูก test
+7. สร้างรายงานสรุปสำหรับการเพิ่ม tests
 
 ## Rules
 
-### Coverage Analysis
+### 1. Coverage Metrics
 
-| Metric | Description |
-|--------|-------------|
-| Lines | % ของ lines ที่ถูก execute |
-| Functions | % ของ functions ที่ถูก call |
-| Branches | % ของ branches ที่ถูก test |
-| Statements | % ของ statements ที่ถูก execute |
+ตรวจสอบ coverage ทุก category ตามมาตรฐาน
 
-### Threshold Rules
+- `lines` - % ของ lines ที่ถูก execute
+- `functions` - % ของ functions ที่ถูก call
+- `branches` - % ของ branches ที่ถูก test
+- `statements` - % ของ statements ที่ถูก execute
 
-| Coverage | การดำเนินการ |
-|----------|-------------|
-| >= 80% | Acceptable |
-| >= 90% | Good |
-| >= 95% | Excellent |
-| < 80% | ต้องเพิ่ม tests |
+### 2. Coverage Threshold
 
-## Structure
+เป้าหมาย coverage ต้องถึง 100% ทุก category โดยไม่มีข้อยกเว้น
 
-### File Location
+- Coverage 100% ทุก category เท่านั้นที่ผ่าน
+- หาก coverage ไม่ถึง 100% ต้องเพิ่ม tests จนครบ
+- ไม่มีข้อยกเว้นสำหรับ critical code
+- ไม่มีข้อยกเว้นสำหรับ edge cases
 
-```text
-.windsurf/workflows/
-└── run-test-coverage.md
-```
+### 3. Coverage Analysis
 
-### Phase Definitions
+วิเคราะห์ coverage report อย่างละเอียด
 
-| Phase | Description | Main Activities |
-|-------|-------------|---------------|
-| Setup | เตรียมการ | install, check config |
-| Run | รัน coverage | execute tests with coverage |
-| Analyze | วิเคราะห์ | ดู coverage report |
-| Improve | ปรับปรุง | เพิ่ม tests ถ้าจำเป็น |
+- ตรวจสอบ coverage report ทุก file
+- ระบุ code ที่สำคัญแต่ยังไม่มี test
+- พิจารณา criticality ของส่วนที่ไม่มี coverage
+- วิเคราะห์ uncovered code paths
+- วิเคราะห์ edge cases ที่ยังไม่ถูก test
 
-## Steps
+### 4. Test Improvement
 
-### Phase 1: Setup
+เพิ่ม tests สำหรับส่วนที่ขาด coverage
 
-- 1.1 **Install Dependencies**
-  - รัน `/run-install`
-  - ตรวจสอบ coverage tools ถูกติดตั้ง
-
-- 1.2 **Check Configuration**
-  - ตรวจสอบ coverage config ใน vitest/jest config
-  - ตรวจสอบ coverage thresholds
-  - ตรวจสอบ coverage directory
-
-### Phase 2: Run Coverage
-
-- 2.1 **Execute Coverage**
-  - รัน `bun run test:coverage` หรือ script ที่กำหนด
-  - รอ tests เสร็จสิ้น
-  - บันทึก coverage metrics
-
-- 2.2 **Generate Report**
-  - สร้าง coverage report files
-  - ตรวจสอบ report ถูกสร้าง
-  - บันทึก report location
-
-### Phase 3: Analyze
-
-- 3.1 **Review Metrics**
-  - ดู coverage percentages
-  - ระบุ files ที่มี coverage ต่ำ
-  - ระบุ uncovered lines/branches
-
-- 3.2 **Identify Gaps**
-  - หา code ที่ไม่มี tests
-  - หา edge cases ที่ยังไม่ถูก cover
-  - หา error paths ที่ยังไม่ถูก test
-
-### Phase 4: Improve
-
-- 4.1 **Add Tests**
-  - เขียน tests สำหรับ gaps ที่พบ
-  - focus ที่ uncovered code paths
-  - เพิ่ม edge case tests
-
-- 4.2 **Re-run Coverage**
-  - รัน coverage อีกครั้ง
-  - ตรวจสอบว่า coverage เพิ่มขึ้น
-  - ทำซ้ำจนกว่าจะพอใจ
-
-## Outputs
-
-| Output | Details |
-|--------|---------|
-| Coverage Report | รายงาน coverage ทั้งหมด |
-| Coverage Metrics | เปอร์เซ็นต์แต่ละ category |
-| Uncovered Code | รายการ code ที่ยังไม่มี tests |
-| Improvement Suggestions | แนะนำ tests ที่ควรเพิ่ม |
+- เขียน tests สำหรับ uncovered code paths
+- เขียน tests สำหรับ edge cases
+- เขียน tests สำหรับ error paths
+- เขียน tests สำหรับ boundary conditions
+- รัน coverage อีกครั้งหลังเพิ่ม tests
 
 ## Expected Outcome
 
 - Coverage report ถูกสร้าง
-- Metrics ครบทุก category
-- Uncovered code ถูกระบุ
-- Tests เพิ่มขึ้นถ้าจำเป็น
-
-## Reference
-
-- `/validate` - ตรวจสอบความถูกต้องก่อนเริ่ม
-- `/run-test` - รัน tests
-- `/run-install` - ติดตั้ง dependencies
+- Coverage ถึง 100% ทุก category (lines, branches, functions, statements)
+- Uncovered code ถูกระบุแยกกันตาม type
+- รายงานสรุป coverage gaps ครบถ้วน
+- ข้อมูลเพียงพอสำหรับการเพิ่ม tests
 

@@ -49,8 +49,8 @@ auto_execution_mode: 3
 
 ปรับปรุม performance และ optimization
 
-1. รัน `/optimize-bundle`
-2. รัน `/optimize-perf`
+1. รัน `/improve-bundle`
+2. รัน `/improve-perf`
 
 ### 7. Improve Security
 

@@ -1,12 +1,12 @@
 ---
 title: Implement Todo
-description: แปลง TODO, FIXME, HACK เป็น production code
+description: แปลง TODO, FIXME, HACK เป็น production code แบบ edit-only
 auto_execution_mode: 3
 ---
 
 ## Goal
 
-แปลง TODO, FIXME, HACK comments และ placeholder functions ให้กลายเป็น production code ที่ใช้งานได้จริง
+แปลง TODO, FIXME, HACK comments และ placeholder functions ให้กลายเป็น production code ที่ใช้งานได้จริง โดยไม่รัน command ใดๆ
 
 ## Execute
 
@@ -14,69 +14,60 @@ auto_execution_mode: 3
 
 ค้นหาและรวบรวมทุกสิ่งที่ต้อง implement จริง
 
-1. ค้นหา TODO, FIXME, XXX, HACK comments ด้วย `/search-code`
+1. ค้นหา `TODO`, `FIXME`, `XXX`, `HACK` comments ด้วย `Grep`
 2. ค้นหา placeholder functions ที่ยังไม่ implement
 3. ค้นหา simulated delays และ hard-coded data
 4. จัดกลุ่มตาม priority และ dependencies
 
-### 2. Implementation
+### 2. Code Modification
 
-Implement production code ตาม priority และ dependencies
+แก้ไข code ด้วย file editing tools เท่านั้น
 
-1. ทำ `/resolve-errors` เพื่อวิเคราะห์ root cause ก่อน implement
-2. Implement functions ตาม business logic ที่ถูกต้อง
-3. เชื่อมต่อกับ dependencies ที่จำเป็น (database, API, services)
-4. เขียน tests ตาม `/write-test`
-5. ทำ `/loop-until-complete` จนกว่าจะผ่าน tests
+1. ใช้ `edit` หรือ `multi_edit` สำหรับแก้ไขไฟล์
+2. ใช้ `write_to_file` สำหรับสร้างไฟล์ใหม่
+3. Implement functions ตาม business logic ที่ถูกต้อง
+4. เชื่อมต่อกับ dependencies ที่จำเป็น (database, API, services)
+5. ทำ `/update-reference` เพื่ออัพเดท references ทั้งหมด
 
-### 3. Verification
+### 3. Validation
 
 ตรวจสอบว่าไม่มี TODO เหลือและ code ใช้งานได้จริง
 
-1. ค้นหา TODO, FIXME, XXX, HACK อีกครั้ง
+1. ค้นหา `TODO`, `FIXME`, `XXX`, `HACK` อีกครั้งด้วย `Grep`
 
 ## Rules
 
-### No Placeholder Code
+### 1. No Execution
+
+ห้ามรัน command ใดๆ ทำเฉพาะ file editing operations
+
+- ห้ามรัน `run_command` ใดๆ
+- ห้ามรัน background process
+- ห้ามเปิด `browser_preview`
+- ใช้เฉพาะ `edit`, `multi_edit`, `write_to_file`, `read_file`
+
+### 2. No Placeholder Code
 
 แทนที่ทุก placeholder functions ด้วย implementation จริง
 
 - ไม่มี placeholder functions ใน production code
-- ไม่มี TODO, FIXME, XXX, HACK comments
+- ไม่มี `TODO`, `FIXME`, `XXX`, `HACK` comments
 - ไม่มี simulated delays หรือ hard-coded data
 - Functions ต้องมี logic ที่ถูกต้อง
 
-### Test Coverage
+### 3. Code Quality
 
-ทุก implementation ต้องมี tests
-
-- เขียน unit tests สำหรับ functions
-- เขียน integration tests สำหรับ dependencies
-- Tests ต้องครอบคลุม edge cases
-- Tests ต้องผ่านทั้งหมด
-
-### Code Quality
-
-ทุก code ต้องผ่าน linting และ type checking
+รักษาคุณภาพโค้ดตามมาตรฐาา
 
 - ผ่าน linting rules ทั้งหมด
 - ผ่าน type checking ไม่มี errors
 - ใช้ import alias ตาม `/use-import-alias`
 - ทำตาม `/code-quality`
 
-### Documentation
-
-ทุก functions ต้องมี documentation
-
-- เขียน docs สำหรับ public functions
-- เขียน examples สำหรับ complex logic
-- Update README ตาม `/update-readme`
-
 ## Expected Outcome
 
-- TODO, FIXME, HACK ถูกแปลงเป็น production code
+- `TODO`, `FIXME`, `HACK` ถูกแปลงเป็น production code
 - Placeholder functions ถูก implement จริง
-- Tests ครอบคลุมและผ่านทั้งหมด
 - Code ผ่าน linting และ type checking
-- Documentation ครบถ้วน
+- ไม่มี command ถูกรันใดๆ
 

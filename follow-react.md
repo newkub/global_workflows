@@ -1,180 +1,108 @@
 ---
-trigger: always_on
+title: Follow React
+description: พัฒนา React applications ตาม best practices
+auto_execution_mode: 3
 ---
 
-## Setup
+## Goal
 
-### config
+พัฒนา React applications ตาม best practices ด้วย project structure และ patterns ที่ถูกต้อง
 
-#### `package.json`
+## Scope
 
-```json [package.json]
-{
-  "private": true,
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
-    "lint": "biome check ."
-  }
-}
-```
+ใช้สำหรับพัฒนา React applications ด้วย Vite, TypeScript, และ folder structure มาตรฐาน
 
-### Libraries
+## Execute
 
-- /unocss
+### 1. Setup Project Structure
 
-## Project Structure
+สร้างโครงสร้างโปรเจกต์ตามมาตรฐาน
 
-```plaintext
-my-react-app/
-├── src/
-│   ├── components/
-│   │   ├── ui/               # Dumb UI components
-│   │   └── features/         # Feature UI components
-│   ├── hooks/                # useX hooks (controller/facade)
-│   ├── lib/                  # app utilities, clients, adapters
-│   ├── pages/                # route-level components (ถ้ามี)
-│   ├── styles/
-│   ├── types/
-│   ├── main.tsx
-│   └── App.tsx
-├── index.html
-├── vite.config.ts
-├── tsconfig.json
-└── package.json
-```
+1. สร้าง `src/components/ui`, `src/components/features`, `src/hooks`, `src/lib`, `src/types`
+2. ตั้งค่า `package.json` ด้วย scripts มาตรฐาน
+3. ตั้งค่า `vite.config.ts` และ `tsconfig.json`
+4. ติดตั้ง dependencies ที่จำเป็น
 
-## Core Principles
+### 2. Configure Core Principles
 
-1. ใช้ React.StrictMode
+ตั้งค่าหลักการพื้นฐานของ React
 
-```tsx
-<React.StrictMode>
-    <App />
-</React.StrictMode>
-```
+1. ใช้ `React.StrictMode` ห่อ `App` component
+2. ใช้ Error Boundaries สำหรับส่วนเสี่ยง
+3. ตั้งค่า UnoCSS ตาม `/follow-unocss`
+4. ใช้ React Server Components ให้เหมาะสม
 
-2. ใช้ React Server Component (RSC) ให้เหมาะสม เช่น
+### 3. Implement Folder Rules
 
-- component heavy ไม่มี interactive แค่แสดงข้อมูล
-- ดึง data จาก server
-- ต้องการ security
-- re-render น่อย แต่ไม่มี state
+ใช้ rules สำหรับแต่ละ folder
 
-3. ใช้ Error Boundaries ห่อส่วนเสี่ยงไว้ เพื่อไม่ให้แอป crash ทั้งหมด
+1. `components/ui`: Dumb components, props in, events out
+2. `components/features`: Feature-specific components
+3. `hooks`: Orchestration and facade patterns
+4. `lib`: Pure utilities, clients, adapters
 
-```tsx
-<ErrorBoundary>
-  <SomeComp />
-</ErrorBoundary>
-```
+### 4. Setup Import Rules
 
-4. ใช้ unocss => /unocss
+ตั้งค่า import dependencies ตามลำดับ
 
-5. Memoization / Rendering Optimization
+1. pages → components/features, hooks
+2. components/features → components/ui, hooks
+3. components/ui → no internal dependencies
+4. hooks → lib, types
+5. lib → types
+6. types → no internal dependencies
 
-- ใช้ `React.memo`, `useMemo`, `useCallback` เมื่อจำเป็น
-- อย่า over‑memoize ที่ไม่ช่วย performance จริง
+### 5. Optimize Performance
 
-6. Code Splitting & Lazy Loading
+ตั้งค่า performance optimization
 
-- แบ่ง bundle ตาม route หรือ component เพื่อให้ initial load เบาและเร็ว
+1. ใช้ `React.memo`, `useMemo`, `useCallback` เมื่อจำเป็น
+2. ใช้ code splitting ด้วย `React.lazy`
+3. ใช้ `useTransition` สำหรับ priority updates
 
-```tsx
-const Page = React.lazy(() => import('./Page'))
-```
+## Rules
 
-7. automatic batching แล้ว แต่ยังควรใช้ `useTransition` เพื่อแบ่ง priority update
+### 1. Component Structure
 
-```tsx
-const [isPending, startTransition] = useTransition()
+จัดโครงสร้าง components ตาม responsibilities
 
-```
+- `components/ui`: Small, focused, single responsibility
+- `components/features`: Feature-specific, no global state binding
+- `hooks`: Orchestration, facade patterns, no UI markup
+- `lib`: Pure utilities, clients, adapters, no React imports
 
-## Folder Rules
+### 2. Performance Best Practices
 
-### `components/ui/`
+ใช้ performance optimization อย่างเหมาะสม
 
-- Do
-  - component เล็ก ๆ โฟกัสอย่างเดียว
-  - รับ props ส่ง events (Props in, Events out)
-- Don't
-  - ดึง data / เรียก API ใน component
+- ใช้ memoization เมื่อจำเป็นเท่านั้น
+- หลีกเลี่ยง over-memoization
+- ใช้ code splitting ตาม route หรือ component
+- ใช้ `useTransition` สำหรับ non-critical updates
 
-```tsx
-type ButtonProps = {
-  label: string
-  onClick: () => void
-}
+### 3. Code Quality
 
-export const Button = ({ label, onClick }: ButtonProps) => {
-  return <button type="button" onClick={onClick}>{label}</button>
-}
-```
+รักษาคุณภาพโค้ด
 
-### `components/features/`
+- ใช้ TypeScript สำหรับ type safety
+- ใช้ Biome สำหรับ linting
+- ใช้ strict mode สำหรับ development
+- ใช้ Error Boundaries สำหรับ error handling
 
-- Do
-  - แยกตาม feature (เช่น `components/features/auth/*`)
-- Don't
-  - ผูกกับ global state โดยไม่จำเป็น
+### 4. Configuration Standards
 
-```tsx
-import { Button } from '../ui/Button'
+ตั้งค่า configuration ตามมาตรฐาน
 
-export const LoginPanel = () => {
-  return (
-    <section>
-      <h2>Login</h2>
-      <Button label="Sign in" onClick={() => {}} />
-    </section>
-  )
-}
-```
+- `package.json`: dev, build, preview, typecheck, lint scripts
+- `vite.config.ts`: Vite configuration
+- `tsconfig.json`: TypeScript configuration
+- UnoCSS configuration ตาม `/follow-unocss`
 
-### `hooks/`
+## Expected Outcome
 
-- Do
-  - เก็บ orchestration/flow (คล้าย `composables/facade`)
-  - รวมหลาย ๆ `lib`/client ให้เป็น API ที่ UI เรียกง่าย
-- Don't
-  - ใส่ UI markup
-
-```ts
-import { useCallback, useState } from 'react'
-
-export const useCounter = () => {
-  const [count, setCount] = useState(0)
-
-  const inc = useCallback(() => setCount((c) => c + 1), [])
-
-  return { count, inc }
-}
-```
-
-### `lib/`
-
-- Do
-  - client/adapters (เช่น fetch client), pure utilities, helpers
-- Don't
-  - import React component / hook เข้ามาใน `lib/`
-
-```ts
-export const assertNever = (value: never): never => {
-  throw new Error(`Unexpected value: ${String(value)}`)
-}
-```
-
-## Import Rules
-
-```plaintext
-pages                <-- components/features, hooks
-components/features  <-- components/ui, hooks
-components/ui        <-- (no internal dependencies)
-hooks                <-- lib, types
-lib                  <-- types
-types                <-- (no internal dependencies)
-```
+- React application ด้วย structure ที่ถูกต้อง
+- Components แยกตาม responsibilities
+- Performance optimization ที่เหมาะสม
+- Type safety ด้วย TypeScript
+- Code quality ด้วย linting
 

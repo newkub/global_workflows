@@ -3,9 +3,9 @@ title: Review And Fix
 description: Review codebase และ fix issues อย่าง systematic โดยไม่เพิ่ม features ใหม่
 auto_execution_mode: 3
 related_workflows:
-  - /follow-resolve-errors
+  - /resolve-errors
   - /only-fix-errors
-  - /follow-analyze-errors
+  - /analyze-errors
 ---
 
 ## Goal
@@ -32,7 +32,7 @@ Review codebase เพื่อหา issues ทั้งหมด
 
 วิเคราะห์ issues ที่พบอย่างละเอียด
 
-1. ทำ `/follow-analyze-errors` เพื่อวิเคราะห์และจัดลำดับ issues
+1. ทำ `/analyze-errors` เพื่อวิเคราะห์และจัดลำดับ issues
 2. ระบุ root cause ของแต่ละ issue
 3. จัดลำดับความสำคัญตาม impact (critical, high, medium, low)
 4. ระบุ dependencies ระหว่าง issues
@@ -51,7 +51,7 @@ Review codebase เพื่อหา issues ทั้งหมด
 
 Fix issues ตามลำดับความสำคัญ
 
-1. ทำ `/follow-resolve-errors` สำหรับแต่ละ issue
+1. ทำ `/resolve-errors` สำหรับแต่ละ issue
 2. แก้ไข root cause โดยตรง
 3. ทำการเปลี่ยนแปลงน้อยที่สุดที่จำเป็น
 4. รักษา consistency กับ code style ที่มีอยู่

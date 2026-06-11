@@ -1,140 +1,81 @@
 ---
 title: Write Agents Md
-description: เขียน AGENTS.md ตาม template สำหรับ windsurf rules และ ast-grep
+description: เขียน AGENTS.md ตาม project analysis และ dependencies
 auto_execution_mode: 3
-related_workflows:
-  - /write-windsurf-rules
-  - /write-ast-grep-rules
-  - /run-scan
 ---
 
 ## Goal
 
-เขียน AGENTS.md ตาม template สำหรับ windsurf rules และ ast-grep
+เขียน AGENTS.md ตาม project analysis, dependencies และ best practices
 
 ## Scope
 
-ใช้สำหรับเขียน AGENTS.md ใน workspace ตาม template ที่กำหนด
+ใช้สำหรับเขียน AGENTS.md ใน workspace ตาม project จริง
 
 ## Execute
 
-### 1. Copy Template
+### 1. Analyze Project
 
-คัดลอก template มาเขียน AGENTS.md
+วิเคราะห์ project เพื่อเข้าใจ requirements
 
-1. คัดลอก template จาก workflow นี้
-2. สร้างไฟล์ AGENTS.md ใน workspace root
-3. วาง template ลงในไฟล์
+1. ทำ `/analyze-project` เพื่อวิเคราะห์ codebase
+2. อ่าน `package.json` เพื่อดู dependencies
+3. ระบุ tech stack และ frameworks ที่ใช้
+4. วิเคราะห์ patterns และ conventions ที่มีอยู่
 
-### 2. Verify Template
+### 2. Identify Workflows And Skills
 
-ตรวจสอบว่า template ถูกต้อง
+ระบุ workflows และ skills ที่ควร follow จาก dependencies
 
-1. ตรวจสอบ frontmatter ครบถ้วน
-2. ตรวจสอบ Execute มี 3 steps
-3. ตรวจสอบ Rules มี 3 sections
-4. ตรวจสอบ Expected Outcome ครบถ้วน
+1. ดู dependencies ใน `package.json`
+2. ค้นหา workflows ที่เกี่ยวข้องใน global_workflows
+3. ค้นหา skills ที่เกี่ยวข้องใน skills registry
+4. ระบุ workflows และ skills ที่ควร follow สำหรับแต่ละ dependency
 
-## Rules
+### 3. Write AGENTS.md
 
-### 1. Template Structure
+เขียน AGENTS.md ครบถ้วน
 
-โครงสร้าง template:
-
-- Frontmatter: title, description, auto_execution_mode: 3, related_workflows
-- Execute: 3 steps (Write Windsurf Rules, Convert Rules To Ast-Grep, Run Ast-Grep Scan)
-- Rules: 3 sections (Execution Order, Rule Standards, Workflow References)
-- Expected Outcome: 3 outcomes
-
-### 2. Template Content
-
-เนื้อหา template:
-
-```markdown
----
-title: Agents
-description: กฎการทำงานสำหรับ windsurf rules และ ast-grep
-auto_execution_mode: 3
-related_workflows:
-  - /write-windsurf-rules
-  - /write-ast-grep-rules
-  - /run-scan
----
-
-## Goal
-
-กำหนดกฎการทำงานสำหรับ windsurf rules และ ast-grep
-
-## Scope
-
-ใช้สำหรับกำหนดกฎการทำงานใน workspace ที่เกี่ยวกับ windsurf rules
-
-## Execute
-
-### 1. Write Windsurf Rules
-
-เขียน windsurf rules สำหรับ project
-
-1. ทำ `/write-windsurf-rules` เพื่อเขียน windsurf rules
-2. เขียน rules ใน away/, libraries/, domain/, patterns/, project/
-
-### 2. Convert Rules To Ast-Grep
-
-แปลง windsurf rules เป็น ast-grep format
-
-1. ทำ `/write-ast-grep-rules` เพื่อแปลง `.windsurf/rules`
-2. แปลง rules เป็น ast-grep YAML format พร้อม test cases
-
-### 3. Run Ast-Grep Scan
-
-รัน ast-grep scan เพื่อตรวจสอบ codebase
-
-1. ทำ `/run-scan` เพื่อรัน ast-grep scan
-2. แก้ไข code ตาม suggestions จนไม่มี issues
+1. เพิ่ม header: อ่าน `/ship-code` และ `/review-everything` ก่อนแก้ไข code ทุกครั้ง
+2. เขียน ## Custom Rules section (ว่างเปล่า)
+3. เขียน ## Rules section (ว่างเปล่า)
+4. เขียน ## Project ENV section พร้อม environment information
+5. เขียน ## Workflows section พร้อม workflows ที่ควร follow
+6. เขียน ## Skills section พร้อม skills ที่ควร follow
 
 ## Rules
 
-### 1. Execution Order
+### 1. Header Requirement
 
-ลำดับการทำงาน:
+ต้องมี header ด้านบนสุด:
 
-- ทำ `/write-windsurf-rules` ก่อน `/write-ast-grep-rules`
-- ทำ `/write-ast-grep-rules` ก่อน `/run-scan`
-- รัน `/run-scan` ซ้ำจนไม่มี issues
+- เขียนว่า อ่าน `/ship-code` และ `/review-everything` ก่อนแก้ไข code ทุกครั้ง
+- ต้องอยู่บรรทัดแรกของไฟล์
 
-### 2. Rule Standards
+### 2. Section Structure
 
-มาตรฐาน rules:
+โครงสร้าง sections:
 
-- Rules ต้องอยู่ใน away/, libraries/, domain/, patterns/, project/
-- Rules ต้องมี frontmatter ที่ถูกต้อง
-- ต้องมี test cases สำหรับแต่ละ ast-grep rule
-- ต้องใช้ meta variables ($VAR) สำหรับ capture AST nodes
+- ## Custom Rules: custom rules ที่ผู้ใช้เขียนเอง
+- ## Rules: rules ที่ผู้ใช้เขียนเอง
+- ## Project ENV: project environment information (package manager, runtime, monorepo, etc.)
+- ## Workflows: workflows ที่ควร follow จาก dependencies
+- ## Skills: skills ที่ควร follow จาก dependencies
 
-### 3. Workflow References
+### 3. Workflow And Skill Format
 
-การอ้างอิง workflows:
+รูปแบบ workflows และ skills:
 
-- ใช้รูปแบบ ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
-- ต้องอ้างอิง workflows ที่มีอยู่จริงใน global_workflows
-
-## Expected Outcome
-
-- Windsurf rules เขียนครบถ้วนสำหรับ project
-- Windsurf rules แปลงเป็น ast-grep format
-- Codebase ผ่าน ast-grep scan โดยไม่มี errors
-```
-
-### 3. File Location
-
-ตำแหน่งไฟล์:
-
-- AGENTS.md ต้องอยู่ใน workspace root
-- ไม่อยู่ใน subdirectory
+- ใช้รูปแบบ `/workflow-name` สำหรับ workflows
+- ใช้รูปแบบ `skill-name` สำหรับ skills
+- เพิ่มคำว่า ทำ ก่อนทุก workflow และ skill
+- Custom Rules และ Rules ต้องว่างเปล่า ผู้ใช้เขียนเอง
 
 ## Expected Outcome
 
-- AGENTS.md สร้างด้วย template ที่ถูกต้อง
-- Template ครบถ้วนตามมาตรฐาน
-- AGENTS.md พร้อมใช้งาน
+- AGENTS.md มี header อ่าน `/ship-code` และ `/review-everything` ก่อนแก้ไข code ทุกครั้ง
+- AGENTS.md มี ## Custom Rules, ## Rules, ## Workflows, ## Skills ครบถ้วน
+- Custom Rules และ Rules ว่างเปล่า (ผู้ใช้เขียนเอง)
+- Workflows อิงจาก dependencies ใน package.json
+- Skills อิงจาก dependencies ใน package.json
 

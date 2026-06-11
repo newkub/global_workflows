@@ -1,23 +1,34 @@
 ---
 title: Follow Devin Project Rules
-description: ทำตาม rules ใน .windsurf/rules ให้ครบถ้วน
+description: ทำตาม rules ใน .devin/rules ให้ครบถ้วน
 auto_execution_mode: 3
+related_workflows:
+  - /write-devin-project-rules
+  - /write-devin-project-hooks
 ---
 
 ## Goal
 
-ทำตาม rules ใน `.windsurf/rules` ให้ครบถ้วน
+ทำตาม rules ใน `.devin/rules` ให้ครบถ้วน
 
 ## Execute
 
-### 1. Read Rules
+### 1. Check Rules Existence
+
+ตรวจสอบว่ามี rules หรือไม่
+
+1. ตรวจสอบว่ามี `.devin/rules` directory หรือไม่
+2. ถ้าไม่มี ให้ทำ `/write-devin-project-rules` เพื่อสร้าง rules
+3. ถ้าต้องการ hooks ให้ทำ `/write-devin-project-hooks` เพื่อสร้าง hooks
+
+### 2. Read Rules
 
 อ่านและเข้าใจ rules ทั้งหมด
 
-1. อ่านไฟล์ rules ทั้งหมดใน `.windsurf/rules`
+1. อ่านไฟล์ rules ทั้งหมดใน `.devin/rules`
 2. เข้าใจความหมายและวัตถุประสงค์ของแต่ละ rule
 
-### 2. Apply Rules
+### 3. Apply Rules
 
 ปฏิบัติตาม rules ที่กำหนด
 
@@ -40,5 +51,5 @@ auto_execution_mode: 3
 
 ## Expected Outcome
 
-- Rules ใน `.windsurf/rules` ถูกทำตามครบถ้วน
+- Rules ใน `.devin/rules` ถูกทำตามครบถ้วน
 - Bullet points ถูกลบเมื่อทำเสร็จแล้ว

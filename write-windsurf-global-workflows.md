@@ -1,16 +1,10 @@
 ---
 
-title: Follow Workflows Creator
+title: Write Windsurf Global Workflows
 
 description: เขียน workflow file ให้เป็นมาตรฐานเดียวกัน
 
 auto_execution_mode: 3
-
-related_workflows:
-  - /windsurf-global-workflows
-  - /improve-flow
-  - /update-docs
-  - /update-reference
 
 ---
 
@@ -28,7 +22,7 @@ related_workflows:
 
 เรียนรู้จาก official docs สำหรับ workflow ที่เกี่ยวข้องกับ library/framework
 
-1. ทำ `/follow-learn-best-practices` หรือ `/deep-research`
+1. ทำ `/follow-best-practice` หรือ `/deep-research`
 2. อ่าน official documentation และสรุป best practices
 
 ### 2. Read Global Workflows
@@ -37,7 +31,8 @@ related_workflows:
 
 1. ทำ `/windsurf-global-workflows`
 2. อ่าน workflows ที่คล้ายกัน
-3. ใช้ `/update-docs` หากมี file operations
+3. ดูตัวอย่างที่ `/example-workflow`
+4. ใช้ `/update-docs` หากมี file operations
 
 ### 3. Write Frontmatter
 
@@ -55,189 +50,92 @@ related_workflows:
 เขียน Execute และ Rules ตามมาตรฐาน
 
 1. จัดลำดับ Execute ตาม impact order
-2. ใช้ `### N. Step Name` (Title Case)
-3. ใช้ numbered list (1., 2., 3.)
-4. ใช้ `### N. Rule Category` สำหรับ Rules
-5. ใช้ bullet points (-) ชิดซ้ายใน Rules
-6. เขียนเป็นหลักการ how-to
-7. เขียนในรูปแบบ ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
-8. ทำตาม `/follow-content-quality`
-9. ไม่ซ้ำซ้อนระหว่าง Execute และ Rules
+2. ใช้ `### N. Step Name` (Title Case) และ numbered list (1., 2., 3.)
+3. ใช้ `### N. Rule Category` และ bullet points (-) ใน Rules
+4. เขียนเป็นหลักการ how-to ในรูปแบบ ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
+5. ทำตาม `/follow-content-quality` และไม่ซ้ำซ้อนระหว่าง Execute และ Rules
 
 ### 5. Validate And Finalize
 
 ตรวจสอบและ finalize workflow
 
-1. ตรวจสอบว่าไม่เกิน 300 บรรทัด
+1. ตรวจสอบว่าไม่เกิน 200 บรรทัด
 2. ทำ `/improve-flow`
-3. ตรวจสอบ workflows ที่อ้างอิงมีอยู่จริง
-4. ใช้ `/update-reference` หากมี file operations
+3. ทำ `/check-reference` เพื่อตรวจสอบ references มีอยู่จริง
+4. ตรวจสอบ dependent workflows ที่อ้างอิง workflow นี้ ว่าต้องแก้ไขอะไรไหม
+5. ใช้ `/update-reference` หากมี file operations
 
 ## Rules
 
-### 1. Frontmatter And Structure
+### 1. Structure And Consistency
 
-ตั้งค่า frontmatter และโครงสร้างตามมาตรฐาน
+ตั้งค่าโครงสร้างและตรวจสอบความสอดคล้องตามมาตรฐาน
 
 - `title`: Title Case ชัดเจน (ตรงกับ filename ไม่รวม `follow-`)
 - `description`: กระชับไม่เกิน 100 ตัวอักษร
 - `auto_execution_mode`: 3 เท่านั้น
-- `related_workflows`: (optional) รายการ workflows ที่เกี่ยวข้อง
-- `url`: (optional) URL ภายนอกสำหรับ reference
-- ## Goal (required)
-- ## Scope (required)
-- ## Execute (required)
-- ## Rules (required)
-- ## Expected Outcome (required)
+- `related_workflows`, `url`: (optional)
+- ## Goal, ## Scope, ## Execute, ## Rules, ## Expected Outcome (required)
 - ## Common Mistakes (optional)
-- ## Anti-Patterns (optional)
+- Goal สอดคล้องกับ Filename, Execute สอดคล้องกับ Goal และ Rules
+- Expected Outcome สอดคล้องกับ Goal
+- ใช้คำศัพท์สม่ำเสมอ ไม่ขัดแย้งกัน
 
-### 2. Formatting And Style
+### 2. Content And Style
 
-ใช้รูปแบบและ style ที่สม่ำเสมอ
+เขียนเนื้อหาและรูปแบบตามมาตรฐานการเขียน workflow
 
-- หัวข้อภาษาอังกฤษ Title Case
-- รายการใช้ภาษาไทย (ยกเว้นคำศัพท์เฉพาะ)
-- ใช้ bullet points (-) ชิดซ้ายใน Rules
-- ไม่ใช้ ** เน้นตัวหนาในหัวข้อ
-- ไฟล์ไม่เกิน 300 บรรทัด
+- หัวข้อภาษาอังกฤษ Title Case, รายการภาษาไทย (ยกเว้นคำศัพท์เฉพาะ)
+- ใช้ bullet points (-) ชิดซ้ายใน Rules, ไม่ใช้ ** ในหัวข้อ
+- ไฟล์ไม่เกิน 200 บรรทัด (หากเกินให้ refactor แยกเป็น workflows ย่อย)
 - ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/workflow-name`, `environment variables`, `code snippets`, `function names`, `configuration keys`, `package names`, `git commands`
-
-### 3. Content Guidelines
-
-เขียนเนื้อหาตามแนวทางที่กำหนด
-
-- เขียนเป็นหลักการ how-to ที่ใช้ได้ทั่วไป
-- ไม่ใช่ manual step-by-step ที่ละเอียดเกินไป
-- ใช้ keyword กระชับ มีความหมายชัด
-- เขียนในรูปแบบ ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
+- เขียนเป็นหลักการ how-to ที่ใช้ได้ทั่วไป (ไม่ใช่ manual step-by-step)
+- ใช้ keyword กระชับ มีความหมายชัด, เขียนในรูปแบบ ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
 - ใน Rules สามารถใช้ table, code block, diagram ได้
 - terminal commands, architecture, config examples ใส่ใน code block
 - examples ต้องสั้นกระชับ เข้าใจง่าย และสอดคล้องกับ Execute steps
 
-### 4. Consistency And Alignment
+### 3. References And Non-Redundancy
 
-ตรวจสอบความสอดคล้องทั่วทั้ง workflow
+อ้างอิง workflows และหลีกเลี่ยงความซ้ำซ้อนระหว่างไฟล์
 
-- Goal สอดคล้องกับ Filename
-- Execute สอดคล้องกับ Goal และ Rules
-- Expected Outcome สอดคล้องกับ Goal
-- ใช้คำศัพท์สม่ำเสมอทั่วทั้ง workflow
-- ไม่มีข้อความขัดแย้งกัน
-
-### 5. Non-Redundancy
-
-หลีกเลี่ยงความซ้ำซ้อน
-
-- ลบข้อความที่ซ้ำซ้อนระหว่าง Execute และ Rules
-- รวบรวมรายละเอียดที่เหมือนกันไว้ที่เดียว
-- ใช้ references แทนการ duplicate เนื้อหา
-- เป็น single source of truth
-
-### 6. Execution Order
-
-จัดลำดับ execute ตามลำดับความสำคัญ
-
-- Foundation ก่อน (setup, config, dependencies)
-- High impact items ก่อน
-- Dependencies ของขั้นตอนถัดไปก่อน
-- Critical path ก่อน
-- Hard to change ก่อน
-- High risk เพื่อ fail fast
-
-### 7. Workflow References
-
-อ้างอิง workflows อย่างถูกต้อง
-
-- เช็คว่า workflows ที่อ้างอิงมีอยู่จริง
-- เขียนในรูปแบบ ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
+- ลบข้อความที่ซ้ำซ้อนระหว่าง Execute และ Rules, รวบรวมรายละเอียดที่เหมือนกันไว้ที่เดียว
+- ใช้ references แทนการ duplicate เนื้อหา, เป็น single source of truth
+- ทำ `/check-reference` เพื่อตรวจสอบ references มีอยู่จริง
+- เมื่อแก้ไข workflow ให้ตรวจสอบ dependent workflows ที่อ้างอิง workflow นี้
 - อ่าน workflows ที่เกี่ยวข้องก่อนเขียนเพื่อไม่ให้ซ้ำ
 
-### 8. Deterministic Execution
+### 4. Execution Guidelines
 
-workflow ต้องให้ผลลัพธ์เหมือนกันทุกครั้ง
+จัดลำดับ Execute steps และให้ผลลัพธ์เหมือนกันทุกครั้ง
 
-- ให้ผลลัพธ์เหมือนกันทุกครั้งที่ทำตาม
-- ไม่ใช้คำสั่ง subjective หรือ ambiguous
-- ระบุลำดับการทำงานชัดเจน
-- ไม่ข้ามขั้นตอน
+- Foundation ก่อน (`setup`, `config`, `dependencies`), High impact items ก่อน
+- Dependencies ของขั้นตอนถัดไปก่อน, Critical path ก่อน
+- Hard to change ก่อน, High risk เพื่อ fail fast
+- ให้ผลลัพธ์เหมือนกันทุกครั้ง, ไม่ใช้คำสั่ง subjective หรือ ambiguous
+- ระบุลำดับการทำงานชัดเจน, ไม่ข้ามขั้นตอน
 
-### 9. Script Automation
+### 5. Script Automation
 
-พิจารณาใช้ `/use-scripts` สำหรับงานที่ซับซ้อน
+พิจารณาใช้ automation สำหรับงานที่ซับซ้อนและซ้ำซ้อน
 
-- File operations มากกว่า 10 ไฟล์
-- Data processing ที่ซับซ้อน
-- Pattern matching ที่ต้อง parser
-- Metrics calculation ที่ต้อง aggregation
+- File operations มากกว่า 10 ไฟล์, Data processing ที่ซับซ้อน
+- Pattern matching ที่ต้อง parser, Metrics calculation ที่ต้อง aggregation
 - Batch transformations ที่ consistent
 
 ## Expected Outcome
 
-- Workflow file มีโครงสร้างสม่ำเสมอ อ่านง่าย
-- Frontmatter ถูกต้องตามมาตรฐาน
-- Execute และ Rules เขียนตาม format ที่กำหนด
-- ไม่เกิน 300 บรรทัด
-- ผ่าน `/follow-content-quality`
-- Workflows ที่อ้างอิงมีอยู่จริง
+- Workflow file มีโครงสร้างสม่ำเสมอ อ่านง่าย, Frontmatter ถูกต้องตามมาตรฐาน
+- Execute และ Rules เขียนตาม format ที่กำหนด, ไม่เกิน 200 บรรทัด
+- ผ่าน `/follow-content-quality`, Workflows ที่อ้างอิงมีอยู่จริง
 - ให้ผลลัพธ์เหมือนกันทุกครั้ง
 
-## Template Format Example
+## Common Mistakes (optional)
 
-ตัวอย่าง workflow file ที่ถูกต้อง:
+ข้อผิดพลาดที่พบบ่อย
 
-```yaml
----
-title: Workflow Name
-description: คำอธิบายกระชับไม่เกิน 100 ตัวอักษร
-auto_execution_mode: 3
-related_workflows:
-  - /workflow-name-1
-  - /workflow-name-2
----
-
-## Goal
-
-วัตถุประสงค์กระชับ ไม่เกิน 2 ประโยค
-
-## Scope
-
-ขอบเขตงานที่ครอบคลุม
-
-## Execute
-
-### 1. Step Name
-
-1. ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
-2. ทำอย่างอื่นต่อ
-
-## Rules
-
-### 1. Rule Category
-
-คำอธิบาย rule:
-
-- bullet point 1
-- bullet point 2
-
-## Expected Outcome
-
-- [ ] Outcome ที่คาดหวัง 1
-- [ ] Outcome ที่คาดหวัง 2
-
-## Common Mistakes
-
-ข้อผิดพลาดที่พบบ่อย:
-
-- ข้อผิดพลาดที่ 1
-- ข้อผิดพลาดที่ 2
-
-## Anti-Patterns
-
-รูปแบบที่ไม่ควรทำ:
-
-- ❌ รูปแบบที่ไม่ควรทำ 1
-- ❌ รูปแบบที่ไม่ควรทำ 2
-```
-
-
+- Execute และ Rules ซ้ำซ้อน, ไม่ใช้ backticks สำหรับ technical terms
+- ไฟล์เกิน 200 บรรทัดโดยไม่ refactor, เขียนเป็น manual step-by-step แทนหลักการ how-to
+- ไม่มีข้อความด้านบนก่อน bullet ใน Rules, ใช้คำสั่ง subjective หรือ ambiguous
+- ไม่ตรวจสอบว่า workflows ที่อ้างอิงมีอยู่จริง
+- แก้ไข workflow โดยไม่ตรวจสอบ dependent workflows ที่ได้รับผลกระทบ

@@ -45,7 +45,7 @@ auto_execution_mode: 3
 
 ### 4. Universal Principles
 
-หลักการพื้นฐานที่อิสระจาก Paradigm และใช้ได้กับทุกภาษา:
+หลักการพื้นฐานที่อิสระจาก Paradigm และใช้ได้กับทุกภาษา
 
 1. KISS - เลือกวิธีเรียบง่ายที่สุด อย่าสร้าง Abstraction เกินความจำเป็น
 2. DRY - Logic ต้องมีแหล่งที่มาเพียงแหล่งเดียว แต่อย่า Over-DRY
@@ -91,7 +91,7 @@ auto_execution_mode: 3
 
 ### 1. Code Quality
 
-รักษาคุณภาพโค้ด:
+รักษาคุณภาพโค้ด
 
 - แยก functions ที่ยาวเกิน 50 บรรทัด
 - Functions ทำอย่างเดียวและทำดี
@@ -101,7 +101,7 @@ auto_execution_mode: 3
 
 ### 2. Architecture
 
-ออกแบบสถาปัตยกรรมให้ดี:
+ออกแบบสถาปัตยกรรมให้ดี
 
 - แยก layers และ responsibilities
 - ใช้ interfaces ลด coupling
@@ -110,7 +110,7 @@ auto_execution_mode: 3
 
 ### 3. Naming Conventions
 
-ตั้งชื่อให้ชัดเจนและสื่อความหมาย:
+ตั้งชื่อให้ชัดเจนและสื่อความหมาย
 
 - ใช้ชื่อที่บอก intent แทน implementation
 - ใช้ full words แทน abbreviations ที่ไม่ชัดเจน
@@ -120,7 +120,7 @@ auto_execution_mode: 3
 
 ### 4. Code Duplication
 
-หลีกเลี่ยงการซ้ำซ้อน:
+หลีกเลี่ยงการซ้ำซ้อน
 
 - Extract shared functions เมื่อ copy-paste เกิน 2 ครั้ง
 - ใช้ constants สำหรับ hardcoded values ที่ซ้ำกัน
@@ -129,7 +129,7 @@ auto_execution_mode: 3
 
 ### 5. Comments and Documentation
 
-ใช้ comments อย่างเหมาะสม:
+ใช้ comments อย่างเหมาะสม
 
 - เขียน self-explanatory code หลีกเลี่ยง comments ที่อธิบายสิ่งที่โค้ดทำอยู่แล้ว
 - Comments อธิบาย why ไม่ใช่ what
@@ -139,17 +139,17 @@ auto_execution_mode: 3
 
 ### 6. Performance
 
-เพิ่มประสิทธิภาพโค้ด:
+เพิ่มประสิทธิภาพโค้ด
 
 - Batch หรือ optimize I/O operations ใน loops
-- หลีกเลี่ยง allocate memory ใน loops โดยไม่จำเป็น
+- หลีกเลี่ยย allocate memory ใน loops โดยไม่จำเป็น
 - ใช้ algorithms ที่มีประสิทธิภาพสูงกว่า
 - Cleanup resources เพื่อหลีกเลี่ยย memory leaks
 - Lazy load resources เมื่อเป็นไปได้
 
 ### 7. Security
 
-รักษาความปลอดภัย:
+รักษาความปลอดภัย
 
 - หลีกเลี่ยย hardcode secrets, API keys, passwords
 - ใช้ .gitignore สำหรับ sensitive files

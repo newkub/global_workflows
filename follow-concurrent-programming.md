@@ -86,71 +86,71 @@ auto_execution_mode: 3
 
 ใช้ async/await อย่างถูกต้อง
 
-- ใช้ async/await patterns แทน callback chains
-- ใช้ error handling mechanisms สำหรับ error handling
-- ใช้ parallel execution mechanisms สำหรับ parallel execution
-- ใช้ race condition mechanisms สำหรับ race conditions
-- ใช้ multiple result mechanisms สำหรับ multiple results
+- ใช้ `async/await` patterns แทน callback chains
+- ใช้ `error handling mechanisms` สำหรับ error handling
+- ใช้ `parallel execution mechanisms` สำหรับ parallel execution
+- ใช้ `race condition mechanisms` สำหรับ race conditions
+- ใช้ `multiple result mechanisms` สำหรับ multiple results
 
 ### Parallel Execution
 
 ทำงานหลายอย่างพร้อมกันอย่างเหมาะสม
 
-- ใช้ parallel execution mechanisms สำหรับ independent tasks
-- ใช้ worker mechanisms สำหรับ CPU-intensive tasks
-- ใช้ browser workers สำหรับ browser environments
-- ใช้ thread mechanisms สำหรับ server environments
-- ใช้ parallel processing libraries
+- ใช้ `parallel execution mechanisms` สำหรับ independent tasks
+- ใช้ `worker mechanisms` สำหรับ CPU-intensive tasks
+- ใช้ `browser workers` สำหรับ browser environments
+- ใช้ `thread mechanisms` สำหรับ server environments
+- ใช้ `parallel processing libraries`
 
 ### Error Handling
 
 จัดการ errors อย่าง systematic
 
-- ใช้ error handling mechanisms กับ async/await
-- ใช้ error handling mechanisms สำหรับ async operations
-- ใช้ multiple error mechanisms สำหรับ multiple errors
-- Propagate errors ถูกต้อง
-- Log errors ด้วย context
+- ใช้ `error handling mechanisms` กับ async/await
+- ใช้ `error handling mechanisms` สำหรับ async operations
+- ใช้ `multiple error mechanisms` สำหรับ multiple errors
+- Propagate `errors` ถูกต้อง
+- Log `errors` ด้วย context
 
 ### Resource Management
 
 จัดการ resources อย่างเหมาะสม
 
-- ใช้ connection pooling
-- ใช้ rate limiting
-- ใช้ backpressure
-- จัดการ timeouts
-- Cleanup resources ถูกต้อง
+- ใช้ `connection pooling`
+- ใช้ `rate limiting`
+- ใช้ `backpressure`
+- จัดการ `timeouts`
+- Cleanup `resources` ถูกต้อง
 
 ### Synchronization
 
 ซิงโครไนซ์ shared state อย่างปลอดภัย
 
-- ใช้ atomic operations
-- ใช้ locks หรือ mutexes เมื่อจำเป็น
-- ใช้ channels สำหรับ communication
-- หลีกเลี่ยง race conditions
-- ใช้ immutable state
+- ใช้ `atomic operations`
+- ใช้ `locks` หรือ `mutexes` เมื่อจำเป็น
+- ใช้ `channels` สำหรับ communication
+- หลีกเลี่ยง `race conditions`
+- ใช้ `immutable state`
 
 ### Performance
 
 ปรับปรุง performance
 
-- Profile concurrent operations
-- Optimize critical sections
-- ลด lock contention
-- ใช้ efficient data structures
+- Profile `concurrent operations`
+- Optimize `critical sections`
+- ลด `lock contention`
+- ใช้ `efficient data structures`
 - Benchmark และ tune
 
 ### Testing
 
 ทดสอบ concurrent code
 
-- Test race conditions
-- Test deadlock scenarios
-- Test error handling
-- Test performance under load
-- Use concurrency testing tools
+- Test `race conditions`
+- Test `deadlock scenarios`
+- Test `error handling`
+- Test `performance` under load
+- Use `concurrency testing tools`
 
 ## Expected Outcome
 

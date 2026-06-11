@@ -9,7 +9,7 @@ auto_execution_mode: 3
 related_workflows:
   - /review-performance
   - /check-performance
-  - /optimize-bundle
+  - /improve-bundle
 
 ---
 

@@ -4,7 +4,13 @@ description: ตั้งค่า ESLint 9 พร้อม plugins ครบถ
 auto_execution_mode: 3
 ---
 
+## Goal
+
 ตั้งค่า ESLint 9 ด้วย flat config format พร้อม plugins ครบถ้วน
+
+## Scope
+
+ใช้สำหรับตั้งค่า ESLint 9 ใน TypeScript, Vue, และ Nuxt projects
 
 ## Execute
 
@@ -30,8 +36,9 @@ auto_execution_mode: 3
 
 ### 5. Create Flat Config
 
-`eslint.config.ts`
-```typescript
+สร้าง `eslint.config.ts` ด้วย flat config format
+
+```typescript [eslint.config.ts]
 import { defineConfig } from 'eslint/config'
 import js from '@eslint/js'
 import ts from 'typescript-eslint'
@@ -83,8 +90,9 @@ export default defineConfig([
 
 ### 6. Add Package Scripts
 
-`package.json`
-```json
+เพิ่ม scripts สำหรับ linting ใน `package.json`
+
+```json [package.json]
 {
   "scripts": {
     "lint": "eslint .",
@@ -96,8 +104,9 @@ export default defineConfig([
 
 ### 7. Configure IDE
 
-`.vscode/settings.json`
-```json
+ตั้งค่า IDE settings สำหรับ ESLint integration
+
+```json [.vscode/settings.json]
 {
   "eslint.validate": ["javascript", "typescript", "vue"],
   "eslint.format.enable": true,
@@ -109,37 +118,47 @@ export default defineConfig([
 
 ## Rules
 
-### Vue/Nuxt Configuration
+### 1. Vue/Nuxt Configuration
 
-- **eslint-plugin-vue**: Vue 3 linting rules และ template linting
-- **@vue/eslint-config-typescript**: Vue + TypeScript config อย่างเป็นทางการ
-- **@nuxt/eslint-config**: Nuxt 3 project-aware config
+ตั้งค่า ESLint สำหรับ Vue และ Nuxt projects
 
-### Import/Export Management
+- ใช้ `eslint-plugin-vue` สำหรับ Vue 3 linting rules และ template linting
+- ใช้ `@vue/eslint-config-typescript` สำหรับ Vue + TypeScript config อย่างเป็นทางการ
+- ใช้ `@nuxt/eslint-config` สำหรับ Nuxt 3 project-aware config
 
-- **eslint-plugin-import**: Import ordering, validation, auto-sort
-- **eslint-plugin-unused-imports**: Auto-remove unused imports
-- **import/no-cycle**: Detect circular dependencies
+### 2. Import/Export Management
 
-### Code Quality & Security
+จัดการ import และ export อย่างเป็นระเบียบ
 
-- **eslint-plugin-no-secrets**: Detect hardcoded secrets/API keys
-- **eslint-plugin-regexp**: RegExp best practices
-- **eslint-plugin-functional**: Functional programming rules
-- **eslint-plugin-oxlint**: Fast Rust-based linting
+- ใช้ `eslint-plugin-import` สำหรับ import ordering, validation, auto-sort
+- ใช้ `eslint-plugin-unused-imports` สำหรับ auto-remove unused imports
+- ใช้ `import/no-cycle` สำหรับ detect circular dependencies
 
-### Testing & Accessibility
+### 3. Code Quality & Security
 
-- **eslint-plugin-vitest**: Vitest linting rules
-- **eslint-plugin-vue-a11y**: Vue accessibility rules
+ตรวจสอบคุณภาพโค้ดและ security
 
-### Configuration Standards
+- ใช้ `eslint-plugin-no-secrets` สำหรับ detect hardcoded secrets/API keys
+- ใช้ `eslint-plugin-regexp` สำหรับ RegExp best practices
+- ใช้ `eslint-plugin-functional` สำหรับ functional programming rules
+- ใช้ `eslint-plugin-oxlint` สำหรับ fast Rust-based linting
 
-- **Flat Config**: ใช้ `eslint.config.ts` แทน `.eslintrc`
-- **defineConfig()**: ใช้ `defineConfig()` จาก `eslint/config`
-- **TypeScript**: ใช้ `typescript-eslint` แทน `@typescript-eslint/parser`
-- **Prettier Last**: ใส่ `prettier` config เป็นตัวสุดท้าย
-- **No ESLintIgnore**: ไม่ใช้ `.eslintignore` ใน ESLint 9
+### 4. Testing & Accessibility
+
+ตรวจสอบ testing และ accessibility
+
+- ใช้ `eslint-plugin-vitest` สำหรับ Vitest linting rules
+- ใช้ `eslint-plugin-vue-a11y` สำหรับ Vue accessibility rules
+
+### 5. Configuration Standards
+
+ตั้งค่า configuration ตามมาตรฐาน ESLint 9
+
+- ใช้ `eslint.config.ts` แทน `.eslintrc` (Flat Config)
+- ใช้ `defineConfig()` จาก `eslint/config`
+- ใช้ `typescript-eslint` แทน `@typescript-eslint/parser`
+- ใส่ `prettier` config เป็นตัวสุดท้าย
+- ไม่ใช้ `.eslintignore` ใน ESLint 9
 
 ## Expected Outcome
 

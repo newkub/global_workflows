@@ -1,142 +1,127 @@
 ---
 title: Review Codebase
-description: Systematic codebase review ด้วย prioritized issues และ validation
+description: Review codebase ครบวงจรเพื่อตรวจสอบคุณภาพโค้ด
 auto_execution_mode: 3
 related_workflows:
-  - /review-architecture
-  - /review-database
-  - /review-api
-  - /review-data
-  - /review-performance
-  - /review-seo
-  - /review-frontend-optimization
-  - /review-design-system
-  - /review-security
-  - /review-uxui
-  - /review-testing
   - /review-code-quality
-  - /review-logging
-  - /review-monitoring
-  - /review-cicd
-  - /review-documentation
-  - /review-error-handling
-  - /review-configuration
-  - /review-integration
-  - /review-scalability
-  - /review-compatibility
-  - /review-accessibility
-  - /review-internationalization
-  - /review-backup
+  - /review-everything
 ---
 
 ## Goal
 
-Review โปรเจกต์ทุกด้านอย่าง systematic เพื่อระบุและแก้ไข issues ตาม priority
-
-## Scope
-
-ครอบคลุมการ review ทุกด้านของโปรเจกต์ รวมถึง correctness, architecture, code quality, security, performance และ test coverage
+Review codebase ครบวงจรเพื่อตรวจสอบคุณภาพโค้ดและระบุ issues ที่ต้องแก้ไข
 
 ## Execute
 
-### 1. Analyze Project
+### 1. Analyze Project Structure
 
-1. ใช้ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์อย่างละเอียด
+วิเคราะห์โครงสร้าง project
 
-### 2. Systematic Review
+1. ทำ `/analyze-project` เพื่อวิเคราะห์โครงสร้าง
+2. ตรวจสอบ dependencies และ tech stack
+3. ระบุ architecture patterns
+4. ตรวจสอบ organization ของ files และ folders
 
-1. ใช้ `/review-architecture` เพื่อ review architecture
-2. ใช้ `/review-database` เพื่อ review database layer
-3. ใช้ `/review-api` เพื่อ review API endpoints
-4. ใช้ `/review-data` เพื่อ review data models และ DTOs
-5. ใช้ `/review-performance` เพื่อ review performance
-6. ใช้ `/review-seo` เพื่อ review SEO optimization
-7. ใช้ `/review-frontend-optimization` เพื่อ review frontend optimization
-8. ใช้ `/review-design-system` เพื่อ review design system
-9. ใช้ `/review-security` เพื่อ review security
-10. ใช้ `/review-uxui` เพื่อ review UX/UI
-11. ใช้ `/review-testing` เพื่อ review testing
-12. ใช้ `/review-code-quality` เพื่อ review code quality
-13. ใช้ `/review-logging` เพื่อ review logging
-14. ใช้ `/review-monitoring` เพื่อ review monitoring
-15. ใช้ `/review-cicd` เพื่อ review CI/CD
-16. ใช้ `/review-documentation` เพื่อ review documentation
-17. ใช้ `/review-error-handling` เพื่อ review error handling
-18. ใช้ `/review-configuration` เพื่อ review configuration
-19. ใช้ `/review-integration` เพื่อ review integration
-20. ใช้ `/review-scalability` เพื่อ review scalability
-21. ใช้ `/review-compatibility` เพื่อ review compatibility
-22. ใช้ `/review-accessibility` เพื่อ review accessibility
-23. ใช้ `/review-internationalization` เพื่อ review internationalization
-24. ใช้ `/review-backup` เพื่อ review backup
+### 2. Review Code Quality
 
-### 3. Prioritize And Report
+ตรวจสอบคุณภาพโค้ด
 
-1. Group issues ตาม severity (Critical, High, Medium, Low)
-2. ใช้ `/report` เพื่อสรุปผลเป็น table พร้อม numbered columns, grouping, sorting
-3. รอ user confirmation ก่อนดำเนินการแก้ไข
-4. ถ้าไม่พบ issues ให้รายงานว่า No issues found
+1. ทำ `/review-code-quality` เพื่อตรวจสอบ code quality
+2. ตรวจสอบ complexity, maintainability, และ technical debt
+3. ตรวจสอบ naming conventions และ code style
+4. ตรวจสอบ type safety และ error handling
 
-### 4. Execute Fixes
+### 3. Review Architecture
 
-1. Fix critical issues ก่อน (ใช้ `/fix-vulnerability` สำหรับ security vulnerabilities)
-2. Fix high priority issues (performance issues, test failures)
-3. Fix medium priority issues (code quality, lint warnings)
-4. Fix low priority issues (style issues, documentation)
+ตรวจสอบ architecture และ design patterns
+
+1. ทำ `/review-architecture` เพื่อตรวจสอบ architecture
+2. ตรวจสอบ separation of concerns
+3. ตรวจสอบ design patterns
+4. ตรวจสอบ dependencies ระหว่าง modules
+
+### 4. Review Security
+
+ตรวจสอบ security vulnerabilities
+
+1. ทำ `/review-security` เพื่อตรวจสอบ security
+2. ตรวจสอบ authentication และ authorization
+3. ตรวจสอบ input validation และ sanitization
+4. ตรวจสอบ sensitive data handling
+
+### 5. Review Performance
+
+ตรวจสอบ performance และ optimization
+
+1. ทำ `/review-performance` เพื่อตรวจสอบ performance
+2. ตรวจสอบ bottlenecks และ optimization opportunities
+3. ตรวจสอบ bundle size และ loading performance
+4. ตรวจสอบ database queries และ caching
+
+### 6. Review Testing
+
+ตรวจสอบ test coverage และ quality
+
+1. ทำ `/review-test-methodology` เพื่อตรวจสอบ testing
+2. ตรวจสอบ test coverage
+3. ตรวจสอบ test quality และ test strategy
+4. ตรวจสอบ integration และ e2e tests
+
+### 7. Document Findings
+
+บันทึก findings และ recommendations
+
+1. รวบรวม issues ทั้งหมด
+2. จัดลำดับความสำคัญตาม impact
+3. สร้าง recommendations สำหรับแต่ละ issue
+4. บันทึก findings ใน documentation
 
 ## Rules
 
-### 1. Review Scope
+### 1. Execution Order
 
-- ต้อง review ทุกด้านตาม improve-codebase
-- ต้องใช้ tools ที่เหมาะสมกับ project type
-- ต้องระบุ severity ชัดเจนสำหรับแต่ละ issue
+ทำตามลำดับ review อย่างเคร่งครัด
 
-### 2. Prioritization
+- Review ตามลำดับ: structure → quality → architecture → security → performance → testing
+- ไม่ข้ามขั้นตอน review
+- ทำ review ครบถ้วนก่อนจบ
 
-- Critical: Security vulnerabilities, type errors, build failures
-- High: Performance issues, test failures, breaking changes
-- Medium: Code quality violations, lint warnings, deprecated APIs
-- Low: Style issues, documentation gaps, minor improvements
+### 2. Tool Usage
 
-### 3. Execution
+ใช้ automated tools เพื่อเพิ่มประสิทธิภาพ
 
-- ต้องรอ user confirmation ก่อนแก้ไข
-- ใช้ `/check-vulnerability` สำหรับ security vulnerabilities
-- ใช้ `/resolve-errors` สำหรับ issues ที่พบ
-- ใช้ `/improve-codebase` สำหรับ improvement tasks
-- ต้อง validate ทุกครั้งหลังแก้ไข
+- ใช้ `linters` เมื่อมี
+- ใช้ `type checkers` เมื่อมี
+- ใช้ `security scanners` เมื่อมี
+- ใช้ tools เพื่อ identify issues อัตโนมัติ
 
-### 4. Output Format
+### 3. Root Cause Analysis
 
-- ใช้ `/report` เพื่อสรุปผลเป็น table พร้อม numbered columns, grouping, sorting
-- ระบุ location ชัดเจน (file path, line number)
-- Link ไปยังไฟล์ที่เกี่ยวข้อง
+ระบุ root cause ของ issues
+
+- ระบุ root cause ไม่ใช่แก้เฉพาะ symptoms
+- วิเคราะห์ dependencies ระหว่าง issues
+- ตรวจสอบ impact ของแต่ละ issue
+
+### 4. Issue Prioritization
+
+จัดลำดับ issues ตามความสำคัญ
+
+- จัดลำดับ issues ตาม impact (critical, high, medium, low)
+- จัดลำดับตามความยากในการแก้ไข
+- จัดลำดับตามความเร่งด่วน
+
+### 5. No Code Modifications
+
+ห้ามแก้ไข code ระหว่าง review
+
+- ไม่แก้ไข code ระหว่าง review
+- เฉพาะ comment TODO สำหรับระบุ issues
+- ใช้ `/comment-todo` สำหรับระบุ issues โดยไม่แก้ไข
 
 ## Expected Outcome
 
-- Issues ทั้งหมดถูกระบุและ prioritize
-- Table สรุปผลการ review พร้อม action items
-- Issues ถูกแก้ไขตาม priority
-- Validation ผ่านทุกขั้นตอน
-- Code quality ดีขึ้นตาม improve-codebase
-
-## Common Mistakes
-
-ข้อผิดพลาดที่พบบ่อย:
-
-- ไม่รอ user confirmation ก่อนแก้ไข
-- ไม่ระบุ severity ชัดเจน
-- แก้ไข issues ไม่ตาม priority
-- ไม่ validate หลังแก้ไข
-- ใช้ `/report` ไม่ถูกต้อง
-
-## Anti-Patterns
-
-รูปแบบที่ไม่ควรทำ:
-
-- ❌ แก้ไขทุกอย่างพร้อมกันโดยไม่ prioritize
-- ❌ ข้าม critical issues เพื่อไปแก้ low priority
-- ❌ ไม่ใช้ tools ที่เหมาะสมกับ project type
-- ❌ ไม่รายงานผลเป็น table ที่ชัดเจน
-
+- Codebase ถูก review ครบวงจร
+- Issues ทั้งหมดถูกระบุและจัดลำดับ
+- Recommendations ชัดเจนสำหรับแต่ละ issue
+- Documentation บันทึก findings ครบถ้วน

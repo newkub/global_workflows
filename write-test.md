@@ -23,29 +23,28 @@ related_workflows:
 3. ตรวจสอบ test frameworks และ test utils ที่มีอยู่
 4. อ่านโค้ดที่ต้องการ test เพื่อเข้าใจ logic, edge cases และ dependencies
 5. ระบุประเภท test ที่ต้องเขียน (`unit`, `integration`, `e2e`, `component`, `contract`)
-6. กำหนด coverage goals (เช่น 80% business logic)
+6. กำหนด coverage goals เป็น 100% ทุก category
 
 ### 3. Write Tests
 
 เขียน test ตามประเภทและ conventions ของภาษาที่ใช้
 
-- Unit tests: ใกล้กับ source code, ใช้ `AAA` pattern
-- Integration tests: ใน `tests/integration/`, test data flow
-- Component tests: ใกล้กับ components, simulate user actions
-- E2E tests: ใน `tests/e2e/`, test critical user flows
+1. เขียน unit tests ใกล้กับ source code ใช้ `AAA` pattern
+2. เขียน integration tests ใน `tests/integration/` test data flow
+3. เขียน component tests ใกล้กับ components simulate user actions
+4. เขียน e2e tests ใน `tests/e2e/` test critical user flows
 
 ### 4. Sync and Verify
 
 1. อัพเดท SPEC.md ด้วย test cases ที่เขียนแล้ว
-2. รัน tests ทั้งหมดเพื่อตรวจสอบว่าผ่าน
-3. ตรวจสอบ test coverage ให้บรรลุ goals
-4. รัน `/update-reference` สำหรับไฟล์ที่เพิ่ม
+2. รัน `/update-reference` สำหรับไฟล์ที่เพิ่ม
+3. รายงานสถานะ test files ที่เขียนเสร็จ
 
 ## Rules
 
 ### 1. Test Principles
 
-หลักการทั่วไปที่ใช้ได้กับทุกภาษา
+หลักการทั่วไปที่ใช้ได้กับทุกภาษา:
 
 - ตั้งชื่อ test: `should [expected behavior] when [condition]`
 - Follow `AAA` pattern (`Arrange`, `Act`, `Assert`)
@@ -56,7 +55,7 @@ related_workflows:
 
 ### 2. Language Conventions
 
-ใช้ conventions ตามภาษาที่ใช้
+ใช้ conventions ตามภาษาที่ใช้:
 
 - `TypeScript/JavaScript`: `*.test.ts`, `vitest`, `jest`, `describe/it`
 - `Go`: `*_test.go`, `testing` package, `t.Run`, table-driven tests
@@ -69,7 +68,7 @@ related_workflows:
 
 ### 3. File Organization
 
-จัดโครงสร้าง test files ตามประเภท
+จัดโครงสร้าง test files ตามประเภท:
 
 - Unit tests: อยู่ใกล้กับ source code (`.test.ts`, `.test.tsx`, `*_test.go`, `test_*.py`)
 - Integration tests: ใน `tests/integration/`
@@ -97,7 +96,7 @@ project/
 
 ### 4. Naming and Data
 
-ตั้งชื่อและจัดการ test data
+ตั้งชื่อและจัดการ test data:
 
 - Test files: ใช้ชื่อเดียวกับ source ต่อท้ายด้วย `.test`, `.spec`, หรือ `_test`
 - Test cases: `should [expected behavior] when [condition]`
@@ -107,7 +106,7 @@ project/
 
 ### 5. Mocking and Security
 
-จัดการ dependencies และความปลอดภัย
+จัดการ dependencies และความปลอดภัย:
 
 - Mock external dependencies (`API`, `database`, `file system`) เฉพาะที่จำเป็น
 - ใช้ interfaces/ports สำหรับ test doubles (`stubs`, `mocks`, `fakes`, `spies`)
@@ -118,18 +117,18 @@ project/
 
 ### 6. Performance and Coverage
 
-รักษาประสิทธิภาพและ coverage
+รักษาประสิทธิภาพและ coverage:
 
 - Unit tests: `< 10ms` ต่อ test
 - Integration tests: `< 100ms` ต่อ test
 - ใช้ `parallel execution` เมื่อ tests ไม่ dependent กัน
 - `100% coverage` สำหรับทุก test cases ที่ระบุใน spec
 - ตรวจสอบ coverage ด้วย tools (เช่น `c8`, `istanbul`, `coverage.py`)
-- ตั้งค่า coverage thresholds ใน CI (เช่น `80%` ขึ้น)
+- ตั้งค่า coverage thresholds ใน CI เป็น 100% ทุก category
 
 ### 7. CI/CD and Documentation
 
-ผนวก tests เข้ากับ CI/CD และเขียน documentation
+ผนวก tests เข้ากับ CI/CD และเขียน documentation:
 
 - รัน tests ในทุก pull request และ commit (pre-commit hooks)
 - ตั้งค่า `test coverage thresholds` ใน CI
@@ -144,4 +143,5 @@ project/
 - Tests ครอบคลุมทุกกรณีใช้งาน (`happy path`, `edge cases`, `errors`)
 - Tests ไม่ `brittle` และรวดเร็ว
 - โค้ดมีความถูกต้องและเสถียร
+- SPEC.md ถูกอัพเดทด้วย test cases ที่เขียนแล้ว
 

@@ -1,5 +1,5 @@
 ---
-title: Run Verify
+title: Verify
 description: รัน verify task ตามที่กำหนดใน package manifest
 auto_execution_mode: 3
 related_workflows:

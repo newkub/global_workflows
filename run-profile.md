@@ -4,7 +4,7 @@ description: Profile performance เพื่อหา bottlenecks และ opt
 auto_execution_mode: 3
 related_workflows:
   - /run-bench
-  - /optimize-perf
+  - /improve-perf
 ---
 
 ## Goal
@@ -41,7 +41,7 @@ Profile performance เพื่อหา bottlenecks และ optimize
 
 ### 5. Optimize
 
-1. ทำ `/optimize-perf` เพื่อปรับปรุง
+1. ทำ `/improve-perf` เพื่อปรับปรุง
 2. ใช้ caching ที่เหมาะสม
 3. Optimize algorithms และ data structures
 4. ลบ unnecessary work

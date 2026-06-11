@@ -2,9 +2,6 @@
 title: Best Practice
 description: เขียนโค้ดตาม best practices ของ language, runtime, และ library
 auto_execution_mode: 3
-related_workflows:
-  - /follow-learn-best-practices
-  - /deep-research
 ---
 
 ## Goal
@@ -26,17 +23,24 @@ related_workflows:
 
 ### 2. Research Best Practices
 
-1. ทำ `/deep-research` เพื่อค้นหา best practices
-2. อ่าน official documentation ของ language และ libraries
-3. ค้นหา best practices จาก trusted sources
-4. ตรวจสอบว่ามีการอัพเดทล่าสุดหรือไม่
+1. ระบุ library, framework หรือ tool ที่ต้องการเรียนรู้ best practices
+2. หา official website และ documentation
+3. ใช้ `/learn-from-web` สำหรับ libraries และ frameworks
+4. ใช้ DeepWiki สำหรับ GitHub repositories
+5. ใช้ Context7 สำหรับ library documentation
+6. ใช้ Web Search เป็น fallback
+7. ลำดับความสำคัญ: Official Docs → DeepWiki → Context7 → Web Search
+8. ตรวจสอบว่าข้อมูลเป็นปัจจุบัน
 
 ### 3. Apply Best Practices
 
-1. ทำ `/follow-learn-best-practices` เพื่อเรียนรู้จาก official docs
-2. ปรับปรุงโค้ดตาม best practices ที่ค้นพบ
-3. ตรวจสอบความสอดคล้องกับ codebase ที่มีอยู่
-4. อัพเดท configuration และ settings ที่เกี่ยวข้อง
+1. อ่านไฟล์ที่ต้องปรับปรุงทั้งหมด
+2. วิเคราะห์ว่าไฟล์เหล่านี้ต้องการปรับปรุงอะไรตาม best practices
+3. แก้ไขไฟล์ตาม best practices ที่เรียนรู้มา
+4. ตรวจสอบความสอดคล้องกับ codebase ที่มีอยู่
+5. อัพเดท configuration และ settings ที่เกี่ยวข้อง
+6. เขียน best practices ที่สำคัญลงในไฟล์ documentation
+7. ระบุ patterns และ conventions ที่แนะนำ
 
 ### 4. Verify Implementation
 
@@ -44,6 +48,8 @@ related_workflows:
 2. รัน tests เพื่อยืนยันว่าไม่มี regression
 3. ตรวจสอบว่า best practices ถูกนำไปใช้ครบถ้วน
 4. อัพเดท documentation หากจำเป็น
+5. ทดลองใช้งานตาม best practices
+6. บันทึก lessons learned
 
 ## Rules
 
@@ -66,6 +72,8 @@ related_workflows:
 - Well-known blogs และ articles
 - GitHub repositories ที่มีคนใช้เยอะ
 - Stack Overflow สำหรับ common issues
+- ใช้ `/learn-from-web` เป็น primary workflow สำหรับ learning
+- ใช้ `/deep-research` เมื่อต้องการข้อมูลลึกจาก multiple sources
 
 ### 3. Language-Specific Conventions
 
@@ -114,3 +122,5 @@ related_workflows:
 - Consistency ทั่วทั้ง codebase
 - Documentation ที่อัพเดทแล้ว
 - Tests ที่ผ่านทั้งหมด
+- Best practices ที่ถูกต้องและเป็นปัจจุบัน
+- Code examples และ configurations ที่ดี

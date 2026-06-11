@@ -4,7 +4,7 @@ description: ตรวจสอบว่าไฟล์ match กับ software
 auto_execution_mode: 3
 related_workflows:
   - /check-correctness
-  - /check-consistency
+  - /analyze-consistency
   - /check-quality
 ---
 

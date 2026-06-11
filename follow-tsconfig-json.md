@@ -53,15 +53,21 @@ auto_execution_mode: 3
 
 ## Rules
 
-- ใช้ root tsconfig.json เป็นไฟล์หลักเสมอ
-- ใช้ bun-types เสมอใน types array
+### 1. Configuration Principles
+
+ใช้ TypeScript configuration ตาม best practices
+
+- ใช้ root `tsconfig.json` เป็นไฟล์หลักเสมอ
+- ใช้ `bun-types` เสมอใน types array
 - เปิด strict mode ทั้งหมด
 - รองรับทั้ง single project และ monorepo
-- ใช้ composite: true สำหรับ monorepo packages
-- ใช้ extends @wrikka/config/tsconfig.base.json สำหรับ monorepo
-- ไม่ต้องมี tsconfig.options.json ใน monorepo
+- ใช้ `composite: true` สำหรับ monorepo packages
+- ใช้ extends `@wrikka/config/tsconfig.base.json` สำหรับ monorepo
+- ไม่ต้องมี `tsconfig.options.json` ใน monorepo
 
-### 1. Single Project Config
+### 2. Single Project Config
+
+ตั้งค่า `tsconfig.json` สำหรับ single project
 
 ```json [tsconfig.json]
 {
@@ -80,7 +86,9 @@ auto_execution_mode: 3
 }
 ```
 
-### 2. Monorepo Root Config
+### 3. Monorepo Root Config
+
+ตั้งค่า root `tsconfig.json` สำหรับ monorepo
 
 ```json [tsconfig.json]
 {
@@ -107,7 +115,9 @@ auto_execution_mode: 3
 }
 ```
 
-### 3. Monorepo Package Config
+### 4. Monorepo Package Config
+
+ตั้งค่า `tsconfig.json` สำหรับแต่ละ package ใน monorepo
 
 ```json [packages/*/tsconfig.json]
 {
@@ -120,7 +130,9 @@ auto_execution_mode: 3
 }
 ```
 
-### 4. Nuxt Project Config
+### 5. Nuxt Project Config
+
+ตั้งค่า `tsconfig.json` สำหรับ Nuxt projects
 
 ```json [nuxt.config.ts หรือ tsconfig.json สำหรับ Nuxt]
 {

@@ -8,15 +8,23 @@ auto_execution_mode: 3
 
 เลือก architecture pattern ที่เหมาะสมกับโปรเจกต์ตาม package manifest
 
+## Scope
+
+ใช้สำหรับเลือก architecture pattern ตาม framework, language, และ scale ของโปรเจกต์
+
 ## Execute
 
 ### 1. Analyze Project Type
+
+ตรวจสอบประเภทของโปรเจกต์
 
 1. ตรวจสอบ package manifest (`package.json`, `Cargo.toml`)
 2. ระบุประเภทของโปรเจกต์จาก dependencies
 3. ตรวจสอบ framework และ runtime ที่ใช้
 
 ### 2. Select Architecture Pattern
+
+เลือก architecture pattern ที่เหมาะสม
 
 1. ถ้าใช้ Nuxt → ทำ `/nuxt-architecture`
 2. ถ้าใช้ Next.js → ทำ `/nextjs-architecture`
@@ -28,6 +36,8 @@ auto_execution_mode: 3
 8. ถ้าเป็น microservices → ทำ `/microservices`
 
 ### 3. Setup Base Structure
+
+ตั้งค่าโครงสร้างพื้นฐาน
 
 1. สร้างโครงสร้างพื้นฐานตาม pattern ที่เลือก
 2. ตั้งค่า configuration files
@@ -53,10 +63,10 @@ auto_execution_mode: 3
 
 ลำดับความสำคัญในการเลือก architecture
 
-1. **Framework-specific patterns** (Nuxt, Next.js, Vue.js, SolidJS, Svelte)
-2. **Language-specific patterns** (Rust, Bun)
-3. **Scale patterns** (Monorepo, Microservices)
-4. **Default patterns** (Clean Architecture)
+- Framework-specific patterns (Nuxt, Next.js, Vue.js, SolidJS, Svelte)
+- Language-specific patterns (Rust, Bun)
+- Scale patterns (Monorepo, Microservices)
+- Default patterns (Clean Architecture)
 
 ### 3. Manifest Analysis
 
