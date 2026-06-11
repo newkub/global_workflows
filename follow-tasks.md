@@ -76,59 +76,59 @@ related_workflows:
 
 Scripts พื้นฐานที่ทุกโปรเจกต์ต้องมีเพื่อรับประกันคุณภาพโค้ด:
 
-| Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Rust | Python | Go |
-|------|-----|------|---------|------------|----------|------|--------|----|
-| prepare | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | cargo update && bunx lefthook install | pip install -U -r requirements.txt && pre-commit install | go mod download && go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest |
-| dev | bun run src/index.ts | nuxt dev | next dev | solid-start dev | vite dev | cargo run | python -m src | go run . |
-| build | bun build | nuxt build | next build | solid-start build | vite build | cargo build | python -m build | go build . |
-| typecheck | tsgo --noEmit | nuxt typecheck | tsgo --noEmit | tsgo --noEmit | svelte-check --tsconfig ./tsconfig.json | cargo check | mypy src | go vet ./... |
-| lint | biome check | biome check | biome check | biome check | biome check | cargo clippy | ruff check | golangci-lint run |
-| format | biome check --write | biome check --write | biome check --write | biome check --write | biome check --write | cargo fmt | ruff format | gofmt -w . |
-| test | vitest run | vitest run | vitest run | vitest run | vitest run | cargo nextest run | pytest | go test ./... |
-| scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | cargo clippy --all-targets | ruff check | golangci-lint run |
-| verify | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | cargo clippy && cargo check && cargo nextest run | ruff check && mypy && pytest | golangci-lint run && go vet && go test |
-| ci | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build |
+| Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Tauri | Rust | Python | Go |
+|------|-----|------|---------|------------|----------|-------|------|--------|----|
+| prepare | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | cargo update && bunx lefthook install | pip install -U -r requirements.txt && pre-commit install | go mod download && go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest |
+| dev | bun run src/index.ts | nuxt dev | next dev | solid-start dev | vite dev | tauri dev | cargo run | python -m src | go run . |
+| build | bun build | nuxt build | next build | solid-start build | vite build | tauri build | cargo build | python -m build | go build . |
+| typecheck | tsgo --noEmit | nuxt typecheck | tsgo --noEmit | tsgo --noEmit | svelte-check --tsconfig ./tsconfig.json | tsgo --noEmit | cargo check | mypy src | go vet ./... |
+| lint | biome check | biome check | biome check | biome check | biome check | biome check | cargo clippy | ruff check | golangci-lint run |
+| format | biome check --write | biome check --write | biome check --write | biome check --write | biome check --write | biome check --write | cargo fmt | ruff format | gofmt -w . |
+| test | vitest run | vitest run | vitest run | vitest run | vitest run | vitest run | cargo nextest run | pytest | go test ./... |
+| scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | cargo clippy --all-targets | ruff check | golangci-lint run |
+| verify | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | cargo clippy && cargo check && cargo nextest run | ruff check && mypy && pytest | golangci-lint run && go vet && go test |
+| ci | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build |
 
 ### 3. Watch Mode Scripts
 
 Scripts สำหรับ development mode เพื่อเพิ่มประสิทธิภาพการพัฒนา:
 
-| Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Rust | Python | Go |
-|------|-----|------|---------|------------|----------|------|--------|----|
-| test:watch | vitest | vitest | vitest | vitest | vitest | cargo nextest run --watch | pytest-watch | go test ./... -watch |
-| typecheck:watch | tsgo --noEmit --watch | nuxt typecheck --watch | tsgo --noEmit --watch | tsgo --noEmit --watch | svelte-check --watch --tsconfig ./tsconfig.json | cargo watch -x check | - | - |
-| build:watch | bun build --watch | nuxt build --watch | next build --watch | solid-start build --watch | vite build --watch | cargo build --watch | - | - |
+| Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Tauri | Rust | Python | Go |
+|------|-----|------|---------|------------|----------|-------|------|--------|----|
+| test:watch | vitest | vitest | vitest | vitest | vitest | vitest | cargo nextest run --watch | pytest-watch | go test ./... -watch |
+| typecheck:watch | tsgo --noEmit --watch | nuxt typecheck --watch | tsgo --noEmit --watch | tsgo --noEmit --watch | svelte-check --watch --tsconfig ./tsconfig.json | tsgo --noEmit --watch | cargo watch -x check | - | - |
+| build:watch | bun build --watch | nuxt build --watch | next build --watch | solid-start build --watch | vite build --watch | tauri build --watch | cargo build --watch | - | - |
 
 ### 4. Testing Scripts
 
 Scripts สำหรับ testing เพิ่มเติมเพื่อครอบคลุมทุกมิติของการทดสอบ:
 
-| Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Rust | Python | Go |
-|------|-----|------|---------|------------|----------|------|--------|----|
-| test:coverage | vitest run --coverage | vitest run --coverage | vitest run --coverage | vitest run --coverage | vitest run --coverage | cargo llvm-cov --html | pytest --cov | go test -coverprofile=coverage.out |
-| test:integration | vitest run --config vitest.integration.config.ts | vitest run --config vitest.integration.config.ts | vitest run --config vitest.integration.config.ts | vitest run --config vitest.integration.config.ts | vitest run --config vitest.integration.config.ts | cargo nextest run --test-dir integration | pytest tests/integration | go test ./tests/integration |
-| test:e2e | vitest run --config vitest.e2e.config.ts | vitest run --config vitest.e2e.config.ts | vitest run --config vitest.e2e.config.ts | vitest run --config vitest.e2e.config.ts | vitest run --config vitest.e2e.config.ts | cargo nextest run --test-dir e2e | pytest tests/e2e | go test ./tests/e2e |
+| Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Tauri | Rust | Python | Go |
+|------|-----|------|---------|------------|----------|-------|------|--------|----|
+| test:coverage | vitest run --coverage | vitest run --coverage | vitest run --coverage | vitest run --coverage | vitest run --coverage | vitest run --coverage | cargo llvm-cov --html | pytest --cov | go test -coverprofile=coverage.out |
+| test:integration | vitest run --config vitest.integration.config.ts | vitest run --config vitest.integration.config.ts | vitest run --config vitest.integration.config.ts | vitest run --config vitest.integration.config.ts | vitest run --config vitest.integration.config.ts | vitest run --config vitest.integration.config.ts | cargo nextest run --test-dir integration | pytest tests/integration | go test ./tests/integration |
+| test:e2e | vitest run --config vitest.e2e.config.ts | vitest run --config vitest.e2e.config.ts | vitest run --config vitest.e2e.config.ts | vitest run --config vitest.e2e.config.ts | vitest run --config vitest.e2e.config.ts | vitest run --config vitest.e2e.config.ts | cargo nextest run --test-dir e2e | pytest tests/e2e | go test ./tests/e2e |
 
 ### 5. Dependency Management Scripts
 
 Scripts สำหรับจัดการ dependencies เพื่อรักษาความปลอดภัยและประสิทธิภาพ:
 
-| Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Rust | Python | Go |
-|------|-----|------|---------|------------|----------|------|--------|----|
-| clean | bunx rimraf node_modules | bunx rimraf node_modules | bunx rimraf node_modules | bunx rimraf node_modules | bunx rimraf node_modules | cargo clean | rm -rf .venv __pycache__ | go clean -modcache |
-| deps:analyze | bunx depcheck | bunx depcheck | bunx depcheck | bunx depcheck | bunx depcheck | cargo outdated | pip-audit | go mod verify |
-| deps:update | taze -r -w | taze -r -w | taze -r -w | taze -r -w | taze -r -w | cargo update | pip install -U -r requirements.txt | go get -u ./... && go mod tidy |
+| Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Tauri | Rust | Python | Go |
+|------|-----|------|---------|------------|----------|-------|------|--------|----|
+| clean | bunx rimraf node_modules | bunx rimraf node_modules | bunx rimraf node_modules | bunx rimraf node_modules | bunx rimraf node_modules | bunx rimraf node_modules && cargo clean | cargo clean | rm -rf .venv __pycache__ | go clean -modcache |
+| deps:analyze | bunx depcheck | bunx depcheck | bunx depcheck | bunx depcheck | bunx depcheck | bunx depcheck | cargo outdated | pip-audit | go mod verify |
+| deps:update | taze -r -w | taze -r -w | taze -r -w | taze -r -w | taze -r -w | taze -r -w | cargo update | pip install -U -r requirements.txt | go get -u ./... && go mod tidy |
 
 ### 6. Database Scripts
 
 Scripts สำหรับ database operations เพื่อจัดการ schema และข้อมูล:
 
-| Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Rust | Python | Go |
-|------|-----|------|---------|------------|----------|------|--------|----|
-| db:migrate | bunx drizzle-kit push | bunx drizzle-kit push | bunx drizzle-kit push | bunx drizzle-kit push | bunx drizzle-kit push | diesel migration run | alembic upgrade head | go run ./migrate |
-| db:seed | bunx drizzle-kit seed | bunx drizzle-kit seed | bunx drizzle-kit seed | bunx drizzle-kit seed | bunx drizzle-kit seed | - | python seed.py | go run ./seed |
-| db:studio | bunx drizzle-kit studio | bunx drizzle-kit studio | bunx drizzle-kit studio | bunx drizzle-kit studio | bunx drizzle-kit studio | - | - | - |
-| db:generate | bunx drizzle-kit generate | bunx drizzle-kit generate | bunx drizzle-kit generate | bunx drizzle-kit generate | bunx drizzle-kit generate | - | - | - |
+| Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Tauri | Rust | Python | Go |
+|------|-----|------|---------|------------|----------|-------|------|--------|----|
+| db:migrate | bunx drizzle-kit push | bunx drizzle-kit push | bunx drizzle-kit push | bunx drizzle-kit push | bunx drizzle-kit push | bunx drizzle-kit push | diesel migration run | alembic upgrade head | go run ./migrate |
+| db:seed | bunx drizzle-kit seed | bunx drizzle-kit seed | bunx drizzle-kit seed | bunx drizzle-kit seed | bunx drizzle-kit seed | bunx drizzle-kit seed | - | python seed.py | go run ./seed |
+| db:studio | bunx drizzle-kit studio | bunx drizzle-kit studio | bunx drizzle-kit studio | bunx drizzle-kit studio | bunx drizzle-kit studio | bunx drizzle-kit studio | - | - | - |
+| db:generate | bunx drizzle-kit generate | bunx drizzle-kit generate | bunx drizzle-kit generate | bunx drizzle-kit generate | bunx drizzle-kit generate | bunx drizzle-kit generate | - | - | - |
 
 ### 7. Release Scripts
 

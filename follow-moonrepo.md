@@ -8,6 +8,10 @@ auto_execution_mode: 3
 
 กำหนดแนวทางการพัฒนา monorepo ด้วย Moonrepo ให้มีประสิทธิภาพสูงสุด
 
+## Scope
+
+ใช้สำหรับ monorepo ที่ใช้ Moonrepo สำหรับ task orchestration และ build orchestration
+
 ## Execute
 
 ### 1. Setup

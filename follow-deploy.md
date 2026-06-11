@@ -1,51 +1,113 @@
 ---
-title: Deploy
-description: Deploy application ตาม platform ที่ใช้
+title: Follow Deploy
+description: ตั้งค่า deployment configuration และ CI/CD ครบถ้วน
 auto_execution_mode: 3
 ---
 
 ## Goal
 
-Deploy application ตาม platform ที่ใช้
+ตั้งค่า deployment configuration และ CI/CD pipeline สำหรับ automated deployment
+
+## Scope
+
+ตั้งค่า deployment สำหรับ Vercel, Cloudflare, Railway และ platforms อื่นๆ พร้อม CI/CD
 
 ## Execute
 
-### 1. Choose Platform
+### 1. เลือก Platform
 
-เลือก platform ที่จะ deploy
+เลือก platform ที่เหมาะสมกับ project
 
 1. ตรวจสอบ project type และ requirements
 2. เลือก platform ที่เหมาะสม:
-   - Cloudflare ใช้ `deploy-to-cloudflare`
-   - Vercel ใช้ `deploy-to-vercel`
-   - Wrikka Dev ใช้ `deploy-to-wrikka-dev`
+   - Cloudflare Workers/Pages: ทำ `/follow-cloudflare-worker` และ `/follow-wrangler-cli`
+   - Vercel: ทำ `/follow-vercel` และ `/follow-vercel-cli`
+   - Railway: ทำ `/use-railway`
+   - Docker: ทำ `/follow-docker`
 3. ตรวจสอบว่า platform configuration พร้อม
 
-### 2. Deploy Application
+### 2. Setup Environment Variables
 
-Deploy application ตาม platform ที่เลือก
+ตั้งค่า environment variables สำหรับ deployment
 
-1. ใช้ workflow ตาม platform ที่เลือก
-2. ตรวจสอบว่า deployment เริ่มขึ้นแล้ว
-3. ตรวจสอบว่า deployment สำเร็จ
+1. สร้าง `.env.example` สำหรับ environment variables ที่จำเป็น
+2. ตั้งค่า environment variables ใน platform:
+   - Cloudflare: ใช้ `wrangler secret put`
+   - Vercel: ใช้ Vercel dashboard หรือ CLI
+   - Railway: ใช้ Railway dashboard
+3. ตรวจสอบว่า environment variables ครบถ้วนและถูกต้อง
+
+### 3. Setup CI/CD
+
+ตั้งค่า GitHub Actions สำหรับ automated deployment
+
+1. ทำ `/follow-github-actions` เพื่อตั้งค่า GitHub Actions
+2. เลือก workflows ตามความต้องการ:
+   - Base CI/CD: `ci.yml` (lint, typecheck, test)
+   - Deployment: `deploy-staging.yml`, `deploy-production.yml`
+   - Security: `codeql.yml`, `dependabot.yml`
+3. ตั้งค่า Renovate สำหรับ dependency updates
+4. ตั้งค่า Release-it สำหรับ automated releases (ถ้าจำเป็น)
+
+### 4. Setup Platform-Specific Configuration
+
+ตั้งค่า configuration ตาม platform ที่เลือก
+
+- Cloudflare: ตั้งค่า `wrangler.jsonc`, `toml` สำหรับ Workers/Pages
+- Vercel: ตั้งค่า `vercel.json` หรือ `next.config.js`
+- Railway: ตั้งค่า `railway.json` หรือ environment variables
+- Docker: สร้าง `Dockerfile` และ `docker-compose.yml`
+
+### 5. Test Deployment
+
+ทดสอบ deployment ใน staging environment
+
+1. Deploy ไปยัง staging environment
+2. ตรวจสอบว่า deployment สำเร็จ
+3. ทดสอบ application ว่าทำงานได้
+4. ตรวจสอบ logs ว่าไม่มี error
 
 ## Rules
 
 ### 1. Platform Selection
 
-- เลือก platform ตาม project type
-- Cloudflare ใช้ `deploy-to-cloudflare`
-- Vercel ใช้ `deploy-to-vercel`
-- Wrikka Dev ใช้ `deploy-to-wrikka-dev`
+- เลือก platform ตาม project type และ requirements
+- Cloudflare: เหมาะกับ edge computing, serverless
+- Vercel: เหมาะกับ Next.js, React applications
+- Railway: เหมาะกับ full-stack applications ที่ต้องการ database
+- Docker: เหมาะกับ containerized applications
 
-### 2. Workflow Execution
+### 2. Environment Variables
 
-- ใช้ `workflow` ที่เหมาะสมกับ platform
-- ตรวจสอบว่า deployment สำเร็จ
-- ตรวจสอบ errors และแก้ไข
+- ต้องตั้งค่า environment variables ครบถ้วน
+- ใช้ `.env.example` เพื่อ document variables ที่จำเป็น
+- ห้าม hardcode secrets ใน code
+- ใช้ secrets management ของ platform
+
+### 3. CI/CD
+
+- ต้องมี base CI/CD workflow (lint, typecheck, test)
+- Deployment workflows ต้องแยก staging และ production
+- ต้องมี security workflows สำหรับ production
+- ต้องมี dependency updates (Renovate)
+
+### 4. Platform Configuration
+
+- Configuration ต้องถูกต้องตาม platform
+- ต้องมี proper error handling
+- ต้องมี proper logging
+- ต้องมี proper monitoring
+
+### 5. Testing
+
+- ต้องทดสอบ deployment ใน staging ก่อน production
+- ต้องตรวจสอบว่า application ทำงานได้
+- ต้องตรวจสอบ logs ว่าไม่มี error
 
 ## Expected Outcome
 
-- Application deploy สำเร็จ
-- Deployment live และใช้งานได้
+- Platform configuration ตั้งค่าครบถ้วน
+- Environment variables ตั้งค่าครบถ้วน
+- CI/CD pipeline ทำงานอัตโนมัติ
+- Deployment ทำงานได้ใน staging environment
 

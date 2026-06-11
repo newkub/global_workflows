@@ -33,7 +33,7 @@ Create development lifecycle system covering all steps in continuous loop to mai
 
 ### 4. Development
 
-1. Run `/implement-to-production` to convert TODO/MOCK to production code
+1. Run `/realize-implementation` to convert TODO/MOCK to production code
 2. Run `/todo` to implement TODO items
 3. Run `/continue` to complete pending work
 4. Run `/write-test` to write tests for new features

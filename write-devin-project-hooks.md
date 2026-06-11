@@ -117,16 +117,14 @@ Hook รับ JSON input ผ่าน stdin
 
 ใช้ workspace-level location
 
-- `.windsurf/hooks.json` ใน workspace root
-- System-level: `/Library/Application Support/Windsurf/hooks.json` (macOS)
-- User-level: `~/.codeium/windsurf/hooks.json`
+- `.devin/hooks/hooks.json` ใน workspace
 
 ### 6. TypeScript Scripts
 
 ใช้ TypeScript สำหรับ hooks
 
-- สร้าง scripts ใน `scripts/` directory
-- รันด้วย `bun scripts/run-lint.ts`
+- สร้าง scripts ใน `.devin/hooks/` directory
+- รันด้วย `bun .devin/hooks/run-lint.ts`
 - Parse JSON input จาก stdin
 - ใช้ type safety สำหรับ context parsing
 - Return exit code ถ้าผ่าน/ไม่ผ่าน
@@ -154,7 +152,7 @@ Hook รับ JSON input ผ่าน stdin
 
 ## Expected Outcome
 
-- `.windsurf/hooks.json` configuration ถูกต้องตาม format
+- `.devin/hooks/hooks.json` configuration ถูกต้องตาม format
 - TypeScript scripts ทำงานได้และ return exit codes ที่ถูกต้อง
 - Hooks ทำงานตาม events ที่กำหนด (post_write_code)
 - Lint และ typecheck ทำงานอัตโนมัติหลังแก้ไข code

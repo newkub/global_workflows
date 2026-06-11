@@ -28,7 +28,7 @@ auto_execution_mode: 3
 
 ทำให้ code ใช้งานได้จริง
 
-1. รัน `/implement-to-production`
+1. รัน `/realize-implementation`
 2. ตรวจสอบว่า code ใช้งานได้จริง
 
 ### 4. Improve Code Quality
@@ -72,7 +72,7 @@ auto_execution_mode: 3
 ทำตามลำดับขั้นตอนอย่างเคร่งครัด
 
 - ต้องทำ `/refactor` ก่อนเสมอ
-- ต้องทำ `/implement-to-production` ก่อนเสมอ
+- ต้องทำ `/realize-implementation` ก่อนเสมอ
 - อ่านไฟล์ก่อนแก้ไขเสมอ
 - ใช้ minimal changes เท่าที่จำเป็น
 - รักษา backward compatibility ถ้าเป็นไปได้

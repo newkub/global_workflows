@@ -59,7 +59,7 @@ auto_execution_mode: 3
 
 ตรวจสอบและ finalize workflow
 
-1. ตรวจสอบว่าไม่เกิน 200 บรรทัด
+1. ตรวจสอบว่าไม่เกิน 250 บรรทัด
 2. ทำ `/improve-flow`
 3. ทำ `/check-reference` เพื่อตรวจสอบ references มีอยู่จริง
 4. ตรวจสอบ dependent workflows ที่อ้างอิง workflow นี้ ว่าต้องแก้ไขอะไรไหม
@@ -87,7 +87,7 @@ auto_execution_mode: 3
 
 - หัวข้อภาษาอังกฤษ Title Case, รายการภาษาไทย (ยกเว้นคำศัพท์เฉพาะ)
 - ใช้ bullet points (-) ชิดซ้ายใน Rules, ไม่ใช้ ** ในหัวข้อ
-- ไฟล์ไม่เกิน 200 บรรทัด (หากเกินให้ refactor แยกเป็น workflows ย่อย)
+- ไฟล์ไม่เกิน 250 บรรทัด (หากเกินให้ refactor แยกเป็น workflows ย่อย)
 - ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/workflow-name`, `environment variables`, `code snippets`, `function names`, `configuration keys`, `package names`, `git commands`
 - เขียนเป็นหลักการ how-to ที่ใช้ได้ทั่วไป (ไม่ใช่ manual step-by-step)
 - ใช้ keyword กระชับ มีความหมายชัด, เขียนในรูปแบบ ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
@@ -126,7 +126,7 @@ auto_execution_mode: 3
 ## Expected Outcome
 
 - Workflow file มีโครงสร้างสม่ำเสมอ อ่านง่าย, Frontmatter ถูกต้องตามมาตรฐาน
-- Execute และ Rules เขียนตาม format ที่กำหนด, ไม่เกิน 200 บรรทัด
+- Execute และ Rules เขียนตาม format ที่กำหนด, ไม่เกิน 250 บรรทัด
 - ผ่าน `/follow-content-quality`, Workflows ที่อ้างอิงมีอยู่จริง
 - ให้ผลลัพธ์เหมือนกันทุกครั้ง
 
@@ -135,7 +135,7 @@ auto_execution_mode: 3
 ข้อผิดพลาดที่พบบ่อย
 
 - Execute และ Rules ซ้ำซ้อน, ไม่ใช้ backticks สำหรับ technical terms
-- ไฟล์เกิน 200 บรรทัดโดยไม่ refactor, เขียนเป็น manual step-by-step แทนหลักการ how-to
+- ไฟล์เกิน 250 บรรทัดโดยไม่ refactor, เขียนเป็น manual step-by-step แทนหลักการ how-to
 - ไม่มีข้อความด้านบนก่อน bullet ใน Rules, ใช้คำสั่ง subjective หรือ ambiguous
 - ไม่ตรวจสอบว่า workflows ที่อ้างอิงมีอยู่จริง
 - แก้ไข workflow โดยไม่ตรวจสอบ dependent workflows ที่ได้รับผลกระทบ

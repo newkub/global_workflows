@@ -140,7 +140,7 @@ auto_execution_mode: 3
 
 ### 9. Direct Execution
 
-- ถ้าผู้ใช้บอกว่า "ทำ ... ให้" ให้ทำตาม `/implement-to-production` เลย
+- ถ้าผู้ใช้บอกว่า "ทำ ... ให้" ให้ทำตาม `/realize-implementation` เลย
 - ไม่ต้องทำตาม workflow ปกติถ้าผู้ใช้สั่งโดยตรง
 - ทำงานอัตโนมัติโดยไม่หยุดถาม
 

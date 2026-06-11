@@ -10,35 +10,27 @@ related_workflows:
 
 เขียน test ที่มีคุณภาพสูง ครอบคลุมทุกกรณีใช้งาน ตรงตาม location ที่กำหนด ใช้ได้กับทุก programming language
 
+## Scope
+
+เขียน test files ทั้งใน global workflows และ workspace โดยทุก workspace ต้องเขียนให้ `/follow-content-quality`
+
 ## Execute
 
 ### 1. Write Spec
 
-1. ทำ `/write-spec` เพื่อสร้างหรืออัพเดท SPEC.md ก่อนเขียน test
+ทำ `/write-spec` เพื่อสร้างหรืออัพเดท SPEC.md ก่อนเขียน test
 
 ### 2. Analyze Requirements
 
-1. ตรวจสอบ test framework และ conventions ที่ใช้ในโปรเจกต์
-2. อ่าน `package.json`, `Cargo.toml`, หรือ package manifest ตามภาษา
-3. ตรวจสอบ test frameworks และ test utils ที่มีอยู่
-4. อ่านโค้ดที่ต้องการ test เพื่อเข้าใจ logic, edge cases และ dependencies
-5. ระบุประเภท test ที่ต้องเขียน (`unit`, `integration`, `e2e`, `component`, `contract`)
-6. กำหนด coverage goals เป็น 100% ทุก category
+ตรวจสอบ test framework และ conventions ที่ใช้ในโปรเจกต์
 
 ### 3. Write Tests
 
 เขียน test ตามประเภทและ conventions ของภาษาที่ใช้
 
-1. เขียน unit tests ใกล้กับ source code ใช้ `AAA` pattern
-2. เขียน integration tests ใน `tests/integration/` test data flow
-3. เขียน component tests ใกล้กับ components simulate user actions
-4. เขียน e2e tests ใน `tests/e2e/` test critical user flows
-
 ### 4. Sync and Verify
 
-1. อัพเดท SPEC.md ด้วย test cases ที่เขียนแล้ว
-2. รัน `/update-reference` สำหรับไฟล์ที่เพิ่ม
-3. รายงานสถานะ test files ที่เขียนเสร็จ
+อัพเดท SPEC.md ด้วย test cases ที่เขียนแล้ว และรัน `/update-reference` สำหรับไฟล์ที่เพิ่ม
 
 ## Rules
 
@@ -49,7 +41,7 @@ related_workflows:
 - ตั้งชื่อ test: `should [expected behavior] when [condition]`
 - Follow `AAA` pattern (`Arrange`, `Act`, `Assert`)
 - Test แค่สิ่งเดียวต่อ test case (`Single Responsibility`)
-- ไม่แชร์ state ระหว่าง tests (isolated)
+- ไม่แชร์ state ระหว่าง tests (`isolated`)
 - Test ทั้ง `happy path`, `edge cases`, `error cases`, `boundary conditions`
 - ใช้ `parameterized tests` สำหรับกรณีที่ test ซ้ำๆ กันหลายค่า
 
@@ -144,4 +136,3 @@ project/
 - Tests ไม่ `brittle` และรวดเร็ว
 - โค้ดมีความถูกต้องและเสถียร
 - SPEC.md ถูกอัพเดทด้วย test cases ที่เขียนแล้ว
-

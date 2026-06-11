@@ -2,6 +2,8 @@
 title: Follow React
 description: พัฒนา React applications ตาม best practices
 auto_execution_mode: 3
+related_workflows:
+  - /follow-unocss
 ---
 
 ## Goal

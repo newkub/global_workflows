@@ -2,6 +2,8 @@
 title: Svelte with Vite
 description: ตั้งค่า Vite + Svelte 5 + TypeScript (client-side only)
 auto_execution_mode: 3
+related_workflows:
+  - /follow-unocss
 ---
 
 ## Goal
