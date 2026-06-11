@@ -97,14 +97,24 @@ Thumbs.db
 - TypeScript: *.tsbuildinfo
 - IDE: .vscode/, .idea/, *.sublime-*, .vim/, *.swp, *.swo, *~
 
-### 4. Monorepo Guidelines
+### 4. Framework-Specific Templates
+
+Templates สำหรับ frameworks ที่ใช้บ่อย:
+
+- **Nuxt**: .nuxt/, .output/, nitro/, .vercel/, .netlify/
+- **Solid/SolidStart**: .solid/, dist/, .vinxi/
+- **Svelte/SvelteKit**: .svelte-kit/, .vercel/, .netlify/
+- **Moonrepo**: .moon/, node_modules/.moon/
+- **Vitest**: coverage/, vitest.config.ts.timestamp-*
+
+### 5. Monorepo Guidelines
 
 - ใช้ .gitignore เดียวที่ root สำหรับทั้ง monorepo
 - ใช้ patterns แบบ recursive (เช่น `apps/*/target/`, `packages/*/node_modules/`)
 - สำหรับ Cargo.lock: track ที่ root แต่ ignore `apps/*/Cargo.lock` และ `packages/*/Cargo.lock`
 - ห้ามมี .gitignore ใน apps/, packages/, หรือ sub-workspaces
 
-### 5. Selective Addition
+### 6. Selective Addition
 
 - เพิ่มเฉพาะ patterns ที่ project ใช้จริง
 - ตรวจสอบ package.json หรือ Cargo.toml ว่ามี dependencies ของ tools หรือไม่
