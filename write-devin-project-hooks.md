@@ -23,7 +23,7 @@ auto_execution_mode: 3
 ### 2. Choose Hook Location
 
 1. ใช้ workspace-level hooks สำหรับ project-specific logic
-2. ใช้ `.windsurf/hooks.json` สำหรับ workspace configuration
+2. ใช้ `.devin/hooks/hooks.json` สำหรับ workspace configuration
 3. ใช้ `post_write_code` event สำหรับ run lint และ typecheck หลังแก้ไข code
 
 ### 3. Define Hook Events
@@ -35,19 +35,19 @@ auto_execution_mode: 3
 
 ### 4. Create Hook Scripts
 
-1. สร้าง TypeScript scripts สำหรับ hooks ใน `scripts/` directory
+1. สร้าง TypeScript scripts สำหรับ hooks ใน `.devin/hooks/` directory
 2. กำหนด exit codes: 0 (approve), 1 (block), 2 (deny)
 3. Hook รับ JSON input ผ่าน stdin พร้อม context (agent_action_name, tool_info, file_path, etc.)
 4. สร้าง script สำหรับ lint และ typecheck hooks:
-   - `scripts/run-lint.ts` - รัน lint หลังแก้ไข code
-   - `scripts/run-typecheck.ts` - รัน typecheck หลังแก้ไข code
+   - `.devin/hooks/run-lint.ts` - รัน lint หลังแก้ไข code
+   - `.devin/hooks/run-typecheck.ts` - รัน typecheck หลังแก้ไข code
    - ใช้ `bun run lint` และ `bun run typecheck` สำหรับ performance
    - Exit code 0 ถ้าผ่าน, 1 ถ้ามี errors
    - Parse JSON input จาก stdin เพื่อดู file_path และ context
 
 ### 5. Configure Hooks File
 
-1. สร้าง `.windsurf/hooks.json` ใน workspace root
+1. สร้าง `.devin/hooks/hooks.json` ใน workspace
 2. กำหนด hook events ใน JSON format
 3. ตั้งค่า `show_output: true` เพื่อแสดงผล hook
 4. กำหนด command path สำหรับแต่ละ hook event
@@ -78,13 +78,13 @@ auto_execution_mode: 3
 
 ### 2. Hook Format
 
-รูปแบบ hooks configuration (.windsurf/hooks.json)
+รูปแบบ hooks configuration (.devin/hooks/hooks.json)
 
 ```json
 {
   "post_write_code": [
     {
-      "command": "bun scripts/run-lint.ts",
+      "command": "bun .devin/hooks/run-lint.ts",
       "show_output": true
     }
   ]

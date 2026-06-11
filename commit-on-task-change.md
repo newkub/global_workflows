@@ -8,6 +8,10 @@ auto_execution_mode: 3
 
 Commit เฉพาะไฟล์ที่แก้ไปจาก task ปัจจุบัน ไม่ commit ไฟล์อื่นๆ
 
+## Scope
+
+ใช้สำหรับ commit เฉพาะไฟล์ที่ task ปัจจุบันแก้ไป โดยไม่ commit ไฟล์อื่นๆ ที่อาจมีการเปลี่ยนแปลง
+
 ## Execute
 
 ### 1. Identify Changed Files
