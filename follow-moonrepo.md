@@ -83,9 +83,11 @@ tasks:
 ### 5. Caching
 
 1. ใช้ smart hashing สำหรับ deterministic builds
-2. ตั้งค่า remote caching ด้วย Bazel RE API
+2. ตั้งค่า remote caching ด้วย Bazel RE API หรือ moonrepo.dev
 3. ใช้ incremental builds สำหรับ performance
 4. ตรวจสอบ cache hit/miss ด้วย `moon run <task> --dry-run`
+5. กำหนด task lifetime สำหรับ cache staleness (เช่น `1 day`, `3 hr`, `1m`)
+6. ใช้ cache layering สำหรับ multi-stage builds
 
 ### 6. Toolchain
 
@@ -193,4 +195,6 @@ vcs:
 - Caching ที่ทำงานได้อย่างมีประสิทธิภาพ
 - Toolchain consistency ทั่วทั้ง team
 - Build times ที่ลดลงอย่างมีนัยสำคัญ
+- Polyglot support สำหรับ multi-language projects
+- Automatic task execution บน affected code only
 
