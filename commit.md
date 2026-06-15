@@ -102,12 +102,6 @@ Stage ไฟล์ที่มีการเปลี่ยนแปลง
 3. ตรวจสอบว่าไม่มีไฟล์ที่ยังไม่ commit เหลืออยู่ (สำหรับ commit ทั้งหมด)
 4. รัน `git status` เพื่อยืนยันว่า working directory สะอาด (สำหรับ commit ทั้งหมด)
 
-### 12. Update References
-
-อัปเดท references ทั้งหมดที่เกี่ยวข้อง
-
-1. ทำตาม `@[/edit-relative]`
-
 ## Rules
 
 ### Commit Message Format
