@@ -14,42 +14,33 @@ auto_execution_mode: 3
 
 ## Execute
 
-### 1. Analyze Order
+### 1. Identify Sort Criteria
 
-วิเคราะห์ลำดับที่เหมาะสม
+ระบุ criteria สำหรับการจัดเรียง
 
-1. ระบุ items ที่ต้องจัดเรียง
-2. วิเคราะห์ความสำคัญของแต่ละ item
-3. กำหนดลำดับที่เหมาะสม
+1. วิเคราะห์ items ที่มี
+2. ระบุคุณลักษณะที่ใช้จัดเรียง
+3. กำหนด sort criteria ที่เหมาะสม
 
 ### 2. Sort Items
 
-จัดเรียง items
+จัดเรียง items ตาม criteria
 
-1. จัดเรียง items ตามลำดับที่เหมาะสม
+1. จัดเรียง items ตาม criteria
 2. ตรวจสอบว่าจัดเรียงถูกต้อง
+3. ปรับปรุง criteria ถ้าจำเป็น
 
 ## Rules
 
-### 1. Sorting Principles
-
-หลักการจัดเรียง
-
 - จัดเรียงตามความสำคัญ
+- ใช้ criteria ที่ชัดเจน
+- รักษา consistency ทั่วทั้ง project
 - ให้เหตุผลสำหรับการจัดเรียง
-- ตรวจสอบลำดับที่เหมาะสม
-
-### 2. Common Patterns
-
-รูปแบบการจัดเรียงทั่วไป
-
-- ใช้ `sort()` สำหรับ arrays
-- ใช้ comparator functions สำหรับ custom sorting
-- ใช้ stable sort เมื่อต้องรักษาลำดับเดิม
+- ตรวจสอบลำดับที่เหมาะสมกับ context
 
 ## Expected Outcome
 
 - Items ถูกจัดเรียงอย่างเหมาะสม
-- ลำดับที่ชัดเจน
-- เหตุผลที่ชัดเจน
+- ลำดับที่ชัดเจนและ maintainable
+- ง่ายต่อการค้นหาและ navigate
 

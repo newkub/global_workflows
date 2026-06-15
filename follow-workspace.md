@@ -1,85 +1,93 @@
 ---
 title: Follow Workspace
-description: แนวทางการจัดการและใช้งาน workspace ใน Windsurf
+description: ตั้งค่า workspace ให้ทำตาม /follow-tasks และ /update-readme
 auto_execution_mode: 3
+related_workflows:
+  - /follow-tasks
+  - /update-readme
+  - /write-windsurf-global-workflows
 ---
 
-## Prompt
+## Goal
 
-ใช้ workflow นี้เมื่อต้องการจัดการและใช้งาน workspace ใน Windsurf อย่างมีประสิทธิภาพ
+ตั้งค่า workspace ใน monorepo ให้ทำตาม `/follow-tasks` และ `/update-readme` ด้วย `/write-windsurf-global-workflows`
+
+## Scope
+
+ครอบคลุมการตั้งค่า workspace ทั้ง root และ workspaces ใน monorepo
 
 ## Execute
 
-1. Setup Workspace
+### 1. Setup Root Workspace
 
-- สร้าง workspace directory
-- กำหนด workspace configuration
-- จัดการ project roots
-- Setup file watchers
+ตั้งค่า workspace ที่ root ของ monorepo
 
-2. Organize Projects
+1. ทำ `/follow-tasks` เพื่อตั้งค่า scripts ใน `package.json` หรือ `Cargo.toml`
+2. ทำ `/update-readme` เพื่อสร้าง `README.md` ที่มีเนื้อหาครบถ้วน
+3. ตรวจสอบว่า scripts และ documentation สอดคล้องกับ tech stack
 
-- จัดกลุ่ม projects ตาม type
-- ใช้ consistent naming
-- จัดการ dependencies ระหว่าง projects
-- Maintain project metadata
+### 2. Setup Individual Workspaces
 
-3. Configure Settings
+ตั้งค่าทุก workspace ใน monorepo
 
-- กำหนด workspace settings
-- ตั้งค่า extensions ที่จำเป็น
-- จัดการ keybindings
-- Setup snippets และ templates
+1. ทำ `/all-workspaces` เพื่อดู workspaces ทั้งหมด
+2. สำหรับแต่ละ workspace:
+   - ทำ `/follow-tasks` เพื่อตั้งค่า scripts
+   - ทำ `/update-readme` เพื่อสร้าง `README.md`
+3. ตรวจสอบ consistency ระหว่าง workspaces
 
-4. Manage Context
+### 3. Validate Configuration
 
-- ใช้ @-mentions อย่างมีประสิทธิภาพ
-- จัดการ file context
-- ใช้ conversation memory
-- Switch contexts อย่างรวดเร็ว
+ตรวจสอบว่า configuration ถูกต้องครบถ้วน
 
-5. Maintain Workspace
-
-- Clean up unused files
-- Archive old projects
-- Update configurations
-- Backup important data
+1. รัน `bun run verify` ที่ root workspace
+2. รัน `bun run verify` ที่แต่ละ workspace
+3. ตรวจสอบว่า `README.md` มีเนื้อหาครบถ้วน ไม่มี placeholder
+4. ตรวจสอบว่า scripts ทำงานได้จริง
 
 ## Rules
 
-1. Consistent Structure
+### 1. Workspace Structure
 
-- ใช้ directory structure ที่ consistent
-- ตั้งชื่อ files และ folders ตาม conventions
-- หลีกเลี่ยง nested directories ที่ลึกเกินไป
-- Maintain clear hierarchy
+จัดโครงสร้าง workspace ตามมาตรฐาน monorepo
 
-2. Context Awareness
+- ใช้ `apps/` สำหรับ applications
+- ใช้ `packages/` สำหรับ shared packages
+- ใช้ workspace references ด้วย `#` prefix
+- รักษา consistency ระหว่าง workspaces
 
-- เข้าใจ limits ของ context window
-- ใช้ relevant files ใน conversations
-- จัดการ long-running conversations
-- Clear context เมื่อจำเป็น
+### 2. Scripts Configuration
 
-3. Efficiency
+ตั้งค่า scripts ตาม `/follow-tasks`
 
-- ใช้ shortcuts และ commands
-- Automate repetitive tasks
-- ใช้ templates สำหรับ common patterns
-- Minimize context switching
+- เลือกระดับ scripts ตามขนาดโปรเจกต์ (Minimal, Standard, Complete)
+- ใช้ scripts ที่สอดคล้องกับ tech stack
+- รักษา consistency ระหว่าง workspaces
+- ตรวจสอบว่า `verify` script ทำงานได้
 
-4. Collaboration
+### 3. Documentation Standards
 
-- ใช้ shared configurations
-- Document workspace setup
-- รองรับ multiple users
-- Maintain consistency
+สร้าง documentation ตาม `/update-readme`
+
+- ใช้ข้อมูลจริงจากการวิเคราะห์โปรเจกต์
+- ไม่ใช้ placeholder ยกเว้น banner image
+- ครอบคลุมทุก sections ที่จำเป็น
+- ใช้ format ที่สม่ำเสมอ
+
+### 4. Consistency Across Workspaces
+
+รักษา consistency ระหว่าง workspaces
+
+- ใช้ tech stack เดียวกันทั่วทั้ง monorepo
+- ใช้ scripts ที่สอดคล้องกัน
+- ใช้ documentation format เดียวกัน
+- รักษา naming conventions เดียวกัน
 
 ## Expected Outcome
 
-- Well-organized workspace
-- Efficient project management
-- Optimized settings
-- Clear context handling
-- Productive development environment
+- Root workspace มี scripts และ documentation ครบถ้วน
+- ทุก workspace มี scripts และ documentation ครบถ้วน
+- Scripts ทำงานได้จริงทุก workspace
+- Documentation ไม่มี placeholder
+- Consistency ระหว่าง workspaces
 

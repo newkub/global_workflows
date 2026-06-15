@@ -79,8 +79,8 @@ Scripts พื้นฐานที่ทุกโปรเจกต์ต้อ
 | Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Tauri | Rust | Python | Go |
 |------|-----|------|---------|------------|----------|-------|------|--------|----|
 | prepare | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | cargo update && bunx lefthook install | pip install -U -r requirements.txt && pre-commit install | go mod download && go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest |
-| dev | bun run src/index.ts | nuxt dev | next dev | solid-start dev | vite dev | tauri dev | cargo run | python -m src | go run . |
-| build | bun build | nuxt build | next build | solid-start build | vite build | tauri build | cargo build | python -m build | go build . |
+| dev | bun run src/index.ts | nuxt dev | next dev | vite dev | vite dev | tauri dev | cargo run | python -m src | go run . |
+| build | bun build | nuxt build | next build | vite build | vite build | tauri build | cargo build | python -m build | go build . |
 | typecheck | tsgo --noEmit | nuxt typecheck | tsgo --noEmit | tsgo --noEmit | svelte-check --tsconfig ./tsconfig.json | tsgo --noEmit | cargo check | mypy src | go vet ./... |
 | lint | biome check | biome check | biome check | biome check | biome check | biome check | cargo clippy | ruff check | golangci-lint run |
 | format | biome check --write | biome check --write | biome check --write | biome check --write | biome check --write | biome check --write | cargo fmt | ruff format | gofmt -w . |
@@ -97,7 +97,7 @@ Scripts สำหรับ development mode เพื่อเพิ่มปร
 |------|-----|------|---------|------------|----------|-------|------|--------|----|
 | test:watch | vitest | vitest | vitest | vitest | vitest | vitest | cargo nextest run --watch | pytest-watch | go test ./... -watch |
 | typecheck:watch | tsgo --noEmit --watch | nuxt typecheck --watch | tsgo --noEmit --watch | tsgo --noEmit --watch | svelte-check --watch --tsconfig ./tsconfig.json | tsgo --noEmit --watch | cargo watch -x check | - | - |
-| build:watch | bun build --watch | nuxt build --watch | next build --watch | solid-start build --watch | vite build --watch | tauri build --watch | cargo build --watch | - | - |
+| build:watch | bun build --watch | nuxt build --watch | next build --watch | vite build --watch | vite build --watch | tauri build --watch | cargo build --watch | - | - |
 
 ### 4. Testing Scripts
 

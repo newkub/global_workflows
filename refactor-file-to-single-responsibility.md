@@ -8,7 +8,7 @@ related_workflows:
   - /check-duplication
   - /use-import-alias
   - /restructure
-  - /update-reference
+  - /update-references
   - /refactor-long-files-to-single-responsibility
 ---
 

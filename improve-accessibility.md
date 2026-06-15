@@ -1,123 +1,87 @@
 ---
 title: Improve Accessibility
-description: ปรับปรุง accessibility ให้ครอบคลุมตาม WCAG
+description: ปรับปรุง accessibility ให้ตรงตามมาตรฐาน WCAG สำหรับทุกคน
 auto_execution_mode: 3
+related_workflows:
+  - check-accessibility
+  - test-accessibility
 ---
 
 ## Goal
 
-ปรับปรุง accessibility ให้ครอบคลุมตาม WCAG guidelines และรองรับผู้ใช้ทุกคน
+ปรับปรุง accessibility ให้ตรงตามมาตรฐาน WCAG สำหรับทุกคนใช้งานได้
+
+## Scope
+
+ใช้สำหรับปรับปรุง accessibility ของ web applications, mobile apps, และ desktop applications
 
 ## Execute
 
-### 1. Analyze Accessibility Issues
+### 1. Check Accessibility
 
-วิเคราะห์ accessibility ปัจจุบัน
+ตรวจสอบ accessibility ปัจจุบัน
 
-1. รัน accessibility audit tools
-2. ตรวจสอบ semantic HTML
-3. ตรวจสอบ keyboard navigation
-4. ตรวจสอบ screen reader compatibility
-5. ตรวจสอบ color contrast
+- ทำ `/check-accessibility` เพื่อตรวจสอบ WCAG compliance
+- ตรวจสอบ keyboard navigation
+- ตรวจสอบ screen reader support
+- ตรวจสอบ color contrast
+- ตรวจสอบ semantic HTML
+- ตรวจสอบ forms accessibility
 
-### 2. Improve Semantic HTML
+### 2. Test Accessibility
 
-ปรับปรุง semantic HTML
+ทดสอบ accessibility อย่างครบถ้วน
 
-1. ใช้ semantic elements ที่ถูกต้อง
-2. เพิ่ม ARIA labels ที่เหมาะสม
-3. ใช้ heading hierarchy ที่ถูกต้อง
-4. เพิ่ม alt text สำหรับ images
-5. ใช้ landmarks อย่างเหมาะสม
+- ทำ `/test-accessibility` เพื่อทดสอบ accessibility ครบถ้วน
+- ทดสอบด้วย screen readers (NVDA, JAWS, VoiceOver)
+- ทดสอบ keyboard navigation
+- ทดสอบ color contrast
+- ทดสอบ ARIA attributes
+- ทดสอบ images และ media
 
-### 3. Improve Keyboard Navigation
+### 3. Fix Issues
 
-ปรับปรุง keyboard navigation
+แก้ไข issues ที่พบ
 
-1. ทำให้ interactive elements focusable
-2. เพิ่ม visible focus indicators
-3. ใช้ tab order ที่ logical
-4. เพิ่ม keyboard shortcuts
-5. ทดสอบ keyboard-only navigation
-
-### 4. Improve Color and Visual
-
-ปรับปรุง color และ visual accessibility
-
-1. ตรวจสอบ color contrast ratios
-2. ไม่ใช้ color เพียงอย่างเดียวสำหรับ meaning
-3. รองรับ high contrast mode
-4. รองรับ reduced motion
-5. ปรับปรุง text sizing
-
-### 5. Improve Screen Reader Support
-
-ปรับปรุง screen reader compatibility
-
-1. เพิ่ม ARIA live regions
-2. ใช้ role attributes ที่ถูกต้อง
-3. ประกาศ dynamic content changes
-4. ปรับปรุง form labels
-5. ทดสอบกับ screen readers
+- แก้ไข critical issues ก่อน
+- แก้ไข high priority issues
+- แก้ไข medium และ low issues
+- ทำ manual testing สำหรับสิ่งที่ automated ไม่ตรวจได้
+- Document workarounds สำหรับ non-critical
 
 ## Rules
 
-### WCAG Compliance
+### 1. WCAG Compliance
 
-ทำตาม WCAG guidelines
+ทำตามมาตรฐาน WCAG
 
-- รองรับ WCAG 2.1 Level AA
-- ตรวจสอบ perceivable, operable, understandable, robust
-- ใช้ automated testing tools
-- ทดสอบกับ assistive technologies
-- อัปเดท accessibility อย่างสม่ำเสมอ
+- ตรวจสอบตาม WCAG 2.1 AA ขั้นต่ำ
+- พิจารณา AAA สำหรับ critical applications
+- ตรวจสอบทั้ง Perceivable, Operable, Understandable, Robust
 
-### Semantic HTML
+### 2. Priority-Based Fixes
 
-ใช้ semantic HTML อย่างถูกต้อง
+แก้ไขตามลำดับความสำคัญ
 
-- ใช้ elements ตามความหมาย
-- ใช้ headings hierarchy ที่ถูกต้อง
-- ใช้ landmarks สำหรับ navigation
-- ใช้ lists สำหรับ grouped items
-- ใช้ tables สำหรับ tabular data
+- Critical: ขัดขวางการใช้งานอย่างสิ้นเชิง
+- High: ทำให้ใช้งานยากอย่างมาก
+- Medium: ทำให้ใช้งานยากเล็กน้อย
+- Low: เป็น best practices
 
-### Keyboard Navigation
+### 3. Testing Scope
 
-รองรับ keyboard navigation
+ทดสอบอย่างครบถ้วน
 
-- ทุก interactive elements focusable
-- มี visible focus indicators
-- tab order logical
-- ไม่ trap keyboard focus
-- มี keyboard shortcuts สำคัญ
-
-### Color Contrast
-
-รักษา color contrast ที่เหมาะสม
-
-- ตรงตาม WCAG contrast ratios
-- ไม่พึ่ง color เพียงอย่างเดียว
-- รองรับ color blindness
-- รองรับ high contrast mode
-- ทดสอบกับ contrast checkers
-
-### Screen Readers
-
-รองรับ screen readers
-
-- ใช้ ARIA attributes อย่างเหมาะสม
-- ประกาศ dynamic content
-- ใช้ descriptive labels
-- หลีกเลี่ยง hidden text ที่ไม่จำเป็น
-- ทดสอบกับ screen readers หลัก
+- ทดสอบด้วย keyboard เสมอ
+- ทดสอบด้วย screen reader
+- ทดสอบด้วย zoom tools
+- ทดสอบด้วย color blindness simulators
 
 ## Expected Outcome
 
-- Accessibility ตรงตาม WCAG 2.1 Level AA
-- Semantic HTML ที่ถูกต้อง
-- Keyboard navigation ที่ครบถ้วน
-- Color contrast ที่ผ่านเกณฑ์
-- Screen reader compatibility ดีขึ้น
-- Accessibility tools ผ่านทั้งหมด
-
+- Accessibility ผ่าน WCAG AA ขั้นต่ำ
+- Keyboard navigation ทำงานได้
+- Screen reader สามารถใช้งานได้
+- Color contrast ผ่านมาตรฐาน
+- Forms สามารถใช้งานได้โดยทุกคน
+- Issues ทั้งหมดถูกแก้ไขตาม priority

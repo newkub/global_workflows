@@ -3,7 +3,7 @@ title: Check SEO
 description: ตรวจสอบ SEO เพื่อให้ website มี ranking ที่ดี
 auto_execution_mode: 3
 related_workflows:
-  - /improve-seo
+  - /improve-content
 ---
 
 ## Goal

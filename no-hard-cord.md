@@ -29,7 +29,7 @@ auto_execution_mode: 3
 2. ตั้งชื่อ constants ให้มีความหมายชัดเจน
 3. จัดกลุ่ม constants ตาม context
 4. ใช้ const หรือ readonly สำหรับ constants
-5. ทำ `/update-reference` เพื่อแทนที่ magic values ด้วย constants
+5. ทำ `/update-references` เพื่อแทนที่ magic values ด้วย constants
 
 ### 3. Extract Configuration
 
@@ -59,7 +59,7 @@ auto_execution_mode: 3
 2. ใช้ environment variables สำหรับ API endpoints
 3. ใช้ path builders สำหรับ dynamic paths
 4. ใช้ config สำหรับ file paths
-5. ทำ `/update-reference` เพื่อใช้ relative paths แทน absolute เมื่อเป็นไปได้
+5. ทำ `/update-references` เพื่อใช้ relative paths แทน absolute เมื่อเป็นไปได้
 
 ### 6. Secure Secrets
 
@@ -120,7 +120,7 @@ auto_execution_mode: 3
 - สร้าง constants files สำหรับ magic values
 - สร้าง config files สำหรับ environment-specific values
 - สร้าง .env.example สำหรับ local development
-- อัพเดท references ด้วย `/update-reference` สำหรับไฟล์ที่ลบ
+- อัพเดท references ด้วย `/update-references` สำหรับไฟล์ที่ลบ
 - Update documentation สำหรับ configuration changes
 
 ## Expected Outcome

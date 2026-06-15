@@ -32,7 +32,7 @@ auto_execution_mode: 3
 4. ถ้าใช้ SolidJS → ทำ `/solidjs-architecture`
 5. ถ้าใช้ Svelte → ทำ `/svelte-architecture`
 6. ถ้าใช้ Rust หรือ Bun → ทำ `/clean-architecture`
-7. ถ้าเป็น monorepo → ทำ `/monorepo`
+7. ถ้าเป็น monorepo → ทำ `/follow-monorepo`
 8. ถ้าเป็น microservices → ทำ `/microservices`
 
 ### 3. Setup Base Structure

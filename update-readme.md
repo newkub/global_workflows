@@ -1,12 +1,12 @@
 ---
-title: Update Readme
+title: Write Readme
 description: สร้าง README.md ที่มีเนื้อหาครบถ้วนด้วยข้อมูลจากการวิเคราะห์โปรเจกต์จริง
 auto_execution_mode: 3
 related_workflows:
-  - /analyze-project
+  - /deep-analyze
   - /all-workspaces
   - /content-quality
-  - /update-docs
+  - /write-docs
   - /example-readme
 ---
 
@@ -20,9 +20,16 @@ related_workflows:
 
 ## Execute
 
-### 1. Analyze And Write Root README
+### 1. Generate Changelog And Release
 
-1. ทำ `/analyze-project` เพื่อเก็บข้อมูลโปรเจกต์ root
+สร้าง changelog และ release notes ก่อน
+
+1. ทำ `/gen-changelog` เพื่อสร้าง CHANGELOG.md
+2. ทำ `/gen-release` เพื่อสร้าง RELEASE.md
+
+### 2. Analyze And Write Root README
+
+1. ทำ `/deep-analyze` เพื่อเก็บข้อมูลโปรเจกต์ root
 2. อ่าน `manifest files`, `source code`, และ `config files`
 3. เขียน `required sections`, `usage`, และ `hero section` ตามมาตรฐาน
 4. `Configuration` ให้อยู่ใน `Reference section`
@@ -37,7 +44,7 @@ related_workflows:
 
 1. ใช้ `/content-quality` เพื่อตรวจสอบคุณภาพ
 2. ตรวจสอบ `workflows` ที่อ้างอิงมีอยู่จริง
-3. ใช้ `/update-reference` หากมี `file changes`
+3. ใช้ `/update-references` หากมี `file changes`
 
 ## Rules
 
@@ -104,4 +111,3 @@ This project is licensed under the <a href="https://choosealicense.com/licenses/
 - โครงสร้างสม่ำเสมอตาม section formats
 - Code examples ถูกต้องและพร้อมใช้งาน
 - Icons แสดงได้ถูกต้อง
-

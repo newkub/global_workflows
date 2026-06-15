@@ -34,6 +34,12 @@ auto_execution_mode: 3
 
 - Outcome ที่คาดหวัง
 
+## Report (optional)
+
+รายงานผลลัพธ์
+
+1. ทำ `/report` เพื่อจัดรูปแบบ output ตามประเภทที่เหมาะสม
+
 ## Common Mistakes (optional)
 
 ข้อผิดพลาดที่พบบ่อย:

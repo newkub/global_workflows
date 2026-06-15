@@ -27,11 +27,12 @@ related_workflows:
 
 ### 2. Improve File Naming
 
-1. กำหนด naming convention ที่เหมาะสมกับโปรเจกต์ เช่น:
+1. ทำ `/improve-naming` สำหรับปรับปรุง naming conventions ครบถ้วน
+2. กำหนด naming convention ที่เหมาะสมกับโปรเจกต์ เช่น:
    - ไฟล์ component และ composable: camelCase หรือ PascalCase
    - ไฟล์ types และ utilities: camelCase หรือ kebab-case
-2. เปลี่ยนชื่อไฟล์ที่ไม่ตรง convention โดยใช้ `search_replace` แทนการลบและสร้างใหม่
-3. อัปเดต import paths ที่อ้างอิงถึงไฟล์ที่เปลี่ยนชื่อ
+3. เปลี่ยนชื่อไฟล์ที่ไม่ตรง convention โดยใช้ `search_replace` แทนการลบและสร้างใหม่
+4. อัปเดต import paths ที่อ้างอิงถึงไฟล์ที่เปลี่ยนชื่อ
 
 ### 3. Relocate To Appropriate Folders
 
@@ -125,4 +126,5 @@ related_workflows:
 - ❌ สร้างโฟลเดอร์ลึกเกินไป (deep nesting)
 - ❌ ใช้ naming conventions ผสมกัน
 - ❌ ทิ้ง orphan files ไว้หลังย้าย
+
 

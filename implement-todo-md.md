@@ -73,7 +73,7 @@ Implement production code ตาม TODO items ใน Markdown
 
 - ลบ TODO items ที่ implement เสร็จแล้ว
 - เพิ่ม changelog สำหรับ features ที่ implement
-- อัพเดท README ตาม `/update-readme`
+- อัพเดท README ตาม `/write-readme`
 
 ## Expected Outcome
 

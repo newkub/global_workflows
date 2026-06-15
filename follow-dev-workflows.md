@@ -14,7 +14,7 @@ Create development lifecycle system covering all steps in continuous loop to mai
 
 ### 1. Prepare
 
-1. ใช้ `/update-reference` เพื่อเก็บ reference
+1. ใช้ `/update-references` เพื่อเก็บ reference
 2. ใช้ `/learn-from-web` เสมอถ้าเป็น dependencies
 3. อ่าน workflows ที่คล้ายกัน
 4. ใช้ `/principles` เพื่อดู principles
@@ -61,8 +61,8 @@ Create development lifecycle system covering all steps in continuous loop to mai
 
 ### 8. Documentation
 
-1. Run `/update-docs` to create documentation
-2. Run `/update-readme` to update README
+1. Run `/write-docs` to create documentation
+2. Run `/write-readme` to update README
 
 ### 9. Review
 
@@ -78,7 +78,7 @@ Create development lifecycle system covering all steps in continuous loop to mai
 
 ### 10. Release
 
-1. Run `/commit-all` to create conventional commits
+1. Run `/commit` to create conventional commits
 2. Run `/changesets` for versioning
 3. Run `/auto-it` or `/release-it` for automation
 4. Run `/run-release` to release to registry

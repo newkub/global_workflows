@@ -12,7 +12,7 @@ auto_execution_mode: 3
 
 ### 1. Prepare
 
-1. ใช้ `/update-docs` เพื่อเก็บ reference
+1. ใช้ `/write-docs` เพื่อเก็บ reference
 2. รัน `/analyze-project` เพื่อดูภาพรวม
 
 ### 2. Analyze APIs
@@ -47,13 +47,13 @@ auto_execution_mode: 3
 
 ### 7. Update Documentation
 
-1. ทำตาม `/update-readme` สำหรับการอัพเดท README.md
+1. ทำตาม `/write-readme` สำหรับการอัพเดท README.md
 2. เพิ่ม examples ที่เขียนไว้ลงใน README.md ในส่วน Usage
-3. อัพเดท API Reference ด้วยตารางครบถ้วนตามรูปแบบที่กำหนดใน `/update-readme`
+3. อัพเดท API Reference ด้วยตารางครบถ้วนตามรูปแบบที่กำหนดใน `/write-readme`
 
 ### 8. Update Reference
 
-1. ใช้ `/update-reference` เพื่ออัพเดท references
+1. ใช้ `/update-references` เพื่ออัพเดท references
 
 ## Rules
 

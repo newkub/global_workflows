@@ -12,6 +12,16 @@ auto_execution_mode: 3
 
 ใช้สำหรับสร้าง workspace-level hooks สำหรับ `Cascade` เท่านั้น
 
+## โครงสร้าง Directory
+
+```
+.devin/
+├── hooks/
+│   ├── hooks.json          # Hook configuration
+│   ├── run-lint.ts         # Lint hook script
+│   └── run-typecheck.ts    # Typecheck hook script
+```
+
 ## Execute
 
 ### 1. Read Reference Documentation

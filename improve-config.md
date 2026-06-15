@@ -1,188 +1,149 @@
 ---
 title: Improve Config
-description: ปรับปรุง configuration files ตาม best practices รองรับ monorepo
+description: ปรับปรุงคุณภาพ configuration files ครบวงจร
 auto_execution_mode: 3
+related_workflows:
+  - /follow-config
+  - /follow-tasks
+  - /check-configuration
+  - /follow-monorepo
+  - /follow-turborepo
+  - /follow-moonrepo
 ---
 
 ## Goal
 
-ปรับปรุง configuration files ตาม best practices รองรับทั้ง single project และ monorepo
+ปรับปรุงคุณภาพ configuration files ครบวงจรให้ถูกต้อง สอดคล้อง และเป็นมาตรฐาน
+
+## Scope
+
+ใช้สำหรับปรับปรุง configuration files ทั้งใน root workspace และ packages/apps ใน monorepo
 
 ## Execute
 
-### Research And Analyze
+### 1. Analyze Current Configurations
 
-วิจัยและวิเคราะห์ configuration files
+ตรวจสอบและวิเคราะห์ configuration files ที่มีอยู่
 
-1. ทำ `/deep-research` เพื่อค้นหา best practices
-2. ทำ `/check-architecture` เพื่อดู project structure
-3. ระบุ configuration files ทั้งหมดในโปรเจกต์
-4. ตรวจสอบ dependencies, versions, และ deprecated settings
-5. ตรวจสอบ duplicate configs ภายในและระหว่าง workspaces
+1. อ่าน config files ทั้งหมดใน root (`biome.jsonc`, `tsconfig.json`, `turbo.json`, `lefthook.yml`, `.moon/workspace.yml`)
+2. อ่าน config files ในทุก workspace ที่มี
+3. ตรวจสอบ dependencies ใน `package.json` ทุก workspace
+4. ระบุ tech stack ที่ใช้ (Bun, TypeScript, Biome, Turborepo, Drizzle, etc.)
+5. ทำ `/analyze-all-files` เพื่อดูโครงสร้าง config files ทั้งหมด
 
-### Optimize Configs
+### 2. Check Consistency
 
-ปรับปรุง configuration files ตาม best practices
+ตรวจสอบความสอดคล้องของ configuration files
 
-1. แก้ไข hardcoded versions เป็น version ranges
-2. ลบ config files ที่ว่างเปล่าหรือไม่จำเป็น
-3. รวม configs ที่ซ้ำกันด้วย extends หรือ inheritance
-4. อัพเดท deprecated configurations
-5. เพิ่ม configs ที่ขาดหายตาม best practices
+1. เปรียบเทียบ config files ระหว่าง root และ workspaces
+2. ตรวจสอบว่า workspace-specific config override เฉพาะที่จำเป็น
+3. ตรวจสอบ path aliases ใน `tsconfig.json` ทั้งหมด
+4. ตรวจสอบ linting rules สอดคล้องกัน
+5. ตรวจสอบ scripts ใน `package.json` สอดคล้องกัน
 
-### Setup Monorepo
+### 3. Run Required Workflows
 
-ตั้งค่า configuration สำหรับ monorepo (ถ้ามี)
+รัน workflows ที่จำเป็นเพื่อปรับปรุง configuration
 
-1. สร้าง shared configs ที่ root
-2. กำหนด workspace configuration และ toolchain versions
-3. ใช้ extends หรือ inheritance ใน project configs
-4. ย้าย configs ที่ซ้ำกันระหว่าง workspaces ไป root
-5. กำหนด project dependencies ใน dependency graph
+1. ทำ `/read-related-workflows` สำหรับ config-related workflows
+2. ทำ `/follow-config` เพื่อตั้งค่า configuration ตาม dependencies
+3. ทำ `/follow-tasks` เพื่อตั้งค่า scripts ใน `package.json`
+4. รัน workflows ตาม tech stack (เช่น `/follow-biome`, `/follow-turborepo`, `/follow-typescript`)
+5. รัน workflows สำหรับ tools ที่มี (เช่น `/follow-lefthook`, `/follow-ast-grep`)
 
-### Add Schema And Types
+### 4. Fix Configuration Issues
 
-เพิ่ม schema และ types จาก official sources
+แก้ไขปัญหาใน configuration files
 
-1. ค้นหา schema จาก official สำหรับ json config files
-2. ค้นหา types จาก official สำหรับ ts config files
-3. validate config ด้วย schema ถ้ามี
-4. ใช้ type-safe config ถ้าเป็น TypeScript
+1. แก้ไข TypeScript errors จาก config files
+2. แก้ไข path aliases ที่ไม่ถูกต้อง
+3. แก้ไข linting rules ที่ขัดแย้งกัน
+4. แก้ไข scripts ที่ไม่ทำงาน
+5. แก้ไข dependencies ที่ขาดหาย
+6. แก้ไข environment variables ที่ไม่ถูกต้อง
 
-### Optimize Performance
+### 5. Validate And Test
 
-ปรับปรุงประสิทธิภาพการโหลดและประมวลผล configs
+ตรวจสอบและทดสอบ configuration files
 
-1. ลบ comments ที่ไม่จำเป็นออกจาก production configs
-2. รวม configs ที่เกี่ยวข้องกันเพื่อลดจำนวนไฟล์
-3. ลบ unused imports หรือ dependencies ใน config files
-4. ใช้ caching สำหรับ configs ที่ไม่เปลี่ยนบ่อย
+1. รัน `bun run verify` ใน root
+2. รัน `bun run verify` ในทุก workspace
+3. ตรวจสอบว่า config files ถูกต้อง
+4. ตรวจสอบว่า scripts ทำงานได้
+5. ตรวจสอบว่า linting ผ่าน
+6. ตรวจสอบว่า typecheck ผ่าน
 
-### Harden Security
+### 6. Update References
 
-เพิ่มความปลอดภัยให้ configuration files
+อัพเดท references ที่เกี่ยวข้อง
 
-1. ย้าย secrets และ sensitive data ออกจาก config files
-2. ใช้ environment variables สำหรับค่าที่เป็นความลับ
-3. ตรวจสอบว่าไม่มี credentials หลุดใน config files
-4. ใช้ `/phase-dev` เพื่อจัดการ secrets อย่างปลอดภัย
+1. ทำ `/update-reference` หลังแก้ไข config files
+2. อัพเดท documentation ที่เกี่ยวข้องกับ config
+3. อัพเดท AGENTS.md ถ้าจำเป็น
 
-### Setup Environment Configs
+### 7. Optimize For Monorepo
 
-จัดการ configs สำหรับหลาย environments
+ปรับปรุง configuration สำหรับ monorepo ให้มีประสิทธิภาพสูงสุด
 
-1. สร้าง base config ที่ใช้ร่วมกันทุก environment
-2. สร้าง environment-specific overrides (dev, staging, prod)
-3. ใช้ inheritance หรือ extends เพื่อ override เฉพาะส่วนที่จำเป็น
-4. ทำ `/no-hard-code` เพื่อลบ hardcoded environment values
-
-### Integrate CI/CD
-
-ปรับ configs ให้ทำงานร่วมกับ CI/CD pipeline
-
-1. ตรวจสอบว่า configs ทำงานได้ในทุก CI/CD environment
-2. ใช้ environment variables สำหรับ CI/CD-specific values
-3. ใช้ `/github-actions` เพื่อตั้งค่า CI/CD workflows
-4. ใช้ caching สำหรับ dependencies ใน CI configs
-
-### Plan Migration
-
-วางแผนการ migrate configs ที่มี breaking changes
-
-1. ระบุ breaking changes ระหว่าง config versions
-2. สร้าง migration guide สำหรับทีม
-3. ทดสอบ migration ใน staging environment ก่อน
-4. ใช้ `/run-verify` เพื่อตรวจสอบความถูกต้องหลัง migrate
-
-### Update And Validate
-
-อัพเดท dependencies และตรวจสอบ changes
-
-1. ทำ `/update-dependencies` เพื่ออัพเดท dependencies
-2. รัน type checking, linting, formatting, และ testing
-3. ตรวจสอบ workspace configuration (ถ้าเป็น monorepo)
-4. ตรวจสอบว่าทุกอย่างทำงานได้
+1. ทำตาม `/follow-monorepo` สำหรับ monorepo structure
+2. ทำตาม `/follow-turborepo` หรือ `/follow-moonrepo` สำหรับ build system
+3. ตรวจสอบ workspace protocol และ version conflicts
+4. ตรวจสอบ circular dependencies ด้วย tools
 
 ## Rules
 
-### Research And Safety
+### 1. Foundation First
 
-- ต้องทำ `/deep-research` ก่อนเสมอ
-- ต้อง backup config files ก่อนแก้ไข
-- ต้องทดสอบ changes ทุกครั้ง
+ตั้งค่า foundation ก่อนปรับปรุงส่วนอื่น
 
-### Version Management
+- ตรวจสอบ architecture และ dependencies ก่อน
+- อัพเดท configuration files ให้ถูกต้อง
+- แก้ไข issues ใน root config ก่อน
+- แก้ไข issues ใน workspace config หลังจากนั้น
 
-- ใช้ version ranges แทน hardcoded versions
-- ทำ `/update-dependencies` สำหรับอัพเดท dependencies
-- อัพเดท dependencies ที่ล้าสมัย
+### 2. Consistency Across Workspaces
 
-### Config Organization
+รักษาความสม่ำเสมอทั่ว monorepo
 
-- ลบ configs ที่ไม่จำเป็น
-- รวม configs ที่ซ้ำกัน
-- ไม่ระบุไฟล์เฉพาะเจาะจง ใช้ภาษาทั่วไป
+- Config files ใน root ควรเป็น base สำหรับทุก workspace
+- Workspace-specific config ควร override เฉพาะที่จำเป็น
+- Scripts ใน `package.json` ควรสอดคล้องกัน
+- Linting rules ควรสอดคล้องกันทั่วทั้ง project
+- Path aliases ควรสอดคล้องกัน
 
-### Monorepo Config
+### 3. Minimal And Necessary
 
-- ใช้ shared configs ที่ root
-- ใช้ extends หรือ inheritance ใน project configs
-- ซิงค์ configuration ข้าม packages
-- กำหนด workspace configuration และ toolchain versions อย่างถูกต้อง
-- ย้าย configs ที่ซ้ำกันไป root
+รันเฉพาะที่จำเป็น
 
-### Schema And Types
+- รันเฉพาะ workflows ที่เกี่ยวข้องกับ stack ที่ใช้
+- ไม่รัน workflows ที่ไม่จำเป็น
+- ตรวจสอบ dependencies ก่อนรัน workflows
+- รัน workflows ตามลำดับที่เหมาะสม (foundation ก่อน)
 
-- ค้นหา schema จาก official สำหรับ json config files
-- ค้นหา types จาก official สำหรับ ts config files
-- validate config ด้วย schema ถ้ามี
-- ใช้ type-safe config ถ้าเป็น TypeScript
+### 4. Use References
 
-### Performance
+ใช้ references แทนการเขียนซ้ำ
 
-- ลบ comments ที่ไม่จำเป็นออกจาก production configs
-- รวม configs ที่เกี่ยวข้องกันเพื่อลดจำนวนไฟล์
-- ใช้ caching สำหรับ configs ที่ไม่เปลี่ยนบ่อย
+- ทำตาม workflows ที่ระบุใน Execute
+- ใช้ config templates จาก global workflows
+- อ้างอิงจาก best practices ของแต่ละ tool
 
-### Security
+### 5. Test Before Commit
 
-- ย้าย secrets และ sensitive data ออกจาก config files
-- ใช้ environment variables สำหรับค่าที่เป็นความลับ
-- ตรวจสอบว่าไม่มี credentials หลุดใน config files
-- ใช้ `/phase-dev` เพื่อจัดการ secrets อย่างปลอดภัย
+ทดสอบก่อน commit
 
-### Environment Configs
-
-- สร้าง base config ที่ใช้ร่วมกันทุก environment
-- สร้าง environment-specific overrides (dev, staging, prod)
-- ใช้ inheritance หรือ extends เพื่อ override เฉพาะส่วนที่จำเป็น
-- ทำ `/no-hard-code` เพื่อลบ hardcoded environment values
-
-### CI/CD Integration
-
-- ตรวจสอบว่า configs ทำงานได้ในทุก CI/CD environment
-- ใช้ environment variables สำหรับ CI/CD-specific values
-- ใช้ `/github-actions` เพื่อตั้งค่า CI/CD workflows
-- ใช้ caching สำหรับ dependencies ใน CI configs
-
-### Migration
-
-- ระบุ breaking changes ระหว่าง config versions
-- สร้าง migration guide สำหรับทีม
-- ใช้ feature flags เพื่อค่อยๆ เปลี่ยน configs
-- ใช้ `/run-verify` เพื่อตรวจสอบความถูกต้องหลัง migrate
+- รัน verify pipeline ก่อน commit
+- ตรวจสอบว่าทุก workspace ผ่าน verify
+- ตรวจสอบว่าไม่มี TypeScript errors
+- ตรวจสอบว่าไม่มี linting errors
 
 ## Expected Outcome
 
-- Configuration files ที่ optimize แล้วตาม best practices
-- ไม่มี hardcoded versions, empty configs, duplicates, หรือ deprecated settings
-- Shared configs สำหรับ monorepo ที่ใช้ได้จริง
-- Configuration inheritance ที่ชัดเจน
-- Schema และ types จาก official sources
-- Configs ที่ optimized สำหรับ performance
-- Configs ที่ secure ไม่มี secrets หลุด
-- Environment configs ที่จัดการอย่างถูกต้อง
-- CI/CD configs ที่ทำงานร่วมกันได้
-- Migration plan ที่ครบถ้วน
-- ทุก config ทำงานได้อย่างถูกต้องและ safe
-
+- Configuration files ตั้งค่าถูกต้องตาม tech stack
+- Config สอดคล้องกันทั่ว monorepo
+- Scripts ใน `package.json` พร้อมใช้งาน
+- Path aliases ถูกต้องและสอดคล้องกัน
+- Linting rules สอดคล้องกัน
+- Verify pipeline ผ่านทั้ง root และ workspaces
+- TypeScript errors ลดลง
+- Linting errors ลดลง

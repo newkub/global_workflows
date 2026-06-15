@@ -6,41 +6,36 @@ auto_execution_mode: 3
 
 ## Goal
 
-ตรวจสอบความถูกต้องของสิ่งที่ผู้ใช้ระบุ
+ตรวจสอบความถูกต้องของสิ่งที่ผู้ใช้ระบุตาม criteria ที่กำหนด
 
 ## Scope
 
-ตรวจสอบความถูกต้องตามที่ผู้ใช้ระบุ (code, workflow, documentation, configuration, ฯลฯ)
+ตรวจสอบความถูกต้องของ code, workflow, documentation, configuration หรือสิ่งอื่นๆ ตามที่ผู้ใช้ระบุ
 
 ## Execute
 
 ### 1. Identify Check Target
 
-1. ระบุสิ่งที่ต้องตรวจสอบจากผู้ใช้
-2. กำหนด criteria สำหรับการตรวจสอบ
-3. เลือก tools หรือ workflows ที่เกี่ยวข้อง
+- ระบุสิ่งที่ต้องตรวจสอบจากผู้ใช้
+- กำหนด criteria สำหรับการตรวจสอบ
+- เลือก tools หรือ workflows ที่เกี่ยวข้อง
 
 ### 2. Research Best Practices (ถ้าจำเป็น)
 
-1. ตรวจสอบว่าต้องการ research ข้อมูลเพิ่มเติมหรือไม่
-2. ถ้าต้องการ ทำ `/deep-research` เพื่อค้นหา:
-   - Best practices จาก official documentation
-   - Reference implementations จาก GitHub
-   - Package information จาก NPM
-   - Community standards และ conventions
-3. ใช้ findings จาก deep research เพื่อปรับ criteria การตรวจสอบ
+- ทำ `/deep-research` เพื่อค้นหา best practices, references, และ standards
+- ใช้ findings เพื่อปรับ criteria การตรวจสอบ
 
 ### 3. Perform Check
 
-1. ตรวจสอบตาม criteria ที่กำหนด
-2. บันทึก issues ที่พบ
-3. จัดลำดับความสำคัญของ issues
+- ตรวจสอบตาม criteria ที่กำหนด
+- บันทึก issues ที่พบ
+- จัดลำดับความสำคัญของ issues
 
 ### 4. Report Results
 
-1. สรุปผลการตรวจสอบ
-2. แนะนำการแก้ไข
-3. ระบุ priority สำหรับการแก้ไข
+- ทำ `/report` เพื่อสรุปผลการตรวจสอบ
+- แนะนำการแก้ไขที่ concrete
+- ระบุ priority สำหรับการแก้ไข
 
 ## Rules
 
@@ -65,6 +60,6 @@ auto_execution_mode: 3
 
 ## Expected Outcome
 
-- ตรวจสอบความถูกต้องตามที่ผู้ใช้ระบุ
-- บันทึก issues ที่พบ
+- ตรวจสอบความถูกต้องตาม criteria ที่กำหนด
+- บันทึก issues ที่พบพร้อม priority
 - แนะนำการแก้ไขที่เหมาะสม

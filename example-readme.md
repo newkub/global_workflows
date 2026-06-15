@@ -3,7 +3,7 @@ title: Example Readme
 description: Template สำหรับสร้าง README.md จากตัวอย่างโปรเจกต์จริง
 auto_execution_mode: 3
 related_workflows:
-  - /update-readme
+  - /write-readme
 ---
 
 ## Goal
@@ -26,13 +26,13 @@ related_workflows:
 
 1. ใช้ `/content-quality` เพื่อตรวจสอบคุณภาพ
 2. ตรวจสอบ workflows ที่อ้างอิงมีอยู่จริง
-3. ใช้ `/update-reference` หากมี file changes
+3. ใช้ `/update-references` หากมี file changes
 
 ## Rules
 
 ### 1. README Structure Template
 
-ใช้ structure มาตรฐานจาก `/update-readme` สำหรับ README.md:
+ใช้ structure มาตรฐานจาก `/write-readme` สำหรับ README.md:
 
 ```markdown
 # Project Name

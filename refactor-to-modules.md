@@ -29,7 +29,7 @@ Refactor modules ภายใน workspace ให้มี single responsibility
 
 ### 2. Plan Module Structure
 
-1. ทำ `/plan` เพื่อวางแผนการ refactor modules
+1. ทำ `/plan-code` เพื่อวางแผนการ refactor modules
 2. ระบุ modules ที่จะ merge, split, หรือ create ใหม่
 3. จัดลำดับ refactor ตาม dependency direction
 4. รอยืนยันจาก user ก่อนเริ่มทำ
@@ -51,7 +51,7 @@ Refactor แต่ละ module ให้มี single responsibility
 1. ระบุ modules ที่มี responsibilities ซ้ำกัน
 2. ทำ `/merge` เพื่อรวม modules
 3. ลบ modules เดิมที่ไม่ใช้แล้ว
-4. ทำ `/update-reference` เพื่ออัพเดท references
+4. ทำ `/update-references` เพื่ออัพเดท references
 
 ### 5. Validate And Test
 

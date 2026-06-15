@@ -2,6 +2,8 @@
 title: Follow ESLint
 description: ตั้งค่า ESLint 9 พร้อม plugins ครบถ้วนสำหรับ TypeScript/Vue/Nuxt
 auto_execution_mode: 3
+related_workflows:
+  - /follow-stryker-mutator
 ---
 
 ## Goal

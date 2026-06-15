@@ -117,10 +117,15 @@ crw example.com --summary --prompt "in 3 bullet points"
 crw mcp
 ```
 
+**Environment Variables:**
+- `CRW_BROWSER_PATH` - Path ไปยัง browser executable (Chrome/Edge) สำหรับ JS rendering
+- ตัวอย่าง: `C:\Program Files\Google\Chrome\Application\chrome.exe`
+
 **เหมาะสำหรับ:**
 - Integration กับ MCP-compatible tools
 - ใช้เป็น MCP server สำหรับ AI agents
 - Real-time web access ผ่าน MCP
+- JavaScript rendering สำหรับ SPA/React/Vue/Angular sites
 
 ### 8. Browser Automation
 

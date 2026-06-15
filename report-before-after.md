@@ -3,7 +3,7 @@ title: Report Before After
 description: รายงานแผนการทำงานก่อนดำเนินการ และแสดง before-after comparison
 auto_execution_mode: 3
 related_workflows:
-  - /plan
+  - /plan-task
   - /analyze-project
   - /write-windsurf-global-workflows
 ---
@@ -24,7 +24,7 @@ related_workflows:
 
 1. ทำ `/analyze-project` เพื่อวิเคราะห์สิ่งที่ผู้ใช้ต้องการ
 2. ระบุสิ่งที่จะเปลี่ยนแปลงและผลกระทบ
-3. ทำ `/plan` เพื่อวางแผนการทำงาน
+3. ทำ `/plan-task` เพื่อวางแผนการทำงาน
 
 ### 2. Explain Plan
 
@@ -95,7 +95,7 @@ related_workflows:
 
 ใช้ workflows ที่เกี่ยวข้อง
 
-- ทำ `/plan` เพื่อวางแผน
+- ทำ `/plan-task` เพื่อวางแผน
 - ทำ `/analyze-project` เพื่อวิเคราะห์
 - ทำ `/write-windsurf-global-workflows` เพื่อสร้าง workflow
 

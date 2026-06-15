@@ -37,7 +37,16 @@ auto_execution_mode: 3
 3. ทดสอบ options ที่รับค่า (`--config path`, `--output file`)
 4. ตรวจสอบ combinations ของ options ที่ใช้ร่วมกันได้
 
-### 5. Edge Cases Testing
+### 5. Record And Capture
+
+บันทึก terminal sessions สำหรับ documentation และ regression testing:
+
+1. ทำ `/record-capture-terminal` เพื่อเลือก tool ที่เหมาะสม
+2. บันทึก test execution ด้วย `asciinema rec test-cli.cast --command "bun run test:cli"`
+3. Capture screenshot สำหรับ test cases ที่สำคัญด้วย `Win + Shift + S`
+4. เก็บไฟล์ใน `test/screenshots/` และ `test/recordings/`
+
+### 6. Edge Cases Testing
 
 1. ทดสอบกับ empty inputs
 2. ทดสอบกับ special characters

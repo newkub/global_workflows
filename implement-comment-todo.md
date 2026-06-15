@@ -27,7 +27,7 @@ auto_execution_mode: 3
 2. ใช้ `write_to_file` สำหรับสร้างไฟล์ใหม่
 3. Implement functions ตาม business logic ที่ถูกต้อง
 4. เชื่อมต่อกับ dependencies ที่จำเป็น (database, API, services)
-5. ทำ `/update-reference` เพื่ออัพเดท references ทั้งหมด
+5. ทำ `/update-references` เพื่ออัพเดท references ทั้งหมด
 
 ### 3. Validation
 

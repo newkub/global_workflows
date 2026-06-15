@@ -1,7 +1,11 @@
 ---
-title: Best Practice
+title: Follow Best Practice
 description: เขียนโค้ดตาม best practices ของ language, runtime, และ library
 auto_execution_mode: 3
+related_workflows:
+  - learn-from-web
+  - deep-research
+  - write-windsurf-global-workflows
 ---
 
 ## Goal
@@ -24,13 +28,9 @@ auto_execution_mode: 3
 ### 2. Research Best Practices
 
 1. ระบุ library, framework หรือ tool ที่ต้องการเรียนรู้ best practices
-2. หา official website และ documentation
-3. ใช้ `/learn-from-web` สำหรับ libraries และ frameworks
-4. ใช้ DeepWiki สำหรับ GitHub repositories
-5. ใช้ Context7 สำหรับ library documentation
-6. ใช้ Web Search เป็น fallback
-7. ลำดับความสำคัญ: Official Docs → DeepWiki → Context7 → Web Search
-8. ตรวจสอบว่าข้อมูลเป็นปัจจุบัน
+2. ทำตาม `/learn-from-web` สำหรับ systematic learning จาก web sources
+3. ทำตาม `/deep-research` เมื่อต้องการข้อมูลลึกจาก multiple sources
+4. ตรวจสอบว่าข้อมูลเป็นปัจจุบัน
 
 ### 3. Apply Best Practices
 
@@ -53,17 +53,7 @@ auto_execution_mode: 3
 
 ## Rules
 
-### 1. Dependency Analysis
-
-ตรวจสอบ dependencies ใน project อย่างละเอียด
-
-- อ่าน `package.json`, `Cargo.toml`, `go.mod`, `requirements.txt`
-- ระบุ language เช่น `TypeScript`, `Rust`, `Go`, `Python`
-- ระบุ runtime เช่น `Node.js`, `Bun`, `Deno`
-- ระบุ libraries เช่น `React`, `Vue`, `Axios`, `Prisma`
-- ตรวจสอบ version compatibility
-
-### 2. Research Sources
+### 1. Research Sources
 
 ใช้ sources ที่เชื่อถือได้สำหรับ best practices
 
@@ -75,7 +65,7 @@ auto_execution_mode: 3
 - ใช้ `/learn-from-web` เป็น primary workflow สำหรับ learning
 - ใช้ `/deep-research` เมื่อต้องการข้อมูลลึกจาก multiple sources
 
-### 3. Language-Specific Conventions
+### 2. Language-Specific Conventions
 
 ทำตาม conventions ของแต่ละ language
 
@@ -85,7 +75,7 @@ auto_execution_mode: 3
 - Python: ทำตาม PEP 8 และ best practices
 - ใช้ linter ที่เหมาะสมกับแต่ละ language
 
-### 4. Library-Specific Patterns
+### 3. Library-Specific Patterns
 
 ใช้ patterns ที่เหมาะสมกับแต่ละ library
 
@@ -95,7 +85,7 @@ auto_execution_mode: 3
 - อ่าน documentation ของแต่ละ library อย่างละเอียด
 - ตรวจสอบ examples จาก official sources
 
-### 5. Runtime Considerations
+### 4. Runtime Considerations
 
 พิจารณา characteristics ของ runtime ที่ใช้
 
@@ -105,7 +95,7 @@ auto_execution_mode: 3
 - Browser: พิจารณา performance และ compatibility
 - Server: พิจารณา security และ scalability
 
-### 6. Consistency Maintenance
+### 5. Consistency Maintenance
 
 รักษาความสม่ำเสมอทั่วทั้ง codebase
 

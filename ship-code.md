@@ -22,17 +22,18 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 อ่านและสรุป workflows ที่เกี่ยวข้องทั้งหมดแบบ recursive ก่อนเริ่มทำงาน
 
-1. ทำ `/read-related-workflows` เพื่ออ่านและสรุป workflows ที่เกี่ยวข้อง
-2. ตรวจสอบ dependency graph ของ workflows ทั้งหมด
-3. สรุป tasks ที่ต้องทำตามลำดับ
-4. สรุป rules ที่ต้องปฏิบัติ
-5. สรุป expected outcomes ทั้งหมด
+1. ทำ `/use-skills` เพื่อเข้าใจหลักการใช้ skills จาก skills repository
+2. ทำ `/read-related-workflows` เพื่ออ่านและสรุป workflows ที่เกี่ยวข้อง
+3. ตรวจสอบ dependency graph ของ workflows ทั้งหมด
+4. สรุป tasks ที่ต้องทำตามลำดับ
+5. สรุป rules ที่ต้องปฏิบัติ
+6. สรุป expected outcomes ทั้งหมด
 
 ### 2. Planning
 
 วางแผนการพัฒนาอย่างเป็นระบบก่อนเริ่ม implement
 
-1. ทำ `/plan` เพื่อวางแผนงานครอบคล้ว
+1. ทำ `/plan-task` เพื่อวางแผนงานครอบคล้ว
 2. รอยืนยันจาก user ก่อนเริ่มทำ
 
 ### 2.5. Define MVP Scope (Optional)
@@ -49,7 +50,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 ตั้งค่าพื้นฐานก่อนเริ่มพัฒนา
 
 1. ทำ `/follow-package-manifest` เพื่อตั้งค่า package manifest
-2. ทำ `/update-readme` เพื่ออัพเดท README
+2. ทำ `/write-readme` เพื่ออัพเดท README
 
 ### 4. Setup .devin
 
@@ -86,7 +87,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 ปรับปรุงโครงสร้างโค้ดตาม Clean Architecture
 
 1. ทำ `/refactor` เพื่อปรับปรุงโครงสร้างโค้ด
-2. ทำ `/update-reference` เพื่ออัพเดท references
+2. ทำ `/update-references` เพื่ออัพเดท references
 
 ### 9. Apply Best Practices
 
@@ -102,7 +103,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 1. ทำ `/realize-implementation` เพื่อแปลงเป็น production code
 2. ตรวจสอบว่าไม่มี mock implementations เหลือ
-3. ทำ `/update-reference` เพื่ออัพเดท references
+3. ทำ `/update-references` เพื่ออัพเดท references
 
 ### 11. Code Review
 
@@ -116,19 +117,19 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ปรับปรุงคุณภาพ codebase ครบวงจร
 
-1. ทำ `/improve-codebase-everything` เพื่อปรับปรุงคุณภาพ codebase ครบวงจร
+1. ทำ `/improve-codebase` เพื่อปรับปรุงคุณภาพ codebase ครบวงจร
 
 ### 13. Update Docs
 
 อัพเดท documentation ถ้ามี docs/
 
-1. ถ้ามี docs/ ให้ทำ `/update-docs` เพื่ออัพเดท documentation
+1. ถ้ามี docs/ ให้ทำ `/write-docs` เพื่ออัพเดท documentation
 
 ### 14. Cleanup
 
 ทำความสะอาด project ก่อนส่ง
 
-1. ทำ `/follow-cleanup` เพื่อลบไฟล์และโฟลเดอร์ที่ไม่จำเป็น
+1. ทำ `/simplify` เพื่อลบไฟล์และโฟลเดอร์ที่ไม่จำเป็น
 
 ### 15. Continue
 
@@ -152,9 +153,9 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 เน้นคุณภาพมากกว่าความเร็ว
 
 - ทำ `/refactor` ก่อน `/follow-best-practice`
-- ทำ `/review-codebase` ก่อน `/improve-codebase-everything`
+- ทำ `/review-codebase` ก่อน `/improve-codebase`
 - แปลง TODO, MOCK เป็น production code ก่อน ship
-- ทำ `/update-reference` หลัง refactor และ `/realize-implementation`
+- ทำ `/update-references` หลัง refactor และ `/realize-implementation`
 
 ### 3. MVP Discipline
 

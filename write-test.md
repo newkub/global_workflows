@@ -3,7 +3,11 @@ title: Write Test
 description: เขียน test ที่มีคุณภาพสูง ครอบคลุมทุกกรณีใช้งาน ใช้ได้กับทุกภาษา
 auto_execution_mode: 3
 related_workflows:
-  - /write-code-explicit
+  - /review-architecture
+  - /improve-naming
+  - /write-spec
+  - /follow-stryker-mutator
+  - /follow-mutants-rs
 ---
 
 ## Goal
@@ -16,27 +20,33 @@ related_workflows:
 
 ## Execute
 
-### 1. Write Spec
+### 0. Review Architecture
 
-ทำ `/write-spec` เพื่อสร้างหรืออัพเดท SPEC.md ก่อนเขียน test
+ทำ `/review-architecture` ก่อนเขียน test เพื่อแก้ critical issues
 
-### 2. Analyze Requirements
+### 1. Organize Test Files
 
-ตรวจสอบ test framework และ conventions ที่ใช้ในโปรเจกต์
+ย้าย test files ที่กระจัดกระจายมาไว้ใน `tests/` ตาม Rule 3
 
-### 3. Write Tests
+### 2. Write Spec
+
+ทำ `/write-spec` เพื่อสร้างหรืออัพเดท spec ก่อนเขียน test
+
+### 3. Improve Naming
+
+ทำ `/improve-naming` เพื่อปรับปรุง naming conventions ก่อนเขียน test
+
+### 4. Write Tests
 
 เขียน test ตามประเภทและ conventions ของภาษาที่ใช้
 
-### 4. Sync and Verify
+### 5. Sync and Verify
 
-อัพเดท SPEC.md ด้วย test cases ที่เขียนแล้ว และรัน `/update-reference` สำหรับไฟล์ที่เพิ่ม
+อัพเดท SPEC.md ด้วย test cases ที่เขียนแล้ว และรัน `/update-references`
 
 ## Rules
 
 ### 1. Test Principles
-
-หลักการทั่วไปที่ใช้ได้กับทุกภาษา:
 
 - ตั้งชื่อ test: `should [expected behavior] when [condition]`
 - Follow `AAA` pattern (`Arrange`, `Act`, `Assert`)
@@ -47,22 +57,24 @@ related_workflows:
 
 ### 2. Language Conventions
 
-ใช้ conventions ตามภาษาที่ใช้:
+ทำตาม conventions ของภาษาที่ใช้:
 
-- `TypeScript/JavaScript`: `*.test.ts`, `vitest`, `jest`, `describe/it`
-- `Go`: `*_test.go`, `testing` package, `t.Run`, table-driven tests
-- `Python`: `test_*.py`, `pytest`, `unittest`, fixtures
-- `Rust`: `#[cfg(test)]`, `tests/` directory, `assert!`, `#[test]`
-- `Java/Kotlin`: `*Test.java`, `JUnit`, `@Test`, `@BeforeEach`
-- `C#`: `*Tests.cs`, `xUnit`, `NUnit`, `[Fact]`, `[Theory]`
-- `Ruby`: `*_spec.rb`, `rspec`, `describe/it`
-- `PHP`: `*Test.php`, `PHPUnit`, `test*`
+| Language | File Pattern | Framework | Conventions |
+|----------|-------------|-----------|-------------|
+| TypeScript/JavaScript | `*.test.ts` | vitest, jest | `describe/it` |
+| Go | `*_test.go` | testing | `t.Run`, table-driven |
+| Python | `test_*.py` | pytest, unittest | fixtures |
+| Rust | `#[cfg(test)]` | - | `assert!`, `#[test]` |
+| Java/Kotlin | `*Test.java` | JUnit | `@Test`, `@BeforeEach` |
+| C# | `*Tests.cs` | xUnit, NUnit | `[Fact]`, `[Theory]` |
+| Ruby | `*_spec.rb` | rspec | `describe/it` |
+| PHP | `*Test.php` | PHPUnit | `test*` |
 
 ### 3. File Organization
 
 จัดโครงสร้าง test files ตามประเภท:
 
-- Unit tests: อยู่ใกล้กับ source code (`.test.ts`, `.test.tsx`, `*_test.go`, `test_*.py`)
+- Unit tests: ใน `tests/unit/` แยกจาก source code
 - Integration tests: ใน `tests/integration/`
 - E2E tests: ใน `tests/e2e/`
 - Test utilities: ใน `tests/utils/`
@@ -71,24 +83,34 @@ related_workflows:
 ตัวอย่าง folder structure:
 
 ```
-project/
-├── src/
+tests/
+├── unit/
 │   ├── components/
-│   │   ├── Button.tsx
 │   │   └── Button.test.tsx
 │   └── services/
-│       ├── auth.ts
 │       └── auth.test.ts
-└── tests/
-    ├── integration/
-    ├── e2e/
-    ├── utils/
-    └── fixtures/
+├── component/          # (optional) Component-specific tests
+├── integration/
+│   ├── adapters/      # (optional) Database, API fixtures
+│   ├── db/            # (optional) Database test fixtures
+│   └── api/           # (optional) API endpoint tests
+├── e2e/
+│   ├── flows/
+│   └── pages/
+├── utils/
+│   ├── helpers/        # (optional) Test helper functions
+│   ├── mocks/          # (optional) Mock implementations
+│   ├── setup/          # (optional) Test setup files
+│   └── assertions/     # (optional) Custom assertions
+├── fixtures/
+│   ├── data/           # (optional) Static test data files
+│   ├── factories/      # (optional) Test data factories
+│   ├── mocks/          # (optional) Mock data and stubs
+│   └── snapshots/      # (optional) Snapshot testing
+└── seed/              # (optional) Database seeding
 ```
 
 ### 4. Naming and Data
-
-ตั้งชื่อและจัดการ test data:
 
 - Test files: ใช้ชื่อเดียวกับ source ต่อท้ายด้วย `.test`, `.spec`, หรือ `_test`
 - Test cases: `should [expected behavior] when [condition]`
@@ -98,10 +120,8 @@ project/
 
 ### 5. Mocking and Security
 
-จัดการ dependencies และความปลอดภัย:
-
-- Mock external dependencies (`API`, `database`, `file system`) เฉพาะที่จำเป็น
-- ใช้ interfaces/ports สำหรับ test doubles (`stubs`, `mocks`, `fakes`, `spies`)
+- Mock external dependencies เฉพาะที่จำเป็น
+- ใช้ interfaces/ports สำหรับ test doubles
 - Restore/cleanup mocks หลังแต่ละ test
 - ไม่ hardcode credentials ใน test files
 - ใช้ environment variables สำหรับ secrets
@@ -109,25 +129,21 @@ project/
 
 ### 6. Performance and Coverage
 
-รักษาประสิทธิภาพและ coverage:
-
 - Unit tests: `< 10ms` ต่อ test
 - Integration tests: `< 100ms` ต่อ test
 - ใช้ `parallel execution` เมื่อ tests ไม่ dependent กัน
 - `100% coverage` สำหรับทุก test cases ที่ระบุใน spec
-- ตรวจสอบ coverage ด้วย tools (เช่น `c8`, `istanbul`, `coverage.py`)
-- ตั้งค่า coverage thresholds ใน CI เป็น 100% ทุก category
+- ตรวจสอบ coverage ด้วย tools
+- ตั้งค่า coverage thresholds ใน CI เป็น 100%
 
 ### 7. CI/CD and Documentation
 
-ผนวก tests เข้ากับ CI/CD และเขียน documentation:
-
-- รัน tests ในทุก pull request และ commit (pre-commit hooks)
+- รัน tests ในทุก pull request และ commit
 - ตั้งค่า `test coverage thresholds` ใน CI
 - รัน `lint` ก่อน `test` ใน pipeline
 - Document test setup ใน comments สำหรับ tests ที่ซับซ้อน
 - เขียน `README` ใน `tests/` อธิบายวิธีรัน
-- อัพเดท test docs เมื่อ logic เปลี่ยน
+- อัพเดท test docs เมื่อ logic เปลี่ยนี่ยน
 
 ## Expected Outcome
 

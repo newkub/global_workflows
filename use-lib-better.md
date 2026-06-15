@@ -9,6 +9,8 @@ related_workflows:
   - /check-vulnerability
   - /check-duplication
   - /deep-research
+  - /search-github-star
+  - /search-raindrop
   - /analyze-project
 ---
 

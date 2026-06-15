@@ -29,6 +29,7 @@ related_workflows:
 
 1. อ่านไฟล์ที่ส่งให้ทั้งหมด
 2. ตรวจสอบ structure, logic, และ naming match กับ principle หรือไม่
+3. ทำ `/improve-naming` สำหรับปรับปรุง naming ให้ match กับ principle
 
 ### 3. Analyze Violations
 

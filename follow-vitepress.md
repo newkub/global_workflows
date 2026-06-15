@@ -52,7 +52,8 @@ export default defineConfig({
 
 ### 3. UnoCSS Integration
 
-1. ทำ `/unocss` สำหรับ UnoCSS configuration
+1. ทำ `/follow-unocss` สำหรับ UnoCSS configuration
+2. ดูตัวอย่าง integration ที่ https://vp.yuy1n.io/
 
 ### 4. Theme Setup
 
@@ -150,7 +151,8 @@ features:
 
 ### 2. UnoCSS Integration
 
-- ทำ `/unocss` สำหรับ UnoCSS configuration
+- ทำ `/follow-unocss` สำหรับ UnoCSS configuration
+- ดูตัวอย่าง integration ที่ https://vp.yuy1n.io/
 
 ### 3. Theme Customization
 

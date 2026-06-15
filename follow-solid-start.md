@@ -1,29 +1,40 @@
 ---
 title: Follow Solid Start
-description: ตั้งค่าและพัฒนา SolidStart project ด้วย Vinxi, Vite และ Nitro
+description: ตั้งค่าและพัฒนา SolidStart project ด้วย official Solid Start, Vinxi, และ Bun
 auto_execution_mode: 3
 ---
 
 ## Goal
 
-ตั้งค่าและพัฒนา SolidStart application ด้วย meta-framework ที่รองรับ CSR, SSR, และ SSG
+ตั้งค่าและพัฒนา SolidStart application ด้วย official Solid Start meta-framework ที่ใช้ Vinxi และรองรับ SSR, Streaming SSR, CSR, SSG, และ Islands Architecture
 
 ## Scope
 
-ใช้สำหรับ SolidStart projects ที่ใช้ Vinxi เป็น framework bundler
+ใช้สำหรับ SolidStart projects ที่ใช้ official Solid Start จาก solidjs.com และ Vinxi meta-framework
 
 ## Execute
 
-### 1. Initialize Project
+### 1. Setup Project
 
-สร้าง SolidStart project ใหม่ด้วย starter
+ตั้งค่า SolidStart project ตามมาตรฐาน
 
-1. รัน `bun create solid` หรือ `npm init solid` หรือ `pnpm create solid` หรือ `yarn create solid`
-2. เลือก template (basic, bare, with-solidbase, with-auth, with-drizzle, with-mdx, with-prisma, with-solid-styled, with-tailwindcss)
-3. เลือก options (SSR, TypeScript)
-4. Install dependencies ด้วย `bun i`
+1. ตรวจสอบ Node.js version 22+ ก่อน
+2. ติดตั้ง dependencies: `bun add solid-js @solidjs/router @solidjs/start`
+3. ติดตั้ง dev dependencies: `bun add -d vite vite-plugin-solid typescript`
+4. ถ้าใช้ monorepo กับ workspaces, เพิ่ม `@solidjs/start` ใน `nohoist` property
+5. สร้าง `vite.config.ts` พร้อม `vite-plugin-solid` และ UnoCSS plugin
 
-### 2. Configure TypeScript
+### 2. Configure Vite
+
+ตั้งค่า Vite สำหรับ Solid.js
+
+1. สร้าง `vite.config.ts` พร้อม `vite-plugin-solid`
+2. เพิ่ม UnoCSS plugin: `import UnoCSS from "unocss/vite"`
+3. ตั้งค่า plugins: `solid()`, `UnoCSS()`
+4. ตั้งค่า resolve aliases สำหรับ clean imports
+5. ตั้งค่า server options สำหรับ file system access
+
+### 3. Configure TypeScript
 
 ตั้งค่า TypeScript สำหรับ SolidStart
 
@@ -32,44 +43,61 @@ auto_execution_mode: 3
 3. ใช้ `moduleResolution: bundler`
 4. ตั้งค่า `baseUrl` และ `paths` สำหรับ import aliases
 5. เปิดใช้ `strict: true`
+6. ใช้ type definitions จาก `env.d.ts` ของ `@solidjs/start` สำหรับ environment variables
 
-### 3. Setup Styling
+### 4. Setup UnoCSS
 
-ตั้งค่า styling สำหรับ project
+ตั้งค่า UnoCSS สำหรับ styling
 
-1. ทำ `/unocss` สำหรับ UnoCSS integration
-2. ใช้ UnoCSS ทั้งหมดถ้าเป็นไปได้
-3. หลีกเลี่ยง CSS modules
+1. ติดตั้ง UnoCSS: `bun add -d unocss`
+2. สร้าง `uno.config.ts` พร้อม `presetWind4` และ `presetIcons`
+3. ตั้งค่า theme, safelist, และ shortcuts
+4. เพิ่ม UnoCSS plugin ใน `vite.config.ts`
+5. ทำ `/unocss` สำหรับ UnoCSS best practices
 
-### 4. Development
+### 5. Development
 
 พัฒนา application ตาม best practices
 
-1. รัน `bun run dev` สำหรับ development server
-2. ใช้ `.tsx` สำหรับ components
-3. กำหนด types สำหรับ props
-4. ทำ `/refactor` เพื่อปรับปรุงโค้ด
+1. รัน `bun run dev` สำหรับ development server (ใช้ Vite)
+2. ทำ `/follow-solidjs` สำหรับ Solid.js component development
+3. ใช้ file-system based routing ใน `routes` directory
+4. ใช้ Server Functions ด้วย `use server` directive สำหรับ server-side logic
+5. สร้าง API Routes ด้วย export functions (`$GET`, `$POST`, `$PUT`, `$DELETE`)
+6. ใช้ Middleware System สำหรับ request interception
+7. ตั้งค่า environment variables ด้วย env plugin (`env:server`, `env:client`)
+8. ทำ `/refactor` เพื่อปรับปรุงโค้ด
 
-### 5. Build And Deploy
+### 6. Build And Deploy
 
 Build และ deploy สำหรับ production
 
-1. รัน `bun run build` สำหรับ production build
-2. ใช้ Nitro สำหรับ production server
+1. รัน `bun run build` สำหรับ production build (ใช้ Vite)
+2. ใช้ Vite build system
 3. ตั้งค่า deployment target (Vercel, Cloudflare, Node.js, etc.)
 
 ## Rules
 
-### 1. Project Initialization
+### 1. Project Setup
 
-ตั้งค่า project ตามมาตรฐาน SolidStart:
+ตั้งค่า project ตามมาตรฐาน:
 
-- ใช้ `bun create solid` หรือ package manager ที่ต้องการ
-- เลือก template ที่เหมาะสมกับ use case
-- เปิดใช้ SSR ถ้าต้องการ SEO และ performance
-- เปิดใช้ TypeScript สำหรับ type safety
+- ต้องใช้ Node.js 22+ หรือสูงกว่า
+- ติดตั้ง dependencies: `solid-js`, `@solidjs/router`, `@solidjs/start`
+- ติดตั้ง dev dependencies: `vite`, `vite-plugin-solid`, `typescript`
+- สร้าง `vite.config.ts` พร้อม `vite-plugin-solid` และ UnoCSS plugin
+- ถ้าใช้ monorepo กับ workspaces, เพิ่ม `@solidjs/start` ใน `nohoist`
 
-### 2. TypeScript Configuration
+### 2. Vite Configuration
+
+ตั้งค่า Vite อย่างถูกต้อง:
+
+- ใช้ `vite-plugin-solid` สำหรับ Solid.js compilation
+- เพิ่ม UnoCSS plugin สำหรับ styling
+- ตั้งค่า resolve aliases สำหรับ clean imports
+- ตั้งค่า server options สำหรับ file system access
+
+### 3. TypeScript Configuration
 
 ตั้งค่า TypeScript อย่างถูกต้อง:
 
@@ -77,17 +105,18 @@ Build และ deploy สำหรับ production
 - ใช้ `moduleResolution: bundler` สำหรับ modern resolution
 - ตั้งค่า path aliases สำหรับ clean imports
 - เปิดใช้ strict mode สำหรับ safety
+- ใช้ type definitions จาก `env.d.ts` สำหรับ environment variables
 
-### 3. Component Development
+### 4. UnoCSS Configuration
 
-พัฒนา components ตาม best practices:
+ตั้งค่า UnoCSS อย่างถูกต้อง:
 
-- ใช้ `.tsx` สำหรับทุก components
-- กำหนด types สำหรับ props อย่างชัดเจน
-- เขียน isomorphic code (ใช้ได้ทั้ง client และ server)
-- ใช้ UnoCSS สำหรับ styling
+- ใช้ `presetWind4` สำหรับ Tailwind-compatible utilities
+- ใช้ `presetIcons` สำหรับ icon support
+- ตั้งค่า theme, safelist, และ shortcuts
+- เพิ่ม UnoCSS plugin ใน Vite config
 
-### 4. Code Quality
+### 5. Code Quality
 
 รักษาคุณภาพโค้ด:
 
@@ -95,19 +124,23 @@ Build และ deploy สำหรับ production
 - ปรับปรุงโค้ดให้ถูกต้องตาม framework
 - ใช้ TypeScript strict mode
 - ตั้งค่า path aliases อย่างถูกต้อง
+- ตั้งค่า environment variables อย่างถูกต้อง
 
-### 5. Related Workflows
+### 6. Related Workflows
 
 เชื่อมโยงกับ workflows ที่เกี่ยวข้อง:
 
+- ทำ `/follow-solidjs` สำหรับ Solid.js component development
 - ทำ `/unocss` สำหรับ styling
-- ทำ `/follow-solidjs-architecture` สำหรับ architecture
-- ทำ `/follow-vite` สำหรับ Vite configuration
 
 ## Expected Outcome
 
-- SolidStart project ตั้งค่าครบถ้วนด้วย Vinxi
+- SolidStart project ตั้งค่าครบถ้วนด้วย official Solid Start และ Vinxi
 - TypeScript configuration ถูกต้อง
 - UnoCSS integration สำเร็จ
 - Component development ตาม best practices
+- Server Functions ด้วย `use server` directive ทำงานได้
+- API Routes ด้วย export functions ทำงานได้
+- Environment variables ตั้งค่าอย่างถูกต้อง
+- Rendering mode เลือกได้อย่างเหมาะสม
 - Build และ deployment พร้อมใช้งาน

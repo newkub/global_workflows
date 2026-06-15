@@ -1,7 +1,10 @@
 ---
 title: Learn from Web
-description: แนวทางการเรียนรู้จากเว็บไซต์หลักและเอกสารอย่างเป็นระบบด้วย DeepWiki, Context7 และ Official Documentation
+description: เรียนรู้จากเว็บไซต์หลักและเอกสารด้วย DeepWiki, Context7 และ Official Documentation
 auto_execution_mode: 3
+related_workflows:
+  - /deep-research
+  - /follow-best-practice
 ---
 
 ## Goal
@@ -91,50 +94,21 @@ auto_execution_mode: 3
 - ใช้ `Web Search` เป็น fallback
 - เข้าถึง `Official Documentation` เสมอ
 
-### 2. DeepWiki Usage
+### 2. Deep Research Integration
 
-ใช้ DeepWiki สำหรับ GitHub repositories:
+สำหรับการค้นหาข้อมูลลึกจาก multiple sources:
 
-- ใช้ `read_wiki_structure` เพื่อดู topics ทั้งหมด
-- ใช้ `read_wiki_contents` เพื่ออ่านเนื้อหาของ topic ที่เลือก
-- ใช้ `ask_question` สำหรับคำถามเฉพาะเจาะจง
-- เริ่มด้วย structure เพื่อดู topics ทั้งหมดก่อน
-- เลือก topics ที่เกี่ยวข้องกับงานปัจจุบัน
-- อ่าน getting started ก่อน advanced topics
-- บันทึก code examples และ configuration examples
+- ทำ `/deep-research` เมื่อต้องการค้นหาจาก NPM, GitHub, DeepWiki, Context7 และ Windsurf WebSearch
+- ใช้ CRW สำหรับ crawl official documentation เมื่อจำเป็น
+- ตรวจสอบ credibility และ freshness ของข้อมูล
 
-### 3. Context7 Usage
+### 3. Best Practices Application
 
-ใช้ Context7 สำหรับ libraries และ frameworks:
+สำหรับการนำความรู้ไปใช้งาน:
 
-- ใช้ `resolve-library-id` เพื่อหา library ID ที่ถูกต้อง
-- ใช้ `query-docs` สำหรับ documentation ที่ต้องการ
-- Query ให้เฉพาะเจาะจง เช่น "How to setup authentication with JWT in Express.js"
-- ตรวจสอบ source reputation และ benchmark scores
-- เลือก library ที่มี source reputation High หรือ Medium
-- อ่าน examples และ code snippets ที่ Context7 ให้มา
-- ตรวจสอบ version ที่เข้ากันได้กับ project
-- ไม่เรียก Context7 เกิน 3 ครั้งต่อคำถาม
-
-### 4. Web Search Usage
-
-ใช้ Web Search เป็น fallback:
-
-- ใช้ `search_web` เมื่อไม่มีข้อมูลจาก DeepWiki หรือ Context7
-- กำหนด query ที่ชัดเจนและเฉพาะเจาะจง
-- ใช้ domain filter ถ้าจำเป็น เช่น domain: "bun.sh"
-- เปรียบเทียบข้อมูลจากหลายแหล่ง
-- ตรวจสอบว่าข้อมูลเป็นปัจจุบัน (check publish date)
-
-### 5. Reading Order
-
-อ่านเอกสารตามลำดับที่เหมาะสม:
-
-- อ่าน introduction → getting started → examples → advanced
-- จดบันทึก code examples และ best practices
-- ทดสอบความเข้าใจด้วยโปรเจกต์ตัวอย่าง
-- เปรียบเทียบข้อมูลจากหลายแหล่ง
-- ติดตาม updates จากเว็บไซต์หลักอย่างสม่ำเสมอ
+- ทำ `/follow-best-practice` เพื่อใช้ความรู้ตามมาตรฐานของ language, runtime, และ library
+- ตรวจสอบความถูกต้องด้วย linter และ typecheck
+- รัน tests เพื่อยืนยันว่าไม่มี regression
 
 ## Expected Outcome
 

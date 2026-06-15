@@ -31,6 +31,7 @@ auto_execution_mode: 3
 2. รวม sections ที่มีเนื้อหาคล้ายกัน
 3. ลบ subsections ที่ไม่มีคุณค่าเพิ่ม
 4. รวม steps ที่ทำงานคล้ายกัน
+5. ทำ `/dont-over-engineer` เพื่อหลีกเลี่ยง over-engineering
 
 ### 3. Condense Text
 
@@ -67,6 +68,15 @@ auto_execution_mode: 3
 2. ใช้ references แทนการเขียนซ้ำ
 3. รวบรวมรายละเอียดที่เหมือนกันไว้ที่เดียว
 4. ตรวจสอบว่าเป็น single source of truth
+
+### 7. Improve Content Dimensions
+
+ปรับปรุง content ครบวงจร
+
+1. ทำตาม `/improve-file-structure` สำหรับโครงสร้างไฟล์
+2. ปรับปรุง readability, completeness, correctness
+3. ปรับปรุง accessibility, maintainability, relevance
+4. ปรับปรุง actionability
 
 ## Rules
 
@@ -109,6 +119,21 @@ auto_execution_mode: 3
 - เก็บเนื้อหาสำคัญครบถ้วน
 - ความยาวเหมาะสมกับเนื้อหา
 - Single source of truth ไม่ซ้ำซ้อน
+- ทำ `/dont-over-engineer` เสมอเมื่อเริ่มทำงาน
+- ใช้ minimal changes เสมอ
+
+### 5. Content Dimensions
+
+มิติของ content quality
+
+- ทำตาม `/improve-file-structure` สำหรับโครงสร้างไฟล์
+- Readability: explanations ชัดเจน, formatting เหมาะสม, หลีกเลี่ยง jargon
+- Completeness: ครอบคลุม use cases, examples, edge cases
+- Correctness: ตรวจสอบ structure, flow, edge cases, assumptions
+- Accessibility: screen reader friendly, keyboard navigation, alt text
+- Maintainability: organized structure, consistent patterns, documentation
+- Relevance: address audience needs, solve real problems
+- Actionability: actionable steps, clear instructions, examples ปฏิบัติได้
 
 ## Expected Outcome
 
@@ -124,3 +149,6 @@ auto_execution_mode: 3
 - Documentation, messages, comments มีคุณภาพ
 - ลดความสับสนจาก implicit content
 - บำรุงรักษาได้ง่ายขึ้น
+- โครงสร้างไฟล์เป็นระเบียบ สม่ำเสมอ
+- naming ที่สอดคล้องกันทั่วทั้งโปรเจกต์
+- Content ครอบคลุมทุกมิติ quality (readability, completeness, correctness, accessibility, maintainability, relevance, actionability)

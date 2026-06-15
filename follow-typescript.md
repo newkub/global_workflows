@@ -2,6 +2,8 @@
 title: Follow TypeScript
 description: Develop TypeScript projects with type safety and code quality best practices
 auto_execution_mode: 3
+related_workflows:
+  - /follow-stryker-mutator
 ---
 
 ## Goal

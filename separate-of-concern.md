@@ -43,7 +43,7 @@ related_workflows:
 1. รัน `/run-verify` เพื่อตรวจสอบคุณภาพ
 2. ทำ `/test-usage` เพื่อยืนยันว่าใช้งานได้
 3. ตรวจสอบ coupling ระหว่าง modules
-4. ทำ `/update-reference` หากมี file operations
+4. ทำ `/update-references` หากมี file operations
 
 ### 5. Update References
 

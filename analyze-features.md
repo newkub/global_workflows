@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /idea-features
   - /sumarize-features
-  - /update-docs
+  - /write-docs
 ---
 
 ## Goal

@@ -1,4 +1,4 @@
----
+s---
 title: Write Devin Rules
 description: สร้าง devin rules สำหรับ project ตามมาตรฐาน
 auto_execution_mode: 3

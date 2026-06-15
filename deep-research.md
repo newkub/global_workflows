@@ -1,9 +1,7 @@
 ---
 title: Deep Research
-description: ค้นหาข้อมูลจาก CRW, NPM, GitHub, DeepWiki, Context7
+description: ค้นหาข้อมูลจาก NPM, GitHub, DeepWiki, Context7, และ Windsurf WebSearch
 auto_execution_mode: 3
-related_workflows:
-  - /crw
 ---
 
 ## Goal
@@ -12,40 +10,38 @@ related_workflows:
 
 ## Scope
 
-ค้นหาข้อมูลจาก CRW (web scraping), NPM, GitHub, DeepWiki และ Context7
+ค้นหาข้อมูลจาก NPM, GitHub, DeepWiki, Context7 และ Windsurf WebSearch
 
 ## Execute
 
 ### 1. Identify Research Topic
 
-1. ระบุหัวข้อที่ต้องการค้นหา
-2. แยก keywords สำคัญ
-3. กำหนด scope ของการค้นหา
+ระบุหัวข้อที่ต้องการค้นหา แยก keywords สำคัญ และกำหนด scope ของการค้นหา
 
-### 2. Use CRW For Web Research
+### 2. Search Package And Code Sources
 
-1. ทำ `/crw` เพื่อใช้ CRW อย่างถูกต้อง
-2. ใช้ `crw map <url>` เพื่อ discover URLs ทั้งหมด
-3. ใช้ `crw <url>` สำหรับ scrape content แต่ละ URL
-4. ใช้ `crw search "query"` สำหรับ web search ผ่าน SearXNG
+ค้นหาข้อมูลทั่วไปจาก package registries และ code repositories ตาม ## Rules ข้อ 1
 
-### 3. Search Package And Code Sources
+### 3. Use AI Documentation Tools
 
-1. ค้นหา packages ที่เกี่ยวข้องใน NPM Registry
-2. ค้นหา repositories ที่เกี่ยวข้องใน GitHub
-3. ตรวจสอบ download counts, stars, forks, issues
+ใช้ AI tools สำหรับ documentation ที่มี MCP integration ตาม ## Rules ข้อ 3
 
-### 4. Use AI Documentation Tools
+### 4. Use CRW For Official Documentation
 
-1. ใช้ DeepWiki (`mcp2_ask_question`, `mcp2_read_wiki_contents`) สำหรับ GitHub repositories
-2. ใช้ Context7 (`mcp1_resolve-library-id`, `mcp1_query-docs`) สำหรับ library documentation
-3. ตรวจสอบ source reputation และ benchmark scores
+ใช้ CRW สำหรับ crawl official documentation ตาม ## Rules ข้อ 4:
 
-### 5. Synthesize Findings
+- ใช้ `crw map <domain>` เพื่อ discover URLs ทั้งหมดจาก official site
+- ใช้ `crw crawl <domain> --depth <n>` เพื่อ crawl และอ่านทุกหน้า
+- ใช้ `--format markdown` สำหรับ output ที่ LLM อ่านง่าย
+- ใช้ `--output <file>` เพื่อบันทึกผลลัพธ์
 
-1. รวบรวมข้อมูลจากทุก sources
-2. เปรียบเทียบและ cross-reference
-3. สรุป findings ที่สำคัญ
+### 5. Use Windsurf WebSearch
+
+อ่าน content จาก official documentation URLs ตาม ## Rules ข้อ 5
+
+### 6. Synthesize Findings
+
+รวบรวมข้อมูลจากทุก sources เปรียบเทียบและ cross-reference สรุป findings ที่สำคัญ และจัดกลุ่มตามหมวดหมู่
 
 ## Rules
 
@@ -53,23 +49,13 @@ related_workflows:
 
 เลือกใช้ multiple sources เพื่อความถูกต้อง:
 
-- ใช้ `CRW` สำหรับ web scraping และ search
 - ใช้ `NPM Registry` สำหรับ package information
 - ใช้ `GitHub` สำหรับ repositories และ code
 - ใช้ `DeepWiki` สำหรับ GitHub repositories
 - ใช้ `Context7` สำหรับ library documentation
+- ใช้ `Windsurf WebSearch` สำหรับ web search และ official documentation
 
-### 2. CRW Usage
-
-ใช้ CRW สำหรับ web research:
-
-- ใช้ `crw map <url>` เพื่อ discover URLs ทั้งหมดก่อน
-- ใช้ `crw <url>` สำหรับ scrape content แต่ละ URL
-- ใช้ `crw search "query"` สำหรับ web search
-- ใช้ `--format json` สำหรับ structured output
-- ใช้ `--format markdown` สำหรับ readable output
-
-### 3. Credibility Check
+### 2. Credibility Check
 
 ตรวจสอบ credibility ของ sources:
 
@@ -79,7 +65,7 @@ related_workflows:
 - กรองผลลัพธ์จาก credible sources
 - เปรียบเทียบข้อมูลจากหลายแหล่ง
 
-### 4. AI Documentation Tools
+### 3. AI Documentation Tools
 
 ใช้ AI documentation tools อย่างมีประสิทธิภาพ:
 
@@ -87,7 +73,26 @@ related_workflows:
 - ใช้ Context7 (`mcp1_resolve-library-id`, `mcp1_query-docs`) สำหรับ library documentation
 - ตรวจสอบ source reputation และ benchmark scores
 
-### 5. Information Freshness
+### 4. CRW For Official Documentation
+
+ใช้ CRW สำหรับ crawl official documentation อย่างมีประสิทธิภาพ:
+
+- ใช้ `crw map <domain>` เพื่อ discover URLs ทั้งหมดจาก official site
+- ใช้ `crw crawl <domain> --depth <n>` เพื่อ crawl และอ่านทุกหน้า
+- ใช้ `--format markdown` สำหรับ output ที่ LLM อ่านง่าย
+- ใช้ `--output <file>` เพื่อบันทึกผลลัพธ์
+- ทำตาม `/follow-crw` สำหรับการใช้งาน CRW อย่างเต็มประสิทธิภาพ
+
+### 5. Windsurf WebSearch Usage
+
+ใช้ Windsurf WebSearch อย่างมีประสิทธิภาพ:
+
+- ใช้ `search_web` สำหรับ web search ทั่วไป
+- ใช้ `read_url_content` สำหรับอ่าน content จาก official documentation URLs
+- ใช้ `view_content_chunk` สำหรับ large documents
+- ใช้สำหรับ sources ที่ไม่มี MCP integration
+
+### 6. Information Freshness
 
 ตรวจสอบ dates และ recency ของข้อมูล:
 

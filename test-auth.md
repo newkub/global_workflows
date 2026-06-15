@@ -4,7 +4,7 @@ description: ทดสอบ authentication, authorization แล session manage
 auto_execution_mode: 3
 related_workflows:
   - /test-api
-  - /test-security
+  - /improve-security
 ---
 
 ## Goal

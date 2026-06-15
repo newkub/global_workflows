@@ -22,7 +22,7 @@ auto_execution_mode: 3
 
 อัพเดท reference
 
-1. รัน `/update-reference`
+1. รัน `/update-references`
 2. ตรวจสอบว่า references ถูกอัพเดท
 
 ## Rules

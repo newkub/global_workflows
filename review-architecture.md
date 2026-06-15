@@ -1,115 +1,128 @@
 ---
 title: Review Architecture
-description: Review โครงสร้างโปรเจกต์ตามมาตรฐาน architecture
+description: Review architecture และ design patterns ของโปรเจกต์
 auto_execution_mode: 3
+related_workflows:
+  - /check-architecture
+  - /analyze-project
+  - /follow-architecture
 ---
 
 ## Goal
 
-Review โครงสร้างโปรเจกต์เพื่อให้แน่ใจว่าสอดคล้องกับสถาปัตยกรรมที่ตั้งไว้
+Review architecture และ design patterns ของโปรเจกต์เพื่อตรวจสอบคุณภาพและระบุ issues
 
 ## Scope
 
-ใช้สำหรับ review architecture ของโปรเจกต์ทั้งหมด
+ใช้สำหรับ review architecture ครบวงจร รวมถึง patterns, dependencies, coupling, cohesion, และ design principles
 
 ## Execute
 
-### 1. Analyze Structure
+### 1. Analyze Architectural Patterns
 
-ทำ `/check-architecture` เพื่อวิเคราะห์โครงสร้างโปรเจกต์
+วิเคราะห์ architectural patterns ที่ใช้
 
-1. รัน `/check-architecture` เพื่อดู tree view
-2. ตรวจสอบโครงสร้าง folders และ files
-3. เปรียบเทียบกับ architecture ที่ตั้งไว้
-4. ระบุความไม่สอดคล้องที่พบ
+1. ทำ `/follow-architecture` เพื่อระบุ architectural pattern
+2. วิเคราะห์ layering (presentation, business, data)
+3. ตรวจสอบ module boundaries และ responsibilities
+4. ระบุ design patterns ที่ใช้ (Factory, Strategy, Observer, etc.)
 
-### 2. Review Dependencies
+### 2. Review Dependencies And Coupling
 
-ทำ `/check-circular-dependencies` เพื่อวิเคราะห์ dependencies
+ตรวจสอบ dependencies และ coupling
 
-1. ตรวจสอบ dependencies ระหว่าง modules
-2. วิเคราะห์ circular dependencies
-3. ตรวจสอบ coupling และ cohesion
-4. ระบุ dependencies ที่ไม่เหมาะสม
+1. ทำ `/use-scripts` พร้อม parser วิเคราะห์ import dependencies
+2. สร้าง dependency graph ด้วย `graphviz` หรือ ASCII art
+3. ระบุ circular dependencies
+4. วิเคราะห์ coupling levels (tight vs loose)
 
-### 3. Check Patterns
+### 3. Evaluate Cohesion And Separation
 
-ตรวจสอบ design patterns ที่ใช้ในโปรเจกต์
+ประเมิน cohesion และ separation of concerns
 
-1. ตรวจสอบ design patterns ที่ใช้
-2. วิเคราะห์ consistency ของ patterns
-3. ระบุ anti-patterns ที่พบ
-4. แนะนำ patterns ที่ควรใช้
+1. วิเคราะห์ module cohesion (high vs low)
+2. ตรวจสอบ single responsibility principle
+3. ระบุ modules ที่มีหลาย responsibilities
+4. ตรวจสอบ separation of concerns ระหว่าง layers
 
-### 4. Validate Principles
+### 4. Check Design Principles
 
-ทำ `/follow-principles-engineering` เพื่อตรวจสอบ principles
+ตรวจสอบ design principles
 
 1. ตรวจสอบ SOLID principles
-2. ตรวจสอบ separation of concerns
-3. ตรวจสอบ single responsibility
-4. ตรวจสอบ DRY principle
+2. ตรวจสอบ DRY (Don't Repeat Yourself)
+3. ตรวจสอบ KISS (Keep It Simple, Stupid)
+4. ตรวจสอบ YAGNI (You Aren't Gonna Need It)
+
+### 5. Identify Anti-Patterns
+
+ระบุ anti-patterns ที่พบ
+
+1. ค้นหา God Objects ด้วย `/search-code`
+2. ค้นหา Spaghetti Code ด้วย complexity analysis
+3. ค้นหา Golden Hammer (overuse of single pattern)
+4. ค้นหา Copy-Paste Programming ด้วย `/check-duplication`
+
+### 6. Document Findings
+
+บันทึก findings และ recommendations
+
+1. รวบรวม architectural issues ทั้งหมด
+2. จัดลำดับความสำคัญตาม impact
+3. สร้าง recommendations สำหรับแต่ละ issue
+4. ทำ `/report-format-table` เพื่อแสดงผล
+5. สร้าง dependency graph visualization
 
 ## Rules
 
-### 1. Structure Check
+### 1. Tool Selection
 
-ตรวจสอบโครงสร้างโปรเจกต์
+ใช้เครื่องมือที่เหมาะสมกับงานแต่ละประเภท
 
-- ใช้ `/check-architecture` เพื่อดูโครงสร้าง
-- ตรวจสอบว่าโครงสร้างสอดคล้องกับ `/architecture`
-- ตรวจสอบ folder organization ตาม domain responsibility
-- ตรวจสอบ file naming conventions
+- ใช้ `/search-code` สำหรับ pattern matching
+- ใช้ `/use-scripts` พร้อม parser สำหรับ dependency analysis
+- ใช้ `graphviz` สำหรับ dependency graph
+- ทำ Bun scripts สำหรับ custom metrics
 
-### 2. Dependency Review
+### 2. Dependency Analysis
 
-ตรวจสอบ dependencies
+วิเคราะห์ dependencies อย่างละเอียด
 
-- ตรวจสอบ dependencies ทั้ง internal และ external
-- วิเคราะห์ circular dependencies
-- ตรวจสอบ coupling levels ระหว่าง modules
-- ตรวจสอบ cohesion ภายใน modules
+- สร้าง dependency graph ที่ครอบคลุม
+- ระบุ modules ที่มี dependencies มากเกินไป
+- ตรวจสอบ circular dependencies
+- วิเคราะห์ depth ของ dependency tree
 
-### 3. Pattern Validation
+### 3. Pattern Recognition
 
-ตรวจสอบ design patterns
+ระบุ patterns และ anti-patterns อย่างถูกต้อง
 
-- ตรวจสอบว่า patterns ใช้ถูกต้อง
-- ตรวจสอบ consistency ของ patterns ทั่ว codebase
-- ระบุ anti-patterns ที่พบ
-- แนะนำ patterns ที่เหมาะสม
+- ใช้ AST-based analysis สำหรับ pattern detection
+- ตรวจสอบว่า patterns ถูกใช้ตาม context
+- ระบุ anti-patterns ที่เป็น risk
+- ให้ recommendations สำหรับ refactoring
 
-### 4. Principle Compliance
+### 4. Principle Validation
 
-ตรวจสอบ compliance กับ engineering principles
+ตรวจสอบว่า code ทำตาม design principles
 
-- ตรวจสอบ SOLID principles
-- ตรวจสอบ separation of concerns
-- ตรวจสอบ single responsibility principle
-- ตรวจสอบ DRY principle
+- ตรวจสอบ SOLID principles ทีละข้อ
+- ระบุ violations ของแต่ละ principle
+- ให้ examples ของ violations
+- ให้ recommendations สำหรับการแก้ไข
 
-### 5. Timing
+### 5. No Code Modifications
 
-กำหนดเวลาในการ review
+ห้ามแก้ไข code ระหว่าง review
 
-- Review architecture เมื่อมีการเปลี่ยนแปลงใหญ่
-- Review ก่อน merge major features
-- Review เป็นส่วนหนึ่งของ code review process
-
-### 6. Action
-
-ดำเนินการตามผลการ review
-
-- ใช้ `/improve-codebase` สำหรับ improvement tasks
-- ใช้ `/resolve-errors` สำหรับ issues ที่พบ
-- ใช้ `/refactor` สำหรับ restructuring tasks
-- อัพเดท documentation หาก architecture เปลี่ยน
+- เฉพาะ analyze และ document findings
+- ไม่แก้ไข code ระหว่าง review
+- ทำ `/comment-todo` สำหรับระบุ issues
 
 ## Expected Outcome
 
-- ผลการ review architecture ตอบในแชท
-- ความไม่สอดคล้องถูกระบุและแก้ไข
-- Dependencies ถูกจัดระเบียบให้ดีขึ้น
-- Architecture สอดคล้องกับ best practices
-- Documentation อัพเดทให้ทันสมัย
-
+- Architectural patterns ถูกระบุและวิเคราะห์
+- Dependency graph แสดง relationships ระหว่าง modules
+- Issues ทั้งหมดถูกระบุและจัดลำดับ
+- Anti-patterns ถูกระบุพร้อม recommendations
+- Recommendations ชัดเจนสำหรับแต่ละ issue

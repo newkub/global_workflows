@@ -1,127 +1,129 @@
 ---
 title: Improve Type Safety
-description: ปรับปรุง type safety ใน codebase ที่มีอยู่แล้ว
+description: ปรับปรุง type safety ด้วย TypeScript strict mode และ proper typing
 auto_execution_mode: 3
+related_workflows:
+  - /follow-typescript
+  - /follow-ts
 ---
 
 ## Goal
 
-ปรับปรุง type safety ใน codebase โดยแก้ไขปัญหา type errors และเพิ่มความเข้มงวดของ TypeScript
+ปรับปรุง type safety ด้วย TypeScript strict mode และ proper typing
 
 ## Scope
 
-ใช้สำหรับทุก workspace ที่ต้องการปรับปรุง type safety ใน codebase
+ใช้สำหรับปรับปรุง type safety ทั้ง TypeScript projects และ type definitions
 
 ## Execute
 
-### 1. Analyze Type Issues
+### 1. Enable Strict Mode
 
-วิเคราะห์ปัญหา type safety ใน codebase
+เปิดใช้งาน TypeScript strict mode
 
-- รัน `type check` เพื่อดู type errors ทั้งหมด
-- ระบุไฟล์ที่มี type errors มากที่สุด
-- ตรวจสอบการใช้ `any` และ `unknown`
-- ตรวจสอบการใช้ `type assertions`
-- วิเคราะห์ `type coverage`
+1. ตั้ง `strict: true` ใน `tsconfig.json`
+2. เปิดใช้งาน strict options ทั้งหมด
+3. รัน typecheck เพื่อดู errors ที่เกิดขึ้น
+4. แก้ไข errors ที่เกิดขึ้น
 
-### 2. Fix Type Errors
+### 2. Improve Type Annotations
 
-แก้ไข type errors ตามลำดับความสำคัญ
+ปรับปรุง type annotations
 
-- แก้ critical type errors ก่อน
-- แทนที่ `any` ด้วย types ที่เหมาะสม
-- เพิ่ม `type guards` สำหรับ runtime checks
-- ใช้ `discriminated unions` แทน type assertions
-- แก้ circular type references
+1. เพิ่ม type annotations สำหรับ functions และ variables
+2. ใช้ interfaces สำหรับ object shapes
+3. ใช้ type aliases สำหรับ complex types
+4. ใช้ generics สำหรับ reusable types
+5. หลีกเลี่ยง `any` type
 
-### 3. Strengthen Type System
+### 3. Fix Type Errors
 
-เพิ่มความเข้มงวดของ type system
+แก้ไข TypeScript errors
 
-- เปิด `strict mode` ถ้ายังไม่เปิด
-- เปิด `noImplicitAny`, `noImplicitThis`, `strictNullChecks`
-- ใช้ `unknown` แทน `any` เมื่อจำเป็น
-- เพิ่ม `readonly` สำหรับ immutable data
-- ใช้ `const assertions` สำหรับ literal types
+1. รัน typecheck เพื่อหา errors
+2. แก้ไข type errors ทั้งหมด
+3. ใช้ type guards สำหรับ runtime checks
+4. ใช้ type assertions อย่างระมัดระวัง
+5. รัน typecheck อีกครั้งเพื่อ verify
 
-### 4. Improve Type Inference
+### 4. Improve Type Definitions
 
-ปรับปรุง type inference ให้ดีขึ้น
+ปรับปรุง type definitions
 
-- ใช้ `type hints` ทุก function
-- ใช้ `satisfies operator` เพื่อ validate types
-- ใช้ `generic types` สำหรับ reusable logic
-- สร้าง `utility types` สำหรับ common patterns
-- ใช้ `branded types` สำหรับ domain-specific types
+1. สร้าง type definitions สำหรับ external libraries
+2. ใช้ declaration files (.d.ts) สำหรับ types
+3. ใช้ module augmentation สำหรับ extending types
+4. อัปเดต type definitions ให้ทันสมัย
+5. ตรวจสอบ type definitions กับ @types packages
 
-### 5. Add Type Guards
+### 5. Validate Type Safety
 
-เพิ่ม type guards สำหรับ runtime type checking
+ตรวจสอบ type safety
 
-- สร้าง `type guard functions`
-- ใช้ `is keyword` สำหรับ type narrowing
-- ใช้ `discriminated unions` สำหรับ complex types
-- เพิ่ม runtime validation สำหรับ external data
-- ใช้ `zod` หรือ similar library สำหรับ schema validation
-
-### 6. Verify
-
-ตรวจสอบว่า type safety ดีขึ้นแล้ว
-
-- รัน `type check` ตรวจสอบว่าไม่มี errors
-- รัน build ตรวจสอบว่าไม่มี build errors
-- ตรวจสอบ `type coverage` ด้วย `type-coverage`
-- ยืนยันว่า functionality ทั้งหมดยังทำงานได้ปกติ
+1. รัน typecheck ด้วย strict mode
+2. ตรวจสอบว่าไม่มี `any` types
+3. ตรวจสอบว่า type coverage สูง
+4. ตรวจสอบว่า type inference ทำงานได้
+5. รัน lint สำหรับ type-related rules
 
 ## Rules
 
-### 1. Type Safety Principles
+### 1. Strict Mode
 
-ปฏิบัติตาม type safety best practices
+ใช้ TypeScript strict mode เสมอ
 
-- หลีกเลี่ยงการใช้ `any` โดยเด็ดขาด
+- ตั้ง `strict: true` ใน `tsconfig.json`
+- เปิดใช้งาน strictNullChecks
+- เปิดใช้งาน noImplicitAny
+- เปิดใช้งาน strictFunctionTypes
+- เปิดใช้งาน strictBindCallApply
+
+### 2. Type Annotations
+
+ใช้ type annotations อย่างชัดเจน
+
+- เพิ่ม type annotations สำหรับ function parameters
+- เพิ่ม return types สำหรับ functions
+- ใช้ interfaces สำหรับ object shapes
+- ใช้ type aliases สำหรับ union types
+- ใช้ enums สำหรับ constants
+
+### 3. Avoid Any Types
+
+หลีกเลี่ยง `any` type
+
 - ใช้ `unknown` แทน `any` เมื่อจำเป็น
-- ใช้ `type narrowing` แทน type assertions
-- ใช้ `discriminated unions` สำหรับ complex state
-- เปิด `strict mode` ทุกโปรเจกต์
+- ใช้ type guards สำหรับ runtime checks
+- ใช้ type assertions อย่างระมัดระวัง
+- ใช้ proper types แทน `any`
+- ตรวจสอบด้วย lint rules
 
-### 2. Type Guards
+### 4. Type Inference
 
-ใช้ type guards สำหรับ runtime type checking
+ใช้ type inference อย่างมีประสิทธิภาพ
 
-- สร้าง `type guard functions` สำหรับ runtime checks
-- ใช้ `is keyword` สำหรับ type narrowing
-- ใช้ `typeof` และ `instanceof` อย่างเหมาะสม
-- ใช้ `in operator` สำหรับ property checks
-- ใช้ custom type guards สำหรับ complex conditions
+- ให้ TypeScript infer types เมื่อชัดเจน
+- เพิ่ม type annotations เมื่อจำเป็น
+- ใช้ const assertions สำหรับ literals
+- ใช้ generic types สำหรับ reusable code
+- ตรวจสอบ inferred types ด้วย IDE
 
-### 3. Type Inference
+### 5. Type Definitions
 
-ปรับปรุง type inference ให้ดีขึ้น
+จัดการ type definitions อย่างเป็นระบบ
 
-- ใช้ `type hints` ทุก function
-- ใช้ `satisfies operator` เพื่อ validate types
-- ใช้ `const assertions` สำหรับ literal types
-- ใช้ `as const` สำหรับ readonly arrays/objects
-- ใช้ `generic types` สำหรับ reusable logic
-
-### 4. Type Coverage
-
-ตรวจสอบและปรับปรุง type coverage
-
-- ตรวจสอบ `type coverage` อย่างสม่ำเสมอ
-- เพิ่ม types สำหรับ untyped code
-- ใช้ `type-coverage` tool เพื่อวัดผล
-- ตั้งเป้าหมาย type coverage ขั้นต่ำ
-- ตรวจสอบ `any types` อย่างสม่ำเสมอ
+- ใช้ @types packages สำหรับ popular libraries
+- สร้าง custom type definitions เมื่อจำเป็น
+- ใช้ declaration merging สำหรับ extending types
+- อัปเดต type definitions อย่างสม่ำเสมอ
+- ตรวจสอบ type definitions กับ documentation
 
 ## Expected Outcome
 
-- `type errors` ทั้งหมดถูกแก้ไข
-- `strict mode` เปิดใช้งาน
-- `type coverage` เพิ่มขึ้นอย่างมีนัยสำคัญ
-- ไม่มี `any types` ใน codebase
-- `type guards` ถูกเพิ่มสำหรับ runtime checks
-- `type inference` ดีขึ้น
-- functionality ทั้งหมดยังทำงานได้ปกติ
-
+- TypeScript strict mode เปิดใช้งาน
+- Type errors แก้ไขครบถ้วน
+- Type annotations ชัดเจนและครบถ้วน
+- `any` types ลดลงหรือหายไป
+- Type definitions จัดการอย่างเป็นระบบ
+- Type safety สูงขึ้น
+- Type inference ทำงานได้อย่างมีประสิทธิภาพ

@@ -48,7 +48,7 @@ auto_execution_mode: 3
 
 1. Apply `single responsibility principle`
 2. Reduce `nested logic`
-3. Use clear naming
+3. Use clear naming (ทำ `/improve-naming`)
 4. Extract `helper functions`
 5. Ensure `reusability` and `testability`
 6. Configure `strict TypeScript`

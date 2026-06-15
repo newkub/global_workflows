@@ -6,6 +6,7 @@ related_workflows:
   - /content-quality
   - /write-windsurf-global-workflows
   - /write-windsurf-skills
+  - /write-readme
   - /check-correctness
 ---
 
@@ -21,7 +22,7 @@ related_workflows:
 
 ### 1. Commit Changes
 
-1. ทำ `/commit-all` เพื่อ commit changes ที่มีอยู่
+1. ทำ `/commit` เพื่อ commit changes ที่มีอยู่
 2. ตรวจสอบ working directory สะอาด
 
 ### 2. Analyze Structure
@@ -29,6 +30,16 @@ related_workflows:
 1. ทำ `/windsurf-global-workflows` เพื่อเข้าใจโครงสร้าง
 2. สำรวจ workflows ทั้งหมดและจัดกลุ่ม
 3. ระบุ workflows ที่ซ้ำซ้อนหรือขัดแย้งกัน
+
+### 3. Rename Folders by Skill Type
+
+1. ตรวจสอบ skill folders ใน skills/ ว่ามี prefix ตรงตาม skill types หรือไม่
+2. Rename folders ตาม skill types:
+   - `guide-*` → เปลี่ยน prefix เป็น skill type
+   - `lib-*` → เปลี่ยน prefix เป็น skill type
+   - `framework-*` → เปลี่ยน prefix เป็น skill type
+   - `lang-*` → เปลี่ยน prefix เป็น skill type
+3. อัปเดท references ที่อ้างถึง folders ที่ rename แล้ว
 
 ### 3. Verify References
 
@@ -54,13 +65,19 @@ related_workflows:
 2. ตรวจสอบ frontmatter ครบถ้วน
 3. ตรวจสอบ supporting files มีอยู่จริง
 
-### 7. Update Global Rules
+### 7. Update Root Files
+
+1. อัปเดท `SKILL.md` ที่ root ตาม `/write-windsurf-skills`
+2. อัปเดท `README.md` ที่ root ตาม `/write-readme`
+3. ตรวจสอบความสอดคล้องกับ skill structure ล่าสุด
+
+### 8. Update Global Rules
 
 1. อัปเดท `global_rules.md` ตามมาตรฐาน
 2. ตรวจสอบ rules ครอบคลุมทุกส่วน
 3. ตรวจสอบความสอดคล้องกับ workflows และ skills
 
-### 8. Update Workflows
+### 9. Update Workflows
 
 1. อัปเดท workflows ที่ไม่สอดคล้องกับมาตรฐาน
 2. รวม workflows ที่ซ้ำซ้อน

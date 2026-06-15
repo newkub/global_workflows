@@ -36,7 +36,7 @@ auto_execution_mode: 3
 
 วิเคราะห์สถาปัตยกรรมและ patterns
 
-1. ทำ `/architecture` เพื่อระบุ architectural pattern
+1. ทำ `/review-architecture` เพื่อระบุ architectural pattern
 2. วิเคราะห์ data flow ด้วย `grep_search` หา imports/exports
 3. บันทึก state management (Pinia, Zustand, Redux)
 4. ใช้ `/search-code` หา common patterns และ naming conventions

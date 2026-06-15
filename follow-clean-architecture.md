@@ -81,7 +81,7 @@ test/                             # Test suite (mirror src structure)
 - Immutable data structures (`readonly`)
 - ไม่มี side effects
 - ไม่พึ่ง infrastructure
-- ทำ `/improve-design-pattern` เพื่อใช้ patterns ที่เหมาะสมกับ functional core
+- ทำ `/improve-architecture` เพื่อใช้ patterns ที่เหมาะสมกับ functional core
 
 ### 4. Implement Application Layer
 

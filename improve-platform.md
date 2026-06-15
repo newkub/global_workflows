@@ -1,116 +1,112 @@
 ---
 title: Improve Platform
-description: ปรับปรุง platform compatibility และ deployment
+description: ปรับปรุง platform support สำหรับ browser และ platform compatibility
 auto_execution_mode: 3
+related_workflows:
+  - /improve-compatibility
+  - /improve-accessibility
 ---
 
 ## Goal
 
-ปรับปรุง platform compatibility และ deployment ให้รองรับหลาย platforms
+ปรับปรุง platform support ให้ครอบคลุม browsers และ platforms ต่างๆ
+
+## Scope
+
+ใช้สำหรับปรับปรุง platform support ของ web applications
 
 ## Execute
 
-### 1. Analyze Platform Support
+### 1. Check Compatibility
 
-วิเคราะห์ platform support ปัจจุบัน
+ตรวจสอบ compatibility ปัจจุบัน
 
-1. ตรวจสอบ supported platforms
-2. วิเคราะห์ platform-specific issues
-3. ตรวจสอบ browser compatibility
-4. วิเคราะห์ OS compatibility
-5. ตรวจสอบ device compatibility
+- ทำ `/improve-compatibility` สำหรับ browser และ platform compatibility
+- ทดสอบบน Chrome, Firefox, Safari, Edge
+- ทดสอบบน mobile browsers
+- ตรวจสอบ OS compatibility
+- ระบุ issues ที่พบ
 
 ### 2. Improve Browser Support
 
-ปรับปรุง browser compatibility
+ปรับปรุง browser support
 
-1. ใช้ polyfills สำหรับ features ที่รองรับ
-2. ตรวจสอบ browser support matrix
-3. ทดสอบบน browsers หลัก
-4. ใช้ feature detection แทน browser detection
-5. ปรับปรุง progressive enhancement
+- ใช้ polyfills สำหรับ features ที่ไม่รองรับ
+- ใช้ feature detection
+- ใช้ progressive enhancement
+- ปรับปรุย CSS compatibility
+- ปรับปรุย JavaScript compatibility
 
-### 3. Improve OS Support
+### 3. Improve Mobile Support
 
-ปรับปรุง OS compatibility
+ปรับปรุย mobile support
 
-1. ทดสอบบน Windows, macOS, Linux
-2. ตรวจสอบ OS-specific features
-3. ใช้ cross-platform libraries
-4. ปรับปรุง file path handling
-5. ปรับปรุง environment variables
+- ทดสอบ responsive design
+- ทดสอบ touch interactions
+- ปรับปรุย viewport handling
+- ปรับปรุย performance บน mobile
+- ปรับปรุย battery usage
 
-### 4. Improve Deployment
+### 4. Improve Accessibility
 
-ปรับปรุง deployment process
+ปรับปรุย accessibility
 
-1. ใช้ CI/CD automation
-2. ใช้ containerization (Docker)
-3. ปรับปรุง build process
-4. ใช้ environment-specific configurations
-5. ปรับปรุง rollback strategy
+- ทำ `/improve-accessibility` สำหรับ WCAG compliance
+- ปรับปรุย keyboard navigation
+- ปรับปรุย screen reader support
+- ปรับปรุย color contrast
+- ปรับปรุย ARIA attributes
 
-### 5. Add Platform Tests
+### 5. Improve CI/CD
 
-เพิ่ม platform-specific tests
+ปรับปรุย CI/CD
 
-1. ทดสอบบน platforms หลัก
-2. ทดสอบ browser compatibility
-3. ทดสอบ OS compatibility
-4. ทดสอบ device compatibility
-5. รัน tests ใน CI สำหรับแต่ละ platform
+- ใช้ CI/CD automation
+- ใช้ containerization
+- ใช้ automated testing
+- มี rollback strategy ชัดเจน
+- ปรับปรุย deployment process
 
 ## Rules
 
-### Browser Support
+### 1. Progressive Enhancement
 
-รองรับ browsers หลัก
+ใช้ progressive enhancement
 
-- รองรับ Chrome, Firefox, Safari, Edge
-- รองรับ mobile browsers
-- ใช้ progressive enhancement
-- ใช้ feature detection ไม่ใช่ browser detection
-- ตรวจสอบ browser support อย่างสม่ำเสมอ
+- ให้ core functionality ทำงานบนทุก browsers
+- เพิ่ม features สำหรับ browsers ที่รองรับ
+- ไม่ break บน browsers เก่า
+- ใช้ feature detection แทน browser detection
 
-### Cross-Platform Libraries
+### 2. Responsive Design
 
-ใช้ libraries ที่รองรับหลาย platforms
+ใช้ responsive design
 
-- เลือก libraries ที่รองรับ cross-platform
-- หลีกเลี่ยง platform-specific APIs
-- ใช้ abstractions สำหรับ platform differences
-- ทดสอบบน platforms หลายแบบ
-- อัปเดท dependencies อย่างสม่ำเสมอ
+- ใช้ mobile-first approach
+- ทดสอบบนทุก screen sizes
+- ใช้ flexible layouts
+- ใช้ responsive images
+- ใช้ responsive typography
 
-### Deployment Automation
+### 3. Performance
 
-ใช้ automation สำหรับ deployment
+รักษา performance
 
-- ใช้ CI/CD pipelines
-- ใช้ containerization
-- ใช้ environment-specific configs
-- ใช้ automated testing ก่อน deployment
-- มี rollback strategy ชัดเจน
+- Optimize สำหรับ mobile devices
+- ลด bundle size
+- ใช้ lazy loading
+- Optimize images
+- ใช้ caching อย่างเหมาะสม
 
-### Performance Across Platforms
+### 4. Testing
 
-รักษา performance ข้าม platforms
+ทดสอบอย่างครบถ้วน
 
-- ตรวจสอบ performance บนแต่ละ platform
-- ปรับปรุง slow platforms
-- ใช้ platform-specific optimizations
-- ตรวจสอบ resource usage
-- ปรับปรุง loading times
-
-### Accessibility
-
-รองรับ accessibility ข้าม platforms
-
-- ตรงตาม WCAG guidelines
-- รองรับ screen readers
-- รองรับ keyboard navigation
-- รองรับ high contrast mode
-- ทดสอบ accessibility อย่างสม่ำเสมอ
+- ทดสอบบน browsers หลัก
+- ทดสอบบน mobile devices
+- ทดสอบบน tablets
+- ทดสอบบน desktops
+- ใช้ automated testing
 
 ## Expected Outcome
 
@@ -120,4 +116,4 @@ auto_execution_mode: 3
 - Deployment process อัตโนมัติ
 - Platform tests ครอบคลุม
 - Performance ดีขึ้นข้าม platforms
-
+- Accessibility ตรงตามมาตรฐาน

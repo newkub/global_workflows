@@ -31,7 +31,7 @@ auto_execution_mode: 3
 
 ### 4. Update References
 
-1. ทำ `/update-reference` หากมี file operations
+1. ทำ `/update-references` หากมี file operations
 2. ตรวจสอบ consistency กับ workflows อื่น
 
 ## Rules

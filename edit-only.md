@@ -20,7 +20,7 @@ auto_execution_mode: 3
 
 ### 2. Code Modification
 
-ใช้ `edit` หรือ `multi_edit` สำหรับการแก้ไขไฟล์ และ `write_to_file` สำหรับการสร้างไฟล์ใหม่ จากนั้นทำ `/update-reference` เพื่ออัพเดท references ทั้งหมม
+ใช้ `edit` หรือ `multi_edit` สำหรับการแก้ไขไฟล์ และ `write_to_file` สำหรับการสร้างไฟล์ใหม่ จากนั้นทำ `/update-references` เพื่ออัพเดท references ทั้งหมม
 
 ### 3. Validation
 

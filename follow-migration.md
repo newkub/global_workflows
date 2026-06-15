@@ -1,18 +1,13 @@
 ---
-
-title: Migration
-
+title: Follow Migration
 description: วางแผนและ execute migration สำหรับ dependencies, frameworks, และ infrastructure
-
 auto_execution_mode: 3
-
 related_workflows:
-  - /gritql
-  - /ast-grep
-  - /regression-test
+  - /follow-gritql
+  - /follow-ast-grep
+  - /follow-regression-test
   - /run-test
-  - /commit-all
-
+  - /commit
 ---
 
 ## Goal
@@ -78,7 +73,7 @@ Migration ทุกประเภท: dependencies, frameworks, databases, APIs
 
 ### 7. Commit Changes
 
-1. ทำตาม `/commit-all` เพื่อ commit migration changes
+1. ทำตาม `/commit` เพื่อ commit migration changes
 2. ใช้ conventional commit format (เช่น `feat(migration): migrate from X to Y`)
 3. รวม breaking changes และ migration notes ใน commit body
 4. Push ไปยัง remote และสร้าง pull request

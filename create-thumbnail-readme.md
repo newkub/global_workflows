@@ -66,7 +66,7 @@ auto_execution_mode: 3
 1. วาง image ไว้ที่ด้านบนสุดของ README
 2. ใช้ markdown syntax สำหรับ image
 3. เพิ่ม alt text ที่อธิบาย thumbnail
-4. ทำ `/update-reference` เพื่ออัปเดต references
+4. ทำ `/update-references` เพื่ออัปเดต references
 
 ## Rules
 

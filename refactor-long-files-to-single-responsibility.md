@@ -7,7 +7,7 @@ related_workflows:
   - /dont-over-engineer
   - /separate-of-concern
   - /restructure
-  - /update-reference
+  - /update-references
   - /refactor-file-to-single-responsibility
 ---
 
@@ -26,7 +26,7 @@ related_workflows:
 ค้นหาและจัดลำดับไฟล์ที่ต้อง split
 
 1. ทำ `/check-long-files` ค้นหาไฟล์ > 250 บรรทัด
-2. กรองไฟล์ที่เว้นออก (`config`, `types`, `test`, `generated`)
+2. กรองไฟล์ที่เว้นออก (`generated`, `config`, `node_modules`, `.git`, `dist`, `build`, `coverage`)
 3. เรียงลำดับตามขนาด (ใหญ่สุดก่อน)
 
 ### 2. Analyze Structure
@@ -34,9 +34,10 @@ related_workflows:
 วิเคราะห์โครงสร้างและ dependencies
 
 1. อ่านไฟล์ที่จะ split
-2. ระบุ sections และ groups ของ code
-3. วิเคราะห์ dependencies ระหว่าง sections
-4. ทำ `/separate-of-concern` เข้าใจ layer separation
+2. อ่าน `/refactor` เพื่อเข้าใจ systematic refactoring approach
+3. ระบุ sections และ groups ของ code
+4. วิเคราะห์ dependencies ระหว่าง sections
+5. ทำ `/separate-of-concern` เข้าใจ layer separation
 
 ### 3. Plan Split
 
@@ -53,7 +54,7 @@ related_workflows:
 1. สร้างไฟล์ใหม่สำหรับแต่ละ section
 2. ย้าย code ไปยังไฟล์ใหม่
 3. เพิ่ม exports จากไฟล์ใหม่
-4. ทำ `/update-reference` อัพเดท imports ทั้งหมด
+4. ทำ `/update-references` อัพเดท imports ทั้งหมด
 5. ตรวจสอบ circular dependencies
 6. ลบ code ที่ถูกย้ายออกจากไฟล์เดิม
 
@@ -73,7 +74,7 @@ related_workflows:
 เลือกไฟล์ที่เหมาะสมสำหรับ split
 
 - รัน loc ก่อนเสมอ
-- กรองไฟล์ที่เว้นออก (`config`, `types`, `test`, `generated`)
+- กรองไฟล์ที่เว้นออก (`generated`, `config`, `node_modules`, `.git`, `dist`, `build`, `coverage`)
 - เลือกไฟล์ > 250 บรรทัดทีละไฟล์
 - split แล้วเช็คซ้ำ
 

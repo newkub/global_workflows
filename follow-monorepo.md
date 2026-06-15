@@ -1,7 +1,15 @@
 ---
-title: Monorepo
+title: Follow Monorepo
 description: Implement Monorepo Architecture for large-scale projects with multiple packages or applications
 auto_execution_mode: 3
+related_workflows:
+  - /follow-architecture
+  - /follow-workspace
+  - /follow-turborepo
+  - /follow-moonrepo
+  - /follow-package-manifest
+  - /follow-clean-architecture
+  - /run-verify
 ---
 
 ## Goal
@@ -18,19 +26,37 @@ auto_execution_mode: 3
 
 วิเคราะห์ความต้องการ monorepo และเลือก tool ที่เหมาะสม
 
-1. ระบุจำนวน apps และ packages
-2. ระบุ dependencies ระหว่าง packages
-3. เลือก build system (`Turborepo` สำหรับ React/Next.js, `Moonrepo` สำหรับ multi-language)
-4. ระบุ deployment strategy และขนาดทีม
+1. ทำ `/follow-architecture` เพื่อเลือก architecture pattern ที่เหมาะสม
+2. ระบุจำนวน apps และ packages
+3. ระบุ dependencies ระหว่าง packages
+4. เลือก build system ตาม ecosystem และ requirements
+5. ตรวจสอบ criteria สำหรับ monorepo adoption
 
 ### 2. Setup Monorepo
 
 ตั้งค่า monorepo ด้วย tool ที่เลือก
 
-1. ทำ `/turborepo` หรือ `/moonrepo` สำหรับ tool setup
-2. แยก packages ตาม concerns และระบุ dependencies
-3. ตั้งค่า workspace protocol (`workspace:*`) และ shared configs
-4. ทำ `/refactor` หลังเสร็จสิ้น
+1. ทำ `/follow-turborepo` หรือ `/follow-moonrepo` สำหรับ tool setup
+2. แยก packages ตาม concerns
+3. ตั้งค่า workspace protocol
+4. รัน `/run-verify` เพื่อตรวจสอบ
+
+### 3. Configure Build System
+
+ตั้งค่า build system สำหรับ monorepo
+
+1. ตั้งค่า build config ตาม tool ที่เลือก
+2. ระบุ task dependencies
+3. ตั้งค่า outputs สำหรับ cache invalidation
+
+### 4. Setup Shared Configuration
+
+ตั้งค่า shared configs สำหรับทั้ง monorepo
+
+1. Root-level TypeScript config
+2. Shared linting, formatting, git hooks configs
+3. Use extends ใน workspace configs
+4. ทำ `/follow-workspace` เพื่อตั้งค่า scripts และ documentation ทุก workspace
 
 ## Rules
 
@@ -49,12 +75,6 @@ auto_execution_mode: 3
 
 โครงสร้างของ applications ใน monorepo
 
-- `web/` - web application (`Next.js`, `Nuxt`, `Vite`)
-- `admin/` - admin panel (`Next.js`, `Nuxt`, `Vite`)
-- `cli/` - CLI tool (`Bun`, `Node`)
-- `desktop/` - desktop application (`Electron`, `Tauri`)
-- `browser-extensions/` - browser extensions (`Chrome`, `Firefox`)
-- `mobile/` - mobile application (`React Native`)
 - แต่ละ app มี `package.json` และ config ของตัวเอง
 - ใช้ shared packages จาก `packages/`
 - ทำตาม best practices ของ framework แต่ละตัว
@@ -67,25 +87,17 @@ auto_execution_mode: 3
   - `ui/` - shared UI components (required)
   - `utils/` - shared utility functions (required)
 - `<domain>/` - domain-specific packages
-  - `auth/` - authentication logic
-  - `billing/` - billing logic
-  - `...` - other domain packages
-- แต่ละ package มี `package.json` และ exports
-- Packages สามารถ depend กันได้
+- แต่ละ package มี `package.json` และ `exports` field
 - หลีกเลี่ยง circular dependencies
-- ใช้ `exports` field สำหรับ clear API
 
 ### 4. Crates Structure
 
 โครงสร้างของ Rust crates ใน monorepo (optional)
 
 - `<domain>/` - domain-specific crates
-  - `auth/` - authentication logic
-  - `...` - other domain crates
 - แต่ละ crate มี `Cargo.toml` และ exports
-- Crates สามารถ depend กันได้
 - หลีกเลี่ยง circular dependencies
-- ใช้ `workspace` dependencies
+- ใช้ `workspace` dependencies ใน `Cargo.toml`
 
 ### 5. Dependencies Management
 
@@ -95,31 +107,40 @@ auto_execution_mode: 3
 - ใช้ workspace protocol สำหรับ internal dependencies
 - หลีกเลี่ยง circular dependencies
 - Workspace-level lockfile
-- ใช้ `bunx taze` สำหรับ dependency updates
+- ใช้ dependency management tools สำหรับ updates
 - Pin versions สำหรับ production
 - ใช้ `overrides` สำหรับ conflict resolution
 
-### 6. Build System Configuration
+### 6. Migration Guide
 
-ตั้งค่า build system สำหรับ monorepo
+วิธีการ migrate จาก single repo → monorepo
 
-- ใช้ `Turborepo` สำหรับ caching และ task orchestration
-- ใช้ `Moonrepo` สำหรับ multi-language support
-- ตั้งค่า `turbo.json` หรือ `moon.yml` อย่างเหมาะสม
-- ระบุ task dependencies ด้วย `dependsOn`
-- ใช้ `outputs` สำหรับ cache invalidation
-- ตั้งค่า `pipeline` สำหรับ task execution
+- สร้าง monorepo structure ใหม่ด้วย tool ที่เลือก
+- ย้าย existing code ไปยัง `apps/` หรือ `packages/`
+- อัปเดต dependencies ให้ใช้ `workspace:*`
+- ตั้งค่า shared configs ที่ root level
+- อัปเดต CI/CD pipelines สำหรับ monorepo
+- รัน `/run-verify` เพื่อตรวจสอบ
 
-### 7. Shared Configuration
+### 7. Common Pitfalls
 
-ตั้งค่า shared configs สำหรับทั้ง monorepo
+ปัญหาที่พบบ่อยและวิธีแก้ไข
 
-- Root-level `tsconfig.json` with `composite: true`
-- Shared `biome.jsonc` for linting/formatting
-- Shared `knip.json` for unused code detection
-- Shared `lefthook.yml` for git hooks
-- Use `extends` in workspace configs
-- Keep tool versions consistent
+- **Circular dependencies**: ใช้ dependency graph เพื่อตรวจสอบ
+- **Slow builds**: ใช้ caching และ parallel execution
+- **Version conflicts**: ใช้ `overrides` ใน root `package.json`
+- **Missing exports**: ตรวจสอบ `exports` field ในทุก package
+- **Type errors**: ใช้ `composite: true` ใน root `tsconfig.json`
+
+### 8. Testing Strategy
+
+กลยุทธ์การทดสอบสำหรับ monorepo
+
+- Unit tests ในแต่ละ package/crate
+- Integration tests ข้าม packages
+- E2E tests ใน apps
+- ใช้ `/run-test` สำหรับทดสอบทั้ง monorepo
+- ใช้ task pipeline สำหรับ test orchestration
 
 ## Expected Outcome
 

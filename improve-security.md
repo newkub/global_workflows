@@ -1,164 +1,112 @@
 ---
 title: Improve Security
-description: ปรับปรุง security ด้วย systematic approach
+description: ปรับปรุง security ให้ปลอดภัยด้วย best practices และ vulnerability scanning
 auto_execution_mode: 3
 related_workflows:
-  - /check-security
-  - /check-vulnerability
-  - /run-audit
+  - check-security
+  - test-security
+  - check-vulnerability
+  - run-audit
 ---
 
 ## Goal
 
-ปรับปรุง security ของ application ด้วย systematic approach ตาม best practices
+ปรับปรุง security ให้ปลอดภัยด้วย best practices และ vulnerability scanning
 
 ## Scope
 
-ใช้สำหรับปรับปรุง security ของ web applications และ APIs
+ใช้สำหรับปรับปรุง security ของ applications ทั้ง web, mobile, และ desktop
 
 ## Execute
 
-### 1. Analyze Security Posture
+### 1. Check Security
 
-วิเคราะห์ security ปัจจุบันของ application
+ตรวจสอบ security ปัจจุบัน
 
-1. ทำ `/check-security` เพื่อตรวจสอบ security mechanisms
-2. ทำ `/check-vulnerability` เพื่อตรวจสอบ dependencies vulnerabilities
-3. ทำ `/run-audit` เพื่อ audit dependencies และ security
-4. ระบุ security gaps และ risks
-5. วิเคราะห์ attack surface
+- ทำ `/check-security` เพื่อตรวจสอบ security best practices
+- ตรวจสอบ authentication และ authorization
+- ตรวจสอบ data protection
+- ตรวจสอบ input validation
+- ตรวจสอบ security headers
+- ตรวจสอบ secrets management
 
-### 2. Improve Authentication
+### 2. Test Security
 
-ปรับปรุง authentication mechanisms
+ทดสอบ security vulnerabilities
 
-1. ใช้ strong password hashing (bcrypt, Argon2)
-2. Implement multi-factor authentication
-3. ใช้ secure session management
-4. เพิ่ม rate limiting สำหรับ login attempts
-5. Implement account lockout policies
+- ทำ `/test-security` เพื่อทดสอบ security ครบถ้วน
+- ทดสอบ XSS, SQL Injection, CSRF
+- ทดสอบ authentication bypass
+- ทดสอบ authorization flaws
+- Scan สำหรับ secrets
+- รัน DAST scans
 
-### 3. Improve Authorization
+### 3. Check Vulnerabilities
 
-ปรับปรุง authorization mechanisms
+ตรวจสอบ vulnerabilities ใน dependencies
 
-1. Implement role-based access control (RBAC)
-2. ใช้ principle of least privilege
-3. เพิ่ม permission checks ทุก endpoints
-4. Implement attribute-based access control (ABAC)
-5. Audit access logs อย่างสม่ำเสมอ
+- ทำ `/check-vulnerability` เพื่อตรวจสอบ dependencies vulnerabilities
+- รัน dependency scans
+- ตรวจสอบ outdated packages
+- Review transitive dependencies
 
-### 4. Improve Data Protection
+### 4. Run Security Audit
 
-ปรับปรุง data protection
+รัน security audit
 
-1. เข้ารหัส sensitive data ใน rest
-2. ใช้ TLS 1.2+ สำหรับ transit
-3. Implement data masking สำหรับ logs
-4. ใช้ secure key management
-5. Implement data retention policies
+- ทำ `/run-audit` เพื่อ audit dependencies และ security
+- รัน security scanning tools
+- ตรวจสอบ misconfigurations
+- แก้ไข security issues ที่พบ
 
-### 5. Improve Input Validation
+### 5. Fix Issues
 
-ปรับปรุง input validation
+แก้ไข security issues
 
-1. Validate inputs ทุก entry points
-2. Sanitize outputs ทุก exit points
-3. Implement SQL injection prevention
-4. Implement XSS prevention
-5. ใช้ parameterized queries
-
-### 6. Improve Security Headers
-
-ปรับปรุง security headers
-
-1. Implement Content Security Policy (CSP)
-2. เพิ่ม HSTS header
-3. Configure X-Frame-Options
-4. Configure X-Content-Type-Options
-5. Implement CORS properly
-
-### 7. Improve Secrets Management
-
-ปรับปรุง secrets management
-
-1. ใช้ environment variables สำหรับ secrets
-2. Implement secret rotation
-3. ใช้ secret management service (Phase.dev, Vault)
-4. Audit secret access logs
-5. ลบ hardcoded secrets
-
-### 8. Implement Security Monitoring
-
-ตั้งค่า security monitoring
-
-1. Implement security logging
-2. ตั้งค่า alerts สำหรับ security events
-3. Monitor failed login attempts
-4. Monitor suspicious activities
-5. Implement intrusion detection
-
-### 9. Improve API Security
-
-ปรับปรุง API security
-
-1. Implement API rate limiting
-2. ใช้ API keys หรือ OAuth อย่างเหมาะสม
-3. Implement API versioning
-4. Validate API requests
-5. Implement API authentication
+- แก้ไข critical issues ก่อน
+- แก้ไข high priority issues
+- แก้ไข medium และ low issues
+- Update dependencies ที่มี vulnerabilities
+- Document security fixes
 
 ## Rules
 
-### 1. Authentication Security
+### 1. Security Best Practices
 
-ใช้ authentication ที่ปลอดภัย
+ทำตาม security best practices
 
-- ใช้ strong password hashing
-- Implement MFA สำหรับ sensitive operations
+- ใช้ strong password hashing (bcrypt, Argon2)
 - ใช้ secure session management
-- Rate limit login attempts
-- Monitor authentication failures
+- ใช้ HTTPS สำหรับทุก connections
+- ใช้ rate limiting สำหรับ APIs
+- Validate และ sanitize ทุก user inputs
 
-### 2. Authorization Security
+### 2. Priority-Based Fixes
 
-ใช้ authorization ที่ปลอดภัย
+แก้ไขตามลำดับความสำคัญ
 
-- ใช้ principle of least privilege
-- ตรวจสอบ permissions ทุก request
-- Audit access อย่างสม่ำเสมอ
-- ลบ unused permissions
-- Implement role-based access
+- Critical: แก้ทันที (remote code execution, data exposure)
+- High: แก้ภายใน 1 สัปดาห์ (injection attacks, auth bypass)
+- Medium: แก้ภายใน 1 เดือน (XSS, CSRF)
+- Low: แก้ตาม schedule (information disclosure)
 
-### 3. Data Protection
+### 3. Secrets Management
 
-ปกป้อง data อย่างเหมาะสม
+จัดการ secrets อย่างปลอดภัย
 
-- เข้ารหัส sensitive data
-- ใช้ TLS สำหรับ transit
-- ใช้ secure key management
-- Mask sensitive data ใน logs
-- Implement data retention
+- ไม่เก็บ secrets ใน code หรือ config files
+- ใช้ environment variables สำหรับ sensitive data
+- Implement secret rotation
+- Monitor secret access logs
 
-### 4. Input Validation
+### 4. Continuous Monitoring
 
-Validate inputs อย่างเคร่งครัด
+ตรวจสอบ security อย่างต่อเนื่อง
 
-- Validate ทุก inputs
-- Sanitize ทุก outputs
-- ใช้ parameterized queries
-- Implement XSS prevention
-- ใช้ allowlist validation
-
-### 5. Security Headers
-
-ใช้ security headers ครบถ้วน
-
-- Implement CSP
-- ใช้ HSTS
-- Configure frame options
-- Configure CORS properly
-- ใช้ secure cookie flags
+- รัน dependency scans ทุกครั้งที่มีการ update packages
+- Monitor security advisories สำหรับ dependencies
+- Integrate security testing ใน CI/CD
+- Document security issues และ fixes
 
 ## Expected Outcome
 
@@ -168,5 +116,5 @@ Validate inputs อย่างเคร่งครัด
 - Input validation ครบถ้วน
 - Security headers ถูกตั้งค่า
 - Secrets ถูกจัดการอย่างปลอดภัย
-- Security monitoring ตั้งค่าเสร็จ
-- API security ปรับปรุงแล้ว
+- Dependencies ปลอดภัยจาก known vulnerabilities
+- Security testing integrated ใน CI/CD

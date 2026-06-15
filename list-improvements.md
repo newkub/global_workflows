@@ -3,7 +3,7 @@ title: List Improvements
 description: แสดงรายการ improvements ที่ทำได้ใน project
 auto_execution_mode: 3
 related_workflows:
-  - /improve
+  - /improve-content
   - /prioritize
   - /analyze-project
 ---

@@ -1,29 +1,27 @@
 ---
 title: Generate Changelog
-description: สร้าง changelog ด้วย changelogen
+description: สร้าง changelog ด้วย Bun Shell
 auto_execution_mode: 3
 related_workflows:
-  - /follow-changelogen
+  - /use-bun-shell
 ---
 
 ## Goal
 
-สร้าง changelog อัตโนมัติจาก conventional commits ด้วย changelogen
+สร้าง changelog อัตโนมัติจาก git commits ด้วย Bun Shell (ไม่ต้อง config)
 
 ## Scope
 
-ใช้สำหรับสร้าง changelog จาก git commit history ด้วย changelogen
+ใช้สำหรับสร้าง changelog จาก git commit history ด้วย Bun native APIs
 
 ## Execute
 
 ### 1. Generate Changelog
 
-สร้าง changelog จาก commits ด้วย changelogen
+สร้าง changelog จาก commits ด้วย Bun Shell และ format เป็น table (2 columns, 10 commits ล่าสุด, no grouping, no emoji)
 
-1. รัน `bunx changelogen@latest` สำหรับ generate changelog
-2. รัน `bunx changelogen@latest --bump` สำหรับ bump version
-3. รัน `bunx changelogen@latest --release` สำหรับ full release
-4. ตรวจสอบ output จาก command
+1. รัน `bun -e 'const { stdout: commits } = await Bun.$\`git log --pretty=format:"%h|%s" --no-merges -10\`.quiet(); const { stdout: latestTag } = await Bun.$\`git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0"\`.quiet(); const { stdout: date } = await Bun.$\`git log -1 --format=%ad --date=short\`.quiet(); const lines = String(commits).trim().split("\\n"); let table = "| Hash | Change |\\n|------|--------|\\n"; lines.forEach(line => { const [hash, msg] = line.split("|"); table += \`| [\${hash}](https://github.com/wrikka/bun-packages/commit/\${hash}) | \${msg} |\\n\`; }); const changelog = \`# Changelog\\n\\n*Generated on \${new Date().toISOString()}*\\n\\n## \${latestTag} (\${date})\\n\\n\${table}\\n\\n> 📖 See full changelog at [GitHub Repository](https://github.com/wrikka/bun-packages/commits/main)\\n\`; await Bun.write("CHANGELOG.md", changelog); console.log("✅ Changelog generated!");'`
+2. ตรวจสอบ output จาก command
 
 ### 2. Review Changelog
 
@@ -44,14 +42,14 @@ Commit changelog ที่สร้าง
 
 ## Rules
 
-### 1. Use Changelogen
+### 1. Use Bun Shell
 
-ใช้ changelogen สำหรับ changelog generation
+ใช้ Bun Shell สำหรับ changelog generation
 
-- ทำตาม `/follow-changelogen` สำหรับ configuration และ setup
-- ใช้ `bunx changelogen@latest` สำหรับ one-time usage
-- ใช้ `--bump` สำหรับ version bump เท่านั้น
-- ใช้ `--release` สำหรับ full release
+- ใช้ `Bun.$` สำหรับ shell commands
+- ใช้ `.quiet()` สำหรับ suppress output
+- ใช้ `Bun.write()` สำหรับ write file
+- ไม่ต้อง config หรือ setup ใดๆ
 
 ### 2. Commit Conventions
 
@@ -64,7 +62,7 @@ Commit changelog ที่สร้าง
 
 ## Expected Outcome
 
-- Changelog สร้างอัตโนมัติด้วย changelogen
+- Changelog สร้างอัตโนมัติด้วย Bun Shell
 - Version numbers ถูกต้อง
 - Commit messages ถูกจัดกลุ่ม
 - Changelog format มาตรฐาน

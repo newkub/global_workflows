@@ -50,13 +50,7 @@ related_workflows:
 
 ### 5. Configure TypeScript
 
-ตั้งค่า TypeScript สำหรับ SolidStart
-
-1. ตั้งค่า `jsx: preserve` และ `jsxImportSource: solid-js`
-2. ตั้งค่า `target: ESNext` และ `module: ESNext`
-3. ใช้ `moduleResolution: bundler`
-4. ตั้งค่า `baseUrl` และ `paths` สำหรับ import aliases
-5. เปิดใช้ `strict: true`
+ตั้งค่า TypeScript สำหรับ SolidStart: `jsx: preserve`, `jsxImportSource: solid-js`, `moduleResolution: bundler`, `strict: true`
 
 ### 6. Configure Vite
 
@@ -133,21 +127,7 @@ const response = await invoke('greet', { name: 'World' })
 
 ### 10. Add Tauri Plugins
 
-ติดตั้ง official plugins ด้วย Tauri CLI:
-
-```bash
-bun run tauri add <plugin-name>
-```
-
-ติดตั้ง community plugins ด้วย:
-
-```bash
-bun add @tauri-apps/plugin-<plugin-name>
-```
-
-**Official Plugins (30+):** autostart, barcode-scanner, biometric, cli, clipboard-manager, deep-link, dialog, fs, geolocation, global-shortcut, haptics, http, localhost, log, nfc, notification, opener, os, persisted-scope, positioner, process, shell, single-instance, sql, store, stronghold, updater, upload, websocket, window-state
-
-**Community Plugins (40+):** tauri-plugin-blec, tauri-plugin-cache, tauri-plugin-context-menu, tauri-plugin-device-info, tauri-plugin-graphql, tauri-plugin-iap, tauri-plugin-in-app-review, tauri-plugin-ios-photos, tauri-plugin-js, tauri-plugin-keep-screen-on, tauri-plugin-macos-permissions, tauri-plugin-mobile-sharetarget, tauri-plugin-mqtt, tauri-plugin-network, tauri-plugin-nosleep, tauri-plugin-ota, tauri-plugin-pinia, tauri-plugin-prevent-default, tauri-plugin-python, tauri-plugin-screenshots, tauri-plugin-serialport, tauri-plugin-sharesheet, tauri-plugin-svelte, tauri-plugin-system-info, tauri-plugin-tcp, tauri-plugin-theme, tauri-plugin-thermal-printer, tauri-plugin-tracing, tauri-plugin-udp, tauri-plugin-velesdb, tauri-plugin-view, taurpc
+ติดตั้ง plugins ด้วย `bun run tauri add <plugin-name>` หรือ `bun add @tauri-apps/plugin-<plugin-name>`
 
 ### 11. Development
 
@@ -166,77 +146,21 @@ bun add @tauri-apps/plugin-<plugin-name>
 
 ## Rules
 
-### Frontmatter
-
-- title: Title Case
-- description: ไม่เกิน 100 ตัวอักษร
-- auto_execution_mode: 3
-
-### Project Structure
-
-```
-desktop-apps/{project}/
-├── src/                    # Frontend (SolidStart)
-│   ├── components/
-│   ├── hooks/
-│   ├── pages/
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── style.css
-├── src-tauri/              # Rust backend
-│   ├── src/
-│   │   ├── main.rs
-│   │   └── lib.rs
-│   ├── Cargo.toml
-│   ├── tauri.conf.json
-│   └── capabilities/
-├── vite.config.ts
-├── uno.config.ts
-├── package.json
-├── tsconfig.json
-└── index.html
-```
-
-### Standards
+### Configuration Standards
 
 - ใช้ `bun` สำหรับทุก commands
-- Vite port ต้องตรงกับ `tauri.conf.json` (default: 5173)
-- Vite ต้อง ignore `src-tauri/`
-- IPC ใช้ `invoke()` สำหรับ frontend → backend
-- กำหนด capabilities ใน `tauri.conf.json`
-- ใช้ UnoCSS presetWind4 สำหรับ styling
-- TypeScript config ต้องมี `jsx: preserve` และ `jsxImportSource: solid-js`
+- Vite port ตรงกับ `tauri.conf.json` (default: 5173)
+- Vite ignore `src-tauri/`
+- TypeScript: `jsx: preserve`, `jsxImportSource: solid-js`, `moduleResolution: bundler`, `strict: true`
+- UnoCSS: `presetWind4`, `presetIcons`, `transformerVariantGroup`, `transformerDirectives`
+- Tauri: กำหนด capabilities ใน `tauri.conf.json`
 
-### TypeScript Configuration
+### Development Standards
 
-ตั้งค่า TypeScript อย่างถูกต้อง:
-- ตั้งค่า `jsx: preserve` และ `jsxImportSource: solid-js`
-- ใช้ `moduleResolution: bundler` สำหรับ modern resolution
-- ตั้งค่า path aliases สำหรับ clean imports
-- เปิดใช้ strict mode สำหรับ safety
-
-### Component Development
-
-พัฒนา components ตาม best practices:
-- ใช้ `.tsx` สำหรับทุก components
+- ใช้ `.tsx` สำหรับ components
 - กำหนด types สำหรับ props อย่างชัดเจน
+- IPC ใช้ `invoke()` สำหรับ frontend → backend
 - เขียน isomorphic code (ใช้ได้ทั้ง client และ server)
-- ใช้ UnoCSS สำหรับ styling
-
-### UnoCSS Configuration
-
-ตั้งค่า UnoCSS ตาม best practices:
-- ใช้ `presetWind4` เป็น preset หลัก
-- ใช้ `presetIcons` สำหรับ icon bundler
-- เพิ่ม transformers: `transformerVariantGroup`, `transformerDirectives`
-- ตั้งค่า `content.filesystem` สำหรับ Vite
-
-### IPC Pattern
-
-| Direction | Method |
-|-----------|--------|
-| Frontend → Backend | `invoke('command', args)` |
-| Backend → Frontend | Events |
 
 ## Expected Outcome
 

@@ -1,140 +1,74 @@
 ---
 title: Plan
-description: วางแผนงานครอบคล้วพร้อมสำรวจ library และวางโครงสร้างไฟล์
+description: วางแผนงานและ architecture อย่างเป็นระบบก่อนเริ่ม implement
 auto_execution_mode: 3
 related_workflows:
-  - /analyze-project
-  - /use-lib-better
-  - /idea-file-structure
-  - /ship-code
+  - /plan-task
+  - /plan-code
 ---
 
 ## Goal
 
-วางแผนงานอย่างเป็นระบบโดยสำรวจ best practices และ library ที่เหมาะสมก่อนเริ่ม implement
+วางแผนงานและ architecture อย่างเป็นระบบก่อนเริ่ม implement
 
 ## Scope
 
-ครอบคลุมการวิเคราะห์โปรเจกต์ สำรวจ library วางแผน architecture และกำหนด implementation path
+ครอบคลุมการวางแผน tasks, libraries, implementation path, file architecture, module structure, และ interfaces
 
 ## Execute
 
-### 1. Analyze Project
+### 1. Plan Tasks
 
-วิเคราะห์โปรเจกต์เพื่อเข้าใจโครงสร้างและ dependencies
+วางแผนงานและ tasks
 
-- ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์
-- บันทึก project structure และ dependencies
+1. ทำ `/plan-task` เพื่อวางแผนงานและ tasks
+2. รอให้ `/plan-task` เสร็จสิ้น
+3. ตรวจสอบ task document ที่สร้างขึ้น
 
-### 2. Research Libraries
+### 2. Plan Architecture
 
-สำรวจ library ที่เหมาะสมสำหรับโปรเจกต์
+วางแผน architecture และ structure
 
-- ทำ `/use-lib-better` เพื่อสำรวจ library
-- ทำ `/use-lib-effective` เพื่อวิเคราะห์ dependencies
-- ทำ `/use-packages` เพื่อดู packages จาก workspace
-- บันทึก library ที่เลือกใช้
+1. ทำ `/plan-code` เพื่อวางแผน architecture
+2. รอให้ `/plan-code` เสร็จสิ้น
+3. ตรวจสอบ architecture document ที่สร้างขึ้น
 
-### 3. Plan Architecture
+### 3. Validate Plan
 
-วางแผนโครงสร้างไฟล์และ integration
+ตรวจสอบและยืนยันแผนงาน
 
-- ทำ `/idea-file-structure` เพื่อขอไอเดียโครงสร้าง
-- วางแผน file architecture ทั้งหมด
-- ระบุ dependencies ที่จะใช้งาน
-- วางแผน integration ระหว่าง components
-
-### 4. Define Implementation Path
-
-กำหนดลำดับการ implement ตาม impact order
-
-- ทำ `/ship-code` เพื่อเข้าใจขั้นตอนการพัฒนา
-- จัดลำดับ priority ตาม impact
-- ระบุ critical path และ dependencies
-- กำหนด milestones
-
-### 5. Plan Test Strategy
-
-วางแผน test strategy ด้วย DDD approach
-
-- ตัดสินใจว่าจะใช้ DDD หรือไม่
-- ออกแบบ test case ที่ครอบคลุม
-- กำหนด test coverage requirements
-- วางแผน loop จนกว่า test จะผ่าน
-
-### 6. Create Task Document
-
-สร้าง task document เพื่อบันทึกแผนงาน
-
-- สร้างไฟล์ `.agents/task/<name>-DD-MM-YYYY.md`
-- บันทึก architecture และ tasks
-- บันทึก expected outcome
-
-### 7. Validate Plan
-
-ตรวจสอบและยืนยันความถูกต้อง
-
-- ตรวจสอบ architecture สอดคล้อง
-- ยืนยัน dependencies ไม่ conflict
-- ทบทวน plan กับ task document
+1. ตรวจสอบ task document และ architecture document
+2. รอยืนยันจาก user ก่อนเริ่ม implement
 
 ## Rules
 
-### 1. Research First
+### 1. Sequence Order
 
-ต้องสำรวจ library ก่อนเริ่ม implement
+ทำตามลำดับที่ถูกต้อง
 
-- ต้องทำ `/use-lib-better` ก่อน implement
-- สำรวจ alternatives อย่างน้อย 2-3 ตัวเลือก
-- บันทึกเหตุผลในการเลือก library
+- ทำ `/plan-task` ก่อน `/plan-code` เสมอ
+- `/plan-code` ต้องอ่าน task document จาก `/plan-task`
+- ห้ามข้ามขั้นตอนใดๆ
 
-### 2. Single Responsibility
+### 2. Document Verification
 
-แต่ละ task ต้องมี single responsibility
+ตรวจสอบเอกสารที่สร้างขึ้น
 
-- แต่ละ task ต้องทำสิ่งเดียวที่ชัดเจน
-- ห้ามรวมหลาย responsibilities ไว้ใน task เดียว
-- แยก tasks ที่ซับซ้อนออกเป็น tasks ย่อย
-- ทำให้แต่ละ task สามารถ test ได้ง่าย
+- ตรวจสอบ task document มีอยู่จริง
+- ตรวจสอบ architecture document มีอยู่จริง
+- ตรวจสอบ documents สอดคล้องกับ requirements
 
-### 3. Complete Architecture
+### 3. User Confirmation
 
-วางโครงสร้างไฟล์ทั้งหมดก่อนเขียน code
+รอยืนยันจาก user ก่อน implement
 
-- วางโครงสร้างไฟล์ทั้งหมดก่อนเขียน code
-- ระบุ interfaces และ contracts ระหว่าง modules
-- คำนึงถึง scalability และ maintainability
-
-### 4. Impact Order
-
-จัดลำดับ implement ตามลำดับความสำคัญ
-
-- Foundation components ก่อน
-- Dependencies ของขั้นตอนถัดไปก่อน
-- High risk items เพื่อ fail fast
-- Core business logic ก่อน features รอบข้าง
-
-### 5. Dependencies Management
-
-จัดการ dependencies อย่างมีประสิทธิภาพ
-
-- ใช้ existing packages จาก workspace
-- Avoid dependency bloat
-- Check compatibility กับ existing versions
-- Consider bundle size สำหรับ frontend
-
-### 6. Documentation
-
-บันทึกข้อมูลอย่างครบถ้วน
-
-- บันทึก architectural decisions
-- Document integration patterns
-- ระบุ assumptions และ constraints
-- เตรียม migration plan ถ้ามี breaking changes
+- ต้องรอยืนยันจาก user ก่อนเริ่ม implement
+- อธิบายแผนงานอย่างชัดเจน
+- รอ feedback จาก user
 
 ## Expected Outcome
 
-- Task document ที่ครอบคล้วทุกด้าน
-- Library choices ที่มีเหตุผลรองรับ
-- File architecture ที่ชัดเจน
-- Implementation roadmap ที่ practical
+- Task document ที่ครอบคล้ว
+- Architecture document ที่ครอบคล้ว
+- Implementation roadmap ที่ชัดเจน
+- ยืนยันจาก user ก่อน implement

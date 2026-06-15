@@ -25,7 +25,7 @@ Refactor packages ให้แต่ละ package มี single responsibility 
 
 วางแผนการ refactor packages
 
-1. ทำ `/plan` เพื่อวางแผนการ refactor ครบถ้วน
+1. ทำ `/plan-code` เพื่อวางแผนการ refactor ครบถ้วน
 2. ระบุ packages ที่จะ merge, split, หรือ create ใหม่
 3. จัดลำดับ refactor ตาม dependency direction
 4. ระบุ features ที่ต้อง generic และ reusable
@@ -39,7 +39,7 @@ Refactor แต่ละ package ให้ generic และ reusable
 2. ย้าย code ที่ไม่เกี่ยวข้องไปยัง packages ที่เหมาะสม
 3. ทำ `/refactor-file-to-single-responsibility` สำหรับแต่ละ package
 4. แยก project-specific logic ออกจาก generic logic
-5. ทำ `/update-docs` เพื่ออัพเดท references ระหว่าง packages
+5. ทำ `/write-docs` เพื่ออัพเดท references ระหว่าง packages
 
 ### 4. Merge Redundant Packages
 
@@ -48,7 +48,7 @@ Refactor แต่ละ package ให้ generic และ reusable
 1. ระบุ packages ที่มี responsibilities ซ้ำกัน
 2. ทำ `/merge` เพื่อรวม packages
 3. ลบ packages เดิมที่ไม่ใช้แล้ว
-4. ทำ `/update-reference` เพื่ออัพเดท references
+4. ทำ `/update-references` เพื่ออัพเดท references
 
 ### 5. Validate And Test
 

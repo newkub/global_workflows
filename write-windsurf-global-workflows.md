@@ -1,11 +1,7 @@
 ---
-
 title: Write Windsurf Global Workflows
-
 description: เขียน workflow file ให้เป็นมาตรฐานเดียวกัน
-
 auto_execution_mode: 3
-
 ---
 
 ## Goal
@@ -16,126 +12,185 @@ auto_execution_mode: 3
 
 เขียน workflow file ทั้งใน global_workflows และ workspace โดยทุก workspace ต้องเขียนให้ `/follow-content-quality`
 
-## Execute
-
-### 1. Research And Learn (Optional)
-
-เรียนรู้จาก official docs สำหรับ workflow ที่เกี่ยวข้องกับ library/framework
-
-1. ทำ `/follow-best-practice` หรือ `/deep-research`
-2. อ่าน official documentation และสรุป best practices
-
-### 2. Read Global Workflows
-
-เข้าใจมาตรฐานและป้องกันการซ้ำซ้อน
-
-1. ทำ `/windsurf-global-workflows`
-2. อ่าน workflows ที่คล้ายกัน
-3. ดูตัวอย่างที่ `/example-workflow`
-4. ใช้ `/update-docs` หากมี file operations
-
-### 3. Write Frontmatter
-
-เขียน frontmatter ตามมาตรฐาน
-
-1. เขียน `title` Title Case (ตรงกับ filename ไม่มี follow-)
-2. เขียน `description` กระชับไม่เกิน 100 ตัวอักษร
-3. ตั้งค่า `auto_execution_mode: 3`
-4. เพิ่ม `related_workflows` (optional)
-5. เพิ่ม `url` (optional)
-6. ห้ามเพิ่ม field อื่นโดยไม่จำเป็น
-
-### 4. Write Execute And Rules
-
-เขียน Execute และ Rules ตามมาตรฐาน
-
-1. จัดลำดับ Execute ตาม impact order
-2. ใช้ `### N. Step Name` (Title Case) และ numbered list (1., 2., 3.)
-3. ใช้ `### N. Rule Category` และ bullet points (-) ใน Rules
-4. เขียนเป็นหลักการ how-to ในรูปแบบ ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
-5. ทำตาม `/follow-content-quality` และไม่ซ้ำซ้อนระหว่าง Execute และ Rules
-
-### 5. Validate And Finalize
-
-ตรวจสอบและ finalize workflow
-
-1. ตรวจสอบว่าไม่เกิน 250 บรรทัด
-2. ทำ `/improve-flow`
-3. ทำ `/check-reference` เพื่อตรวจสอบ references มีอยู่จริง
-4. ตรวจสอบ dependent workflows ที่อ้างอิง workflow นี้ ว่าต้องแก้ไขอะไรไหม
-5. ใช้ `/update-reference` หากมี file operations
-
 ## Rules
 
 ### 1. Structure And Consistency
 
-ตั้งค่าโครงสร้างและตรวจสอบความสอดคล้องตามมาตรฐาน
-
-- `title`: Title Case ชัดเจน (ตรงกับ filename ไม่รวม `follow-`)
+- `title`: Title Case ชัดเจน (ตรงกับ filename)
 - `description`: กระชับไม่เกิน 100 ตัวอักษร
 - `auto_execution_mode`: 3 เท่านั้น
-- `related_workflows`, `url`: (optional)
+- `url`: (optional)
 - ## Goal, ## Scope, ## Execute, ## Rules, ## Expected Outcome (required)
-- ## Common Mistakes (optional)
+- ## Report (optional)
 - Goal สอดคล้องกับ Filename, Execute สอดคล้องกับ Goal และ Rules
 - Expected Outcome สอดคล้องกับ Goal
-- ใช้คำศัพท์สม่ำเสมอ ไม่ขัดแย้งกัน
 
 ### 2. Content And Style
 
-เขียนเนื้อหาและรูปแบบตามมาตรฐานการเขียน workflow
+ทำตาม `/follow-content-quality` สำหรับคุณภาพเนื้อหา
 
-- หัวข้อภาษาอังกฤษ Title Case, รายการภาษาไทย (ยกเว้นคำศัพท์เฉพาะ)
-- ใช้ bullet points (-) ชิดซ้ายใน Rules, ไม่ใช้ ** ในหัวข้อ
-- ไฟล์ไม่เกิน 250 บรรทัด (หากเกินให้ refactor แยกเป็น workflows ย่อย)
-- ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/workflow-name`, `environment variables`, `code snippets`, `function names`, `configuration keys`, `package names`, `git commands`
-- เขียนเป็นหลักการ how-to ที่ใช้ได้ทั่วไป (ไม่ใช่ manual step-by-step)
-- ใช้ keyword กระชับ มีความหมายชัด, เขียนในรูปแบบ ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
-- ใน Rules สามารถใช้ table, code block, diagram ได้
-- terminal commands, architecture, config examples ใส่ใน code block
-- examples ต้องสั้นกระชับ เข้าใจง่าย และสอดคล้องกับ Execute steps
+- หัวข้อภาษาอังกฤษ Title Case, รายการภาษาไทย
+- ทุก heading ใน Execute ต้องเป็นภาษาอังกฤษ Title Case
+- ใช้ bullet points (-) ชิดซ้ายใน Rules
+- ไฟล์ไม่เกิน 250 บรรทัด
+- ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/workflow-name`
+- เขียนเป็นหลักการ how-to
 
 ### 3. References And Non-Redundancy
 
-อ้างอิง workflows และหลีกเลี่ยงความซ้ำซ้อนระหว่างไฟล์
+ทำตาม `/use-workflows` สำหรับการใช้ references
 
-- ลบข้อความที่ซ้ำซ้อนระหว่าง Execute และ Rules, รวบรวมรายละเอียดที่เหมือนกันไว้ที่เดียว
-- ใช้ references แทนการ duplicate เนื้อหา, เป็น single source of truth
+- ลบข้อความที่ซ้ำซ้อนระหว่าง Execute และ Rules
+- ใช้ references แทนการ duplicate เนื้อหา
 - ทำ `/check-reference` เพื่อตรวจสอบ references มีอยู่จริง
-- เมื่อแก้ไข workflow ให้ตรวจสอบ dependent workflows ที่อ้างอิง workflow นี้
-- อ่าน workflows ที่เกี่ยวข้องก่อนเขียนเพื่อไม่ให้ซ้ำ
+- ถ้าอ้างถึง workflows หรือ skills อย่าพยายามเขียนซ้ำกับไฟล์ที่อ้างไป เขียนแค่ว่าให้ทำตามที่อ้างไป
 
 ### 4. Execution Guidelines
 
-จัดลำดับ Execute steps และให้ผลลัพธ์เหมือนกันทุกครั้ง
-
-- Foundation ก่อน (`setup`, `config`, `dependencies`), High impact items ก่อน
+- Foundation ก่อน, High impact items ก่อน
 - Dependencies ของขั้นตอนถัดไปก่อน, Critical path ก่อน
 - Hard to change ก่อน, High risk เพื่อ fail fast
-- ให้ผลลัพธ์เหมือนกันทุกครั้ง, ไม่ใช้คำสั่ง subjective หรือ ambiguous
-- ระบุลำดับการทำงานชัดเจน, ไม่ข้ามขั้นตอน
+- ให้ผลลัพธ์เหมือนกันทุกครั้ง
+- ระบุลำดับการทำงานชัดเจน
 
 ### 5. Script Automation
 
-พิจารณาใช้ automation สำหรับงานที่ซับซ้อนและซ้ำซ้อน
+- ใช้ `/use-scripts` เมื่อ file operations มากกว่า 10 ไฟล์
+- ใช้ `/use-scripts` เมื่อ data processing ซับซ้อน
+- ใช้ `/use-scripts` เมื่อ pattern matching ต้อง parser
+- ใช้ `/use-scripts` เมื่อ metrics calculation ต้อง aggregation
+- ใช้ `/use-scripts` เมื่อ batch transformations ต้อง consistency
 
-- File operations มากกว่า 10 ไฟล์, Data processing ที่ซับซ้อน
-- Pattern matching ที่ต้อง parser, Metrics calculation ที่ต้อง aggregation
-- Batch transformations ที่ consistent
+### 6. Tool Usage Workflows
+
+- ใช้ workflows ที่ขึ้นต้นด้วย "use-" สำหรับ tools/libraries ที่เฉพาะเจาะจง
+- ตรวจสอบ references ว่ามีอยู่จริงก่อนอ้างอิงใน workflows ทุกตัว
+
+### 7. Analysis Workflows
+
+- ใช้ `/scan-codebase` สำหรับ scan codebase อย่างรวดเร็ว
+- ใช้ `/analyze-project` สำหรับ project-level analysis
+- ใช้ `/analyze-codebase` สำหรับ code-level analysis
+- เลือก workflow ที่เหมาะสมกับประเภท analysis ที่ต้องการ
+
+### 8. Report Formatting
+
+- ถ้า workflow มี output ต้องระบุ `/report-format-*` ที่ใช้ใน Execute หรือ Rules
+- ทำ `/report` เพื่อจัดรูปแบบ output ตามประเภทที่เหมาะสม
+- ระบุ report format ใน Execute หรือ Rules อย่างน้อยหนึ่งแห่ง
+
+## Execute
+
+### 1. Read Global Workflows
+
+อ่าน global workflows เพื่อเข้าใจมาตรฐานและป้องกันการซ้ำซ้อน
+
+1. ทำ `/at-windsurf-global-rules` เพื่อดู global rules และ conventions
+2. อ่าน workflows ที่คล้ายกันหรือเกี่ยวข้องเพื่อป้องกันการซ้ำซ้อน
+3. ดูตัวอย่าง template ที่ส่วน Example Template ด้านล่างเพื่อเข้าใจ structure
+4. ถ้ามี workflow หรือ skill ที่ครอบคลุม topic เดียวกัน ให้ใช้ reference แทนการเขียนซ้ำ
+
+### 2. Check References
+
+ตรวจสอบ references ก่อนเริ่มเขียน
+
+1. ทำ `/check-reference` เพื่อตรวจสอบ references ที่จะใช้มีอยู่จริง
+2. ตรวจสอบ workflows หรือ skills ที่จะอ้างถึงว่ามีอยู่จริง
+
+### 3. Research And Learn (Optional)
+
+เรียนรู้จาก official docs ถ้าจำเป็น
+
+1. ทำ `/follow-best-practice` หรือ `/deep-research` สำหรับ topic ที่เกี่ยวข้อง
+2. อ่าน official documentation ของ tools/libraries ที่จะใช้
+3. ค้นหา examples และ best practices จาก sources ที่เชื่อถือได้
+
+### 4. Write Frontmatter
+
+เขียน frontmatter ตามมาตรฐาน
+
+1. เขียน `title` เป็น Title Case ตรงกับ filename
+2. เขียน `description` กระชับไม่เกิน 100 ตัวอักษร
+3. ตั้ง `auto_execution_mode: 3` เสมอ
+4. เพิ่ม `url` (optional) ถ้ามี external documentation
+5. เพิ่ม `related_workflows` (optional) ถ้ามี dependencies
+
+### 5. Write Execute And Rules
+
+เขียน Execute และ Rules ตามมาตรฐาน
+
+1. ทำ `/follow-principles` เพื่อเขียนเป็นหลักการทั่วไป
+2. ทำ `/follow-consistency` เพื่อรักษาความสม่ำเสมอ
+3. เขียน Execute แต่ละขั้นตอนด้วย numbered list ชัดเจน
+4. เขียน Rules แต่ละหมวดหมู่ด้วย bullet points
+5. ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/workflow-name`
+
+### 6. Validate And Finalize
+
+ตรวจสอบและ finalize workflow
+
+1. ทำ `/improve-windsurf-workflows` สำหรับปรับปรุงคุณภาพ global workflows
+2. ทำ `/improve-correctness` สำหรับตรวจสอบความถูกต้อง
+3. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัด
+4. ตรวจสอบว่า references มีอยู่จริง
+
+## Example Template
+
+ตัวอย่าง workflow structure ที่ใช้เป็น reference:
+
+```markdown
+---
+title: Workflow Name
+description: กระชับไม่เกิน 100 ตัวอักษร
+auto_execution_mode: 3
+---
+
+## Goal
+
+วัตถุประสงค์กระชับ
+
+## Scope
+
+ขอบเขตงานที่ครอบคลุม
+
+## Analyze (optional)
+
+วิเคราะห์ปัญหาหรือสถานการณ์ก่อนดำเนินการ
+
+1. วิเคราะห์สถานการณ์ปัจจุบัน
+2. ระบุปัญหาหรือความต้องการ
+3. วางแผนการแก้ไขหรือพัฒนา
+
+## Execute
+
+### 1. Step Name
+
+1. ทำ `/workflow-name` เพื่อ [วัตถุประสงค์]
+
+## Rules
+
+### 1. Rule Category
+
+คำอธิบาย rule:
+
+- bullet point 1
 
 ## Expected Outcome
 
-- Workflow file มีโครงสร้างสม่ำเสมอ อ่านง่าย, Frontmatter ถูกต้องตามมาตรฐาน
-- Execute และ Rules เขียนตาม format ที่กำหนด, ไม่เกิน 250 บรรทัด
-- ผ่าน `/follow-content-quality`, Workflows ที่อ้างอิงมีอยู่จริง
+- Outcome ที่คาดหวัง
+
+## Report (optional)
+
+รายงานผลลัพธ์
+
+1. ทำ `/report` เพื่อจัดรูปแบบ output ตามประเภทที่เหมาะสม
+```
+
+## Expected Outcome
+
+- Workflow file มีโครงสร้างสม่ำเสมอ อ่านง่าย
+- Frontmatter ถูกต้องตามมาตรฐาน
+- Execute และ Rules เขียนตาม format ที่กำหนด
+- ไม่เกิน 250 บรรทัด
+- Workflows ที่อ้างอิงมีอยู่จริง
 - ให้ผลลัพธ์เหมือนกันทุกครั้ง
-
-## Common Mistakes (optional)
-
-ข้อผิดพลาดที่พบบ่อย
-
-- Execute และ Rules ซ้ำซ้อน, ไม่ใช้ backticks สำหรับ technical terms
-- ไฟล์เกิน 250 บรรทัดโดยไม่ refactor, เขียนเป็น manual step-by-step แทนหลักการ how-to
-- ไม่มีข้อความด้านบนก่อน bullet ใน Rules, ใช้คำสั่ง subjective หรือ ambiguous
-- ไม่ตรวจสอบว่า workflows ที่อ้างอิงมีอยู่จริง
-- แก้ไข workflow โดยไม่ตรวจสอบ dependent workflows ที่ได้รับผลกระทบ
