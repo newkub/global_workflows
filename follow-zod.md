@@ -56,23 +56,43 @@ auto_execution_mode: 3
 
 ### 7. Schema Composition
 
-1. ใช้ .extend() สำหรับ extending schemas
-2. ใช้ .merge() สำหรับ merging schemas
-3. ใช้ .pick() และ .omit() สำหรับ partial schemas
-4. ใช้ .partial() สำหรับ optional fields
-5. ใช้ .required() สำหรับ required fields
-6. จัดระเบียบ schemas ให้ maintainable
+1. ใช้ spread syntax แทนการ chain `.extend()` เพื่อลด TypeScript compilation time
+2. ใช้ .safeExtend() สำหรับ extending schemas ที่มี refinements
+3. ใช้ .merge() สำหรับ merging schemas (ไม่ mutate)
+4. ใช้ .extend() สำหรับ extending schemas (mutate)
+5. ใช้ .pick() และ .omit() สำหรับ partial schemas
+6. ใช้ .partial() สำหรับ optional fields
+7. ใช้ .required() สำหรับ required fields
+8. จัดระเบียบ schemas ให้ maintainable ตาม domain หรือ feature
 
 ### 8. Advanced Patterns
 
 1. ใช้ .refine() สำหรับ custom validation logic
-2. ใช้ .transform() สำหรับ data transformation
+2. ใช้ .transform() สำหรับ data transformation (หลัง validation)
 3. ใช้ .pipe() สำหรับ chaining transformations
-4. ใช้ .discriminatedUnion() สำหรับ tagged unions
-5. ใช้ .branded() สำหรับ branded types
-6. ใช้ .readonly() สำหรับ immutable data
+4. ใช้ .preprocess() สำหรับ data normalization (ก่อน validation)
+5. ใช้ .discriminatedUnion() สำหรับ tagged unions
+6. ใช้ .branded() สำหรับ branded types
+7. ใช้ .readonly() สำหรับ immutable data
+8. ใช้ .default() สำหรับ default values (output side)
+9. ใช้ .prefault() สำหรับ prefault values (input side)
 
-### 9. Testing Schemas
+### 9. Performance Optimization
+
+1. ใช้ spread syntax แทน chain `.extend()` เพื่อลด TypeScript compilation time
+2. ใช้ .safeParse() แทน try-catch ใน performance-sensitive code
+3. พิจารณาใช้ Zod Mini (zod/mini) สำหรับ bundle size constraints (64% reduction)
+4. ใช้ babel-plugin-zod-hoist เพื่อ hoist schema definitions
+5. เลือก API variant ที่เหมาะสม (Classic, Mini, หรือ Core)
+6. ใช้ .format() สำหรับ error formatting ที่มีประสิทธิภาพ
+
+### 10. Recursive Types
+
+1. ใช้ type hints สำหรับ recursive schemas
+2. กำหนด type ด้วยตนเองเนื่องจาก TypeScript ไม่สามารถ infer recursive types
+3. ใช้ z.lazy() สำหรับ lazy evaluation ของ recursive schemas
+
+### 11. Testing Schemas
 
 1. เขียน unit tests สำหรับ validation logic
 2. test valid cases
@@ -84,7 +104,7 @@ auto_execution_mode: 3
 ## Rules
 
 - เปิด strict mode ใน tsconfig.json เสมอ
-- ใช้ .safeParse() สำหรับ user input validation
+- ใช้ .safeParse() สำหรับ user input validation และ performance-sensitive code
 - ใช้ .parse() สำหรับ critical validation ที่ต้องการ throw error
 - ใช้ .parseAsync() หรือ .safeParseAsync() สำหรับ async schemas
 - custom error messages ควรชัดเจนและเป็นภาษาที่ user เข้าใจ
@@ -93,6 +113,12 @@ auto_execution_mode: 3
 - จัดระเบียบ schemas ตาม domain หรือ feature
 - test schemas อย่างครอบคลุม
 - ใช้ z.coerce เมื่อต้องการ type conversion
+- ใช้ spread syntax แทน chain `.extend()` เพื่อลด TypeScript compilation time
+- ใช้ .safeExtend() สำหรับ extending schemas ที่มี refinements
+- พิจารณาใช้ Zod Mini (zod/mini) สำหรับ bundle size constraints
+- ใช้ type hints สำหรับ recursive schemas เนื่องจาก TypeScript ไม่สามารถ infer
+- ใช้ .preprocess() สำหรับ data normalization ก่อน validation
+- ใช้ .transform() สำหรับ data transformation หลัง validation
 
 ## Expected Outcome
 
