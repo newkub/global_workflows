@@ -6,7 +6,7 @@ related_workflows:
   - /analyze-project
   - /use-lib-better
   - /use-lib-effective
-  - /use-packages
+  - /refactor-to-packages-and-use
   - /prioritize
   - /deep-research
   - /use-scripts
@@ -36,7 +36,7 @@ related_workflows:
 
 1. ทำ `/use-lib-better` เพื่อสำรวจ library alternatives
 2. ทำ `/use-lib-effective` เพื่อวิเคราะห์ dependencies ที่มีอยู่
-3. ทำ `/use-packages` เพื่อดู packages จาก workspace
+3. ทำ `/refactor-to-packages-and-use` เพื่อดู packages จาก workspace
 4. บันทึก library ที่เลือกใช้พร้อมเหตุผล
 
 ### 3. Define Implementation Path

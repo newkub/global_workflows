@@ -41,7 +41,7 @@ Create development lifecycle system covering all steps in continuous loop to mai
 ### 5. Code Quality
 
 1. Run `/resolve-errors` to fix all errors and warnings
-2. Run `/refactor` to improve code structure
+2. Run `/refactor-workspace` to improve code structure
 3. Run `/refactor-long-files-to-single-responsibility` to split long files
 
 ### 6. Testing

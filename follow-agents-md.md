@@ -16,9 +16,9 @@ auto_execution_mode: 3
 
 ### 1. Write AGENTS.md
 
-เขียน AGENTS.md ก่อนเสมอ ทำตาม `/write-agents-md`
+เขียน AGENTS.md ก่อนเสมอ ทำตาม `/update-agents`
 
-- ทำ `/write-agents-md` เพื่อเขียน AGENTS.md
+- ทำ `/update-agents` เพื่อเขียน AGENTS.md
 - ตรวจสอบว่า AGENTS.md เขียนถูกต้อง
 
 ### 2. Find AGENTS.md

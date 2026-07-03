@@ -59,7 +59,7 @@ auto_execution_mode: 3
 3. ตรวจสอบว่า core ไม่มี dependencies ไปยัง shell
 4. ตรวจสอบว่า shell เรียก core functions เท่านั้น
 5. รัน tests เพื่อยืนยันว่า functionality ยังทำงาน
-6. ทำตาม `/refactor`
+6. ทำตาม `/refactor-workspace`
 
 ## Rules
 

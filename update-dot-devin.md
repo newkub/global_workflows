@@ -1,5 +1,5 @@
 ---
-title: Write Dot Devin
+title: Update Dot Devin
 description: อัพเดท .devin structure ให้ครบถ้วน
 auto_execution_mode: 3
 related_workflows:

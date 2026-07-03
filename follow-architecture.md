@@ -41,7 +41,7 @@ auto_execution_mode: 3
 
 1. สร้างโครงสร้างพื้นฐานตาม pattern ที่เลือก
 2. ตั้งค่า configuration files
-3. รัน `/refactor` เพื่อ reorganize code
+3. รัน `/refactor-workspace` เพื่อ reorganize code
 
 ## Rules
 

@@ -1,5 +1,5 @@
 ---
-title: Write Agents Md
+title: Update Agents
 description: เขียน AGENTS.md ตาม project analysis และ dependencies
 auto_execution_mode: 3
 ---
@@ -75,7 +75,7 @@ auto_execution_mode: 3
 - เขียนเป็น bullet points ด้วย backticks:
   - อ่านทุก workflows, skills และทุก references ที่อ้างอิง และทำตามนั้นทั้งหมด
   - ทำตาม `/ship-run` หลังทำเสร็จ
-  - ทำ `/refactor` หลังทำเสร็จ
+  - ทำ `/refactor-workspace` หลังทำเสร็จ
   - ทำ `/realize-implementation` หลังทำเสร็จ
 - ใช้เพื่อเน้นว่าต้องทำทุกครั้ง
 
@@ -102,7 +102,7 @@ auto_execution_mode: 3
 - ## Every Task มีเนื้อหาเป็น bullet points ด้วย backticks:
   - อ่านทุก workflows, skills และทุก references ที่อ้างอิง และทำตามนั้นทั้งหมด
   - ทำตาม `/ship-run` หลังทำเสร็จ
-  - ทำ `/refactor` หลังทำเสร็จ
+  - ทำ `/refactor-workspace` หลังทำเสร็จ
   - ทำ `/realize-implementation` หลังทำเสร็จ
 - Project เป็น bullet points พร้อม colon separator
 - Workflows และ Skills เป็น bullet points พร้อมคำว่า "ทำ" และ backticks

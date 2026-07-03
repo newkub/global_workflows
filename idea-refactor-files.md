@@ -3,7 +3,7 @@ title: Idea Refactor Files
 description: สร้างไอเดีย refactor files และ modules พร้อม continuous numbering และระบุประเภท refactor
 auto_execution_mode: 3
 related_workflows:
-  - /refactor
+  - /refactor-workspace
   - /refactor-file-to-single-responsibility
   - /refactor-module-to-single-responsibility
   - /refactor-long-files-to-single-responsibility
@@ -144,7 +144,7 @@ related_workflows:
 
 ทำงานอัตโนมัติโดยไม่หยุดถาม
 
-- ถ้าผู้ใช้บอกว่า "ทำ ... ให้" ให้ทำตาม `/refactor` เลย
+- ถ้าผู้ใช้บอกว่า "ทำ ... ให้" ให้ทำตาม `/refactor-workspace` เลย
 - ไม่ต้องทำตาม `workflow` ปกติถ้าผู้ใช้สั่งโดยตรง
 - ทำงานอัตโนมัติโดยไม่หยุดถาม
 

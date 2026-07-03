@@ -53,6 +53,26 @@ related_workflows:
 3. ใช้ `--interactive` สำหรับ selective apply
 4. ตรวจสอบ output และ tune rules
 
+### 6. Outline Command
+
+ใช้ `ast-grep outline` สำหรับ explore code structure และ navigation
+
+**Basic Usage:**
+- รัน `ast-grep outline <file>` เพื่อดู structure ของ file เดียว
+- รัน `ast-grep outline <directory>` เพื่อดู exports ของ directory
+- รัน `ast-grep outline --items imports <file>` เพื่อดู dependencies
+- รัน `ast-grep outline --match <pattern> --type <type> --view expanded` เพื่อ expand symbol
+
+**Filter Options:**
+- `--items auto|structure|exports|imports|all`: เลือก top-level items
+- `--type class,enum,function`: filter ตาม symbol types
+- `--match <regex>`: filter ตาม pattern
+- `--pub-members`: แสดงเฉพาะ public members
+
+**View Options:**
+- `--view auto|names|signatures|digest|expanded`: เลือก presentation style
+- `--json[=pretty|stream|compact]`: output เป็น JSON สำหรับ machine-readable
+
 ## Rules
 
 ### 1. Rule Structure
@@ -130,6 +150,29 @@ related_workflows:
 - Test Driven: เขียน test cases ก่อนเขียน rules
 - Incremental: เริ่มจาก simple patterns แล้วค่อยเพิ่มความซับซ้อน
 - Document: เขียน message ที่ชัดเจนสำหรับแต่ละ rule
+
+### 9. Outline Usage
+
+การใช้ ast-grep outline สำหรับ code navigation:
+
+**Use Cases:**
+- ดู structure ของ file ก่อนอ่าน implementation
+- ดู exports ของ directory เพื่อ understand module surface
+- ตรวจสอบ dependencies ด้วย `--items imports`
+- Expand symbol ด้วย `--view expanded` เพื่อดู members โดยไม่ต้องอ่านทั้ง file
+- Filter symbols ด้วย `--match` และ `--type` เพื่อ narrow down search
+
+**Design Principles:**
+- Parse on demand: ไม่ build index แต่ parse files เมื่อต้องการ
+- Stay local: ไม่ analyze cross-file relationships
+- Declarative extraction: ใช้ rules สำหรับ define extraction logic
+- Fast and deterministic: ไม่มี global knowledge แต่เร็วและ predictable
+
+**Output Format:**
+- Outline entry ประกอบด้วย: name, symbol type, source range, signature, AST kind, flags
+- Top-level entries เรียกว่า items
+- Direct children เรียกว่า members
+- Support JSON output สำหรับ machine-readable consumption
 
 ## Expected Outcome
 

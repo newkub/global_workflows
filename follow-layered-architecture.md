@@ -70,7 +70,7 @@ src/
 2. สร้าง barrel export files (index.ts ในทุก folder)
 3. ย้าย code ตาม pattern ที่เลือก
 4. ตั้งค่า import alias
-5. ทำตาม `/refactor` หลังจากเสร็จ
+5. ทำตาม `/refactor-workspace` หลังจากเสร็จ
 
 ## Rules
 

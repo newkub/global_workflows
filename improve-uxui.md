@@ -36,7 +36,18 @@ related_workflows:
 
 - ทำ `/improve-accessibility` เพื่อปรับปรุง accessibility ครบวงจร
 
-### 3. Improve Performance
+### 3. Improve UX Writing
+
+ปรับปรุง UX writing
+
+- เขียนข้อความที่ชัดเจนและเข้าใจง่าย
+- ใช้ภาษาที่เป็นมิตรกับผู้ใช้
+- หลีกเลี่ยงคำศัพท์เทคนิคที่ไม่จำเป็น
+- ใช้ active voice แทน passive voice
+- สร้าง microcopy ที่ช่วยสนับสนุน user journey
+- ทำตาม UX writing best practices
+
+### 4. Improve Performance
 
 ปรับปรุง performance ของ UI
 

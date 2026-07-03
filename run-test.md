@@ -56,23 +56,28 @@ test/
 4. ตรวจสอบ test configuration
 5. ยืนยันว่ามี test config files ถ้าจำเป็น
 
-### 3. Write Tests
+### 5. Write Tests
 
 1. ทำ `/write-test` เพื่อเขียน tests ที่ขาดหายไป
 2. รอให้ `/write-test` เสร็จสิ้นก่อนดำเนินการต่อ
 3. ตรวจสอบว่า test files ครบถ้วนตาม SPEC.md
 4. ตรวจสอบว่า test cases ครอบคลุมทุกกรณีใช้งาน
 5. ตรวจสอบว่า tests อยู่ใน location ที่ถูกต้อง
+6. ตรวจสอบว่า testing strategy ครอบคลุมทุก test types ที่จำเป็น
+7. ตรวจสอบว่า formal verification ถูกทำสำหรับ critical components
 
-### 4. Run Tests
+### 6. Run Tests
 
 1. รัน `bun run test` หรือ `bun test`
 2. บันทึกผลลัพธ์ทั้งหมด
 3. ระบุ tests ที่ fail
 4. ติดตาม progress ของ tests
 5. บันทึก duration ของแต่ละ test
+6. รัน mutation tests ถ้ามี
+7. รัน security tests ถ้ามี
+8. รัน performance tests ถ้ามี
 
-### 5. Review Test Results
+### 7. Review Test Results
 
 ทำตาม `/review-test-result` เพื่อวิเคราะห์ผลลัพธ์ที่ครบถ้วน
 
@@ -96,6 +101,8 @@ test/
 4. แก้ไข test assertions ถ้า test outdated
 5. แก้ไข mock data ถ้าจำเป็น
 6. บันทึกสิ่งที่แก้ไข
+7. แก้ไข formal verification specifications ถ้าจำเป็น
+8. แก้ไข invariants ถ้าจำเป็น
 
 ### 10. Verify
 
@@ -106,11 +113,25 @@ test/
 5. ยืนยันว่าผ่าน 100%
 6. ยืนยันว่า coverage ถึง 100% ทุก category
 
-### 11. Report
+### 11. Run Formal Verification
+
+1. รัน formal verification tools สำหรับ critical components
+2. ตรวจสอบว่า invariants ผ่านทั้งหมด
+3. ตรวจสอบว่า type systems ตรวจจับ errors ทั้งหมด
+4. ตรวจสอบว่า property-based tests ผ่านทั้งหมด
+5. ตรวจสอบว่า model checking ผ่านทั้งหมด
+6. ตรวจสอบว่า static analysis ผ่านทั้งหมด
+7. Document formal verification results
+
+### 12. Report
 
 1. รัน `/report-format-metrics` เพื่อแสดง test coverage metrics
 2. รัน `/report-format-table` เพื่อจัดรูปแบบ test results
 3. รัน `/report-format-summary` เพื่อสรุปผลลัพธ์ test
+4. รายงาน formal verification results
+5. รายงาน mutation testing results
+6. รายงาน security testing results
+7. รายงาน performance testing results
 
 ## Rules
 
@@ -182,4 +203,8 @@ test/
 - ไม่มี failures หรือ errors
 - Test coverage ถึง 100% ทุก category (lines, branches, functions, statements)
 - Code behavior ถูกต้องตาม expected
+- Formal verification ผ่านสำหรับ critical components
+- Mutation testing ผ่านด้วยคะแนนสูง
+- Security tests ผ่านทั้งหมด
+- Performance tests ผ่านทั้งหมด
 - รายงานสรุปผลลัพธ์ test ที่ครบถ้วน

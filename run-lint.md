@@ -1,6 +1,6 @@
 ---
 title: Run Lint
-description: รัน lint และแก้ config เพื่อให้ผ่าน โดยไม่ใช้ ignore patterns
+description: รัน lint และแก้ code เพื่อให้ผ่าน โดยไม่ใช้ ignore patterns และห้ามแก้ไข config ไฟล์
 auto_execution_mode: 3
 related_workflows:
   - /run-format
@@ -11,7 +11,7 @@ related_workflows:
 
 ## Goal
 
-รัน lint และพยายามแก้ config เพื่อให้ผ่าน โดยไม่ใช้ ignore patterns และจัดการ unused variables ตามเหมาะสม
+รัน lint และแก้ code เพื่อให้ผ่าน โดยไม่ใช้ ignore patterns และจัดการ unused variables ตามเหมาะสม โดยห้ามแก้ไข config ไฟล์
 
 ## Scope
 
@@ -42,14 +42,7 @@ related_workflows:
    - type errors
    - style violations
 
-### 4. Fix Config Issues
-
-1. ถ้าเป็น config-related errors ให้ทำ `/linter` เพื่อแก้ config
-2. ปรับ linter config ให้เหมาะสมกับ codebase
-3. ปรับ rules ที่เหมาะสมกับ project
-4. รัน lint อีกครั้งเพื่อทดสอบ
-
-### 5. Fix Code Issues
+### 4. Fix Code Issues
 
 1. แก้ code-related errors ตามลำดับความสำคัญ
 2. สำหรับ unused variables:
@@ -67,14 +60,13 @@ related_workflows:
 
 ## Rules
 
-### 1. Config Adjustments
+### 1. No Config Changes
 
-พยายามแก้ config ก่อนแก้ code เสมอ
+ห้ามแก้ไข config ไฟล์ทุกประเภท
 
-- ปรับ linter config ให้เหมาะสมกับ codebase
-- ปรับ rules ที่เหมาะสมกับ project
-- ใช้ `/linter` เพื่อแก้ config อย่างถูกต้อง
-- หลีกเลี่ยงการปิด rules โดยไม่จำเป็น
+- ห้ามแก้ไข biome.jsonc, eslint.config.js, tsconfig.json หรือ config ไฟล์อื่นๆ
+- แก้ code ให้ผ่าน lint rules ที่มีอยู่
+- หาก config ไม่เหมาะสม ให้แจ้งผู้ใช้แทนการแก้เอง
 
 ### 2. Unused Variables
 
@@ -90,7 +82,6 @@ related_workflows:
 แก้ปัญหาที่ source แทนการ suppress
 
 - แก้ code ให้ผ่าน lint rules
-- ปรับ config ให้เหมาะสมกับ codebase
 - หลีกเลี่ยงการใช้ ignore comments/attributes
 - ใช้ `/resolve-errors` เมื่อจำเป็น
 
@@ -101,8 +92,11 @@ related_workflows:
 - รัน lint อีกครั้งเพื่อยืนยัน
 - รัน tests ทั้งหมด
 - ตรวจสอบว่าไม่มี regressions
+- ทำ `/check-unsued-files` เพื่อตรวจสอบว่าทุกไฟล์ถูกใช้
 
 ## Expected Outcome
 
-โค้ดที่ผ่าน lint โดยไม่มี errors/warnings พร้อมรายงานผลลัพธ์การรัน lint
+- โค้ดที่ผ่าน lint โดยไม่มี errors/warnings
+- ทุกไฟล์ถูกใช้ ไม่มีไฟล์ที่ไม่ได้ใช้
+- รายงานผลลัพธ์การรัน lint
 

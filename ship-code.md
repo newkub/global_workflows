@@ -6,6 +6,7 @@ related_workflows:
   - /implement-features-to-mvp
   - /ship-run
   - /ship-code-all-workspace
+  - /refactor
 ---
 
 ## Goal
@@ -86,8 +87,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ปรับปรุงโครงสร้างโค้ดตาม Clean Architecture
 
-1. ทำ `/refactor` เพื่อปรับปรุงโครงสร้างโค้ด
-2. ทำ `/update-references` เพื่ออัพเดท references
+1. ทำ `/refactor` เพื่อ refactor ทั้ง monorepo และ workspaces
 
 ### 9. Apply Best Practices
 
@@ -144,7 +144,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 ตั้งค่าพื้นฐานก่อนเริ่มพัฒนา
 
 - ตั้งค่า configuration และ structure ก่อน implement features
-- ทำ `/follow-package-manifest` และ `/write-dot-devin` ก่อน
+- ทำ `/follow-package-manifest` และ `/update-dot-devin` ก่อน
 - ตั้งค่า `CI/CD` และ monorepo structure ก่อน refactor
 - ทำตาม AGENTS.md สำหรับ project-specific requirements
 

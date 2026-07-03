@@ -8,13 +8,17 @@ auto_execution_mode: 3
 
 แก้ไข error อย่างมีประสิทธิภาพโดยระบุ root cause แก้ไขที่จุดเดียว และตรวจสอบว่าแก้ไขถูกต้อง
 
+## Scope
+
+แก้ไข errors ที่เกิดขึ้นจากการรัน commands, linting, type checking, หรือ testing
+
 ## Execute
 
 ### 1. Analyze Error
 
 วิเคราะห์ error message และ context อย่างละเอียด
 
-1. อ่าน error message ทั้งหมดรวม stack trace
+1. อ่าน error message ทั้งหมมรวม stack trace
 2. ระบุไฟล์และบรรทัดที่เกิด error
 3. ดู context รอบๆ จุดที่ error เกิด
 4. ระบุประเภทของ error (`syntax`, `runtime`, `type`, `logic`)
@@ -22,8 +26,6 @@ auto_execution_mode: 3
 ### 2. Identify Root Cause
 
 หมายเหตุ: ถ้า errors ซับซ้อนหรือไม่ชัดเจน ให้ทำ `/analyze-errors` ก่อนเพื่อวิเคราะห์และจัดลำดับ
-
-วิเคราะห์ error message และ context อย่างละเอียด:
 
 1. ติดตาม call stack ย้อนกลับเพื่อหาจุดเริ่มต้น
 2. ระบุสาเหตุที่แท้จริง ไม่ใช่แก้เฉพาะ symptom
@@ -34,8 +36,6 @@ auto_execution_mode: 3
 
 หมายเหตุ: ถ้า errors มีจำนวนมาก ให้จัดลำดับการแก้ไขตามความยาวไฟล์
 
-จัดลำดับการแก้ไขเพื่อประสิทธิภาพสูงสุด:
-
 1. ทำ `/use-scripts` เพื่อเช็คความยาวไฟล์ที่มี error
 2. แก้ไขไฟล์ที่สั้นกว่า 250 บรรทัดก่อน
 3. ถ้าไฟล์ยาวกว่า 250 บรรทัด ให้ทำ `/refactor-long-files-to-single-responsibility` ก่อนแก้ไข error
@@ -43,38 +43,22 @@ auto_execution_mode: 3
 
 ### 4. Apply Minimal Fix
 
-แก้ไขที่จุดเดียวที่เป็นปัญหาจริง หลีกเลี่ยงการแก้หลายจุดพร้อมกัน
+ทำตาม Rules 2 (Minimal Change Principle)
 
-1. เขียน fix ที่แก้ root cause โดยตรง
-2. ทำการเปลี่ยนแปลงน้อยที่สุดที่จำเป็น
-3. รักษา consistency กับ code style ที่มีอยู่
-4. เพิ่ม comments อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
-5. ตรวจสอบว่าไม่สร้าง side effects ใหม่
-6. ถ้า error มีจำนวนมาก ให้ทำ `/use-scripts` เพื่อ automate การแก้ไข
+1. แก้ไขที่จุดเดียวที่เป็นปัญหาจริง
+2. ถ้า error มีจำนวนมาก ให้ทำ `/use-scripts` เพื่อ automate การแก้ไข
 
 ### 5. Review Fix
 
-ตรวจสอบว่าการแก้ไขถูกต้องและเหมาะสม
-
-1. ตรวจสอบว่าการแก้ไขแก้ root cause โดยตรง
-2. ตรวจสอบว่าการแก้ไขไม่สร้าง side effects ใหม่
-3. ตรวจสอบว่า code style เหมาะสมและ consistent
-4. ตรวจสอบว่ามี comments อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
+ทำตาม Rules 3 (Verification Standards)
 
 ### 6. Check for Ignore Patterns
 
-ตรวจสอบว่าไม่มีการใช้ ignore comments/attributes สำหรับ suppress error
-
-1. ทำตาม `/no-use-ignore`
+ทำตาม Rules 5 (No Ignore Patterns)
 
 ### 7. Document and Learn
 
-บันทึกประสบการณ์เพื่อป้องกันปัญหาซ้ำ
-
-1. เขียน comment หรือ documentation อธิบายสาเหตุของ error
-2. เพิ่ม error handling หรือ validation ถ้าจำเป็น
-3. บันทึก pattern ของปัญหาเพื่อใช้อ้างอิงในอนาคต
-4. พิจารณาเพิ่ม test case เพื่อป้องกัน regression
+ทำตาม Rules 6 (Documentation)
 
 ## Rules
 

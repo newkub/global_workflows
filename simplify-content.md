@@ -19,15 +19,14 @@ auto_execution_mode: 3
 วิเคราะห์ความซับซ้อนของ content และ codebase
 
 1. ทำ `/analyze-over-engineering` เพื่อหาสิ่งที่ over-engineer
-2. ทำ `/analyze-unnecessary` เพื่อหาสิ่งที่ไม่จำเป็น
-3. ทำ `/analyze-consistency` เพื่อตรวจสอบความสม่ำเสมอ
+2. ทำ `/analyze-consistency` เพื่อตรวจสอบความสม่ำเสมอ
 
 ### 2. Remove Unnecessary Complexity
 
 ลบสิ่งที่ไม่จำเป็นและซับซ้อน
 
 1. ทำ `/dont-over-engineer` เพื่อหลีกเลี่ยง over-engineering
-2. ทำ `/no-hard-cord` เพื่อลบ hard code
+2. ทำ `/no-hard-code` เพื่อลบ hard code
 3. ทำ `/no-use-ignore` เพื่อแก้ปัญหาที่ source
 4. ทำ `/check-unused-deps` เพื่อลบ dependencies ที่ไม่ได้ใช้
 5. ทำ `/check-unsued-files` เพื่อลบไฟล์ที่ไม่ได้ใช้
@@ -38,7 +37,7 @@ auto_execution_mode: 3
 
 1. ทำ `/follow-clean-architecture` หรือ `/follow-layered-architecture`
 2. ทำ `/separate-of-concern` เพื่อแยกโค้ดตาม responsibilities
-3. ทำ `/refactor-to-modules` เพื่อ refactor เป็น modules ที่ชัดเจน
+3. ทำ `/refactor-modules` เพื่อ refactor เป็น modules ที่ชัดเจน
 
 ### 4. Simplify Workflows
 

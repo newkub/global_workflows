@@ -5,6 +5,16 @@ auto_execution_mode: 3
 related_workflows:
   - prioritize
   - what-do-you-do
+  - improve-monitoring
+  - improve-error-handling
+  - improve-scalability
+  - improve-dx
+  - improve-data-quality
+  - improve-api-design
+  - improve-compliance
+  - improve-cost-optimization
+  - improve-backup-recovery
+  - improve-database
 ---
 
 ## Goal
@@ -17,7 +27,7 @@ related_workflows:
 
 ## Execute
 
-### 1. Foundation And Security (P0 Critical)
+### 1. Foundation And Security
 
 ทำทันทีเพื่อ foundation และ security
 
@@ -26,63 +36,122 @@ related_workflows:
 - รอยืนยันจาก user ก่อนเริ่มทำ
 - ทำ `/use-lib-better` เพื่อวิเคราะห์ dependencies และ alternatives
 - ทำ `/update-dependencies-latest` เพื่ออัพเดท dependencies
-- ทำ `/use-packages` เพื่อลบ packages ที่ไม่ได้ใช้
+- ทำ `/refactor-to-packages-and-use` เพื่อลบ packages ที่ไม่ได้ใช้
 - ทำ `/improve-config` เพื่อปรับปรุง configuration files
-- ทำ `/review-architecture` และ `/check-architecture` (รวมกัน)
-- ทำ `/improve-security` และ `/improve-accessibility` (รวมกัน)
-- ทำ `/improve-integrations` (รวม websocket, file-upload, search, notification, i18n)
+- ทำ `/review-architecture` เพื่อ review architecture
+- ทำ `/check-architecture` เพื่อตรวจสอบ architecture
+- ทำ `/improve-security` เพื่อปรับปรุง security
+- ทำ `/improve-accessibility` เพื่อปรับปรุง accessibility
+- ทำ `/improve-integrations` เพื่อปรับปรุง integrations
 - ทำ modernize & update latest เพื่อทำให้ codebase ทันสมัยและเป็นเวอร์ชันล่าสุดเสมอ
 
-### 2. Code Quality (Current Sprint)
+### 2. Database
 
-ปรับปรุงคุณภาพโค้ดใน sprint ปัจจุบัน
+ปรับปรุย database performance, schema, และ operations
 
-- ทำ `/improve-code-quality` เพื่อปรับปรุงคุณภาพโค้ด ครบวงจร
+- ทำ `/improve-database` เพื่อปรับปรุย database ครบวงจร
 
-### 3. Testing (Current Sprint)
+### 3. Monitoring
 
-ปรับปรุงการทดสอบใน sprint ปัจจุบัน
+ปรับปรุง monitoring และ observability
+
+- ทำ `/improve-monitoring` เพื่อปรับปรุง monitoring ครบวงจร
+
+### 4. Error Handling
+
+ปรับปรุง error handling และ resilience
+
+- ทำ `/improve-error-handling` เพื่อปรับปรุง error handling ครบวงจร
+
+### 5. Code Quality
+
+ปรับปรุงคุณภาพโค้ด
+
+- ทำ `/follow-code-quality` เพื่อปรับปรุงคุณภาพโค้ด ครบวงจร
+
+### 6. Testing
+
+ปรับปรุงการทดสอบ
 
 - ทำ `/improve-testing` เพื่อปรับปรุงการทดสอบ ครบวงจร
 
-### 4. Performance (Current Sprint)
+### 7. Performance
 
-ปรับปรุง performance ใน sprint ปัจจุบัน
+ปรับปรุง performance
 
 - ทำ `/improve-web-performance` เพื่อปรับปรุง web performance ครบวงจร
 
-### 5. Integrations (Current Sprint)
+### 8. Scalability
 
-ปรับปรุง integrations ใน sprint ปัจจุบัน
+ปรับปรุย scalability
+
+- ทำ `/improve-scalability` เพื่อปรับปรุย scalability ครบวงจร
+
+### 9. Integrations
+
+ปรับปรุง integrations
 
 - ทำ `/improve-integrations` เพื่อปรับปรุง integrations ครบวงจร
 
-### 6. Security (Current Sprint)
+### 10. Security
 
-ปรับปรุง security ใน sprint ปัจจุบัน
+ปรับปรุง security
 
 - ทำ `/improve-security` เพื่อปรับปรุง security ครบวงจร
 
-### 7. Platform (Next Sprint)
+### 11. Platform
 
-ปรับปรุง platform support ใน sprint ถัดไป
+ปรับปรุง platform support
 
 - ทำ `/improve-platform` เพื่อปรับปรุง platform support ครบวงจร
 
-### 8. UI (Next Sprint)
+### 12. UI
 
-ปรับปรุง UI ใน sprint ถัดไป
+ปรับปรุง UI
 
 - ทำ `/improve-uxui` สำหรับ UX/UI improvements ครบวงจร
 
-### 9. Algorithms And Documentation (Optional)
+### 13. Developer Experience
+
+ปรับปรุง developer experience
+
+- ทำ `/improve-dx` เพื่อปรับปรุง developer experience ครบวงจร
+
+### 14. Data Quality
+
+ปรับปรุงคุณภาพข้อมูล
+
+- ทำ `/improve-data-quality` เพื่อปรับปรุง data quality ครบวงจร
+
+### 15. API Design
+
+ปรับปรุง API design
+
+- ทำ `/improve-api-design` เพื่อปรับปรุง API design ครบวงจร
+
+### 16. Backup And Recovery
+
+ปรับปรุย backup และ recovery
+
+- ทำ `/improve-backup-recovery` เพื่อปรับปรุย backup และ recovery ครบวงจร
+
+### 17. Compliance
+
+ปรับปรุย regulatory compliance
+
+- ทำ `/improve-compliance` เพื่อปรับปรุย compliance ครบวงจร
+
+### 18. Cost Optimization
+
+ปรับปรุง cost optimization
+
+- ทำ `/improve-cost-optimization` เพื่อปรับปรุง cost optimization ครบวงจร
+
+### 19. Documentation
 
 ทำเมื่อมีเวลา
 
-- ทำ `/improve-algorithm` และ `/improve-data-structures`
-- SEO ปรับปรุง (optional)
-- Missing features และ state management ปรับปรุง (optional)
-- ทำ `/write-docs`
+- ทำ `/update-docs` เพื่อปรับปรุง documentation
 
 ## Rules
 
@@ -92,11 +161,12 @@ related_workflows:
 
 - ทำทีละ group และตรวจสอบ
 - ทำ `Foundation And Security` ก่อนเสมอ
-- ทำ `Code Quality, Testing, Performance, Integrations, Security` ใน sprint ปัจจุบัน
-- ทำ `Platform, UI, Algorithms` ใน sprint ถัดไป
+- ทำ `Database, Monitoring, Error Handling` หลัง Foundation
+- ทำ `Code Quality, Testing, Performance, Scalability, Integrations, Security` ต่อไป
+- ทำ `Platform, UI, Developer Experience, Data Quality, API Design, Backup And Recovery, Compliance, Cost Optimization` ตามลำดับ
 - ทำ `Documentation` สุดท้าย
 - ถ้าพบ issues ทำ `/resolve-errors` ก่อนดำเนินต่อ
-- ทำ `/update-references` หลังแต่ละ group สำคัญ
+- ทำ `/update-reference` หลังแต่ละ group สำคัญ
 
 ### 2. Foundation First
 
@@ -122,77 +192,13 @@ related_workflows:
 
 - ทำตาม workflows ที่ระบุใน Execute
 
+### 5. Report Format
+
+ระบุรูปแบบรายงาน
+
+- ทำ `/report-format-progress` สำหรับรายงานความคืบหน้า
+- ทำ `/report-format-summary` สำหรับสรุปผลลัพธ์
+
 ## Expected Outcome
 
-### Foundation And Security
-- Dependencies และ configurations ถูกอัพเดท
-- Architecture ถูกตรวจสอบและปรับปรุง
-- Security และ accessibility ปรับปรุง
-- Integrations (websocket, file-upload, search, notification, i18n) ปรับปรุง
-- Codebase ทันสมัยและเป็นเวอร์ชันล่าสุดเสมอ
-
-### Code Quality
-- Type safety ปรับปรุงครบถ้วน
-- Naming conventions สม่ำเสมอ
-- Code readability ดีขึ้น
-- Data validation ครอบคลุม
-- TypeScript errors ลดลง
-- Testability ดีขึ้น
-- Dependencies ที่ชัดเจนและ injectable
-- Pure functions สำหรับ business logic
-- Loose coupling ระหว่าง components
-
-### Testing
-- Test coverage สูงขึ้นและตรง target
-- Dead code และ unused dependencies ถูกลบ
-- Unit tests ครอบคลุม business logic
-- Integration tests ครอบคลุม API/database
-- E2E tests ครอบคลุม critical flows
-- Test quality สูง (ไม่ flaky, เร็ว)
-- Coverage enforcement ใน CI/CD
-
-### Performance
-- Bundle size ลดลง
-- Runtime performance ดีขึ้น
-- Rendering performance ดีขึ้น
-- Memory usage ลดลง
-- Core Web Vitals ดีขึ้น
-- Performance budgets ผ่าน
-
-### Integrations
-- WebSocket connections stable
-- File upload reliable และ secure
-- Search fast และ relevant
-- Notifications delivered reliably
-- i18n support complete
-- All integrations have error handling
-
-### Security
-- Authentication mechanisms ปลอดภัย
-- Authorization rules ถูกต้อง
-- Data ถูกเข้ารหัสอย่างเหมาะสม
-- Input validation ครบถ้วน
-- Security headers ถูกตั้งค่า
-- Secrets ถูกจัดการอย่างปลอดภัย
-- Security monitoring ตั้งค่าเสร็จ
-- API security ปรับปรุงแล้ว
-
-### Platform
-- Platform compatibility ดีขึ้น
-- Browser support ครอบคลุม browsers หลัก
-- OS compatibility ดีขึ้น
-- Deployment process อัตโนมัติ
-- Platform tests ครอบคลุม
-- Performance ดีขึ้นข้าม platforms
-
-### UI
-- UI มีความสม่ำเสมอและ professional
-- Design system ที่ scalable และ maintainable
-- UI performance ดีขึ้น
-- Accessibility ตรงตามมาตรฐาน
-
-### Optional
-- Algorithms และ data structures ปรับปรุง
-- SEO ปรับปรุง (optional)
-- Missing features และ state management ปรับปรุง (optional)
-- Documentation อัพเดท
+ดู Expected Outcome ใน workflows ย่อยแต่ละอัน สำหรับรายละเอียดเฉพาะทาง

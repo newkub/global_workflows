@@ -20,27 +20,56 @@ related_workflows:
 
 ## Execute
 
-### 0. Review Architecture
+### 1. Review Architecture
 
 ทำ `/review-architecture` ก่อนเขียน test เพื่อแก้ critical issues
 
-### 1. Organize Test Files
+### 2. Organize Test Files
 
 ย้าย test files ที่กระจัดกระจายมาไว้ใน `tests/` ตาม Rule 3
 
-### 2. Write Spec
+### 3. Write Spec
 
 ทำ `/write-spec` เพื่อสร้างหรืออัพเดท spec ก่อนเขียน test
 
-### 3. Improve Naming
+### 4. Improve Naming
 
 ทำ `/improve-naming` เพื่อปรับปรุง naming conventions ก่อนเขียน test
 
-### 4. Write Tests
+### 5. Define Testing Strategy
+
+กำหนด testing strategy ที่ครบถ้วน
+
+1. กำหนด test pyramid ที่เหมาะสม (unit, integration, e2e)
+2. กำหนด test types ที่จำเป็น (unit, integration, e2e, contract, property-based, mutation, performance, security, accessibility, visual regression)
+3. กำหนด coverage targets สำหรับแต่ละ test type
+4. กำหนด test priorities ตาม criticality
+5. กำหนด test environments (local, staging, production)
+
+### 6. Write Tests
 
 เขียน test ตามประเภทและ conventions ของภาษาที่ใช้
 
-### 5. Sync and Verify
+### 7. Implement Formal Verification
+
+ทำ formal verification สำหรับ critical components
+
+1. ระบุ components ที่ต้องการ formal verification:
+   - Security-critical code (auth, encryption, payment)
+   - Safety-critical code (medical, automotive, industrial)
+   - Financial transactions
+   - Data validation and sanitization
+2. ใช้ formal verification tools:
+   - Type systems ที่ strong (TypeScript, Rust, Haskell)
+   - Property-based testing (QuickCheck, Hypothesis)
+   - Model checking (TLA+, Alloy)
+   - Static analysis (SonarQube, CodeQL)
+   - Theorem provers (Coq, Isabelle)
+3. เขียน formal specifications สำหรับ critical invariants
+4. Verify invariants ด้วย automated tools
+5. Document formal verification results
+
+### 8. Sync and Verify
 
 อัพเดท SPEC.md ด้วย test cases ที่เขียนแล้ว และรัน `/update-references`
 
@@ -136,7 +165,23 @@ tests/
 - ตรวจสอบ coverage ด้วย tools
 - ตั้งค่า coverage thresholds ใน CI เป็น 100%
 
-### 7. CI/CD and Documentation
+### 7. Testing Strategy
+
+กำหนดและทำตาม testing strategy ที่ครบถ้วน
+
+- Test pyramid: 70% unit, 20% integration, 10% e2e
+- Test ทั้ง happy path, edge cases, error cases, boundary conditions
+- Test ทั้ง positive และ negative cases
+- Test ทั้ง functional และ non-functional requirements
+- Test ทั้ง manual และ automated scenarios
+- Test ทั้ง smoke, sanity, regression, acceptance
+- Test ทั้ง backward และ forward compatibility
+- Test ทั้ง concurrency และ race conditions
+- Test ทั้ง memory leaks และ resource cleanup
+- Test ทั้ง error handling และ recovery
+- Test ทั้ง accessibility และ visual consistency
+
+### 8. CI/CD and Documentation
 
 - รัน tests ในทุก pull request และ commit
 - ตั้งค่า `test coverage thresholds` ใน CI
@@ -144,11 +189,18 @@ tests/
 - Document test setup ใน comments สำหรับ tests ที่ซับซ้อน
 - เขียน `README` ใน `tests/` อธิบายวิธีรัน
 - อัพเดท test docs เมื่อ logic เปลี่ยนี่ยน
+- รัน mutation tests ใน CI เพื่อตรวจสอบ test quality
+- รัน security tests ใน CI เพื่อตรวจสอบ vulnerabilities
+- รัน performance tests ใน CI เพื่อตรวจสอบ regressions
 
 ## Expected Outcome
 
 - Test files อยู่ใน location ที่ถูกต้องตาม conventions
+- Testing strategy ครอบคลุมทุก test types ที่จำเป็น
 - Tests ครอบคลุมทุกกรณีใช้งาน (`happy path`, `edge cases`, `errors`)
+- Formal verification สำหรับ critical components
 - Tests ไม่ `brittle` และรวดเร็ว
 - โค้ดมีความถูกต้องและเสถียร
 - SPEC.md ถูกอัพเดทด้วย test cases ที่เขียนแล้ว
+- Test quality สูงด้วย mutation testing
+- Security และ performance ถูกตรวจสอบ

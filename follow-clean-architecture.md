@@ -110,7 +110,7 @@ test/                             # Test suite (mirror src structure)
 
 ### 7. Refactor Existing Code
 
-ทำ `/refactor` เพื่อย้าย code ไปยัง structure ใหม่:
+ทำ `/refactor-workspace` เพื่อย้าย code ไปยัง structure ใหม่:
 
 1. ย้าย business logic ไป `modules/*/domain/operations/`
 2. ย้าย data models ไป `modules/*/domain/models/` เป็น `readonly` types

@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /deep-analyze
   - /plan-task
-  - /refactor
+  - /refactor-workspace
   - /implement-comment-todo
   - /loop-until-complete
   - /run-test
@@ -18,6 +18,8 @@ related_workflows:
   - /improve-naming
   - /edit-relative
   - /use-scripts
+  - /no-hard-code
+  - /follow-code-quality
 ---
 
 ## Goal
@@ -34,82 +36,95 @@ related_workflows:
 
 วิเคราะห์โปรเจกต์ก่อนเริ่ม implement เพื่อเข้าใจโครงสร้างและ dependencies
 
-1. ทำ `/analyze-all-files` เพื่ออ่านและวิเคราะห์ไฟล์ทั้งหมด
-2. ทำ `/deep-analyze` เพื่อวิเคราะห์โปรเจกต์อย่างละเอียด
-3. ทำ `/plan-task` เพื่อวางแผนงานอย่างเป็นระบบ
-4. ระบุ TODO, MOCK, placeholder ทั้งหมดที่ต้องแปลง
-5. จัดลำดับความสำคัญของงาน
+- ทำ `/analyze-all-files` เพื่ออ่านและวิเคราะห์ไฟล์ทั้งหมด
+- ทำ `/deep-analyze` เพื่อวิเคราะห์โปรเจกต์อย่างละเอียด
+- ทำ `/plan-task` เพื่อวางแผนงานอย่างเป็นระบบ
+- ระบุ TODO, MOCK, placeholder ทั้งหมดที่ต้องแปลง
+- จัดลำดับความสำคัญของงาน
 
 ### 2. Infrastructure Verification
 
 ตรวจสอบว่า `infrastructure` พร้อมสำหรับ `production`
 
-1. `Database`: connection pool, indexes, migrations, backup strategy
-2. `API Server`: endpoints, rate limiting, CORS, authentication
-3. `Environment Variables`: required variables, secrets, correct values
-4. `Network`: connectivity, firewall rules, DNS resolution
-5. `SSL/TLS`: certificates validity, HTTPS enforcement
-6. `External Services`: credentials, API keys, rate limits
-7. `Secrets Management`: secrets manager, encryption keys
-8. `Monitoring`: metrics collection, alerting rules
-9. `Logging`: log aggregation, log levels
-10. `CDN`: distribution, cache rules
-11. `Storage`: buckets/containers, access policies
-12. `Cache`: cache server, eviction policy
-13. `Queue`: queue workers, retry policy
-14. `Load Balancing`: load balancer, health checks
-15. `Auto-scaling`: scaling policies, triggers
-16. `Health Checks`: health endpoints, graceful shutdown
+- `Database`: connection pool, indexes, migrations, backup strategy
+- `API Server`: endpoints, rate limiting, CORS, authentication
+- `Environment Variables`: required variables, secrets, correct values
+- `Network`: connectivity, firewall rules, DNS resolution
+- `SSL/TLS`: certificates validity, HTTPS enforcement
+- `External Services`: credentials, API keys, rate limits
+- `Secrets Management`: secrets manager, encryption keys
+- `Monitoring`: metrics collection, alerting rules
+- `Logging`: log aggregation, log levels
+- `CDN`: distribution, cache rules
+- `Storage`: buckets/containers, access policies
+- `Cache`: cache server, eviction policy
+- `Queue`: queue workers, retry policy
+- `Load Balancing`: load balancer, health checks
+- `Auto-scaling`: scaling policies, triggers
+- `Health Checks`: health endpoints, graceful shutdown
 
 ### 3. Seed Database
 
 สร้างและรัน `seed script` เพื่อเติมข้อมูลจำลองสำหรับการทดสอบ
 
-1. สร้าง `seed script` สำหรับทุก `database tables`
-2. เพิ่ม `bcrypt` หรือ `password hashing library`
-3. ติดตั้ง `dependencies` ที่จำเป็น
-4. รัน `seed script` เพื่อเติมข้อมูลจำลอง
-5. ตรวจสอบว่าข้อมูลถูกเติมอย่างถูกต้อง
+- สร้าง `seed script` สำหรับทุก `database tables`
+- เพิ่ม `bcrypt` หรือ `password hashing library`
+- ติดตั้ง `dependencies` ที่จำเป็น
+- รัน `seed script` เพื่อเติมข้อมูลจำลอง
+- ตรวจสอบว่าข้อมูลถูกเติมอย่างถูกต้อง
 
 ### 4. Implement Todo
 
 แปลง `TODO`, `FIXME`, `HACK` และ `placeholder code` เป็น `production code`
 
-1. ทำ `/implement-comment-todo` เพื่อแปลง `TODO comments` และ `placeholder functions`
-2. ทำ `/loop-until-complete` จนกว่าจะไม่มี `TODO` เหลือ
-3. ทำ `/run-test` เพื่อทดสอบว่าผ่านทั้งหมด
+- ทำ `/implement-comment-todo` เพื่อแปลง `TODO comments` และ `placeholder functions`
+- ทำ `/loop-until-complete` จนกว่าจะไม่มี `TODO` เหลือ
+- ทำ `/run-test` เพื่อทดสอบว่าผ่านทั้งหมด
 
-### 5. Implementation
+### 5. Realize Missing Features
+
+แปลง `missing features` ที่ยังไม่ได้ implement เป็น `production code`
+
+- ทำ `/idea-features` เพื่อวิเคราะห์และสร้างไอเดีย features ที่ขาด
+- ระบุ features ที่ยังไม่ได้ implement จาก requirements
+- จัดลำดับความสำคัญของ missing features
+- Implement missing features ตามลำดับความสำคัญ
+- ทำ `/loop-until-complete` จนกว่าทุก features ถูก implement
+- ทำ `/run-test` เพื่อทดสอบว่าผ่านทั้งหมด
+
+### 6. Implementation
 
 Implement `production code` - เชื่อมต่อกับ `infrastructure` จริง
 
-1. `Database`: connection pool, migrations, repositories (แทน InMemory)
-2. `Server API`: routes, handlers, validation, rate limiting
-3. `Client`: replace mock with API calls, loading states, retry
-4. `External services`: production endpoints, authentication, circuit breaker
-5. `Error handling`: try-catch blocks, error boundaries, user-friendly messages
-6. `Security`: authentication, authorization, encryption
+- `Database`: connection pool, migrations, repositories (แทน InMemory)
+- `Server API`: routes, handlers, validation, rate limiting
+- `Client`: replace mock with API calls, loading states, retry
+- `External services`: production endpoints, authentication, circuit breaker
+- `Error handling`: try-catch blocks, error boundaries, user-friendly messages
+- `Security`: authentication, authorization, encryption
 
-### 6. Refactor Code
+### 7. Refactor Code
 
 ปรับปรุงคุณภาพโค้ดด้วย `systematic refactoring`
 
-1. ทำ `/refactor` เพื่อปรับปรุงคุณภาพโค้ด
-2. ทำ `/restructure` เพื่อปรับ `physical file/folder structure`
-3. ทำ `/separate-of-concern` เพื่อแยก `logical concerns`
-4. ทำ `/improve-side-effect` เพื่อแยก `pure functions` จาก `side effects`
-5. ทำ `/refactor-long-files-to-single-responsibility` สำหรับไฟล์ > 250 บรรทัด
-6. ทำ `/edit-relative` เพื่ออัปเดท references ทั้งหมด
+- ทำ `/refactor-workspace` เพื่อปรับปรุงคุณภาพโค้ด
+- ทำ `/restructure` เพื่อปรับ `physical file/folder structure`
+- ทำ `/separate-of-concern` เพื่อแยก `logical concerns`
+- ทำ `/improve-side-effect` เพื่อแยก `pure functions` จาก `side effects`
+- ทำ `/refactor-long-files-to-single-responsibility` สำหรับไฟล์ > 250 บรรทัด
+- ทำ `/edit-relative` เพื่ออัปเดท references ทั้งหมด
 
-### 7. Final Verification
+### 8. Final Verification
 
 ตรวจสอบว่าไม่มีสิ่งใดเหลือเป็น `mock`
 
-1. ค้นหา `MOCK`, `FAKE`, `STUB implementations` อีกครั้ง
-2. ทดสอบ `end-to-end flows` ว่าใช้ `production endpoints`
-3. Verify `monitoring` แล `alerting` ทำงาน
-4. ทดสอบ `graceful shutdown`
-5. Verify `security policies` แล `compliance`
+- ค้นหา `MOCK`, `FAKE`, `STUB implementations` อีกครั้ง
+- ทดสอบ `end-to-end flows` ว่าใช้ `production endpoints`
+- Verify `monitoring` แล `alerting` ทำงาน
+- ทดสอบ `graceful shutdown`
+- Verify `security policies` แล `compliance`
+- ทำ `/run-lint` เพื่อตรวจสอบว่าทุกไฟล์ถูกใช้
+- ทำ `/check-unsued-files` เพื่อตรวจสอบว่าไม่มีไฟล์ที่ไม่ได้ใช้
 
 ## Rules
 
@@ -167,11 +182,19 @@ Throw error ถ้า `required environment variables` ไม่มี และ
 - `SQL injection prevention`
 - `XSS prevention`
 
+### 7. Report Format
+
+ระบุรูปแบบรายงาน
+
+- ทำ `/report-format-progress` สำหรับรายงานความคืบหน้า
+- ทำ `/report-format-summary` สำหรับสรุปผลลัพธ์
 
 ## Expected Outcome
 
 - `TODO`, `MOCK`, `placeholder` ถูกแปลงเป็น `production code`
+- `Missing features` ถูก implement ครบถ้วน
 - เชื่อมต่อกับ `server API`, `database`, และ `external services` จริง
 - ไม่มี `mock implementations` ใน `production code`
+- ทุกไฟล์ถูกใช้ ไม่มีไฟล์ที่ไม่ได้ใช้
 - `Infrastructure` พร้อมสำหรับ `production`
 

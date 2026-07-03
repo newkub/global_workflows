@@ -2,6 +2,9 @@
 title: Follow Content Quality
 description: จัดรูปแบบและคุณภาพเนื้อหาให้ถูกต้อง อ่านง่าย สอดคล้องกัน
 auto_execution_mode: 3
+related_workflows:
+  - write-windsurf-global-workflows
+  - improve-correctness
 ---
 
 ## Goal
@@ -14,53 +17,33 @@ auto_execution_mode: 3
 
 ## Execute
 
-### 1. Check Format And Structure
+### 1. Simplify And Condense
 
-ตรวจสอบรูปแบบและโครงสร้าง
-
-1. ตรวจสอบ spacing, indentation, headings สม่ำเสมอ
-2. ตรวจสอบ hierarchy ชัดเจน (##, ###, -)
-3. ตรวจสอบความยาวและ grouping
-4. ตรวจสอบการใช้ backticks
-
-### 2. Simplify Structure
-
-ทำให้โครงสร้างกระชับและชัดเจน
+ทำให้โครงสร้างและเนื้อหากระชับ
 
 1. ลบ sections ที่ไม่จำเป็นหรือซ้ำซ้อน
 2. รวม sections ที่มีเนื้อหาคล้ายกัน
 3. ลบ subsections ที่ไม่มีคุณค่าเพิ่ม
 4. รวม steps ที่ทำงานคล้ายกัน
-5. ทำ `/dont-over-engineer` เพื่อหลีกเลี่ยง over-engineering
+5. ลบคำที่ไม่จำเป็นและคำซ้ำซ้อน
+6. ทำ `/dont-over-engineer`
 
-### 3. Condense Text
-
-ทำให้เนื้อหากระชับและชัดเจน
-
-1. ลบคำที่ไม่จำเป็น
-2. ใช้คำที่กระชับและมีความหมายชัด
-3. ลบคำซ้ำซ้อนในประโยคเดียวกัน
-4. ใช้รูปแบบกระชับ
-
-### 4. Verify Content Quality
-
-ตรวจสอบคุณภาพเนื้อหา
-
-1. ตรวจสอบความชัดเจน เข้าใจง่าย ไม่กำกวม
-2. ตรวจสอบคำศัพท์และความสม่ำเสมอ
-3. ตรวจสอบความถูกต้องของข้อมูลและ references
-4. ตรวจสอบว่ายังคงเนื้อหาสำคัญครบถ้วน
-
-### 5. Make Content Explicit
+### 2. Make Content Explicit
 
 เขียน content ให้ชัดเจน explicit มากกว่า implicit
 
-1. เขียน documentation สำหรับ logic ที่ซับซ้อน
-2. เขียน messages ที่ชัดเจนและให้ context
-3. เขียน comments อธิบาย "why" ไม่ใช่ "what"
-4. ใช้ descriptions และ labels ที่บอก purpose ชัดเจน
+1. ใช้ภาษาตรงไปตรงมา ไม่กำกวม
+2. ระบุ subject และ object ชัดเจนในทุกประโยค
+3. หลีกเลี่ยง pronouns ที่ไม่ชัดเจน (it, they, this)
+4. ใช้ active voice แทน passive voice
+5. ระบุเงื่อนไขและข้อจำกัดชัดเจน
+6. ให้ตัวอย่าง concrete แทน abstract descriptions
+7. เขียน documentation สำหรับ logic ที่ซับซ้อน
+8. เขียน messages ที่ชัดเจนและให้ context
+9. เขียน comments อธิบาย "why" ไม่ใช่ "what"
+10. ใช้ descriptions และ labels ที่บอก purpose ชัดเจน
 
-### 6. Remove Redundancy
+### 3. Remove Redundancy
 
 ลบความซ้ำซ้อน
 
@@ -69,7 +52,7 @@ auto_execution_mode: 3
 3. รวบรวมรายละเอียดที่เหมือนกันไว้ที่เดียว
 4. ตรวจสอบว่าเป็น single source of truth
 
-### 7. Improve Content Dimensions
+### 4. Improve Content Dimensions
 
 ปรับปรุง content ครบวงจร
 
@@ -90,19 +73,21 @@ auto_execution_mode: 3
 - รวม Execute steps ที่ทำงานคล้ายกัน
 - Grouping และ hierarchy ชัดเจน logical
 
-### 2. Content Clarity
-
-เขียนเนื้อหาให้ชัดเจนและเข้าใจง่าย
-
-- เขียนให้ชัดเจน เข้าใจง่าย ไม่กำกวม
-- ใช้คำศัพท์สม่ำเสมอทั่วเอกสาร
-- ใช้คำที่กระชับ มีความหมายชัด
-- ข้อมูลถูกต้องตาม principle และ references มีอยู่จริง
-
-### 3. Explicit Content
+### 2. Explicit Content
 
 เขียน content ให้ชัดเจน explicit มากกว่า implicit
 
+- ใช้ภาษาตรงไปตรงมาเสมอ
+- ระบุ subject และ object ชัดเจนในทุกประโยค
+- หลีกเลี่ยงคำที่กำกวมและ pronouns ที่ไม่ชัดเจน
+- ใช้ active voice แทน passive voice
+- ระบุเงื่อนไขและข้อจำกัดชัดเจน
+- ให้ตัวอย่าง concrete แทน abstract descriptions
+- หลีกเลี่ยงคำที่มีหลายความหมาย (should, could, might)
+- ใช้คำที่เฉพาะเจาะจงแทนคำทั่วไป
+- ระบุ exceptions และ edge cases ชัดเจน
+- แยกประเด็นที่แตกต่างออกจากกัน
+- ใช้ numbered list สำหรับ steps ที่ต้องทำตามลำดับ
 - เขียน documentation สำหรับ logic ที่ซับซ้อน
 - อธิบาย "why" ไม่ใช่แค่ "what"
 - เขียน error messages ชัดเจนแกะได้
@@ -110,8 +95,10 @@ auto_execution_mode: 3
 - ใช้ descriptions และ labels ที่บอก purpose ชัดเจน
 - หลีกเลี่ยง generic messages และ descriptions
 - ใช้ consistent terminology และ tone
+- ตรวจสอบความชัดเจนด้วยการอ่านซ้ำ
+- ตรวจสอบว่าไม่มี assumptions ที่ไม่ได้ระบุ
 
-### 4. Non-Redundancy
+### 3. Non-Redundancy
 
 หลีกเลี่ยงความซ้ำซ้อน
 
@@ -122,7 +109,7 @@ auto_execution_mode: 3
 - ทำ `/dont-over-engineer` เสมอเมื่อเริ่มทำงาน
 - ใช้ minimal changes เสมอ
 
-### 5. Content Dimensions
+### 4. Content Dimensions
 
 มิติของ content quality
 

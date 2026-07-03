@@ -49,7 +49,7 @@ src/
 2. สร้าง domain model ตาม DDD principles
 3. สร้าง application layer และ infrastructure layer
 4. ตรวจสอบ domain model ว่าสะท้อน business logic ได้ถูกต้อง
-5. ทำตาม `/refactor` หลังจากเสร็จ
+5. ทำตาม `/refactor-workspace` หลังจากเสร็จ
 
 ## Rules
 

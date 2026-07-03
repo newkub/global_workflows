@@ -1,12 +1,23 @@
 ---
-title: Barrel Export
+title: Follow Barrel Export
 description: ทำให้ไฟล์หลักมีเฉพาะ re-export และ refactor logic ออกเป็นไฟล์ย่อย
 auto_execution_mode: 3
+related_workflows:
+  - /refactor-modules
+  - /refactor-to-module-single-responsibility
 ---
 
 ## Goal
 
-ทำให้ไฟล์หลัก (entry files) เช่น `index.ts`, `mod.rs` มีเฉพาะ re-export เท่านั้น และ refactor logic ออกเป็นไฟล์ย่อยๆ ตาม `/single-responsibility`
+ทำให้ไฟล์หลัก (entry files) เช่น `index.ts`, `mod.rs` มีเฉพาะ re-export เท่านั้น และ refactor logic ออกเป็นไฟล์ย่อยๆ ตาม single responsibility
+
+## Scope
+
+ใช้สำหรับทุก workspace ที่มี entry files ที่มี implementation logic ผสมกับ re-export โดย:
+
+- ใช้กับ entry files ทุกระดับ (root, nested, deep nested)
+- ใช้กับทุก module ที่มี public API
+- ใช้กับ packages ใน monorepo ทุก package
 
 ## Execute
 
@@ -18,7 +29,7 @@ auto_execution_mode: 3
 
 ### 2. Refactor Implementation
 
-1. ทำ `/single-responsibility` เพื่อสร้างไฟล์ย่อยตาม responsibility
+1. ทำ `/refactor-to-module-single-responsibility` เพื่อสร้างไฟล์ย่อยตาม responsibility
 2. ย้าย implementation logic จาก entry file ไปยังไฟล์ย่อย
 3. ตั้งชื่อไฟล์ย่อยให้สะท้อนถึง responsibility
 
@@ -38,8 +49,6 @@ auto_execution_mode: 3
 
 ### 1. Entry File Standards
 
-Entry files ต้องมีเฉพาะ re-export เท่านั้น ไม่มี implementation logic
-
 - Entry files (`index.ts`, `mod.rs`) ต้องมีเฉพาะ re-export เท่านั้น
 - ห้ามมี implementation logic ใน entry files
 - ใช้ barrel export pattern เพื่อจัดระเบียบ exports
@@ -47,16 +56,12 @@ Entry files ต้องมีเฉพาะ re-export เท่านั้น
 
 ### 2. Refactoring Guidelines
 
-ไฟล์ย่อยต้องมี single responsibility และจัดโครงสร้างตาม module organization
-
-- แต่ละไฟล์ย่อยต้องมี single responsibility ตาม `/refactor-file-to-single-responsibility`
+- ทำตาม `/refactor-to-module-single-responsibility` สำหรับการแยกไฟล์
 - ตั้งชื่อไฟล์ให้สะท้อนถึง functionality
 - จัดโครงสร้าง folder ตาม module organization
 - หลีกเลี่ยง circular dependencies
 
 ### 3. Export Best Practices
-
-ใช้ named exports และรักษา backward compatibility ของ imports
 
 - Re-export จากไฟล์ย่อยเท่านั้น ไม่ re-export จาก dependencies
 - ใช้ named exports แทน default exports เมื่อเป็นไปได้

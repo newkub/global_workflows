@@ -57,7 +57,7 @@ auto_execution_mode: 3
 1. ตรวจสอบ service independence
 2. ทดสอบ fault tolerance แล resilience
 3. ตรวจสอบ scalability
-4. ทำ `/refactor` หลังจาก implement เสร็จ
+4. ทำ `/refactor-workspace` หลังจาก implement เสร็จ
 
 ## Rules
 

@@ -42,7 +42,7 @@ related_workflows:
 
 1. ใช้ `.svelte` พร้อม `lang="ts"`
 2. กำหนด types สำหรับ props
-3. ทำ `/refactor` เพื่อปรับปรุงโค้ด
+3. ทำ `/refactor-workspace` เพื่อปรับปรุงโค้ด
 
 ## Rules
 
@@ -68,7 +68,7 @@ related_workflows:
 
 รักษาคุณภาพโค้ด:
 
-- ทำ `/refactor` เสมอเมื่อพัฒนา
+- ทำ `/refactor-workspace` เสมอเมื่อพัฒนา
 - ปรับปรุงโค้ดให้ถูกต้องตาม framework
 - ใช้ TypeScript strict mode
 - ตั้งค่า path aliases อย่างถูกต้อง

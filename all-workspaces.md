@@ -1,71 +1,76 @@
 ---
 title: All Workspaces
-description: ทำงานกับแต่ละ workspace ใน monorepo จนครบถ้วนตาม workflow ที่กำหนด
+description: ทำงานกับทุก workspace ใน monorepo จนครบถ้วน
 auto_execution_mode: 3
+related_workflows:
+  - /refactor-modules
+  - /refactor-packages
+  - /edit-relative
 ---
 
 ## Goal
 
-ทำงานกับแต่ละ workspace ใน monorepo จนครบถ้วนตาม workflow ที่กำหนด
+ทำงานกับทุก workspace ใน monorepo อย่างเป็นระบบ
+
+## Scope
+
+ใช้สำหรับทำงานกับทุก workspace ใน monorepo ตามลำดับที่เหมาะสม
 
 ## Execute
 
 ### 1. Discover Workspaces
 
+ค้นหาและระบุ workspaces ทั้งหมดใน monorepo
+
 1. ทำ `/analyze-project` เพื่อดู workspace configuration ทั้งหมด
 2. อ่าน package manifest เพื่อดูว่ามี workspace อะไรบ้าง
-3. ระบุ workspace ที่ต้องการประมวลผล
+3. จัดลำดับ workspaces ตามความสำคัญ (foundation packages ก่อน, applications ทีหลัง)
 
-### 2. Process Each Workspace Systematically
+### 2. Process Each Workspace
 
-1. อ่าน workspace configuration และ dependencies
-2. ทำตาม workflow ที่เกี่ยวข้องกับแต่ละ workspace เพื่อประมวลผล
-3. ตรวจสอบว่าการประมวลผลเสร็จสมบูรณ์
+ทำงานกับแต่ละ workspace ตามลำดับ
+
+1. ทำงานกับ workspaces ที่เป็น foundation ก่อน (shared packages, utilities)
+2. ทำงานกับ workspaces ที่มี dependencies ซับซ้อนทีหลัง
+3. หลีกเลี่ยง circular dependencies ระหว่าง workspaces
 
 ### 3. Verify Completion
 
-1. ทำ `/validate` เพื่อตรวจสอบความถูกต้องของการประมวลผล
-2. ตรวจสอบว่าแต่ละ workspace ได้รับการประมวลผลแล้ว
-3. ตรวจสอบว่าไม่มี workspace ที่ถูกข้าม
+ตรวจสอบว่าทุก workspace ได้รับการประมวลผลครบถ้วน
+
+1. ทำ `/validate` เพื่อตรวจสอบความถูกต้อง
+2. ตรวจสอบว่าไม่มี workspace ที่ถูกข้าม
+3. ตรวจสอบว่าไม่มี workspace ที่มีปัญหาค้างคา
 
 ## Rules
 
-### 1. Workspace Discovery Strategy
+### 1. Workspace Processing Order
 
-ใช้วิธีการค้นหาที่เหมาะสมกับประเภท workspace:
-
-- ใช้ `find_by_name` สำหรับค้นหาด้วย pattern และ workspace types
-- อ่าน package manifest (package.json, Cargo.toml) เพื่อดู workspace configuration
-- ระบุ pattern ที่ชัดเจนเพื่อ avoid processing ที่ไม่จำเป็น
-
-### 2. Processing Order
-
-จัดลำดับการประมวลผลตามความสำคัญ:
+จัดลำดับการประมวลผลตามความสำคัญ
 
 - ทำ workspaces ที่เป็น foundation ก่อน (shared packages, utilities)
 - ทำ workspaces ที่มี dependencies ซับซ้อนทีหลัง
 - หลีกเลี่ยง circular dependencies ระหว่าง workspaces
 
-### 3. Batch Operations
+### 2. Error Handling
 
-ใช้ batch processing เพื่อเพิ่มประสิทธิภาพ:
-
-- อ่าน workspaces แบบ parallel เมื่อเป็นไปได้
-- ประมวลผล workspaces แบบ sequential เพื่อหลีกเลี่ยง conflicts
-- จัดกลุ่ม workspaces ที่มีลักษณะเดียวกันเพื่อประมวลผลร่วมกัน
-
-### 4. Error Handling
-
-จัดการข้อผิดพลาดอย่างเป็นระบบ:
+จัดการข้อผิดพลาดอย่างเป็นระบบ
 
 - บันทึก workspaces ที่มีปัญหาไว้ตรวจสอบ
 - ทำ `/resolve-errors` เพื่อแก้ไขปัญหาใน workspaces
 - ตรวจสอบว่าการประมวลผลไม่ทำให้เกิดปัญหาใหม่
 
+### 3. Batch Operations
+
+ใช้ batch processing เพื่อเพิ่มประสิทธิภาพ
+
+- อ่าน workspaces แบบ parallel เมื่อเป็นไปได้
+- ประมวลผล workspaces แบบ sequential เพื่อหลีกเลี่ยง conflicts
+- จัดกลุ่ม workspaces ที่มีลักษณะเดียวกันเพื่อประมวลผลร่วมกัน
+
 ## Expected Outcome
 
-- แต่ละ workspace ใน scope ได้รับการประมวลผลครบถ้วน
+- ทุก workspace ใน monorepo ได้รับการประมวลผลครบถ้วน
 - การประมวลผลเป็นไปตาม workflow ที่กำหนด
 - ไม่มี workspace ที่ถูกข้ามหรือมีปัญหาค้างคา
 - Monorepo อยู่ในสถานะที่ถูกต้องหลังการประมวลผล
-

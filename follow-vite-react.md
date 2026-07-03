@@ -92,7 +92,7 @@ export default [
 
 ## 3. Code Refactoring (ใช้เสมอ)
 
-3.1. ทำ /refactor
+3.1. ทำ /refactor-workspace
 
 - refactor โค้ดให้ถูกต้องตาม framework
 

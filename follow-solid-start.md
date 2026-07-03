@@ -66,7 +66,7 @@ auto_execution_mode: 3
 5. สร้าง API Routes ด้วย export functions (`$GET`, `$POST`, `$PUT`, `$DELETE`)
 6. ใช้ Middleware System สำหรับ request interception
 7. ตั้งค่า environment variables ด้วย env plugin (`env:server`, `env:client`)
-8. ทำ `/refactor` เพื่อปรับปรุงโค้ด
+8. ทำ `/refactor-workspace` เพื่อปรับปรุงโค้ด
 
 ### 6. Build And Deploy
 
@@ -120,7 +120,7 @@ Build และ deploy สำหรับ production
 
 รักษาคุณภาพโค้ด:
 
-- ทำ `/refactor` เสมอเมื่อพัฒนา
+- ทำ `/refactor-workspace` เสมอเมื่อพัฒนา
 - ปรับปรุงโค้ดให้ถูกต้องตาม framework
 - ใช้ TypeScript strict mode
 - ตั้งค่า path aliases อย่างถูกต้อง

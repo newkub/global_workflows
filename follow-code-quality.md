@@ -1,12 +1,20 @@
 ---
-title: Code Quality
+title: Follow Code Quality
 description: รักษามาตรฐานคุณภาพโค้ดด้วย separation of concerns, type safety, error handling
 auto_execution_mode: 3
+related_workflows:
+  - /follow-content-quality
+  - /follow-workflows
+  - /separate-of-concern
+  - /improve-type-safety
+  - /fix-circular-dependencies
+  - /no-hard-code
+  - /improve-naming-convention
 ---
 
 ## Goal
 
-รักษามาตรฐานคุณภาพโค้ดใน codebase ด้วยหลักการ separation of concerns, type safety, error handling, และ code organization ที่ดี
+รักษามาตรฐานคุณภาพโค้ดด้วย separation of concerns, type safety, error handling, และ code organization ที่ดี
 
 ## Scope
 
@@ -14,152 +22,148 @@ auto_execution_mode: 3
 
 ## Execute
 
-### 1. Analyze
+### 1. Analyze Code Quality
 
 วิเคราะห์คุณภาพโค้ดปัจจุบัน
 
-1. Check `separation of concerns`
-2. Identify `circular dependencies`
-3. Analyze `dependencies flow`
-4. Check `type safety`
-5. Review `error patterns`
+1. ทำ `/separate-of-concern` เพื่อ check separation of concerns
+2. ทำ `/fix-circular-dependencies` เพื่อ identify circular dependencies
+3. ทำ `/improve-type-safety` เพื่อ check type safety
 
-### 2. Separate Concerns
+### 2. Apply Rules
 
-แยก concerns ใน codebase
+ทำตาม Rules ทั้งหมมเพื่อรักษามาตรฐานคุณภาพโค้ด
 
-1. Separate `pure logic` from `side effects`
-2. Structure files by purpose
-3. Use `barrel exports`
-4. Separate `business logic` from `presentation logic`
+1. ทำตาม Rules ทั้งหมมใน section ## Rules
+2. แก้ไข issues ที่พบตามลำดับความสำคัญ
+3. ทำ `/no-hard-code` เพื่อลบ hard code
+4. ทำ `/improve-naming-convention` เพื่อปรับปรุง naming conventions
 
-### 3. Manage Dependencies
+### 3. Verify Quality
 
-จัดการ dependencies อย่างเหมาะสม
+ตรวจสอบผลลัพธ์
 
-1. Use `import alias`
-2. Remove `circular dependencies`
-3. Maintain `one-way flow`
-4. Use `barrel exports`
-
-### 4. Improve Functions & Types
-
-ปรับปรุง functions และ type safety
-
-1. Apply `single responsibility principle`
-2. Reduce `nested logic`
-3. Use clear naming (ทำ `/improve-naming`)
-4. Extract `helper functions`
-5. Ensure `reusability` and `testability`
-6. Configure `strict TypeScript`
-
-### 5. Handle Errors
-
-จัดการ errors อย่าง systematic
-
-1. Never swallow errors
-2. Use `typed errors`
-3. Separate `error types`
-4. Log with context
-5. Propagate errors
-
-### 6. Document Code
-
-เขียน documentation อย่างสมบูรณ์
-
-1. Add `JSDoc comments`
-2. Explain parameters and return
-3. Specify `side effects`
-4. Provide examples
+1. ทำ `/run-lint` และ `/run-typecheck`
+2. ทำ `/run-test` เพื่อตรวจสอบคุณภาพ
 
 ## Rules
 
-### 1. No Hard Code
+### 1. Follow Specific Workflows
 
-หลีกเลี่ยง hardcoding ใน code
+ทำตาม workflows เฉพาะสำหรับแต่ละด้าน
 
-- ทำ `/no-hard-code` เพื่อลบ `hard code` ทั้งหมด
+- ทำ `/separate-of-concern` สำหรับ separation of concerns
+- ทำ `/fix-circular-dependencies` สำหรับ circular dependencies
+- ทำ `/improve-type-safety` สำหรับ type safety
+- ทำ `/no-hard-code` สำหรับลบ hard code
 
-### 2. Separation of Concerns
-
-แยก concerns อย่างชัดเจน
-
-- Separate `pure logic` from `side effects`
-- Separate `business logic` from `presentation logic`
-- Separate `data access` from `business logic`
-- Use `composables` for reusable logic
-- Separate `types` and `interfaces`
-
-### 3. Dependencies
-
-จัดการ dependencies อย่างเหมาะสม
-
-- Use `import alias` only
-- No `circular dependencies`
-- `One-way dependency flow`
-- Shared code in `shared folders`
-- Every folder has `barrel export`
-
-### 4. Functions & Type Safety
-
-ปรับปรุง functions และ type safety
-
-- `Single responsibility`
-- Reduce `nested logic`
-- Clear naming
-- Max 20-30 lines
-- Extract `complex logic`
-- Reusable
-- Testable
-- `DX first`
-- No `any` without reason
-- Avoid `unknown`
-- Use `type inference`
-- `Domain-specific types`
-- `Strict TypeScript config`
-
-### 5. Errors
+### 2. Error Handling
 
 จัดการ errors อย่าง systematic
 
 - Never swallow errors
-- `Typed error classes`
-- Separate `error types`
+- Use typed error classes
 - Log with context
 - Propagate errors
-- Meaningful messages
+- Meaningful error messages
 
-### 6. Testability & Reusability
+### 3. Testability
 
-ปรับปรุง testability และ reusability
+ปรับปรุง testability
 
-- `Dependency injection`
-- `Pure functions`
-- `Side effects isolation`
+- Use dependency injection
+- Write pure functions
+- Isolate side effects
 - Predictable outputs
 - Small functions
-- Composition
-- `Generic types`
-- Decoupling
-- Single export
+
+### 4. Maintainability
+
+ทำให้โค้ด maintain ง่าย
+
+- Self-documenting code
+- DRY principle
+- Consistent patterns
+- Meaningful comments
+- Small files (max 250 lines)
+
+### 5. Reusability
+
+ปรับปรุง reusability
+
+- Use composition
+- Use generic types
+- Decouple components
+
+### 6. Debuggability
+
+ทำให้โค้ด debug ง่าย
+
+- Logging with context
+- Descriptive error messages
+- Self-documenting code
+- Clear naming
+- Minimal nesting
 
 ### 7. DX & Documentation
 
 ปรับปรุง developer experience และ documentation
 
-- `Auto-completion`
+- Auto-completion
 - Sensible defaults
-- `Input validation`
+- Input validation
 - Discoverability
-- Examples
-- `JSDoc` for public functions
-- Purpose/parameters/return
-- `@throws`
-- `@example`
-- No comments for `self-documenting code`
+- JSDoc for public functions
+- No comments for self-documenting code
+
+### 8. Security
+
+ทำให้โค้ดปลอดภัย
+
+- Input validation
+- Data sanitization
+- Parameterized queries
+- Authentication and authorization
+- No sensitive data exposure
+
+### 9. Performance
+
+ทำให้โค้ดมีประสิทธิภาพ
+
+- Hot path optimization
+- Lazy loading
+- Avoid unnecessary computations
+- Memoization
+
+### 10. Scalability
+
+ทำให้โค้ด scale ได้
+
+- Stateless design
+- Async operations
+- Caching strategies
+- Horizontal scaling
+
+### 11. Resilience
+
+ทำให้โค้ดทนทานต่อการเปลี่ยนแปลง
+
+- Abstraction layers
+- Fallback mechanisms
+- Loose coupling
+- Interface contracts
+
+### 12. Report Format
+
+ระบุรูปแบบรายงาน
+
+- ทำ `/report-format-summary` สำหรับสรุปผลลัพธ์
 
 ## Expected Outcome
 
+- Code ที่ test ง่าย debug ง่าย
+- Reusable และ scalable
+- Resilience ทนทานต่อการเปลี่ยนแปลง
 - Clear separation of concerns
 - No circular dependencies
 - Standardized import paths
@@ -168,6 +172,8 @@ auto_execution_mode: 3
 - Systematic error handling
 - Complete documentation
 - No hard code
-- Reusable functions
 - Good DX
-- Easy to test
+- Maintainable codebase
+- Optimized performance
+- Secure implementation
+- Consistent naming conventions

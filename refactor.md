@@ -1,155 +1,170 @@
 ---
 title: Refactor
-description: ปรับปรุงคุณภาพโค้ดด้วย systematic refactoring
+description: Refactor codebase ครบวงจรทั้ง monorepo และ workspace
 auto_execution_mode: 3
 related_workflows:
-  - /read-all-files
-  - /separate-of-concern
-  - /restructure
-  - /relocation
-  - /refactor-file-to-single-responsibility
-  - /refactor-long-files-to-single-responsibility
-  - /improve-naming-convention
-  - /improve-side-effect
-  - /deep-refactor
-  - /follow-principles-engineering
+  - /refactor-files
+  - /refactor-functions
+  - /refactor-modules
+  - /refactor-constants
+  - /refactor-types
+  - /refactor-utils
+  - /refactor-packages
+  - /all-workspaces
+  - /edit-relative
 ---
 
 ## Goal
 
-ปรับปรุงคุณภาพโค้ดด้วย systematic refactoring เพื่อเพิ่ม maintainability และ performance
+Refactor codebase ครบวงจรเพื่อปรับปรุงคุณภาพโค้ดและ maintainability
 
 ## Scope
 
-Refactor code ทั้งใน global_workflows และ workspace ด้วย systematic approach
+ใช้สำหรับ refactor ทั้ง monorepo และ individual workspaces ตามโครงสร้าง project
 
 ## Execute
 
-### 1. Pre-Verification
+### 1. Check Project Structure
 
-ตรวจสอบคุณภาพโค้ดก่อนเริ่ม refactor
+ตรวจสอบว่าเป็น monorepo หรือ single workspace
 
-1. ทำ `/run-verify` เพื่อตรวจสอบคุณภาพโค้ด (scan, typecheck, lint, test)
-2. ตรวจสอบว่าทุก checks ผ่านก่อนเริ่ม refactor
-3. แก้ไขข้อผิดพลาดที่พบก่อนดำเนินการต่อ
+1. ตรวจสอบ `package.json` สำหรับ `workspaces` field
+2. ตรวจสอบ turbo.json หรือ moon config สำหรับ monorepo setup
+3. ระบุว่าเป็น monorepo หรือ single workspace
 
-### 2. Read All Files
+### 2. Refactor Files
 
-อ่านไฟล์ทั้งหมดในโปรเจกต์เพื่อวิเคราะห์และเข้าใจโครงสร้าง
+ทำ refactor ระดับ files
 
-1. ทำ `/analyze-all-files` เพื่ออ่านและวิเคราะห์ไฟล์ทั้งหมด
-2. ระบุความสัมพันธ์ระหว่างไฟล์
-3. สรุป pattern และ architecture
-4. ตรวจสอบความสมบูรณ์ของการอ่าน
+1. ทำ `/refactor-files` เพื่อ refactor file structure และ organization
+2. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัด
+3. ตรวจสอบว่าแต่ละไฟล์มี single responsibility
 
-### 3. Analyze Current State
+### 3. Refactor Functions
 
-วิเคราะหาสถานะปัจจุบันของโค้ด
+ทำ refactor ระดับ functions
 
-1. ทำ `/analyze-project` เพื่อดูภาพรวมโปรเจกต์
-2. ทำ `/check-duplication` เพื่อตรวจสอบ code duplication
-3. ทำ `/check-long-files` เพื่อค้นหาไฟล์ที่ยาวเกินไป
-4. วิเคราะหา dependencies และ coupling ระหว่าง modules
+1. ทำ `/refactor-functions` เพื่อ refactor functions
+2. ตรวจสอบว่า functions ไม่เกิน 20-30 บรรทัด
+3. ตรวจสอบว่าแต่ละ function มี single responsibility
 
-### 4. Plan Refactoring Strategy
+### 4. Refactor Modules
 
-วางแผนกลยุทธ์การ refactor
+ทำ refactor ระดับ modules
 
-1. ทำ `/follow-architecture` เพื่อเลือก architecture pattern ที่เหมาะสม
-2. กำหนด priorities ตาม impact และ risk
-3. วางแผน breaking changes และ migration path
-4. สร้าง test cases สำหรับ protect behavior
+1. ทำ `/refactor-modules` เพื่อ refactor modules
+2. ตรวจสอบว่า modules มี single responsibility
+3. ตรวจสอบว่าไม่มี circular dependencies
 
-### 5. Execute Refactoring
+### 5. Refactor Constants
 
-ดำเนินการ refactor ตามลำดับที่กำหนด
+ทำ refactor ระดับ constants
 
-1. ทำ `/restructure` เพื่อปรับ physical file/folder structure (ครั้งเดียว)
-2. ทำ `/separate-of-concern` เพื่อแยก logical concerns
-3. ทำ `/improve-side-effect` เพื่อแยก pure functions จาก side effects
-4. ทำ `/improve-architecture` เพื่อปรับปรุงการใช้ design patterns
-5. ทำ `/refactor-long-files-to-single-responsibility` สำหรับไฟล์ > 250 บรรทัด
-6. ทำ `/refactor-file-to-single-responsibility` สำหรับ modules ที่ใหญ่เกินไป
-7. ทำ `/relocation` เฉพาะไฟล์ที่ split ออกมาใหม่จาก logical refactoring
-8. ทำ `/improve-naming-convention` เพื่อปรับปรุง naming conventions
-9. ทำ `/use-scripts` สำหรับ file operations จำนวนมาก
+1. ทำ `/refactor-constants` เพื่อ extract magic numbers และ strings
+2. ตรวจสอบว่าไม่มี magic numbers หรือ hardcoded strings
+3. ตรวจสอบว่า constants จัดระเบียบตาม domain
 
-### 6. Update References
+### 6. Refactor Types
+
+ทำ refactor ระดับ types
+
+1. ทำ `/refactor-types` เพื่อ refactor type definitions
+2. ตรวจสอบว่าไม่มี type definitions ซ้ำซ้อน
+3. ตรวจสอบว่าไม่มี `any` types
+
+### 7. Refactor Utils
+
+ทำ refactor ระดับ utility functions
+
+1. ทำ `/refactor-utils` เพื่อ refactor utility functions
+2. ตรวจสอบว่า utility functions มี single responsibility
+3. ตรวจสอบว่าไม่มี utility functions ซ้ำซ้อน
+
+### 8. Refactor Workspaces (Monorepo) Or Single Workspace
+
+ทำ refactor ระดับ workspace หรือ monorepo
+
+**ถ้าเป็น Monorepo:**
+1. ทำ `/all-workspaces` สำหรับทุก workspace (เริ่มจาก shared packages)
+2. ทำ `/refactor-packages` สำหรับแต่ละ workspace เพื่อ refactor packages
+3. ตรวจสอบ dependencies ระหว่าง workspaces
+4. ตรวจสอบ shared packages ที่ถูกใช้งานอย่างถูกต้อง
+5. ตรวจสอบ versioning ที่สอดคล้องกัน
+6. ตรวจสอบ consistency ระหว่าง workspaces
+
+**ถ้าเป็น Single Workspace:**
+1. ทำ `/all-workspaces` สำหรับ workspace เดียว
+2. ทำ `/refactor-packages` สำหรับ packages
+
+### 9. Update References
 
 อัปเดท references ทั้งหมดที่เกี่ยวข้อง
 
 1. ทำตาม `/edit-relative`
 
-### 7. Final Restructure
+### 10. Verify Quality
 
-ปรับ physical structure อีกรอบหลัง update references
+ตรวจสอบคุณภาพหลัง refactor
 
-1. ทำ `/restructure` เพื่อปรับ physical file/folder structure ครั้งสุดท้าย
-2. ตรวจสอบว่า structure สอดคล้องกับ logical refactoring ที่ทำไปแล้ว
-
-### 8. Post-Verification
-
-ตรวจสอบคุณภาพโค้ดหลัง refactor เสร็จ
-
-1. ทำ `/loop-until-complete` เพื่อรันจนกว่าจะผ่าน:
-   - ทำ `/run-verify` เพื่อตรวจสอบคุณภาพโค้ด (scan, typecheck, lint, test)
-   - ตรวจสอบว่าทุก checks ผ่านหลัง refactor
-   - แก้ไขข้อผิดพลาดที่เกิดจากการ refactor
+1. ทำ `/run-lint` และ `/run-typecheck`
+2. ทำ `/run-test` เพื่อตรวจสอบว่าไม่มี regression
+3. ทำ `/run-build` เพื่อตรวจสอบว่า build ผ่าน
 
 ## Rules
 
-### 1. Refactoring Principles
+### 1. Project Structure Check
 
-ทำตามหลักการ refactoring เพื่อรักษา behavior และเพิ่มคุณภาพโค้ด
+ตรวจสอบ project structure ก่อนเริ่ม refactor
 
-- เปลี่ยน `structure` โดยไม่เปลี่ยน `behavior`
-- ทำทีละ `step` เล็กๆ และ `verify` ทุกครั้ง
-- มี `test coverage` ก่อนเริ่ม `refactor`
-- ใช้ `automated refactoring tools` เมื่อเป็นไปได้
-- ทำตาม `SOLID principles` และ `design patterns`
+- ตรวจสอบว่าเป็น monorepo หรือ single workspace
+- ใช้ strategy ที่เหมาะสมกับ project type
 
-### 2. When To Refactor
+### 2. Refactor Order
 
-ตรวจสอบสัญญาณที่บ่งชี้ว่าต้อง refactor
+ทำตามลำดับที่เหมาะสม
 
-- `Code` ยากต่อการอ่านและเข้าใจ
-- มี `code duplication` ซ้ำซ้อน
-- `Functions/classes` ใหญ่เกินไป (violates `SRP`)
-- `Coupling` สูงและ `cohesion` ต่ำ
-- มี `technical debt` สะสม
-- `Performance issues` ที่พบจาก `monitoring`
+- ทำ `/refactor-files`, `/refactor-functions`, `/refactor-modules` ก่อน refactor workspaces
+- สำหรับ monorepo: refactor shared packages ก่อน
+- สำหรับ monorepo: refactor workspaces ที่มี dependencies น้อยก่อน
 
-### 3. Safety Measures
+### 3. Monorepo Consistency
 
-ใช้มาตรการความปลอดภัยเพื่อลดความเสี่ยง
+รักษา consistency ระหว่าง workspaces
 
-- มี `automated tests` ก่อนเริ่ม `refactor`
-- ใช้ `version control` และ `commit` บ่อยๆ
-- ทำ `incremental refactoring` ไม่ใช่ `big bang`
-- ใช้ `code review` ก่อน `merge`
-- มี `rollback plan` สำหรับกรณี `emergency`
+- ใช้ naming conventions เดียวกันทั้ง monorepo
+- ใช้ architecture patterns เดียวกันทั้ง monorepo
+- ใช้ linting และ formatting rules เดียวกันทั้ง monorepo
 
-### 4. Execution Order
+### 4. Shared Packages
 
-รักษาลำดับการทำงานเพื่อความสม่ำเสมอและปลอดภัย
+จัดการ shared packages อย่างเหมาะสม
 
-- ต้อง `typecheck` ก่อน `test` เพื่อ `fail fast`
-- ห้ามข้ามขั้นตอนใดๆ
-- ทำ `/restructure` ครั้งเดียวเท่านั้น
-- ใช้ `/relocation` สำหรับไฟล์ที่เปลี่ยนเฉพาะเจาะจงก่อน
-- เลือก `architecture pattern` ที่เหมาะสมด้วย `/follow-architecture`
+- Shared packages ต้อง generic และ reusable
+- Shared packages ต้องมี versioning ที่ชัดเจน
+- Shared packages ต้องมี documentation ครบถ้วน
+
+### 5. Reference Updates
+
+อัปเดท references อย่างครบถ้วน
+
+- ทำ `/edit-relative` หลัง refactor
+- ตรวจสอบว่าไม่มี broken references
+
+### 6. Quality Verification
+
+ตรวจสอบ quality หลัง refactor
+
+- ทำ lint, typecheck, test, build
+- ไม่ข้ามขั้นตอน verify
+- ใช้ references แทนการเขียนซ้ำเนื้อหาจาก workflows อื่น
 
 ## Expected Outcome
 
-- ทุก file ได้รับการ refactor ครบถ้วน
-- Functions มีขนาดเล็ก (ไม่เกิน 20-30 บรรทัด)
-- แต่ละ function มีหน้าที่เดียว (SRP)
-- Concerns แยกชัดเจนตาม responsibilities
-- Architecture สอดคล้องกับ best practices
-- Code ง่ายต่อการ test และ maintain
-- `Code quality` สูงและ `maintainability` ดีขึ้น
-- `Technical debt` ลดลงอย่างมีนัยสำคัญ
-- `Typecheck` ผ่านทั้งหมด
-- `Tests` ผ่านทั้งหมด
-- `Functionality` ยังทำงานได้
-
+- Project structure ถูกตรวจสอบและระบุประเภท
+- Files, functions, modules ถูก refactor ตามมาตรฐาน
+- Monorepo ถูก refactor ตามมาตรฐาน (ถ้าเป็น monorepo)
+- Workspaces ทั้งหมดถูก refactor ตามมาตรฐาน
+- Consistency ระหว่าง workspaces (ถ้าเป็น monorepo)
+- Shared packages ที่ generic และ reusable (ถ้าเป็น monorepo)
+- Dependencies และ references ถูกอัปเดท
+- Code ผ่าน lint, typecheck, test, และ build

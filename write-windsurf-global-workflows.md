@@ -2,6 +2,10 @@
 title: Write Windsurf Global Workflows
 description: เขียน workflow file ให้เป็นมาตรฐานเดียวกัน
 auto_execution_mode: 3
+related_workflows:
+  - use-workflows
+  - improve-correctness
+  - follow-content-quality
 ---
 
 ## Goal
@@ -125,14 +129,19 @@ auto_execution_mode: 3
 4. เขียน Rules แต่ละหมวดหมู่ด้วย bullet points
 5. ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/workflow-name`
 
-### 6. Validate And Finalize
+### 6. Improve Content Quality
+
+ปรับปรุงคุณภาพเนื้อหา
+
+1. ทำ `/follow-content-quality` เพื่อปรับปรุงคุณภาพเนื้อหาครบวงจร
+
+### 7. Validate And Finalize
 
 ตรวจสอบและ finalize workflow
 
-1. ทำ `/improve-windsurf-workflows` สำหรับปรับปรุงคุณภาพ global workflows
-2. ทำ `/improve-correctness` สำหรับตรวจสอบความถูกต้อง
-3. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัด
-4. ตรวจสอบว่า references มีอยู่จริง
+1. ทำ `/improve-correctness` สำหรับตรวจสอบความถูกต้อง
+2. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัด
+3. ตรวจสอบว่า references มีอยู่จริง
 
 ## Example Template
 
@@ -153,14 +162,6 @@ auto_execution_mode: 3
 
 ขอบเขตงานที่ครอบคลุม
 
-## Analyze (optional)
-
-วิเคราะห์ปัญหาหรือสถานการณ์ก่อนดำเนินการ
-
-1. วิเคราะห์สถานการณ์ปัจจุบัน
-2. ระบุปัญหาหรือความต้องการ
-3. วางแผนการแก้ไขหรือพัฒนา
-
 ## Execute
 
 ### 1. Step Name
@@ -171,19 +172,11 @@ auto_execution_mode: 3
 
 ### 1. Rule Category
 
-คำอธิบาย rule:
-
 - bullet point 1
 
 ## Expected Outcome
 
 - Outcome ที่คาดหวัง
-
-## Report (optional)
-
-รายงานผลลัพธ์
-
-1. ทำ `/report` เพื่อจัดรูปแบบ output ตามประเภทที่เหมาะสม
 ```
 
 ## Expected Outcome
