@@ -34,6 +34,9 @@ auto_execution_mode: 3
 		"rules": {
 			"correctness": {
 				"noNodejsModules": "off"
+			},
+			"performance": {
+				"noBarrelFile": "warn"
 			}
 		}
 	},

@@ -9,6 +9,7 @@ related_workflows:
   - /grouping
   - /analyze-structure
   - /edit-relative
+  - /follow-barrel-files
 ---
 
 ## Goal
@@ -49,16 +50,24 @@ related_workflows:
 จัดกลุ่มไฟล์ตาม domain หรือ responsibility
 
 1. ทำ `/grouping` สำหรับจัดกลุ่มไฟล์
-2. สร้าง barrel export สำหรับแต่ละ subfolder
-3. ตรวจสอบว่าโฟลเดอร์ใหม่สอดคล้องกับโครงสร้างที่มีอยู่
+2. ตรวจสอบว่าโฟลเดอร์ใหม่สอดคล้องกับโครงสร้างที่มีอยู่
 
-### 5. Update References
+### 5. Refactor Barrel Files
+
+ทำให้ entry files มีเฉพาะ re-export และจัดการ imports/exports
+
+1. ทำ `/follow-barrel-files` เพื่อ refactor entry files ให้มีเฉพาะ re-export
+2. ตรวจสอบ imports ภายใน module ใช้ direct module path
+3. ตรวจสอบ imports ภายนอก module ใช้ barrel file
+4. ตรวจสอบว่าไม่มี side effects ใน barrel files
+
+### 6. Update References
 
 อัปเดท references ทั้งหมดที่เกี่ยวข้อง
 
 1. ทำ `/edit-relative` เพื่ออัปเดท references ทั้งหมดที่เกี่ยวข้อง
 
-### 6. Validate Changes
+### 7. Validate Changes
 
 ตรวจสอบการเปลี่ยนแปลง
 
@@ -99,6 +108,7 @@ related_workflows:
 - โครงสร้างไฟล์ที่สม่ำเสมอและเป็นระเบียบ
 - naming ที่สอดคล้องกันทั่วทั้งโปรเจกต์
 - import paths ที่กระชับและถูกต้อง
+- Entry files มีเฉพาะ re-export และ imports ถูกต้องตาม barrel files best practices
 - โฟลเดอร์ที่จัดกลุ่มอย่างเหมาะสมตาม responsibility
 - สำหรับ logical concern separation ให้ใช้ `/separate-of-concern`
 

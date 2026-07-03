@@ -1,132 +1,77 @@
+---
 title: Run Bench
 description: รัน benchmark tests เพื่อวัดประสิทธิภาพและเปรียบเทียบ performance
 auto_execution_mode: 3
-## Purpose
+related_workflows:
+  - run-install
+  - validate
+  - report
+---
+
+## Goal
 
 รัน benchmark tests เพื่อวัดประสิทธิภาพของ code และเปรียบเทียบ performance ระหว่าง implementations
 
 ## Scope
 
-ใช้สำหรับ:
+ใช้สำหรับวัด performance ของ functions, เปรียบเทียบ implementations ต่างๆ, ตรวจสอบ performance regressions, และ optimize code ตามผล benchmark
 
-- วัด performance ของ functions
-- เปรียบเทียบ implementations ต่างๆ
-- ตรวจสอบ performance regressions
-- Optimize code ตามผล benchmark
+## Execute
 
-## Inputs
+### 1. Setup Environment
 
-| Input | Details |
-|-------|---------|
-| Bench Pattern | (optional) pattern สำหรับรันเฉพาะ benchmark |
-| Iterations | (optional) จำนวน iterations |
+1. ทำ `/run-install` เพื่อติดตั้ง dependencies และ benchmark libraries (เช่น `vitest bench`, `tinybench`)
+2. ตรวจสอบว่ามี benchmark files ใน project (เช่น `*.bench.ts`, `bench/` directory)
+3. ตรวจสอบ benchmark script ใน `package.json` (เช่น `bun run bench`)
+4. ถ้ามี baseline results ให้บันทึกไว้สำหรับการเปรียบเทียบ
+
+### 2. Run Benchmarks
+
+1. รัน `bun run bench` หรือ script ที่กำหนดใน `package.json`
+2. ถ้าต้องการรันเฉพาะ benchmark ให้ระบุ pattern (เช่น `bun run bench -- --grep "pattern"`)
+3. รอ benchmarks เสร็จสิ้นและบันทึกผลลัพธ์ทั้งหมด
+4. ทำ `/report-format-metrics` เพื่อจัดรูปแบบผลลัพธ์
+
+### 3. Analyze Results
+
+1. ดูผลลัพธ์ของแต่ละ benchmark และระบุ slow และ fast benchmarks
+2. หา benchmarks ที่มี variance สูงหรือ outliers
+3. ระบุ potential optimizations สำหรับ slow benchmarks
+4. ถ้ามี variance สูง ให้รันซ้ำเพื่อยืนยันผลลัพธ์
+
+### 4. Compare With Baseline
+
+1. เปรียบเทียบผลลัพธ์กับ baseline ถ้ามี
+2. ระบุ regressions (ช้าลง) และ improvements (เร็วขึ้น)
+3. บันทึกผลลัพธ์และ action items สำหรับ optimization
+4. ทำ `/report` เพื่อสรุปผลลัพธ์เป็นตาราง
 
 ## Rules
 
-### Benchmark Best Practices
+### 1. Benchmark Best Practices
 
-| Practice | Description |
-|----------|-------------|
-| Isolated | แต่ละ benchmark แยกจากกัน |
-| Consistent | รันหลายๆ ครั้งเพื่อ consistency |
-| Representative | ใช้ data ที่สมจริง |
-| Minimal Overhead | ลด overhead ของ test framework |
+- แต่ละ benchmark ต้องแยกจากกัน (isolated)
+- รันหลายๆ ครั้งเพื่อ consistency
+- ใช้ data ที่สมจริงและเป็นตัวแทนของ use case จริง
+- ลด overhead ของ test framework ให้น้อยที่สุด
 
-### Metrics
+### 2. Metrics To Collect
 
-| Metric | Description |
-|--------|-------------|
-| ops/sec | Operations per second |
-| avg time | Average execution time |
-| min/max | Min/max execution time |
-| samples | Number of samples |
+- `ops/sec` - operations per second
+- `avg time` - average execution time
+- `min/max` - min/max execution time
+- `samples` - number of samples
 
-## Structure
+### 3. Conditional Execution
 
-### File Location
-
-```text
-.windsurf/workflows/
-└── run-bench.md
-```
-
-### Phase Definitions
-
-| Phase | Description | Main Activities |
-|-------|-------------|---------------|
-| Setup | เตรียมการ | install, check config |
-| Run | รัน benchmarks | execute bench suite |
-| Analyze | วิเคราะห์ | ดูผลลัพธ์ |
-| Compare | เปรียบเทียบ | compare กับ baseline |
-
-## Steps
-
-### Phase 1: Setup
-
-- 1.1 **Install Dependencies**
-  - รัน `/run-install`
-  - ตรวจสอบ benchmark libraries ถูกติดตั้ง
-  - เช่น vitest bench, tinybench
-
-- 1.2 **Check Configuration**
-  - ตรวจสอบ benchmark files มีอยู่
-  - ตรวจสอบ benchmark config
-  - ตรวจสอบ baseline results (ถ้ามี)
-
-### Phase 2: Run Benchmarks
-
-- 2.1 **Execute Benchmarks**
-  - รัน `bun run bench` หรือ script ที่กำหนด
-  - รอ benchmarks เสร็จสิ้น
-  - บันทึกผลลัพธ์ทั้งหมด
-
-- 2.2 **Collect Metrics**
-  - บันทึก ops/sec แต่ละ benchmark
-  - บันทึก execution times
-  - บันทึก sample counts
-
-### Phase 3: Analyze
-
-- 3.1 **Review Results**
-  - ดูผลลัพธ์ของแต่ละ benchmark
-  - ระบุ slow benchmarks
-  - ระบุ fast benchmarks
-
-- 3.2 **Identify Issues**
-  - หา benchmarks ที่มี variance สูง
-  - หา benchmarks ที่มี outliers
-  - หา potential optimizations
-
-### Phase 4: Compare
-
-- 4.1 **Compare with Baseline**
-  - เปรียบเทียบกับ baseline (ถ้ามี)
-  - ระบุ regressions
-  - ระบุ improvements
-
-- 4.2 **Document Results**
-  - บันทึกผลลัพธ์
-  - บันทึก improvements
-  - บันทึก action items
-
-## Outputs
-
-| Output | Details |
-|--------|---------|
-| Bench Results | ผลลัพธ์ของแต่ละ benchmark |
-| Comparison | เปรียบเทียบกับ baseline |
-| Regressions | รายการที่ช้าลง |
-| Improvements | รายการที่เร็วขึ้น |
+- ถ้า project ไม่มี benchmark files ให้ข้ามขั้นตอนการรัน
+- ถ้าไม่มี baseline results ให้ข้ามขั้นตอนการเปรียบเทียบ
+- ถ้ามีหลาย workspace ใน monorepo ให้รัน benchmark ทีละ workspace
 
 ## Expected Outcome
 
 - Benchmarks รันสำเร็จ
-- Metrics ถูกบันทึกครบถ้วน
-- Regressions ถูกระบุ
-- Action items สำหรับ optimize
-
-## Reference
-
-- `/validate` - ตรวจสอบความถูกต้องก่อนเริ่ม
-- `/run-install` - ติดตั้ง dependencies
+- Metrics ถูกบันทึกครบถ้วน (`ops/sec`, `avg time`, `min/max`, `samples`)
+- Regressions และ improvements ถูกระบุ
+- Action items สำหรับ optimization ถูกบันทึก
 

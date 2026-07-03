@@ -6,6 +6,7 @@ related_workflows:
   - /deep-research
   - /plan
   - /ship-code
+  - /update-docs
 ---
 
 ## Goal
@@ -31,7 +32,8 @@ related_workflows:
 
 สร้างรายงานเปรียบเทียบทุกมิติ
 
-1. สร้างไฟล์ `bench-competitors.md`
+1. ทำ `/update-docs` เพื่อสร้าง docs structure ก่อน
+2. สร้างไฟล์ `comparison.md` ใน `docs/project/`
 
 2. **Section 1: Multi-Dimension Comparison Table**
    - ตารางเปรียบเทียบทุกมิติระหว่างคู่แข่ง
@@ -72,7 +74,7 @@ related_workflows:
 
 อัพเดทความคืบหน้าอย่างสม่ำเสมอ
 
-- Update ไฟล์ `bench-competitors.md` เมื่อ implement เสร็จ
+- Update ไฟล์ `comparison.md` เมื่อ implement เสร็จ
 - Tick checkbox ใน `Section 2: Improvement Roadmap`
 - Update status ใน `Section 1: Multi-Dimension Comparison Table`
 - เพิ่ม column `Implementation Notes` และ `Completed Date`
@@ -92,7 +94,7 @@ related_workflows:
 
 รักษาโครงสร้างให้สม่ำเสมอ
 
-- แค่ 1 ไฟล์ `bench-competitors.md`
+- แค่ 1 ไฟล์ `comparison.md` ใน `docs/project/`
 - 2-3 sections หลักพอ
 - ไม่ต้องมี `timeline` ละเอียด
 
@@ -123,7 +125,7 @@ related_workflows:
 
 ## Expected Outcome
 
-- ไฟล์ `bench-competitors.md` ที่มี:
+- ไฟล์ `comparison.md` ใน `docs/project/` ที่มี:
   - ตารางเปรียบเทียบทุกมิติ
   - `Improvement roadmap` พร้อม priority
   - `Competitor analysis` กระชับ

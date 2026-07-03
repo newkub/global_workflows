@@ -28,52 +28,65 @@ auto_execution_mode: 3
 
 1. รัน `bunx lefthook install` เพื่อสร้าง config file
 2. สร้าง `lefthook.yml` ที่ root directory
-3. ตั้งค่า hooks พื้นฐาน เช่น pre-commit, pre-push, pre-merge
-4. ใช้ `parallel: true` สำหรับ performance
+3. ตั้งค่า hooks พื้นฐาน: pre-commit, pre-push, pre-merge-commit
+4. เพิ่ม `assert_lefthook_installed: true` เพื่อ fail ถ้า lefthook ไม่ได้ติดตั้ง
+5. เพิ่ม `min_version` เพื่อ pin 最低 version
+6. ใช้ `parallel: true` สำหรับ performance
 
 ```yaml
+assert_lefthook_installed: true
+min_version: 2.0.0
+
 pre-commit:
   parallel: true
   commands:
     lint:
-      glob: "*.{ts,tsx,js,jsx}"
-      run: bunx eslint {staged_files} --fix
+      glob: "*.{ts,tsx,js,jsx,vue}"
+      exclude:
+        - ".agents/**"
+        - ".devin/**"
+      run: bunx biome lint --no-errors-on-unmatched {staged_files}
       stage_fixed: true
+      fail_text: "Lint failed. Run `bun run lint:fix` to auto-fix issues."
     format:
-      glob: "*.{ts,tsx,js,jsx,json,md}"
-      run: bunx prettier --write {staged_files}
+      glob: "*.{ts,tsx,js,jsx,vue,json,jsonc,md}"
+      exclude:
+        - ".agents/**"
+        - ".devin/**"
+      run: bunx biome format --write {staged_files}
       stage_fixed: true
+      fail_text: "Format failed. Run `bun run format` to fix formatting."
 ```
 
 ### 3. Configure Hooks
 
 ตั้งค่า Git hooks ตามความต้องการ
 
-1. pre-commit: รัน lint, format, typecheck ก่อน commit
-2. pre-push: รัน tests ก่อน push
-3. pre-merge: รัน tests ก่อน merge
+1. pre-commit: รัน lint, format ก่อน commit
+2. pre-push: รัน typecheck, test ก่อน push
+3. pre-merge-commit: รัน typecheck ก่อน merge
 4. ใช้ `glob` เพื่อ filter files
-5. ใช้ `stage_fixed: true` เพื่อ auto-stage ไฟล์ที่แก้ไข
+5. ใช้ `exclude` เป็น YAML list format เพื่อข้ามไฟล์ที่ไม่ต้องการ
+6. ใช้ `stage_fixed: true` เพื่อ auto-stage ไฟล์ที่แก้ไข
+7. ใช้ `fail_text` เพื่อแสดงข้อความ actionable เมื่อ fail
 
 ```yaml
-pre-commit:
-  parallel: true
-  commands:
-    typecheck:
-      run: bunx tsc --noEmit
-
 pre-push:
-  commands:
-    test:
-      run: bun run test
-
-pre-merge:
   parallel: true
   commands:
+    typecheck:
+      run: bun run typecheck
+      fail_text: "Typecheck failed. Fix type errors before pushing."
     test:
       run: bun run test
+      fail_text: "Tests failed. Fix failing tests before pushing."
+
+pre-merge-commit:
+  parallel: true
+  commands:
     typecheck:
-      run: bunx tsc --noEmit
+      run: bun run typecheck
+      fail_text: "Typecheck failed. Fix type errors before merging."
 ```
 
 ### 4. Advanced Features
@@ -116,17 +129,25 @@ pre-commit:
 
 1. รัน `bunx lefthook run pre-commit` เพื่อทดสอบ pre-commit hook
 2. รัน `bunx lefthook run pre-push` เพื่อทดสอบ pre-push hook
-3. รัน `bunx lefthook run pre-merge` เพื่อทดสอบ pre-merge hook
+3. รัน `bunx lefthook run pre-merge-commit` เพื่อทดสอบ pre-merge-commit hook
 4. รัน `bunx lefthook run` เพื่อรัน hooks group
 5. ใช้ `LEFTHOOK=0 git commit` เพื่อ skip hooks
 6. ตั้งค่า `output` option เพื่อ control output
+7. ใช้ `--no-stage-fixed` flag เพื่อทดสอบโดยไม่ stage ไฟล์ที่แก้ไข
 
 ## Rules
 
 - ใช้ run ตามที่กำหนดใน package manifest หรือ task file
+- ใช้ `assert_lefthook_installed: true` เสมอเพื่อป้องกัน hooks ทำงานโดยไม่มี lefthook
+- ใช้ `min_version` เพื่อ pin 最低 version ที่รองรับ features ที่ใช้
 - ใช้ `parallel: true` เสมอเพื่อ performance
 - ใช้ `stage_fixed: true` สำหรับ linter/formatter
 - ใช้ `glob` filters เพื่อ skip commands ที่ไม่เกี่ยวข้อง
+- ใช้ `exclude` เป็น YAML list format (ไม่ใช่ space-separated string)
+- ใช้ `fail_text` ทุก command เพื่อแสดง actionable error messages
+- ใช้ Biome สำหรับ lint และ format ไม่ใช้ ESLint หรือ Prettier
+- ใช้ `--no-errors-on-unmatched` สำหรับ biome lint เพื่อไม่ error เมื่อไม่มีไฟล์ตรง glob
+- ใช้ hook name ที่ถูกต้อง: `pre-commit`, `pre-push`, `pre-merge-commit` (ไม่ใช่ `pre-merge`)
 - ใช้ `skip: - merge` และ `skip: - rebase` เพื่อข้าม hooks
 - ใช้ `tags` เพื่อ group commands ที่เกี่ยวข้องกัน
 - ใช้ `lefthook-local.yml` สำหรับ local overrides
@@ -139,3 +160,5 @@ pre-commit:
 - Code quality checks ทำงานก่อน commit
 - Validation ทำงานก่อน push
 - Performance ดีขึ้นด้วย parallel execution
+- Hooks fail ชัดเจนเมื่อ lefthook ไม่ได้ติดตั้ง
+- Error messages มี actionable guidance

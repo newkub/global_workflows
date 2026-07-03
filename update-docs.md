@@ -38,6 +38,7 @@ related_workflows:
 7. สร้าง subfolders ตาม template
 8. เขียน content ตาม template
 9. ใช้ frontmatter สำหรับทุกไฟล์
+10. ทำ `/bench-competitors` เพื่อสร้างไฟล์ `comparison.md` ใน `project/`
 
 ### 3. Update References
 
@@ -81,6 +82,7 @@ docs/
 │   ├── key-concept.md
 │   ├── principles.md
 │   ├── roadmap.md (optional)
+│   ├── comparison.md (optional)
 │   ├── changelog.md (optional)
 │   ├── faq.md (optional)
 │   ├── team.md (optional)
@@ -165,6 +167,7 @@ docs/
 - Structure สอดคล้องกับ template
 - Content คุณภาพสูง
 - ไฟล์ทั้งหมดมี frontmatter
+- ไฟล์ `comparison.md` สร้างโดย `/bench-competitors`
 
 ### References
 
