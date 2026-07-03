@@ -14,7 +14,7 @@ auto_execution_mode: 3
 
 ค้นหาและจัดกลุ่ม mock implementations ทั้งหมดใน codebase
 
-1. ทำ `/search-code` สำหรับ patterns: `MOCK`, `FAKE`, `STUB`, `mock_`, `fake_`, `stub_`, `InMemory`
+1. ใช้ `Grep` สำหรับ patterns: `MOCK`, `FAKE`, `STUB`, `mock_`, `fake_`, `stub_`, `InMemory`
 2. จัดกลุ่มตามประเภท (database, API, service, external dependency)
 3. วิเคราะห์ dependencies และ features ที่จำเป็นสำหรับการ implement
 
@@ -50,7 +50,7 @@ auto_execution_mode: 3
 
 ตรวจสอบและยืนยันว่าไม่มี mock implementations เหลือ
 
-1. ทำ `/search-code` อีกครั้งสำหรับ MOCK, FAKE, STUB
+1. ใช้ `Grep` อีกครั้งสำหรับ MOCK, FAKE, STUB
 2. ตรวจสอบ imports และ configuration
 3. ทำ `/run-test` และ `/run-lint` เพื่อทดสอบ
 

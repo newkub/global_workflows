@@ -9,12 +9,16 @@ related_workflows:
   - improve-error-handling
   - improve-scalability
   - improve-dx
+  - improve-cli
+  - improve-sdk
+  - improve-web-saas
   - improve-data-quality
   - improve-api-design
   - improve-compliance
   - improve-cost-optimization
   - improve-backup-recovery
   - improve-database
+  - improve-seo
 ---
 
 ## Goal
@@ -49,7 +53,7 @@ related_workflows:
 
 ปรับปรุย database performance, schema, และ operations
 
-- ทำ `/improve-database` เพื่อปรับปรุย database ครบวงจร
+- ถ้า project มี database ทำ `/improve-database` เพื่อปรับปรุย database ครบวงจร
 
 ### 3. Monitoring
 
@@ -79,7 +83,7 @@ related_workflows:
 
 ปรับปรุง performance
 
-- ทำ `/improve-web-performance` เพื่อปรับปรุง web performance ครบวงจร
+- ถ้า project เป็น web application ทำ `/improve-web-performance` เพื่อปรับปรุง web performance ครบวงจร
 
 ### 8. Scalability
 
@@ -103,51 +107,75 @@ related_workflows:
 
 ปรับปรุง platform support
 
-- ทำ `/improve-platform` เพื่อปรับปรุง platform support ครบวงจร
+- ถ้า project ต้องการ multiple platform support ทำ `/improve-platform` เพื่อปรับปรุง platform support ครบวงจร
 
 ### 12. UI
 
 ปรับปรุง UI
 
-- ทำ `/improve-uxui` สำหรับ UX/UI improvements ครบวงจร
+- ถ้า project มี UI ทำ `/improve-uxui` สำหรับ UX/UI improvements ครบวงจร
 
-### 13. Developer Experience
+### 13. SEO
+
+ปรับปรุง SEO
+
+- ถ้า project เป็น web application ที่ต้องการ SEO ทำ `/improve-seo` เพื่อปรับปรุง SEO ครบวงจร
+
+### 14. Developer Experience
 
 ปรับปรุง developer experience
 
-- ทำ `/improve-dx` เพื่อปรับปรุง developer experience ครบวงจร
+- ทำ `/improve-dx` เพื่อปรับปรุย developer experience ครบวงจร
 
-### 14. Data Quality
+### 15. CLI Tools
+
+ปรับปรุย CLI tools
+
+- ถ้า project มี CLI tools ทำ `/improve-cli` เพื่อปรับปรุย CLI tools ครบวงจร
+
+### 16. SDK Libraries
+
+ปรับปรุย SDK libraries
+
+- ถ้า project มี SDK libraries ทำ `/improve-sdk` เพื่อปรับปรุย SDK libraries ครบวงจร
+
+### 17. Web SaaS
+
+ปรับปรุย web SaaS applications
+
+- ถ้า project เป็น web SaaS application ทำ `/improve-web-saas` เพื่อปรับปรุย web SaaS application ครบวงจร
+
+### 18. Data Quality
 
 ปรับปรุงคุณภาพข้อมูล
 
-- ทำ `/improve-data-quality` เพื่อปรับปรุง data quality ครบวงจร
+- ถ้า project มี data quality concerns ทำ `/improve-data-quality` เพื่อปรับปรุง data quality ครบวงจร
 
-### 15. API Design
+### 19. API Design
 
 ปรับปรุง API design
 
-- ทำ `/improve-api-design` เพื่อปรับปรุง API design ครบวงจร
+- ถ้า project มี API ทำ `/improve-api-design` เพื่อปรับปรุง API design ครบวงจร
 
-### 16. Backup And Recovery
+### 20. Backup And Recovery
 
 ปรับปรุย backup และ recovery
 
-- ทำ `/improve-backup-recovery` เพื่อปรับปรุย backup และ recovery ครบวงจร
+- ถ้า project ต้องการ backup และ recovery ทำ `/improve-backup-recovery` เพื่อปรับปรุย backup และ recovery ครบวงจร
 
-### 17. Compliance
+### 21. Compliance
 
 ปรับปรุย regulatory compliance
 
-- ทำ `/improve-compliance` เพื่อปรับปรุย compliance ครบวงจร
+- ถ้า project มี compliance requirements ทำ `/improve-compliance` เพื่อปรับปรุย compliance ครบวงจร
 
-### 18. Cost Optimization
+### 22. Cost Optimization
 
 ปรับปรุง cost optimization
 
-- ทำ `/improve-cost-optimization` เพื่อปรับปรุง cost optimization ครบวงจร
+- ถ้า project มี cost concerns ทำ `/improve-cost-optimization` เพื่อปรับปรุง cost optimization ครบวงจร
 
-### 19. Documentation
+### 23. Documentation
 
 ทำเมื่อมีเวลา
 
@@ -163,7 +191,7 @@ related_workflows:
 - ทำ `Foundation And Security` ก่อนเสมอ
 - ทำ `Database, Monitoring, Error Handling` หลัง Foundation
 - ทำ `Code Quality, Testing, Performance, Scalability, Integrations, Security` ต่อไป
-- ทำ `Platform, UI, Developer Experience, Data Quality, API Design, Backup And Recovery, Compliance, Cost Optimization` ตามลำดับ
+- ทำ `Platform, UI, SEO, Developer Experience, CLI Tools, SDK Libraries, Web SaaS, Data Quality, API Design, Backup And Recovery, Compliance, Cost Optimization` ตามลำดับ
 - ทำ `Documentation` สุดท้าย
 - ถ้าพบ issues ทำ `/resolve-errors` ก่อนดำเนินต่อ
 - ทำ `/update-reference` หลังแต่ละ group สำคัญ

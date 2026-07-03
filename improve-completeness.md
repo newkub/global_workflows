@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /write-test
   - /write-docs
+  - /improve-seo
 ---
 
 ## Goal
@@ -42,6 +43,7 @@ related_workflows:
 ปรับปรุยความครบถ้วนของ documentation
 
 - ทำ `/write-docs` เพื่ออัพเดท documentation
+- ทำ `/improve-seo` เพื่อปรับปรุง SEO สำหรับ documentation
 - ตรวจสอบ README ครบถ้วน
 - ตรวจสอบ API documentation ครบถ้วน
 - ตรวจสอบ inline documentation ครบถ้วน

@@ -39,7 +39,7 @@ related_workflows:
 2. ตรวจสอบ API signature differences
 3. ตรวจสอบ format differences
 4. ตรวจสอบ structure differences
-5. ทำ `/search-code` เพื่อหา usage patterns
+5. ใช้ `Grep` เพื่อหา usage patterns
 
 ### 3. Apply Compatibility Fixes
 

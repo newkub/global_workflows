@@ -6,6 +6,7 @@ related_workflows:
   - follow-web-design
   - improve-accessibility
   - improve-web-performance
+  - improve-seo
   - idea-uxui
 ---
 

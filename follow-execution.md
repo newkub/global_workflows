@@ -9,7 +9,6 @@ related_workflows:
   - /follow-content-quality
   - /follow-config
   - /follow-agents-md
-  - /search-code
   - /plan
   - /loop-until-complete
   - /report
@@ -60,7 +59,7 @@ related_workflows:
 
 ค้นหา code patterns, symbols, หรือ references
 
-- เมื่อต้องค้นหา code patterns, symbols, หรือ references ทำ `/search-code`
+- เมื่อต้องค้นหา code patterns, symbols, หรือ references ใช้ `Grep`
 - ใช้ `Grep` สำหรับ text search และ `find_by_name` สำหรับ file search
 - กำหนด scope ด้วย `type`, `glob`, หรือ `path`
 

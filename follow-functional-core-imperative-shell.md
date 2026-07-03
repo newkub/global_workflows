@@ -2,11 +2,22 @@
 title: Follow Functional Core Imperative Shell
 description: แยก pure functions จาก side effects ด้วย Functional Core, Imperative Shell pattern
 auto_execution_mode: 3
+related_workflows:
+  - /follow-functional-programming
+  - /refactor-functions
+  - /refactor-modules
 ---
 
 ## Goal
 
 แยก business logic เป็น pure functions และ side effects เป็น imperative shell เพื่อให้ code testable และ maintain ได้ง่าย
+
+## Scope
+
+ใช้สำหรับแยก pure functions จาก side effects ในทุก workspace:
+- ใช้กับ business logic ที่มี side effects ผสมกัน
+- ใช้กับ functions ที่ยากต่อการ test
+- ใช้กับ code ที่มี dependencies ซับซ้อน
 
 ## Execute
 

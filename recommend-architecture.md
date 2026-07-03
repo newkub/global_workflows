@@ -3,8 +3,8 @@ title: Recommend Architecture
 description: แนะนำ architecture และ file structure ที่เหมาะสมสำหรับโปรเจกต์ พร้อม comment และตาราง file pattern
 auto_execution_mode: 3
 related_workflows:
-  - deep-analyze
-  - check-architecture
+  - /analyze-project
+  - /check-architecture
 ---
 
 ## Goal
@@ -25,7 +25,7 @@ related_workflows:
 
 วิเคราะห์โปรเจกต์อย่างละเอียด
 
-- ทำ `/deep-analyze` เพื่อวิเคราะห์โปรเจกต์อย่างละเอียด
+- ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์อย่างละเอียด
 - ระบุ architecture, code quality, dependencies
 - บันทึก findings และ recommendations
 

@@ -24,11 +24,11 @@ auto_execution_mode: 3
 
 สแกนการใช้งาน dependencies ใน code
 
-1. ทำ `/search-code` เพื่อค้นหา import statements
-2. ทำ `/search-code` เพื่อค้นหา require statements
-3. ทำ `/search-code` เพื่อค้นหา use statements
-4. ทำ `/search-code` เพื่อค้นหา dynamic imports
-5. ทำ `/search-code` เพื่อค้นหา configuration references
+1. ใช้ `Grep` เพื่อค้นหา import statements
+2. ใช้ `Grep` เพื่อค้นหา require statements
+3. ใช้ `Grep` เพื่อค้นหา use statements
+4. ใช้ `Grep` เพื่อค้นหา dynamic imports
+5. ใช้ `Grep` เพื่อค้นหา configuration references
 
 ### 3. Identify Unused Dependencies
 

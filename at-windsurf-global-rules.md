@@ -50,7 +50,7 @@ auto_execution_mode: 3
 - Prepare: ทำ `/follow-agents-md`, `/ship-code`, `/setup-tasks`
 - Analyze: ทำ `/analyze-project`, จัดการ errors
 - Read Reference: อ่าน workflows, skills, global rules
-- Search Code: ใช้ `/search-code`, `Grep`, `find_by_name`
+- Search Code: ใช้ `Grep`, `find_by_name`
 - Planning: แก้ไข workflows และ skills
 - Write: ทำ `/follow-principles-engineering`, `/follow-architecture`
 - Reflex: ทำ `/loop-until-complete`

@@ -1,50 +1,198 @@
 ---
 title: Update Dot Devin
-description: อัพเดท .devin structure ให้ครบถ้วน
+description: สร้าง .devin structure ครบถ้วน รวม rules และ hooks
 auto_execution_mode: 3
 related_workflows:
-  - /write-devin-project-rules
-  - /write-devin-project-hooks
-  - /write-windsurf-global-workflows
+  - /update-devin-rules
+  - /update-agents
+  - /check-monorepo
 ---
 
 ## Goal
 
-สร้าง `.devin` structure ครบถ้วนสำหรับ project workspace
+สร้าง `.devin` structure ครบถ้วนสำหรับ project workspace รวม rules และ hooks โดยไม่มี `workflows/` directory
 
 ## Scope
 
-ใช้สำหรับสร้าง `.devin` structure ใน project workspace ใดๆ
+ใช้สำหรับสร้าง `.devin` structure ใน project workspace ใดๆ ถ้าเป็น monorepo ให้แต่ละ workspace มี `.devin/rules/` และ `AGENTS.md` ของตัวเอง
+
+## Directory Structure
+
+### Single Project
+
+```
+.devin/
+├── rules/
+│   ├── always-on/
+│   ├── model_decision/
+│   └── glob/
+├── hooks/
+│   ├── hooks.json
+│   ├── run-lint.ts
+│   └── run-typecheck.ts
+├── skills/ (optional)
+└── mcp/ (optional)
+```
+
+### Monorepo
+
+```
+.devin/
+├── rules/
+│   ├── always-on/
+│   ├── model_decision/
+│   └── glob/
+├── hooks/
+│   ├── hooks.json
+│   ├── run-lint.ts
+│   └── run-typecheck.ts
+apps/<workspace>/
+├── .devin/
+│   └── rules/
+│       ├── always-on/
+│       ├── model_decision/
+│       └── glob/
+├── AGENTS.md
+integrations/<workspace>/
+├── .devin/
+│   └── rules/
+│       ├── always-on/
+│       ├── model_decision/
+│       └── glob/
+├── AGENTS.md
+```
 
 ## Execute
 
-### 1. Setup Rules
+### 1. Check Project Type
 
-สร้าง rules ตามมาตรฐาน
+ตรวจสอบประเภท project เพื่อกำหนด structure
 
-1. ทำ `/write-devin-project-rules`
+1. ทำ `/check-monorepo` เพื่อตรวจสอบว่า project เป็น monorepo หรือไม่
+2. ถ้าเป็น monorepo ให้ทำตาม Monorepo section ด้านล่าง
+3. ถ้าไม่ใช่ monorepo ให้ทำตาม Single Project section
 
-### 2. Setup Hooks
+### 2. Analyze Project
 
-สร้าง hooks ตามมาตรฐาน
+วิเคราะห์ project เพื่อดู tech stack, structure, และ patterns
 
-1. ทำ `/write-devin-project-hooks`
+1. ทำ `/analyze-project` เพื่อดู tech stack, structure, และ patterns
+2. อ่าน `package.json` ทั้ง root และ workspace เพื่อดู dependencies ทั้งหมด
 
-### 3. Follow Standards
+### 3. Setup Root Rules And Hooks
 
-ทำตามมาตรฐาน workflow
+สร้าง root `.devin` structure สำหรับ shared rules และ hooks
 
-1. ทำ `/write-windsurf-global-workflows`
+1. อ่าน https://docs.devin.ai/cli/extensibility/rules เพื่อเข้าใจ rules
+2. สร้าง `.devin/rules` directory พร้อม subdirectories: `always-on/`, `model_decision/`, `glob/`
+3. ทำ `/update-devin-rules` เพื่อเขียน rules ตาม dependencies จริง
+4. สร้าง `.devin/hooks` directory พร้อม TypeScript scripts และ `hooks.json`
+5. ทำตาม Rules section ด้านล่างสำหรับ frontmatter และ format
+
+### 4. Setup Hooks
+
+สร้าง hooks สำหรับ Cascade
+
+1. อ่าน https://docs.devin.ai/cli/extensibility/hooks/overview เพื่อเข้าใจ hooks
+2. สร้าง `.devin/hooks` directory
+3. สร้าง TypeScript scripts: `run-lint.ts`, `run-typecheck.ts`
+4. สร้าง `.devin/hooks/hooks.json` configuration
+5. ทำตาม Rules section ด้านล่างสำหรับ hook format
+
+### 5. Setup Workspace Rules And AGENTS.md (Monorepo Only)
+
+ถ้าเป็น monorepo ให้สร้าง `.devin/rules/` และ `AGENTS.md` สำหรับแต่ละ workspace
+
+1. ระบุ workspaces ทั้งหมดจาก root `package.json` `workspaces` field
+2. สำหรับแต่ละ workspace:
+   1. สร้าง `<workspace>/.devin/rules/` พร้อม subdirectories: `always-on/`, `model_decision/`, `glob/`
+   2. ทำ `/update-devin-rules` สำหรับ workspace นั้น โดยอ้างอิง dependencies ใน `<workspace>/package.json`
+   3. ทำ `/update-agents` สำหรับ workspace นั้น เพื่อเขียน `AGENTS.md`
+3. ทำ `/update-agents` สำหรับ root `AGENTS.md` โดยระบุว่าให้ทำตาม `AGENTS.md` ของแต่ละ workspace
+
+### 6. Setup Skills And MCP (Optional)
+
+ตั้งค่า skills และ MCP servers (ถ้าจำเป็น)
+
+1. อ่าน https://docs.devin.ai/cli/extensibility/skills/overview เพื่อเข้าใจ skills
+2. อ่าน https://docs.devin.ai/cli/extensibility/mcp/overview เพื่อเข้าใจ MCP
+3. ตั้งค่า skills และ MCP servers ตามความจำเป็นของ project
+
+### 7. Remove Workflows Directory
+
+ลบ `.devin/workflows/` directory ถ้ามีอยู่
+
+1. ตรวจสอบว่า `.devin/workflows/` directory มีอยู่หรือไม่
+2. ถ้ามี ให้ลบทิ้งทั้ง directory
+
+### 8. Test And Validate
+
+ทดสอบและตรวจสอบ
+
+1. ทดสอบ hooks ด้วยการแก้ไข code
+2. ตรวจสอบ exit codes และ output
+3. ตรวจสอบ JSON configuration ถูกต้อง
+4. ตรวจสอบว่าไม่มี `.devin/workflows/` directory
 
 ## Rules
 
-### 1. Content Language
+### 1. No Workflows Directory
 
-เนื้อหาต้องเป็นภาษาอังกฤษ
+- ห้ามมี `.devin/workflows/` directory
+- ถ้ามีอยู่ ให้ลบทิ้ง
+
+### 2. Content Language
 
 - เนื้อหาทั้งหมดใน `.devin/` ต้องเป็นภาษาอังกฤษ
 
+### 3. File Structure
+
+- ต้องมี `.devin/rules` directory พร้อม subdirectories: `always-on/`, `model_decision/`, `glob/`
+- ตั้งชื่อไฟล์ด้วย `kebab-case.md`
+- ถ้าเป็น monorepo แต่ละ workspace ต้องมี `.devin/rules/` และ `AGENTS.md` ของตัวเอง
+
+### 4. Frontmatter Validation
+
+- `always-on` rules ต้องมี `trigger: always_on`
+- `model_decision` rules ต้องมี `trigger: model_decision`
+- `glob` rules ต้องมี `trigger: glob` พร้อม `globs:` list
+
+### 5. Rules Update
+
+- ใช้ `/update-devin-rules` สำหรับเขียนและอัพเดท rules ทั้ง root และ workspace
+- Rules ต้องสอดคล้องกับ dependencies ใน `package.json`
+
+### 6. AGENTS.md Update
+
+- ใช้ `/update-agents` สำหรับเขียน `AGENTS.md` ทั้ง root และ workspace
+- Root `AGENTS.md` ต้องระบุว่าให้ทำตาม `AGENTS.md` ของแต่ละ workspace
+- แต่ละ workspace ต้องมี `AGENTS.md` ของตัวเอง
+
+### 7. Hook Format
+
+รูปแบบ hooks configuration (`.devin/hooks/hooks.json`)
+
+```json
+{
+  "post_write_code": [
+    {
+      "command": "bun .devin/hooks/run-lint.ts",
+      "show_output": true
+    }
+  ]
+}
+```
+
+### 8. TypeScript Scripts
+
+- สร้าง scripts ใน `.devin/hooks/` directory
+- รันด้วย `bun .devin/hooks/run-lint.ts`
+- Parse JSON input จาก stdin
+
 ## Expected Outcome
 
-- `.devin` มี rules และ hooks ครบถ้วน
-- Rules และ hooks สร้างเรียบร้อย
+- `.devin` มี rules และ hooks ครบถ้วน ไม่มี `workflows/` directory
+- ถ้าเป็น monorepo แต่ละ workspace มี `.devin/rules/` และ `AGENTS.md` ของตัวเอง
+- Root `AGENTS.md` บอกให้ทำตาม workspace `AGENTS.md`
+- Rules จัดรูปแบบถูกต้องตามมาตรฐาน
+- Hooks ทำงานตาม events ที่กำหนด

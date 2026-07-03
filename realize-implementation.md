@@ -3,7 +3,7 @@ title: Realize Implementation
 description: แปลง TODO, MOCK, placeholder เป็น production code จริง
 auto_execution_mode: 3
 related_workflows:
-  - /deep-analyze
+  - /analyze-project
   - /plan-task
   - /refactor-workspace
   - /implement-comment-todo
@@ -37,7 +37,7 @@ related_workflows:
 วิเคราะห์โปรเจกต์ก่อนเริ่ม implement เพื่อเข้าใจโครงสร้างและ dependencies
 
 - ทำ `/analyze-all-files` เพื่ออ่านและวิเคราะห์ไฟล์ทั้งหมด
-- ทำ `/deep-analyze` เพื่อวิเคราะห์โปรเจกต์อย่างละเอียด
+- ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์อย่างละเอียด
 - ทำ `/plan-task` เพื่อวางแผนงานอย่างเป็นระบบ
 - ระบุ TODO, MOCK, placeholder ทั้งหมดที่ต้องแปลง
 - จัดลำดับความสำคัญของงาน

@@ -3,7 +3,7 @@ title: Update Readme
 description: สร้าง README.md ครบถ้วนด้วย template มาตรฐานและข้อมูลจริงจากโปรเจกต์
 auto_execution_mode: 3
 related_workflows:
-  - /deep-analyze
+  - /analyze-project
   - /all-workspaces
   - /follow-content-quality
   - /write-windsurf-global-workflows
@@ -41,7 +41,7 @@ Detect project type before writing README
 
 ### 3. Analyze And Write Root README
 
-1. ทำ `/deep-analyze` เพื่อเก็บข้อมูลโปรเจกต์ root
+1. ทำ `/analyze-project` เพื่อเก็บข้อมูลโปรเจกต์ root
 2. อ่าน `manifest files`, `source code`, และ `config files`
 3. เลือก template ตาม project type:
    - ใช้ CLI/SDK Template สำหรับ CLI หรือ SDK

@@ -3,8 +3,10 @@ title: Follow Content Quality
 description: จัดรูปแบบและคุณภาพเนื้อหาให้ถูกต้อง อ่านง่าย สอดคล้องกัน
 auto_execution_mode: 3
 related_workflows:
-  - write-windsurf-global-workflows
-  - improve-correctness
+  - /write-windsurf-global-workflows
+  - /improve-correctness
+  - /improve-file-structure
+  - /dont-over-engineer
 ---
 
 ## Goal
@@ -32,16 +34,9 @@ related_workflows:
 
 เขียน content ให้ชัดเจน explicit มากกว่า implicit
 
-1. ใช้ภาษาตรงไปตรงมา ไม่กำกวม
-2. ระบุ subject และ object ชัดเจนในทุกประโยค
-3. หลีกเลี่ยง pronouns ที่ไม่ชัดเจน (it, they, this)
-4. ใช้ active voice แทน passive voice
-5. ระบุเงื่อนไขและข้อจำกัดชัดเจน
-6. ให้ตัวอย่าง concrete แทน abstract descriptions
-7. เขียน documentation สำหรับ logic ที่ซับซ้อน
-8. เขียน messages ที่ชัดเจนและให้ context
-9. เขียน comments อธิบาย "why" ไม่ใช่ "what"
-10. ใช้ descriptions และ labels ที่บอก purpose ชัดเจน
+1. ทำตาม Rules ใน section "Explicit Content" ทั้งหมด
+2. ตรวจสอบความชัดเจนด้วยการอ่านซ้ำ
+3. ตรวจสอบว่าไม่มี assumptions ที่ไม่ได้ระบุ
 
 ### 3. Remove Redundancy
 
@@ -56,10 +51,8 @@ related_workflows:
 
 ปรับปรุง content ครบวงจร
 
-1. ทำตาม `/improve-file-structure` สำหรับโครงสร้างไฟล์
-2. ปรับปรุง readability, completeness, correctness
-3. ปรับปรุง accessibility, maintainability, relevance
-4. ปรับปรุง actionability
+1. ทำตาม Rules ใน section "Content Dimensions" ทั้งหมด
+2. ทำ `/improve-file-structure` สำหรับโครงสร้างไฟล์
 
 ## Rules
 

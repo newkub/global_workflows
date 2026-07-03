@@ -80,8 +80,7 @@ auto_execution_mode: 3
 ### 7. Analysis Skills
 
 - ใช้ `/scan-codebase` สำหรับ scan codebase อย่างรวดเร็ว
-- ใช้ `/analyze-project` สำหรับ project-level analysis
-- ใช้ `/analyze-codebase` สำหรับ code-level analysis
+- ใช้ `/analyze-project` สำหรับ project-level และ code-level analysis
 
 ### 8. Report Formatting
 

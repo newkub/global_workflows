@@ -3,8 +3,7 @@ title: Scan Codebase
 description: Scan codebase อย่างรวดเร็วด้วย static analysis tools
 auto_execution_mode: 3
 related_workflows:
-  - /search-code
-  - /analyze-codebase
+  - /analyze-project
   - /write-ast-grep-rules
 ---
 

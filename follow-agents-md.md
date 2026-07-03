@@ -1,29 +1,30 @@
 ---
 title: Follow Agents Md
-description: Find all AGENTS.md and execute them completely
+description: ทำตาม AGENTS.md ใน workspace
 auto_execution_mode: 3
 ---
 
 ## Goal
 
-หา AGENTS.md ทั้งหมดแล้วทำตามนั้นให้ครบ
+ทำตาม `AGENTS.md` ใน workspace ให้ครบถ้วน
 
 ## Scope
 
-ค้นหาและทำตาม AGENTS.md ในทุก workspace
+ค้นหาและทำตาม `AGENTS.md` ในทุก workspace
 
 ## Execute
 
-### 1. Write AGENTS.md
+### 1. Update AGENTS.md
 
-เขียน AGENTS.md ก่อนเสมอ ทำตาม `/update-agents`
+ทำ `/update-agents` ก่อนเสมอ ก่อนทำอย่างอื่นใด
 
-- ทำ `/update-agents` เพื่อเขียน AGENTS.md
-- ตรวจสอบว่า AGENTS.md เขียนถูกต้อง
+- ทำ `/update-agents` เพื่อเขียน/อัพเดต `AGENTS.md`
+- ตรวจสอบว่า `AGENTS.md` เขียนถูกต้องและเป็นปัจจุบัน
+- ห้ามข้ามขั้นตอนนี้ไม่ว่ากรณีใดๆ
 
 ### 2. Find AGENTS.md
 
-ค้นหาไฟล์ AGENTS.md ใน workspace root
+ค้นหาไฟล์ `AGENTS.md` ใน workspace root
 
 ### 3. Parse AGENTS.md
 
@@ -31,31 +32,20 @@ auto_execution_mode: 3
 
 ### 4. Execute Workflows
 
-ทำตาม workflows ที่ระบุใน AGENTS.md ตามลำดับ
+ทำตาม workflows ที่ระบุใน `AGENTS.md` ตามลำดับ
 
 ### 5. Load Skills
 
-โหลด skills ที่ระบุใน AGENTS.md
-
-### 6. Implement TODO
-
-แปลง TODO จากไฟล์ Markdown เป็น production code
-
-- ค้นหาไฟล์ Markdown ที่มี TODO (TODO.md, ROADMAP.md, ฯลฯ)
-- ทำ `/implement-todo-md` เพื่อแปลง TODO เป็น production code
-- ตรวจสอบว่า features ที่ implement ใช้งานได้จริง
-- อัพเดทไฟล์ Markdown ตามสถานะปัจจุบัน
+โหลด skills ที่ระบุใน `AGENTS.md`
 
 ## Rules
 
-- AGENTS.md ต้องอยู่ใน workspace root
-- ทำตามลำดับที่ระบุใน AGENTS.md
+- `AGENTS.md` ต้องอยู่ใน workspace root
+- ทำตามลำดับที่ระบุใน `AGENTS.md`
 - ตรวจสอบว่า workflows และ skills มีอยู่จริง
 - ข้าม workflows หรือ skills ที่ไม่มีอยู่
 
 ## Expected Outcome
 
-- Workflows ที่ระบุใน AGENTS.md ถูกทำ
-- Skills ที่ระบุใน AGENTS.md ถูกโหลด
-- TODO จากไฟล์ Markdown ถูกแปลงเป็น production code
-
+- Workflows ที่ระบุใน `AGENTS.md` ถูกทำ
+- Skills ที่ระบุใน `AGENTS.md` ถูกโหลด

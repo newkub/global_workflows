@@ -2,6 +2,8 @@
 title: Run Documentation Site
 description: ตั้งค่าและรัน documentation site ด้วย Docus
 auto_execution_mode: 3
+related_workflows:
+  - /improve-seo
 ---
 
 ตั้งค่าและรัน documentation site ด้วย Docus
@@ -15,8 +17,9 @@ auto_execution_mode: 3
 ### 1. Update Documentation
 
 1. ใช้ `/write-docs` เพื่อสร้างและอัพเดทเอกสาร
-2. ตรวจสอบว่า documentation ถูกสร้างอย่างถูกต้อง
-3. ตรวจสอบว่า content structure ครบถ้วน
+2. ใช้ `/improve-seo` เพื่อปรับปรุง SEO สำหรับ documentation site
+3. ตรวจสอบว่า documentation ถูกสร้างอย่างถูกต้อง
+4. ตรวจสอบว่า content structure ครบถ้วน
 
 ### 2. Setup Docus
 

@@ -109,7 +109,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ตรวจสอบคุณภาพโค้ดก่อนส่งต่อ
 
-1. ทำ `/review-codebase` เพื่อตรวจสอบคุณภาพโค้ด
+1. ทำ `/review-codebase-and-fix` เพื่อตรวจสอบคุณภาพโค้ด
 2. ถ้าพบ issues ทำ `/resolve-errors` เพื่อแก้ไข
 3. ถ้ายังมี issues ให้ทำซ้ำขั้นตอน 2-10 จนกว่าจะผ่าน
 
@@ -153,7 +153,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 เน้นคุณภาพมากกว่าความเร็ว
 
 - ทำ `/refactor` ก่อน `/follow-best-practice`
-- ทำ `/review-codebase` ก่อน `/improve-codebase`
+- ทำ `/review-codebase-and-fix` ก่อน `/improve-codebase`
 - แปลง TODO, MOCK เป็น production code ก่อน ship
 - ทำ `/update-references` หลัง refactor และ `/realize-implementation`
 

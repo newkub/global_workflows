@@ -2,11 +2,14 @@
 title: Windsurf System Environment
 description: ความสามารถและ features ของ Windsurf system environment
 auto_execution_mode: 3
+related_workflows:
+  - /use-workflows
+  - /add-windsurf-mcp
 ---
 
 ## Goal
 
-อธิบายสิ่งที่ Windsurf system environment สามารถทำได้และ capabilities ที่มีให้ใช้
+อธิบาย capabilities ของ Windsurf system environment และวิธีใช้งาน MCP servers, global workflows, global rules, skills, และ IDE integration
 
 ## Scope
 
@@ -14,164 +17,80 @@ auto_execution_mode: 3
 
 ## Execute
 
-### 1. MCP Servers (Model Context Protocol)
+### 1. Use MCP Servers
 
-Windsurf รองรับ MCP servers สำหรับเชื่อมต่อกับ external tools และ services:
+เลือก MCP server ตาม use case ที่ต้องการ
 
-**Available MCP Servers:**
-- **better-fullstack** - Scaffold fullstack projects ข้าม ecosystems (TypeScript, Rust, Python, Go, Java, Elixir)
-- **chrome-devtools** - Browser automation ผ่าน Chrome DevTools Protocol
-- **deepwiki** - AI-powered documentation สำหรับ GitHub repositories
-- **grep** - Fast code search ด้วย ripgrep
-- **io.windsurf/cloudflare-docs** - Cloudflare documentation search
-- **io.windsurf/deepwiki** - DeepWiki MCP สำหรับ GitHub repositories
-- **io.windsurf/github-mcp-server** - GitHub API integration (issues, PRs, repositories)
-- **linear** - Linear project management integration
-- **next-devtools** - Next.js development tools และ diagnostics
-- **sequential-thinking** - Deep thinking และ problem-solving
-- **vueuse** - VueUse composables documentation
+1. GitHub operations → ใช้ `io.windsurf/github-mcp-server` สำหรับ issues, PRs, repositories
+2. Browser automation → ใช้ `chrome-devtools` สำหรับ Playwright และ testing
+3. Documentation search → ใช้ `deepwiki` หรือ `io.windsurf/cloudflare-docs` สำหรับ docs
+4. Project scaffolding → ใช้ `better-fullstack` สำหรับ scaffold projects
+5. Code search → ใช้ `grep` สำหรับ fast code search
+6. Project management → ใช้ `linear` สำหรับ Linear integration
+7. Vue composables → ใช้ `vueuse` สำหรับ VueUse documentation
 
-**Use Cases:**
-- Connect external APIs และ services
-- Browser automation และ testing
-- GitHub operations (issues, PRs, repositories)
-- Project management (Linear)
-- Documentation search และ query
-- Code search และ analysis
+### 2. Use Global Workflows
 
-### 2. Global Workflows
+เลือก workflow ตาม task type ที่ต้องการ
 
-Global workflows คือ automation scripts ที่ใช้ได้ทั่วทั้ง workspaces:
+1. Development → ใช้ `/run-*` workflows (build, test, lint, dev)
+2. Analysis → ใช้ `/analyze-*` workflows (project, errors, features)
+3. Review → ใช้ `/review-*` workflows (codebase, security, performance)
+4. Refactoring → ใช้ `/refactor-*` workflows (workspace, restructure, relocation)
+5. Deployment → ใช้ `/deploy-*` workflows (vercel, cloudflare-worker)
+6. Documentation → ใช้ `/write-*` workflows (readme, how-to, spec)
+7. Skills → ใช้ `/write-*` workflows สำหรับ skills
+8. Research → ใช้ `/deep-research`, `/learn-from-web`
 
-**Workflow Categories:**
-- **Development workflows** - `/run-build`, `/run-test`, `/run-lint`, `/run-dev`
-- **Analysis workflows** - `/analyze-project`, `/analyze-errors`, `/analyze-features`
-- **Review workflows** - `/review-codebase`, `/review-security`, `/review-performance`
-- **Refactoring workflows** - `/refactor-workspace`, `/restructure`, `/relocation`
-- **Deployment workflows** - `/deploy-to-vercel`, `/deploy-to-cloudflare-worker`
-- **Documentation workflows** - `/write-readme`, `/write-how-to`, `/write-spec`
-- **Skill workflows** - `/write-devin-skills`, `/write-missing-skills-from-deps`
-- **Research workflows** - `/deep-research`, `/learn-from-web`
+ทำ `/use-workflows` สำหรับวิธีค้นหาและใช้งาน global workflows
 
-**Use Cases:**
-- Automate repetitive tasks
-- Standardize development processes
-- Code quality checks
-- Documentation generation
-- Research และ learning
+### 3. Apply Global Rules
 
-### 3. Global Rules
+Apply global rules ตาม context ของงาน
 
-Global rules คือ guidelines ที่ใช้ได้ทั่วทั้ง workspaces:
+1. Language → ใช้ `/follow-{language}` (rust, python, typescript)
+2. Framework → ใช้ `/follow-{framework}` (nextjs, nuxt, vue, solid-start)
+3. Tool → ใช้ `/follow-{tool}` (biome, eslint, vitest, drizzle)
+4. Architecture → ใช้ `/follow-{architecture}` (monorepo, microservices, clean-architecture)
+5. Best practices → ใช้ `/follow-best-practice`, `/follow-code-quality`
 
-**Rule Categories:**
-- **Development guidelines** - `/follow-best-practice`, `/follow-clean-architecture`
-- **Language-specific rules** - `/follow-rust`, `/follow-python`, `/follow-typescript`
-- **Framework-specific rules** - `/follow-nextjs`, `/follow-nuxt`, `/follow-vue`
-- **Tool-specific rules** - `/follow-biome`, `/follow-eslint`, `/follow-vitest`
-- **Architecture rules** - `/follow-monorepo`, `/follow-microservices`
-- **Code quality rules** - `/follow-code-quality`, `/follow-functional-programming`
+### 4. Load Skills
 
-**Use Cases:**
-- Maintain code consistency
-- Enforce best practices
-- Standardize architecture patterns
-- Reduce technical debt
+Load skill ตาม technology stack ที่ใช้
 
-### 4. Skills
+1. Solid.js → load `solid-js`, `uno-css`, `biome`
+2. Rust → load `rust`, `cargo`, `clippy`
+3. Bun → load `bun`, `bunup`
+4. Tauri → load `tauri`
+5. Next.js → load `nextjs`, `react`
+6. Vue → load `vue`, `vueuse`
 
-Skills คือ knowledge base สำหรับ specific libraries, frameworks, หรือ tools:
+### 5. Use IDE Integration
 
-**Skill Types:**
-- **Library skills** - `lib-*` (เช่น lib-shadcn-solid, lib-zaidan)
-- **Framework skills** - `framework-*` (เช่น framework-solid-start)
-- **Language skills** - `lang-*` (เช่น lang-rust, lang-python)
-- **Runtime skills** - `runtime-*` (เช่น runtime-bun)
-- **CLI skills** - `cli-*` (เช่น cli-bun)
-- **Guide skills** - `guide-*` (เช่น guide-clean-architecture)
-- **Flow skills** - `flow-*` (เช่น flow-dev-workflows)
+ใช้ IDE integration ผ่าน Cascade AI agent
 
-**Use Cases:**
-- Quick reference สำหรับ libraries/frameworks
-- Best practices และ patterns
-- Installation และ configuration guides
-- API references และ examples
-
-### 5. IDE Integration
-
-Windsurf ผสานรวมกับ IDE ผ่าน Cascade AI agent:
-
-**Features:**
-- **File operations** - Read, write, edit files
-- **Code search** - Grep, find_by_name
-- **Terminal commands** - Run commands ใน project directory
-- **Browser automation** - Playwright ผ่าน chrome-devtools MCP
-- **Git operations** - Commit, push, branch management ผ่าน GitHub MCP
-- **Project analysis** - Analyze codebase structure และ dependencies
-
-**Use Cases:**
-- Code editing และ refactoring
-- Debugging และ testing
-- Build และ deployment
-- Documentation generation
-
-### 6. AI Capabilities
-
-Cascade AI agent มี capabilities พิเศษ:
-
-**Core Capabilities:**
-- **Multi-tool coordination** - ใช้หลาย tools พร้อมกัน
-- **Context management** - เก็บ memories และ project context
-- **Task planning** - วางแผนและ execute complex tasks
-- **Error handling** - Debug และ fix errors อย่าง systematic
-- **Code generation** - Generate code ตาม best practices
-
-**Use Cases:**
-- Complex feature implementation
-- Systematic debugging
-- Code refactoring
-- Project setup แล scaffolding
+1. File operations → Read, write, edit files
+2. Code search → Grep, find_by_name
+3. Terminal commands → Run commands ใน project directory
+4. Browser automation → Playwright ผ่าน chrome-devtools MCP
+5. Git operations → Commit, push, branch management ผ่าน GitHub MCP
+6. Project analysis → Analyze codebase structure และ dependencies
 
 ## Rules
 
-### 1. MCP Server Usage
+ทำตาม `/use-workflows` สำหรับการใช้ global workflows
 
-เลือก MCP server ตาม use case:
-- **GitHub operations** → `io.windsurf/github-mcp-server`
-- **Browser automation** → `chrome-devtools`
-- **Documentation search** → `deepwiki` หรือ `io.windsurf/cloudflare-docs`
-- **Project scaffolding** → `better-fullstack`
-- **Code search** → `grep`
-
-### 2. Workflow Selection
-
-เลือก workflow ตาม task type:
-- **Development** → `/run-*` workflows
-- **Analysis** → `/analyze-*` workflows
-- **Review** → `/review-*` workflows
-- **Refactoring** → `/refactor-*` workflows
-- **Deployment** → `/deploy-*` workflows
-
-### 3. Skill Loading
-
-Load skill ตาม technology stack:
-- **Solid.js** → `solid-js`, `uno-css`, `biome`
-- **Rust** → `rust`, `cargo`, `clippy`
-- **Bun** → `bun`, `bunup`
-- **Tauri** → `tauri`
-
-### 4. Global Rules Application
-
-Apply global rules ตาม context:
-- **Language** → `/follow-{language}`
-- **Framework** → `/follow-{framework}`
-- **Tool** → `/follow-{tool}`
-- **Architecture** → `/follow-{architecture}`
+- เลือก MCP server ตาม use case ที่เหมาะสม
+- เลือก workflow ตาม task type
+- Load skill ตาม technology stack
+- Apply global rules ตาม context
+- ใช้ IDE integration อย่างมีประสิทธิภาพ
+- ทำ `/add-windsurf-mcp` สำหรับเพิ่ม MCP server ใหม่
 
 ## Expected Outcome
 
 - เข้าใจ capabilities ของ Windsurf system environment
-- เลือกใช้ tools, workflows, skills ที่เหมาะสม
-- ใช้ MCP servers อย่างมีประสิทธิภาพ
-- Automate tasks ด้วย global workflows
-- รักษา code quality ด้วย global rules
+- เลือกใช้ MCP servers, workflows, skills ที่เหมาะสม
+- ใช้ global workflows อย่างมีประสิทธิภาพ
+- Apply global rules ตาม context
+- ใช้ IDE integration อย่างถูกต้อง

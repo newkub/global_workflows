@@ -1,6 +1,6 @@
 ---
 title: Follow Best Practice
-description: เขียนโค้ดตาม best practices ของ language, runtime, และ library
+description: เขียนตาม best practices จาก context นั้นๆ
 auto_execution_mode: 3
 related_workflows:
   - learn-from-web
@@ -10,20 +10,20 @@ related_workflows:
 
 ## Goal
 
-เขียนโค้ดตาม best practices ของ language, runtime, และ library ที่ใช้งาน
+เขียนตาม best practices จาก context นั้นๆ
 
 ## Scope
 
-ใช้สำหรับทุก workspace เพื่อให้โค้ดมีคุณภาพสูงและเป็นไปตามมาตรฐาน
+ใช้สำหรับทุก workspace และทุกประเภทงาน (code, workflow, config, documentation) เพื่อให้ผลลัพธ์มีคุณภาพสูงและเป็นไปตามมาตรฐาน
 
 ## Execute
 
-### 1. Analyze Dependencies
+### 1. Analyze Context
 
-1. อ่าน `package.json`, `Cargo.toml`, หรือ package manifest ที่เกี่ยวข้อง
-2. ระบุ language, runtime, และ libraries ที่ใช้
-3. ตรวจสอบ version ของ dependencies ทั้งหมด
-4. สรุป tech stack ที่ใช้ใน project
+1. ระบุ context ของงานที่ทำ (code, workflow, config, documentation, ฯลฯ)
+2. ถ้าเป็น code: อ่าน `package.json`, `Cargo.toml`, หรือ package manifest ที่เกี่ยวข้อง
+3. ถ้าเป็น code: ระบุ language, runtime, และ libraries ที่ใช้
+4. สรุป tech stack หรือ tools ที่เกี่ยวข้องกับ context นั้นๆ
 
 ### 2. Research Best Practices
 
@@ -35,12 +35,11 @@ related_workflows:
 ### 3. Apply Best Practices
 
 1. อ่านไฟล์ที่ต้องปรับปรุงทั้งหมด
-2. วิเคราะห์ว่าไฟล์เหล่านี้ต้องการปรับปรุงอะไรตาม best practices
+2. วิเคราะห์ว่าไฟล์เหล่านี้ต้องการปรับปรุงอะไรตาม best practices ของ context นั้นๆ
 3. แก้ไขไฟล์ตาม best practices ที่เรียนรู้มา
-4. ตรวจสอบความสอดคล้องกับ codebase ที่มีอยู่
+4. ตรวจสอบความสอดคล้องกับสิ่งที่มีอยู่แล้ว
 5. อัพเดท configuration และ settings ที่เกี่ยวข้อง
-6. เขียน best practices ที่สำคัญลงในไฟล์ documentation
-7. ระบุ patterns และ conventions ที่แนะนำ
+6. ระบุ patterns และ conventions ที่แนะนำ
 
 ### 4. Verify Implementation
 
@@ -107,10 +106,8 @@ related_workflows:
 
 ## Expected Outcome
 
-- Code ที่เขียนตาม best practices ของ language, runtime, และ library
-- Code quality สูงและ maintainable
-- Consistency ทั่วทั้ง codebase
-- Documentation ที่อัพเดทแล้ว
-- Tests ที่ผ่านทั้งหมด
+- ผลลัพธ์เขียนตาม best practices จาก context นั้นๆ
+- คุณภาพสูงและ maintainable
+- Consistency ทั่วทั้ง project
 - Best practices ที่ถูกต้องและเป็นปัจจุบัน
-- Code examples และ configurations ที่ดี
+- Patterns และ conventions ที่เหมาะสม

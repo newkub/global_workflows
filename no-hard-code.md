@@ -19,12 +19,12 @@ related_workflows:
  
 ค้นหา hard code ใน codebase
 
-- ทำ `/search-code` เพื่อค้นหา magic numbers ด้วย patterns
-- ทำ `/search-code` เพื่อค้นหา hardcoded strings ที่ไม่ใช่ messages
-- ทำ `/search-code` เพื่อค้นหา hardcoded URLs และ API endpoints
-- ทำ `/search-code` เพื่อค้นหา hardcoded paths และ filenames
+- ใช้ `Grep` เพื่อค้นหา magic numbers ด้วย patterns
+- ใช้ `Grep` เพื่อค้นหา hardcoded strings ที่ไม่ใช่ messages
+- ใช้ `Grep` เพื่อค้นหา hardcoded URLs และ API endpoints
+- ใช้ `Grep` เพื่อค้นหา hardcoded paths และ filenames
 - ทำ `/run-secret-scanning` เพื่อค้นหา secrets หรือ sensitive data
-- ทำ `/search-code` เพื่อค้นหา business rules ที่ hardcoded
+- ใช้ `Grep` เพื่อค้นหา business rules ที่ hardcoded
 
 ### 2. Replace Magic Values
 
@@ -81,7 +81,7 @@ related_workflows:
 ตรวจสอบว่าไม่มี hard code เหลืออยู่
 
 - ทำ `/run-lint` เพื่อตรวจสอบด้วย lint rules สำหรับ detect hard code
-- ทำ `/review-codebase` เพื่อ Review code อย่าง manual
+- ทำ `/review-codebase-and-fix` เพื่อ Review code อย่าง manual
 - ตรวจสอบใน environments ต่างๆ
 - ตรวจสอบว่า configuration ถูกต้อง
 - ทำ `/update-docs` เพื่อ Document configuration ทั้งหมด

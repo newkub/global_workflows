@@ -3,7 +3,7 @@ title: Refactor Functions
 description: Refactor functions ให้มี single responsibility และ clean code
 auto_execution_mode: 3
 related_workflows:
-  - /refactor-to-functional
+  - /convert-oop-to-functional
   - /refactor-files
   - /follow-functional-programming
   - /follow-functional-core-imperative-shell

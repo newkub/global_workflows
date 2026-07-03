@@ -21,7 +21,7 @@ auto_execution_mode: 3
 
 รัน jscpd เพื่อตรวจสอบ code duplication
 
-1. ทำ `/search-code` เพื่อค้นหา code patterns ที่ซ้ำกัน
+1. ใช้ `Grep` เพื่อค้นหา code patterns ที่ซ้ำกัน
 2. รัน `bunx jscpd . --min-lines 5 --min-tokens 50 --threshold 10 --reporters console,json --output report`
 3. ทำ `/use-scripts` เพื่อ parse jscpd JSON output, generate custom reports, และ group results ใน script เดียว
 4. ระบุไฟล์และส่วนที่มี duplication

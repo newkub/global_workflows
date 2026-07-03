@@ -6,6 +6,7 @@ related_workflows:
   - use-workflows
   - improve-correctness
   - follow-content-quality
+  - follow-best-practice
 ---
 
 ## Goal
@@ -14,7 +15,7 @@ related_workflows:
 
 ## Scope
 
-เขียน workflow file ทั้งใน global_workflows และ workspace โดยทุก workspace ต้องเขียนให้ `/follow-content-quality`
+เขียน workflow file ทั้งใน `global_workflows` และ workspace โดยทำตาม `/follow-content-quality`
 
 ## Rules
 
@@ -38,16 +39,16 @@ related_workflows:
 - ใช้ bullet points (-) ชิดซ้ายใน Rules
 - ไฟล์ไม่เกิน 250 บรรทัด
 - ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/workflow-name`
-- เขียนเป็นหลักการ how-to
+- เขียนเป็นหลักการ how-to ไม่ใช่ step-by-step เฉพาะกรณี
 
 ### 3. References And Non-Redundancy
 
 ทำตาม `/use-workflows` สำหรับการใช้ references
 
-- ลบข้อความที่ซ้ำซ้อนระหว่าง Execute และ Rules
 - ใช้ references แทนการ duplicate เนื้อหา
 - ทำ `/check-reference` เพื่อตรวจสอบ references มีอยู่จริง
-- ถ้าอ้างถึง workflows หรือ skills อย่าพยายามเขียนซ้ำกับไฟล์ที่อ้างไป เขียนแค่ว่าให้ทำตามที่อ้างไป
+- ถ้าอ้างถึง workflows หรือ skills อย่าเขียนซ้ำกับไฟล์ที่อ้างไป
+- ไม่ซ้ำซ้อนระหว่าง Execute และ Rules
 
 ### 4. Execution Guidelines
 
@@ -56,32 +57,34 @@ related_workflows:
 - Hard to change ก่อน, High risk เพื่อ fail fast
 - ให้ผลลัพธ์เหมือนกันทุกครั้ง
 - ระบุลำดับการทำงานชัดเจน
+- เขียน conditional execution สำหรับ steps ที่ไม่จำเป็นต้องทำทุก project
+- ใช้ "ถ้ามี..." หรือ "ถ้า project มี..." สำหรับ conditional checks
+- ตรวจสอบ project characteristics ก่อน execute (เช่น มี CLI tools หรือไม่, มี SDK หรือไม่)
 
 ### 5. Script Automation
 
-- ใช้ `/use-scripts` เมื่อ file operations มากกว่า 10 ไฟล์
-- ใช้ `/use-scripts` เมื่อ data processing ซับซ้อน
-- ใช้ `/use-scripts` เมื่อ pattern matching ต้อง parser
-- ใช้ `/use-scripts` เมื่อ metrics calculation ต้อง aggregation
-- ใช้ `/use-scripts` เมื่อ batch transformations ต้อง consistency
+- ใช้ `/use-scripts` เมื่อ file operations มากกว่า 10 ไฟล์, data processing ซับซ้อน, หรือ batch transformations ต้อง consistency
+- ใช้ `/use-scripts` เมื่อ pattern matching ต้อง parser หรือ metrics calculation ต้อง aggregation
 
-### 6. Tool Usage Workflows
+### 6. Workflow Selection
 
 - ใช้ workflows ที่ขึ้นต้นด้วย "use-" สำหรับ tools/libraries ที่เฉพาะเจาะจง
+- ใช้ `/scan-codebase` สำหรับ scan codebase อย่างรวดเร็ว
+- ใช้ `/analyze-project` สำหรับ project-level และ code-level analysis
 - ตรวจสอบ references ว่ามีอยู่จริงก่อนอ้างอิงใน workflows ทุกตัว
 
-### 7. Analysis Workflows
-
-- ใช้ `/scan-codebase` สำหรับ scan codebase อย่างรวดเร็ว
-- ใช้ `/analyze-project` สำหรับ project-level analysis
-- ใช้ `/analyze-codebase` สำหรับ code-level analysis
-- เลือก workflow ที่เหมาะสมกับประเภท analysis ที่ต้องการ
-
-### 8. Report Formatting
+### 7. Report Formatting
 
 - ถ้า workflow มี output ต้องระบุ `/report-format-*` ที่ใช้ใน Execute หรือ Rules
 - ทำ `/report` เพื่อจัดรูปแบบ output ตามประเภทที่เหมาะสม
-- ระบุ report format ใน Execute หรือ Rules อย่างน้อยหนึ่งแห่ง
+
+### 8. Best Practices Alignment
+
+ทำตาม `/follow-best-practice` สำหรับการเขียนตาม best practices จาก context นั้นๆ
+
+- ตรวจสอบว่า workflow structure สอดคล้องกับ best practices ของ markdown และ documentation
+- ใช้ patterns ที่เหมาะสมสำหรับ workflow structure และ conventions
+- อ้างอิง official documentation เมื่อเขียนเกี่ยวกับ tools หรือ libraries เฉพาะเจาะจง
 
 ## Execute
 
@@ -96,18 +99,17 @@ related_workflows:
 
 ### 2. Check References
 
-ตรวจสอบ references ก่อนเริ่มเขียน
-
 1. ทำ `/check-reference` เพื่อตรวจสอบ references ที่จะใช้มีอยู่จริง
 2. ตรวจสอบ workflows หรือ skills ที่จะอ้างถึงว่ามีอยู่จริง
 
-### 3. Research And Learn (Optional)
+### 3. Research And Learn
 
-เรียนรู้จาก official docs ถ้าจำเป็น
+เรียนรู้ best practices และ official docs ก่อนเขียน workflow
 
-1. ทำ `/follow-best-practice` หรือ `/deep-research` สำหรับ topic ที่เกี่ยวข้อง
-2. อ่าน official documentation ของ tools/libraries ที่จะใช้
-3. ค้นหา examples และ best practices จาก sources ที่เชื่อถือได้
+1. ทำ `/follow-best-practice` สำหรับ topic ที่เกี่ยวข้อง เพื่อเขียนตาม best practices จาก context นั้นๆ
+2. ทำ `/deep-research` เมื่อต้องการข้อมูลลึกจาก multiple sources
+3. อ่าน official documentation ของ tools/libraries ที่จะใช้
+4. ค้นหา examples และ best practices จาก sources ที่เชื่อถือได้
 
 ### 4. Write Frontmatter
 
@@ -121,31 +123,16 @@ related_workflows:
 
 ### 5. Write Execute And Rules
 
-เขียน Execute และ Rules ตามมาตรฐาน
-
 1. ทำ `/follow-principles` เพื่อเขียนเป็นหลักการทั่วไป
 2. ทำ `/follow-consistency` เพื่อรักษาความสม่ำเสมอ
-3. เขียน Execute แต่ละขั้นตอนด้วย numbered list ชัดเจน
-4. เขียน Rules แต่ละหมวดหมู่ด้วย bullet points
+3. ทำ `/follow-best-practice` เพื่อเขียนตาม best practices จาก context นั้นๆ
+4. เขียน Execute ด้วย numbered list และ Rules ด้วย bullet points
 5. ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/workflow-name`
-
-### 6. Improve Content Quality
-
-ปรับปรุงคุณภาพเนื้อหา
-
-1. ทำ `/follow-content-quality` เพื่อปรับปรุงคุณภาพเนื้อหาครบวงจร
-
-### 7. Validate And Finalize
-
-ตรวจสอบและ finalize workflow
-
-1. ทำ `/improve-correctness` สำหรับตรวจสอบความถูกต้อง
-2. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัด
-3. ตรวจสอบว่า references มีอยู่จริง
+6. ทำ `/follow-content-quality` เพื่อปรับปรุงคุณภาพเนื้อหาครบวงจร
+7. ทำ `/improve-correctness` เพื่อตรวจสอบความถูกต้อง
+8. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัดและ references มีอยู่จริง
 
 ## Example Template
-
-ตัวอย่าง workflow structure ที่ใช้เป็น reference:
 
 ```markdown
 ---

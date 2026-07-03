@@ -7,7 +7,7 @@ related_workflows:
   - /improve-naming-convention
   - /relocation
   - /grouping
-  - /check-architecture
+  - /analyze-structure
   - /edit-relative
 ---
 
@@ -25,7 +25,7 @@ related_workflows:
 
 วิเคราะห์โครงสร้างปัจจุบันเพื่อระบุปัญหา
 
-1. ทำ `/check-architecture` เพื่อดูภาพรวมโครงสร้างปัจจุบัน
+1. ทำ `/analyze-structure` เพื่อดูภาพรวมโครงสร้างปัจจุบัน
 2. ระบุไฟล์ที่ตั้งชื่อไม่เหมาะสมตาม conventions
 3. ตรวจสอบจำนวนไฟล์ในแต่ละโฟลเดอร์เพื่อหาโฟลเดอร์ที่มีไฟล์มากเกินไป
 
@@ -64,7 +64,7 @@ related_workflows:
 
 1. รัน build หรือ type check เพื่อยืนยันว่า import paths ถูกต้อง
 2. ตรวจสอบว่าไม่มีไฟล์ที่ไม่จำเป็นหลงเหลือ
-3. ทำ `/check-architecture` เพื่อยืนยันโครงสร้างใหม่
+3. ทำ `/analyze-structure` เพื่อยืนยันโครงสร้างใหม่
 
 ## Rules
 
@@ -85,6 +85,14 @@ related_workflows:
 - ทุก subfolder ที่มีหลายไฟล์ควรมี index file สำหรับ barrel export
 - ใช้ barrel export เพื่อ simplify import paths
 - หลีกเลี่ยง deep imports ที่ซับซ้อน
+
+### 5. Script Automation
+
+ทำตาม `/use-scripts` เมื่อ:
+
+- File operations มากกว่า 10 ไฟล์
+- Pattern matching ต้อง parser
+- Batch transformations ต้อง consistency
 
 ## Expected Outcome
 

@@ -57,7 +57,6 @@ Create development lifecycle system covering all steps in continuous loop to mai
 2. Run `/run-build` to build production artifacts
 3. Run `/run-typecheck` to check TypeScript
 4. Run `/run-lint` to check code quality
-5. Run `/run-format` to format code
 
 ### 8. Documentation
 
