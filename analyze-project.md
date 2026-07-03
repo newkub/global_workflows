@@ -1,127 +1,126 @@
 ---
 title: Analyze Project
-description: วิเคราะห์โปรเจกต์เพื่อเข้าใจโครงสร้าง dependencies และคุณภาพโค้ด
+description: วิเคราะห์โปรเจกต์พื้นฐานด้วยเลือกใช้ tools ที่เหมาะสมกับงาน
 auto_execution_mode: 3
+related_workflows:
+  - /deep-analyze
+  - /scan-codebase
+  - /use-ast-grep
+  - /use-scripts
+  - /follow-my-cli
+  - /analyze-structure
 ---
 
 ## Goal
 
-วิเคราะห์โปรเจกต์เพื่อเข้าใจโครงสร้าง dependencies และคุณภาพโค้ด
+วิเคราะห์โปรเจกต์อย่างมีประสิทธิภาพด้วยการเลือกใช้ tools ที่เหมาะสมกับงาน
 
 ## Scope
 
-ครอบคลุมการวิเคราะห์ทุกมิติของโปรเจกต์ รวมถึง structure, tech stack, architecture, quality, security, dependencies และ performance
+ครอบคลุมการวิเคราะห์โปรเจกต์พื้นฐานด้วย 4 tools หลัก: `/use-ast-grep`, `/use-scripts`, Windsurf file ops, `/follow-my-cli`
+
+**Note:** ถ้าต้องการวิเคราะห์อย่างลึกซึ้งครบทุกมิติ ให้ทำ `/deep-analyze` แทน
 
 ## Execute
 
-### 1. Discovery And Structure
+### 1. Tool Selection
+
+เลือกใช้ tools ที่เหมาะสมกับงาน
+
+1. ทำ `/follow-my-cli` เพื่อเช็ค CLI tools ที่ติดตั้ง
+2. เลือกใช้ tools ตามความเหมาะสม:
+   - **AST-based analysis**: ใช้ `/use-ast-grep`
+   - **Data processing**: ใช้ `/use-scripts`
+   - **File operations**: ใช้ Windsurf file ops (`Grep`, `find_by_name`, `list_dir`)
+   - **CLI automation**: ใช้ CLI tools จาก `/follow-my-cli`
+
+### 2. Discovery And Structure
 
 ค้นพบข้อมูลเบื้องต้นและโครงสร้าง
 
-1. ทำ `/check-architecture` เพื่อดู directory และ config files
-2. ระบุประเภทโปรเจกต์จาก manifest files
-3. ตรวจหา monorepo structure (workspaces, moon, nx)
-4. วิเคราะห์ directory patterns: `src/`, `app/`, `packages/`, `apps/`
+1. ทำ `/analyze-structure` เพื่อดูโครงสร้างไฟล์และ folders
+2. ใช้ Windsurf file ops ดู directory และ config files
+3. ระบุประเภทโปรเจกต์จาก manifest files
+4. ตรวจหา monorepo structure
 
-### 2. Manifest And Dependencies
+### 3. Data Collection
 
-วิเคราะห์ manifest files และ dependencies
+รวบรวมข้อมูลจากทุกแหล่ง
 
 1. อ่าน manifest files แบบ parallel
-2. ดึง dependencies พร้อม versions
-3. ระบุ frontend framework, backend runtime, database
-4. ตรวจหา build tools และ testing frameworks
+2. ใช้ `Grep` ค้นหา code patterns และ symbols
+3. ทำ `/use-ast-grep` สำหรับ AST-based code search
+4. ทำ `/use-scripts` สำหรับ data processing ซับซ้อน
 
-### 3. Architecture And Patterns
+### 4. Architecture And Dependencies
 
-วิเคราะห์สถาปัตยกรรมและ patterns
+วิเคราะห์สถาปัตยกรรมและ dependencies
 
 1. ทำ `/review-architecture` เพื่อระบุ architectural pattern
-2. วิเคราะห์ data flow ด้วย `grep_search` หา imports/exports
-3. บันทึก state management (Pinia, Zustand, Redux)
-4. ใช้ `/search-code` หา common patterns และ naming conventions
+2. วิเคราะหา data flow ด้วย `Grep`
+3. ระบุ tech stack และ dependencies
 
-### 4. Quality And Security
+### 5. Code Analysis
+
+วิเคราะห์ code patterns และ quality
+
+1. ทำ `/use-ast-grep` หา patterns, anti-patterns, design patterns
+2. หา code smells ด้วย `Grep` multiline mode
+3. ทำ `/use-scripts` คำนวณ metrics
+4. ตรวจสอบ naming conventions
+
+### 6. Quality And Security
 
 ประเมินคุณภาพและความปลอดภัย
 
 1. ทำ `/check-duplication`, `/check-unsued-files`, `/check-unused-deps` แบบ parallel
 2. ทำ `/check-vulnerability` ตรวจสอบ security
-3. ตรวจหา hardcoded secrets ด้วย `grep_search`
-4. ตรวจสอบ type safety coverage จาก `tsconfig.json`
+3. ตรวจหา hardcoded secrets ด้วย `Grep`
 
-### 5. Performance And Metrics
-
-วิเคราะห์ performance และสร้าง metrics
-
-1. ทำ `/use-scripts` พร้อม parser คำนวณ metrics
-2. หาไฟล์ที่มีขนาดใหญ่ (lines > 300)
-3. วิเคราะหา cyclomatic complexity
-4. ตรวจหา performance anti-patterns
-
-### 6. Report And Recommendations
+### 7. Report And Recommendations
 
 สร้างรายงานและข้อเสนอแนะ
 
-1. รวบรวม findings ใน structured data
-2. ทำ `/report` สร้างตารางจัดกลุ่มตามหมวดหมู่
-3. ระบุ strengths, weaknesses, risk areas
-4. ให้ recommendations ตาม priority
+1. ทำ `/report` สร้างตารางจัดกลุ่มตามหมวดหมู่
+2. ให้ recommendations ตาม priority
 
 ## Rules
 
-### 1. Parallel Processing
+### 1. Tool Selection
 
-ประมวลผลแบบ parallel เพื่อเพิ่มประสิทธิภาพ
+เลือกใช้ tools ตามความเหมาะสมกับงาน
+
+- **AST-based analysis**: ใช้ `/use-ast-grep` สำหรับ pattern matching และ structural search
+- **Data processing**: ใช้ `/use-scripts` สำหรับ metrics calculation และ complex processing
+- **File operations**: ใช้ Windsurf file ops (`Grep`, `find_by_name`, `list_dir`) สำหรับ file discovery
+- **CLI automation**: ทำ `/follow-my-cli` สำหรับเช็คและใช้ CLI tools ที่ติดตั้ง
+
+### 2. Parallel Processing
+
+ประมวลผลแบบ parallel เพื่อความเร็ว
 
 - อ่าน manifest files พร้อมกัน
 - รัน checks หลายอย่างพร้อมกัน
-- ทำ `/use-scripts` สำหรับ batch operations
+- รัน `Grep` patterns พร้อมกัน
 
-### 2. Tool Selection
+### 3. Metric Thresholds
 
-เลือกใช้เครื่องมือที่เหมาะสมกับงานแต่ละประเภท
+กำหนด thresholds สำหรับ code quality
 
-- ใช้ `/search-code` สำหรับ codebase analysis
-- ใช้ `grep_search` สำหรับ pattern matching
-- ใช้ `find_by_name` สำหรับ file discovery
-- ทำ Bun scripts สำหรับ custom metrics
-
-### 3. Parser Usage
-
-ทำ `/use-scripts` พร้อม dependency parsers สำหรับวิเคราะหา dependencies
-
-- TypeScript/JavaScript: ใช้ oxc-parser จาก `https://esm.sh/oxc-parser`
-- Rust/Python/Go/PHP: ใช้ tree-sitter ผ่าน WASM
-- สร้าง scripts ใน `.windsurf/scripts/` และลบหลังใช้งาน
-
-### 4. Coverage Standards
-
-ครอบคลุมทุกมิติที่สำคัญของโปรเจกต์
-
-- Structure: directory layout, file organization
-- Tech Stack: languages, frameworks, libraries
-- Architecture: patterns, data flow, state management
-- Quality: coverage, linting, type safety
-- Security: vulnerabilities, secrets, risks
-- Dependencies: versions, outdated, duplicates
-- Performance: complexity, bundle size
-
-### 5. Actionable Output
-
-สร้างผลลัพธ์ที่นำไปปฏิบัติได้จริง
-
-- ให้ recommendations ที่ concrete และ prioritized
-- ระบุ effort และ impact
-- แยก quick wins จาก long-term improvements
-- ทำ `/report` เพื่อสรุปผล
+- Long functions: > 50 lines
+- Deep nesting: > 3 levels
+- High complexity: cyclomatic complexity > 10
+- Large files: > 300 lines
 
 ## Expected Outcome
 
 - รายงานโครงสร้างโปรเจกต์ที่ครบถ้วน
 - รายการ dependencies พร้อม versions
 - ระบุ architectural patterns ที่ใช้
-- Metrics คุณภาพโค้ด (complexity, coverage)
+- รายการ code patterns และ anti-patterns ที่พบ
+- รายการ code smells พร้อม locations
+- รายการ design patterns ที่ใช้
+- Code metrics (complexity, coupling, cohesion)
+- รายการ naming violations
 - รายการ security vulnerabilities
-- Recommendations ตาม priority
-
+- Recommendations สำหรับ refactor และ improvements ตาม priority
