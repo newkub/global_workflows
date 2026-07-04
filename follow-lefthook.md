@@ -40,6 +40,15 @@ min_version: 2.0.0
 pre-push:
   parallel: true
   commands:
+    lint:
+      run: bun run lint
+      fail_text: "Lint failed. Fix linting errors before pushing."
+    scan:
+      run: bun run scan
+      fail_text: "Scan failed. Fix code quality issues before pushing."
+    format:
+      run: bun run format
+      fail_text: "Format failed. Fix formatting issues before pushing."
     typecheck:
       run: bun run typecheck
       fail_text: "Typecheck failed. Fix type errors before pushing."
@@ -52,7 +61,7 @@ pre-push:
 
 ตั้งค่า Git hooks ตามความต้องการ
 
-1. pre-push: รัน typecheck, test ก่อน push
+1. pre-push: รัน lint, scan, format, typecheck, test ก่อน push
 2. pre-merge-commit: รัน typecheck ก่อน merge
 3. ใช้ `glob` เพื่อ filter files
 4. ใช้ `exclude` เป็น YAML list format เพื่อข้ามไฟล์ที่ไม่ต้องการ
@@ -63,6 +72,15 @@ pre-push:
 pre-push:
   parallel: true
   commands:
+    lint:
+      run: bun run lint
+      fail_text: "Lint failed. Fix linting errors before pushing."
+    scan:
+      run: bun run scan
+      fail_text: "Scan failed. Fix code quality issues before pushing."
+    format:
+      run: bun run format
+      fail_text: "Format failed. Fix formatting issues before pushing."
     typecheck:
       run: bun run typecheck
       fail_text: "Typecheck failed. Fix type errors before pushing."
