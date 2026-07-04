@@ -28,7 +28,7 @@ auto_execution_mode: 3
 
 1. รัน `bunx lefthook install` เพื่อสร้าง config file
 2. สร้าง `lefthook.yml` ที่ root directory
-3. ตั้งค่า hooks พื้นฐาน: pre-commit, pre-push, pre-merge-commit
+3. ตั้งค่า hooks พื้นฐาน: pre-push, pre-merge-commit
 4. เพิ่ม `assert_lefthook_installed: true` เพื่อ fail ถ้า lefthook ไม่ได้ติดตั้ง
 5. เพิ่ม `min_version` เพื่อ pin 最低 version
 6. ใช้ `parallel: true` สำหรับ performance
@@ -37,38 +37,27 @@ auto_execution_mode: 3
 assert_lefthook_installed: true
 min_version: 2.0.0
 
-pre-commit:
+pre-push:
   parallel: true
   commands:
-    lint:
-      glob: "*.{ts,tsx,js,jsx,vue}"
-      exclude:
-        - ".agents/**"
-        - ".devin/**"
-      run: bunx biome lint --no-errors-on-unmatched {staged_files}
-      stage_fixed: true
-      fail_text: "Lint failed. Run `bun run lint:fix` to auto-fix issues."
-    format:
-      glob: "*.{ts,tsx,js,jsx,vue,json,jsonc,md}"
-      exclude:
-        - ".agents/**"
-        - ".devin/**"
-      run: bunx biome format --write {staged_files}
-      stage_fixed: true
-      fail_text: "Format failed. Run `bun run format` to fix formatting."
+    typecheck:
+      run: bun run typecheck
+      fail_text: "Typecheck failed. Fix type errors before pushing."
+    test:
+      run: bun run test
+      fail_text: "Tests failed. Fix failing tests before pushing."
 ```
 
 ### 3. Configure Hooks
 
 ตั้งค่า Git hooks ตามความต้องการ
 
-1. pre-commit: รัน lint, format ก่อน commit
-2. pre-push: รัน typecheck, test ก่อน push
-3. pre-merge-commit: รัน typecheck ก่อน merge
-4. ใช้ `glob` เพื่อ filter files
-5. ใช้ `exclude` เป็น YAML list format เพื่อข้ามไฟล์ที่ไม่ต้องการ
-6. ใช้ `stage_fixed: true` เพื่อ auto-stage ไฟล์ที่แก้ไข
-7. ใช้ `fail_text` เพื่อแสดงข้อความ actionable เมื่อ fail
+1. pre-push: รัน typecheck, test ก่อน push
+2. pre-merge-commit: รัน typecheck ก่อน merge
+3. ใช้ `glob` เพื่อ filter files
+4. ใช้ `exclude` เป็น YAML list format เพื่อข้ามไฟล์ที่ไม่ต้องการ
+5. ใช้ `stage_fixed: true` เพื่อ auto-stage ไฟล์ที่แก้ไข
+6. ใช้ `fail_text` เพื่อแสดงข้อความ actionable เมื่อ fail
 
 ```yaml
 pre-push:
@@ -127,13 +116,12 @@ pre-commit:
 
 รัน hooks ด้วยคำสั่ง Lefthook
 
-1. รัน `bunx lefthook run pre-commit` เพื่อทดสอบ pre-commit hook
-2. รัน `bunx lefthook run pre-push` เพื่อทดสอบ pre-push hook
-3. รัน `bunx lefthook run pre-merge-commit` เพื่อทดสอบ pre-merge-commit hook
-4. รัน `bunx lefthook run` เพื่อรัน hooks group
-5. ใช้ `LEFTHOOK=0 git commit` เพื่อ skip hooks
-6. ตั้งค่า `output` option เพื่อ control output
-7. ใช้ `--no-stage-fixed` flag เพื่อทดสอบโดยไม่ stage ไฟล์ที่แก้ไข
+1. รัน `bunx lefthook run pre-push` เพื่อทดสอบ pre-push hook
+2. รัน `bunx lefthook run pre-merge-commit` เพื่อทดสอบ pre-merge-commit hook
+3. รัน `bunx lefthook run` เพื่อรัน hooks group
+4. ใช้ `LEFTHOOK=0 git commit` เพื่อ skip hooks
+5. ตั้งค่า `output` option เพื่อ control output
+6. ใช้ `--no-stage-fixed` flag เพื่อทดสอบโดยไม่ stage ไฟล์ที่แก้ไข
 
 ## Rules
 
@@ -157,7 +145,6 @@ pre-commit:
 
 - Lefthook ใช้งานผ่าน bunx สำเร็จ
 - Git hooks ทำงานอัตโนมัติ
-- Code quality checks ทำงานก่อน commit
 - Validation ทำงานก่อน push
 - Performance ดีขึ้นด้วย parallel execution
 - Hooks fail ชัดเจนเมื่อ lefthook ไม่ได้ติดตั้ง
