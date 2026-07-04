@@ -111,7 +111,7 @@ related_workflows:
 - ทำ `/check-correctness` อีกครั้งหลังแก้ไข
 - รัน tests ถ้ามี
 - ตรวจสอบ regressions
-- ทำ `/test-usage` ถ้าจำเป็น
+- ทำ `/run-test` ถ้าจำเป็น
 
 ### 5. Use References
 

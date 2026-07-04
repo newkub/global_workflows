@@ -132,7 +132,7 @@ related_workflows:
 
 ระบุรูปแบบรายงาน
 
-- ทำ `/report-format-summary` สำหรับสรุปผลลัพธ์
+- ทำ `/report-format-table` สำหรับสรุปผลลัพธ์
 
 ## Expected Outcome
 

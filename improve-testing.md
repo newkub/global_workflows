@@ -3,9 +3,8 @@ title: Improve Testing
 description: ปรับปรุงการทดสอบให้ครอบคลุมและมีคุณภาพสูง
 auto_execution_mode: 3
 related_workflows:
-  - /improve-coverage
+  - /improve-test-coverage
   - /write-test
-  - /write-test-coverage
 ---
 
 ## Goal
@@ -22,7 +21,7 @@ related_workflows:
 
 ตรวจสอบ test coverage ปัจจุบัน
 
-- ทำ `/improve-coverage` เพื่อตรวจสอบ test coverage
+- ทำ `/improve-test-coverage` เพื่อตรวจสอบ test coverage
 - ตรวจสอบ coverage targets
 - ระบุ areas ที่ขาด coverage
 - รัน `knip` สำหรับ detect dead code

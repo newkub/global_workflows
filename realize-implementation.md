@@ -192,8 +192,8 @@ Throw error ถ้า `required environment variables` ไม่มี และ
 
 ระบุรูปแบบรายงาน
 
-- ทำ `/report-format-progress` สำหรับรายงานความคืบหน้า
-- ทำ `/report-format-summary` สำหรับสรุปผลลัพธ์
+- ทำ `/report-format-terminal` สำหรับรายงานความคืบหน้า
+- ทำ `/report-format-table` สำหรับสรุปผลลัพธ์
 
 ## Expected Outcome
 

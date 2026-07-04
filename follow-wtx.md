@@ -46,7 +46,7 @@ auto_execution_mode: 3
 1. ทำ `/code-quality` เพื่อรักษามาตรฐานโค้ด
 2. ตั้งค่า Biome สำหรับ linting และ formatting
 3. ใช้ TypeScript สำหรับ type safety
-4. ทำ `/test-function` สำหรับ unit testing
+4. ทำ `/run-test` สำหรับ unit testing
 
 ### 6. Deployment
 

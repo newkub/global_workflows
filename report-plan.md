@@ -5,7 +5,6 @@ auto_execution_mode: 3
 related_workflows:
   - /report-format-table
   - /report-format-file-structure
-  - /report-format-summary
   - /plan-task
   - /plan-code
   - /follow-content-quality
@@ -67,7 +66,7 @@ related_workflows:
 
 1. แสดง task table ตามขั้นตอนที่ 3
 2. แสดง file structure ตามขั้นตอนที่ 4
-3. สรุปแผนงานด้วย `/report-format-summary` เพื่อ highlight สิ่งสำคัญ
+3. สรุปแผนงานด้วย `/report-format-table` เพื่อ highlight สิ่งสำคัญ
 4. ระบุ risks และ mitigation strategies
 5. ระบุ success criteria สำหรับแต่ละ task
 

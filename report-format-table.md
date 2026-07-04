@@ -1,16 +1,19 @@
 ---
 title: Report Format Table
-description: จัดรูปแบบตารางสำหรับรายงานให้สอดคล้องและอ่านง่าย
+description: จัดรูปแบบตาราง สรุปข้อมูล และ metrics สำหรับรายงาน
 auto_execution_mode: 3
 ---
 
 ## Goal
 
-จัดรูปแบบตารางสำหรับรายงานให้สอดคล้องกับมาตรฐานและอ่านง่าย
+จัดรูปแบบ structured data output (ตาราง, สรุป, metrics) ให้สอดคล้องและอ่านง่าย
 
 ## Scope
 
-ใช้สำหรับการจัดรูปแบบตารางในรายงานทุกประเภท
+ใช้สำหรับการจัดรูปแบบ:
+- ตารางข้อมูล (tables)
+- สรุปข้อมูลกระชับ (summaries)
+- สถิติและ metrics (statistics, coverage, performance)
 
 ## Execute
 
@@ -26,23 +29,30 @@ auto_execution_mode: 3
 1. ใช้ markdown table format มาตรฐาน
 2. ใช้ headers ชัดเจนสำหรับแต่ละ column
 3. ใช้ alignment (left, center, right) ที่เหมาะสม
-4. จัดเรียง rows ตามลำดับที่สมเหตุสมผล
-
-### 3. Apply Styling
-
-1. ใช้ bold สำหรับ headers และ keywords สำคัญ
-2. ใช้ code blocks สำหรับ commands และ paths
-3. ใช้ backticks สำหรับ inline code
 4. ใช้ symbols (✅, ❌, ⚠️) สำหรับ status indicators
 
-### 4. Group and Sort
+### 3. Format Summary
+
+1. ระบุ key metrics และ critical issues
+2. ใช้ bullet points สำหรับ quick scanning
+3. แสดง critical items ก่อน แล้วตามด้วย details
+4. ใช้ action-oriented phrasing สำหรับ next steps
+
+### 4. Format Metrics
+
+1. จัดกลุ่ม metrics ตาม categories
+2. ใช้ progress bars สำหรับ percentages (`████████░░░░ 50%`)
+3. เพิ่ม baseline values สำหรับ comparison
+4. เพิ่ม thresholds และ trends สำหรับ context
+
+### 5. Group And Sort
 
 1. จัดกลุ่มข้อมูลตาม category ที่เกี่ยวข้อง
 2. ใช้ headers สำหรับ grouping
 3. เรียงลำดับภายในกลุ่มตามความสำคัญ
-4. ใช้ separators สำหรับแยกกลุ่มที่ชัดเจน
+4. ใช้ separators สำหรับแยกกลุ่ม
 
-### 5. Validate Readability
+### 6. Validate Readability
 
 1. ตรวจสอบว่าตารางอ่านง่ายบนทุก device
 2. ตรวจสอบว่า columns ไม่กว้างเกินไป
@@ -53,35 +63,26 @@ auto_execution_mode: 3
 
 ### Table Structure
 
-โครงสร้างตารางที่ต้องใช้
-
 - ใช้ numbered columns สำหรับลำดับที่ชัดเจน
 - ใช้ headers ชัดเจนสำหรับแต่ละ column
 - จัดเรียง columns ตามความสำคัญ
 - ใช้ alignment ที่เหมาะสมกับ data types
 
-### Content Formatting
+### Summary Format
 
-การจัดรูปแบบเนื้อหาในตาราง
+- ใช้ short sentences และ bullet points
+- หลีกเลี่ยง unnecessary details
+- ใช้ active voice และ clear language
+- ระบุ owners และ deadlines ถ้ามี
 
-- ใช้ markdown table format มาตรฐาน
-- ใช้ bold สำหรับ headers และ keywords สำคัญ
-- ใช้ code blocks สำหรับ `commands` และ `file paths`
-- ใช้ backticks สำหรับ inline code
-- ใช้ symbols (✅, ❌, ⚠️) สำหรับ status indicators
+### Metrics Format
 
-### Grouping and Sorting
-
-การจัดกลุ่มและเรียงลำดับข้อมูล
-
-- จัดกลุ่มข้อมูลตาม category ที่เกี่ยวข้อง
-- ใช้ headers สำหรับ grouping
-- เรียงลำดับภายในกลุ่มตามความสำคัญ
-- ใช้ separators สำหรับแยกกลุ่มที่ชัดเจน
+- ใช้ tables สำหรับ structured metrics
+- ใช้ progress bars สำหรับ percentages
+- เพิ่ม baseline และ thresholds สำหรับ context
+- ใช้ symbols สำหรับ status indicators
 
 ### Readability
-
-ความอ่านง่ายของตาราง
 
 - ตารางต้องอ่านง่ายบนทุก device
 - Columns ไม่กว้างเกินไป
@@ -91,6 +92,6 @@ auto_execution_mode: 3
 ## Expected Outcome
 
 - ตารางที่มีโครงสร้างสอดคล้อง
-- Content ที่จัดรูปแบบอย่างชัดเจน
-- ตารางที่อ่านง่ายบนทุก device
+- Summary ที่กระชับและ actionable
+- Metrics ที่ชัดเจนพร้อม context
 - Grouping และ sorting ที่เป็นระบบ

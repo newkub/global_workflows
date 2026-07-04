@@ -6,7 +6,6 @@ related_workflows:
   - /write-windsurf-global-workflows
   - /check-correctness
   - /improve-correctness
-  - /improve-coverage
   - /improve-completeness
   - /follow-best-practice
   - /deep-research
@@ -80,6 +79,7 @@ related_workflows:
 2. ทำ `/check-reference` เพื่อยืนยัน references ทั้งหมดถูกต้อง
 3. ตรวจสอบไฟล์ไม่เกิน 250 บรรทัด
 4. ทำ `/report` เพื่อสรุปการปรับปรุง
+5. ท้า /suggest-next-action เพือแนะนำอก์ชันถัดไป้
 
 ## Rules
 
@@ -105,7 +105,7 @@ related_workflows:
 
 ครอบคลุม use cases และ edge cases ครบถ้วน
 
-- ครอบคลุม use cases ครบถ้วน (ทำ `/improve-coverage`)
+- ครอบคลุม use cases ครบถ้วน (ทำ `/improve-completeness`)
 - ครอบคลุม edge cases และ conditional execution
 - Expected Outcome สอดคล้องกับ Goal
 - ไม่มี missing sections หรือ steps (ทำ `/improve-completeness`)

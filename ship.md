@@ -7,8 +7,10 @@ related_workflows:
   - /implement-features-to-mvp
   - /refactor
   - /run-verify
-  - /verify-test
+  - /validate-test
+  - /cleanup-files
   - /run-dev
+  - /report-ship
 ---
 
 ## Goal
@@ -45,7 +47,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 ### 6. Setup Monorepo
 
 1. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo` และ `/analyze-project` เพื่อดู workspace configuration
-2. ทำขั้นตอน 7-15 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
+2. ทำขั้นตอน 7-16 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
 
 ### 7. Refactor
 
@@ -71,7 +73,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ### 12. Cleanup
 
-1. ทำ `/simplify` เพื่อลบไฟล์และโฟลเดอร์ที่ไม่จำเป็น
+1. ทำ `/cleanup-files` เพื่อลบไฟล์ โฟลเดอร์ dependencies และ dead code ที่ไม่จำเป็น
 
 ### 13. Run Verify
 
@@ -79,11 +81,15 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ### 14. Verify Test Quality (Optional)
 
-1. ถ้า project มี tests ให้ทำ `/verify-test` เพื่อตรวจสอบ test quality
+1. ถ้า project มี tests ให้ทำ `/validate-test` เพื่อตรวจสอบ test quality
 
 ### 15. Run Dev
 
 1. ทำ `/run-dev` เพื่อรัน development server จนกว่าจะผ่าน
+
+### 16. Report Ship
+
+1. ทำ `/report-ship` เพื่อรายงานผลลัพธ์การ ship code ครบวงจร
 
 ## Rules
 
@@ -132,3 +138,5 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 - Test quality ผ่านการ verify ครบวงจร (ถ้าใช้)
 - Development server ทำงานได้ ไม่มี critical errors
 - References อัพเดทครบถ้วน ไม่มี references เสียหาย
+- Codebase สะอาด ไม่มีไฟล์หรือ dependencies ที่ไม่จำเป็น
+- รายงานผลลัพธ์การ ship code ครบวงจร

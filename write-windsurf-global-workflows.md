@@ -136,6 +136,13 @@ related_workflows:
 8. ทำ `/improve-correctness` เพื่อตรวจสอบความถูกต้อง
 9. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัดและ references มีอยู่จริง
 
+### 6. Suggest Related Workflows
+
+1. ทำ `/suggest-next-action` เพื่อแนะนำ global workflows ที่ควรใช้ต่อ
+2. วิเคราะห์จาก workflow ที่เพิ่งเขียนว่ามี workflows อื่นที่เกี่ยวข้องหรือควรใช้ร่วมกัน
+3. ตรวจสอบว่า workflows ที่แนะนำมีอยู่จริงใน `global_workflows`
+4. แนะนำเป็นลิสต์พร้อมเหตุผลว่าทำไมควรใช้
+
 ## Example Template
 
 ```markdown
@@ -178,3 +185,4 @@ auto_execution_mode: 3
 - ไม่เกิน 250 บรรทัด
 - Workflows ที่อ้างอิงมีอยู่จริง
 - ให้ผลลัพธ์เหมือนกันทุกครั้ง
+- แนะนำ global workflows ที่ควรใช้ต่อ

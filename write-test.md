@@ -36,21 +36,42 @@ related_workflows:
 
 ทำ `/improve-naming` เพื่อปรับปรุง naming conventions ก่อนเขียน test
 
-### 5. Define Testing Strategy
+### 5. Detect Test Framework And Define Strategy
 
-กำหนด testing strategy ที่ครบถ้วน
+ตรวจสอบ test framework และกำหนด testing strategy
 
-1. กำหนด test pyramid ที่เหมาะสม (unit, integration, e2e)
-2. กำหนด test types ที่จำเป็น (unit, integration, e2e, contract, property-based, mutation, performance, security, accessibility, visual regression)
-3. กำหนด coverage targets สำหรับแต่ละ test type
-4. กำหนด test priorities ตาม criticality
-5. กำหนด test environments (local, staging, production)
+1. ตรวจสอบ `package.json` หรือ `Cargo.toml` สำหรับ test dependencies (`vitest`, `jest`, `pytest`, `go test`)
+2. ตรวจสอบ config files (`vitest.config.ts`, `jest.config.js`, `pytest.ini`)
+3. ตรวจสอบ coverage tools ที่ framework รองรับ (`c8`, `istanbul`, `coverage.py`, `go test -cover`)
+4. กำหนด test pyramid ที่เหมาะสม (unit, integration, e2e)
+5. กำหนด test types ที่จำเป็น (unit, integration, e2e, contract, property-based, mutation, performance, security, accessibility, visual regression)
+6. กำหนด coverage targets สำหรับแต่ละ test type
+7. กำหนด test priorities ตาม criticality
+8. กำหนด test environments (local, staging, production)
 
-### 6. Write Tests
+### 6. Analyze Uncovered Code
 
-เขียน test ตามประเภทและ conventions ของภาษาที่ใช้
+วิเคราะห์ codebase เพื่อหาส่วนที่ยังไม่มี test
 
-### 7. Implement Formal Verification
+1. รัน coverage analysis ตาม framework ที่ใช้
+2. ระบุ files ที่มี coverage ต่ำกว่า 100%
+3. ระบุ functions/lines/branches ที่ยังไม่ถูก test
+4. จัดลำดับ priority ตามความสำคัญของ code
+5. สร้าง list ของ test cases ที่ต้องเขียน
+
+### 7. Write Tests
+
+เขียน test ตามประเภทและ conventions ของภาษาที่ใช้ ครอบคลุม happy paths, error paths, edge cases, และ boundary conditions
+
+### 8. Verify Coverage
+
+ตรวจสอบว่า coverage ถึง 100% ทุกประเภท
+
+1. รัน coverage analysis อีกครั้ง
+2. ตรวจสอบ `lines`, `branches`, `functions`, `statements` coverage ถึง 100%
+3. หากไม่ถึง 100% ทำขั้นตอน 6-8 ซ้ำจนกว่าจะครบ
+
+### 9. Implement Formal Verification
 
 ทำ formal verification สำหรับ critical components
 
@@ -69,7 +90,7 @@ related_workflows:
 4. Verify invariants ด้วย automated tools
 5. Document formal verification results
 
-### 8. Sync and Verify
+### 10. Sync and Verify
 
 อัพเดท SPEC.md ด้วย test cases ที่เขียนแล้ว และรัน `/update-references`
 
@@ -156,14 +177,16 @@ tests/
 - ใช้ environment variables สำหรับ secrets
 - ใช้ `test databases` แยกจาก production
 
-### 6. Performance and Coverage
+### 6. Performance And Coverage
 
 - Unit tests: `< 10ms` ต่อ test
 - Integration tests: `< 100ms` ต่อ test
 - ใช้ `parallel execution` เมื่อ tests ไม่ dependent กัน
 - `100% coverage` สำหรับทุก test cases ที่ระบุใน spec
-- ตรวจสอบ coverage ด้วย tools
+- ตรวจสอบ coverage ด้วย tools ตาม framework (`vitest run --coverage`, `cargo llvm-cov`, `pytest --cov`)
 - ตั้งค่า coverage thresholds ใน CI เป็น 100%
+- หาก coverage ไม่ถึง 100% ต้องเขียน test เพิ่ม ไม่มีข้อยกเว้น
+- ทุก branches ต้องถูก test รวมถึง error paths และ boundary conditions
 
 ### 7. Testing Strategy
 

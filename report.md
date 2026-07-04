@@ -4,10 +4,8 @@ description: ตอบในแชทเป็นตารางพร้อม 
 auto_execution_mode: 3
 related_workflows:
   - /report-format-table
-  - /report-format-numbered-list
-  - /report-progress
+  - /report-format-terminal
   - /report-status
-  - /report-error
   - /report-before-after
   - /follow-content-quality
 ---
@@ -36,11 +34,11 @@ related_workflows:
 จัดรูปแบบข้อมูลตามประเภทที่เหมาะสม
 
 1. ถ้าข้อมูลมีหลาย columns ที่ต้องเปรียบเทียบ ใช้ `/report-format-table`
-2. ถ้าต้องการเน้นลำดับความสำคัญ ใช้ `/report-format-numbered-list`
+2. ถ้าต้องการเน้นลำดับความสำคัญ ใช้ `/report-format-table` พร้อม numbered columns
 3. ถ้าเหมาะสม สามารถผสมทั้งสองรูปแบบในรายงานเดียวกันได้
-4. ถ้าเป็นรายงานความคืบหน้า ใช้ `/report-progress`
+4. ถ้าเป็นรายงานความคืบหน้า ใช้ `/report-format-terminal`
 5. ถ้าเป็นรายงานสถานะ ใช้ `/report-status`
-6. ถ้าเป็นรายงาน error ใช้ `/report-error`
+6. ถ้าเป็นรายงาน error ใช้ `/report-format-terminal`
 
 ### 3. Apply Grouping And Sorting
 

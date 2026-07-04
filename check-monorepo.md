@@ -47,7 +47,7 @@ auto_execution_mode: 3
 1. รายงาบว่า project เป็น monorepo หรือไม่
 2. ถ้าเป็น monorepo ให้ระบุ workspaces ทั้งหมด
 3. ถ้าเป็น monorepo ให้ระบุ monorepo tool ที่ใช้
-4. ใช้ `/report-format-summary` สำหรับ output
+4. ใช้ `/report-format-table` สำหรับ output
 
 ## Rules
 

@@ -125,7 +125,7 @@ related_workflows:
 
 รายงานสถานะการปรับปรุง comments
 
-- ใช้ `/report-format-summary` สำหรับสรุปผลลัพธ์
+- ใช้ `/report-format-table` สำหรับสรุปผลลัพธ์
 - ระบุจำนวน comments ที่ถูกลบและเพิ่ม
 - ระบุไฟล์ที่มีการเปลี่ยนแปลง
 - แสดง examples ของ comments ที่ปรับปรุง

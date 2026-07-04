@@ -34,6 +34,7 @@ auto_execution_mode: 3
 ### 4. Report Results
 
 - ทำ `/report` เพื่อสรุปผลการตรวจสอบ
+- ท้า /suggest-next-action เพือแนะนำอก์ชันถัดไป้
 - แนะนำการแก้ไขที่ concrete
 - ระบุ priority สำหรับการแก้ไข
 

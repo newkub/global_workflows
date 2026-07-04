@@ -73,7 +73,7 @@ related_workflows:
 
 1. ทำ `/run-lint` และ `/run-typecheck`
 2. ทำ `/run-test` เพื่อตรวจสอบคุณภาพ
-3. ทำ `/report-format-summary` สำหรับสรุปผลลัพธ์
+3. ทำ `/report-format-table` สำหรับสรุปผลลัพธ์
 
 ## Rules
 

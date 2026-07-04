@@ -34,7 +34,7 @@ related_workflows:
 
 ทดสอบ security vulnerabilities
 
-- ทำ `/test-security` เพื่อทดสอบ security ครบถ้วน
+- ทำ `/run-test` เพื่อทดสอบ security ครบถ้วน
 - ทดสอบ XSS, SQL Injection, CSRF
 - ทดสอบ authentication bypass
 - ทดสอบ authorization flaws

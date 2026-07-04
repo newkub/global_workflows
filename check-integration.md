@@ -3,7 +3,7 @@ title: Check Integration
 description: ตรวจสอบ integration points และ data flow
 auto_execution_mode: 3
 related_workflows:
-  - /test-integration
+  - /run-test
 ---
 
 ## Goal

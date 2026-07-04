@@ -32,7 +32,7 @@ related_workflows:
 
 ทดสอบ accessibility อย่างครบถ้วน
 
-- ทำ `/test-accessibility` เพื่อทดสอบ accessibility ครบถ้วน
+- ทำ `/run-test` เพื่อทดสอบ accessibility ครบถ้วน
 - ทดสอบด้วย screen readers (NVDA, JAWS, VoiceOver)
 - ทดสอบ keyboard navigation
 - ทดสอบ color contrast

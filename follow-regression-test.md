@@ -8,9 +8,6 @@ auto_execution_mode: 3
 
 related_workflows:
   - /run-test
-  - /test-e2e
-  - /test-integration
-  - /test-function
 
 ---
 

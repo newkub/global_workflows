@@ -3,8 +3,8 @@ title: Report Status
 description: รายงานสถานะปัจจุบันของระบบหรือโปรเจกต์
 auto_execution_mode: 3
 related_workflows:
-  - /report-progress
-  - /report-error
+  - /report-format-terminal
+  - /report-format-terminal
 ---
 
 ## Goal

@@ -64,6 +64,7 @@ related_workflows:
 ### 7. Report And Recommendations
 
 1. ทำ `/report` สร้างตารางจัดกลุ่มตามหมวดหมู่
+2. ท้า /suggest-next-action เพือแนะนำอก์ชันถัดไป้
 2. ให้ recommendations ตาม priority
 
 ## Rules

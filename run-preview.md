@@ -7,7 +7,7 @@ related_workflows:
   - /run-dev
   - /run-deploy
   - /watch-browser
-  - /test-website
+  - /run-test
   - /report-format-table
 ---
 
@@ -51,7 +51,7 @@ related_workflows:
 2. ทำ `/watch-browser` เพื่อตรวจสอบหน้าเว็บต่อเนื่อง
 3. ทดสอบ features สำคัญที่เปลี่ยนแปลงล่าสุด
 4. ตรวจสอบ console errors และ warnings
-5. ทำ `/test-website` สำหรับทดสอบแบบละเอียด
+5. ทำ `/run-test` สำหรับทดสอบแบบละเอียด
 
 ### 4. Verify Preview
 
@@ -91,7 +91,7 @@ related_workflows:
 - ทดสอบ critical user flows ทุกครั้ง
 - ทดสอบ responsive design บนหลาย screen sizes
 - ใช้ `/watch-browser` สำหรับตรวจสอบต่อเนื่อง
-- ใช้ `/test-website` สำหรับทดสอบแบบละเอียด
+- ใช้ `/run-test` สำหรับทดสอบแบบละเอียด
 - ใช้ `/report-format-table` สำหรับรายงาน issues
 - Preview server ควรหยุดเมื่อไม่ใช้งาน
 - ลบ preview builds เก่าเป็นระยะ
