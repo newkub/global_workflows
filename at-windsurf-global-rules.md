@@ -47,7 +47,7 @@ auto_execution_mode: 3
 
 ปฏิบัติตาม Execute steps ใน global rules
 
-- Prepare: ทำ `/follow-agents-md`, `/ship-code`, `/setup-tasks`
+- Prepare: ทำ `/follow-agents-md`, `/ship`, `/setup-tasks`
 - Analyze: ทำ `/analyze-project`, จัดการ errors
 - Read Reference: อ่าน workflows, skills, global rules
 - Search Code: ใช้ `Grep`, `find_by_name`

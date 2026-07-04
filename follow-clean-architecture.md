@@ -1,7 +1,14 @@
 ---
-title: Clean Architecture
+title: Follow Clean Architecture
 description: Ultra Minimal Clean Architecture - Production-Ready Guidelines for Teams
 auto_execution_mode: 3
+related_workflows:
+  - /follow-functional-programming
+  - /follow-functional-core-imperative-shell
+  - /follow-event-driven
+  - /follow-layered-architecture
+  - /refactor-modules
+  - /write-test
 ---
 
 ## Goal
@@ -16,57 +23,50 @@ Implement Functional Clean Architecture ด้วย Vertical Slice Architecture
 
 ### 1. Setup Project Structure
 
-ทำ `/config` เพื่อตั้งค่า `src/` ตาม Clean Architecture:
+ทำ `/follow-config` เพื่อตั้งค่า `src/` ตาม Clean Architecture:
 
 ```
 src/
-├── modules/                      # Feature modules (Vertical Slice Architecture)
+├── modules/                      # Feature modules (Vertical Slice)
 │   └── [module-name]/            # e.g., booking, payment, user
-│       ├── types/                # Domain types (type aliases)
-│       ├── domain/               # Pure business logic - no dependencies
-│       │   ├── models/           # Data models (readonly types)
-│       │   ├── operations/       # Pure functions for business logic
-│       │   ├── validators/       # Domain validation functions
-│       │   └── events/           # Domain event types only (no handlers)
-│       ├── application/          # Orchestration layer (pipeline style)
+│       ├── types/                # Domain type definitions
+│       ├── domain/               # Pure business logic (no deps)
+│       │   ├── models/           # Readonly data models
+│       │   ├── operations/       # Pure business functions
+│       │   ├── validators/       # Domain validation
+│       │   └── events/           # Domain event types (no handlers)
+│       ├── application/          # Orchestration layer
 │       │   ├── usecases/         # Flow orchestration
-│       │   └── workflows/        # Complex workflows
+│       │   └── workflows/        # Complex multi-step workflows
 │       ├── ports/                # Module-specific interfaces
 │       └── index.ts              # Public API exports
-
 ├── adapters/                     # External systems integration
-│   ├── db/                       # Database layer
+│   ├── db/                       # Database implementations
 │   ├── http/                     # HTTP clients
 │   ├── external/                 # External services
 │   └── config/                   # Configuration management
-
 ├── presentation/                 # Entry points
 │   ├── http/                     # HTTP handlers and routes
 │   ├── cli/                      # CLI commands
 │   └── events/                   # Event handlers
-
 ├── shared/                       # Shared kernel
 │   ├── types/                    # Common types (Result, Option, Either)
 │   ├── utils/                    # Pure utility functions
 │   ├── errors/                   # Error types
-│   └── constants/                # Static constants (compile-time)
+│   └── constants/                # Static constants
 
-test/                             # Test suite (mirror src structure)
-├── fixtures/                    # Shared test data and mocks
-├── helpers/                     # Test utilities and setup
-└── modules/                     # Mirror src/modules structure
-    └── [module-name]/
-        ├── domain/              # Domain logic tests
-        ├── application/         # Use case tests
-        └── [other-layers]/      # Other layer tests
+test/                             # Mirror src structure
+├── fixtures/                     # Shared test data and mocks
+├── helpers/                      # Test utilities and setup
+└── modules/                      # Mirror src/modules
 
-// distributed/ - Plugin layer (disabled by default)
-// ONLY create when you need: distributed systems, event-driven saga, cross-module orchestration
+// distributed/ - Plugin layer (optional)
+// ONLY create when you need: distributed systems, saga, cross-module orchestration
 ```
 
 ### 2. Create Shared Kernel
 
-ทำ `/functional-programming` เพื่อสร้าง `shared/`:
+ทำ `/follow-functional-programming` เพื่อสร้าง `shared/`:
 
 - `types/` - Common types (`Result`, `Option`)
 - `utils/` - Pure utility functions
@@ -75,17 +75,17 @@ test/                             # Test suite (mirror src structure)
 
 ### 3. Implement Functional Core
 
-ทำ `/functional-core-imperative-shell` เพื่อเขียน business logic ใน `modules/*/domain/`:
+ทำ `/follow-functional-core-imperative-shell` เพื่อเขียน business logic ใน `modules/*/domain/`:
 
 - ใช้ `pure functions` เท่านั้น
 - Immutable data structures (`readonly`)
 - ไม่มี side effects
 - ไม่พึ่ง infrastructure
-- ทำ `/improve-architecture` เพื่อใช้ patterns ที่เหมาะสมกับ functional core
+- ทำ `/review-architecture` เพื่อใช้ patterns ที่เหมาะสมกับ functional core
 
 ### 4. Implement Application Layer
 
-ทำ `/event-driven` เพื่อสร้าง orchestration layer ใน `modules/*/application/`:
+ทำ `/follow-event-driven` เพื่อสร้าง orchestration layer ใน `modules/*/application/`:
 
 - `usecases/` - Flow orchestration
 - `workflows/` - Complex multi-step workflows
@@ -93,7 +93,7 @@ test/                             # Test suite (mirror src structure)
 
 ### 5. Implement Adapters
 
-ทำ `/layered-architecture` เพื่อสร้าง adapters layer:
+ทำ `/follow-layered-architecture` เพื่อสร้าง adapters layer:
 
 - `adapters/db/` - Database implementations
 - `adapters/http/` - HTTP clients
@@ -102,7 +102,7 @@ test/                             # Test suite (mirror src structure)
 
 ### 6. Implement Presentation Layer
 
-ทำ `/layered-architecture` เพื่อสร้าง presentation layer:
+ทำ `/follow-layered-architecture` เพื่อสร้าง presentation layer:
 
 - `presentation/http/` - HTTP handlers and routes
 - `presentation/cli/` - CLI commands
@@ -110,7 +110,7 @@ test/                             # Test suite (mirror src structure)
 
 ### 7. Refactor Existing Code
 
-ทำ `/refactor-workspace` เพื่อย้าย code ไปยัง structure ใหม่:
+ถ้า project มี existing code ให้ทำ `/refactor` เพื่อย้าย code ไปยัง structure ใหม่:
 
 1. ย้าย business logic ไป `modules/*/domain/operations/`
 2. ย้าย data models ไป `modules/*/domain/models/` เป็น `readonly` types
@@ -132,6 +132,17 @@ test/                             # Test suite (mirror src structure)
 - Test fixtures - Shared test data ใน `test/fixtures/` (factories)
 - Test helpers - Test utilities ใน `test/helpers/` (setup/teardown)
 
+### 9. Split Modules When Too Large
+
+ถ้า module โตเกินเกณฑ์ ให้ทำ `/refactor-modules`:
+
+1. วัด module size: ไฟล์เกิน 15, `domain/operations/` เกิน 300 บรรทัด, `application/usecases/` เกิน 5 usecases, `index.ts` export เกิน 20 symbols
+2. ระบุ domain boundaries โดยจัดกลุ่ม operations ที่เกี่ยวข้องเป็น cluster
+3. เลือก pattern: **sub-module** (ยังเกี่ยวข้อง parent), **sibling module** (อิสระ), **shared module** (ใช้ร่วม)
+4. แต่ละ sub-module ต้องเขียน responsibility ได้ในประโยคเดียว (SRP)
+5. สร้าง sub-module directories ตาม Clean Architecture structure
+6. ทำ `/edit-relative` เพื่ออัปเดท imports
+7. ทำ `/run-test` เพื่อยืนยัน functionality ไม่พัง
 
 ## Rules
 
@@ -180,13 +191,21 @@ Clean Architecture มี 3 rules หลัก:
 - Prototype/MVP ต้องความเร็ว
 - One-person project ระยะสั้น
 
+### 5. Module Splitting
+
+- ผ่าน 2+ triggers = ควร split
+- ไม่ split module ที่ < 5 ไฟล์ (`over-engineering`)
+- แต่ละ sub-module ควรมี 3-10 ไฟล์
+- ไม่ split ถ้าทำให้เกิด `circular dependency`
+- ไม่ split ใน prototype/MVP phase
+- sub-module ที่ได้ต้องเขียน responsibility ได้ในประโยคเดียว (SRP)
+
 ## Expected Outcome
 
-- Final Boss Version Functional Clean Architecture - Enterprise-ready
-- Pure domain logic ใน `modules/` (100% functional + math-like core)
-- Clear application orchestration - "What happens next" decisions
-- Architecture drift prevention - Clear decision boundaries + dependency rules
-- Side effects isolation - Limited to adapters layer
-- Production-grade testability - Pure functions + clear boundaries
-- Developer-friendly - Fast onboarding + minimal complexity
-
+- Functional Clean Architecture ที่ production-ready และ enterprise-grade
+- Pure domain logic ใน `modules/` (100% functional)
+- Clear application orchestration สำหรับ "What happens next" decisions
+- Architecture drift prevention ด้วย clear decision boundaries
+- Side effects isolation จำกัดใน `adapters/` layer เท่านั้น
+- Production-grade testability จาก pure functions + clear boundaries
+- Developer-friendly ด้วย fast onboarding + minimal complexity

@@ -3,8 +3,9 @@ title: Choose Tech Stack
 description: เลือก tech stack ที่เหมาะสมสำหรับ project ตาม requirements และ constraints
 auto_execution_mode: 3
 related_workflows:
-  - /use-rust-in-ts
-  - /design-system
+  - /follow-typescript
+  - /follow-rust
+  - /follow-best-practice
 ---
 
 ## Goal
@@ -17,127 +18,73 @@ related_workflows:
 
 ## Execute
 
-### 1. วิเคราะห์ Requirements
+### 1. Analyze Requirements
 
-#### Functional Requirements
-- ประเภท application (web, mobile, desktop, CLI, TUI, etc.)
-- Features หลักที่ต้องการ
-- Scale ที่คาดหวัง (users, data, requests)
-- Real-time requirements (WebSocket, streaming, etc.)
+วิเคราะห์ requirements ของ project
 
-#### Non-Functional Requirements
-- Performance requirements (latency, throughput)
-- Security requirements
-- Availability/Reliability
-- Maintainability
-- Time-to-market
+1. ระบุ functional requirements: ประเภท application, features หลัก, scale, real-time needs
+2. ระบุ non-functional requirements: performance, security, availability, maintainability, time-to-market
+3. ระบุ constraints: team expertise, budget, timeline, infrastructure, regulatory
+4. ทำ `/follow-best-practice` สำหรับ context ของ project นั้นๆ
 
-#### Constraints
-- Team expertise
-- Budget
-- Timeline
-- Infrastructure constraints
-- Regulatory requirements
+### 2. Choose Programming Language
 
-### 2. เลือก Programming Language
+เลือกภาษาตามประเภท application
 
-#### Web Applications
-- **TypeScript/JavaScript** - Default choice, ecosystem ใหญ่
-- **Rust** - High performance, memory safety
-- **Go** - Simple, fast, good for backend
-- **Python** - AI/ML, rapid prototyping
+1. Web Applications: TypeScript (default), Rust (high performance), Go (simple backend), Python (AI/ML)
+2. Mobile Applications: React Native (cross-platform), Flutter (performance), Swift/Kotlin (native)
+3. Desktop Applications: Tauri (Rust + Web, small bundle), Electron (web tech), Flutter (cross-platform)
+4. CLI/TUI Applications: Rust (performance, single binary), Go (simple), Node.js (ecosystem)
+5. ทำ `/follow-typescript` หรือ `/follow-rust` ตามภาษาที่เลือก
 
-#### Mobile Applications
-- **React Native** - Cross-platform, large ecosystem
-- **Flutter** - Cross-platform, good performance
-- **Swift/Kotlin** - Native, best performance
+### 3. Choose Frameworks And Libraries
 
-#### Desktop Applications
-- **Electron** - Web technologies, cross-platform
-- **Tauri** - Rust + Web, smaller bundle
-- **Flutter** - Cross-platform
+เลือก frameworks และ libraries ตามภาษา
 
-#### CLI/TUI Applications
-- **Rust** - Performance, single binary
-- **Go** - Simple, fast
-- **Node.js** - Easy to write, large ecosystem
+1. Web Frontend: Next.js (React), Nuxt (Vue), SvelteKit (Svelte), Vite (build tool)
+2. Web Backend: Nitro (universal), Express/Fastify (Node.js), Axum (Rust), Gin/Echo (Go)
+3. Database: PostgreSQL (relational), MongoDB (NoSQL), SQLite (embedded)
+4. State Management: Pinia (Vue), Zustand (React)
 
-### 3. เลือก Frameworks & Libraries
+### 4. Choose Build Tools
 
-#### Web Frontend
-- **Next.js** - React framework, SSR/SSG
-- **Nuxt** - Vue framework, SSR/SSG
-- **SvelteKit** - Svelte framework, SSR/SSG
-- **Vite** - Build tool, fast HMR
+เลือก build tools ตามภาษา
 
-#### Web Backend
-- **Nitro** - Universal web framework
-- **Express/Fastify** - Node.js frameworks
-- **Actix/Axum** - Rust frameworks
-- **Gin/Echo** - Go frameworks
+1. JavaScript/TypeScript: Vite, Rolldown, SWC
+2. Rust: Cargo, Moon (monorepo)
+3. Go: Go build
 
-#### Database
-- **PostgreSQL** - Relational, feature-rich
-- **MySQL** - Relational, popular
-- **MongoDB** - NoSQL, flexible
-- **SQLite** - Embedded, simple
+### 5. Choose Deployment Platform
 
-#### State Management
-- **Pinia** - Vue state management
-- **Zustand** - React state management
-- **Redux** - React state management (complex)
+เลือก deployment platform ตาม requirements
 
-### 4. เลือก Build Tools
+1. Serverless: Cloudflare Workers, Vercel, AWS Lambda
+2. Containers: Docker, Kubernetes
+3. Traditional: VPS, PaaS (Railway)
 
-#### JavaScript/TypeScript
-- **Vite** - Fast, modern
-- **Turbopack** - Rust-based, fast
-- **Rolldown** - Rust-based Rollup alternative
-- **SWC** - Fast compiler
+### 6. Create Decision Matrix
 
-#### Rust
-- **Cargo** - Official build tool
-- **Moon** - Task runner for monorepos
+สร้างตารางเปรียบเทียบ tech options
 
-#### Go
-- **Go build** - Official build tool
+1. กำหนด criteria: development speed, performance, scalability, ecosystem maturity, learning curve, cost, maintenance
+2. ให้คะแนนแต่ละ criterion (0-10)
+3. คำนวณ weighted score สำหรับแต่ละ option
+4. เปรียบเทียบ total scores
 
-### 5. เลือก Deployment Platform
+### 7. Test And Validate
 
-#### Serverless
-- **Cloudflare Workers** - Edge computing
-- **Vercel** - Easy deployment
-- **AWS Lambda** - Mature ecosystem
+ทดสอบและ validate decision
 
-#### Containers
-- **Docker** - Standard containerization
-- **Kubernetes** - Orchestration
-
-#### Traditional
-- **VPS** - Full control
-- **PaaS** - Heroku, Railway
-
-### 6. สร้าง Decision Matrix
-
-สร้างตารางเปรียบเทียบ tech options ตาม criteria:
-- Development speed
-- Performance
-- Scalability
-- Ecosystem maturity
-- Learning curve
-- Cost
-- Maintenance burden
-
-### 7. ทดสอบและ Validate
-
-- Build MVP/prototype
-- Measure performance
-- Evaluate developer experience
-- Check long-term viability
+1. Build MVP/prototype ด้วย tech stack ที่เลือก
+2. Measure performance จริง
+3. Evaluate developer experience
+4. Check long-term viability
 
 ## Rules
 
 ### 1. Start Simple
+
+เริ่มจาก solutions ที่พิสูจน์แล้ว
 
 - ใช้ tech stack ที่ team คุ้นเคย
 - ไม่ over-engineering ด้วย tech ล้ำสมัย
@@ -145,17 +92,23 @@ related_workflows:
 
 ### 2. Consider Trade-offs
 
+พิจารณา trade-offs ของแต่ละ tech
+
 - ทุก tech มี pros และ cons
 - วัด impact ต่อ development speed, performance, maintenance
 - พิจารณา long-term viability
 
 ### 3. Prototype First
 
+ทดสอบก่อน commit
+
 - ทดลอง build MVP/prototype
 - วัด performance จริง
 - ประเมิน developer experience
 
 ### 4. Think Long-term
+
+คำนึงถึง long-term maintenance
 
 - maintenance สำคัญกว่า initial speed
 - พิจารณา ecosystem maturity
@@ -167,25 +120,3 @@ related_workflows:
 - Decision matrix ที่ชัดเจน
 - Prototype ที่ทดสอบแล้ว
 - Risk assessment ที่ครบถ้วน
-
-## Common Mistakes
-
-- เลือก tech เพราะ trend โดยไม่ fit requirements
-- ไม่พิจารณา team expertise
-- เลือก over-engineered solutions
-- ไม่ทดสอบก่อน commit
-
-## Examples
-
-| Project Type | Recommended Stack |
-|--------------|------------------|
-| Small Web App | Next.js + TypeScript + Tailwind CSS + Vercel |
-| High-Performance API | Rust + Axum + PostgreSQL + Docker |
-| CLI Tool | Rust + Clap + Directories |
-| Cross-Platform Desktop | Tauri + React + TypeScript |
-
-## References
-
-- [Tech Stack Decision Framework](https://github.com/collections/tech-stack)
-- [Choose Your Boring Technology](https://mcfunley.com/choose-your-boring-technology)
-

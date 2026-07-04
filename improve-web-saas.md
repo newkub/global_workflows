@@ -3,17 +3,17 @@ title: Improve Web SaaS
 description: ปรับปรุง web SaaS application ครบวงจรเพื่อความสมบูรณ์และ scalability
 auto_execution_mode: 3
 related_workflows:
-  - improve-web-performance
-  - improve-uxui
-  - improve-seo
-  - improve-integrations
-  - improve-security
-  - improve-scalability
-  - improve-database
-  - improve-error-handling
-  - improve-monitoring
-  - improve-dx
-  - follow-content-quality
+  - /improve-web-performance
+  - /improve-uxui
+  - /improve-seo
+  - /improve-integrations
+  - /improve-security
+  - /improve-scalability
+  - /improve-database
+  - /improve-error-handling
+  - /improve-monitoring
+  - /improve-dx
+  - /follow-content-quality
 ---
 
 ## Goal
@@ -35,6 +35,8 @@ related_workflows:
 3. ตรวจสอบ multi-tenancy implementation
 4. ตรวจสอบ authentication และ authorization
 5. ตรวจสอบ billing และ subscription logic
+6. ถ้า project มี CLI tools ให้ตรวจสอบ API integration ด้วย
+7. ถ้า project มี SDK ให้ตรวจสอบ developer API surface
 
 ### 2. Improve Performance
 
@@ -52,9 +54,9 @@ related_workflows:
 
 1. ทำ `/improve-uxui` สำหรับ UX/UI improvements
 2. ปรับปรุง onboarding flow
-3. ปรับปรุย user dashboard
-4. ปรับปรุย settings interface
-5. ปรับปรุย notification experience
+3. ปรับปรุง user dashboard
+4. ปรับปรุง settings interface
+5. ปรับปรุง notification experience
 
 ### 4. Improve SEO
 
@@ -128,13 +130,21 @@ related_workflows:
 
 ### 11. Improve Developer Experience
 
-ปรับปรุย developer experience
+ปรับปรุง developer experience
 
 1. ทำ `/improve-dx` สำหรับ DX improvements
 2. Improve build times
 3. Improve deployment process
 4. Improve local development
 5. Improve documentation
+
+### 12. Verify And Report
+
+ตรวจสอบผลการปรับปรุง
+
+1. ทำ `/check-correctness` เพื่อ verify การเปลี่ยนแปลง
+2. ทำ `/run-verify` เพื่อตรวจสอบ quality รวม
+3. ทำ `/report` เพื่อสรุปการปรับปรุงครบวงจร
 
 ## Rules
 

@@ -39,9 +39,19 @@ auto_execution_mode: 3
 
 อ่าน content จาก official documentation URLs ตาม ## Rules ข้อ 5
 
-### 6. Synthesize Findings
+### 6. Find Latest Year
 
-รวบรวมข้อมูลจากทุก sources เปรียบเทียบและ cross-reference สรุป findings ที่สำคัญ และจัดกลุ่มตามหมวดหมู่
+ค้นหาปีล่าสุดของข้อมูลที่เกี่ยวข้อง เพื่อให้ได้ข้อมูลที่ current ที่สุด:
+
+- ค้นหาด้วย keywords ที่ระบุปี เช่น `2025`, `2026`, `latest`
+- ใช้ `search_web` กับ query ที่มีปีปัจจุบัน เช่น `<topic> 2026`, `<topic> latest`
+- ตรวจสอบ publish dates และ release dates จากทุก sources
+- เปรียบเทียบปีจาก NPM registry, GitHub releases, และ official documentation
+- เลือกข้อมูลที่มีปีล่าสุดเป็น primary source
+
+### 7. Synthesize Findings
+
+รวบรวมข้อมูลจากทุก sources เปรียบเทียบและ cross-reference สรุป findings ที่สำคัญ และจัดกลุ่มตามหมวดหมู่ โดยเน้นข้อมูลที่มีปีล่าสุด
 
 ## Rules
 
@@ -94,11 +104,13 @@ auto_execution_mode: 3
 
 ### 6. Information Freshness
 
-ตรวจสอบ dates และ recency ของข้อมูล:
+ตรวจสอบ dates และ recency ของข้อมูล โดยเน้นการค้นหาปีล่าสุด:
 
-- ตรวจสอบว่าข้อมูลเป็นปัจจุบัน
-- เปรียบเทียบ publish dates
-- ตรวจสอบ version compatibility
+- ค้นหาปีล่าสุดจากทุก sources ก่อนใช้ข้อมูล
+- ใช้ `search_web` กับ query ที่มีปีปัจจุบัน เช่น `<topic> 2026`
+- เปรียบเทียบ publish dates และ release dates จาก NPM, GitHub, และ official docs
+- ตรวจสอบ version compatibility กับปีล่าสุด
+- เลือกข้อมูลที่มีปีล่าสุดเป็น primary source
 - ติดตาม updates จาก sources หลัก
 
 ## Expected Outcome
@@ -106,3 +118,4 @@ auto_execution_mode: 3
 - ข้อมูลครบถ้วนจาก multiple sources
 - Cross-referenced findings ที่ถูกต้อง
 - สรุป findings ที่สำคัญ
+- ข้อมูลที่ใช้เป็นปีล่าสุด (latest year)

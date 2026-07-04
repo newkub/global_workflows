@@ -6,7 +6,6 @@ related_workflows:
   - /idea-uxui
   - /improve-ui
   - /follow-web-design
-  - /follow-dev-workflows
 ---
 
 ## Goal

@@ -76,7 +76,7 @@ related_workflows:
 ### 1. Scripts Levels
 
 เลือกระดับตามขนาดและความซับซ้อนของโปรเจกต์
-- **Minimal** (Default): dev, build, typecheck, lint, format, test, scan, verify, ci - เหมาะสำหรับโปรเจกต์ส่วนใหญ่
+- **Minimal** (Default): dev, build, typecheck, lint, format, test, scan, verify - เหมาะสำหรับโปรเจกต์ส่วนใหญ่
 - **Standard**: Minimal + test:watch, test:coverage, deps:analyze, clean, security, db scripts, predeploy, deploy:staging - เหมาะสำหรับโปรเจกต์ที่ต้องการ testing และ dependency management เพิ่มเติม
 - **Complete**: Standard + build:watch, typecheck:watch, test:integration, test:e2e, benchmarks, prerelease, release, db:studio - เหมาะสำหรับ infra/tooling team
 
@@ -105,8 +105,7 @@ Scripts พื้นฐานที่ทุกโปรเจกต์ต้อ
 | test | vitest run | vitest run | vitest run | vitest run | vitest run | vitest run | cargo nextest run | pytest | go test ./... |
 | scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | cargo clippy --all-targets | ruff check | golangci-lint run |
 | check | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | cargo clippy && cargo check | ruff check && mypy | golangci-lint run && go vet |
-| verify | check && test | check && test | check && test | check && test | check && test | check && test | cargo clippy && cargo check && cargo nextest run | ruff check && mypy && pytest | golangci-lint run && go vet && go test |
-| ci | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build |
+| verify | check && test && build | check && test && build | check && test && build | check && test && build | check && test && build | check && test && build | cargo clippy && cargo check && cargo nextest run && cargo build | ruff check && mypy && pytest && python -m build | golangci-lint run && go vet && go test && go build . |
 
 ### 3. Watch Mode Scripts
 
@@ -176,7 +175,7 @@ Scripts สำหรับ deployment เพื่อรับประกัน
 
 | Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Rust | Python | Go |
 |------|-----|------|---------|------------|----------|------|--------|----|
-| predeploy | bun run verify && bun run build | bun run verify && bun run build | bun run verify && bun run build | bun run verify && bun run build | bun run verify && bun run build | cargo clippy && cargo check && cargo build | ruff check && mypy && pytest && python -m build | golangci-lint run && go vet && go test && go build . |
+| predeploy | bun run verify | bun run verify | bun run verify | bun run verify | bun run verify | cargo clippy && cargo check && cargo build | ruff check && mypy && pytest && python -m build | golangci-lint run && go vet && go test && go build . |
 | deploy:staging | bunx wrangler deploy | bunx wrangler deploy | bunx vercel --prebuilt | bunx wrangler deploy | bunx wrangler deploy | cargo publish --dry-run | twine upload --repository testpypi | go release --dry-run |
 
 ### 10. Documentation Scripts

@@ -85,12 +85,16 @@ related_workflows:
 
 ### 1. Correctness First
 
+แก้ไข Critical issues ก่อนเสมอ
+
 - แก้ไข Critical issues ก่อนเสมอ
 - ตรวจสอบ frontmatter ถูกต้อง (title, description, `auto_execution_mode: 3`)
 - ตรวจสอบ sections ครบถ้วน (Goal, Scope, Execute, Rules, Expected Outcome)
 - ทำ `/check-reference` ก่อนและหลังแก้ไข
 
 ### 2. Research-Driven Improvements
+
+ใช้ research เป็นพื้นฐานสำหรับการปรับปรุง
 
 - ทำ `/deep-research` สำหรับ tools/libraries ที่เกี่ยวข้อง
 - อ้างอิง official documentation เป็น primary source
@@ -99,12 +103,16 @@ related_workflows:
 
 ### 3. Coverage Quality
 
+ครอบคลุม use cases และ edge cases ครบถ้วน
+
 - ครอบคลุม use cases ครบถ้วน (ทำ `/improve-coverage`)
 - ครอบคลุม edge cases และ conditional execution
 - Expected Outcome สอดคล้องกับ Goal
 - ไม่มี missing sections หรือ steps (ทำ `/improve-completeness`)
 
 ### 4. Content Quality
+
+เนื้อหามีคุณภาพและไม่ซ้ำซ้อน
 
 - ใช้ references แทนการ duplicate เนื้อหา
 - ไม่ซ้ำซ้อนระหว่าง Execute และ Rules
@@ -114,12 +122,16 @@ related_workflows:
 
 ### 5. Minimal Changes
 
+แก้ไขเฉพาะสิ่งที่จำเป็น
+
 - แก้ไขเฉพาะสิ่งที่จำเป็น (ทำ `/dont-over-engineer`)
 - รักษา workflow intent เดิม
 - หลีกเลี่ยงการเขียนใหม่ทั้งไฟล์ถ้าไม่จำเป็น
 - ใช้ `/edit-only` เมื่อเป็นไปได้
 
 ### 6. Verification
+
+ตรวจสอบผลการปรับปรุงหลังแก้ไข
 
 - ทำ `/check-correctness` อีกครั้งหลังแก้ไข
 - ตรวจสอบไฟล์ไม่เกิน 250 บรรทัด

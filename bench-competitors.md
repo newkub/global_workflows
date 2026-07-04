@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /deep-research
   - /plan
-  - /ship-code
+  - /ship
   - /update-docs
   - /improve-performance
   - /improve-uxui
@@ -45,7 +45,7 @@ related_workflows:
 ปรับปรุง project จนดีกว่าคู่แข่ง
 
 1. ทำ `/plan` เพื่อวางแผนการปรับปรุง
-2. ทำ `/ship-code` เพื่อ implement จนดีกว่าคู่แข่ง
+2. ทำ `/ship` เพื่อ implement จนดีกว่าคู่แข่ง
 3. ทำ `/improve-performance` สำหรับ performance improvements
 4. ทำ `/improve-uxui` สำหรับ UX/UI improvements
 5. หยุดเมื่อ project ดีกว่าคู่แข่งทั้งหมมในทุกมิติ

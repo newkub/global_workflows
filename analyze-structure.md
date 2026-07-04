@@ -35,9 +35,11 @@ related_workflows:
 
 ### 3. Run ast-grep Outline
 
-1. รัน `sg outline <path> --items structure --view digest` เพื่อดูโครงสร้างภายในไฟล์
-2. รัน `sg outline <path> --items exports --view names` เพื่อดู exports ทั้งหมด
-3. วิเคราะห์ผลลัพธ์:
+1. รัน `sg outline <file>.ts` เพื่อดูโครงสร้างภายในไฟล์ (functions, classes, interfaces, types)
+2. รัน `sg outline <directory>` เพื่อดู exports ทั้งหมดของ directory
+3. รัน `sg outline <file>.ts --items imports` เพื่อดู dependencies ของไฟล์
+4. รัน `sg outline <file>.ts --match <Symbol> --type class --view expanded` เพื่อ expand symbol members
+5. วิเคราะห์ผลลัพธ์:
    - ไฟล์ที่มี functions/classes มากเกินไป (potential SRP violation)
    - ไฟล์ที่มี imports มากเกินไป (tight coupling)
    - ไฟล์ที่ไม่มี exports (potential dead code)
@@ -70,27 +72,33 @@ related_workflows:
 
 **Common Commands:**
 ```bash
-# ดู structure ภายในไฟล์/โฟลเดอร์
-sg outline src/modules --items structure --view digest
+# ดู structure ภายใน .ts ไฟล์
+sg outline src/parser.ts
 
-# ดู exports ทั้งหมด
-sg outline src/modules --items exports --view names
+# ดู exports ของ directory (default สำหรับ directory)
+sg outline src/modules
 
-# ดู imports ทั้งหมด
-sg outline src/modules --items imports --view names
+# ดู imports/dependencies ของไฟล์
+sg outline src/parser.ts --items imports
 
-# ดูทุกอย่าง (imports + exports + structure)
-sg outline src/modules --items all --view expanded
+# Expand symbol members แบบละเอียด
+sg outline src/parser.ts --match Parser --type class --view expanded
 
-# Filter ด้วย regex
+# Filter imports matching a dependency ใน directory
+sg outline src --items imports --match ast-grep-core --view signatures
+
+# Filter ด้วย symbol name และ type
 sg outline src/modules --match "Provider|Service" --type class
 ```
 
 **View Modes:**
-- `names`: แสดงชื่อเท่านั้น (เหมาะสำหรับ directory scan)
-- `digest`: แสดง signatures + member digests (default)
-- `expanded`: แสดงทุกอย่างแบบละเอียด
+- default: แสดง signatures พร้อม line numbers
+- `expanded`: แสดง members แบบละเอียด (fields, methods)
 - `signatures`: แสดง signatures เท่านั้น
+
+**Items:**
+- default: แสดง structure ของไฟล์ หรือ exports ของ directory
+- `imports`: แสดง imports/dependencies
 
 ### 3. Architecture Validation
 
