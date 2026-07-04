@@ -3,6 +3,7 @@ title: Scan Codebase
 description: Scan codebase อย่างรวดเร็วด้วย static analysis tools
 auto_execution_mode: 3
 related_workflows:
+  - /use-scripts
   - /analyze-project
   - /write-ast-grep-rules
 ---
@@ -38,17 +39,17 @@ Scan codebase อย่างรวดเร็วเพื่อเข้าใ
 
 ### 3. Structural Analysis (1 นาที)
 
-วิเคราะห์ structure ด้วย ast-grep ผ่าน bun shell
+วิเคราะห์ structure ด้วย ast-grep ผ่าน `/use-scripts`
 
-1. ทำ `/use-scripts` สร้าง Bun script ใน `scripts/temp/`
-2. ใช้ Bun shell รัน ast-grep patterns พร้อมกัน:
+1. ทำ `/use-scripts` สร้าง Bun script ใน `.devin/scripts/` สำหรับรัน ast-grep patterns:
    ```typescript
    await $`ast-grep run -p 'function $NAME($$ARGS) {$$BODY}' --json`
    await $`ast-grep run -p 'const $NAME = $VALUE' --json`
    await $`ast-grep run -p 'class $NAME {$$BODY}' --json`
    await $`ast-grep run -p 'interface $NAME {$$BODY}' --json`
    ```
-3. รวบรวม results และ group ตาม file type
+2. รัน script ใน dry run mode ก่อนเพื่อตรวจสอบผลลัพธ์
+3. รัน script จริงและรวบรวม results และ group ตาม file type
 4. ลบ script หลังใช้งาน
 
 ### 4. Quality Check (30 วินาที)
@@ -62,10 +63,9 @@ Scan codebase อย่างรวดเร็วเพื่อเข้าใ
 
 ### 5. Structured Data Generation (30 วินาที)
 
-สร้าง structured data สำหรับ AI
+สร้าง structured data สำหรับ AI ด้วย `/use-scripts`
 
-1. รวบรวม findings จากทุก phase
-2. สร้าง structured data:
+1. ทำ `/use-scripts` สร้าง Bun script ใน `.devin/scripts/` สำหรับรวบรวม findings และสร้าง structured data:
    ```typescript
    {
      structure: { files, directories, projectType },
@@ -74,7 +74,9 @@ Scan codebase อย่างรวดเร็วเพื่อเข้าใ
      metrics: { complexity, coupling }
    }
    ```
-3. ทำ `/report-format-table` สร้าง table summary
+2. รัน script ใน dry run mode ก่อนเพื่อตรวจสอบผลลัพธ์
+3. รัน script จริงและทำ `/report-format-table` สร้าง table summary
+4. ลบ script หลังใช้งาน
 
 ### 6. AI Summarization (Minimal Token)
 
@@ -102,8 +104,9 @@ Scan codebase อย่างรวดเร็วเพื่อเข้าใ
 
 - Phase 1: `find_by_name` สำหรับ file discovery
 - Phase 2: `Grep` สำหรับ pattern matching
-- Phase 3: bun shell + ast-grep สำหรับ structural analysis
+- Phase 3: `/use-scripts` + ast-grep สำหรับ structural analysis
 - Phase 4: `check-duplication`, `biome/gritql` สำหรับ quality
+- Phase 5: `/use-scripts` สำหรับ structured data generation
 - Phase 6: AI สำหรับ summarization
 - ทำ `/write-ast-grep-rules` สำหรับสร้าง ast-grep rules
 

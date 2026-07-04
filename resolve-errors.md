@@ -2,6 +2,12 @@
 title: Resolve Errors
 description: Systematic error resolution by identifying root cause, applying minimal changes, and verifying solutions
 auto_execution_mode: 3
+related_workflows:
+  - /refactor
+  - /analyze-errors
+  - /no-use-ignore
+  - /use-scripts
+  - /check-long-files
 ---
 
 ## Goal
@@ -14,16 +20,23 @@ auto_execution_mode: 3
 
 ## Execute
 
-### 1. Analyze Error
+### 1. Read Refactor Workflow
+
+อ่าน `/refactor` ก่อนเริ่มแก้ไข error เพื่อเข้าใจโครงสร้างและมาตรฐานของ codebase
+
+1. ทำ `/refactor` เพื่ออ่าน refactor workflow ก่อนแก้ไข error
+2. ทำ `/read-related-workflows` เพื่ออ่าน workflows ที่เกี่ยวข้องแบบ recursive
+
+### 2. Analyze Error
 
 วิเคราะห์ error message และ context อย่างละเอียด
 
-1. อ่าน error message ทั้งหมมรวม stack trace
+1. อ่าน error message ทั้งหมดรวม stack trace
 2. ระบุไฟล์และบรรทัดที่เกิด error
 3. ดู context รอบๆ จุดที่ error เกิด
 4. ระบุประเภทของ error (`syntax`, `runtime`, `type`, `logic`)
 
-### 2. Identify Root Cause
+### 3. Identify Root Cause
 
 หมายเหตุ: ถ้า errors ซับซ้อนหรือไม่ชัดเจน ให้ทำ `/analyze-errors` ก่อนเพื่อวิเคราะห์และจัดลำดับ
 
@@ -32,39 +45,41 @@ auto_execution_mode: 3
 3. ตรวจสอบ data flow และ dependencies ที่เกี่ยวข้อง
 4. ใช้ debugging tools (`debugger`, `logging`, `breakpoints`) ตามความเหมาะสม
 
-### 3. Prioritize Files By Length
+### 4. Prioritize Files By Length
 
 หมายเหตุ: ถ้า errors มีจำนวนมาก ให้จัดลำดับการแก้ไขตามความยาวไฟล์
 
 1. ทำ `/use-scripts` เพื่อเช็คความยาวไฟล์ที่มี error
 2. แก้ไขไฟล์ที่สั้นกว่า 250 บรรทัดก่อน
-3. ถ้าไฟล์ยาวกว่า 250 บรรทัด ให้ทำ `/refactor-long-files-to-single-responsibility` ก่อนแก้ไข error
+3. ถ้าไฟล์ยาวกว่า 250 บรรทัด ให้ทำ `/refactor` ก่อนแก้ไข error
 4. แก้ไข errors ในไฟล์ที่ refactor แล้ว
 
-### 4. Apply Minimal Fix
-
-ทำตาม Rules 2 (Minimal Change Principle)
+### 5. Apply Minimal Fix
 
 1. แก้ไขที่จุดเดียวที่เป็นปัญหาจริง
-2. ถ้า error มีจำนวนมาก ให้ทำ `/use-scripts` เพื่อ automate การแก้ไข
+2. ทำการเปลี่ยนแปลงน้อยที่สุดที่จำเป็น
+3. ถ้า error มีจำนวนมาก ให้ทำ `/use-scripts` เพื่อ automate การแก้ไข
 
-### 5. Review Fix
+### 6. Review Fix
 
-ทำตาม Rules 3 (Verification Standards)
+1. ตรวจสอบว่าการแก้ไขแก้ root cause โดยตรง
+2. ตรวจสอบว่าการแก้ไขไม่สร้าง side effects ใหม่
+3. ตรวจสอบว่า code style เหมาะสมและ consistent
 
-### 6. Check for Ignore Patterns
+### 7. Check For Ignore Patterns
 
-ทำตาม Rules 5 (No Ignore Patterns)
+ทำตาม `/no-use-ignore` ห้ามใช้ ignore comments/attributes ทุกภาษาเพื่อ suppress errors หรือ warnings
 
-### 7. Document and Learn
+### 8. Document And Learn
 
-ทำตาม Rules 6 (Documentation)
+1. เขียน comment อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
+2. เพิ่ม error handling หรือ validation ถ้าจำเป็น
+3. บันทึก pattern ของปัญหาเพื่อใช้อ้างอิง
+4. พิจารณาเพิ่ม test case เพื่อป้องกัน regression
 
 ## Rules
 
 ### 1. Root Cause Analysis
-
-วิเคราะห์สาเหตุของ error อย่างละเอียดเพื่อระบุ root cause ที่แท้จริง
 
 - อ่าน error message อย่างละเอียด อย่าข้าม stack trace
 - ติดตาม call stack ย้อนกลับเพื่อหาจุดเริ่มต้น
@@ -74,8 +89,6 @@ auto_execution_mode: 3
 
 ### 2. Minimal Change Principle
 
-ทำการแก้ไขน้อยที่สุดที่จำเป็นเพื่อหลีกเลี่ยงการแก้หลายจุดพร้อมกัน
-
 - แก้ไขที่จุดเดียวที่เป็นปัญหาจริง
 - ทำการเปลี่ยนแปลงน้อยที่สุดที่จำเป็น
 - หลีกเลี่ยงการแก้หลายจุดพร้อมกัน
@@ -84,16 +97,12 @@ auto_execution_mode: 3
 
 ### 3. Verification Standards
 
-ตรวจสอบว่าการแก้ไขถูกต้องและเหมาะสมเพื่อให้แน่ใจว่าไม่มี side effects ใหม่เกิดขึ้น
-
 - ตรวจสอบว่าการแก้ไขแก้ root cause โดยตรง
 - ตรวจสอบว่าการแก้ไขไม่สร้าง side effects ใหม่
 - ตรวจสอบว่า code style เหมาะสมและ consistent
 - ตรวจสอบว่ามี comments อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
 
 ### 4. Error Classification
-
-จัดประเภท error เพื่อเลือกวิธีแก้ไขที่เหมาะสมและเพิ่มประสิทธิภาพในการแก้ไข
 
 | Type | Approach |
 |------|----------|
@@ -105,13 +114,9 @@ auto_execution_mode: 3
 
 ### 5. No Ignore Patterns
 
-ห้ามใช้ ignore comments/attributes ทุกภาษาเพื่อ suppress errors หรือ warnings
-
 - ทำตาม `/no-use-ignore`
 
 ### 6. Documentation
-
-บันทึกประสบการณ์และสร้างเอกสารเพื่อป้องกันปัญหาซ้ำและเพิ่มประสิทธิภาพในการแก้ไข
 
 - เขียน comment อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
 - เพิ่ม error handling หรือ validation ถ้าจำเป็น

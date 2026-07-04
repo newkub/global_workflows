@@ -1,16 +1,12 @@
 ---
-
 title: Validate Features
-
 description: ตรวจสอบและระบุ features ที่ไม่จำเป็นต้องมี เพื่อลดความซับซ้อน
-
 auto_execution_mode: 3
-
 related_workflows:
   - /analyze-project
   - /check-unused-deps
   - /check-unsued-files
-
+  - /check-duplication
 ---
 
 ## Goal
@@ -110,24 +106,3 @@ related_workflows:
 - Codebase ที่กระชับและง่ายต่อการ maintain
 - Dependencies ที่ลดลง
 - Documentation ที่อัปเดตและครบถ้วน
-
-## Common Mistakes
-
-ข้อผิดพลาดที่พบบ่อย:
-
-- ลบ features โดยไม่ตรวจสอบ dependencies
-- ลบ features ที่ยังใช้งานอยู่
-- ไม่อัปเดต documentation หลังลบ
-- ไม่รัน tests หลังลบ
-- ลบ features โดยไม่ประเมินผลกระทบ
-
-## Anti-Patterns
-
-รูปแบบที่ไม่ควรทำ:
-
-- ❌ ลบ features โดยไม่ตรวจสอบ dependencies
-- ❌ ลบ features ที่ยังมีผู้ใช้
-- ❌ ลบ features โดยไม่มี tests
-- ❌ ลบ features โดยไม่อัปเดต documentation
-- ❌ ลบ features ที่สำคัญโดยไม่ปรึกษาทีม
-

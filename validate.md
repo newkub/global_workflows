@@ -2,6 +2,10 @@
 title: Validate
 description: ตรวจสอบความถูกต้อง คุณภาพ และความเหมาะสม
 auto_execution_mode: 3
+related_workflows:
+  - /check-correctness
+  - /check-maintainability
+  - /check-configuration
 ---
 
 ## Goal

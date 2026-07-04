@@ -3,10 +3,11 @@ title: Plan Code
 description: วางแผน file architecture, module structure, interfaces และ integration
 auto_execution_mode: 3
 related_workflows:
-  - /idea-file-structure
+  - /idea-refactor-files
   - /recommend-architecture
   - /follow-architecture
   - /use-scripts
+  - /follow-content-quality
 ---
 
 ## Goal
@@ -25,63 +26,79 @@ related_workflows:
 
 1. อ่าน task document จาก `/plan-task`
 2. ทำ `/analyze-project` เพื่อวิเคราะห์ architecture ปัจจุบัน
-3. ระบุ features ที่ต้อง implement
-4. ระบุ dependencies ที่จะใช้งาน
-5. กำหนด constraints และ assumptions
+3. ระบุ features ที่ต้อง implement จาก task document
+4. ระบุ dependencies ที่จะใช้งานจาก library choices ใน task document
+5. กำหนด constraints และ assumptions ที่เกี่ยวกับ architecture
+6. ระบุ architectural patterns ที่มีอยู่ในปัจจุบัน
 
 ### 2. Plan File Architecture
 
 วางแผนโครงสร้างไฟล์ทั้งหมด
 
-1. ทำ `/idea-file-structure` เพื่อขอไอเดียโครงสร้าง
-2. วางแผน file architecture ทั้งหมด
-3. จัดกลุ่ม files ตาม responsibility
-4. กำหนด naming conventions
+1. ทำ `/idea-refactor-files` เพื่อขอไอเดียโครงสร้างไฟล์
+2. ทำ `/recommend-architecture` เพื่อแนะนำ architecture ที่เหมาะสม
+3. วางแผน file architecture ทั้งหมดโดยจัดกลุ่มตาม responsibility
+4. กำหนด naming conventions สำหรับ files และ directories
+5. ระบุ barrel files และ entry points
+6. วางแผน directory structure แบบ tree พร้อม comment ด้านหลัง
+7. สร้าง file pattern table: File Pattern, Description, Naming, Import
 
 ### 3. Define Module Structure
 
 กำหนดโครงสร้าง modules และ boundaries
 
 1. แยก modules ตาม domain หรือ feature
-2. กำหนด dependencies ระหว่าง modules
+2. กำหนด dependencies ระหว่าง modules แบบ directional (high-level → low-level)
 3. ระบุ public APIs ของแต่ละ module
 4. วางแผน data flow ระหว่าง modules
+5. กำหนด module boundaries ชัดเจนเพื่อหลีกเลี่ยง god modules
+6. ระบุ shared modules และ common utilities
 
 ### 4. Design Interfaces And Contracts
 
 กำหนด interfaces และ contracts ระหว่าง modules
 
 1. กำหนด interfaces สำหรับ module communication
-2. กำหนด data contracts (DTOs, entities)
-3. กำหนด API contracts (REST, GraphQL, RPC)
-4. กำหนด event contracts สำหรับ async communication
+2. กำหนด data contracts (DTOs, entities, value objects)
+3. กำหนด API contracts (REST, GraphQL, RPC) ถ้ามี
+4. กำหนด event contracts สำหรับ async communication ถ้ามี
+5. ออกแบบ interfaces ตาม interface segregation principle
+6. ระบุ error types และ error handling contracts
 
 ### 5. Plan Integration
 
 วางแผน integration ระหว่าง components
 
-1. วางแผน integration กับ external services
-2. กำหนด integration patterns (adapters, facades)
-3. วางแผน error handling และ retry logic
-4. กำหนด caching strategy
+1. วางแผน integration กับ external services ถ้ามี
+2. กำหนด integration patterns (adapters, facades, repositories)
+3. วางแผน error handling และ retry logic สำหรับ external calls
+4. กำหนด caching strategy สำหรับ frequently accessed data
+5. วางแผน transaction boundaries สำหรับ data operations
+6. ระบุ data validation points ที่ application layer
 
 ### 6. Create Architecture Document
 
 สร้างเอกสาร architecture
 
 1. สร้างไฟล์ `.agents/architecture/<name>-DD-MM-YYYY.md`
-2. บันทึก file architecture diagram
-3. บันทึก module dependencies
-4. บันทึก interfaces และ contracts
+2. บันทึก file architecture diagram แบบ tree structure
+3. บันทึก module dependencies และ data flow
+4. บันทึก interfaces และ contracts ทั้งหมด
+5. บันทึก integration plan และ patterns ที่เลือก
+6. บันทึก architectural decisions พร้อมเหตุผล
+7. บันทึก assumptions และ constraints
 
 ### 7. Validate Architecture
 
 ตรวจสอบและยืนยัน architecture
 
-1. ตรวจสอบ architecture สอดคล้องกับ requirements
-2. ตรวจสอบไม่ม circular dependencies
-3. ตรวจสอบ scalability และ maintainability
-4. รอยืนยันจาก user ก่อนเริ่ม implement
+1. ตรวจสอบ architecture สอดคล้องกับ requirements ใน task document
+2. ตรวจสอบไม่มี circular dependencies ระหว่าง modules
+3. ตรวจสอบ scalability และ maintainability ของ architecture
+4. ตรวจสอบทุก module มี single responsibility
+5. ตรวจสอบ dependency direction ถูกต้อง (high-level → low-level)
+6. ตรวจสอบ interfaces ครบถ้วนสำหรับ module communication
+7. รอยืนยันจาก user ก่อนเริ่ม implement
 
 ## Rules
 
@@ -121,8 +138,8 @@ related_workflows:
 
 บันทึก architecture อย่างครบถ้วน
 
-- บันทึก architectural decisions
-- Document integration patterns
+- บันทึก architectural decisions พร้อมเหตุผล
+- Document integration patterns ที่เลือก
 - ระบุ assumptions และ constraints
 - สร้าง diagrams สำหรับ complex flows
 
@@ -146,17 +163,18 @@ related_workflows:
 
 ## Expected Outcome
 
-- Architecture document ที่ครอบคล้ว
-- File architecture ที่ชัดเจน
-- Module structure ที่มี clear boundaries
+- Architecture document ที่ครอบคลุมใน `.agents/architecture/`
+- File architecture ที่ชัดเจนพร้อม tree structure และ file pattern table
+- Module structure ที่มี clear boundaries และ single responsibility
 - Interfaces และ contracts ที่ well-defined
-- Integration plan ที่ practical
+- Integration plan ที่ practical พร้อม patterns ที่เลือก
+- Architectural decisions ที่บันทึกพร้อมเหตุผล
 
 ## Common Mistakes
 
 ข้อผิดพลาดที่พบบ่อย
 
-- วางแผน architecture โดยไม่วิเคราะหา current state
+- วางแผน architecture โดยไม่วิเคราะห์ current state
 - ไม่กำหนด interfaces และ contracts ชัดเจน
 - สร้าง circular dependencies ระหว่าง modules
 - ไม่คำนึงถึง scalability และ maintainability

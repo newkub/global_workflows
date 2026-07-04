@@ -72,7 +72,7 @@ related_workflows:
 
 - Apply suggestions ที่มีผลกระทบสูงและ effort ต่ำก่อน
 - Group related suggestions และ apply พร้อมกัน
-- ทำ `/only-fix-errors` หากได้รับ errors เท่านั้น
+- ทำ `/resolve-errors` หากได้รับ errors เท่านั้น
 - ทำ `/dont-over-engineer` เพื่อหลีกเลี่ยง over-engineering
 - ใช้ minimal changes ที่เป็นไปได้
 

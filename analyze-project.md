@@ -29,12 +29,11 @@ related_workflows:
 1. ทำ `/follow-my-cli` เพื่อเช็ค CLI tools ที่ติดตั้ง
 2. เลือกใช้ tools ตามความเหมาะสมตาม ## Rules ข้อ 1
 
-### 2. Discovery And Structure
+### 2. Codebase Scanning
 
-1. ทำ `/analyze-structure` เพื่อดูโครงสร้างไฟล์และ folders
-2. ใช้ Windsurf file ops ดู directory และ config files
-3. ระบุประเภทโปรเจกต์จาก manifest files
-4. ตรวจหา monorepo structure
+1. ทำ `/scan-codebase` เพื่อ scan structure, patterns, และ quality อย่างรวดเร็ว
+2. ใช้ผลลัพธ์จาก `/scan-codebase` เป็น foundation สำหรับขั้นตอนถัดไป
+3. ทำ `/analyze-structure` เพื่อดูโครงสร้างไฟล์และ folders เพิ่มเติมถ้าจำเป็น
 
 ### 3. Data Collection
 
