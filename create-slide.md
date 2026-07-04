@@ -1,11 +1,7 @@
 ---
-
-title: Create Slide And Open
-
+title: Create Slide
 description: สร้าง Slidev project และเปิด browser อัตโนมัติ
-
 auto_execution_mode: 3
-
 ---
 
 ## Goal
@@ -14,7 +10,7 @@ auto_execution_mode: 3
 
 ## Scope
 
-ติดตั้ง Slidev dependencies ด้วย Bun และสร้าง slides.md เอง แล้วเปิด browser อัตโนมัติ
+ติดตั้ง Slidev dependencies ด้วย Bun และสร้าง `slides.md` เอง แล้วเปิด browser อัตโนมัติ
 
 ## Execute
 
@@ -35,7 +31,7 @@ auto_execution_mode: 3
 2. เขียน content ตามต้องการ
 3. ตั้งค่า theme, title, info ใน frontmatter
 4. ตั้งค่า transition สำหรับ slide transitions (slide-left, slide-right, fade-out, fade-in, slide-up, slide-down)
-5. เพิ่ม animation directives (v-click, v-motion) ตามต้องการ
+5. เพิ่ม animation directives (`v-click`, `v-motion`) ตามต้องการ
 
 ### 4. Run Dev Server
 
@@ -68,21 +64,21 @@ auto_execution_mode: 3
 #### Click Animations
 
 - ใช้ `v-click` สำหรับ basic click animations
-- ใช้ `v-after` สำหรับ show เมื่อ previous v-click triggered
+- ใช้ `v-after` สำหรับ show เมื่อ previous `v-click` triggered
 - ใช้ `v-click.hide` หรือ `v-after.hide` สำหรับ hide after clicking
-- ใช้ `v-clicks` component สำหรับ apply v-click ทั้งหมดใน children (รองรับ `depth`, `every` props)
-- ใช้ `at` prop สำหรับ positioning (relative '+1', '-1' หรือ absolute 1, 2)
+- ใช้ `v-clicks` component สำหรับ apply `v-click` ทั้งหมดใน children (รองรับ `depth`, `every` props)
+- ใช้ `at` prop สำหรับ positioning (relative `+1`, `-1` หรือ absolute `1`, `2`)
 - ใช้ array value `[2, 4]` สำหรับ enter/leave indices
 - ใช้ `v-switch` สำหรับ switch content ตาม click count
 - ใช้ `clicks` frontmatter สำหรับ custom total clicks count
 - ใช้ `clickAnimation` frontmatter สำหรับ default animation preset
 - ใช้ directive modifiers เช่น `v-click.scale`, `v-click.fade.right`, `v-click.none`
-- Built-in presets: fade, fade-in, up, down, left, right, scale, none
+- Built-in presets: `fade`, `fade-in`, `up`, `down`, `left`, `right`, `scale`, `none`
 - สร้าง custom presets ด้วย CSS rules สำหรับ `.slidev-vclick-anim-{presetName}`
 
 #### Motion Animations
 
-- ใช้ `v-motion` สำหรับ motion effects (powered by @vueuse/motion)
+- ใช้ `v-motion` สำหรับ motion effects (powered by `@vueuse/motion`)
 - กำหนด states: `initial`, `enter`, `leave`, `click-N`, `click-N-M`
 - ใช้ร่วมกับ `v-click` บน element เดียวกันเพื่อ trigger motion ตาม click states
 - ใช้ `preload: false` ใน frontmatter สำหรับเปิดใช้ motion (ก่อน v0.48.9)
@@ -90,11 +86,11 @@ auto_execution_mode: 3
 #### Slide Transitions
 
 - ใช้ `transition` ใน frontmatter สำหรับ slide transitions
-- Built-in transitions: fade, fade-out, slide-left, slide-right, slide-up, slide-down, view-transition
+- Built-in transitions: `fade`, `fade-out`, `slide-left`, `slide-right`, `slide-up`, `slide-down`, `view-transition`
 - ใช้ `view-transition-name` CSS property สำหรับ View Transitions API
 - สร้าง custom transitions ด้วย CSS classes (`.my-transition-enter-active`, `.my-transition-leave-to`)
 - ใช้ `|` separator สำหรับ forward/backward transitions (เช่น `go-forward | go-backward`)
-- ใช้ object format สำหรับ advanced options (name, enterFromClass, enterActiveClass, duration)
+- ใช้ object format สำหรับ advanced options (`name`, `enterFromClass`, `enterActiveClass`, `duration`)
 
 ### 4. Browser Opening
 

@@ -1,22 +1,32 @@
 ---
 title: Follow VitePress
-
 description: ตั้งค่า VitePress ด้วย UnoCSS, Shiki Twoslash, Group Icons
-
 auto_execution_mode: 3
+related_workflows:
+  - /follow-unocss
+  - /follow-gitignore
+  - /follow-tsconfig-json
+  - /update-docs
 ---
 
 ## Goal
 
 ตั้งค่า VitePress สำหรับ documentation site พร้อม UnoCSS, Shiki Twoslash, Group Icons
 
+## Scope
+
+ใช้สำหรับทุก project ที่ต้องการ VitePress documentation site
+
 ## Execute
 
 ### 1. Project Initialization
 
-1. ติดตั้ง `vitepress` dependencies
-2. สร้าง `apps/docs/` directory
-3. สร้าง `.vitepress/` config directory
+1. สร้าง `docs/` directory ที่ root ของ project
+2. สำหรับ monorepo ให้ `docs/` เป็น workspace โดยสร้าง `docs/package.json` ที่มี `vitepress` เป็น dependency และ scripts ของตัวเอง
+3. เพิ่ม `docs` ใน `workspaces` ของ root `package.json`
+4. สร้าง `.vitepress/` config directory ภายใน `docs/`
+5. ทำ `/follow-gitignore` สร้าง `docs/.gitignore` สำหรับ VitePress build output และ cache
+6. ทำ `/follow-tsconfig-json` สร้าง `docs/tsconfig.json` สำหรับ type checking ของ `.vitepress/` config
 
 ### 2. VitePress Configuration
 
@@ -50,10 +60,49 @@ export default defineConfig({
 })
 ```
 
+สำหรับ monorepo ให้เพิ่ม nav สำหรับ workspace pages:
+
+```typescript
+nav: [
+  { text: 'Docs', link: '/' },
+  { text: 'Workspaces', items: [
+    { text: 'Core Shared', link: '/workspaces/core-shared' },
+    { text: 'CLI Release', link: '/workspaces/cli-release' },
+    // เพิ่ม workspace ตามลำดับความสำคัญ
+  ]},
+  { text: 'Getting Started', link: '/getting-started/installation' }
+]
+```
+
 ### 3. UnoCSS Integration
 
-1. ทำ `/follow-unocss` สำหรับ UnoCSS configuration
-2. ดูตัวอย่าง integration ที่ https://vp.yuy1n.io/
+1. ทำ `/follow-unocss` สำหรับ UnoCSS configuration แบบเต็ม
+2. ติดตั้ง `unocss` ใน `docs/` workspace:
+   ```bash
+   bun add -d unocss
+   ```
+3. สร้าง `docs/uno.config.ts` พร้อม `presetWind4`, `presetIcons`, transformers:
+   ```typescript
+   import { defineConfig, presetWind4, presetIcons, transformerVariantGroup, transformerDirectives } from 'unocss'
+
+   export default defineConfig({
+     presets: [
+       presetWind4(),
+       presetIcons({
+         collections: {
+           mdi: () => import('@iconify-json/mdi/icons.json').then(i => i.default),
+         },
+       }),
+     ],
+     transformers: [
+       transformerVariantGroup(),
+       transformerDirectives(),
+     ],
+   })
+   ```
+4. เพิ่ม `UnoCSS()` plugin ใน `vite.plugins` ของ `.vitepress/config.ts`
+5. เพิ่ม `import 'virtual:uno.css'` ใน `.vitepress/theme/index.ts`
+6. ดูตัวอย่าง integration ที่ https://vp.yuy1n.io/
 
 ### 4. Theme Setup
 
@@ -80,17 +129,24 @@ export default {
 
 ### 5. Package Scripts
 
-เพิ่ม scripts ใน `package.json`:
+สำหรับ monorepo ให้ใส่ scripts ใน `docs/package.json`:
 
 ```json
 {
+  "name": "@project/docs",
+  "private": true,
   "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "latest"
   }
 }
 ```
+
+สำหรับ single project ให้ใส่ scripts ใน root `package.json` โดยใช้ `dev:docs`, `build:docs`, `preview:docs`
 
 ### 6. Shiki Twoslash Integration
 
@@ -101,7 +157,7 @@ export default {
 
 ### 7. VitePress Plugin Group Icons
 
-1. ติดตั้ง `@yuy1n/vitepress-plugin-group-icons`
+1. ติดตั้ง `vitepress-plugin-group-icons`
 2. เพิ่ม plugin ใน VitePress config
 
 ### 8. GitHub Actions Deployment
@@ -148,41 +204,42 @@ features:
 - ตั้งค่า `lang: 'en-US'` หรือตาม project requirement
 - ใช้ `deadLinks: 'ignore'` ใน markdown config
 - ตั้งค่า nav และ sidebar ใน `themeConfig`
+- สำหรับ monorepo ให้ `docs/` เป็น workspace ที่ root พร้อม `docs/package.json` ของตัวเอง
+- สำหรับ monorepo ให้เพิ่ม `docs` ใน `workspaces` array ของ root `package.json`
+- สำหรับ monorepo ให้ nav ลิงก์ไปยัง workspace pages ใน `docs/workspaces/`
+- ใช้ dropdown nav (`items`) สำหรับจัดกลุ่ม workspaces ตาม category
 
-### 2. UnoCSS Integration
-
-- ทำ `/follow-unocss` สำหรับ UnoCSS configuration
-- ดูตัวอย่าง integration ที่ https://vp.yuy1n.io/
-
-### 3. Theme Customization
+### 2. Theme Customization
 
 - extend DefaultTheme จาก `vitepress/theme`
 - ใช้ `enhanceApp` hook สำหรับ register components
 - ตั้งค่า CSS variables ใน `:root`
 
-### 4. Package Scripts
+### 3. Package Scripts
 
-- ใช้ `vitepress dev docs` สำหรับ development
-- ใช้ `vitepress build docs` สำหรับ production
-- ใช้ `vitepress preview docs` สำหรับ preview
+- สำหรับ monorepo ให้ใส่ scripts ใน `docs/package.json` โดยใช้ `dev`, `build`, `preview`
+- สำหรับ single project ให้ใช้ `dev:docs`, `build:docs`, `preview:docs` ใน root `package.json`
+- ใช้ `vitepress dev` สำหรับ development (เมื่ออยู่ใน `docs/` workspace)
+- ใช้ `vitepress build` สำหรับ production
+- ใช้ `vitepress preview` สำหรับ preview
 
-### 5. Plugin Integration
+### 4. Plugin Integration
 
 - ใช้ `@shikijs/vitepress-twoslash` สำหรับ type hover
-- ใช้ `@yuy1n/vitepress-plugin-group-icons` สำหรับ icons
+- ใช้ `vitepress-plugin-group-icons` สำหรับ icons
 - เพิ่ม plugins ใน config หรือ theme ตาม requirement
 
-### 6. Content Standards
+### 5. Content Standards
 
 - ใช้ frontmatter สำหรับ metadata
 - ใช้ `layout: home` สำหรับ landing page
 - ตั้งค่า hero และ features ตาม VitePress default
 
-### 7. Related Workflows
+### 6. Gitignore And TypeScript Config
 
-- ทำ `/write-docs` สำหรับ content structure และ organization
-- ทำ `/unocss` สำหรับ UnoCSS integration
-- ทำ `/docus` สำหรับ Docus configuration (ถ้าใช้ Nuxt Content)
+- ทำ `/follow-gitignore` สร้าง `docs/.gitignore` ครอบคลุม `node_modules/`, `.vitepress/dist/`, `.vitepress/cache/`
+- ทำ `/follow-tsconfig-json` สร้าง `docs/tsconfig.json` extends จาก root พร้อม `noEmit: true`, `types: ["vitepress"]`
+- สำหรับ monorepo ให้เพิ่ม `docs` ใน `exclude` ของ root `tsconfig.json`
 
 ## Expected Outcome
 
@@ -194,4 +251,6 @@ features:
 - VitePress Plugin Group Icons integrated
 - GitHub Actions deployment พร้อมใช้งาน
 - Home page พร้อม frontmatter ตาม VitePress default
+- `.gitignore` ครอบคลุม VitePress build output และ cache
+- `tsconfig.json` สำหรับ type checking ของ `.vitepress/` config
 

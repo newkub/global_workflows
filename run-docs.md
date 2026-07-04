@@ -1,63 +1,80 @@
 ---
 title: Run Documentation Site
-description: ตั้งค่าและรัน documentation site ด้วย Docus
+description: รัน documentation site และแก้ไขข้อผิดพลาด
 auto_execution_mode: 3
 related_workflows:
+  - /run-dev
+  - /write-docs
   - /improve-seo
+  - /follow-vitepress
 ---
-
-ตั้งค่าและรัน documentation site ด้วย Docus
 
 ## Goal
 
-ตั้งค่าและรัน documentation site ด้วย Docus
+รัน documentation site และแก้ไขข้อผิดพลาดที่เกิดขึ้น
+
+## Scope
+
+ใช้สำหรับ documentation site ที่สร้างด้วย VitePress, Docus, หรือ documentation frameworks อื่นๆ
 
 ## Execute
 
-### 1. Update Documentation
+### 1. Check Documentation Setup
 
-1. ใช้ `/write-docs` เพื่อสร้างและอัพเดทเอกสาร
-2. ใช้ `/improve-seo` เพื่อปรับปรุง SEO สำหรับ documentation site
+1. ตรวจสอบว่ามี documentation config หรือไม่ (VitePress, Docus, ฯลฯ)
+2. ถ้าเป็น VitePress ให้ทำ `/follow-vitepress` เพื่อตรวจสอบ configuration
+3. ตรวจสอบ package manifest สำหรับ dev script
+4. ตรวจสอบว่า dependencies ที่จำเป็นถูกติดตั้งแล้ว
+5. ตรวจสอบว่า content structure ครบถ้วน
+
+### 2. Update Documentation
+
+1. ทำ `/write-docs` เพื่อสร้างและอัพเดทเอกสาร
+2. ทำ `/improve-seo` เพื่อปรับปรุง SEO สำหรับ documentation site
 3. ตรวจสอบว่า documentation ถูกสร้างอย่างถูกต้อง
-4. ตรวจสอบว่า content structure ครบถ้วน
 
-### 2. Setup Docus
+### 3. Run Dev Server
 
-1. ใช้ `/docus` เพื่อตั้งค่า Docus documentation framework
-2. ตรวจสอบว่า Docus ถูกตั้งค่าอย่างถูกต้อง
-3. ตรวจสอบ project structure ตามมาตรฐาน Docus
+1. ดำเนินการรัน dev server ด้วยคำสั่งที่เหมาะสมตาม documentation framework
+2. ถ้ามี errors ให้รัน `/analyze-errors` เพื่อวิเคราะห์และจัดลำดับ
+3. `/analyze-errors` จะตัดสินใจว่าควรไป workflow ไหนต่อ:
+   - ถ้าเป็น cascade issues → `/debug-issue` → `/resolve-errors`
+   - ถ้าเป็น isolated errors → `/resolve-errors`
+4. ติดตามและแก้ไขข้อผิดพลาดที่เกิดขึ้นทันทีจนกว่าจะผ่าน
+5. ตรวจสอบว่า dev server เริ่มต้นสำเร็จ
 
-### 3. Run Development Server
+### 4. Open Browser and Watch (ถ้าจำเป็น)
 
-1. ใช้ `/run-dev` เพื่อรัน development server
-2. ตรวจสอบว่า dev server ทำงานได้
-3. ทดสอบเข้าถึง documentation site ผ่าน browser
+1. ถ้าต้องเปิด URL ให้เลือก:
+   - ถ้าต้องการตรวจสอบผ่าน browser automation → รัน `/watch-browser`
+   - ถ้าต้องการเปิดใน browser เท่านั้น → รัน `/open-web`
+   - ถ้าต้องการ watch terminal ทุก 5 วินาที → รัน `/watch-terminal`
+2. ตรวจสอบว่า documentation site โหลดได้จริง
+3. ทดสอบเข้าถึง documentation site และตรวจสอบว่า features หลักทำงานได้
+
+### 5. Verify
+
+1. ยืนยันว่าไม่มี critical errors ที่ขัดขวางการทำงาน
+2. ตรวจสอบว่า navigation และ content แสดงผลถูกต้อง
+3. ยืนยันว่าไม่มี runtime errors ใน console
+4. ตรวจสอบว่า styling และ theme ทำงานได้
+
+### 6. Report
+
+1. รัน `/report-format-terminal` เพื่อวาด terminal output ด้วย ANSI codes
+2. รัน `/report-format-table` เพื่อจัดรูปแบบตาราง
+3. แสดงผลลัพธ์ที่จัดรูปแบบแล้ว
 
 ## Rules
 
-### 1. Update Documentation
-
-ต้องใช้ `/write-docs` ก่อนเพื่อสร้างและอัพเดทเอกสาร
-
-- ต้องใช้ `/write-docs` ก่อน
-- ต้องตรวจสอบว่า documentation ถูกสร้างอย่างถูกต้อง
-
-### 2. Setup
-
-ต้องใช้ `/docus` ก่อนและตรวจสอบว่า setup เสร็จสมบูรณ์
-
-- ต้องใช้ `/docus` ก่อน
-- ต้องตรวจสอบว่า setup เสร็จสมบูรณ์
-
-### 3. Development
-
-ต้องใช้ `/run-dev` เพื่อรัน dev server และตรวจสอบว่า dev server ทำงานได้
-
-- ต้องใช้ `/run-dev` เพื่อรัน dev server
-- ต้องตรวจสอบว่า dev server ทำงานได้
+- ใช้คำสั่งที่เหมาะสมกับ documentation framework
+- ติดตามและแก้ไขข้อผิดพลาดทันทีจนกว่าจะผ่าน
+- ตรวจสอบว่า dev server เริ่มต้นสำเร็จก่อนเปิด browser
+- ต้องทำ `/write-docs` ก่อนเพื่อสร้างและอัพเดทเอกสาร
 
 ## Expected Outcome
 
-- Docus documentation site ที่ตั้งค่าเรียบร้อย
-- Development server ทำงานได้
-- Content สร้างด้วย MDC syntax และ Vue components
+- Documentation site ทำงานได้
+- ไม่มี critical errors
+- Navigation และ content แสดงผลถูกต้อง
+- Styling และ theme ทำงานได้

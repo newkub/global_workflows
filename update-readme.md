@@ -19,55 +19,26 @@ related_workflows:
 
 ## Execute
 
-### 1. Generate Changelog And Release
+### 1. Prepare
 
-สร้าง changelog และ release notes ก่อนสร้าง README
+1. ทำ `/gen-changelog` และ `/gen-release` ถ้ามี tag release
+2. อ่าน `package.json` ตรวจสอบ project type: `cli-sdk` หรือ `app`
 
-1. ทำ `/gen-changelog` เพื่อสร้าง CHANGELOG.md
-2. ทำ `/gen-release` เพื่อสร้าง RELEASE.md
+### 2. Write Root README
 
-### 2. Detect Project Type
+1. ทำ `/analyze-project` เพื่อเก็บข้อมูล root
+2. อ่าน `manifest files`, `source code`, `config files`
+3. เขียน README ตาม template ด้านล่าง
 
-ตรวจสอบประเภท project ก่อนเขียน README
-
-1. อ่าน `package.json` หรือ `Cargo.toml` เพื่อดู type
-2. ตรวจสอบ source code structure:
-   - CLI/SDK: มี `bin/`, CLI commands, API exports, library exports
-   - App: มี UI components, web app, mobile app, desktop app
-3. ตรวจสอบ dependencies:
-   - CLI/SDK: commander, yargs, typescript, build tools
-   - App: react, vue, solid, UI frameworks, bundlers
-4. กำหนด project type: `cli-sdk` หรือ `app`
-
-### 3. Analyze And Write Root README
-
-วิเคราะห์และเขียน README สำหรับ root
-
-1. ทำ `/analyze-project` เพื่อเก็บข้อมูลโปรเจกต์ root
-2. อ่าน `manifest files`, `source code`, และ `config files`
-3. เลือก template ตาม project type:
-   - ใช้ CLI/SDK Template สำหรับ CLI หรือ SDK
-   - ใช้ App Template สำหรับ web/mobile/desktop apps
-4. เขียน README ตาม template ที่เลือก
-5. `Configuration` อยู่ใน `API References section`
-
-### 4. Update Workspaces READMEs
-
-อัพเดท README สำหรับทุก workspaces
+### 3. Update Workspaces READMEs
 
 1. ทำ `/all-workspaces` เพื่อ update README ทุก workspaces
-2. ตรวจสอบ project type ของแต่ละ workspace
-3. เลือก template ตาม project type ของ workspace
-4. `Configuration` อยู่ใน `API References section`
-5. ไม่ต้องมี `License` และ `History sections` (ใช้ของ root)
+2. ไม่ต้องมี `License` และ `History` sections (ใช้ของ root)
 
-### 5. Validate And Finalize
-
-ตรวจสอบและ finalize
+### 4. Validate
 
 1. ทำ `/follow-content-quality` เพื่อตรวจสอบคุณภาพ
-2. ตรวจสอบ workflows ที่อ้างอิงมีอยู่จริง
-3. ใช้ `/update-references` หากมี file changes
+2. ใช้ `/update-references` หากมี file changes
 
 ## Rules
 
@@ -77,7 +48,7 @@ related_workflows:
 
 - `Status Callout`: ด้านบนสุด - ใช้ `> 🚀` หรือ emoji ที่เหมาะสม
 - `Hero Section`: Title, Description, Badges (ชิดซ้าย, รวม License MIT badge)
-- `## Project`: `<details>`/`<summary>` accordion ลำดับ Goal, Scope, Key Concepts, Core Principles, Best Practices (อยู่เหนือ Features)
+- `## Project`: `<details>`/`<summary>` accordion ลำดับ Goal, Scope, When To Use, Key Concepts, Core Principles, Best Practices (อยู่เหนือ Features)
 - `## Features`: Markdown table 5 columns (Icon, Feature, Description, Benefit, Usage) พร้อม icon จาก iconify - เขียนให้ครอบคลุมที่สุด, maximize coverage
 - `## Quick Start`: Installation ด้วย numbered steps ไม่มี indent, มี filename ใน codeblock, มี file structure
 - `## Usage`: HTML 2-column layout (ซ้าย: code block + filename, ขวา: 2 ส่วน - description ตรงกลาง + ANSI preview, ยืดสูงเท่า col ซ้าย)
@@ -87,192 +58,108 @@ related_workflows:
 
 ### 2. Usage Format
 
-ใช้ HTML 2-column layout สำหรับ Usage section:
-
-- ซ้าย: แสดง `### filename.ts` เป็น heading, ตามด้วย `typescript` codeblock แสดงตัวอย่างการใช้งาน
-- ขวา: แบ่งเป็น 2 ส่วนใน `<td>` เดียว:
-  - ส่วนบน: description คำอธิบายสั้นๆ ของ preview ใช้ `<p align="center">` เพื่อจัดกึ่งกลาง
-  - ส่วนล่าง: ANSI preview แสดงผลลัพธ์ที่ผู้ใช้เห็นจริง
-- ทั้ง 2 ส่วนของ col ขวา ต้องยืดสูงจนเท่ากับ col ซ้าย (ใช้ `<br>` หรือช่องว่างเติมให้เต็ม)
-- ใช้ `<table><tr><td width="50%" valign="top">` สำหรับทั้ง 2 คอลัมน์
-- แต่ละ usage example มี heading `###` ของตัวเอง พร้อม filename
-- ทุก usage section ต้องกว้างเท่ากัน (ใช้ `width="50%"` ทั้งคู่)
+- ซ้าย: `### filename.ts` heading + `typescript` codeblock
+- ขวา: `<p align="center">` description ตรงกลาง + `ansi` codeblock preview
+- ใช้ `<table><tr><td width="50%" valign="top">` ทั้ง 2 คอลัมน์ กว้างเท่ากัน
 
 ### 3. API References Format
 
-ใช้ accordion สำหรับ API References:
-
-- แต่ละ subsection เป็น `<details>`/`<summary>` accordion
-- ภายใน accordion ใช้ Markdown table
-- ไม่มี file structure ใน API References (file structure อยู่ใน Development > Architecture)
-- ใช้ตารางสำหรับ Functions, Types, Classes, Interfaces ฯลฯ
+- แต่ละ subsection เป็น `<details>`/`<summary>` accordion พร้อม Markdown table
+- ไม่มี file structure (file structure อยู่ใน Development > Architecture)
 
 ### 4. Project Format
 
-ใช้ accordion สำหรับ Project section เรียงลำดับ (อยู่เหนือ Features):
-
-- `Goal`: ตาราง 4 columns (Icon, Goal, Status, Description) พร้อม icon จาก iconify, รวม items ที่เป็น goal และไม่ใช่ goal (Status: ✓ Goal / ✗ Not Goal)
-- `Scope`: ตาราง 4 columns (Icon, Scope, Status, Description) พร้อม icon จาก iconify, รวม items ที่เป็น scope และไม่ใช่ scope (Status: ✓ In Scope / ✗ Out of Scope)
-- `Key Concepts`: ตาราง 3 columns (Icon, Concept, Description) พร้อม icon จาก iconify
-- `Core Principles`: ตาราง 3 columns (Icon, Principle, Description) พร้อม icon จาก iconify
-- `Best Practices`: ตาราง 3 columns (Icon, Practice, Description) พร้อม icon จาก iconify
+- `Goal`: 4 columns (Icon, Goal, Status, Description) - รวม ✓ Goal / ✗ Not Goal
+- `Scope`: 4 columns (Icon, Scope, Status, Description) - รวม ✓ In Scope / ✗ Out of Scope
+- `When To Use`: 3 columns (Icon, Use Case, Description) - แสดงว่าปกติใช้ยังไงและถ้าใช้จะเป็นยังไง
+- `Key Concepts`, `Core Principles`, `Best Practices`: 3 columns (Icon, Name, Description)
 
 ### 5. Development Format
 
-ใช้ accordion สำหรับ Development section เรียงลำดับ:
-
-- `Tech Stack`: ตาราง 4 columns (Layer, Technology, Version, Description) พร้อมข้อมูลจริงจาก package.json
-- `How It Work`: ANSI visual workflow diagram วาด flow การทำงานแบบ visual ให้เห็นภาพ เข้าใจง่าย ไม่ใช่แค่ input→process→output แต่เป็น workflow จริงของ package
-- `Architecture`: codeblock แสดง file structure
-- `Scripts`: codeblock แสดงคำสั่งทั้งหมด
-- `Workflows`: codeblock แสดง `.devin/` structure
-- `Skills`: codeblock แสดง skills ที่ใช้ใน package
+- `Tech Stack`: 4 columns (Layer, Technology, Version, Description) จาก `package.json`
+- `How It Work`: ANSI visual workflow diagram พร้อม icons (📦 🔧 ✅ ❌ etc.) จัด layout ให้อยู่ตรงกลาง
+- `Architecture`, `Workflows`, `Skills`: codeblock แสดง structure
+- `Scripts`: แสดงเป็น JSON codeblock จาก `package.json` scripts object จริงๆ พร้อม comment ในแต่ละบรรทัด
 
 ### 6. Quick Start Format
 
-เขียน Quick Start โดย:
-
-- ใช้ numbered steps แบบไม่มี indent (เลขนอก, codeblock ไม่ indent)
-- แต่ละ codeblock ต้องมี filename ระบุว่าทำในไฟล์ไหน
-- มี file structure แสดงโครงสร้างไฟล์ที่เกี่ยวข้อง
-- ตัวอย่าง:
-
-```
-1. **Install** — `terminal`
-   ```bash
-   bun add @wrikka/package-name
-   ```
-
-2. **Import** — `src/index.ts`
-   ```typescript
-   import { func } from '@wrikka/package-name';
-   ```
-
-3. **Use** — `src/app.ts`
-   ```typescript
-   func();
-   ```
-```
-
-- หลังจาก steps ให้แสดง file structure:
-
-```
-src/
-├── index.ts    # Import and export
-└── app.ts      # Usage example
-```
+- HTML 2-column layout: ซ้ายแสดง title + description + file structure, ขวาแสดง steps
+- คอลัมน์กว้างเท่ากัน 50%/50%
+- ซ้าย: มี title และ description อธิบายโครงสร้างโปรเจกต์
+- ขวา: แต่ละ step มี heading + description อธิบายสั้นๆ ก่อน codeblock
+- Step headings เขียนให้เข้าใจง่าย (เช่น Install Package, Import Utilities, Use In Your App)
+- แต่ละ codeblock มี filename ใน heading
+- ใช้ `<table><tr><td width="50%" valign="top">` ทั้ง 2 คอลัมน์
 
 ### 7. Content Standards
 
-รักษาคุณภาพเนื้อหาตามมาตรฐาน:
-
-- ใช้ข้อมูลจริงจาก `/analyze-project`
-- Code examples ต้องรันได้จริง, มี comment อธิบาย
+- ใช้ข้อมูลจริงจาก `/analyze-project`, code รันได้จริง
 - ไม่ใช้ placeholder ยกเว้น banner image
-- แต่ละ `## heading` ต้องมี description ใต้
-- โดยเริ่มต้นไม่ต้องมี license/history ถ้าไม่มี tag release
-- README.md: Headers และ Lists เป็นภาษาอังกฤษ
-- Workflow: ใช้ภาษาไทย, ยกเว้นคำศัพท์เฉพาะทาง
-- ไม่มี `## Information` section (removed)
-- ไม่มี `## Key Concepts` เป็น section แยก (ย้ายไป `## Project` accordion)
-- ไม่มี `## Tech Stack` เป็น section แยก (ย้ายไป `## Development` accordion)
+- README.md: Headers/List ภาษาอังกฤษ, Workflow: ภาษาไทย
+- ไม่มี `## Information`, `## Key Concepts`, `## Tech Stack` เป็น section แยก
 
 ### 8. Features Writing Standards
 
-เขียน features ให้ละเอียดและครอบคลุมที่สุด:
-
-- Coverage: ครอบคลุมทุก features หลักจากการวิเคราะห์ source code ทั้งหมด ไม่มีการข้าม
+- Coverage: ครอบคลุมทุก features จาก source code ไม่มีการข้าม
+- Concise Rows: แต่ละ row กระชับ ไม่ใช่เขียน Description ให้ยาว แต่มี row ให้ครบ
 - Business-Focused: เขียน business value ไม่ใช่แค่ technical details
-- Description: อธิบาย feature อย่างชัดเจนว่าทำอะไร และทำงานอย่างไร อย่างละเอียด
-- Benefit: ระบุประโยชน์ที่เป็นคุณค่าต่อผู้ใช้จริงๆ ไม่ใช่คำกว้างๆ
-- Usage: ให้ตัวอย่างการใช้งานที่เป็นรูปธรรม และใช้งานได้จริง
-- Icons: ใช้ icon จาก iconify ที่เหมาะสมกับแต่ละ feature
-- No Generic: หลีกเลี่ยงคำอธิบายที่ generic หรือไม่ชัดเจน
-- User-Centric: เน้นประโยชน์ต่อผู้ใช้ ไม่ใช่แค่ technical details
-- Maximize: ยิ่งครอบคลุมยิ่งดี ไม่จำกัดจำนวน rows
+- Icons: ใช้ icon จาก iconify ที่เหมาะสม
 
 ## Example Template
 
 ```markdown
 # @wrikka/package-name
-
 > 🚀 Short description
-
 Longer description.
-
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Project
-
-<details>
-<summary>Goal</summary>
-
+<details><summary>Goal</summary>
 | Icon | Goal | Status | Description |
 |------|------|--------|-------------|
-| <center>![icon](url)</center> | Goal item | ✓ Goal | Description |
-| <center>![icon](url)</center> | Non-goal item | ✗ Not Goal | Description |
-
+| ![icon](url) | Goal item | ✓ Goal | Desc |
+| ![icon](url) | Non-goal | ✗ Not Goal | Desc |
 </details>
-
-<details>
-<summary>Scope</summary>
-
+<details><summary>Scope</summary>
 | Icon | Scope | Status | Description |
 |------|-------|--------|-------------|
-| <center>![icon](url)</center> | In scope item | ✓ In Scope | Description |
-| <center>![icon](url)</center> | Out of scope item | ✗ Out of Scope | Description |
-
+| ![icon](url) | In scope | ✓ In Scope | Desc |
+| ![icon](url) | Out of scope | ✗ Out of Scope | Desc |
 </details>
-
-<details>
-<summary>Key Concepts</summary>
-
+<details><summary>Key Concepts</summary>
 | Icon | Concept | Description |
 |------|---------|-------------|
-| <center>![icon](url)</center> | Concept | Description |
-
+| ![icon](url) | Concept | Desc |
 </details>
-
-<details>
-<summary>Core Principles</summary>
-
+<details><summary>Core Principles</summary>
 | Icon | Principle | Description |
 |------|-----------|-------------|
-| <center>![icon](url)</center> | Principle | Description |
-
+| ![icon](url) | Principle | Desc |
 </details>
-
-<details>
-<summary>Best Practices</summary>
-
+<details><summary>When To Use</summary>
+| Icon | Use Case | Description |
+|------|----------|-------------|
+| ![icon](url) | Use case | When to use and what happens |
+</details>
+<details><summary>Best Practices</summary>
 | Icon | Practice | Description |
 |------|----------|-------------|
-| <center>![icon](url)</center> | Practice | Description |
-
+| ![icon](url) | Practice | Desc |
 </details>
 
 ## Features
-
 | Icon | Feature | Description | Benefit | Usage |
 |------|---------|-------------|---------|-------|
-| <center>![icon](url)</center> | Name | What it does | Why it matters | `func()` |
+| ![icon](url) | Name | What it does | Why it matters | `func()` |
 
 ## Quick Start
+<table>
+<tr>
+<td width="50%" valign="top">
 
-1. **Install** — `terminal`
-   ```bash
-   bun add @wrikka/package-name
-   ```
+**Project Structure**
 
-2. **Import** — `src/index.ts`
-   ```typescript
-   import { func } from '@wrikka/package-name';
-   ```
-
-3. **Use** — `src/app.ts`
-   ```typescript
-   func();
-   ```
+โครงสร้างไฟล์หลักของ package แสดง entry point และ modules
 
 ```
 src/
@@ -280,10 +167,31 @@ src/
 └── app.ts      # Usage example
 ```
 
+</td>
+<td width="50%" valign="top">
+
+1. **Install Package** — `terminal`
+   Install the package to your project
+   ```bash
+   bun add @wrikka/package-name
+   ```
+2. **Import Utilities** — `src/index.ts`
+   Import functions from the package
+   ```typescript
+   import { func } from '@wrikka/package-name';
+   ```
+3. **Use In Your App** — `src/app.ts`
+   Call the function in your code
+   ```typescript
+   func();
+   ```
+
+</td>
+</tr>
+</table>
+
 ## Usage
-
 ### example.ts
-
 <table>
 <tr>
 <td width="50%" valign="top">
@@ -296,7 +204,7 @@ func('hello');
 </td>
 <td width="50%" valign="top">
 
-<p align="center">Preview shows the terminal output after running the example code.</p>
+<p align="center">Preview shows terminal output.</p>
 
 ```ansi
 ┌─────────────────────────┐
@@ -310,119 +218,81 @@ func('hello');
 </table>
 
 ## API References
-
-<details>
-<summary>Functions</summary>
-
+<details><summary>Functions</summary>
 | Function | Description |
 |----------|-------------|
 | `func(arg)` | Does something |
-
 </details>
 
 ## Development
-
-<details>
-<summary>Tech Stack</summary>
-
+<details><summary>Tech Stack</summary>
 | Layer | Technology | Version | Description |
 |-------|-------------|---------|-------------|
 | Runtime | Bun | >= 1.3.10 | JavaScript runtime |
 | Language | TypeScript | 6.0.3 | Type-safe development |
 | Build | bunup | latest | Bundling with Bun |
-
 </details>
-
-<details>
-<summary>How It Work</summary>
-
+<details><summary>How It Work</summary>
 ```ansi
-┌─────────────┐
-│  User Input │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐     ┌──────────────┐
-│  Validate   │────▶│  Transform   │
-└─────────────┘     └──────┬───────┘
-                           │
-              ┌────────────┼────────────┐
-              │            │            │
-              ▼            ▼            ▼
-         ┌────────┐  ┌────────┐  ┌────────┐
-         │  OK    │  │ Error  │  │ Cache  │
-         └────────┘  └────────┘  └────────┘
-              │            │            │
-              └────────────┼────────────┘
-                           │
-                           ▼
-                    ┌─────────────┐
-                    │   Output    │
-                    └─────────────┘
+      ┌─────────┐         ┌─────────┐         ┌─────────┐
+      │ 📦 Input │  ─────▶ │ 🔧 Process │  ─────▶ │ ✅ Output │
+      └─────────┘         └─────────┘         └─────────┘
 ```
-
 </details>
-
-<details>
-<summary>Architecture</summary>
-
+<details><summary>Architecture</summary>
 ```
 src/
 ├── modules/
 │   └── ...
 └── index.ts
 ```
-
 </details>
-
-<details>
-<summary>Scripts</summary>
-
-```bash
-bun run dev      # Development
-bun run build    # Build
-bun run test     # Test
-bun run lint     # Lint
-bun run verify   # Verify
+<details><summary>Scripts</summary>
+```json
+{
+  "scripts": {
+    "dev": "bun run src/index.ts",              // Run in development mode
+    "build": "bunup",                            // Build with bunup
+    "build:watch": "bunup --watch",               // Build in watch mode
+    "test": "vitest run",                         // Run tests with Vitest
+    "test:watch": "vitest",                       // Watch mode tests
+    "test:coverage": "vitest run --coverage",     // Tests with coverage report
+    "lint": "biome check",                        // Lint with Biome
+    "lint:fix": "biome check --write",            // Auto-fix lint issues
+    "typecheck": "tsgo --noEmit",                 // Type check with tsgo
+    "typecheck:watch": "tsgo --noEmit --watch",   // Type check in watch mode
+    "scan": "sg scan",                            // AST scan with ast-grep
+    "check": "bun run lint && bun run typecheck && bun run scan",  // Lint + typecheck + scan
+    "verify": "bun run check && bun run test",    // Check + test
+    "ci": "bun run verify && bun run build",      // Verify + build
+    "clean": "rm -rf node_modules",               // Remove node_modules
+    "security": "bun audit"                       // Security audit
+  }
+}
 ```
-
 </details>
-
-<details>
-<summary>Workflows</summary>
-
+<details><summary>Workflows</summary>
 ```
 .devin/
 ├── rules/
-│   └── model_decision/
 ├── scripts/
 ├── workflows/
 └── hooks/
 ```
-
 </details>
-
-<details>
-<summary>Skills</summary>
-
+<details><summary>Skills</summary>
 ```
 (No skills needed for this package)
 ```
-
 </details>
 ```
 
 ## Expected Outcome
 
 - README.md ครบถ้วน ไม่มี placeholder
-- Project section อยู่เหนือ Features
-- Project accordions: Goal (table with Status), Scope (table with Status), Key Concepts, Core Principles, Best Practices
-- Features เขียนให้ครอบคลุมที่สุด maximize coverage
-- Tech Stack ย้ายเข้า Development เป็น accordion 4 columns (Layer, Technology, Version, Description)
-- Quick Start ไม่มี indent, มี filename ใน codeblock, มี file structure
-- Usage: col ขวา 2 ส่วน (description ตรงกลาง + ANSI), ยืดสูงเท่า col ซ้าย, ทุก section กว้างเท่ากัน
-- API References ไม่มี file structure
-- How It Work เป็น visual ANSI workflow diagram ที่เข้าใจง่าย
-- Development accordions: Tech Stack, How It Work, Architecture, Scripts, Workflows, Skills
-- ไม่มี Information section
-- ไม่มี markdown diff
+- Project อยู่เหนือ Features, ไม่มี Information/Tech Stack section แยก
+- Features: row กระชับ ครอบคลุมทุก feature ไม่ใช่ Description ยาว
+- Quick Start: ไม่มี indent, มี filename, มี file structure
+- Usage: col ขวา 2 ส่วน (description ตรงกลาง + ANSI), กว้างเท่ากัน
+- API References: ไม่มี file structure
+- Development: Tech Stack, How It Work (visual ANSI), Architecture, Scripts, Workflows, Skills

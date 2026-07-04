@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /plan-task
   - /plan-code
+  - /report-plan
   - /follow-content-quality
   - /follow-best-practice
 ---
@@ -66,43 +67,50 @@ related_workflows:
 4. รอยืนยันจาก user ก่อนเริ่ม implement
 5. ถ้า user มี feedback ให้แก้ไข documents แล้ว validate ใหม่
 
+### 6. Report Plan
+
+รายงานแผนงานทั้งหมดก่อนลงมือทำ
+
+1. ทำ `/report-plan` เพื่อรายงานแผนงานพร้อม task table และ file structure
+2. แสดง task breakdown เป็นตารางตาม `/report-format-table`
+3. แสดง file structure ที่จะกระทบตาม `/report-format-file-structure`
+4. ลงมือทำทันทีหลังรายงาน
+
 ## Rules
 
-### 1. Sequence Order
+### 1. Planning Sequence
 
-ทำตามลำดับที่ถูกต้อง
+ลำดับการวางแผนต้องเป็นระบบ
 
-- ทำ `/plan-task` ก่อน `/plan-code` เสมอ
-- `/plan-code` ต้องอ่าน task document จาก `/plan-task`
+- ทำ task planning ก่อน code planning เสมอ
+- แต่ละขั้นตอนต้องใช้ผลลัพธ์จากขั้นตอนก่อนหน้า
 - ห้ามข้ามขั้นตอนใดๆ
-- ถ้ามี feedback จาก user ให้กลับไปแก้ไข documents แล้ว validate ใหม่
+- ถ้ามี feedback ให้กลับไปแก้ไขแล้ว validate ใหม่
 
-### 2. Document Verification
+### 2. Document Standards
 
-ตรวจสอบเอกสารที่สร้างขึ้น
-
-- ตรวจสอบ task document มีอยู่จริงใน `.agents/task/`
-- ตรวจสอบ architecture document มีอยู่จริงใน `.agents/architecture/`
-- ตรวจสอบ documents สอดคล้องกับ requirements
-- ตรวจสอบ documents ไม่ขัดแย้งกัน
-
-### 3. User Confirmation
-
-รอยืนยันจาก user ก่อน implement
-
-- ต้องรอยืนยันจาก user ก่อนเริ่ม implement
-- อธิบายแผนงานอย่างชัดเจน
-- รอ feedback จาก user
-- ถ้า user ไม่ยืนยัน ให้แก้ไข documents ตาม feedback
-
-### 4. Quality Standards
-
-ทำตาม `/follow-content-quality` สำหรับคุณภาพเอกสาร
+เอกสารที่สร้างต้องมีคุณภาพตาม `/follow-content-quality`
 
 - เขียน documents ให้ชัดเจน อ่านง่าย ไม่กำกวม
 - ใช้ numbered list สำหรับ steps ที่ต้องทำตามลำดับ
 - ระบุ subject และ object ชัดเจนในทุกประโยค
 - ไม่ซ้ำซ้อนระหว่าง task document และ architecture document
+
+### 3. User Confirmation
+
+ต้องได้รับการยืนยันจาก user ก่อน implement
+
+- อธิบายแผนงานและ risks อย่างชัดเจน
+- รอ feedback จาก user ก่อนดำเนินการ
+- ถ้า user ไม่ยืนยัน ให้แก้ไข documents ตาม feedback
+
+### 4. Report Before Execute
+
+ต้อง report plan ก่อนลงมือทำเสมอ
+
+- ทำ `/report-plan` หลัง validate plan เสร็จเสมอ
+- แสดง task table และ file structure ก่อนเริ่ม implement
+- ลงมือทำทันทีหลังรายงาน ไม่ต้องรอยืนยัน
 
 ## Expected Outcome
 
@@ -113,3 +121,4 @@ related_workflows:
 - ระบุ risks และ mitigation strategies
 - ระบุ success criteria สำหรับแต่ละ milestone
 - ยืนยันจาก user ก่อน implement
+- Report plan พร้อม task table และ file structure ก่อนลงมือทำ
