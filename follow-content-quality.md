@@ -6,7 +6,7 @@ related_workflows:
   - /write-windsurf-global-workflows
   - /improve-correctness
   - /improve-file-structure
-  - /dont-over-engineer
+  - /dont-over-engine
 ---
 
 ## Goal

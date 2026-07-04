@@ -1,152 +1,128 @@
 ---
 title: Update Documentation
-description: อัพเดท documentation และ references ตามมาตรฐาน
+description: Write high-quality documentation with VitePress
 auto_execution_mode: 3
 related_workflows:
   - /analyze-features
   - /analyze-project
   - /update-reference
+  - /bench-competitors
+  - /all-workspaces
   - /follow-vitepress
-  - /deep-research
-  - /write-windsurf-global-workflows
 ---
 
 ## Goal
 
-อัพเดท documentation และ references ตามมาตรฐาน
+Write high-quality documentation using real data from source code and VitePress
 
 ## Scope
 
-ครอบคลุมการสร้างและอัพเดท documentation structure ทั้งหมด รวมถึงการจัดการ references ใน project, workflows, และ skills
+Cover comprehensive documentation writing including features, examples, API docs, and references
 
 ## Execute
 
-### 1. Prepare VitePress Configuration
+### 1. Check Project Type
 
-1. ทำ `/deep-research` สำหรับ VitePress และ UnoCSS integration
-2. ทำ `/write-windsurf-global-workflows` สำหรับ `follow-vitepress`
-3. ทำ `/follow-vitepress` สำหรับตั้งค่า VitePress พร้อม UnoCSS
+Check project type to determine documentation strategy
 
-### 2. Update Documentation
+1. Run `/check-monorepo` to verify if project is a monorepo
+2. If monorepo, follow Monorepo section
+3. If not monorepo, follow Single Project section
 
-1. ทำ `/analyze-features` เพื่อวิเคราะห์ features ใน project
-2. ทำ `/analyze-project` เพื่อวิเคราะห์โครงสร้าง project
-3. เลือก template ตามประเภท project
-4. สร้าง `docs/` folder
-5. สร้าง structure ตาม template ที่เลือก
-6. สร้างไฟล์หลักใน `project/` และ `getting-started/`
-7. สร้าง subfolders ตาม template
-8. เขียน content ตาม template
-9. ใช้ frontmatter สำหรับทุกไฟล์
-10. ทำ `/bench-competitors` เพื่อสร้างไฟล์ `comparison.md` ใน `project/`
+### 2. Update Documentation For Single Project
 
-### 3. Update References
+For non-monorepo projects:
 
-เมื่อแก้ไขไฟล์ให้ค้นหาและอัพเดท references ทั้งหมด
+1. Run `/analyze-features` and `/analyze-project` to analyze project
+2. Select template based on project type (Library, Product, CLI, Web)
+3. Create `docs/` folder and structure according to template
+4. Write real content in main files:
+   - `project/overview.md` - Project overview with features and architecture
+   - `project/features.md` - Detailed features with examples
+   - `getting-started/installation.md` - Installation guide with examples
+   - `getting-started/usage.md` - Usage examples that work
+5. Write `index.md` according to `/update-readme` template (Features table, Key Concepts, Tech Stack, Quick Start)
+6. Use frontmatter for all files
+7. (Optional) Run `/bench-competitors` to create `comparison.md` in `project/` if needed
 
-1. ทำ `/update-reference` เพื่ออัพเดท references ทั้งหมด
-2. ตรวจสอบว่าไม่มี references ที่เสียหายหรือชี้ไปยังไฟล์เดิม
+### 3. Update Documentation For Monorepo
+
+For monorepos with many workspaces:
+
+1. Run `/analyze-features` and `/analyze-project` to analyze entire project
+2. Run `/all-workspaces` to discover and prioritize workspaces
+3. Create single `docs/` folder in root directory (do not create `docs/` in each workspace)
+4. Write real content combining all workspaces in main files:
+   - `project/overview.md` - Entire monorepo overview with features and architecture
+   - `project/features.md` - Detailed features of all workspaces with examples
+   - `project/workspaces.md` - Details of each workspace
+   - `getting-started/installation.md` - Installation guide with examples
+   - `getting-started/usage.md` - Usage examples that work
+5. Write `index.md` according to `/update-readme` template (Features table, Key Concepts, Tech Stack, Quick Start)
+6. Use frontmatter for all files
+7. (Optional) Run `/bench-competitors` to create `comparison.md` in `project/` if needed
+
+### 4. Setup VitePress
+
+Configure VitePress for documentation site
+
+1. Run `/follow-vitepress` to setup VitePress completely
+2. Install dependencies: `vitepress`, `@shikijs/vitepress-twoslash`, `@yuy1n/vitepress-plugin-group-icons`
+3. Create `.vitepress/` config directory in `docs/`
+4. Create `.vitepress/config.ts` with nav and sidebar
+5. Create `.vitepress/theme/` with custom theme
+6. Setup UnoCSS integration according to `/follow-unocss`
+7. Setup Shiki Twoslash for type hover
+8. Setup VitePress Plugin Group Icons
+9. Add scripts in `package.json`: `dev:docs`, `build:docs`, `preview:docs`
+
+### 5. Update References
+
+When modifying files, run `/update-reference` to update all references
 
 ## Rules
 
-### 1. VitePress Configuration
+### 1. Monorepo Documentation
 
-- ทำ `/deep-research` ก่อนเพื่อค้นหาข้อมูลล่าสุด
-- ทำ `/write-windsurf-global-workflows` เพื่ออัพเดท workflow ให้ถูกต้อง
-- ทำ `/follow-vitepress` ซึ่งรวม `/follow-unocss` อยู่แล้ว
-- ดูตัวอย่าง integration ที่ https://vp.yuy1n.io/
+- สำหรับ monorepo ต้องมี `docs/` เดียวใน root directory เท่านั้น
+- ห้ามสร้าง `docs/` ในแต่ละ workspace
+- เขียน documentation ที่รวมทุก workspaces ในไฟล์เดียว
+- จัดลำดับ workspaces ตามความสำคัญ (foundation packages ก่อน)
 
-### 2. Documentation Structure
+### 2. Directory Structure
 
-ใช้ template ตามประเภท project (Library, Product, CLI, Web, Monorepo):
+ใช้ structure ตามประเภท project (Library, Product, CLI, Web, Monorepo):
 
-**Core Structure (required)**:
-- `project/` - ภาพรวมโปรเจกต์
-- `getting-started/` - เริ่มต้นใช้งาน
+**Required Files**:
+- `index.md` - Project overview (ตาม template `/update-readme`)
+- `.vitepress/config.ts` - VitePress configuration
+
+**Required Directories**:
+- `project/` - Project overview
+- `getting-started/` - Getting started
+- `.vitepress/` - VitePress configuration
 
 **Optional Directories**:
-- `guides/` - guides ละเอียด
-- `key-concepts/` - key concepts และ terminology
-- `principles/` - principles และ best practices
+- `guides/` - Detailed guides
+- `key-concepts/` - Key concepts and terminology
+- `principles/` - Principles and best practices
 - `api/` - API documentation
-- `examples/` - examples
-- `reference/` - reference documentation
-- `templates/` - templates สำหรับ project
-- `workflows/` - project-specific workflows
+- `examples/` - Examples
+- `reference/` - Reference documentation
+- `templates/` - Templates for project
+- `workflows/` - Project-specific workflows
+- `development/` - Development guides
 
-```
-docs/
-├── project/                      # Project overview and core concepts (required)
-│   ├── overview.md
-│   ├── features.md
-│   ├── key-concept.md
-│   ├── principles.md
-│   ├── roadmap.md (optional)
-│   ├── comparison.md (optional)
-│   ├── changelog.md (optional)
-│   ├── faq.md (optional)
-│   ├── team.md (optional)
-│   └── vision.md (optional)
-├── getting-started/             # เริ่มต้นใช้งาน (required)
-│   ├── installation.md
-│   ├── configuration.md
-│   ├── usage.md
-│   ├── quick-start.md (optional)
-│   ├── troubleshooting.md (optional)
-│   ├── prerequisites.md (optional)
-│   ├── environment.md (optional)
-│   └── next-steps.md (optional)
-├── development/                  # Development guides (optional)
-│   ├── overview.md
-│   ├── workflow.md
-│   ├── testing.md
-│   ├── debugging.md
-│   ├── spec/
-│   │   ├── overview.md
-│   │   └── [module-specs].md
-│   └── code-quality.md
-├── guides/                       # Guides ละเอียด (optional)
-│   ├── architecture/
-│   ├── deployment/
-│   ├── performance/
-│   ├── security/
-│   ├── contributing/
-│   ├── workflows/
-│   └── monitoring/
-├── key-concepts/                 # Key concepts และ terminology (optional)
-├── principles/                   # Principles และ best practices (optional)
-├── api/                          # API documentation (optional)
-│   ├── modules/
-│   ├── components/
-│   ├── utilities/
-│   ├── endpoints/
-│   ├── schemas/
-│   ├── events/
-│   ├── hooks/
-│   └── middleware/
-├── examples/                     # Examples (optional)
-│   ├── basic/
-│   ├── advanced/
-│   ├── integrations/
-│   ├── real-world/
-│   ├── patterns/
-│   ├── tutorials/
-│   ├── snippets/
-│   └── templates/
-├── reference/                    # Reference documentation (optional)
-│   ├── types/
-│   ├── functions/
-│   ├── constants/
-│   ├── config/
-│   ├── errors/
-│   ├── cli/
-│   ├── env-vars/
-│   └── performance-metrics/
-├── templates/                    # Templates สำหรับ project (optional)
-└── workflows/                    # Project-specific workflows (optional)
-```
+### 3. VitePress Configuration
 
-### 3. References Management
+- ทำ `/follow-vitepress` สำหรับ VitePress setup
+- ใช้ UnoCSS สำหรับ styling
+- ใช้ Shiki Twoslash สำหรับ type hover
+- ใช้ VitePress Plugin Group Icons สำหรับ icons
+- ตั้งค่า nav และ sidebar ใน config
+- สร้าง home page พร้อม hero และ features
+
+### 4. References Management
 
 - ทำ `/update-reference` เมื่อแก้ไขไฟล์
 - ตรวจสอบ references ใน project, workflows, และ skills
@@ -154,20 +130,25 @@ docs/
 
 ## Expected Outcome
 
-### VitePress Configuration
-
-- VitePress config พร้อมใช้งาน
-- UnoCSS integrated พร้อม presetWind4
-- Theme custom พร้อมใช้งาน
-- Package scripts พร้อมใช้งาน
-
 ### Documentation
 
 - Documentation ตามมาตรฐาน
 - Structure สอดคล้องกับ template
 - Content คุณภาพสูง
 - ไฟล์ทั้งหมดมี frontmatter
-- ไฟล์ `comparison.md` สร้างโดย `/bench-competitors`
+- `index.md` เขียนตาม template ของ `/update-readme`
+- `comparison.md` สร้างโดย `/bench-competitors`
+- สำหรับ monorepo: มี `docs/` เดียวใน root ที่รวมทุก workspaces
+
+### VitePress
+
+- VitePress config พร้อมใช้งาน
+- UnoCSS integrated พร้อม presetWind4
+- Theme custom พร้อมใช้งาน
+- Package scripts พร้อมใช้งาน
+- Shiki Twoslash integrated พร้อม type hover
+- VitePress Plugin Group Icons integrated
+- Home page พร้อม frontmatter ตาม VitePress default
 
 ### References
 

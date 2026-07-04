@@ -1,6 +1,6 @@
 ---
-title: Follow Code Quality
-description: รักษามาตรฐานคุณภาพโค้ดด้วย separation of concerns, type safety, error handling
+title: Improve Code Quality
+description: ปรับปรุงคุณภาพโค้ดด้วย separation of concerns, type safety, error handling
 auto_execution_mode: 3
 related_workflows:
   - /follow-content-quality
@@ -10,6 +10,8 @@ related_workflows:
   - /fix-circular-dependencies
   - /no-hard-code
   - /improve-naming-convention
+  - /improve-reuseables
+  - /improve-debugging
 ---
 
 ## Goal
@@ -38,6 +40,7 @@ related_workflows:
 2. แก้ไข issues ที่พบตามลำดับความสำคัญ
 3. ทำ `/no-hard-code` เพื่อลบ hard code
 4. ทำ `/improve-naming-convention` เพื่อปรับปรุง naming conventions
+5. ทำ `/improve-reuseables` เพื่อปรับปรุง reusability
 
 ### 3. Verify Quality
 
@@ -91,21 +94,12 @@ related_workflows:
 
 ปรับปรุง reusability
 
+- ทำ `/improve-reuseables` เพื่อปรับปรุง reusability
 - Use composition
 - Use generic types
 - Decouple components
 
-### 6. Debuggability
-
-ทำให้โค้ด debug ง่าย
-
-- Logging with context
-- Descriptive error messages
-- Self-documenting code
-- Clear naming
-- Minimal nesting
-
-### 7. DX & Documentation
+### 6. DX & Documentation
 
 ปรับปรุง developer experience และ documentation
 
@@ -116,7 +110,7 @@ related_workflows:
 - JSDoc for public functions
 - No comments for self-documenting code
 
-### 8. Security
+### 7. Security
 
 ทำให้โค้ดปลอดภัย
 
@@ -126,7 +120,7 @@ related_workflows:
 - Authentication and authorization
 - No sensitive data exposure
 
-### 9. Performance
+### 8. Performance
 
 ทำให้โค้ดมีประสิทธิภาพ
 
@@ -135,7 +129,7 @@ related_workflows:
 - Avoid unnecessary computations
 - Memoization
 
-### 10. Scalability
+### 9. Scalability
 
 ทำให้โค้ด scale ได้
 
@@ -144,7 +138,7 @@ related_workflows:
 - Caching strategies
 - Horizontal scaling
 
-### 11. Resilience
+### 10. Resilience
 
 ทำให้โค้ดทนทานต่อการเปลี่ยนแปลง
 
@@ -153,7 +147,7 @@ related_workflows:
 - Loose coupling
 - Interface contracts
 
-### 12. Report Format
+### 11. Report Format
 
 ระบุรูปแบบรายงาน
 

@@ -19,13 +19,13 @@ auto_execution_mode: 3
 อ่าน workflow ปัจจุบันที่กำลังทำงาน
 
 - อ่าน workflow file ปัจจุบัน
-- ระบุ workflows ที่ถูกอ้างอิงใน workflow นี้
+- ระบุ workflows ที่ถูกอ้างอิงใน workflow นี้จาก patterns เช่น `/workflow-name`
 
 ### 2. Build Dependency Graph
 
 สร้าง dependency graph ของ workflows ทั้งหมด
 
-- สแกนหา references ของ workflows ใน workflow ปัจจุบัน
+- สแกนหา references ของ workflows ใน workflow ปัจจุบันด้วย patterns เช่น `/workflow-name`
 - สแกนหา references ของ workflows ใน workflows ที่พบ (recursive)
 - สร้าง dependency graph แบบ tree structure
 
@@ -35,6 +35,7 @@ auto_execution_mode: 3
 
 - อ่าน workflows ตามลำดับจาก root ไปยัง leaf nodes
 - เก็บข้อมูล: title, description, execute steps, rules, expected outcome
+- ใช้ `read_file` tool สำหรับอ่าน workflow files
 
 ### 4. Summarize Tasks
 
@@ -43,16 +44,17 @@ auto_execution_mode: 3
 - รวบรวม execute steps จากทุก workflow
 - รวบรวม rules ที่ต้องปฏิบัติ
 - สรุป expected outcomes ทั้งหมด
-- จัดลำดับความสำคัญของ tasks
+- จัดลำดับความสำคัญของ tasks ตาม dependency graph
 
 ### 5. Generate Summary
 
 สร้าง summary ที่อ่านง่าย
 
-- แสดง dependency graph
+- แสดง dependency graph แบบ tree structure
 - แสดง tasks ที่ต้องทำตามลำดับ
 - แสดง rules ที่ต้องปฏิบัติ
 - แสดง expected outcomes ทั้งหมด
+- ใช้ `/report-format-table` สำหรับจัดรูปแบบ output
 
 ## Rules
 

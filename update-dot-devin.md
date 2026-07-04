@@ -1,6 +1,6 @@
 ---
 title: Update Dot Devin
-description: สร้าง .devin structure ครบถ้วน รวม rules และ hooks
+description: สร้าง .devin structure ครบถ้วนรวม rules และ hooks โดยไม่มี workflows directory
 auto_execution_mode: 3
 related_workflows:
   - /update-devin-rules
@@ -86,8 +86,7 @@ integrations/<workspace>/
 1. อ่าน https://docs.devin.ai/cli/extensibility/rules เพื่อเข้าใจ rules
 2. สร้าง `.devin/rules` directory พร้อม subdirectories: `always-on/`, `model_decision/`, `glob/`
 3. ทำ `/update-devin-rules` เพื่อเขียน rules ตาม dependencies จริง
-4. สร้าง `.devin/hooks` directory พร้อม TypeScript scripts และ `hooks.json`
-5. ทำตาม Rules section ด้านล่างสำหรับ frontmatter และ format
+4. ทำตาม Rules section ด้านล่างสำหรับ frontmatter และ format
 
 ### 4. Setup Hooks
 
@@ -112,7 +111,7 @@ integrations/<workspace>/
 
 ### 6. Setup Skills And MCP (Optional)
 
-ตั้งค่า skills และ MCP servers (ถ้าจำเป็น)
+ตั้งค่า skills และ MCP servers (ถ้า project มีความต้องการเฉพาะ)
 
 1. อ่าน https://docs.devin.ai/cli/extensibility/skills/overview เพื่อเข้าใจ skills
 2. อ่าน https://docs.devin.ai/cli/extensibility/mcp/overview เพื่อเข้าใจ MCP
@@ -170,18 +169,9 @@ integrations/<workspace>/
 
 ### 7. Hook Format
 
-รูปแบบ hooks configuration (`.devin/hooks/hooks.json`)
-
-```json
-{
-  "post_write_code": [
-    {
-      "command": "bun .devin/hooks/run-lint.ts",
-      "show_output": true
-    }
-  ]
-}
-```
+- รูปแบบ hooks configuration อ้างอิงจาก https://docs.devin.ai/cli/extensibility/hooks/overview
+- ใช้ `post_write_code` event สำหรับรัน lint หลังจากเขียน code
+- รัน hooks ด้วย `bun .devin/hooks/run-lint.ts`
 
 ### 8. TypeScript Scripts
 

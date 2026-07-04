@@ -3,10 +3,11 @@ title: Write Windsurf Global Workflows
 description: เขียน workflow file ให้เป็นมาตรฐานเดียวกัน
 auto_execution_mode: 3
 related_workflows:
-  - use-workflows
-  - improve-correctness
-  - follow-content-quality
-  - follow-best-practice
+  - /use-workflows
+  - /improve-correctness
+  - /follow-content-quality
+  - /follow-best-practice
+  - /read-related-workflows
 ---
 
 ## Goal
@@ -70,7 +71,8 @@ related_workflows:
 
 - ใช้ workflows ที่ขึ้นต้นด้วย "use-" สำหรับ tools/libraries ที่เฉพาะเจาะจง
 - ใช้ `/scan-codebase` สำหรับ scan codebase อย่างรวดเร็ว
-- ใช้ `/analyze-project` สำหรับ project-level และ code-level analysis
+- ใช้ `/analyze-project` ใน Execute สำหรับ workflows ที่มี step วิเคราะห์
+- ใช้ `/use-scripts` ใน Execute สำหรับ data processing ซับซ้อน หรือ metrics calculation
 - ตรวจสอบ references ว่ามีอยู่จริงก่อนอ้างอิงใน workflows ทุกตัว
 
 ### 7. Report Formatting
@@ -93,9 +95,10 @@ related_workflows:
 อ่าน global workflows เพื่อเข้าใจมาตรฐานและป้องกันการซ้ำซ้อน
 
 1. ทำ `/at-windsurf-global-rules` เพื่อดู global rules และ conventions
-2. อ่าน workflows ที่คล้ายกันหรือเกี่ยวข้องเพื่อป้องกันการซ้ำซ้อน
-3. ดูตัวอย่าง template ที่ส่วน Example Template ด้านล่างเพื่อเข้าใจ structure
-4. ถ้ามี workflow หรือ skill ที่ครอบคลุม topic เดียวกัน ให้ใช้ reference แทนการเขียนซ้ำ
+2. ทำ `/read-related-workflows` เพื่ออ่าน workflows ที่เกี่ยวข้องแบบ recursive
+3. อ่าน workflows ที่คล้ายกันหรือเกี่ยวข้องเพื่อป้องกันการซ้ำซ้อน
+4. ดูตัวอย่าง template ที่ส่วน Example Template ด้านล่างเพื่อเข้าใจ structure
+5. ถ้ามี workflow หรือ skill ที่ครอบคลุม topic เดียวกัน ให้ใช้ reference แทนการเขียนซ้ำ
 
 ### 2. Check References
 
@@ -128,9 +131,10 @@ related_workflows:
 3. ทำ `/follow-best-practice` เพื่อเขียนตาม best practices จาก context นั้นๆ
 4. เขียน Execute ด้วย numbered list และ Rules ด้วย bullet points
 5. ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/workflow-name`
-6. ทำ `/follow-content-quality` เพื่อปรับปรุงคุณภาพเนื้อหาครบวงจร
-7. ทำ `/improve-correctness` เพื่อตรวจสอบความถูกต้อง
-8. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัดและ references มีอยู่จริง
+6. ทำ `/use-scripts` สำหรับ data processing ซับซ้อน หรือ metrics calculation
+7. ทำ `/follow-content-quality` เพื่อปรับปรุงคุณภาพเนื้อหาครบวงจร
+8. ทำ `/improve-correctness` เพื่อตรวจสอบความถูกต้อง
+9. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัดและ references มีอยู่จริง
 
 ## Example Template
 

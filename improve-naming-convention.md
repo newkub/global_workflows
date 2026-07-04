@@ -3,7 +3,7 @@ title: Improve Naming Convention
 description: ปรับปรุง naming conventions ให้ชัดเจนและสม่ำเสมอทั่ว codebase
 auto_execution_mode: 3
 related_workflows:
-  - /follow-code-quality
+  - /improve-code-quality
   - /refactor
   - /follow-consistency
 ---

@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - learn-from-web
   - deep-research
-  - write-windsurf-global-workflows
+  - /write-windsurf-global-workflows
 ---
 
 ## Goal

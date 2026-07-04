@@ -33,12 +33,20 @@ related_workflows:
 
 ### 2. Update Dependencies
 
-- ตรวจสอบ package manager (`bun`, `npm`, `pnpm`, `yarn`, `cargo`, `pip`, `go`)
+- ตรวจสอบ package manager (`bun`, `npm`, `pnm`, `yarn`, `cargo`, `pip`, `go`)
 - Update ตาม ecosystem:
-  - Node.js/Bun: `taze`
+  - Node.js/Bun: `taze` (Root Only)
   - Rust: `cargo update`, `cargo outdated`
   - Python: `pip install -U`, `pip list --outdated`
   - Go: `go get -u ./...`, `go mod tidy`
+
+### 2.1. Root Only Dependency Management
+
+สำหรับ monorepo ที่ใช้ Bun:
+- `taze` ต้องอยู่เฉพาะที่ root package.json เท่านั้น
+- Workspace packages ไม่ต้องมี `prepare` script
+- Root package.json: `"prepare": "bunx taze -r -w -i && bunx lefthook install"`
+- Workspace package.json: ไม่มี `prepare` script
 
 ### 3. Select Template Level
 
@@ -68,9 +76,18 @@ related_workflows:
 ### 1. Scripts Levels
 
 เลือกระดับตามขนาดและความซับซ้อนของโปรเจกต์
-- **Minimal** (Default): dev, build, typecheck, lint, format, test, scan, verify, ci, prepare - เหมาะสำหรับโปรเจกต์ส่วนใหญ่
+- **Minimal** (Default): dev, build, typecheck, lint, format, test, scan, verify, ci - เหมาะสำหรับโปรเจกต์ส่วนใหญ่
 - **Standard**: Minimal + test:watch, test:coverage, deps:analyze, clean, security, db scripts, predeploy, deploy:staging - เหมาะสำหรับโปรเจกต์ที่ต้องการ testing และ dependency management เพิ่มเติม
 - **Complete**: Standard + build:watch, typecheck:watch, test:integration, test:e2e, benchmarks, prerelease, release, db:studio - เหมาะสำหรับ infra/tooling team
+
+### 1.1. Root Only Rule
+
+สำหรับ monorepo ที่ใช้ Bun:
+- `taze` ต้องอยู่เฉพาะที่ root package.json เท่านั้น
+- `lefthook install` ต้องอยู่เฉพาะที่ root package.json เท่านั้น
+- Workspace packages ไม่ต้องมี `prepare` script
+- Root package.json: `"prepare": "bunx taze -r -w -i && bunx lefthook install"`
+- Workspace package.json: ไม่มี `prepare` script
 
 ### 2. Required Scripts
 
@@ -78,7 +95,8 @@ Scripts พื้นฐานที่ทุกโปรเจกต์ต้อ
 
 | Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Tauri | Rust | Python | Go |
 |------|-----|------|---------|------------|----------|-------|------|--------|----|
-| prepare | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | cargo update && bunx lefthook install | pip install -U -r requirements.txt && pre-commit install | go mod download && go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest |
+| prepare (Root Only) | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | bunx taze -r -w -i && bunx lefthook install | cargo update && bunx lefthook install | pip install -U -r requirements.txt && pre-commit install | go mod download && go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest |
+| prepare (Workspace) | - | - | - | - | - | - | - | - | - |
 | dev | bun run src/index.ts | nuxt dev | next dev | vite dev | vite dev | tauri dev | cargo run | python -m src | go run . |
 | build | bun build | nuxt build | next build | vite build | vite build | tauri build | cargo build | python -m build | go build . |
 | typecheck | tsgo --noEmit | nuxt typecheck | tsgo --noEmit | tsgo --noEmit | svelte-check --tsconfig ./tsconfig.json | tsgo --noEmit | cargo check | mypy src | go vet ./... |
@@ -86,7 +104,8 @@ Scripts พื้นฐานที่ทุกโปรเจกต์ต้อ
 | format | biome check --write | biome check --write | biome check --write | biome check --write | biome check --write | biome check --write | cargo fmt | ruff format | gofmt -w . |
 | test | vitest run | vitest run | vitest run | vitest run | vitest run | vitest run | cargo nextest run | pytest | go test ./... |
 | scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | cargo clippy --all-targets | ruff check | golangci-lint run |
-| verify | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | scan && lint && typecheck && test | cargo clippy && cargo check && cargo nextest run | ruff check && mypy && pytest | golangci-lint run && go vet && go test |
+| check | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | cargo clippy && cargo check | ruff check && mypy | golangci-lint run && go vet |
+| verify | check && test | check && test | check && test | check && test | check && test | check && test | cargo clippy && cargo check && cargo nextest run | ruff check && mypy && pytest | golangci-lint run && go vet && go test |
 | ci | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build |
 
 ### 3. Watch Mode Scripts

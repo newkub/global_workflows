@@ -1,11 +1,9 @@
 ---
-
 title: Use Import Alias
-
 description: ใช้ import alias แทน relative paths ที่ซับซ้อน
-
 auto_execution_mode: 3
-
+related_workflows:
+  - /use-scripts
 ---
 
 ## Goal
@@ -66,28 +64,14 @@ auto_execution_mode: 3
 
 ## Rules
 
-### 1. Import Alias Usage
-
-ใช้ import alias เพื่อลดความซับซ้อนของ import paths
-
 - ใช้ import alias เสมอเมื่อเป็นไปได้ แทน relative paths ที่ซับซ้อน (`../../../`)
 - ถ้าเป็น TypeScript ใช้ `#` สำหรับ root alias (เช่น `#domain`, `#shared`)
 - ตั้งค่า import alias ให้สอดคล้องกับโครงสร้างโปรเจกต์
 - ใช้ naming conventions ที่สม่ำเสมอสำหรับ aliases
-
-### 2. Import Organization
-
-จัดระเบียบ imports ให้เป็นมาตรฐาน
-
 - จัดเรียง imports ตามลำดับ: `external` → `internal` → `relative`
 - ใช้ type-only imports สำหรับ types (ถ้าภาษารองรับ)
 - หลีกเลี่ยงการ import ทั้ง folder โดยไม่จำเป็น
 - จัดกลุ่ม imports ด้วย blank lines
-
-### 3. Barrel Exports
-
-จัดการ barrel exports อย่างเหมาะสม
-
 - สร้าง barrel exports เฉพาะที่ public API เท่านั้น
 - export เฉพาะส่วนที่ต้องการให้โมดูลอื่นใช้งาน (ซ่อน implementation details)
 - รักษา consistency ในรูปแบบการ export

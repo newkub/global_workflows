@@ -1,16 +1,20 @@
 ---
 title: Run CI
-description: รัน CI pipeline เต็มรูปแบบเพื่อตรวจสอบคุณภาพโค้ดก่อน merge
+description: รัน CI pipeline เต็มรูปแบบตาม Standard level scripts
 auto_execution_mode: 3
 related_workflows:
   - /run-verify
   - /run-build
-  - /run-test
+  - /run-check
 ---
 
 ## Goal
 
-รัน CI pipeline เต็มรูปแบบเพื่อตรวจสอบคุณภาพโค้ดก่อน merge
+รัน CI pipeline เต็มรูปแบบตาม Standard level scripts เพื่อตรวจสอบคุณภาพโค้ดก่อน merge
+
+## Scope
+
+รัน CI pipeline สำหรับ monorepo และ single workspace ตามที่กำหนดใน package manifest
 
 ## Execute
 
@@ -19,65 +23,50 @@ related_workflows:
 1. ติดตั้ง dependencies ด้วย `bun install`
 2. ตั้งค่า environment variables ที่จำเป็น
 3. ตรวจสอบ build cache และ artifacts
+4. ถ้าเป็น monorepo ตรวจสอบ workspace configuration
 
 ### 2. Run Verification
 
 1. ทำ `/run-verify` เพื่อตรวจสอบคุณภาพโค้ด
-2. ตรวจสอบ correctness, duplication, unused files/deps
+2. ตรวจสอบว่า verify script รวม check และ test
 3. แก้ไข issues ที่พบด้วย `/resolve-errors`
 
-### 3. Typecheck
-
-1. ทำ `/run-typecheck` เพื่อตรวจสอบ TypeScript types
-2. แก้ไข type errors ถ้ามี
-3. ยืนยันว่า typecheck ผ่าน
-
-### 4. Lint
-
-1. ทำ `/run-lint` เพื่อตรวจสอบ code style
-2. แก้ไข lint errors ถ้ามี
-3. ยืนยันว่า lint ผ่าน
-
-### 5. Build
+### 3. Run Build
 
 1. ทำ `/run-build` เพื่อสร้าง production artifacts
 2. ตรวจสอบ build output
 3. ยืนยันว่า build สำเร็จ
 
-### 6. Test
+### 4. Check Artifacts
 
-1. ทำ `/run-test` เพื่อรัน test suite
-2. ตรวจสอบ test coverage
-3. ยืนยันว่า tests ผ่านทั้งหมด
-
-### 7. Security Check
-
-1. ทำ `/check-vulnerability` เพื่อตรวจสอบ security
-2. แก้ไข vulnerabilities ถ้ามี
-3. ยืนยันว่าไม่มี security issues
+1. ตรวจสอบ dist folder หรือ build output
+2. ตรวจสอบ type declarations ถ้ามี
+3. ตรวจสอบ source maps ถ้าจำเป็น
 
 ## Rules
 
 ### 1. Execution Order
 
 - Setup: ติดตั้ง environment ก่อน
-- Verify: ตรวจสอบคุณภาพโค้ด
-- Typecheck: ตรวจสอบ types
-- Lint: ตรวจสอบ code style
+- Verify: ตรวจสอบคุณภาพโค้ด (check + test)
 - Build: สร้าง artifacts
-- Test: รัน tests
-- Security: ตรวจสอบ security
+- Check: ตรวจสอบ output
 
-### 2. Failure Handling
+### 2. Standard Level Scripts
+
+ตรวจสอบว่า scripts ตรงตาม Standard level:
+
+- verify: check && test
+- check: lint && typecheck && scan
+- ci: verify && build
+
+### 3. Failure Handling
 
 - Verify ล้มเหลว: แก้ไข issues ก่อนดำเนินการต่อ
-- Typecheck ล้มเหลว: แก้ไข type errors
-- Lint ล้มเหลว: แก้ไข lint errors
 - Build ล้มเหลว: วิเคราะห์และแก้ไข
-- Test ล้มเหลว: แก้ไข test failures
-- Security ล้มเหลว: แก้ไข vulnerabilities
+- ไม่ข้ามขั้นตอนที่มี errors
 
-### 3. CI Environment
+### 4. CI Environment
 
 - ใช้ cache dependencies เพื่อเพิ่มความเร็ว
 - ใช้ parallel execution เมื่อเป็นไปได้
@@ -86,8 +75,8 @@ related_workflows:
 ## Expected Outcome
 
 - CI pipeline ทำงานสำเร็จ
-- Code ผ่านการตรวจสอบทุกด้าน
+- Code ผ่านการตรวจสอบ lint, typecheck, scan, และ test
 - Build artifacts ถูกสร้างอย่างถูกต้อง
 - Tests ผ่านทั้งหมด
-- ไม่มี security vulnerabilities
+- พร้อมสำหรับ merge และ deploy
 

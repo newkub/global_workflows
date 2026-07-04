@@ -2,6 +2,7 @@
 title: Use Ast-grep
 description: ใช้งาน ast-grep สำหรับ code search, linting และ transformation ด้วย AST-based pattern matching
 auto_execution_mode: 3
+url: https://ast-grep.github.io/
 related_workflows:
   - /write-ast-grep-rules
   - /run-scan
@@ -19,59 +20,50 @@ related_workflows:
 
 ### 1. Prepare
 
-1. ทำ `/write-windsurf-global-workflows` เมื่อสร้างหรือแก้ไข workflow
-2. ติดตั้ง ast-grep CLI: `bun add -g @ast-grep/cli`
-3. รัน `ast-grep new` สร้าง project scaffolding (ถ้ายังไม่มี)
-4. สร้าง folder `rules/` สำหรับเก็บ rule files
+- ทำ `/write-windsurf-global-workflows` เมื่อสร้างหรือแก้ไข workflow
+- ติดตั้ง ast-grep CLI: `bun add -g @ast-grep/cli`
+- รัน `ast-grep new` สร้าง project scaffolding (ถ้ายังไม่มี)
+- สร้าง folder `rules/` สำหรับเก็บ rule files
 
 ### 2. Create Rule
 
-1. สร้าง rule YAML file ใน `rules/`
-2. กำหนด id, language, rule, fix, message
-3. ใช้ meta variables ($VAR) สำหรับ capture nodes
-4. ใช้ atomic rules: pattern, kind, regex, nthChild, range
-5. ทำ `/write-ast-grep-rules` สำหรับเขียน rules ที่ซับซ้อน
+- สร้าง rule YAML file ใน `rules/`
+- กำหนด id, language, rule, fix, message
+- ใช้ meta variables ($VAR) สำหรับ capture nodes
+- ใช้ atomic rules: pattern, kind, regex, nthChild, range
+- ทำ `/write-ast-grep-rules` สำหรับเขียน rules ที่ซับซ้อน
 
 ### 3. Advanced Rules
 
-1. ใช้ relational rules: inside, has, precedes, follows
-2. ใช้ composite rules: all, any, not, matches
-3. เขียน fix template สำหรับ auto-rewrite
-4. ใช้ transform สำหรับ complex transformations
+- ใช้ relational rules: inside, has, precedes, follows
+- ใช้ composite rules: all, any, not, matches
+- เขียน fix template สำหรับ auto-rewrite
+- ใช้ transform สำหรับ complex transformations
 
 ### 4. Test Rules
 
-1. สร้าง test cases (valid และ invalid)
-2. รัน `ast-grep test` เพื่อ verify rules
-3. ใช้ snapshot testing สำหรับ complex fixes
-4. รัน `ast-grep scan` เพื่อ test กับ codebase
+- สร้าง test cases (valid และ invalid)
+- รัน `ast-grep test` เพื่อ verify rules
+- ใช้ snapshot testing สำหรับ complex fixes
+- รัน `ast-grep scan` เพื่อ test กับ codebase
 
 ### 5. Usage
 
-1. ใช้ `ast-grep run -p 'pattern'` สำหรับ ad-hoc search
-2. รัน `ast-grep scan --config sgconfig.yml` สำหรับ routine check
-3. ใช้ `--interactive` สำหรับ selective apply
-4. ตรวจสอบ output และ tune rules
+- ใช้ `ast-grep run -p 'pattern'` สำหรับ ad-hoc search
+- รัน `ast-grep scan --config sgconfig.yml` สำหรับ routine check
+- ใช้ `--interactive` สำหรับ selective apply
+- ตรวจสอบ output และ tune rules
 
 ### 6. Outline Command
 
 ใช้ `ast-grep outline` สำหรับ explore code structure และ navigation
 
-**Basic Usage:**
-- รัน `ast-grep outline <file>` เพื่อดู structure ของ file เดียว
+- รัน `ast-grep outline <file>` เพื่อดู structure ของ file
 - รัน `ast-grep outline <directory>` เพื่อดู exports ของ directory
-- รัน `ast-grep outline --items imports <file>` เพื่อดู dependencies
-- รัน `ast-grep outline --match <pattern> --type <type> --view expanded` เพื่อ expand symbol
-
-**Filter Options:**
-- `--items auto|structure|exports|imports|all`: เลือก top-level items
-- `--type class,enum,function`: filter ตาม symbol types
-- `--match <regex>`: filter ตาม pattern
-- `--pub-members`: แสดงเฉพาะ public members
-
-**View Options:**
-- `--view auto|names|signatures|digest|expanded`: เลือก presentation style
-- `--json[=pretty|stream|compact]`: output เป็น JSON สำหรับ machine-readable
+- ใช้ `--items imports` เพื่อดู dependencies
+- ใช้ `--match <pattern>` และ `--type <type>` เพื่อ filter symbols
+- ใช้ `--view expanded` เพื่อ expand symbol
+- ใช้ `--json` สำหรับ machine-readable output
 
 ## Rules
 

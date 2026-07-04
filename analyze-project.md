@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /deep-analyze
   - /scan-codebase
+  - /code-search
   - /use-ast-grep
   - /use-scripts
   - /follow-my-cli
@@ -17,7 +18,7 @@ related_workflows:
 
 ## Scope
 
-ครอบคลุมการวิเคราะห์โปรเจกต์พื้นฐานด้วย 4 tools หลัก: `/use-ast-grep`, `/use-scripts`, Windsurf file ops, `/follow-my-cli`
+ครอบคลุมการวิเคราะห์โปรเจกต์พื้นฐานด้วย 4 tools หลัก: `/code-search`, `/use-ast-grep`, `/use-scripts`, `/follow-my-cli`
 
 **Note:** ถ้าต้องการวิเคราะห์อย่างลึกซึ้งครบทุกมิติ ให้ทำ `/deep-analyze` แทน
 
@@ -38,20 +39,20 @@ related_workflows:
 ### 3. Data Collection
 
 1. อ่าน manifest files แบบ parallel
-2. ใช้ `Grep` ค้นหา code patterns และ symbols
+2. ทำ `/code-search` ค้นหา code patterns และ symbols
 3. ทำ `/use-ast-grep` สำหรับ AST-based code search
 4. ทำ `/use-scripts` สำหรับ data processing ซับซ้อน
 
 ### 4. Architecture And Dependencies
 
 1. ทำ `/review-architecture` เพื่อระบุ architectural pattern
-2. วิเคราะหา data flow ด้วย `Grep`
+2. ทำ `/code-search` วิเคราะหา data flow
 3. ระบุ tech stack และ dependencies
 
 ### 5. Code Analysis
 
 1. ทำ `/use-ast-grep` หา patterns, anti-patterns, design patterns
-2. หา code smells ด้วย `Grep` multiline mode
+2. ทำ `/code-search` หา code smells
 3. ทำ `/use-scripts` คำนวณ metrics
 4. ตรวจสอบ naming conventions
 
@@ -59,7 +60,7 @@ related_workflows:
 
 1. ทำ `/check-duplication`, `/check-unsued-files`, `/check-unused-deps` แบบ parallel
 2. ทำ `/check-vulnerability` ตรวจสอบ security
-3. ตรวจหา hardcoded secrets ด้วย `Grep`
+3. ทำ `/code-search` ตรวจหา hardcoded secrets
 
 ### 7. Report And Recommendations
 
@@ -68,21 +69,13 @@ related_workflows:
 
 ## Rules
 
-### 1. Tool Selection
-
-- **AST-based analysis**: ใช้ `/use-ast-grep` สำหรับ pattern matching และ structural search
-- **Data processing**: ใช้ `/use-scripts` สำหรับ metrics calculation และ complex processing
-- **File operations**: ใช้ Windsurf file ops (`Grep`, `find_by_name`, `list_dir`) สำหรับ file discovery
-- **CLI automation**: ทำ `/follow-my-cli` สำหรับเช็คและใช้ CLI tools ที่ติดตั้ง
-
-### 2. Parallel Processing
-
+- ทำ `/code-search` สำหรับค้นหา code patterns, symbols, และ references
+- ใช้ `/use-ast-grep` สำหรับ pattern matching และ structural search
+- ใช้ `/use-scripts` สำหรับ metrics calculation และ complex processing
+- ทำ `/follow-my-cli` สำหรับเช็คและใช้ CLI tools ที่ติดตั้ง
 - อ่าน manifest files พร้อมกัน
 - รัน checks หลายอย่างพร้อมกัน
-- รัน `Grep` patterns พร้อมกัน
-
-### 3. Metric Thresholds
-
+- รัน `/code-search` patterns พร้อมกัน
 - Long functions: > 50 lines
 - Deep nesting: > 3 levels
 - High complexity: cyclomatic complexity > 10

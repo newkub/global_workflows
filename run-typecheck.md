@@ -2,6 +2,10 @@
 title: Run Typecheck
 description: Run typecheck with config check
 auto_execution_mode: 3
+related_workflows:
+  - /config
+  - /analyze-errors
+  - /resolve-errors
 ---
 
 ## Goal
@@ -14,17 +18,17 @@ auto_execution_mode: 3
 
 ## Execute
 
-### Check Config
+### 1. Check Config
 
 1. ทำ `/config` เพื่อตรวจสอบ config
 2. ห้ามแก้ไข config ใดๆ
 
-### Run Typecheck
+### 2. Run Typecheck
 
 1. ห้ามใช้ ignore comments/attributes ทุกภาษา
 2. รัน typecheck ตามที่กำหนดใน package manifest
 
-### Analyze Errors
+### 3. Analyze Errors
 
 1. รัน `/analyze-errors` เพื่อวิเคราะห์และจัดลำดับ errors ที่เกิดจาก typecheck
 2. `/analyze-errors` จะตัดสินใจว่าควรไป workflow ไหนต่อ:

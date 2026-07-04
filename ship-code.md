@@ -1,8 +1,9 @@
 ---
-title: Ship
+title: Ship Code
 description: Ship code ครบวงจรจาก planning ไปจนถึง edit (edit-only mode)
 auto_execution_mode: 3
 related_workflows:
+  - /update-project
   - /implement-features-to-mvp
   - /ship-run
   - /ship-code-all-workspace
@@ -23,8 +24,8 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 อ่านและสรุป workflows ที่เกี่ยวข้องทั้งหมดแบบ recursive ก่อนเริ่มทำงาน
 
-1. ทำ `/use-skills` เพื่อเข้าใจหลักการใช้ skills จาก skills repository
-2. ทำ `/read-related-workflows` เพื่ออ่านและสรุป workflows ที่เกี่ยวข้อง
+1. ทำ `/read-related-workflows` เพื่ออ่านและสรุป workflows ที่เกี่ยวข้อง
+2. ทำ `/use-skills` เพื่อเข้าใจหลักการใช้ skills จาก skills repository
 3. ตรวจสอบ dependency graph ของ workflows ทั้งหมด
 4. สรุป tasks ที่ต้องทำตามลำดับ
 5. สรุป rules ที่ต้องปฏิบัติ
@@ -37,7 +38,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 1. ทำ `/plan-task` เพื่อวางแผนงานครอบคล้ว
 2. รอยืนยันจาก user ก่อนเริ่มทำ
 
-### 2.5. Define MVP Scope (Optional)
+### 3. Define MVP Scope (Optional)
 
 กำหนด scope สำหรับ MVP ถ้า project อยู่ใน MVP phase
 
@@ -46,19 +47,11 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 3. สร้าง MVP checklist
 4. ใช้ checklist นี้ใน step ต่อไป
 
-### 3. Setup Foundation
+### 4. Update Project
 
-ตั้งค่าพื้นฐานก่อนเริ่มพัฒนา
+อัพเดท project documentation และ configuration ครบถ้วน
 
-1. ทำ `/follow-package-manifest` เพื่อตั้งค่า package manifest
-2. ทำ `/write-readme` เพื่ออัพเดท README
-
-### 4. Setup .devin
-
-ตั้งค่า .devin structure สำหรับ project
-
-1. ทำ `/write-dot-devin` เพื่ออัพเดท .devin ให้มี review, rules, hooks, scripts, workflows, skills ครบถ้วน
-2. ทำ `/config` สำหรับตั้งค่า project
+1. ทำ `/update-project` เพื่ออัพเดท `.devin`, `README`, `AGENTS.md`, และ documentation ครบถ้วน
 
 ### 5. Setup Deployment
 
@@ -70,26 +63,20 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 4. ตั้งค่า GitHub Actions สำหรับ CI/CD
 5. ตั้งค่า Renovate และ Release-it ถ้าจำเป็น
 
-### 6. Follow AGENTS.md
-
-ทำตาม AGENTS.md ที่ระบุใน project
-
-1. ทำ `/update-agents` เพื่อทำตาม AGENTS.md ครบถ้วน
-
-### 7. Setup Monorepo
+### 6. Setup Monorepo
 
 จัดการโครงสร้าง monorepo ถ้าเป็นโปรเจกต์ monorepo
 
 1. ตรวจสอบว่าเป็น monorepo หรือไม่ (มี `apps/`, `packages/`, หรือ `crates/`)
 2. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo`
 
-### 8. Refactor
+### 7. Refactor
 
 ปรับปรุงโครงสร้างโค้ดตาม Clean Architecture
 
 1. ทำ `/refactor` เพื่อ refactor ทั้ง monorepo และ workspaces
 
-### 9. Apply Best Practices
+### 8. Apply Best Practices
 
 ปรับปรุงโค้ดตาม best practices ของ language, runtime, และ library
 
@@ -97,7 +84,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 2. ตรวจสอบว่าโค้ดตรงตาม conventions
 3. อัพเดท configuration ที่เกี่ยวข้อง
 
-### 10. Make Real
+### 9. Make Real
 
 แปลง TODO, MOCK, placeholder เป็น production code จริง
 
@@ -105,33 +92,27 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 2. ตรวจสอบว่าไม่มี mock implementations เหลือ
 3. ทำ `/update-references` เพื่ออัพเดท references
 
-### 11. Code Review
+### 10. Code Review
 
 ตรวจสอบคุณภาพโค้ดก่อนส่งต่อ
 
 1. ทำ `/review-codebase-and-fix` เพื่อตรวจสอบคุณภาพโค้ด
 2. ถ้าพบ issues ทำ `/resolve-errors` เพื่อแก้ไข
-3. ถ้ายังมี issues ให้ทำซ้ำขั้นตอน 2-10 จนกว่าจะผ่าน
+3. ถ้ายังมี issues ให้ทำซ้ำขั้นตอน 2-9 จนกว่าจะผ่าน
 
-### 12. Enhance Codebase
+### 11. Enhance Codebase
 
 ปรับปรุงคุณภาพ codebase ครบวงจร
 
 1. ทำ `/improve-codebase` เพื่อปรับปรุงคุณภาพ codebase ครบวงจร
 
-### 13. Update Docs
-
-อัพเดท documentation ถ้ามี docs/
-
-1. ถ้ามี docs/ ให้ทำ `/write-docs` เพื่ออัพเดท documentation
-
-### 14. Cleanup
+### 12. Cleanup
 
 ทำความสะอาด project ก่อนส่ง
 
 1. ทำ `/simplify` เพื่อลบไฟล์และโฟลเดอร์ที่ไม่จำเป็น
 
-### 15. Continue
+### 13. Continue
 
 ดำเนินการต่อ
 
@@ -143,10 +124,8 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ตั้งค่าพื้นฐานก่อนเริ่มพัฒนา
 
-- ตั้งค่า configuration และ structure ก่อน implement features
-- ทำ `/follow-package-manifest` และ `/update-dot-devin` ก่อน
+- ทำ `/update-project` ก่อนเพื่อตั้งค่า configuration และ structure ครบถ้วน
 - ตั้งค่า `CI/CD` และ monorepo structure ก่อน refactor
-- ทำตาม AGENTS.md สำหรับ project-specific requirements
 
 ### 2. Quality Over Speed
 

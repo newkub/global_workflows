@@ -42,6 +42,9 @@ auto_execution_mode: 3
 	},
 	"formatter": {
 		"enabled": true
+	},
+	"assist": {
+		"enabled": true
 	}
 }
 ```

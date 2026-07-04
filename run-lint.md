@@ -21,8 +21,8 @@ related_workflows:
 ### 1. Run Lint
 
 1. รัน lint ตามที่กำหนดไว้ใน config:
-   - สำหรับ monorepo: รัน `bun run lint` หรือ `turbo lint`
-   - สำหรับโปรเจกต์ทั่วไป: รัน lint command ตาม config
+   - สำหรับ monorepo: รัน `bun run lint` หรือ `turbo lint` (ห้ามใช้ `--unsafe` flag กับ biome)
+   - สำหรับโปรเจกต์ทั่วไป: รัน lint command ตาม config (ห้ามใช้ `--unsafe` flag กับ biome)
 2. รอให้ lint เสร็จสิ้นก่อนดำเนินการต่อ
 
 ### 2. Analyze Errors
@@ -86,6 +86,7 @@ related_workflows:
 - รัน tests ทั้งหมด
 - ตรวจสอบว่าไม่มี regressions
 - ทำ `/check-unsued-files` เพื่อตรวจสอบว่าทุกไฟล์ถูกใช้
+- ห้ามใช้ `--unsafe` flag กับ biome commands
 
 ## Expected Outcome
 

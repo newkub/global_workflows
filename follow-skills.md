@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /use-skills
   - /check-reference
+  - /read-related-workflows
 ---
 
 ## Goal
@@ -21,6 +22,7 @@ related_workflows:
 
 อ่าน skills ที่มีอยู่ทั้งหมด
 
+- ทำ `/read-related-workflows` เพื่ออ่าน workflows ที่เกี่ยวข้องกับ skills
 - อ่าน skills ที่มีอยู่ใน `skills/`
 - ระบุ skills ที่เกี่ยวข้องกับ task ปัจจุบัน
 - ตรวจสอบว่า skills มีอยู่จริง

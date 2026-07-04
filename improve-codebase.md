@@ -3,6 +3,7 @@ title: Improve Codebase
 description: ปรับปรุงคุณภาพ codebase ครบวงจร foundation ถึง delivery
 auto_execution_mode: 3
 related_workflows:
+  - /analyze-project
   - prioritize
   - what-do-you-do
   - improve-monitoring
@@ -19,6 +20,7 @@ related_workflows:
   - improve-backup-recovery
   - improve-database
   - improve-seo
+  - improve-comment
 ---
 
 ## Goal
@@ -30,6 +32,13 @@ related_workflows:
 ใช้สำหรับการปรับปรุงคุณภาพ codebase ครบวงจรทั้ง foundation, code quality, และ delivery
 
 ## Execute
+
+### 0. Analyze Project
+
+วิเคราะห์โปรเจกต์อย่างครบถ้วนก่อนเริ่มปรับปรุง
+
+- ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์พื้นฐาน
+- รับผลลัพธ์จากการวิเคราะห์เพื่อใช้ในการวางแผนการปรับปรุง
 
 ### 1. Foundation And Security
 
@@ -71,7 +80,8 @@ related_workflows:
 
 ปรับปรุงคุณภาพโค้ด
 
-- ทำ `/follow-code-quality` เพื่อปรับปรุงคุณภาพโค้ด ครบวงจร
+- ทำ `/improve-code-quality` เพื่อปรับปรุงคุณภาพโค้ด ครบวงจร
+- ทำ `/improve-comment` เพื่อปรับปรุงคุณภาพ comments ครบวงจร
 
 ### 6. Testing
 

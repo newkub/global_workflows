@@ -1,81 +1,69 @@
 ---
 title: Write Ast-grep Rules
-description: เขียน ast-grep rules ตามไฟล์ที่มีใน .windsurf/rules
+description: เขียน ast-grep rules ตามไฟล์ที่มีใน .devin/rules
 auto_execution_mode: 3
+url: https://ast-grep.github.io/guide/rule-config.html
 related_workflows:
-  - /write-windsurf-rules
+  - /update-devin-rules
+  - /follow-ast-grep
 ---
 
 ## Goal
 
-เขียน ast-grep rules ตามไฟล์ที่มีใน .windsurf/rules
+เขียน ast-grep rules ตามไฟล์ที่มีใน .devin/rules
 
 ## Scope
 
-เขียน ast-grep rules สำหรับไฟล์ที่มีใน .windsurf/rules (away/, libraries/, domain/, patterns/, project/)
+เขียน ast-grep rules สำหรับไฟล์ที่มีใน .devin/rules (always-on/, model_decision/, glob/)
 
 ## Execute
 
-### 1. Analyze Windsurf Rules
+### 1. Analyze Devin Rules
 
-วิเคราะห์ไฟล์ที่มีใน .windsurf/rules
+วิเคราะห์ไฟล์ที่มีใน .devin/rules
 
-1. อ่านไฟล์ทั้งหมดจาก `.windsurf/rules/away/`, `.windsurf/rules/libraries/`, `.windsurf/rules/domain/`, `.windsurf/rules/patterns/`, `.windsurf/rules/project/`
-2. ระบุ rules ที่สามารถแปลงเป็น ast-grep format
-3. จัดกลุ่ม rules ตาม priority และความซับซ้อน
+- อ่านไฟล์ทั้งหมดจาก `.devin/rules/always-on/`, `.devin/rules/model_decision/`, `.devin/rules/glob/`
+- ระบุ rules ที่สามารถแปลงเป็น ast-grep format
+- จัดกลุ่ม rules ตาม priority และความซับซ้อน
 
 ### 2. Setup Ast-Grep Project
 
 ตั้งค่า ast-grep project
 
-1. สร้าง `rules/` directory ที่ root workspace (ไม่ใช่ใน `.windsurf/rules/`)
-2. สร้าง subdirectories ตามหมวดหมู่: `away/`, `libraries/`, `domain/`, `patterns/`, `project/`
-3. อัพเดท `sgconfig.yml` ให้ชี้ไปที่ `rules/` directories
-4. **สำคัญ:** `.windsurf/rules/` สำหรับ windsurf rules (Markdown สำหรับ AI), `rules/` สำหรับ ast-grep rules (YAML สำหรับ CLI)
+- สร้าง `rules/` directory ที่ root workspace (ไม่ใช่ใน `.devin/rules/`)
+- สร้าง subdirectories ตามหมวดหมู่: `always-on/`, `model_decision/`, `glob/`
+- อัพเดท `sgconfig.yml` ให้ชี้ไปที่ `rules/` directories
+- **สำคัญ:** `.devin/rules/` สำหรับ devin rules (Markdown สำหรับ AI), `rules/` สำหรับ ast-grep rules (YAML สำหรับ CLI)
 
 ### 3. Convert Rules To Ast-Grep Format
 
-แปลง windsurf rules เป็น ast-grep YAML
+แปลง devin rules เป็น ast-grep YAML
 
-1. แปลง atomic rules:
-   - `pattern`: match โครงสร้าง code (เช่น `console.log($ARG)`)
-   - `kind`: match โดย AST node kind (เช่น `if_statement`)
-   - `regex`: match ด้วย Rust regex (เช่น `^regex.+$`)
-   - `nthChild`: match โดย index ใน siblings
-   - `range`: match โดย character span
-   - `context` + `selector`: parse ambiguous patterns
-2. แปลง relational rules:
-   - `inside`: target ต้องอยู่ใน parent/ancestor
-   - `has`: target ต้องมี child/descendant
-   - `precedes`: target ต้องอยู่ก่อน node อื่น
-   - `follows`: target ต้องอยู่หลัง node อื่น
-   - `field`: match โดย semantic role
-   - `stopBy`: search จนถึง end
-3. แปลง composite rules:
-   - `all`: target ต้อง satisfy ทุก rules
-   - `any`: target ต้อง satisfy อย่างน้อย 1 rule
-   - `not`: target ต้องไม่ satisfy rule
-   - `matches`: match โดย utility rule
-4. เพิ่ม severity และ message สำหรับแต่ละ rule
-5. เพิ่ม fix template สำหรับ auto-rewrite
+- ทำตาม `/follow-ast-grep` สำหรับการแปลง rules
+- แปลง atomic rules (pattern, kind, regex, nthChild, range)
+- แปลง relational rules (inside, has, precedes, follows)
+- แปลง composite rules (all, any, not, matches)
+- ตรวจสอบว่า rule มีอย่างน้อย 1 key และเป็น positive rule
+- เพิ่ม severity และ message สำหรับแต่ละ rule
+- เพิ่ม fix template สำหรับ auto-rewrite
 
 ### 4. Test Ast-Grep Rules
 
 ทดสอบ ast-grep rules
 
-1. สร้าง test cases (valid และ invalid)
-2. รัน `ast-grep test` เพื่อ verify rules
-3. รัน `ast-grep scan` เพื่อ test กับ codebase
-4. ตรวจสอบว่า fix ไม่ทำให้ code เสีย
+- สร้าง test cases (valid และ invalid)
+- รัน `ast-grep test` เพื่อ verify rules
+- รัน `ast-grep scan` เพื่อ test กับ codebase
+- ตรวจสอบว่า fix ไม่ทำให้ code เสีย
 
 ### 5. Integrate With Development (Optional)
 
 ผสาน ast-grep rules เข้า development workflow
 
-1. เพิ่ม ast-grep scan ใน pre-commit hooks
-2. รวมใน CI/CD pipeline
-3. สร้าง documentation สำหรับ team
-4. ตั้งค่า IDE integration ด้วย LSP
+- เพิ่ม ast-grep scan ใน pre-commit hooks
+- รวมใน CI/CD pipeline
+- สร้าง documentation สำหรับ team
+- ตั้งค่า IDE integration ด้วย LSP
 
 ## Rules
 
@@ -83,7 +71,7 @@ related_workflows:
 
 กฎการวิเคราะห์:
 
-- วิเคราะห์ windsurf rules ก่อนแปลง
+- วิเคราะห์ devin rules ก่อนแปลง
 - ระบุ rules ที่สามารถแปลงเป็น ast-grep format
 - จัดกลุ่ม rules ตาม priority และความซับซ้อน
 
@@ -91,17 +79,20 @@ related_workflows:
 
 กฎการตั้งค่า:
 
-- สร้าง `rules/` directory แยกจาก `.windsurf/rules/`
+- สร้าง `rules/` directory แยกจาก `.devin/rules/`
 - อัพเดท `sgconfig.yml` ให้ชี้ไปที่ `rules/` directories
-- **สำคัญ:** `.windsurf/rules/` สำหรับ windsurf rules (Markdown สำหรับ AI), `rules/` สำหรับ ast-grep rules (YAML สำหรับ CLI)
+- **สำคัญ:** `.devin/rules/` สำหรับ devin rules (Markdown สำหรับ AI), `rules/` สำหรับ ast-grep rules (YAML สำหรับ CLI)
 
 ### 3. Rule Conversion
 
 กฎการแปลง:
 
 - Rules ต้องสอดคล้องกับ target language
+- Rule ต้องมีอย่างน้อย 1 key และเป็น positive rule
+- Atomic rules: pattern, kind, regex, nthChild, range
+- Relational rules: inside, has, precedes, follows
+- Composite rules: all, any, not, matches
 - ใช้ meta variables ($VAR) สำหรับ capture AST nodes
-- ใช้ constraints ลด false positives
 - Fix templates ต้อง safe ไม่ทำให้ code เสีย
 - Rules เปรียบเสมือ CSS selectors สำหรับ AST nodes
 
@@ -117,7 +108,7 @@ related_workflows:
 ## Expected Outcome
 
 - Ast-grep project ตั้งค่าอย่างถูกต้อง
-- Windsurf rules แปลงเป็น ast-grep format
+- Devin rules แปลงเป็น ast-grep format
 - Test cases ครอบคลุม valid และ invalid scenarios
 - Rules ทำงานได้เมื่อรัน `ast-grep scan`
 - Integration กับ development workflow (optional)
@@ -128,7 +119,7 @@ related_workflows:
 
 - ไม่ระบุ `language` ใน rule configuration
 - ใช้ `pattern` ที่ match หลาย AST nodes โดยไม่ใช้ `kind` ร่วม
-- ใช้ `regex` โดยไม่ระบุ `kind` หรือ `pattern`
+- ใช้ `regex` โดยไม่ระบุ `kind` หรือ `pattern` (regex ไม่ใช่ positive rule)
 - ไม่ใช้ meta variables ($VAR) สำหรับ capture
 - Fix templates ไม่ safe ทำให้ code เสีย
 - ไม่ทดสอบ rules กับ codebase จริง

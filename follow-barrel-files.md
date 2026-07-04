@@ -2,6 +2,9 @@
 title: Follow Barrel Files
 description: ทำให้ entry files มีเฉพาะ re-export และจัดการ imports ให้ถูกต้องตาม best practices
 auto_execution_mode: 3
+related_workflows:
+  - /improve-comment
+  - /refactor
 ---
 
 ## Goal
@@ -46,7 +49,23 @@ auto_execution_mode: 3
 2. สร้าง named re-export จากไฟล์ย่อย (`export { xxx } from './xxx'`)
 3. จัดลำดับ re-export ตาม logical grouping
 4. ห้ามมี side effects ใน barrel file เช่น `export const foo = 5`
-5. เพิ่ม comments อธิบาย public API ถ้าจำเป็น
+5. เพิ่ม comments อธิบาย public API ถ้าจำเป็น (ดู /improve-comment สำหรับ best practices)
+
+ตัวอย่าง:
+
+```typescript
+// ✅ ถูกต้อง - entry file มีเฉพาะ re-export
+// Re-export types
+export { type IUser, type IConfig } from './types';
+// Re-export functions
+export { createUser, deleteUser } from './user';
+export { getConfig, setConfig } from './config';
+// Re-export constants
+export { DEFAULT_CONFIG } from './constants';
+
+// ❌ ผิด - มี side effects ใน barrel file
+export const API_URL = 'https://api.example.com'; // ห้ามมี constants ใน barrel file
+```
 
 ### 4. Fix Imports
 
@@ -88,7 +107,11 @@ auto_execution_mode: 3
 ### 3. Export Best Practices
 
 - Re-export จากไฟล์ย่อยเท่านั้น ไม่ re-export จาก dependencies โดยตรง
-- ใช้ named exports เท่านั้น (`export { xxx } from './xxx'`) ไม่ใช้ `export * from`
+- ใช้ named exports เท่านั้น (`export { xxx } from './xxx'`) ห้ามใช้ `export * from`
+  - `export *` ทำให้ไม่สามารถ tree-shake ได้
+  - `export *` ทำให้เกิด name conflicts ได้ง่าย
+  - `export *` ทำให้ไม่รู้ว่า export อะไรบ้างจาก barrel file
+  - `export *` ทำให้ tooling และ IDE ไม่สามารถ provide auto-complete ได้ดี
 - ห้ามใช้ default exports เพื่อ tree-shaking ที่ดีขึ้น
 - ถ้ามี name conflicts ให้ใช้ rename (`export { xxx as yyy } from './xxx'`)
 - รักษา backward compatibility ของ imports โดย re-export เดิม

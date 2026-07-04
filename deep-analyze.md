@@ -41,13 +41,14 @@ related_workflows:
 
 ### 2. Quick Scan Phase
 
-ทำ `/scan-codebase` เพื่อเข้าใจ codebase อย่างรวดเร็ว
+ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์พื้นฐาน
 
-1. Scan file structure และ project type
-2. Search code patterns ทั่วไป
-3. Structural analysis ด้วย ast-grep
-4. Quality check พื้นฐาน
-5. สร้าง structured data สำหรับ analysis
+1. ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์อย่างครบถ้วน
+2. Scan file structure และ project type
+3. Search code patterns ทั่วไป
+4. Structural analysis ด้วย ast-grep
+5. Quality check พื้นฐาน
+6. สร้าง structured data สำหรับ analysis
 
 ### 3. Structure Analysis
 

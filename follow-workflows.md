@@ -22,7 +22,7 @@ related_workflows:
 
 อ่าน global workflows ทั้งหมดใน `global_workflows/` เพื่อเข้าใจมาตรฐานและป้องกันการซ้ำซ้อน
 
-- อ่าน global workflows ทั้งหมดใน `global_workflows/`
+- ทำ `/read-related-workflows` เพื่ออ่าน workflows ที่เกี่ยวข้องแบบ recursive
 - ระบุ workflows ที่เกี่ยวข้องกับ task ปัจจุบัน
 - ตรวจสอบว่า workflows มีอยู่จริง
 

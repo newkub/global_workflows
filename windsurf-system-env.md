@@ -52,7 +52,7 @@ Apply global rules ตาม context ของงาน
 2. Framework → ใช้ `/follow-{framework}` (nextjs, nuxt, vue, solid-start)
 3. Tool → ใช้ `/follow-{tool}` (biome, eslint, vitest, drizzle)
 4. Architecture → ใช้ `/follow-{architecture}` (monorepo, microservices, clean-architecture)
-5. Best practices → ใช้ `/follow-best-practice`, `/follow-code-quality`
+5. Best practices → ใช้ `/follow-best-practice`, `/improve-code-quality`
 
 ### 4. Load Skills
 
