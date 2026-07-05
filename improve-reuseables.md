@@ -24,82 +24,82 @@ related_workflows:
 
 ระบุ code ที่ไม่ reusable หรือมีความเฉพาะเจาะจงเกินไป
 
-- ตรวจสอบ functions ที่มี hardcoded values
-- ตรวจสอบ components ที่ผูกกับ business logic เฉพาะ
-- ตรวจสอบ modules ที่มี dependencies ภายนอกที่ไม่จำเป็น
-- ระบุ code ที่ซ้ำซ้อนในหลายส่วนของ project
+1. ตรวจสอบ functions ที่มี hardcoded values
+2. ตรวจสอบ components ที่ผูกกับ business logic เฉพาะ
+3. ตรวจสอบ modules ที่มี dependencies ภายนอกที่ไม่จำเป็น
+4. ระบุ code ที่ซ้ำซ้อนในหลายส่วนของ project
 
 ### 2. Extract Generic Logic
 
 แยก logic ที่ generic ออกจาก business logic เฉพาะ
 
-- แยก core logic ออกจาก implementation details
-- สร้าง abstractions สำหรับ patterns ที่ซ้ำกัน
-- ใช้ parameterization แทน hardcoded values
-- สร้าง interfaces สำหรับ dependencies ที่สามารถ inject ได้
+1. แยก core logic ออกจาก implementation details
+2. สร้าง abstractions สำหรับ patterns ที่ซ้ำกัน
+3. ใช้ parameterization แทน hardcoded values
+4. สร้าง interfaces สำหรับ dependencies ที่สามารถ inject ได้
 
 ### 3. Parameterize Configurations
 
 ทำให้ configurations สามารถ customize ได้
 
-- แปลง hardcoded values เป็น parameters
-- สร้าง configuration objects สำหรับ options
-- ใช้ default parameters สำหรับ common cases
-- อนุญาตให้ override behaviors ผ่าน callbacks หรือ strategies
+1. แปลง hardcoded values เป็น parameters
+2. สร้าง configuration objects สำหรับ options
+3. ใช้ default parameters สำหรับ common cases
+4. อนุญาตให้ override behaviors ผ่าน callbacks หรือ strategies
 
 ### 4. Create Reusable Components
 
 สร้าง components ที่ reusable
 
-- ทำ `/separate-of-concern` เพื่อแยก concerns
-- สร้าง components ที่ composition-based แทน inheritance
-- ใช้ props/events สำหรับ communication
-- ตรวจสอบว่า components ไม่ผูกกับ specific data sources
+1. ทำ `/separate-of-concern` เพื่อแยก concerns
+2. สร้าง components ที่ composition-based แทน inheritance
+3. ใช้ props/events สำหรับ communication
+4. ตรวจสอบว่า components ไม่ผูกกับ specific data sources
 
 ### 5. Refactor Modules For Reusability
 
 ปรับปรุง modules ให้ reusable
 
-- ทำ `/refactor-modules` เพื่อ refactor modules
-- แยก domain logic ออกจาก infrastructure
-- สร้าง pure functions ที่ไม่มี side effects
-- ใช้ dependency injection สำหรับ external dependencies
+1. ทำ `/refactor-modules` เพื่อ refactor modules
+2. แยก domain logic ออกจาก infrastructure
+3. สร้าง pure functions ที่ไม่มี side effects
+4. ใช้ dependency injection สำหรับ external dependencies
 
 ### 6. Extract Shared Utilities
 
 แยก utilities ที่ใช้ร่วมกัน
 
-- ระบุ utility functions ที่ซ้ำซ้อน
-- ทำ `/refactor-utils` เพื่อ refactor utilities
-- ย้าย utilities ไป shared packages (ใช้ `/refactor-shared`)
-- ตรวจสอบว่า utilities generic และไม่มี business logic
+1. ระบุ utility functions ที่ซ้ำซ้อน
+2. ทำ `/refactor-utils` เพื่อ refactor utilities
+3. ย้าย utilities ไป shared packages (ใช้ `/refactor-shared`)
+4. ตรวจสอบว่า utilities generic และไม่มี business logic
 
 ### 7. Design Generic Types
 
 ออกแบบ types ที่ generic และ reusable
 
-- ทำ `/refactor-types` เพื่อ refactor type definitions
-- ใช้ generics สำหรับ types ที่ flexible
-- สร้าง type utilities สำหรับ common patterns
-- หลีกเลี่ยง type definitions ที่ซ้ำซ้อน
+1. ทำ `/refactor-types` เพื่อ refactor type definitions
+2. ใช้ generics สำหรับ types ที่ flexible
+3. สร้าง type utilities สำหรับ common patterns
+4. หลีกเลี่ยง type definitions ที่ซ้ำซ้อน
 
 ### 8. Document Reusable APIs
 
 เขียน documentation สำหรับ reusable code
 
-- เขียน API documentation ครบถ้วน
-- ใส่ examples การใช้งาน
-- อธิบาย parameters และ return types
-- ระบุ use cases ที่เหมาะสม
+1. เขียน API documentation ครบถ้วน
+2. ใส่ examples การใช้งาน
+3. อธิบาย parameters และ return types
+4. ระบุ use cases ที่เหมาะสม
 
 ### 9. Verify Reusability
 
 ตรวจสอบว่า code สามารถ reuse ได้จริง
 
-- ทดสอบการใช้งานใน contexts ต่างๆ
-- ตรวจสอบว่าไม่มี hidden dependencies
-- ตรวจสอบว่าไม่มี coupling กับ implementation details
-- ทำ `/run-test` เพื่อยืนยัน functionality
+1. ทดสอบการใช้งานใน contexts ต่างๆ
+2. ตรวจสอบว่าไม่มี hidden dependencies
+3. ตรวจสอบว่าไม่มี coupling กับ implementation details
+4. ทำ `/run-test` เพื่อยืนยัน functionality
 
 ## Rules
 

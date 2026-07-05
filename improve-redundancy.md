@@ -21,37 +21,37 @@ related_workflows:
 
 ระบุความซ้ำซ้อนในระบบ
 
-- ตรวจสอบ duplicate content ทั่วทั้งระบบ (เช่น description ซ้ำกันในหลาย workflows)
-- ตรวจสอบ duplicate patterns (code patterns, content patterns, configuration patterns)
-- วิเคราะห์ความซ้ำซ้อนใน configuration
-- ระบุส่วนที่สามารถรวมได้ (มีความหมายเหมือนกัน, ใช้ใน context เดียวกัน, ไม่มีความแตกต่างเฉพาะ)
+1. ตรวจสอบ duplicate content ทั่วทั้งระบบ (เช่น description ซ้ำกันในหลาย workflows)
+2. ตรวจสอบ duplicate patterns (code patterns, content patterns, configuration patterns)
+3. วิเคราะห์ความซ้ำซ้อนใน configuration
+4. ระบุส่วนที่สามารถรวมได้ (มีความหมายเหมือนกัน, ใช้ใน context เดียวกัน, ไม่มีความแตกต่างเฉพาะ)
 
 ### 2. Consolidate Content
 
 รวมรายละเอียดที่เหมือนกัน
 
-- รวม content ที่เหมือนกันไว้ที่เดียว (เช่น รวม description ซ้ำไว้ที่ workflow หลัก)
-- สร้าง single source of truth
-- จัดลำดับ content ให้เป็นระเบียบ (ใช้ hierarchy ตามความสำคัญ, จัดกลุ่มตาม domain)
-- ลบ content ที่ซ้ำซ้อน
+1. รวม content ที่เหมือนกันไว้ที่เดียว (เช่น รวม description ซ้ำไว้ที่ workflow หลัก)
+2. สร้าง single source of truth
+3. จัดลำดับ content ให้เป็นระเบียบ (ใช้ hierarchy ตามความสำคัญ, จัดกลุ่มตาม domain)
+4. ลบ content ที่ซ้ำซ้อน
 
 ### 3. Use References
 
 ใช้ references แทนการ duplicate
 
-- ใช้ references ไปยัง single source of truth (เช่น `ทำตาม /workflow-name`)
-- อัปเดท references ทั้งหมด
-- ตรวจสอบว่า references ถูกต้อง
-- ทำ `/check-reference` เพื่อตรวจสอบ references มีอยู่จริง
+1. ใช้ references ไปยัง single source of truth (เช่น `ทำตาม /workflow-name`)
+2. อัปเดท references ทั้งหมด
+3. ตรวจสอบว่า references ถูกต้อง
+4. ทำ `/check-reference` เพื่อตรวจสอบ references มีอยู่จริง
 
 ### 4. Verify
 
 ตรวจสอบว่าไม่มีความซ้ำซ้อน
 
-- ตรวจสอบว่าไม่มี duplicate content (ใช้ search tools เพื่อตรวจสอบ)
-- ตรวจสอบว่า references ถูกต้อง (ทั้งใน workflows และ skills)
-- ตรวจสอบว่า single source of truth ถูกต้อง (ครบถ้วนและอัปเดทล่าสุด)
-- ตรวจสอบว่าไม่มี orphan content (content ที่ไม่มีใครอ้างอิง)
+1. ตรวจสอบว่าไม่มี duplicate content (ใช้ search tools เพื่อตรวจสอบ)
+2. ตรวจสอบว่า references ถูกต้อง (ทั้งใน workflows และ skills)
+3. ตรวจสอบว่า single source of truth ถูกต้อง (ครบถ้วนและอัปเดทล่าสุด)
+4. ตรวจสอบว่าไม่มี orphan content (content ที่ไม่มีใครอ้างอิง)
 
 ## Rules
 

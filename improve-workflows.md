@@ -7,7 +7,6 @@ related_workflows:
   - /check-correctness
   - /improve-correctness
   - /improve-completeness
-  - /follow-best-practice
   - /deep-research
   - /follow-content-quality
   - /check-reference

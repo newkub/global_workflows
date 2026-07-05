@@ -20,61 +20,61 @@ related_workflows:
 
 ตรวจสอบ integrations ปัจจุบัน
 
-- ทำ `/check-integration` เพื่อตรวจสอบ integration points
-- ตรวจสอบ connection management
-- ตรวจสอบ error handling
-- ตรวจสอบ security
-- ตรวจสอบ performance
+1. ทำ `/check-integration` เพื่อตรวจสอบ integration points
+2. ตรวจสอบ connection management
+3. ตรวจสอบ error handling
+4. ตรวจสอบ security
+5. ตรวจสอบ performance
 
 ### 2. Improve WebSocket
 
 ปรับปรุง WebSocket connections
 
-- ตรวจสอบ connection stability
-- ปรับปรุง reconnection logic
-- ปรับปรุง error handling
-- ปรับปรุง message ordering
-- ปรับปรุง performance
+1. ตรวจสอบ connection stability
+2. ปรับปรุง reconnection logic
+3. ปรับปรุง error handling
+4. ปรับปรุง message ordering
+5. ปรับปรุง performance
 
 ### 3. Improve File Upload
 
 ปรับปรุง file upload
 
-- ตรวจสอบ upload reliability
-- ปรับปรุง validation
-- ปรับปรุง security
-- ปรับปรุง progress tracking
-- ปรับปรุง error handling
+1. ตรวจสอบ upload reliability
+2. ปรับปรุง validation
+3. ปรับปรุง security
+4. ปรับปรุง progress tracking
+5. ปรับปรุง error handling
 
 ### 4. Improve Search
 
 ปรับปรุง search functionality
 
-- ตรวจสอบ search relevance
-- ปรับปรุง performance
-- ปรับปรุง indexing
-- ปรับปรุง error handling
-- ปรับปรุง caching
+1. ตรวจสอบ search relevance
+2. ปรับปรุง performance
+3. ปรับปรุง indexing
+4. ปรับปรุง error handling
+5. ปรับปรุง caching
 
 ### 5. Improve Notification
 
 ปรับปรุง notification system
 
-- ตรวจสอบ delivery reliability
-- ปรับปรุง retry logic
-- ปรับปรุง error handling
-- ปรับปรุง performance
-- ปรับปรุย priority handling
+1. ตรวจสอบ delivery reliability
+2. ปรับปรุง retry logic
+3. ปรับปรุง error handling
+4. ปรับปรุง performance
+5. ปรับปรุย priority handling
 
 ### 6. Improve I18n
 
 ปรับปรุง internationalization
 
-- ตรวจสอบ translation completeness
-- ปรับปรุย locale detection
-- ปรับปรุย date/time formatting
-- ปรับปรุย number formatting
-- ปรับปรุย RTL support
+1. ตรวจสอบ translation completeness
+2. ปรับปรุย locale detection
+3. ปรับปรุย date/time formatting
+4. ปรับปรุย number formatting
+5. ปรับปรุย RTL support
 
 ## Rules
 

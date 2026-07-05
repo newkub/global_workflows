@@ -21,61 +21,61 @@ related_workflows:
 
 ตรวจสอบ scalability ปัจจุบัน
 
-- ทำ `/run-profile` เพื่อ profile performance
-- ตรวจสอบ bottlenecks
-- ตรวจสอบ resource usage
-- ตรวจสอบ database performance
-- ตรวจสอบ API performance
+1. ทำ `/run-profile` เพื่อ profile performance
+2. ตรวจสอบ bottlenecks
+3. ตรวจสอบ resource usage
+4. ตรวจสอบ database performance
+5. ตรวจสอบ API performance
 
 ### 2. Improve Database Scalability
 
 ปรับปรุย database scalability
 
-- Optimize database queries
-- Add database indexes
-- Implement database caching
-- Use connection pooling
-- Consider database sharding
+1. Optimize database queries
+2. Add database indexes
+3. Implement database caching
+4. Use connection pooling
+5. Consider database sharding
 
 ### 3. Improve API Scalability
 
 ปรับปรุย API scalability
 
-- Implement rate limiting
-- Use caching สำหรับ API responses
-- Optimize API responses
-- Implement pagination
-- Use CDN สำหรับ static assets
+1. Implement rate limiting
+2. Use caching สำหรับ API responses
+3. Optimize API responses
+4. Implement pagination
+5. Use CDN สำหรับ static assets
 
 ### 4. Improve Application Scalability
 
 ปรับปรุย application scalability
 
-- Implement horizontal scaling
-- Use load balancing
-- Implement queue systems
-- Use microservices architecture
-- Optimize memory usage
+1. Implement horizontal scaling
+2. Use load balancing
+3. Implement queue systems
+4. Use microservices architecture
+5. Optimize memory usage
 
 ### 5. Improve Caching Strategy
 
 ปรับปรุย caching strategy
 
-- ทำ `/improve-web-performance` เพื่อ optimize caching
-- Implement Redis caching
-- Use CDN caching
-- Implement application-level caching
-- Optimize cache invalidation
+1. ทำ `/improve-web-performance` เพื่อ optimize caching
+2. Implement Redis caching
+3. Use CDN caching
+4. Implement application-level caching
+5. Optimize cache invalidation
 
 ### 6. Monitor And Scale
 
 ตรวจสอบและ scale
 
-- Monitor performance metrics
-- Set up auto-scaling
-- Monitor resource usage
-- Set up alerts
-- Document scaling procedures
+1. Monitor performance metrics
+2. Set up auto-scaling
+3. Monitor resource usage
+4. Set up alerts
+5. Document scaling procedures
 
 ## Rules
 

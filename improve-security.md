@@ -1,73 +1,70 @@
 ---
 title: Improve Security
-description: ปรับปรุง security ให้ปลอดภัยด้วย best practices และ vulnerability scanning
+description: ปรับปรุง security, compliance และ privacy
 auto_execution_mode: 3
 related_workflows:
-  - check-security
-  - test-security
-  - check-vulnerability
-  - run-audit
+  - /check-vulnerability
+  - /run-audit
+  - /improve-authentication
+  - /improve-rbac
+  - /improve-compliance
+  - /improve-privacy
 ---
 
 ## Goal
 
-ปรับปรุง security ให้ปลอดภัยด้วย best practices และ vulnerability scanning
+ปรับปรุง security, compliance และ privacy ของ codebase
 
 ## Scope
 
-ใช้สำหรับปรับปรุง security ของ applications ทั้ง web, mobile, และ desktop
+ใช้สำหรับการปรับปรุงด้าน security และ compliance ของ codebase
 
 ## Execute
 
 ### 1. Check Security
 
-ตรวจสอบ security ปัจจุบัน
-
-- ทำ `/check-security` เพื่อตรวจสอบ security best practices
-- ตรวจสอบ authentication และ authorization
-- ตรวจสอบ data protection
-- ตรวจสอบ input validation
-- ตรวจสอบ security headers
-- ตรวจสอบ secrets management
+1. ตรวจสอบ authentication และ authorization
+2. ตรวจสอบ data protection และ input validation
+3. ตรวจสอบ security headers และ secrets management
 
 ### 2. Test Security
 
-ทดสอบ security vulnerabilities
-
-- ทำ `/run-test` เพื่อทดสอบ security ครบถ้วน
-- ทดสอบ XSS, SQL Injection, CSRF
-- ทดสอบ authentication bypass
-- ทดสอบ authorization flaws
-- Scan สำหรับ secrets
-- รัน DAST scans
+1. ทำ `/run-test` เพื่อทดสอบ security ครบถ้วน
+2. ทดสอบ XSS, SQL Injection, CSRF
+3. ทดสอบ authentication bypass และ authorization flaws
+4. Scan สำหรับ secrets และรัน DAST scans
 
 ### 3. Check Vulnerabilities
 
-ตรวจสอบ vulnerabilities ใน dependencies
-
-- ทำ `/check-vulnerability` เพื่อตรวจสอบ dependencies vulnerabilities
-- รัน dependency scans
-- ตรวจสอบ outdated packages
-- Review transitive dependencies
+1. ทำ `/check-vulnerability` เพื่อตรวจสอบ dependencies vulnerabilities
+2. รัน dependency scans และตรวจสอบ outdated packages
+3. Review transitive dependencies
 
 ### 4. Run Security Audit
 
-รัน security audit
+1. ทำ `/run-audit` เพื่อ audit dependencies และ security
+2. รัน security scanning tools และตรวจสอบ misconfigurations
+3. แก้ไข security issues ที่พบ
 
-- ทำ `/run-audit` เพื่อ audit dependencies และ security
-- รัน security scanning tools
-- ตรวจสอบ misconfigurations
-- แก้ไข security issues ที่พบ
+### 5. Rate Limiting
 
-### 5. Fix Issues
+1. ตรวจสอบ API rate limiting configuration
+2. ตั้งค่า rate limits ตาม endpoint sensitivity
+3. Implement IP-based และ user-based rate limiting
+4. ตั้งค่า throttling สำหรับ expensive operations
 
-แก้ไข security issues
+### 6. Fix Issues
 
-- แก้ไข critical issues ก่อน
-- แก้ไข high priority issues
-- แก้ไข medium และ low issues
-- Update dependencies ที่มี vulnerabilities
-- Document security fixes
+1. แก้ไข critical issues ก่อน จากนั้น high, medium, low
+2. Update dependencies ที่มี vulnerabilities
+3. Document security fixes
+
+### 7. Compliance And Privacy
+
+1. ถ้า project มี authentication ทำ `/improve-authentication`
+2. ทำ `/improve-rbac` เพื่อปรับปรุง Role-Based Access Control
+3. ถ้า project มี compliance requirements ทำ `/improve-compliance`
+4. ถ้า project มี privacy requirements ทำ `/improve-privacy`
 
 ## Rules
 

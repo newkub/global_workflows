@@ -1,32 +1,35 @@
 ---
 title: Nuxt Best Practices
-description: สร้างหรือปรับปรุง Nuxt 3/4 project ด้วย Universal Rendering และ Nitro
+description: สร้างหรือปรับปรุง Nuxt 4 project ด้วย Universal Rendering และ Nitro
 auto_execution_mode: 3
 related_workflows:
   - /follow-vue
+  - /follow-vueuse
   - /follow-typescript
   - /follow-vite
   - /follow-unocss
+  - /follow-vitest
 ---
 
 ## Goal
 
-กำหนดแนวทางการพัฒนา Nuxt 3/4 applications ให้มีประสิทธิภาพสูงสุด
+กำหนดแนวทางการพัฒนา Nuxt 4 applications ให้มีประสิทธิภาพสูงสุด
 
 ## Scope
 
-สร้างหรือปรับปรุง Nuxt 3/4 project ด้วย Universal Rendering และ Nitro
+สร้างหรือปรับปรุง Nuxt 4 project ด้วย Universal Rendering, Nitro และ Layers architecture
 
 ## Execute
 
 ### 1. Setup
 
 1. ระบุ Project Location ใน monorepo เช่น `apps/web/`
-2. เลือก Nuxt Version ระหว่าง 3.x หรือ 4.x (default: 4.x)
+2. ใช้ Nuxt 4.x (stable, ใช้ `app/` directory)
 3. กำหนด Rendering Mode: SSR, SSG, CSR, หรือ Hybrid
 4. ตัดสินใจใช้ Database หรือไม่ (Drizzle ORM)
 5. เลือก UI Framework: UnoCSS, Tailwind, หรืออื่นๆ
-6. กำหนด Architecture: ใช้ Layers และ Modules หรือไม่
+6. กำหนด Architecture: ใช้ Layers และ Modules
+7. ใช้ Vite 7 เป็น build tool
 
 ### 2. Directory Structure
 
@@ -35,6 +38,7 @@ related_workflows:
 3. จัดกลุ่ม components, composables ตาม feature ในแต่ละ Layer
 4. ใช้ auto-imports สำหรับ components และ composables
 5. แยก business logic เป็น services และ repositories ใน `server/`
+6. ใช้ `shared/` สำหรับ types และ utilities ที่ใช้ทั้ง client และ server
 
 ### 3. Configuration
 
@@ -55,16 +59,18 @@ related_workflows:
 7. Components: Import จาก `components/ui/` เท่านั้น สำหรับ shared UI components
 8. Barrel Exports: ทุก `index.ts` แค่ re-export เท่านั้น ไม่มี logic
 9. Deprecated: ลบ `@deprecated` ทั้งหมด ไม่ให้เหลือใน codebase
-10. SEO: ใช้ `useHead` ในทุก page component สำหรับ meta tags
+10. SEO: ใช้ `useHead` และ `useSeoMeta` ในทุก page component
 
 ### 5. Performance
 
 1. ใช้ `Lazy` prefix สำหรับ lazy loading components
 2. ใช้ `hydrate-on-visible` สำหรับ lazy hydration
-3. ใช้ route rules สำหรับ hybrid rendering
+3. ใช้ route rules สำหรับ hybrid rendering (SWR, ISR, CSR, SSR)
 4. ใช้ `<NuxtLink>` แทน `<a>` tag ทั้งหมด
 5. ใช้ `useFetch` และ `useAsyncData` พร้อม key parameter
 6. ใช้ `useStorage` สำหรับ key-value storage
+7. ใช้ Nitro caching สำหรับ API routes
+8. ใช้ `@nuxt/image` สำหรับ image optimization
 
 ### 6. Plugins Best Practices
 
@@ -107,6 +113,7 @@ related_workflows:
 - Composables ต้องมี prefix `use`
 - ใช้ barrel exports สำหรับทุก folder
 - ใช้ auto-imports สำหรับ Nuxt built-ins
+- ใช้ `shared/` สำหรับ types ที่ใช้ทั้ง client และ server
 
 ### 2. Code Standards
 
@@ -120,17 +127,18 @@ related_workflows:
 - Components ที่ใช้ซ้ำต้อง import จาก `components/ui/`
 - ทุก `index.ts` แค่ re-export ไม่มี logic
 - ลบ `@deprecated` ทั้งหมดจาก codebase
-- ใช้ `useHead` ในทุก page component สำหรับ SEO meta tags
+- ใช้ `useHead` และ `useSeoMeta` ในทุก page component
 
 ### 3. Performance Optimization
 
 ตั้งค่า performance:
 
 - ใช้ `Lazy` prefix สำหรับ lazy loading
+- ใช้ `hydrate-on-visible` สำหรับ lazy hydration
+- ใช้ route rules สำหรับ hybrid rendering (SWR, ISR)
+- ใช้ Nitro caching สำหรับ API routes
+- ใช้ `@nuxt/image` สำหรับ image optimization
 - หลีกเลี่ยง costly plugins
-- ใช้ `~/assets` สำหรับ processed files
-- ใช้ `~/public` สำหรับ static files
-- ใช้ route rules สำหรับ hybrid rendering
 
 ### 4. Error Handling
 
@@ -143,10 +151,10 @@ related_workflows:
 
 ## Expected Outcome
 
-- Nuxt 3/4 project ที่มีโครงสร้างถูกต้อง
+- Nuxt 4 project ที่มีโครงสร้างถูกต้อง
 - Layers และ Modules ที่จัดระเบียบดี
 - Code ที่มี type safety ด้วย TypeScript
-- Performance ที่ดีขึ้น
+- Performance ที่ดีขึ้นด้วย hybrid rendering และ Nitro caching
 - Build และ test ที่ผ่านทั้งหมด
 - Error handling ที่ดี
 - Assets management ที่ถูกต้อง

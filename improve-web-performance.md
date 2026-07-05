@@ -21,51 +21,51 @@ related_workflows:
 
 ตรวจสอบ performance ปัจจุบัน
 
-- ทำ `/check-performance` เพื่อตรวจสอบ Core Web Vitals
-- ตรวจสอบ LCP, INP, CLS
-- ตรวจสอบ bundle size
-- ตรวจสอบ network และ runtime performance
-- รัน Lighthouse audit
+1. ทำ `/check-performance` เพื่อตรวจสอบ Core Web Vitals
+2. ตรวจสอบ LCP, INP, CLS
+3. ตรวจสอบ bundle size
+4. ตรวจสอบ network และ runtime performance
+5. รัน Lighthouse audit
 
 ### 2. Optimize Assets
 
 ปรับปรุง assets
 
-- Optimize images (WebP, lazy load)
-- Minify JavaScript และ CSS
-- ใช้ code splitting
-- ใช้ tree shaking
-- ลด bundle size
+1. Optimize images (WebP, lazy load)
+2. Minify JavaScript และ CSS
+3. ใช้ code splitting
+4. ใช้ tree shaking
+5. ลด bundle size
 
 ### 3. Optimize Loading
 
 ปรับปรุง loading
 
-- ลด render-blocking resources
-- ใช้ lazy loading สำหรับ heavy components
-- ใช้ prefetch และ preload
-- Optimize critical CSS
-- ใช้ caching อย่างเหมาะสม
+1. ลด render-blocking resources
+2. ใช้ lazy loading สำหรับ heavy components
+3. ใช้ prefetch และ preload
+4. Optimize critical CSS
+5. ใช้ caching อย่างเหมาะสม
 
 ### 4. Optimize Runtime
 
 ปรับปรุง runtime performance
 
-- ลด unnecessary re-renders
-- ใช้ memoization
-- Optimize algorithms
-- ลด memory leaks
-- ตรวจสอบ frame rate (60fps)
+1. ลด unnecessary re-renders
+2. ใช้ memoization
+3. Optimize algorithms
+4. ลด memory leaks
+5. ตรวจสอบ frame rate (60fps)
 
 ### 5. Profile And Monitor
 
 Profile และ monitor
 
-- ทำ `/run-profile` เพื่อ profile performance
-- ตรวจสอบ bottlenecks
-- Monitor performance metrics
-- Set up performance budgets
-- Integrate ใน CI/CD
+1. ทำ `/run-profile` เพื่อ profile performance
+2. ตรวจสอบ bottlenecks
+3. Monitor performance metrics
+4. Set up performance budgets
+5. Integrate ใน CI/CD
 
 ## Rules
 

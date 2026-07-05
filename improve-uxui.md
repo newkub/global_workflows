@@ -1,5 +1,5 @@
 ---
-title: Improve UX/UI
+title: Improve Uxui
 description: ปรับปรุง UX/UI ให้ดีขึ้นด้วย design system, accessibility, และ performance
 auto_execution_mode: 3
 related_workflows:
@@ -24,35 +24,35 @@ related_workflows:
 
 ปรับปรุง design system
 
-- ทำ `/idea-uxui` เพื่อวิเคราะห์และสร้างไอเดีย UX/UI improvements
-- ทำ `/follow-web-design` สำหรับ design system principles
-- สร้าง design tokens (colors, spacing, typography)
-- สร้าง component library ที่ reusable
-- ใช้ spacing, typography, colors ที่สอดคล้องกัน
-- สร้าง design guidelines ที่ชัดเจน
+1. ทำ `/idea-uxui` เพื่อวิเคราะห์และสร้างไอเดีย UX/UI improvements
+2. ทำ `/follow-web-design` สำหรับ design system principles
+3. สร้าง design tokens (colors, spacing, typography)
+4. สร้าง component library ที่ reusable
+5. ใช้ spacing, typography, colors ที่สอดคล้องกัน
+6. สร้าง design guidelines ที่ชัดเจน
 
 ### 2. Improve Accessibility
 
 ปรับปรุง accessibility
 
-- ทำ `/improve-accessibility` เพื่อปรับปรุง accessibility ครบวงจร
+1. ทำ `/improve-accessibility` เพื่อปรับปรุง accessibility ครบวงจร
 
 ### 3. Improve UX Writing
 
 ปรับปรุง UX writing
 
-- เขียนข้อความที่ชัดเจนและเข้าใจง่าย
-- ใช้ภาษาที่เป็นมิตรกับผู้ใช้
-- หลีกเลี่ยงคำศัพท์เทคนิคที่ไม่จำเป็น
-- ใช้ active voice แทน passive voice
-- สร้าง microcopy ที่ช่วยสนับสนุน user journey
-- ทำตาม UX writing best practices
+1. เขียนข้อความที่ชัดเจนและเข้าใจง่าย
+2. ใช้ภาษาที่เป็นมิตรกับผู้ใช้
+3. หลีกเลี่ยงคำศัพท์เทคนิคที่ไม่จำเป็น
+4. ใช้ active voice แทน passive voice
+5. สร้าง microcopy ที่ช่วยสนับสนุน user journey
+6. ทำตาม UX writing best practices
 
 ### 4. Improve Performance
 
 ปรับปรุง performance ของ UI
 
-- ทำ `/improve-web-performance` เพื่อปรับปรุง web performance ครบวงจร
+1. ทำ `/improve-web-performance` เพื่อปรับปรุง web performance ครบวงจร
 
 ## Rules
 

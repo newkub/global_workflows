@@ -21,61 +21,61 @@ related_workflows:
 
 วิเคราะห์ RBAC ปัจจุบัน
 
-- ตรวจสอบ roles และ permissions ที่มีอยู่
-- วิเคราะห์ access control logic
-- ตรวจสอบ security gaps
-- ระบุ hardcoded permissions
-- ตรวจสอบ permission inheritance
+1. ตรวจสอบ roles และ permissions ที่มีอยู่
+2. วิเคราะห์ access control logic
+3. ตรวจสอบ security gaps
+4. ระบุ hardcoded permissions
+5. ตรวจสอบ permission inheritance
 
 ### 2. Design RBAC Model
 
 ออกแบบ RBAC model
 
-- กำหนด roles ที่ชัดเจน (admin, moderator, user, guest)
-- กำหนด permissions ที่ granular (read, write, delete, manage)
-- สร้าง role hierarchy ที่เหมาะสม
-- กำหนด resource-based permissions
-- สร้าง permission groups สำหรับ reuse
+1. กำหนด roles ที่ชัดเจน (admin, moderator, user, guest)
+2. กำหนด permissions ที่ granular (read, write, delete, manage)
+3. สร้าง role hierarchy ที่เหมาะสม
+4. กำหนด resource-based permissions
+5. สร้าง permission groups สำหรับ reuse
 
 ### 3. Implement RBAC Middleware
 
 สร้าง RBAC middleware
 
-- สร้าง authorization middleware
-- สร้าง permission checker functions
-- สร้าง role decorator/guard
-- สร้าง resource-based access control
-- สร้าง permission caching
+1. สร้าง authorization middleware
+2. สร้าง permission checker functions
+3. สร้าง role decorator/guard
+4. สร้าง resource-based access control
+5. สร้าง permission caching
 
 ### 4. Update API Endpoints
 
 อัปเดต API endpoints
 
-- เพิ่ม permission checks ทุก endpoint
-- ใช้ RBAC middleware ที่สร้างไว้
-- ตรวจสอบ resource ownership
-- ตรวจสอบ role-based access
-- ทำ audit logging
+1. เพิ่ม permission checks ทุก endpoint
+2. ใช้ RBAC middleware ที่สร้างไว้
+3. ตรวจสอบ resource ownership
+4. ตรวจสอบ role-based access
+5. ทำ audit logging
 
 ### 5. Update UI Components
 
 อัปเดต UI components
 
-- ซ่อน/แสดง features ตาม permissions
-- สร้าง permission-aware components
-- สร้าง role-based navigation
-- แสดง permission errors ที่ชัดเจน
-- สร้าง admin panel สำหรับ manage roles
+1. ซ่อน/แสดง features ตาม permissions
+2. สร้าง permission-aware components
+3. สร้าง role-based navigation
+4. แสดง permission errors ที่ชัดเจน
+5. สร้าง admin panel สำหรับ manage roles
 
 ### 6. Add RBAC Tests
 
 เพิ่ม tests สำหรับ RBAC
 
-- Test role assignments
-- Test permission checks
-- Test unauthorized access
-- Test resource ownership
-- Test role hierarchy
+1. Test role assignments
+2. Test permission checks
+3. Test unauthorized access
+4. Test resource ownership
+5. Test role hierarchy
 
 ## Rules
 

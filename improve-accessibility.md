@@ -21,33 +21,33 @@ related_workflows:
 
 ตรวจสอบ accessibility ปัจจุบัน
 
-- ทำ `/check-accessibility` เพื่อตรวจสอบ WCAG compliance
-- ตรวจสอบ keyboard navigation
-- ตรวจสอบ screen reader support
-- ตรวจสอบ color contrast
-- ตรวจสอบ semantic HTML
-- ตรวจสอบ forms accessibility
+1. ทำ `/check-accessibility` เพื่อตรวจสอบ WCAG compliance
+2. ตรวจสอบ keyboard navigation
+3. ตรวจสอบ screen reader support
+4. ตรวจสอบ color contrast
+5. ตรวจสอบ semantic HTML
+6. ตรวจสอบ forms accessibility
 
 ### 2. Test Accessibility
 
 ทดสอบ accessibility อย่างครบถ้วน
 
-- ทำ `/run-test` เพื่อทดสอบ accessibility ครบถ้วน
-- ทดสอบด้วย screen readers (NVDA, JAWS, VoiceOver)
-- ทดสอบ keyboard navigation
-- ทดสอบ color contrast
-- ทดสอบ ARIA attributes
-- ทดสอบ images และ media
+1. ทำ `/run-test` เพื่อทดสอบ accessibility ครบถ้วน
+2. ทดสอบด้วย screen readers (NVDA, JAWS, VoiceOver)
+3. ทดสอบ keyboard navigation
+4. ทดสอบ color contrast
+5. ทดสอบ ARIA attributes
+6. ทดสอบ images และ media
 
 ### 3. Fix Issues
 
 แก้ไข issues ที่พบ
 
-- แก้ไข critical issues ก่อน
-- แก้ไข high priority issues
-- แก้ไข medium และ low issues
-- ทำ manual testing สำหรับสิ่งที่ automated ไม่ตรวจได้
-- Document workarounds สำหรับ non-critical
+1. แก้ไข critical issues ก่อน
+2. แก้ไข high priority issues
+3. แก้ไข medium และ low issues
+4. ทำ manual testing สำหรับสิ่งที่ automated ไม่ตรวจได้
+5. Document workarounds สำหรับ non-critical
 
 ## Rules
 

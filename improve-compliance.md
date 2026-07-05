@@ -21,70 +21,70 @@ related_workflows:
 
 ตรวจสอบและปรับปรุย GDPR compliance
 
-- ตรวจสอบ data processing records
-- ตรวจสอบ consent management
-- ตรวจสอบ data subject rights
-- ตรวจสอบ data breach notification
-- แก้ไข gaps ที่พบ
+1. ตรวจสอบ data processing records
+2. ตรวจสอบ consent management
+3. ตรวจสอบ data subject rights
+4. ตรวจสอบ data breach notification
+5. แก้ไข gaps ที่พบ
 
 ### 2. Check SOC2 Compliance
 
 ตรวจสอบและปรับปรุย SOC2 compliance
 
-- ตรวจสอบ security controls
-- ตรวจสอบ availability controls
-- ตรวจสอบ processing integrity
-- ตรวจสอบ confidentiality controls
-- แก้ไข gaps ที่พบ
+1. ตรวจสอบ security controls
+2. ตรวจสอบ availability controls
+3. ตรวจสอบ processing integrity
+4. ตรวจสอบ confidentiality controls
+5. แก้ไข gaps ที่พบ
 
 ### 3. Check HIPAA Compliance (ถ้าจำเป็น)
 
 ตรวจสอบและปรับปรุย HIPAA compliance
 
-- ตรวจสอบ PHI protection
-- ตรวจสอบ access controls
-- ตรวจสอบ audit controls
-- ตรวจสอบ transmission security
-- แก้ไข gaps ที่พบ
+1. ตรวจสอบ PHI protection
+2. ตรวจสอบ access controls
+3. ตรวจสอบ audit controls
+4. ตรวจสอบ transmission security
+5. แก้ไข gaps ที่พบ
 
 ### 4. Check Industry-Specific Regulations
 
 ตรวจสอบและปรับปรุย industry-specific regulations
 
-- ตรวจสอบ PCI DSS (ถ้าจำเป็น)
-- ตรวจสอบ CCPA (ถ้าจำเป็น)
-- ตรวจสอบ industry-specific standards
-- ตรวจสอบ regional regulations
-- แก้ไข gaps ที่พบ
+1. ตรวจสอบ PCI DSS (ถ้าจำเป็น)
+2. ตรวจสอบ CCPA (ถ้าจำเป็น)
+3. ตรวจสอบ industry-specific standards
+4. ตรวจสอบ regional regulations
+5. แก้ไข gaps ที่พบ
 
 ### 5. Improve Data Privacy
 
 ปรับปรุย data privacy
 
-- ตรวจสอบ data minimization
-- ตรวจสอบ data retention policies
-- ตรวจสอบ data deletion procedures
-- ตรวจสอบ data portability
-- แก้ไข issues ที่พบ
+1. ตรวจสอบ data minimization
+2. ตรวจสอบ data retention policies
+3. ตรวจสอบ data deletion procedures
+4. ตรวจสอบ data portability
+5. แก้ไข issues ที่พบ
 
 ### 6. Improve Audit Trail
 
 ปรับปรุย audit trail
 
-- ตรวจสอบ audit logging
-- ตรวจสอบ audit retention
-- ตรวจสอบ audit accessibility
-- ตรวจสอบ audit integrity
-- แก้ไข issues ที่พบ
+1. ตรวจสอบ audit logging
+2. ตรวจสอบ audit retention
+3. ตรวจสอบ audit accessibility
+4. ตรวจสอบ audit integrity
+5. แก้ไข issues ที่พบ
 
 ### 7. Run Compliance Audit
 
 รัน compliance audit
 
-- รัน compliance audit tools
-- ตรวจสอบ compliance gaps
-- สร้าง remediation plan
-- ติดตาม compliance status
+1. รัน compliance audit tools
+2. ตรวจสอบ compliance gaps
+3. สร้าง remediation plan
+4. ติดตาม compliance status
 
 ## Rules
 

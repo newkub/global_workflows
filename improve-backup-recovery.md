@@ -1,5 +1,5 @@
 ---
-title: Improve Backup And Recovery
+title: Improve Backup Recovery
 description: ปรับปรุย backup และ recovery procedures ครบวงจร
 auto_execution_mode: 3
 related_workflows:
@@ -22,67 +22,67 @@ related_workflows:
 
 ตั้งค่า automated backups
 
-- สร้าง automated database backups
-- สร้าง automated file backups
-- ตั้งค่า backup schedules
-- ตั้งค่า backup retention
-- Monitor backup success/failure
-- Alert เมื่อ backups fail
+1. สร้าง automated database backups
+2. สร้าง automated file backups
+3. ตั้งค่า backup schedules
+4. ตั้งค่า backup retention
+5. Monitor backup success/failure
+6. Alert เมื่อ backups fail
 
 ### 2. Backup Strategy
 
 วางแผน backup strategy
 
-- ใช้ 3-2-1 rule (3 copies, 2 media types, 1 offsite)
-- Incremental backups สำหรับ frequent changes
-- Full backups สำหรับ periodic snapshots
-- Differential backups สำหรับ balance
-- Test backup integrity
-- Document backup procedures
+1. ใช้ 3-2-1 rule (3 copies, 2 media types, 1 offsite)
+2. Incremental backups สำหรับ frequent changes
+3. Full backups สำหรับ periodic snapshots
+4. Differential backups สำหรับ balance
+5. Test backup integrity
+6. Document backup procedures
 
 ### 3. Disaster Recovery
 
 สร้าง disaster recovery procedures
 
-- Define RPO (Recovery Point Objective)
-- Define RTO (Recovery Time Objective)
-- Create recovery runbooks
-- Test recovery procedures ประจำ
-- Document recovery steps
-- Assign recovery responsibilities
+1. Define RPO (Recovery Point Objective)
+2. Define RTO (Recovery Time Objective)
+3. Create recovery runbooks
+4. Test recovery procedures ประจำ
+5. Document recovery steps
+6. Assign recovery responsibilities
 
 ### 4. Data Restoration Testing
 
 ทดสอบ data restoration
 
-- Test restore procedures ประจำ
-- Test restore ใน staging environment
-- Measure restore times
-- Verify data integrity หลัง restore
-- Document restore results
-- Improve restore procedures
+1. Test restore procedures ประจำ
+2. Test restore ใน staging environment
+3. Measure restore times
+4. Verify data integrity หลัง restore
+5. Document restore results
+6. Improve restore procedures
 
 ### 5. Backup Security
 
 รักษาความปลอดภัยของ backups
 
-- Encrypt backups
-- Secure backup storage
-- Restrict backup access
-- Audit backup access
-- Test backup encryption
-- Document backup security policies
+1. Encrypt backups
+2. Secure backup storage
+3. Restrict backup access
+4. Audit backup access
+5. Test backup encryption
+6. Document backup security policies
 
 ### 6. Cross-Region Replication
 
 ตั้งค่า cross-region replication
 
-- Replicate critical data ข้าม regions
-- Use geo-redundant storage
-- Monitor replication status
-- Test cross-region recovery
-- Document replication procedures
-- Consider compliance requirements
+1. Replicate critical data ข้าม regions
+2. Use geo-redundant storage
+3. Monitor replication status
+4. Test cross-region recovery
+5. Document replication procedures
+6. Consider compliance requirements
 
 ## Rules
 

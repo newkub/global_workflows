@@ -4,239 +4,93 @@ description: ปรับปรุงคุณภาพ codebase ครบวง
 auto_execution_mode: 3
 related_workflows:
   - /analyze-project
-  - prioritize
-  - what-do-you-do
-  - improve-monitoring
-  - improve-error-handling
-  - improve-scalability
-  - improve-dx
-  - improve-cli
-  - improve-sdk
-  - improve-web-saas
-  - improve-data-quality
-  - improve-api-design
-  - improve-compliance
-  - improve-cost-optimization
-  - improve-backup-recovery
-  - improve-database
-  - improve-seo
-  - improve-comment
+  - /prioritize
+  - /improve-architecture
+  - /improve-foundation
+  - /improve-backend
+  - /improve-security
+  - /improve-reliability
+  - /improve-performance
+  - /improve-frontend
+  - /improve-operations
+  - /improve-delivery
 ---
 
 ## Goal
 
-ปรับปรุงคุณภาพ codebase ครบวงจรตั้งแต่ foundation ไปจนถึง delivery
+ปรับปรุงคุณภาพ codebase ครบวงจรตั้งแต่ foundation ไปจนถึง delivery โดยจัดกลุ่มตามลำดับความสำคัญ
 
 ## Scope
 
-ใช้สำหรับการปรับปรุงคุณภาพ codebase ครบวงจรทั้ง foundation, code quality, และ delivery
+ใช้สำหรับการปรับปรุงคุณภาพ codebase ครบวงจรทั้ง foundation, code quality, performance, และ delivery
 
 ## Execute
 
 ### 0. Analyze Project
 
-วิเคราะห์โปรเจกต์อย่างครบถ้วนก่อนเริ่มปรับปรุง
+1. ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์พื้นฐาน
+2. รับผลลัพธ์จากการวิเคราะห์เพื่อใช้ในการวางแผนการปรับปรุง
 
-- ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์พื้นฐาน
-- รับผลลัพธ์จากการวิเคราะห์เพื่อใช้ในการวางแผนการปรับปรุง
+### 1. Architecture And Structure
 
-### 1. Foundation And Security
+1. ทำ `/improve-architecture` เพื่อปรับปรุง architecture, dependencies, file structure, routing
 
-ทำทันทีเพื่อ foundation และ security
+### 2. Foundation And Code Quality
 
-- ทำ `/analyze-all-files` เพื่อวิเคราะห์ไฟล์ทั้งหมด
-- ทำ `/plan-task` เพื่อวางแผนการปรับปรุง
-- รอยืนยันจาก user ก่อนเริ่มทำ
-- ทำ `/use-lib-better` เพื่อวิเคราะห์ dependencies และ alternatives
-- ทำ `/update-dependencies-latest` เพื่ออัพเดท dependencies
-- ทำ `/refactor-to-packages-and-use` เพื่อลบ packages ที่ไม่ได้ใช้
-- ทำ `/improve-config` เพื่อปรับปรุง configuration files
-- ทำ `/review-architecture` เพื่อ review architecture
-- ทำ `/check-architecture` เพื่อตรวจสอบ architecture
-- ทำ `/improve-security` เพื่อปรับปรุง security
-- ทำ `/improve-accessibility` เพื่อปรับปรุง accessibility
-- ทำ `/improve-integrations` เพื่อปรับปรุง integrations
-- ทำ modernize & update latest เพื่อทำให้ codebase ทันสมัยและเป็นเวอร์ชันล่าสุดเสมอ
+1. ทำ `/improve-foundation` เพื่อปรับปรุง type safety, code quality, state management
 
-### 2. Database
+### 3. Backend And Data
 
-ปรับปรุย database performance, schema, และ operations
+1. ทำ `/improve-backend` เพื่อปรับปรุง database, data quality, API, backend services, network, payment, email
 
-- ถ้า project มี database ทำ `/improve-database` เพื่อปรับปรุย database ครบวงจร
+### 4. Security And Compliance
 
-### 3. Monitoring
+1. ทำ `/improve-security` เพื่อปรับปรุง security, compliance, privacy
 
-ปรับปรุง monitoring และ observability
+### 5. Reliability And Testing
 
-- ทำ `/improve-monitoring` เพื่อปรับปรุง monitoring ครบวงจร
+1. ทำ `/improve-reliability` เพื่อปรับปรุง error handling, observability, testing, coverage
 
-### 4. Error Handling
+### 6. Frontend And Platform
 
-ปรับปรุง error handling และ resilience
+1. ทำ `/improve-performance` เพื่อปรับปรุง web performance, rendering, scalability, caching
+2. ทำ `/improve-frontend` เพื่อปรับปรุง UI/UX, accessibility, forms, platform, mobile
 
-- ทำ `/improve-error-handling` เพื่อปรับปรุง error handling ครบวงจร
+### 7. Operations
 
-### 5. Code Quality
+1. ทำ `/improve-operations` เพื่อปรับปรุง integrations, realtime, DevOps, monitoring, cost
 
-ปรับปรุงคุณภาพโค้ด
+### 8. Delivery And Documentation
 
-- ทำ `/improve-code-quality` เพื่อปรับปรุงคุณภาพโค้ด ครบวงจร
-- ทำ `/improve-comment` เพื่อปรับปรุงคุณภาพ comments ครบวงจร
-
-### 6. Testing
-
-ปรับปรุงการทดสอบ
-
-- ทำ `/improve-testing` เพื่อปรับปรุงการทดสอบ ครบวงจร
-
-### 7. Performance
-
-ปรับปรุง performance
-
-- ถ้า project เป็น web application ทำ `/improve-web-performance` เพื่อปรับปรุง web performance ครบวงจร
-
-### 8. Scalability
-
-ปรับปรุย scalability
-
-- ทำ `/improve-scalability` เพื่อปรับปรุย scalability ครบวงจร
-
-### 9. Integrations
-
-ปรับปรุง integrations
-
-- ทำ `/improve-integrations` เพื่อปรับปรุง integrations ครบวงจร
-
-### 10. Security
-
-ปรับปรุง security
-
-- ทำ `/improve-security` เพื่อปรับปรุง security ครบวงจร
-
-### 11. Platform
-
-ปรับปรุง platform support
-
-- ถ้า project ต้องการ multiple platform support ทำ `/improve-platform` เพื่อปรับปรุง platform support ครบวงจร
-
-### 12. UI
-
-ปรับปรุง UI
-
-- ถ้า project มี UI ทำ `/improve-uxui` สำหรับ UX/UI improvements ครบวงจร
-
-### 13. SEO
-
-ปรับปรุง SEO
-
-- ถ้า project เป็น web application ที่ต้องการ SEO ทำ `/improve-seo` เพื่อปรับปรุง SEO ครบวงจร
-
-### 14. Developer Experience
-
-ปรับปรุง developer experience
-
-- ทำ `/improve-dx` เพื่อปรับปรุย developer experience ครบวงจร
-
-### 15. CLI Tools
-
-ปรับปรุย CLI tools
-
-- ถ้า project มี CLI tools ทำ `/improve-cli` เพื่อปรับปรุย CLI tools ครบวงจร
-
-### 16. SDK Libraries
-
-ปรับปรุย SDK libraries
-
-- ถ้า project มี SDK libraries ทำ `/improve-sdk` เพื่อปรับปรุย SDK libraries ครบวงจร
-
-### 17. Web SaaS
-
-ปรับปรุย web SaaS applications
-
-- ถ้า project เป็น web SaaS application ทำ `/improve-web-saas` เพื่อปรับปรุย web SaaS application ครบวงจร
-
-### 18. Data Quality
-
-ปรับปรุงคุณภาพข้อมูล
-
-- ถ้า project มี data quality concerns ทำ `/improve-data-quality` เพื่อปรับปรุง data quality ครบวงจร
-
-### 19. API Design
-
-ปรับปรุง API design
-
-- ถ้า project มี API ทำ `/improve-api-design` เพื่อปรับปรุง API design ครบวงจร
-
-### 20. Backup And Recovery
-
-ปรับปรุย backup และ recovery
-
-- ถ้า project ต้องการ backup และ recovery ทำ `/improve-backup-recovery` เพื่อปรับปรุย backup และ recovery ครบวงจร
-
-### 21. Compliance
-
-ปรับปรุย regulatory compliance
-
-- ถ้า project มี compliance requirements ทำ `/improve-compliance` เพื่อปรับปรุย compliance ครบวงจร
-
-### 22. Cost Optimization
-
-ปรับปรุง cost optimization
-
-- ถ้า project มี cost concerns ทำ `/improve-cost-optimization` เพื่อปรับปรุง cost optimization ครบวงจร
-
-### 23. Documentation
-
-ทำเมื่อมีเวลา
-
-- ทำ `/update-docs` เพื่อปรับปรุง documentation
+1. ทำ `/improve-delivery` เพื่อปรับปรุง SEO, content, DX, docs, versioning
 
 ## Rules
 
 ### 1. Priority-Based Execution
 
-ทำตามลำดับความสำคัญของแต่ละ group
-
-- ทำทีละ group และตรวจสอบ
-- ทำ `Foundation And Security` ก่อนเสมอ
-- ทำ `Database, Monitoring, Error Handling` หลัง Foundation
-- ทำ `Code Quality, Testing, Performance, Scalability, Integrations, Security` ต่อไป
-- ทำ `Platform, UI, SEO, Developer Experience, CLI Tools, SDK Libraries, Web SaaS, Data Quality, API Design, Backup And Recovery, Compliance, Cost Optimization` ตามลำดับ
-- ทำ `Documentation` สุดท้าย
+- ทำทีละ sub-workflow และตรวจสอบ
+- ทำ `Architecture` → `Foundation` → `Backend` → `Security` → `Reliability` → `Performance` → `Frontend` → `Operations` → `Delivery`
 - ถ้าพบ issues ทำ `/resolve-errors` ก่อนดำเนินต่อ
-- ทำ `/update-reference` หลังแต่ละ group สำคัญ
+- ทำ `/update-reference` หลังแต่ละ sub-workflow
+- รัน tests หลังแต่ละ improvement และตรวจสอบ coverage ไม่ลดลง
 
-### 2. Foundation First
+### 2. Use References And Report
 
-ตั้งค่า foundation ก่อนปรับปรุงส่วนอื่น
-
-- ตรวจสอบ architecture และ dependencies ก่อน
-- อัพเดท configuration files ให้ถูกต้อง
-- แก้ไข security issues และ accessibility ก่อน
-- ตรวจสอบ integrations ทั้งหมด
-
-### 3. Systematic Testing
-
-ทดสอบทุกการเปลี่ยนแปลงอย่างเป็นระบบ
-
-- รัน tests หลังแต่ละ improvement
-- ตรวจสอบ coverage ไม่ลดลง
-- ทำ regression tests สำหรับ critical paths
-- ตรวจสอบ performance metrics
-
-### 4. Use References
-
-ใช้ references แทนการเขียนซ้ำ
-
-- ทำตาม workflows ที่ระบุใน Execute
-
-### 5. Report Format
-
-ระบุรูปแบบรายงาน
-
+- ทำตาม sub-workflows ที่ระบุใน Execute
+- ดู Expected Outcome จาก sub-workflows แต่ละอัน
 - ทำ `/report-format-terminal` สำหรับรายงานความคืบหน้า
 - ทำ `/report-format-table` สำหรับสรุปผลลัพธ์
 
 ## Expected Outcome
 
-ดู Expected Outcome ใน workflows ย่อยแต่ละอัน สำหรับรายละเอียดเฉพาะทาง
+- Project ถูกวิเคราะห์อย่างครบถ้วนก่อนเริ่มปรับปรุง
+- Architecture, dependencies, file structure, routing ถูกปรับปรุง
+- Foundation, type safety, code quality ถูกปรับปรุง
+- Database, API, backend, network, payment, email ถูกปรับปรุง
+- Security, compliance, privacy ถูกปรับปรุง
+- Error handling, testing, coverage ถูกปรับปรุง
+- Performance, rendering, scalability, caching ถูกปรับปรุง
+- UI/UX, accessibility, forms, platform, mobile ถูกปรับปรุง
+- Integrations, realtime, DevOps, monitoring, cost ถูกปรับปรุง
+- SEO, content, DX, docs, versioning ถูกปรับปรุง
+- ทุกการเปลี่ยนแปลงผ่านการทดสอบและ verify

@@ -21,49 +21,49 @@ related_workflows:
 
 ตรวจสอบ test coverage ปัจจุบัน
 
-- ทำ `/improve-test-coverage` เพื่อตรวจสอบ test coverage
-- ตรวจสอบ coverage targets
-- ระบุ areas ที่ขาด coverage
-- รัน `knip` สำหรับ detect dead code
+1. ทำ `/improve-test-coverage` เพื่อตรวจสอบ test coverage
+2. ตรวจสอบ coverage targets
+3. ระบุ areas ที่ขาด coverage
+4. รัน `knip` สำหรับ detect dead code
 
 ### 2. Write Tests
 
 เขียน tests ครอบคลุม
 
-- ทำ `/write-test` เพื่อเขียน tests ครอบคลุม
-- เขียน unit tests สำหรับ business logic
-- เขียน integration tests สำหรับ API/database
-- เขียน e2e tests สำหรับ critical flows
-- สร้าง test utilities (helpers, fixtures, factories)
+1. ทำ `/write-test` เพื่อเขียน tests ครอบคลุม
+2. เขียน unit tests สำหรับ business logic
+3. เขียน integration tests สำหรับ API/database
+4. เขียน e2e tests สำหรับ critical flows
+5. สร้าง test utilities (helpers, fixtures, factories)
 
 ### 3. Improve Test Quality
 
 ปรับปรุงคุณภาพ tests
 
-- ลบ flaky tests
-- ลบ slow tests
-- ลบ duplicate tests
-- ปรับปรุย test naming
-- ปรับปรุย test organization
+1. ลบ flaky tests
+2. ลบ slow tests
+3. ลบ duplicate tests
+4. ปรับปรุย test naming
+5. ปรับปรุย test organization
 
 ### 4. Set Up Coverage Enforcement
 
 ตั้งค่า coverage enforcement
 
-- ตั้งค่า coverage targets
-- Integrate ใน CI/CD
-- Block PRs ที่ไม่ผ่าน coverage
-- Monitor coverage trends
+1. ตั้งค่า coverage targets
+2. Integrate ใน CI/CD
+3. Block PRs ที่ไม่ผ่าน coverage
+4. Monitor coverage trends
 
 ### 5. Optimize Test Performance
 
 ปรับปรุง performance ของ tests
 
-- Optimize test execution time
-- ใช้ parallel test execution
-- ใช้ test isolation
-- Optimize test data setup
-- ใช้ test caching
+1. Optimize test execution time
+2. ใช้ parallel test execution
+3. ใช้ test isolation
+4. Optimize test data setup
+5. ใช้ test caching
 
 ## Rules
 

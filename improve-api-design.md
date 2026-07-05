@@ -21,73 +21,73 @@ related_workflows:
 
 ตั้งค่า API versioning strategy
 
-- ใช้ URL versioning (e.g., /api/v1/)
-- หรือใช้ header versioning
-- Document versioning strategy
-- Deprecate old versions อย่างเป็นทางการ
-- Communicate breaking changes
-- Support multiple versions ชั่วคราว
+1. ใช้ URL versioning (e.g., /api/v1/)
+2. หรือใช้ header versioning
+3. Document versioning strategy
+4. Deprecate old versions อย่างเป็นทางการ
+5. Communicate breaking changes
+6. Support multiple versions ชั่วคราว
 
 ### 2. API Documentation
 
 สร้าง API documentation ที่ครบถ้วน
 
-- ใช้ OpenAPI/Swagger specification
-- Document all endpoints
-- Document request/response schemas
-- Document error responses
-- Document authentication/authorization
-- Document rate limits
-- Include examples สำหรับทุก endpoint
-- Keep documentation updated
+1. ใช้ OpenAPI/Swagger specification
+2. Document all endpoints
+3. Document request/response schemas
+4. Document error responses
+5. Document authentication/authorization
+6. Document rate limits
+7. Include examples สำหรับทุก endpoint
+8. Keep documentation updated
 
 ### 3. API Consistency Standards
 
 ตั้งค่า API consistency standards
 
-- Use consistent naming conventions
-- Use consistent response formats
-- Use consistent error formats
-- Use consistent pagination
-- Use consistent filtering/sorting
-- Use consistent date/time formats
-- Use consistent ID formats
+1. Use consistent naming conventions
+2. Use consistent response formats
+3. Use consistent error formats
+4. Use consistent pagination
+5. Use consistent filtering/sorting
+6. Use consistent date/time formats
+7. Use consistent ID formats
 
 ### 4. Rate Limiting
 
 ตั้งค่า rate limiting สำหรับ protect APIs
 
-- ตั้งค่า rate limits ต่อ endpoint
-- ตั้งค่า rate limits ต่อ user
-- ตั้งค่า rate limits ต่อ IP
-- Return rate limit headers
-- Document rate limits
-- Handle rate limit exceeded gracefully
+1. ตั้งค่า rate limits ต่อ endpoint
+2. ตั้งค่า rate limits ต่อ user
+3. ตั้งค่า rate limits ต่อ IP
+4. Return rate limit headers
+5. Document rate limits
+6. Handle rate limit exceeded gracefully
 
 ### 5. API Security
 
 ตั้งค่า API security measures
 
-- Implement authentication (JWT, OAuth)
-- Implement authorization (RBAC)
-- Validate all inputs
-- Sanitize outputs
-- Use HTTPS only
-- Implement CORS properly
-- Rate limit สำหรับ prevent abuse
-- Log API access
+1. Implement authentication (JWT, OAuth)
+2. Implement authorization (RBAC)
+3. Validate all inputs
+4. Sanitize outputs
+5. Use HTTPS only
+6. Implement CORS properly
+7. Rate limit สำหรับ prevent abuse
+8. Log API access
 
 ### 6. API Performance
 
 ปรับปรุง API performance
 
-- Optimize database queries
-- Use caching สำหรับ slow endpoints
-- Implement pagination สำหรับ large datasets
-- Use compression
-- Minimize response sizes
-- Monitor API response times
-- Optimize slow endpoints
+1. Optimize database queries
+2. Use caching สำหรับ slow endpoints
+3. Implement pagination สำหรับ large datasets
+4. Use compression
+5. Minimize response sizes
+6. Monitor API response times
+7. Optimize slow endpoints
 
 ## Rules
 

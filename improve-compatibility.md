@@ -21,41 +21,41 @@ related_workflows:
 
 ตรวจสอบ browser compatibility
 
-- ทดสอบบน Chrome, Firefox, Safari, Edge
-- ทดสอบบน mobile browsers
-- ระบุ issues ที่พบ
-- ตรวจสอบ CSS compatibility
-- ตรวจสอบ JavaScript compatibility
+1. ทดสอบบน Chrome, Firefox, Safari, Edge
+2. ทดสอบบน mobile browsers
+3. ระบุ issues ที่พบ
+4. ตรวจสอบ CSS compatibility
+5. ตรวจสอบ JavaScript compatibility
 
 ### 2. Improve Browser Support
 
 ปรับปรุย browser support
 
-- ใช้ polyfills สำหรับ features ที่ไม่รองรับ
-- ใช้ feature detection
-- ใช้ progressive enhancement
-- ปรับปรุย CSS compatibility
-- ปรับปรุย JavaScript compatibility
+1. ใช้ polyfills สำหรับ features ที่ไม่รองรับ
+2. ใช้ feature detection
+3. ใช้ progressive enhancement
+4. ปรับปรุย CSS compatibility
+5. ปรับปรุย JavaScript compatibility
 
 ### 3. Improve Mobile Support
 
 ปรับปรุย mobile support
 
-- ทดสอบ responsive design
-- ทดสอบ touch interactions
-- ปรับปรุย viewport handling
-- ปรับปรุย performance บน mobile
-- ปรับปรุย battery usage
+1. ทดสอบ responsive design
+2. ทดสอบ touch interactions
+3. ปรับปรุย viewport handling
+4. ปรับปรุย performance บน mobile
+5. ปรับปรุย battery usage
 
 ### 4. Improve Accessibility
 
 ปรับปรุย accessibility
 
-- ทำ `/improve-accessibility` สำหรับ WCAG compliance
-- ปรับปรุย keyboard navigation
-- ปรับปรุย screen reader support
-- ปรับปรุย color contrast
-- ปรับปรุย ARIA attributes
+1. ทำ `/improve-accessibility` สำหรับ WCAG compliance
+2. ปรับปรุย keyboard navigation
+3. ปรับปรุย screen reader support
+4. ปรับปรุย color contrast
+5. ปรับปรุย ARIA attributes
 
 ## Rules
 

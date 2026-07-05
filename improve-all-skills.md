@@ -6,7 +6,6 @@ related_workflows:
   - /write-skills
   - /follow-content-quality
   - /follow-consistency
-  - /follow-best-practice
   - /check-reference
   - /improve-readability
   - /improve-correctness

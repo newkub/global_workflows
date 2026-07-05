@@ -6,7 +6,6 @@ related_workflows:
   - /improve-web-performance
   - /check-performance
   - /run-profile
-  - /follow-best-practice
   - /follow-react
   - /follow-vue
 ---

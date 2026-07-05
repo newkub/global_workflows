@@ -22,52 +22,52 @@ related_workflows:
 
 ปรับปรุยความครบถ้วนของ features
 
-- ตรวจสอบว่า features ทั้งหมดถูก implement
-- ตรวจสอบว่า edge cases ถูก handle
-- ตรวจสอบว่า error cases ถูก handle
-- ตรวจสอบว่า user flows ครบถ้วน
-- เพิ่ม features ที่ขาด
+1. ตรวจสอบว่า features ทั้งหมดถูก implement
+2. ตรวจสอบว่า edge cases ถูก handle
+3. ตรวจสอบว่า error cases ถูก handle
+4. ตรวจสอบว่า user flows ครบถ้วน
+5. เพิ่ม features ที่ขาด
 
 ### 2. Improve Test Completeness
 
 ปรับปรุยความครบถ้วนของ tests
 
-- ทำ `/write-test` เพื่อเขียน tests ครอบคลุม
-- ตรวจสอบ unit tests ครบถ้วน
-- ตรวจสอบ integration tests ครบถ้วน
-- ตรวจสอบ e2e tests สำหรับ critical flows
-- ตรวจสอบ test coverage ตามเป้าหมาย
+1. ทำ `/write-test` เพื่อเขียน tests ครอบคลุม
+2. ตรวจสอบ unit tests ครบถ้วน
+3. ตรวจสอบ integration tests ครบถ้วน
+4. ตรวจสอบ e2e tests สำหรับ critical flows
+5. ตรวจสอบ test coverage ตามเป้าหมาย
 
 ### 3. Improve Documentation Completeness
 
 ปรับปรุยความครบถ้วนของ documentation
 
-- ทำ `/write-docs` เพื่ออัพเดท documentation
-- ทำ `/improve-seo` เพื่อปรับปรุง SEO สำหรับ documentation
-- ตรวจสอบ README ครบถ้วน
-- ตรวจสอบ API documentation ครบถ้วน
-- ตรวจสอบ inline documentation ครบถ้วน
-- ตรวจสอบ setup instructions ครบถ้วน
+1. ทำ `/write-docs` เพื่ออัพเดท documentation
+2. ทำ `/improve-seo` เพื่อปรับปรุง SEO สำหรับ documentation
+3. ตรวจสอบ README ครบถ้วน
+4. ตรวจสอบ API documentation ครบถ้วน
+5. ตรวจสอบ inline documentation ครบถ้วน
+6. ตรวจสอบ setup instructions ครบถ้วน
 
 ### 4. Improve Error Handling Completeness
 
 ปรับปรุยความครบถ้วนของ error handling
 
-- ตรวจสอบ error messages ชัดเจน
-- ตรวจสอบ error logging ครบถ้วน
-- ตรวจสอบ error recovery mechanisms
-- ตรวจสอบ user-friendly error messages
-- เพิ่ม error handling ที่ขาด
+1. ตรวจสอบ error messages ชัดเจน
+2. ตรวจสอบ error logging ครบถ้วน
+3. ตรวจสอบ error recovery mechanisms
+4. ตรวจสอบ user-friendly error messages
+5. เพิ่ม error handling ที่ขาด
 
 ### 5. Improve Configuration Completeness
 
 ปรับปรุยความครบถ้วนของ configuration
 
-- ตรวจสอบ environment variables ครบถ้วน
-- ตรวจสอบ config files ครบถ้วน
-- ตรวจสอบ default values ครบถ้วน
-- ตรวจสอบ validation rules
-- เพิ่ม configuration ที่ขาด
+1. ตรวจสอบ environment variables ครบถ้วน
+2. ตรวจสอบ config files ครบถ้วน
+3. ตรวจสอบ default values ครบถ้วน
+4. ตรวจสอบ validation rules
+5. เพิ่ม configuration ที่ขาด
 
 ## Rules
 

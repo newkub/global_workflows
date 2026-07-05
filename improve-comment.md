@@ -26,47 +26,47 @@ related_workflows:
 
 วิเคราะห์และประเมิน comments ที่มีอยู่ใน codebase
 
-- ใช้ `grep` หรือ code search tools เพื่อค้นหา comments ทั้งหมด
-- ประเมินความจำเป็นและประโยชน์ของแต่ละ comment
-- ระบุ comments ที่ซ้ำซ้อนกับ code หรือล้าสมัย
-- จัดลำดับ priority ตาม impact และความสำคัญของไฟล์
+1. ใช้ `grep` หรือ code search tools เพื่อค้นหา comments ทั้งหมด
+2. ประเมินความจำเป็นและประโยชน์ของแต่ละ comment
+3. ระบุ comments ที่ซ้ำซ้อนกับ code หรือล้าสมัย
+4. จัดลำดับ priority ตาม impact และความสำคัญของไฟล์
 
 ### 2. Remove Unnecessary Comments
 
 ลบ comments ที่ไม่จำเป็นและไม่เป็นประโยชน์
 
-- ลบ comments ที่ซ้ำซ้อนกับ code หรืออธิบายสิ่งที่ชัดเจนอยู่แล้ว
-- ลบ commented-out code ที่ไม่จำเป็น
-- ลบ comments ที่ล้าสมัยและไม่ตรงกับ code ปัจจุบัน
-- ลบ comments ที่ไม่มีความหมายหรือเป็นการโกหก
+1. ลบ comments ที่ซ้ำซ้อนกับ code หรืออธิบายสิ่งที่ชัดเจนอยู่แล้ว
+2. ลบ commented-out code ที่ไม่จำเป็น
+3. ลบ comments ที่ล้าสมัยและไม่ตรงกับ code ปัจจุบัน
+4. ลบ comments ที่ไม่มีความหมายหรือเป็นการโกหก
 
 ### 3. Improve Existing Comments
 
 ปรับปรุง comments ที่มีประโยชน์ให้ดีขึ้น
 
-- ทำให้ comments กระชับและชัดเจน
-- อธิบาย "why" ไม่ใช่ "what" - ทำไมต้องทำแบบนี้ ไม่ใช่ทำอะไร
-- ใช้ active voice และ present tense
-- หลีกเลี่ยง jargon และคำที่ไม่ชัดเจน
-- ใช้ภาษาที่เหมาะสมกับ context (ภาษาไทย/อังกฤษ)
+1. ทำให้ comments กระชับและชัดเจน
+2. อธิบาย "why" ไม่ใช่ "what" - ทำไมต้องทำแบบนี้ ไม่ใช่ทำอะไร
+3. ใช้ active voice และ present tense
+4. หลีกเลี่ยง jargon และคำที่ไม่ชัดเจน
+5. ใช้ภาษาที่เหมาะสมกับ context (ภาษาไทย/อังกฤษ)
 
 ### 4. Add Missing Comments
 
 เพิ่ม comments ที่จำเป็นสำหรับสิ่งที่ไม่ชัดเจนจาก code
 
-- เพิ่ม comments สำหรับ business logic ที่ซับซ้อน
-- เพิ่ม comments สำหรับ algorithms ที่ไม่ชัดเจน
-- เพิ่ม comments สำหรับ edge cases และ special handling
-- เพิ่ม JSDoc สำหรับ public APIs และ interfaces
-- เพิ่ม comments สำหรับ workarounds, performance considerations, security considerations
+1. เพิ่ม comments สำหรับ business logic ที่ซับซ้อน
+2. เพิ่ม comments สำหรับ algorithms ที่ไม่ชัดเจน
+3. เพิ่ม comments สำหรับ edge cases และ special handling
+4. เพิ่ม JSDoc สำหรับ public APIs และ interfaces
+5. เพิ่ม comments สำหรับ workarounds, performance considerations, security considerations
 
 ### 5. Verify And Test
 
 ตรวจสอบและยืนยันการเปลี่ยนแปลง
 
-- ตรวจสอบว่า comments ตรงกับ code ปัจจุบัน
-- รัน `biome check` หรือ lint tools เพื่อยืนยัน
-- ทดสอบ code ที่มีการเปลี่ยนแปลง
+1. ตรวจสอบว่า comments ตรงกับ code ปัจจุบัน
+2. รัน `biome check` หรือ lint tools เพื่อยืนยัน
+3. ทดสอบ code ที่มีการเปลี่ยนแปลง
 
 ## Rules
 

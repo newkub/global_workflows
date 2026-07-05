@@ -21,67 +21,67 @@ related_workflows:
 
 ตั้งค่า data validation ที่เข้มงวด
 
-- Validate data ที่ boundaries (API, database)
-- ใช้ schema validation (Zod, Yup)
-- Validate input formats
-- Validate data ranges
-- Validate business rules
-- Log validation failures
+1. Validate data ที่ boundaries (API, database)
+2. ใช้ schema validation (Zod, Yup)
+3. Validate input formats
+4. Validate data ranges
+5. Validate business rules
+6. Log validation failures
 
 ### 2. Data Migration Scripts
 
 สร้าง data migration scripts ที่ reliable
 
-- สร้าง migration scripts สำหรับ schema changes
-- สร้าง data migration scripts สำหรับ data transformations
-- ทดสอบ migrations ใน staging ก่อน
-- Backup data ก่อน migrate
-- ใช้ transactions สำหรับ migrations
-- Rollback mechanisms สำหรับ failed migrations
+1. สร้าง migration scripts สำหรับ schema changes
+2. สร้าง data migration scripts สำหรับ data transformations
+3. ทดสอบ migrations ใน staging ก่อน
+4. Backup data ก่อน migrate
+5. ใช้ transactions สำหรับ migrations
+6. Rollback mechanisms สำหรับ failed migrations
 
 ### 3. Data Consistency Checks
 
 ตั้งค่า data consistency checks
 
-- ตรวจสอบ referential integrity
-- ตรวจสอบ duplicate data
-- ตรวจสอบ orphaned records
-- ตรวจสอบ data anomalies
-- รัน consistency checks ประจำ
-- Alert เมื่อพบ inconsistencies
+1. ตรวจสอบ referential integrity
+2. ตรวจสอบ duplicate data
+3. ตรวจสอบ orphaned records
+4. ตรวจสอบ data anomalies
+5. รัน consistency checks ประจำ
+6. Alert เมื่อพบ inconsistencies
 
 ### 4. Data Backup Strategies
 
 ตั้งค่า data backup strategies
 
-- สร้าง automated backups
-- Backup ทั้ง database และ files
-- Test restore procedures
-- ตั้งค่า backup retention
-- Store backups ใน multiple locations
-- Monitor backup success/failure
+1. สร้าง automated backups
+2. Backup ทั้ง database และ files
+3. Test restore procedures
+4. ตั้งค่า backup retention
+5. Store backups ใน multiple locations
+6. Monitor backup success/failure
 
 ### 5. Data Privacy
 
 ตั้งค่า data privacy measures
 
-- Identify PII (Personally Identifiable Information)
-- Encrypt sensitive data
-- Implement data anonymization
-- Implement data retention policies
-- Comply with GDPR/CCPA
-- Audit data access
+1. Identify PII (Personally Identifiable Information)
+2. Encrypt sensitive data
+3. Implement data anonymization
+4. Implement data retention policies
+5. Comply with GDPR/CCPA
+6. Audit data access
 
 ### 6. Data Governance
 
 ตั้งค่า data governance policies
 
-- Define data ownership
-- Define data access policies
-- Document data lineage
-- Implement data quality metrics
-- Review data quality ประจำ
-- Improve data quality processes
+1. Define data ownership
+2. Define data access policies
+3. Document data lineage
+4. Implement data quality metrics
+5. Review data quality ประจำ
+6. Improve data quality processes
 
 ## Rules
 

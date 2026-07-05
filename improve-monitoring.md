@@ -21,55 +21,55 @@ related_workflows:
 
 ตั้งค่า logging ที่มีโครงสร้างและเป็นระบบ
 
-- ใช้ structured logging (JSON format)
-- กำหนด log levels ที่ชัดเจน (error, warn, info, debug)
-- เพิ่ม context ใน logs (request ID, user ID, timestamp)
-- ตั้งค่า log rotation และ retention
-- ใช้ log aggregation service (เช่น Loki, CloudWatch)
-- หลีกเลี่ยง logging sensitive data
+1. ใช้ structured logging (JSON format)
+2. กำหนด log levels ที่ชัดเจน (error, warn, info, debug)
+3. เพิ่ม context ใน logs (request ID, user ID, timestamp)
+4. ตั้งค่า log rotation และ retention
+5. ใช้ log aggregation service (เช่น Loki, CloudWatch)
+6. หลีกเลี่ยง logging sensitive data
 
 ### 2. Metrics
 
 ตั้งค่า metrics สำหรับ monitoring ระบบ
 
-- ตั้งค่า business metrics (DAU, revenue, conversion)
-- ตั้งค่า system metrics (CPU, memory, disk, network)
-- ตั้งค่า application metrics (request rate, error rate, latency)
-- ใช้ Prometheus หรือ CloudWatch metrics
-- ตั้งค่า custom metrics สำหรับ critical paths
-- ตั้งค่า metric labels สำหรับ filtering
+1. ตั้งค่า business metrics (DAU, revenue, conversion)
+2. ตั้งค่า system metrics (CPU, memory, disk, network)
+3. ตั้งค่า application metrics (request rate, error rate, latency)
+4. ใช้ Prometheus หรือ CloudWatch metrics
+5. ตั้งค่า custom metrics สำหรับ critical paths
+6. ตั้งค่า metric labels สำหรับ filtering
 
 ### 3. Tracing
 
 ตั้งค่า distributed tracing สำหรับ debug
 
-- ใช้ OpenTelemetry หรือ Jaeger
-- ตั้งค่า trace propagation ข้าม services
-- ติดตาม request lifecycle ตั้งแต่เริ่มจนจบ
-- ตั้งค่า sampling rate ที่เหมาะสม
-- เชื่อมต่อ traces กับ logs และ metrics
+1. ใช้ OpenTelemetry หรือ Jaeger
+2. ตั้งค่า trace propagation ข้าม services
+3. ติดตาม request lifecycle ตั้งแต่เริ่มจนจบ
+4. ตั้งค่า sampling rate ที่เหมาะสม
+5. เชื่อมต่อ traces กับ logs และ metrics
 
 ### 4. Alerting
 
 ตั้งค่า alerting สำหรับติดตามปัญหา
 
-- ตั้งค่า error alerts (error rate spike)
-- ตั้งค่า performance alerts (latency threshold)
-- ตั้งค่า availability alerts (service down)
-- ตั้งค่า business alerts (revenue drop)
-- ใช้ PagerDuty, Slack, หรือ email notifications
-- ตั้งค่า alert escalation rules
+1. ตั้งค่า error alerts (error rate spike)
+2. ตั้งค่า performance alerts (latency threshold)
+3. ตั้งค่า availability alerts (service down)
+4. ตั้งค่า business alerts (revenue drop)
+5. ใช้ PagerDuty, Slack, หรือ email notifications
+6. ตั้งค่า alert escalation rules
 
 ### 5. Dashboard
 
 สร้าง dashboard สำหรับ monitoring
 
-- สร้าง real-time monitoring dashboard
-- แสดง key metrics และ KPIs
-- สร้าง dashboard สำหรับแต่ละ service
-- สร้าง dashboard สำหรับ business metrics
-- ตั้งค่า dashboard refresh rate
-- แชร์ dashboard กับทีม
+1. สร้าง real-time monitoring dashboard
+2. แสดง key metrics และ KPIs
+3. สร้าง dashboard สำหรับแต่ละ service
+4. สร้าง dashboard สำหรับ business metrics
+5. ตั้งค่า dashboard refresh rate
+6. แชร์ dashboard กับทีม
 
 ## Rules
 

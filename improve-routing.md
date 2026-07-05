@@ -23,78 +23,78 @@ related_workflows:
 
 วิเคราะห์ routing ปัจจุบัน
 
-- ตรวจสอบ route structure
-- วิเคราะห์ route organization
-- ตรวจสอบ route parameters
-- ตรวจสอบ route guards
-- ตรวจสอบ lazy loading
-- ตรวจสอบ route metadata
+1. ตรวจสอบ route structure
+2. วิเคราะห์ route organization
+3. ตรวจสอบ route parameters
+4. ตรวจสอบ route guards
+5. ตรวจสอบ lazy loading
+6. ตรวจสอบ route metadata
 
 ### 2. Design Route Structure
 
 ออกแบบ route structure
 
-- ใช้ file-system based routing เมื่อเป็นไปได้
-- สร้าง route hierarchy ที่เป็นระเบียบ
-- กำหนด route naming conventions
-- สร้าง route groups สำหรับ features
-- กำหนด dynamic routes ที่ชัดเจน
-- สร้าง route aliases สำหรับ SEO
+1. ใช้ file-system based routing เมื่อเป็นไปได้
+2. สร้าง route hierarchy ที่เป็นระเบียบ
+3. กำหนด route naming conventions
+4. สร้าง route groups สำหรับ features
+5. กำหนด dynamic routes ที่ชัดเจน
+6. สร้าง route aliases สำหรับ SEO
 
 ### 3. Implement Route Guards
 
 สร้าง route guards
 
-- สร้าง authentication guards
-- สร้าง authorization guards
-- สร้าง permission-based guards
-- สร้าง role-based guards
-- สร้าง data loading guards
-- สร้าง navigation guards
+1. สร้าง authentication guards
+2. สร้าง authorization guards
+3. สร้าง permission-based guards
+4. สร้าง role-based guards
+5. สร้าง data loading guards
+6. สร้าง navigation guards
 
 ### 4. Optimize Route Performance
 
 ปรับปรุง performance ของ routing
 
-- ใช้ lazy loading สำหรับ routes
-- ใช้ code splitting สำหรับ route chunks
-- ใช้ prefetching สำหรับ likely routes
-- Optimize route transition animations
-- ใช้ caching สำหรับ route data
-- Minimize route change overhead
+1. ใช้ lazy loading สำหรับ routes
+2. ใช้ code splitting สำหรับ route chunks
+3. ใช้ prefetching สำหรับ likely routes
+4. Optimize route transition animations
+5. ใช้ caching สำหรับ route data
+6. Minimize route change overhead
 
 ### 5. Improve Route Metadata
 
 ปรับปรุง route metadata
 
-- เพิ่ม SEO metadata ทุก route
-- เพิ่ม page titles และ descriptions
-- เพิ่� Open Graph tags
-- เพิ่ม structured data
-- เพิ่ม canonical URLs
-- เพิ่ม breadcrumb metadata
+1. เพิ่ม SEO metadata ทุก route
+2. เพิ่ม page titles และ descriptions
+3. เพิ่� Open Graph tags
+4. เพิ่ม structured data
+5. เพิ่ม canonical URLs
+6. เพิ่ม breadcrumb metadata
 
 ### 6. Handle Route Errors
 
 จัดการ route errors
 
-- สร้าง 404 page ที่ดี
-- สร้าง error pages ที่ user-friendly
-- สร้าง error boundaries
-- สร้าง fallback routes
-- สร้าง error logging
-- สร้าง error recovery flows
+1. สร้าง 404 page ที่ดี
+2. สร้าง error pages ที่ user-friendly
+3. สร้าง error boundaries
+4. สร้าง fallback routes
+5. สร้าง error logging
+6. สร้าง error recovery flows
 
 ### 7. Add Route Tests
 
 เพิ่ม tests สำหรับ routing
 
-- Test route navigation
-- Test route guards
-- Test route parameters
-- Test lazy loading
-- Test error handling
-- Test SEO metadata
+1. Test route navigation
+2. Test route guards
+3. Test route parameters
+4. Test lazy loading
+5. Test error handling
+6. Test SEO metadata
 
 ## Rules
 
