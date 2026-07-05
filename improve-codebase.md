@@ -51,16 +51,19 @@ related_workflows:
 
 1. ทำ `/improve-reliability` เพื่อปรับปรุง error handling, observability, testing, coverage
 
-### 6. Frontend And Platform
+### 6. Performance And Caching
 
 1. ทำ `/improve-performance` เพื่อปรับปรุง web performance, rendering, scalability, caching
-2. ทำ `/improve-frontend` เพื่อปรับปรุง UI/UX, accessibility, forms, platform, mobile
 
-### 7. Operations
+### 7. Frontend And Platform
 
-1. ทำ `/improve-operations` เพื่อปรับปรุง integrations, realtime, DevOps, monitoring, cost
+1. ทำ `/improve-frontend` เพื่อปรับปรุง UI/UX, accessibility, forms, i18n, platform, mobile
 
-### 8. Delivery And Documentation
+### 8. Operations
+
+1. ทำ `/improve-operations` เพื่อปรับปรุง integrations, realtime, DevOps, deployment, feature flags, monitoring, cost
+
+### 9. Delivery And Documentation
 
 1. ทำ `/improve-delivery` เพื่อปรับปรุง SEO, content, DX, docs, versioning
 
@@ -90,7 +93,7 @@ related_workflows:
 - Security, compliance, privacy ถูกปรับปรุง
 - Error handling, testing, coverage ถูกปรับปรุง
 - Performance, rendering, scalability, caching ถูกปรับปรุง
-- UI/UX, accessibility, forms, platform, mobile ถูกปรับปรุง
-- Integrations, realtime, DevOps, monitoring, cost ถูกปรับปรุง
+- UI/UX, accessibility, forms, i18n, platform, mobile ถูกปรับปรุง
+- Integrations, realtime, DevOps, deployment, feature flags, monitoring, cost ถูกปรับปรุง
 - SEO, content, DX, docs, versioning ถูกปรับปรุง
 - ทุกการเปลี่ยนแปลงผ่านการทดสอบและ verify

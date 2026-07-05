@@ -13,6 +13,12 @@ related_workflows:
   - /improve-platform
   - /improve-compatibility
   - /improve-mobile-experience
+  - /improve-caching
+  - /improve-feature-flags
+  - /improve-i18n
+  - /improve-search
+  - /improve-pagination
+  - /improve-error-messages
 ---
 
 ## Goal
@@ -30,15 +36,23 @@ related_workflows:
 1. ถ้า project มี UI ทำ `/improve-uxui` สำหรับ UX/UI improvements
 2. ทำ `/improve-accessibility` เพื่อปรับปรุง accessibility
 3. ถ้า project มี forms ทำ `/improve-form`
-4. ถ้า project มี multi-language ทำ `/improve-user-features` เพื่อปรับปรุง i18n, search, pagination
-5. ถ้า project เป็น web SaaS ทำ `/improve-web-saas`
-6. ถ้า project เป็น website ทำ `/improve-website`
+4. ถ้า project มี multi-language ทำ `/improve-i18n` เพื่อปรับปรุง internationalization
+5. ถ้า project มี search ทำ `/improve-search` เพื่อปรับปรุง search experience
+6. ถ้า project มี list views ทำ `/improve-pagination` เพื่อปรับปรุง pagination UX
+7. ทำ `/improve-error-messages` เพื่อปรับปรุง user-facing error messages
+8. ถ้า project เป็น web SaaS ทำ `/improve-web-saas`
+9. ถ้า project เป็น website ทำ `/improve-website`
 
 ### 2. Platform And Mobile
 
 1. ถ้า project ต้องการ multiple platform ทำ `/improve-platform`
 2. ทำ `/improve-compatibility` เพื่อปรับปรุง browser/platform compatibility
 3. ถ้า project มี mobile app ทำ `/improve-mobile-experience`
+
+### 3. Caching And Feature Control
+
+1. ทำ `/improve-caching` เพื่อปรับปรุง caching strategy สำหรับ frontend
+2. ถ้า project ใช้ feature flags ทำ `/improve-feature-flags` สำหรับ gradual rollout และ kill switches
 
 ## Rules
 
@@ -51,5 +65,6 @@ related_workflows:
 
 ## Expected Outcome
 
-- UI/UX, accessibility, forms ถูกปรับปรุง
+- UI/UX, accessibility, forms, i18n, search, pagination, error messages ถูกปรับปรุง
 - Platform compatibility และ mobile experience ถูกปรับปรุง
+- Caching และ feature flags ถูกปรับปรุง

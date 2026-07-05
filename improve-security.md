@@ -9,6 +9,9 @@ related_workflows:
   - /improve-rbac
   - /improve-compliance
   - /improve-privacy
+  - /improve-rate-limiting
+  - /improve-audit-trail
+  - /improve-multi-tenancy
 ---
 
 ## Goal
@@ -48,10 +51,7 @@ related_workflows:
 
 ### 5. Rate Limiting
 
-1. ตรวจสอบ API rate limiting configuration
-2. ตั้งค่า rate limits ตาม endpoint sensitivity
-3. Implement IP-based และ user-based rate limiting
-4. ตั้งค่า throttling สำหรับ expensive operations
+1. ทำ `/improve-rate-limiting` เพื่อปรับปรุง rate limiting, throttling และ DDoS protection ครบวงจร
 
 ### 6. Fix Issues
 
@@ -65,6 +65,8 @@ related_workflows:
 2. ทำ `/improve-rbac` เพื่อปรับปรุง Role-Based Access Control
 3. ถ้า project มี compliance requirements ทำ `/improve-compliance`
 4. ถ้า project มี privacy requirements ทำ `/improve-privacy`
+5. ถ้า project ต้องการ audit trail ทำ `/improve-audit-trail`
+6. ถ้า project เป็น multi-tenant ทำ `/improve-multi-tenancy`
 
 ## Rules
 

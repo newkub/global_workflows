@@ -9,6 +9,9 @@ related_workflows:
   - /improve-testing
   - /improve-test-coverage
   - /improve-features-coverage
+  - /improve-logging
+  - /improve-deployment-strategy
+  - /improve-error-messages
 ---
 
 ## Goal
@@ -24,8 +27,11 @@ related_workflows:
 ### 1. Error Handling And Resilience
 
 1. ทำ `/improve-error-handling` เพื่อปรับปรุง error handling ครบวงจร
-2. ทำ `/improve-observability` เพื่อปรับปรุง logging และ tracing
-3. ถ้า project ต้องการ backup ทำ `/improve-backup-recovery`
+2. ทำ `/improve-error-messages` เพื่อปรับปรุง user-facing error messages
+3. ทำ `/improve-logging` เพื่อปรับปรุง logging strategy เฉพาะตัว
+4. ทำ `/improve-observability` เพื่อปรับปรุง tracing และ monitoring
+5. ถ้า project ต้องการ backup ทำ `/improve-backup-recovery`
+6. ทำ `/improve-deployment-strategy` เพื่อปรับปรุง deployment และ rollback strategy
 
 ### 2. Testing And Coverage
 
@@ -44,6 +50,6 @@ related_workflows:
 
 ## Expected Outcome
 
-- Error handling และ resilience ถูกปรับปรุง
+- Error handling, error messages, resilience ถูกปรับปรุง
 - Observability, logging, tracing ถูกปรับปรุง
 - Testing ครบถ้วนและ coverage ไม่ลดลง

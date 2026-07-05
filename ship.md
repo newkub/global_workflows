@@ -3,6 +3,7 @@ title: Ship
 description: Ship code ครบวงจร ทดสอบ และรัน development server
 auto_execution_mode: 3
 related_workflows:
+  - /plan
   - /update-project
   - /implement-features-to-mvp
   - /refactor
@@ -29,7 +30,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ### 2. Planning
 
-1. ทำ `/plan-task` เพื่อวางแผนงานครอบคลุม
+1. ทำ `/plan` เพื่อวางแผนงานและ architecture อย่างเป็นระบบ
 2. รอยืนยันจาก user ก่อนเริ่มทำ
 
 ### 3. Define MVP Scope (Optional)
@@ -47,7 +48,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 ### 6. Setup Monorepo
 
 1. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo` และ `/analyze-project` เพื่อดู workspace configuration
-2. ทำขั้นตอน 7-16 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
+2. ทำขั้นตอน 7-15 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
 
 ### 7. Refactor
 
@@ -67,27 +68,23 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 1. ทำ `/review-codebase-and-fix` เพื่อตรวจสอบคุณภาพโค้ด
 2. ถ้าพบ issues ทำ `/resolve-errors` และทำซ้ำขั้นตอน 7-9 จนกว่าจะผ่าน
 
-### 11. Enhance Codebase
-
-1. ทำ `/improve-codebase` เพื่อปรับปรุงคุณภาพ codebase ครบวงจร
-
-### 12. Cleanup
+### 11. Cleanup
 
 1. ทำ `/cleanup-files` เพื่อลบไฟล์ โฟลเดอร์ dependencies และ dead code ที่ไม่จำเป็น
 
-### 13. Run Verify
+### 12. Run Verify
 
 1. ทำ `/run-verify` เพื่อรัน verify จนกว่าจะผ่าน (scan, lint, typecheck, test, build)
 
-### 14. Verify Test Quality (Optional)
+### 13. Verify Test Quality (Optional)
 
 1. ถ้า project มี tests ให้ทำ `/validate-test` เพื่อตรวจสอบ test quality
 
-### 15. Run Dev
+### 14. Run Dev
 
 1. ทำ `/run-dev` เพื่อรัน development server จนกว่าจะผ่าน
 
-### 16. Report Ship
+### 15. Report Ship
 
 1. ทำ `/report-ship` เพื่อรายงานผลลัพธ์การ ship code ครบวงจร
 
@@ -101,7 +98,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 ### 2. Quality Over Speed
 
 - ทำ `/refactor` ก่อน `/follow-best-practice`
-- ทำ `/review-codebase-and-fix` ก่อน `/improve-codebase`
+- ทำ `/review-codebase-and-fix` ก่อน cleanup
 - แปลง TODO, MOCK เป็น production code ก่อน verify
 
 ### 3. MVP Discipline

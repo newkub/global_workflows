@@ -10,6 +10,11 @@ related_workflows:
   - /improve-network
   - /improve-payment
   - /improve-email
+  - /improve-search
+  - /improve-file-upload
+  - /improve-data-migration
+  - /improve-idempotency
+  - /improve-pagination
 ---
 
 ## Goal
@@ -26,14 +31,19 @@ related_workflows:
 
 1. ถ้า project มี database ทำ `/improve-database` เพื่อปรับปรุง database ครบวงจร
 2. ถ้า project มี data quality concerns ทำ `/improve-data-quality`
+3. ถ้า project มี database migrations ทำ `/improve-data-migration` เพื่อปรับปรุง migration strategy
 
 ### 2. API And Backend
 
 1. ถ้า project มี API ทำ `/improve-api-design` เพื่อปรับปรุง API design
-2. ถ้า project มี backend services ทำ `/improve-backend-services` เพื่อปรับปรุง webhooks, queue, health-check, file-upload
-3. ถ้า project มี network calls ทำ `/improve-network`
-4. ถ้า project มี payment ทำ `/improve-payment`
-5. ถ้า project ส่ง email ทำ `/improve-email`
+2. ถ้า project มี search ทำ `/improve-search` เพื่อปรับปรุง search functionality
+3. ถ้า project มี file upload ทำ `/improve-file-upload` เพื่อปรับปรุง upload system
+4. ถ้า project มี mutation endpoints ทำ `/improve-idempotency` เพื่อปรับปรุง duplicate prevention
+5. ถ้า project มี list endpoints ทำ `/improve-pagination` เพื่อปรับปรุง pagination strategy
+6. ถ้า project มี backend services ทำ `/improve-backend-services` เพื่อปรับปรุง webhooks, queue, health-check
+7. ถ้า project มี network calls ทำ `/improve-network`
+8. ถ้า project มี payment ทำ `/improve-payment`
+9. ถ้า project ส่ง email ทำ `/improve-email`
 
 ## Rules
 
@@ -46,6 +56,6 @@ related_workflows:
 
 ## Expected Outcome
 
-- Database และ data quality ถูกปรับปรุง
-- API design ถูกปรับปรุง
+- Database, data quality, migration ถูกปรับปรุง
+- API design, search, file upload, idempotency, pagination ถูกปรับปรุง
 - Backend services, network, payment, email ถูกปรับปรุง

@@ -8,6 +8,7 @@ related_workflows:
   - improve-error-handling
   - improve-observability
   - improve-uxui
+  - improve-session-management
 ---
 
 ## Goal

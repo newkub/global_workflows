@@ -9,6 +9,7 @@ related_workflows:
   - /improve-performance-tuning
   - /improve-asset
   - /improve-analytics
+  - /improve-caching
 ---
 
 ## Goal
@@ -26,10 +27,11 @@ related_workflows:
 1. ถ้า project เป็น web application ทำ `/improve-web-performance`
 2. ถ้า project มี rendering ทำ `/improve-web-rendering`
 
-### 2. Scalability And Tuning
+### 2. Scalability, Caching And Tuning
 
 1. ทำ `/improve-scalability` เพื่อปรับปรุง scalability
-2. ทำ `/improve-performance-tuning` เพื่อปรับปรุง bundle size และ caching
+2. ทำ `/improve-caching` เพื่อปรับปรุง caching strategy ครบวงจร
+3. ทำ `/improve-performance-tuning` เพื่อปรับปรุง bundle size และ HTTP caching
 
 ### 3. Assets And Analytics
 

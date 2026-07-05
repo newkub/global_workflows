@@ -14,6 +14,13 @@ related_workflows:
   - /improve-monitoring
   - /improve-dx
   - /follow-content-quality
+  - /improve-caching
+  - /improve-rate-limiting
+  - /improve-multi-tenancy
+  - /improve-feature-flags
+  - /improve-audit-trail
+  - /improve-deployment-strategy
+  - /improve-logging
 ---
 
 ## Goal
@@ -43,8 +50,8 @@ related_workflows:
 ปรับปรุง performance ครบวงจร
 
 1. ทำ `/improve-web-performance` สำหรับ web performance
-2. Optimize database queries
-3. ใช้ caching อย่างเหมาะสม
+2. ทำ `/improve-caching` สำหรับ caching strategy ครบวงจร
+3. Optimize database queries
 4. Implement CDN
 5. Optimize API responses
 
@@ -83,20 +90,23 @@ related_workflows:
 ปรับปรุง security ครบวงจร
 
 1. ทำ `/improve-security` สำหรับ security improvements
-2. Implement multi-factor authentication
-3. Improve data encryption
-4. Improve access control
-5. Implement security monitoring
+2. ทำ `/improve-rate-limiting` สำหรับ rate limiting และ DDoS protection
+3. ทำ `/improve-audit-trail` สำหรับ audit logging และ compliance trail
+4. Implement multi-factor authentication
+5. Improve data encryption
+6. Improve access control
+7. Implement security monitoring
 
 ### 7. Improve Scalability
 
 ปรับปรุง scalability
 
 1. ทำ `/improve-scalability` สำหรับ scalability improvements
-2. Optimize database for scale
-3. Implement horizontal scaling
-4. Implement load balancing
-5. Optimize resource usage
+2. ทำ `/improve-multi-tenancy` สำหรับ tenant isolation และ resource limits
+3. Optimize database for scale
+4. Implement horizontal scaling
+5. Implement load balancing
+6. Optimize resource usage
 
 ### 8. Improve Database
 
@@ -123,20 +133,21 @@ related_workflows:
 ปรับปรุง monitoring และ observability
 
 1. ทำ `/improve-monitoring` สำหรับ monitoring improvements
-2. Implement application monitoring
-3. Implement business metrics
-4. Implement alerting
-5. Implement logging
+2. ทำ `/improve-logging` สำหรับ logging strategy เฉพาะตัว
+3. Implement application monitoring
+4. Implement business metrics
+5. Implement alerting
 
 ### 11. Improve Developer Experience
 
 ปรับปรุง developer experience
 
 1. ทำ `/improve-dx` สำหรับ DX improvements
-2. Improve build times
-3. Improve deployment process
-4. Improve local development
-5. Improve documentation
+2. ทำ `/improve-deployment-strategy` สำหรับ deployment และ rollback strategy
+3. ทำ `/improve-feature-flags` สำหรับ gradual rollout และ kill switches
+4. Improve build times
+5. Improve local development
+6. Improve documentation
 
 ### 12. Verify And Report
 

@@ -1,136 +1,165 @@
 ---
 title: Write Ast-grep Rules
-description: เขียน ast-grep rules ตามไฟล์ที่มีใน .devin/rules
+description: เขียน ast-grep rules ตามไฟล์ที่มีใน .devin/rules ให้ครอบคลุมและถูกต้อง
 auto_execution_mode: 3
 url: https://ast-grep.github.io/guide/rule-config.html
 related_workflows:
-  - /update-devin-rules
   - /follow-ast-grep
+  - /deep-research
+  - /follow-best-practice
+  - /write-windsurf-global-workflows
 ---
 
 ## Goal
 
-เขียน ast-grep rules ตามไฟล์ที่มีใน .devin/rules
+เขียน ast-grep rules ที่ครอบคลุมและถูกต้องตาม `.devin/rules` และ official documentation
 
 ## Scope
 
-เขียน ast-grep rules สำหรับไฟล์ที่มีใน .devin/rules (always-on/, model_decision/, glob/)
+เขียน ast-grep rules สำหรับไฟล์ที่มีใน `.devin/rules` (`always-on/`, `model_decision/`, `glob/`) ครอบคลุม atomic, relational, และ composite rules
 
 ## Execute
 
 ### 1. Analyze Devin Rules
 
-วิเคราะห์ไฟล์ที่มีใน .devin/rules
-
-- อ่านไฟล์ทั้งหมดจาก `.devin/rules/always-on/`, `.devin/rules/model_decision/`, `.devin/rules/glob/`
-- ระบุ rules ที่สามารถแปลงเป็น ast-grep format
-- จัดกลุ่ม rules ตาม priority และความซับซ้อน
+1. อ่านไฟล์ทั้งหมดจาก `.devin/rules/always-on/`, `.devin/rules/model_decision/`, `.devin/rules/glob/`
+2. ระบุ rules ที่สามารถแปลงเป็น ast-grep format ได้
+3. จัดกลุ่ม rules ตาม priority และความซับซ้อน
+4. แยก rules ที่เป็น code patterns จาก rules ที่เป็น configuration หรือ process guidelines
 
 ### 2. Setup Ast-Grep Project
 
-ตั้งค่า ast-grep project
-
-- สร้าง `rules/` directory ที่ root workspace (ไม่ใช่ใน `.devin/rules/`)
-- สร้าง subdirectories ตามหมวดหมู่: `always-on/`, `model_decision/`, `glob/`
-- อัพเดท `sgconfig.yml` ให้ชี้ไปที่ `rules/` directories
-- **สำคัญ:** `.devin/rules/` สำหรับ devin rules (Markdown สำหรับ AI), `rules/` สำหรับ ast-grep rules (YAML สำหรับ CLI)
+1. สร้าง `rules/` directory ที่ root workspace พร้อม subdirectories: `always-on/`, `model_decision/`
+2. อัพเดท `sgconfig.yml` ให้ `ruleDirs` ชี้ไปที่ `rules/always-on` และ `rules/model_decision`
+3. เพิ่ม `testConfigs` ใน `sgconfig.yml` สำหรับ test rules
+4. ใช้ `bunx ast-grep new` สำหรับ scaffold ได้ถ้าต้องการ
 
 ### 3. Convert Rules To Ast-Grep Format
 
-แปลง devin rules เป็น ast-grep YAML
+1. ทำตาม `/follow-ast-grep` สำหรับ rule structure และ pattern syntax
+2. แปลง atomic rules ตาม ## Rules ข้อ 3
+3. แปลง relational rules ตาม ## Rules ข้อ 4
+4. แปลง composite rules ตาม ## Rules ข้อ 5
+5. ใช้ `$ARG` สำหรับ single meta variable, `$$$ARGS` สำหรับ multiple
+6. เพิ่ม `severity`, `message`, และ `note` สำหรับแต่ละ rule
+7. เพิ่ม `files` และ `ignores` สำหรับ scope การ match
+8. เพิ่ม `constraints` สำหรับ filter meta variables เพิ่มเติม
+9. เพิ่ม `fix` template สำหรับ auto-rewrite ถ้าเป็นไปได้อย่างปลอดภัย
+10. ใช้ `utils` สำหรับ reusable utility rules ถ้าต้องการซ้ำซ้อน
 
-- ทำตาม `/follow-ast-grep` สำหรับการแปลง rules
-- แปลง atomic rules (pattern, kind, regex, nthChild, range)
-- แปลง relational rules (inside, has, precedes, follows)
-- แปลง composite rules (all, any, not, matches)
-- ตรวจสอบว่า rule มีอย่างน้อย 1 key และเป็น positive rule
-- เพิ่ม severity และ message สำหรับแต่ละ rule
-- เพิ่ม fix template สำหรับ auto-rewrite
+### 4. Test And Verify Rules
 
-### 4. Test Ast-Grep Rules
+1. รัน `bunx ast-grep scan --inspect summary` เพื่อตรวจสอบว่า rules parse ได้
+2. รัน `bun run scan` เพื่อ scan ทั้ง codebase
+3. ตรวจสอบ false positives และปรับ `ignores` หรือ `constraints`
+4. ตรวจสอบ false negatives และปรับ `pattern` หรือเพิ่ม `any` patterns
+5. ถ้ามี `testConfigs` รัน `bunx ast-grep test` เพื่อ verify rules
+6. ตรวจสอบว่า `fix` ไม่ทำให้ code เสีย โดยรัน `--interactive` เพื่อตรวจสอบ
+7. ใช้ `bunx ast-grep scan --filter 'RULE_ID'` เพื่อ test rule เฉพาะ
 
-ทดสอบ ast-grep rules
+### 5. Integrate With Development
 
-- สร้าง test cases (valid และ invalid)
-- รัน `ast-grep test` เพื่อ verify rules
-- รัน `ast-grep scan` เพื่อ test กับ codebase
-- ตรวจสอบว่า fix ไม่ทำให้ code เสีย
-
-### 5. Integrate With Development (Optional)
-
-ผสาน ast-grep rules เข้า development workflow
-
-- เพิ่ม ast-grep scan ใน pre-commit hooks
-- รวมใน CI/CD pipeline
-- สร้าง documentation สำหรับ team
-- ตั้งค่า IDE integration ด้วย LSP
+1. เพิ่ม `scan` script ใน `package.json` ถ้ายังไม่มี
+2. รวม `ast-grep scan` ใน CI/CD pipeline ได้
+3. ตั้งค่า IDE integration ด้วย LSP ได้
 
 ## Rules
 
 ### 1. Rule Analysis
 
-กฎการวิเคราะห์:
-
-- วิเคราะห์ devin rules ก่อนแปลง
-- ระบุ rules ที่สามารถแปลงเป็น ast-grep format
-- จัดกลุ่ม rules ตาม priority และความซับซ้อน
+- วิเคราะห์ devin rules ก่อนแปลงเสมอ
+- แยก rules ที่เป็น code patterns จาก process guidelines
+- ไม่ใช่ devin rule ทุกข้อสามารถแปลงเป็น ast-grep ได้
+- จัดกลุ่มตาม priority: `error` > `warning` > `info`
 
 ### 2. Ast-Grep Setup
 
-กฎการตั้งค่า:
+- `rules/` สำหรับ ast-grep rules (YAML), `.devin/rules/` สำหรับ devin rules (Markdown)
+- `sgconfig.yml` ต้องชี้ `ruleDirs` ไปที่ subdirectories ของ `rules/`
+- ใช้ `testConfigs` สำหรับ test rules ใน `rule-tests/`
+- rule files ใช้ `kebab-case` filename
 
-- สร้าง `rules/` directory แยกจาก `.devin/rules/`
-- อัพเดท `sgconfig.yml` ให้ชี้ไปที่ `rules/` directories
-- **สำคัญ:** `.devin/rules/` สำหรับ devin rules (Markdown สำหรับ AI), `rules/` สำหรับ ast-grep rules (YAML สำหรับ CLI)
+### 3. Atomic Rules
 
-### 3. Rule Conversion
+- `pattern`: ใช้ code snippet พร้อม meta variables เช่น `console.log($$$ARGS)`
+- `pattern` รับ Object ที่มี `context`, `selector`, `strictness` สำหรับ matching ที่ซับซ้อน
+- `strictness` มี: `cst`, `smart`, `ast`, `relaxed`, `signature`
+- `kind`: ใช้ AST node type name เช่น `call_expression`, `type_annotation`
+- `kind` รองรับ ESquery syntax ตั้งแต่ ast-grep 0.39+ เช่น `call_expression > identifier`
+- `regex`: ใช้ Rust regex บน source text ต้อง match ทั้ง text ของ node
+- `regex` ไม่ใช่ positive rule ใช้กับ `kind` หรือ `pattern` เสมอ
+- ใช้ `kind` ร่วมกับ `pattern` เพื่อ match ให้แม่นยำ
 
-กฎการแปลง:
+### 4. Relational Rules
 
-- Rules ต้องสอดคล้องกับ target language
-- Rule ต้องมีอย่างน้อย 1 key และเป็น positive rule
-- Atomic rules: pattern, kind, regex, nthChild, range
-- Relational rules: inside, has, precedes, follows
-- Composite rules: all, any, not, matches
-- ใช้ meta variables ($VAR) สำหรับ capture AST nodes
-- Fix templates ต้อง safe ไม่ทำให้ code เสีย
-- Rules เปรียบเสมือ CSS selectors สำหรับ AST nodes
+- `inside`: target node ต้องอยู่ภายใน node ที่ match sub-rule
+- `has`: target node ต้องมี descendant node ที่ match sub-rule
+- `precedes`: target node ต้องอยู่ก่อน node ที่ match sub-rule
+- `follows`: target node ต้องอยู่หลัง node ที่ match sub-rule
+- `stopBy`: ควบคุมการหยุด search (`neighbor`, `end`, หรือ Rule object)
+- `field`: ระบุ sub-node ใน target (ใช้กับ `inside` และ `has` เท่านั้น)
+- `precedes` และ `follows` ไม่มี `field` option
 
-### 4. Testing
+### 5. Composite Rules
 
-กฎการทดสอบ:
+- `all`: ต้อง match ทุก sub-rules, meta variables รวมจากทุก sub-rules
+- `any`: match อย่างน้อย 1 sub-rule, meta variables เฉพาะ sub-rule ที่ match
+- `not`: match ถ้า sub-rule ไม่ match
+- `matches`: ใช้ utility rule id ผ่าน `utils`
+- `all`/`any`/`not` ใช้กับ rules ไม่ใช่ nodes จะไม่ match หลาย nodes พร้อมกัน
+- rule object เป็น unordered `all` โดยปริยาย ถ้าไม่ได้ผลให้ใช้ `all` เพื่อระบุ order
 
-- ทุก rule ต้องมี test cases
-- รัน `ast-grep test` เพื่อ verify rules
-- รัน `ast-grep scan` เพื่อ test กับ codebase
-- ตรวจสอบว่า fix ไม่ทำให้ code เสีย
+### 6. Meta Variables And Constraints
+
+- `$ARG`: จับ single node
+- `$$$ARGS`: จับ multiple nodes
+- `constraints`: filter หลัง match `rule` แล้ว ใช้กับ `$ARG` (single) เท่านั้น
+- `constraints` ไม่รองรับ `$$$ARGS` (multiple)
+- `constraints` ใช้กับ `not` ได้ยาก ควรหลีกเลี่ยง
+
+### 7. Utility Rules And Fix
+
+- `utils`: dictionary ของ local utility rules สำหรับ reuse ใน rule file
+- `matches`: ใช้ utility rule id จาก `utils` หรือ `utilDirs`
+- `fix`: pattern สำหรับ auto-rewrite ต้อง safe ไม่ทำให้ code เสีย
+- ใช้ `--interactive` เพื่อตรวจสอบ `fix` ก่อน apply
+- ใช้ `--update-all` เพื่อ apply ทุก rewrites
+
+### 8. Globbing And Scope
+
+- `files`: glob patterns สำหรับระบุไฟล์ที่ rule ใช้
+- `ignores`: glob patterns สำหรับยกเว้นไฟล์
+- `ignores` ตรวจสอบก่อน `files` เสมอ
+- paths ใน `files` และ `ignores` เป็น relative ของ `sgconfig.yml` directory
+- ไม่ใช้ `./` นำหน้า paths
+
+### 9. Testing And Verification
+
+- รัน `bunx ast-grep scan --inspect summary` ก่อนเพื่อตรวจสอบ parse
+- รัน `bun run scan` เพื่อ test กับ codebase จริง
+- ตรวจสอบ false positives และปรับ `ignores` หรือ `constraints`
+- ตรวจสอบ false negatives และปรับ `pattern` หรือเพิ่ม `any` patterns
+- ถ้ามี `testConfigs` รัน `bunx ast-grep test`
+- ใช้ `bunx ast-grep scan --filter 'RULE_ID'` เพื่อ test rule เฉพาะ
+
+### 10. Common Mistakes
+
+- ใช้ `pattern` ที่ match หลาย AST nodes โดยไม่ใช้ `kind` ร่วม
+- ใช้ `$$$ARGS` ใน `constraints` ซึ่งไม่รองรับ
+- จับ framework utilities เป็น violations เช่น `sql` template tag ของ Drizzle
+- ไม่ ignore test files สำหรับ rules ที่ match test patterns
+- สร้าง rules ที่ซับซ้อนเกินไปโดยไม่จำเป็น
+- ใช้ `regex` โดยไม่ระบุ `kind` หรือ `pattern`
+- ลืมว่า rule object เป็น unordered ทำให้ `has`/`inside` ไม่ได้ผลตามที่คาด
+- ไม่ทดสอบ `fix` กับ `--interactive` ก่อน apply
 
 ## Expected Outcome
 
-- Ast-grep project ตั้งค่าอย่างถูกต้อง
-- Devin rules แปลงเป็น ast-grep format
-- Test cases ครอบคลุม valid และ invalid scenarios
-- Rules ทำงานได้เมื่อรัน `ast-grep scan`
-- Integration กับ development workflow (optional)
-
-## Common Mistakes
-
-ข้อผิดพลาดที่พบบ่อย:
-
-- ไม่ระบุ `language` ใน rule configuration
-- ใช้ `pattern` ที่ match หลาย AST nodes โดยไม่ใช้ `kind` ร่วม
-- ใช้ `regex` โดยไม่ระบุ `kind` หรือ `pattern` (regex ไม่ใช่ positive rule)
-- ไม่ใช้ meta variables ($VAR) สำหรับ capture
-- Fix templates ไม่ safe ทำให้ code เสีย
-- ไม่ทดสอบ rules กับ codebase จริง
-
-## Anti-Patterns
-
-รูปแบบที่ควรหลีกเลี่ยง:
-
-- ❌ สร้าง rules ที่ซับซ้อนเกินไปโดยไม่จำเป็น
-- ❌ ไม่ใช้ `all`, `any`, `not` สำหรับ combine rules
-- ❌ ไม่ใช้ `inside`, `has` สำหรับ structural matching
-- ❌ ไม่เพิ่ม test cases สำหรับ rules
-- ❌ ไม่รัน `ast-grep test` ก่อนใช้ใน production
+- `sgconfig.yml` ตั้งค่า `ruleDirs` ไปที่ `rules/` subdirectories
+- Devin rules แปลงเป็น ast-grep YAML format สำเร็จ ครอบคลุม atomic, relational, composite
+- `bunx ast-grep scan --inspect summary` แสดง rules ทั้งหมด effective
+- `bun run scan` ทำงานได้และ report ผลลัพธ์
+- False positives ถูกปรับด้วย `ignores` และ `constraints`
+- False negatives ถูกปรับด้วย `pattern` และ `any`
+- `fix` templates ทำงานได้โดยไม่ทำให้ code เสีย
 
