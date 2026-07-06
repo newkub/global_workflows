@@ -4,7 +4,6 @@ description: ตรวจสอบไฟล์ที่ยาวกว่า thr
 auto_execution_mode: 3
 related_workflows:
   - /use-scripts
-  - /refactor-long-files-to-single-responsibility
 ---
 
 ## Goal
@@ -17,65 +16,64 @@ related_workflows:
 
 ## Execute
 
-### 1. Setup Gitignore
+### Check Prerequisites
 
-ตั้งค่า `.gitignore` ให้ `scripts/temp/` ถูก ignore อัตโนมัติ
+ตรวจสอบว่ามี `fd` tool ติดตั้งหรือไม่
 
-1. ทำ `/follow-gitignore` เพื่อตั้งค่า `.gitignore` อย่างถูกต้อง
-2. ตรวจสอบ `.gitignore` มี `scripts/temp/` หรือไม่
-3. ถ้าไม่มี ให้เพิ่ม `scripts/temp/` เข้าไป
+```bash
+fd --version
+```
 
-### 2. Create Script
+ถ้าไม่มี `fd` ให้ติดตั้งด้วย:
+- Windows: `scoop install fd` หรือ `winget install sharkdp.fd`
+- macOS: `brew install fd`
+- Linux: ดูที่ https://github.com/sharkdp/fd
 
-สร้าง PowerShell script ใน `scripts/temp/`
+### Run Command
 
-1. ทำ `/use-scripts` เพื่อสร้าง script ใน `scripts/temp/find-long-files.ps1`
-2. รองรับ parameters: `Threshold`, `Top`, `ExcludePatterns`, `IncludeExtensions`
-3. กรองไฟล์ตามประเภท (`config`, `types`, `test`, `generated`)
-4. แสดงผลแบบ color-coded ตาม file type
+รัน PowerShell function โดยตรงเพื่อตรวจสอบไฟล์ที่ยาว
 
-### 3. Run Script
-
-รัน script เพื่อตรวจสอบไฟล์ที่ยาว
-
-1. รัน `pwsh scripts/temp/find-long-files.ps1 -Threshold 250 -Top 25`
-2. ตรวจสอบผลลัพธ์จาก script
-3. บันทึกรายชื่อไฟล์ที่ต้อง split
-4. ลบ script จาก `scripts/temp/` หลังใช้งาน
+```bash
+pwsh -NoProfile -Command "
+function loc {
+    param([int]$threshold = 200, [string]$path = '.')
+    \$files = fd -t f --ignore-vcs \$path
+    \$longFiles = @()
+    foreach (\$file in \$files) {
+        try {
+            \$lineCount = (Get-Content \$file -ErrorAction SilentlyContinue).Count
+            if (\$lineCount -gt \$threshold) {
+                \$longFiles += [PSCustomObject]@{
+                    Filename = \$file
+                    Lines = \$lineCount
+                }
+            }
+        } catch {
+            # Skip files that can't be read
+        }
+    }
+    if (\$longFiles.Count -eq 0) {
+        Write-Host \"No files with more than \$threshold lines found.\" -ForegroundColor Green
+    } else {
+        Write-Host \"Files with more than \$threshold lines:\" -ForegroundColor Yellow
+        \$longFiles | Sort-Object Lines -Descending | Format-Table -AutoSize
+    }
+}
+loc -threshold 250 -path '.'
+"
+```
 
 ## Rules
 
-### 1. Script Template
-
-ใช้ PowerShell script ที่ reusable และ configurable
-
-- สร้าง script ใน `scripts/temp/` ตาม `/use-scripts`
-- รองรับ parameters: `Threshold`, `Top`, `ExcludePatterns`, `IncludeExtensions`
-- ใช้ helper functions: `ShouldExclude`, `GetFileType`
-- ลบ script หลังใช้งาน
-
-### 2. Filtering Rules
-
-กรองไฟล์ตามประเภทและ location
-
-- เว้นไฟล์ประเภท `config`, `types`, `test`, `generated`
-- เว้นไฟล์ใน `node_modules`, `.nuxt`, `dist`, `build`
-- เว้นไฟล์ generated จาก build tools
-- ใช้ pattern matching สำหรับ exclude patterns
-
-### 3. Output Format
-
-แสดงผลแบบ readable และ color-coded
-
-- แสดง columns: `Lines`, `Type`, `Path`
-- ใช้ colors ตาม file type (test=yellow, config=magenta, types=cyan)
-- แสดง total files found
+- รัน PowerShell function โดยตรงผ่าน `pwsh -NoProfile -Command`
+- รองรับ parameters: `threshold` (default 200), `path` (default ".")
+- ใช้ `fd -t f --ignore-vcs` สำหรับค้นหาไฟล์ (เว้นไฟล์ใน `.gitignore` อัตโนมัติ)
+- ใช้ `try-catch` เพื่อ skip ไฟล์ที่อ่านไม่ได้
+- แสดงผลด้วย `Format-Table -AutoSize` (columns: `Filename`, `Lines`)
 - เรียงลำดับตาม lines (ใหญ่สุดก่อน)
 
 ## Expected Outcome
 
-- Script ที่ reusable และ configurable
-- รายงานไฟล์ที่ยาวกว่า threshold
-- กรองไฟล์ที่ต้องเว้นออกอัตโนมัติ
-- Output ที่ readable และ color-coded
-- Script ถูกลบหลังใช้งาน
+- รายงานไฟล์ที่ยาวกว่า threshold ที่กำหนด
+- แสดงชื่อไฟล์และจำนวนบรรทัดในรูปแบบตาราง
+- เรียงลำดับตามจำนวนบรรทัดจากมากไปน้อย

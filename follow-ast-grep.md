@@ -36,9 +36,9 @@ related_workflows:
 
 ### 3. Setup Project Structure
 
-1. สร้าง directory `rules/` สำหรับเก็บ ast-grep rules
-2. ถ้ามี `testConfigs` ให้สร้าง directory `rule-tests/`
-3. ถ้ามี `utilDirs` ให้สร้าง directory `utils/`
+1. สร้าง ast-grep rules ใน `.devin/rules/` directory (ภายใน `.devin` structure ของ project)
+2. ถ้ามี `testConfigs` ให้สร้าง directory `.devin/rule-tests/`
+3. ถ้ามี `utilDirs` ให้สร้าง directory `.devin/utils/`
 4. ใช้ `bunx ast-grep new` สำหรับ scaffold project ใหม่ได้
 
 ### 4. Write Rules
@@ -136,11 +136,11 @@ related_workflows:
 
 ### 5. Project Structure
 
-- สร้าง `rules/` directory สำหรับเก็บ rule files
-- ถ้ามี `testConfigs` สร้าง `rule-tests/` directory
-- ถ้ามี `utilDirs` สร้าง `utils/` directory
+- สร้าง ast-grep rules ใน `.devin/rules/` directory ร่วมกับ devin rules
+- ถ้ามี `testConfigs` สร้าง `.devin/rule-tests/` directory
+- ถ้ามี `utilDirs` สร้าง `.devin/utils/` directory
 - rule files ใช้ `kebab-case` filename
-- ไฟล์ที่ไม่ใช่ rule ใน `rules/` จะถูก ignore
+- ไฟล์ที่ไม่ใช่ rule ใน `.devin/rules/` จะถูก ignore
 
 ### 6. Scan Script
 
@@ -158,7 +158,7 @@ related_workflows:
 ## Expected Outcome
 
 - `sgconfig.yml` ตั้งค่าเรียบร้อยครบทุก fields ที่จำเป็น
-- Project structure สร้างเรียบร้อย (`rules/`, `rule-tests/`, `utils/`)
+- Project structure สร้างเรียบร้อย (`.devin/rules/`, `.devin/rule-tests/`, `.devin/utils/`)
 - Rules เขียนตาม structure มาตรฐานและมี test cases
 - Scan script เพิ่มใน `package.json` และทำงานได้
 - `ast-grep scan` ทำงานได้ถูกต้องและ report ผลลัพธ์

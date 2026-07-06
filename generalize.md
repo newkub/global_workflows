@@ -5,7 +5,6 @@ auto_execution_mode: 3
 related_workflows:
   - /refactor
   - /improve-reuseables
-  - /separate-of-concern
   - /follow-best-practice
   - /dont-over-engineer
   - /use-scripts
@@ -55,7 +54,7 @@ related_workflows:
 
 ### 5. Decouple Dependencies
 
-1. ทำ `/separate-of-concern` เพื่อแยก responsibilities
+1. ทำ `/refactor` เพื่อแยก responsibilities
 2. ลด coupling โดยใช้ interfaces หรือ abstract types
 3. ย้าย side effects ไปส่วนที่ configurable ได้
 4. แยก business logic จาก implementation details

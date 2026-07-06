@@ -105,7 +105,6 @@ related_workflows:
 
 - เขียนเป็น bullet points ภาษาอังกฤษ:
   - Read all workflows, skills, and references, and follow them all
-  - Run `/run-verify` after completing work
   - Run `/refactor` after completing work
   - Run `/realize-implementation` after completing work
 - ใช้เพื่อเน้นว่าต้องทำทุกครั้ง

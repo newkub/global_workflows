@@ -7,6 +7,7 @@ related_workflows:
   - /all-workspaces
   - /follow-content-quality
   - /write-windsurf-global-workflows
+  - /use-lang-en
 ---
 
 ## Goal
@@ -83,16 +84,16 @@ related_workflows:
 
 ### 6. Quick Start Format
 
-- HTML 2-column layout: ซ้ายแสดง title + description + file structure, ขวาแสดง steps
+- HTML 2-column layout: ซ้ายแสดง steps (code blocks + filenames), ขวาแสดง ANSI preview
 - คอลัมน์กว้างเท่ากัน 50%/50%
-- ซ้าย: มี title และ description อธิบายโครงสร้างโปรเจกต์
-- ขวา: แต่ละ step มี heading + description อธิบายสั้นๆ ก่อน codeblock
+- ซ้าย: แต่ละ step มี heading + description อธิบายสั้นๆ ก่อน codeblock พร้อม filename ใน heading
+- ขวา: `<p align="center">` description ตรงกลาง + `ansi` codeblock preview (เหมือน Usage format)
 - Step headings เขียนให้เข้าใจง่าย (เช่น Install Package, Import Utilities, Use In Your App)
-- แต่ละ codeblock มี filename ใน heading
 - ใช้ `<table><tr><td width="50%" valign="top">` ทั้ง 2 คอลัมน์
 
 ### 7. Content Standards
 
+- ทำ `/use-lang-en` — README.md ทั้งหมดเป็นภาษาอังกฤษ
 - ใช้ข้อมูลจริงจาก `/analyze-project`, code รันได้จริง
 - ไม่ใช้ placeholder ยกเว้น banner image
 - README.md: Headers/List ภาษาอังกฤษ, Workflow: ภาษาไทย
@@ -157,19 +158,6 @@ Longer description.
 <tr>
 <td width="50%" valign="top">
 
-**Project Structure**
-
-โครงสร้างไฟล์หลักของ package แสดง entry point และ modules
-
-```
-src/
-├── index.ts    # Import and export
-└── app.ts      # Usage example
-```
-
-</td>
-<td width="50%" valign="top">
-
 1. **Install Package** — `terminal`
    Install the package to your project
    ```bash
@@ -185,6 +173,21 @@ src/
    ```typescript
    func();
    ```
+
+</td>
+<td width="50%" valign="top">
+
+<p align="center">Preview shows the result of running the steps.</p>
+
+```ansi
+┌─────────────────────────┐
+│  ✓ Installed            │
+│  ✓ Imported             │
+│  ✓ Running              │
+│                         │
+│  Output: hello          │
+└─────────────────────────┘
+```
 
 </td>
 </tr>

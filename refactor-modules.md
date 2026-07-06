@@ -4,8 +4,7 @@ description: Refactor modules ให้มี single responsibility ชัดเ
 auto_execution_mode: 3
 related_workflows:
   - /refactor-packages
-  - /separate-of-concern
-  - /refactor-files
+  - /refactor
   - /edit-relative
 ---
 
@@ -39,7 +38,7 @@ Refactor modules ภายใน workspace ให้มี single responsibility
 
 แยก concerns ระหว่าง modules
 
-1. ทำ `/separate-of-concern` สำหรับแยก concerns
+1. ทำ `/refactor` สำหรับแยก concerns
 2. แยก business logic จาก presentation
 3. แยก data access จาก business logic
 4. แยก utilities ออกเป็น shared modules
@@ -48,7 +47,7 @@ Refactor modules ภายใน workspace ให้มี single responsibility
 
 Refactor แต่ละ module ให้มี single responsibility
 
-1. ทำ `/refactor-files` สำหรับ modules ที่ใหญ่เกินไป
+1. ทำ `/refactor` สำหรับ modules ที่ใหญ่เกินไป
 2. ทำ `/relocation` เพื่อย้าย code ไปยัง modules ที่เหมาะสม
 3. สร้าง barrel exports สำหรับแต่ละ module
 4. กำหนด interfaces ระหว่าง modules

@@ -1,170 +1,124 @@
+---
 title: Follow Effect Ts
-description: แนวทางการพัฒนาโปรเจกต์ด้วย Effect-TS สำหรับ functional programming, type-safe effects และ structured concurrency
+description: แนวทางการพัฒนาด้วย Effect-TS v3.x สำหรับ functional programming และ type-safe effects
 auto_execution_mode: 3
-## Purpose
+related_workflows:
+  - /follow-typescript
+  - /follow-vitest
+  - /follow-tsgo
+---
 
-กำหนดมาตรฐานการพัฒนาด้วย Effect-TS สำหรับ functional programming ที่มี type safety และ error handling ที่ดี
+## Goal
+
+กำหนดมาตรฐานการพัฒนาด้วย Effect-TS v3.x สำหรับ functional programming ที่มี type safety, error handling และ dependency injection
 
 ## Scope
 
-- ตั้งค่า TypeScript config สำหรับ Effect
-- ติดตั้ง Effect libraries
-- จัดโครงสร้างโปรเจกต์ตาม Effect patterns
-- ใช้ phantom types, ADT และ lazy execution
+ใช้สำหรับโปรเจกต์ที่ต้องการ functional programming ด้วย Effect-TS
 
-## Inputs
+## Execute
 
-| Input | Details |
-|-------|-----------|
-| Package Manager | Bun |
-| Language | TypeScript |
-| Libraries | effect, @effect/schema |
+### 1. Setup TypeScript Config
+
+ตั้งค่า `tsconfig.json` สำหรับ Effect
+
+1. แก้ไข `tsconfig.json` ให้มี:
+   - `strict: true`
+   - `noUncheckedIndexedAccess: true`
+   - `exactOptionalPropertyTypes: true`
+   - `skipLibCheck: true`
+
+### 2. Install Effect Packages
+
+ติดตั้ง Effect libraries ตามความจำเป็น
+
+1. รัน `bun add effect` สำหรับ core library
+2. รัน `bun add @effect/schema` สำหรับ data validation
+3. รัน `bun add @effect/platform` ถ้าต้องการ platform abstractions
+4. รัน `bun add @effect/platform-bun` สำหรับ Bun runtime
+5. รัน `bun add -D vitest` สำหรับ testing
+6. รัน `bun add -D tstyche` สำหรับ type-level tests
+
+### 3. Create Project Structure
+
+สร้างโครงสร้างโฟลเดอร์ตาม Effect patterns
+
+1. สร้าง `src/app/` สำหรับ composition root
+2. สร้าง `src/domain/` สำหรับ pure business logic
+3. สร้าง `src/services/` สำหรับ side effects
+4. สร้าง `src/adapters/` สำหรับ external lib wrappers
+5. สร้าง `src/config/` สำหรับ runtime config
+6. สร้าง `src/types/` สำหรับ shared types
+7. สร้าง `src/utils/` สำหรับ pure helpers
+8. สร้าง `test/unit/` สำหรับ unit tests
+9. สร้าง `test/integration/` สำหรับ integration tests
+
+### 4. Implement Effect Patterns
+
+เขียน code ตาม Effect patterns v3.x
+
+1. ใช้ `Effect.gen` แทน pipe สำหรับ ergonomic code
+2. ใช้ `Data.TaggedError` สำหรับ type-safe errors
+3. ใช้ `Context.Tag` + `Layer` สำหรับ dependency injection
+4. ใช้ `Schedule` สำหรับ retry/backoff policies
+5. ใช้ `@effect/schema` สำหรับ data validation
+6. ใช้ `Layer.mock` สำหรับ testing (v3.17.0+)
+
+### 5. Write Tests
+
+เขียน tests ด้วย vitest และ tstyche
+
+1. ใช้ `it.effect` สำหรับ Effect-based tests
+2. ใช้ `tstyche` สำหรับ type-level assertions
+3. ใช้ `Layer.mock` สำหรับ partial implementations
 
 ## Rules
 
-| Category | Requirements |
-|------|---------|
-| **TS Config** | strict mode, noUncheckedIndexedAccess, exactOptionalPropertyTypes |
-| **Libraries** | effect, @effect/schema |
-| **Structure** | domain/, services/, app/, adapters/, types/, utils/ |
-| **Effects** | ใช้ phantom types, ADT, lazy execution |
-| **Imports** | domain ไม่ import services, types/utils ไม่มี internal dependencies |
+### 1. TypeScript Configuration
 
-## Structure
+- ต้องมี `strict: true`
+- ต้องมี `noUncheckedIndexedAccess: true`
+- ต้องมี `exactOptionalPropertyTypes: true`
 
-### Directory Structure
+### 2. Core Libraries
 
-```text
-project/
-├── src/
-│   ├── app/              # Composition root / orchestration
-│   ├── domain/           # Pure business rules (types + logic)
-│   ├── services/         # Side effects (http/db/fs)
-│   ├── adapters/         # Wrappers for external libs
-│   ├── config/           # Runtime config parsing/validation
-│   ├── types/            # Shared types/schemas
-│   ├── utils/            # Pure helpers
-│   └── index.ts
-└── tsconfig.json
-```
+- ใช้ `effect` (v3.x) เป็น core library
+- ใช้ `@effect/schema` สำหรับ data validation
+- ใช้ `@effect/platform` สำหรับ platform abstractions (ถ้าจำเป็น)
 
-### Phase Definitions
+### 3. Code Patterns
 
-| Phase | Description | Main Activities |
-|-------|-------------|---------------|
-| Setup | ตั้งค่า TS | Config strict mode |
-| Install | ติดตั้ง | Add effect packages |
-| Structure | สร้างโครงสร้าง | domain/, services/, etc. |
-| Implement | เขียน code | Follow Effect patterns |
+- ใช้ `Effect.gen` แทน pipe
+- ใช้ `Data.TaggedError` สำหรับ errors
+- ใช้ `Context.Tag` + `Layer` สำหรับ DI
+- ใช้ `Schedule` สำหรับ resilience
 
-## Steps
+### 4. Project Structure
 
-### Phase 0: Precondition
+- `app/` <-- domain, services, types, config
+- `domain/` <-- types, utils
+- `services/` <-- types, config, adapters
+- `adapters/` <-- external libs only
+- `types/` <-- no internal dependencies
+- `utils/` <-- no internal dependencies
 
-- 0.1 **ตรวจสอบ Environment**
-  - มี Bun ติดตั้งแล้ว
-  - มี `package.json` อยู่แล้ว
+### 5. Testing
 
-### Phase 1: Setup
-
-- 1.1 **กำหนดค่า tsconfig.json**
-  - แก้ไข `tsconfig.json`:
-
-```json [tsconfig.json]
-{
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true
-  }
-}
-```
-
-### Phase 2: Install
-
-- 2.1 **ติดตั้ง Effect**
-  - รัน `bun add effect`
-  - รัน `bun add @effect/schema`
-
-### Phase 3: Structure
-
-- 3.1 **สร้างโครงสร้างโฟลเดอร์**
-  - สร้าง `src/app/`
-  - สร้าง `src/domain/`
-  - สร้าง `src/services/`
-  - สร้าง `src/adapters/`
-  - สร้าง `src/config/`
-  - สร้าง `src/types/`
-  - สร้าง `src/utils/`
-
-### Phase 4: Implement
-
-- 4.1 **Domain Layer**
-  - สร้าง types และ pure functions ใน `src/domain/`:
-
-```ts [src/domain/user.ts]
-export type User = {
-  id: string
-  email: string
-}
-
-export const isCorporate = (user: User) => user.email.endsWith('@company.com')
-```
-
-- 4.2 **Services Layer**
-  - สร้าง side effects ใน `src/services/`:
-
-```ts [src/services/health.ts]
-import { Effect } from 'effect'
-
-export const fetchHealth = Effect.tryPromise({
-  try: async () => 'ok',
-  catch: (e) => new Error(String(e)),
-})
-```
-
-- 4.3 **App Layer**
-  - สร้าง orchestration ใน `src/app/`:
-
-```ts [src/app/program.ts]
-import { Effect } from 'effect'
-import { fetchHealth } from '../services/health'
-
-export const program = Effect.gen(function* (_) {
-  const health = yield* _(fetchHealth)
-  return { health }
-})
-```
-
-- 4.4 **Import Rules**
-  - `app` <-- domain, services, types, config
-  - `domain` <-- types, utils
-  - `services` <-- types, config, adapters
-  - `adapters` <-- (external libs only)
-  - `types` <-- (no internal dependencies)
-  - `utils` <-- (no internal dependencies)
-
-## Outputs
-
-| Output | Details |
-|--------|-----------|
-| tsconfig.json | Strict TypeScript config |
-| src/domain/ | Pure business logic |
-| src/services/ | Side effects |
-| src/app/ | Orchestration |
+- ใช้ `vitest` สำหรับ runtime tests
+- ใช้ `tstyche` สำหรับ type-level tests
+- ใช้ `Layer.mock` สำหรับ mocking
 
 ## Expected Outcome
 
-- TypeScript config กำหนด strict mode
-- Effect libraries ติดตั้งสำเร็จ
-- โครงสร้างโปรเจกต์ตาม best practices
+- TypeScript config กำหนด strict mode สำหรับ Effect
+- Effect v3.x libraries ติดตั้งสำเร็จ
+- โครงสร้างโปรเจกต์ตาม Effect patterns
+- ใช้ Effect.gen, Data.TaggedError, Context.Tag, Layer, Schedule
+- Testing ด้วย vitest + tstyche
 - Import dependencies ถูกต้องตามกฎ
 
 ## Reference
 
-- `/validate` - ตรวจสอบความถูกต้องก่อนเริ่ม
-- `/connect-workflows` - เชื่อมโยง workflows
+- [Effect Official Docs](https://effect.website/)
+- [Effect GitHub](https://github.com/Effect-TS/effect)
 

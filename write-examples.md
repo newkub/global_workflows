@@ -12,25 +12,20 @@ related_workflows:
 
 ## Execute
 
-### 1. Verify Workspace
-
-1. รัน `/run-verify` สำหรับ workspace ที่จะนำมาเขียน examples ให้เสร็จก่อน
-2. ตรวจสอบว่า workspace ทำงานได้ถูกต้อง
-
-### 2. Analyze APIs
+### 1. Analyze APIs
 
 1. รัน `/analyze-project` เพื่อดูภาพรวม
 2. อ่าน entry point และ index files ในแต่ละ module
 3. ระบุ API ทั้งหมดจาก source code
 
-### 3. Create Structure
+### 2. Create Structure
 
 1. สร้าง `examples/` directory
 2. สร้าง subdirectories ตาม project organization
 3. สร้าง `src/` directory ในแต่ละ example subdirectory
 4. สร้าง `README.md` อธิบายโครงสร้าง
 
-### 4. Write Examples per Module
+### 3. Write Examples per Module
 
 1. เขียน examples สำหรับทุก module ครอบคล้วทุก API
 2. เขียน basic usage สำหรับแต่ละ API
@@ -38,19 +33,19 @@ related_workflows:
 4. เขียน edge cases และ error handling
 5. เขียน `src/index.ts` ที่เมื่อ run example แล้ว ต้องแสดงทั้งหมดแบบ reactive ว่ามีอะไรบ้าง เพื่อให้เห็นภาพรวม
 
-### 5. Write Integration Examples
+### 4. Write Integration Examples
 
 1. End-to-end use case flows
 2. Cross-module integration
 3. Error handling flows
 
-### 6. Validate
+### 5. Validate
 
 1. รัน examples เพื่อตรวจสอบว่าทำงานได้จริง
 2. ตรวจสอบว่าครอบคลุมทุก API
 3. ตรวจสอบว่า code ถูกต้องและ runnable
 
-### 7. Update Documentation
+### 6. Update Documentation
 
 1. ทำตาม `/write-readme` สำหรับการอัพเดท README.md
 2. เพิ่ม examples ที่เขียนไว้ลงใน README.md ในส่วน Usage

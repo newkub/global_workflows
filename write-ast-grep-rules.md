@@ -16,7 +16,7 @@ related_workflows:
 
 ## Scope
 
-เขียน ast-grep rules สำหรับไฟล์ที่มีใน `.devin/rules` (`always-on/`, `model_decision/`, `glob/`) ครอบคลุม atomic, relational, และ composite rules
+เขียน ast-grep rules สำหรับไฟล์ที่มีใน `.devin/rules` (`always-on/`, `model_decision/`, `glob/`) ครอบคลุม atomic, relational, และ composite rules โดยสร้าง ast-grep rules ใน `.devin/rules/` ภายใน structure ของ `/update-dot-devin`
 
 ## Execute
 
@@ -29,8 +29,8 @@ related_workflows:
 
 ### 2. Setup Ast-Grep Project
 
-1. สร้าง `rules/` directory ที่ root workspace พร้อม subdirectories: `always-on/`, `model_decision/`
-2. อัพเดท `sgconfig.yml` ให้ `ruleDirs` ชี้ไปที่ `rules/always-on` และ `rules/model_decision`
+1. สร้าง ast-grep rules ใน `.devin/rules/always-on/` และ `.devin/rules/model_decision/` (ภายใน `.devin` structure ที่ `/update-dot-devin` สร้างขึ้น)
+2. อัพเดท `sgconfig.yml` ให้ `ruleDirs` ชี้ไปที่ `.devin/rules/always-on` และ `.devin/rules/model_decision`
 3. เพิ่ม `testConfigs` ใน `sgconfig.yml` สำหรับ test rules
 4. ใช้ `bunx ast-grep new` สำหรับ scaffold ได้ถ้าต้องการ
 
@@ -46,6 +46,7 @@ related_workflows:
 8. เพิ่ม `constraints` สำหรับ filter meta variables เพิ่มเติม
 9. เพิ่ม `fix` template สำหรับ auto-rewrite ถ้าเป็นไปได้อย่างปลอดภัย
 10. ใช้ `utils` สำหรับ reusable utility rules ถ้าต้องการซ้ำซ้อน
+11. เขียน comment ในแต่ละ .yml file อธิบายสิ่งที่ rule ตรวจสอบ, เหตุผล, และตัวอย่าง
 
 ### 4. Test And Verify Rules
 
@@ -74,8 +75,8 @@ related_workflows:
 
 ### 2. Ast-Grep Setup
 
-- `rules/` สำหรับ ast-grep rules (YAML), `.devin/rules/` สำหรับ devin rules (Markdown)
-- `sgconfig.yml` ต้องชี้ `ruleDirs` ไปที่ subdirectories ของ `rules/`
+- `.devin/rules/` สำหรับ ast-grep rules (YAML) และ devin rules (Markdown) ในที่เดียวกัน
+- `sgconfig.yml` ต้องชี้ `ruleDirs` ไปที่ `.devin/rules/always-on` และ `.devin/rules/model_decision`
 - ใช้ `testConfigs` สำหรับ test rules ใน `rule-tests/`
 - rule files ใช้ `kebab-case` filename
 
@@ -155,7 +156,7 @@ related_workflows:
 
 ## Expected Outcome
 
-- `sgconfig.yml` ตั้งค่า `ruleDirs` ไปที่ `rules/` subdirectories
+- `sgconfig.yml` ตั้งค่า `ruleDirs` ไปที่ `.devin/rules/` subdirectories
 - Devin rules แปลงเป็น ast-grep YAML format สำเร็จ ครอบคลุม atomic, relational, composite
 - `bunx ast-grep scan --inspect summary` แสดง rules ทั้งหมด effective
 - `bun run scan` ทำงานได้และ report ผลลัพธ์

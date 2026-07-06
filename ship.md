@@ -11,12 +11,15 @@ related_workflows:
   - /validate-test
   - /cleanup-files
   - /run-dev
-  - /report-ship
+  - /report
+  - /report-format-table
+  - /report-format-terminal
+  - /suggest-next-action
 ---
 
 ## Goal
 
-Ship code ครบวงจรตั้งแต่ planning ไปจนถึง development server
+Ship code ครบวงจรตั้งแต่ planning ไปจนถึง development server พร้อมรายงานผล
 
 ## Scope
 
@@ -86,7 +89,14 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ### 15. Report Ship
 
-1. ทำ `/report-ship` เพื่อรายงานผลลัพธ์การ ship code ครบวงจร
+รายงานผลลัพธ์การ ship code ครบวงจร:
+
+1. รวบรวมสถานะของทุก step (planning, update-project, refactor, best practices, make real, code review, cleanup, verify, dev server)
+2. ทำ `/report` พร้อม `/report-format-table` สำหรับตารางสถานะแต่ละขั้นตอน
+3. ใช้ symbols: ✅ ผ่าน, ❌ ไม่ผ่าน, ⏭️ ข้าม, ⚠️ มี warning
+4. แสดง metrics สำคัญ: lint, typecheck, test, build, dev server
+5. จัดลำดับ issues ที่เหลือตามความรุนแรง (critical, high, medium, low)
+6. ทำ `/suggest-next-action` เพื่อแนะนำ action ถัดไป
 
 ## Rules
 
@@ -136,4 +146,4 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 - Development server ทำงานได้ ไม่มี critical errors
 - References อัพเดทครบถ้วน ไม่มี references เสียหาย
 - Codebase สะอาด ไม่มีไฟล์หรือ dependencies ที่ไม่จำเป็น
-- รายงานผลลัพธ์การ ship code ครบวงจร
+- รายงานผลลัพธ์การ ship code ครบวงจรตาม `/report`

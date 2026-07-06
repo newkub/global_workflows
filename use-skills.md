@@ -2,6 +2,9 @@
 title: Use Skills
 description: หลักการใช้ skills จาก skills repository ใน workspace
 auto_execution_mode: 3
+related_workflows:
+  - /follow-skills
+  - /follow-principles
 ---
 
 ## Goal

@@ -8,6 +8,9 @@ related_workflows:
   - /follow-content-quality
   - /follow-best-practice
   - /read-related-workflows
+  - /use-in-another
+  - /learn-from-web
+  - /edit-relative
 ---
 
 ## Goal
@@ -53,14 +56,9 @@ related_workflows:
 
 ### 4. Execution Guidelines
 
-- Foundation ก่อน, High impact items ก่อน
-- Dependencies ของขั้นตอนถัดไปก่อน, Critical path ก่อน
-- Hard to change ก่อน, High risk เพื่อ fail fast
-- ให้ผลลัพธ์เหมือนกันทุกครั้ง
-- ระบุลำดับการทำงานชัดเจน
-- เขียน conditional execution สำหรับ steps ที่ไม่จำเป็นต้องทำทุก project
-- ใช้ "ถ้ามี..." หรือ "ถ้า project มี..." สำหรับ conditional checks
-- ตรวจสอบ project characteristics ก่อน execute (เช่น มี CLI tools หรือไม่, มี SDK หรือไม่)
+- เรียงลำดับ: Foundation ก่อน, High impact ก่อน, Dependencies ก่อน, Critical path ก่อน, Hard to change ก่อน, High risk เพื่อ fail fast
+- ให้ผลลัพธ์เหมือนกันทุกครั้ง ระบุลำดับการทำงานชัดเจน
+- เขียน conditional execution สำหรับ steps ที่ไม่จำเป็นต้องทำทุก project ใช้ "ถ้ามี..." หรือ "ถ้า project มี..." ตรวจสอบ project characteristics ก่อน execute (เช่น มี CLI tools หรือไม่, มี SDK หรือไม่)
 
 ### 5. Script Automation
 
@@ -72,8 +70,7 @@ related_workflows:
 - ใช้ workflows ที่ขึ้นต้นด้วย "use-" สำหรับ tools/libraries ที่เฉพาะเจาะจง
 - ใช้ `/scan-codebase` สำหรับ scan codebase อย่างรวดเร็ว
 - ใช้ `/analyze-project` ใน Execute สำหรับ workflows ที่มี step วิเคราะห์
-- ใช้ `/use-scripts` ใน Execute สำหรับ data processing ซับซ้อน หรือ metrics calculation
-- ตรวจสอบ references ว่ามีอยู่จริงก่อนอ้างอิงใน workflows ทุกตัว
+- พยายามใช้ `/use-scripts` ในการ `/deep-analyze` ก่อนเสมอ ถ้าเป็นไปได้ สำหรับ workflows ที่มี step วิเคราะห์โปรเจกต์
 
 ### 7. Report Formatting
 
@@ -109,9 +106,9 @@ related_workflows:
 
 เรียนรู้ best practices และ official docs ก่อนเขียน workflow
 
-1. ทำ `/follow-best-practice` สำหรับ topic ที่เกี่ยวข้อง เพื่อเขียนตาม best practices จาก context นั้นๆ
-2. ทำ `/deep-research` เมื่อต้องการข้อมูลลึกจาก multiple sources
-3. อ่าน official documentation ของ tools/libraries ที่จะใช้
+1. ทำ `/follow-best-practice` สำหรับ topic ที่เกี่ยวข้อง
+2. ทำ `/learn-from-web` เพื่อเรียนรู้จาก official documentation และเว็บไซต์หลัก
+3. ทำ `/deep-research` เมื่อต้องการข้อมูลลึกจาก multiple sources
 4. ค้นหา examples และ best practices จาก sources ที่เชื่อถือได้
 
 ### 4. Write Frontmatter
@@ -128,13 +125,11 @@ related_workflows:
 
 1. ทำ `/follow-principles` เพื่อเขียนเป็นหลักการทั่วไป
 2. ทำ `/follow-consistency` เพื่อรักษาความสม่ำเสมอ
-3. ทำ `/follow-best-practice` เพื่อเขียนตาม best practices จาก context นั้นๆ
-4. เขียน Execute ด้วย numbered list และ Rules ด้วย bullet points
-5. ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/workflow-name`
-6. ทำ `/use-scripts` สำหรับ data processing ซับซ้อน หรือ metrics calculation
-7. ทำ `/follow-content-quality` เพื่อปรับปรุงคุณภาพเนื้อหาครบวงจร
-8. ทำ `/improve-correctness` เพื่อตรวจสอบความถูกต้อง
-9. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัดและ references มีอยู่จริง
+3. เขียน Execute ด้วย numbered list และ Rules ด้วย bullet points
+4. ทำ `/use-scripts` สำหรับ data processing ซับซ้อน หรือ metrics calculation
+5. ทำ `/follow-content-quality` เพื่อปรับปรุงคุณภาพเนื้อหาครบวงจร
+6. ทำ `/improve-correctness` เพื่อตรวจสอบความถูกต้อง
+7. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัดและ references มีอยู่จริง
 
 ### 6. Suggest Related Workflows
 
@@ -142,6 +137,22 @@ related_workflows:
 2. วิเคราะห์จาก workflow ที่เพิ่งเขียนว่ามี workflows อื่นที่เกี่ยวข้องหรือควรใช้ร่วมกัน
 3. ตรวจสอบว่า workflows ที่แนะนำมีอยู่จริงใน `global_workflows`
 4. แนะนำเป็นลิสต์พร้อมเหตุผลว่าทำไมควรใช้
+
+### 7. Check Cross-References
+
+ตรวจสอบว่า workflow ที่เขียนควรถูกอ้างอิงในไฟล์ใดบ้าง
+
+1. ทำ `/use-in-another` เพื่อวิเคราะห์ว่า workflow ควรถูกอ้างอิงในไฟล์ใดบ้างของ project
+2. เพิ่ม references ในไฟล์ที่ขาด เช่น `AGENTS.md`, `README.md`, workflow files อื่น
+3. ตรวจสอบว่าไม่เพิ่ม reference ในไฟล์ที่ไม่เกี่ยวข้อง
+
+### 8. Update References
+
+อัปเดท references ทั้งหมดที่เกี่ยวข้องหลังจากแก้ไข workflow
+
+1. ทำ `/edit-relative` เพื่ออัปเดท references ทั้งหมดที่เกี่ยวข้องกับ workflow ที่แก้ไข
+2. ตรวจสอบว่าไม่มี references เก่าเหลืออยู่
+3. ตรวจสอบว่า references ใหม่ถูกต้อง
 
 ## Example Template
 

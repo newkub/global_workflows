@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /follow-ast-grep
   - /use-ast-grep
+  - /use-scripts
   - /edit-relative
   - /check-long-files
 ---

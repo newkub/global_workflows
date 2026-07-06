@@ -10,20 +10,26 @@ auto_execution_mode: 3
 
 ## Scope
 
-สร้าง Slidev project ใน `D:/newkub/slides` และรัน dev server พร้อม verify
+ใช้ Slidev ใน `D:/newkub/slides` ที่มี single `package.json` ที่ root — แต่ละ project มีแค่ `slides.md` ไม่ต้องสร้าง `package.json` ใหม่
 
 ## Execute
 
-### 1. Create Project Directory
+### 1. Verify Root Setup
 
-1. สร้าง directory `D:/newkub/slides` ถ้ายังไม่มี
-2. เข้าไปใน directory นั้น
+1. ตรวจสอบว่า `D:/newkub/slides/package.json` มีอยู่แล้ว
+2. ถ้าไม่มี ให้สร้าง `package.json` ที่ root พร้อม dependencies:
+   - `@slidev/cli`
+   - `@slidev/theme-seriph`
+   - `@slidev/theme-default`
+   - `vue`
+3. รัน `bun install` ที่ root
 
-### 2. Initialize Slidev Project
+### 2. Create Slide Project
 
-1. รัน `bun create slidev` เพื่อสร้าง project ใหม่
-2. ตั้งชื่อ project ตามต้องการ
-3. ติดตั้ง dependencies ด้วย `bun install`
+1. สร้าง directory `D:/newkub/slides/{project-name}/`
+2. สร้าง `slides.md` พร้อม headmatter
+3. ไม่ต้องสร้าง `package.json` — dependencies อยู่ที่ root แล้ว
+4. ถ้าต้องการ สร้าง subdirectories: `components/`, `layouts/`, `public/`, `styles/`
 
 ### 3. Configure Slides
 
@@ -31,36 +37,33 @@ auto_execution_mode: 3
 2. ตั้งค่า headmatter (theme, title, info, etc.)
 3. เขียน content ด้วย Markdown syntax ของ Slidev
 
-### 4. Run Verify
+### 4. Run Dev Server
 
-1. ทำ `/run-verify` เพื่อตรวจสอบคุณภาพโค้ด
-2. แก้ไข errors ที่เกิดขึ้นจนผ่าน
-
-### 5. Run Dev Server
-
-1. ทำ `/run-dev` เพื่อรัน development server
+1. รัน `bunx slidev {project-name}/slides.md` ที่ root directory
 2. dev server จะรันที่ port 3030 (default)
 3. เปิด browser เพื่อดู slides แบบ real-time
 
-### 6. Export Slides (Optional)
+### 5. Export Slides (Optional)
 
-1. ใช้ `bunx slidev export` เพื่อ export เป็น PDF
-2. ใช้ `bunx slidev build` เพื่อ build เป็น static site
+1. ใช้ `bunx slidev export {project-name}/slides.md` เพื่อ export เป็น PDF
+2. ใช้ `bunx slidev build {project-name}/slides.md --out dist/{project-name}` เพื่อ build เป็น static site
 
 ## Rules
 
 ### 1. Project Location
 
 - สร้าง project ใน `D:/newkub/slides` เท่านั้น
+- **มีเพียง `package.json` เดียวที่ root** — ไม่สร้าง `package.json` ของแต่ละ project
+- แต่ละ project = folder ที่มี `slides.md` และ optionally `components/`, `layouts/`, `public/`, `styles/`
 - ใช้ Bun เป็น package manager ตาม global rules
 - ใช้ Bun shell สำหรับ automation
 
 ### 2. Slidev CLI Usage
 
-- ใช้ `bun create slidev` สำหรับสร้าง project ใหม่
-- ใช้ `bunx slidev` สำหรับรัน dev server
-- ใช้ `bunx slidev export` สำหรับ export slides
-- ใช้ `bunx slidev build` สำหรับ build static site
+- ใช้ `bunx slidev {project}/slides.md` สำหรับรัน dev server ของ project นั้น
+- ใช้ `bunx slidev export {project}/slides.md` สำหรับ export slides
+- ใช้ `bunx slidev build {project}/slides.md --out dist/{project}` สำหรับ build static site
+- รันคำสั่งที่ root directory `D:/newkub/slides` เสมอ
 
 ### 3. Headmatter Configuration
 
@@ -68,6 +71,18 @@ auto_execution_mode: 3
 - ตั้งค่า `title` และ `info` ให้ชัดเจน
 - ใช้ `transition` สำหรับ slide transitions (slide-left, slide-right, fade-out, fade-in, slide-up, slide-down)
 - เปิดใช้ `mdc: true` สำหรับ MDC syntax
+- ถ้าเป็นภาษาไทย ใช้ font `Noto Sans Thai` ด้วย `fonts` config ใน headmatter:
+  ```yaml
+  fonts:
+    sans: 'Noto Sans Thai'
+    serif: 'Noto Sans Thai'
+    mono: 'Noto Sans Thai'
+  ```
+- หรือเพิ่ม Google Fonts ใน `styles/index.css`:
+  ```css
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap');
+  body { font-family: 'Noto Sans Thai', sans-serif; }
+  ```
 
 ### 4. Animation Transitions
 
@@ -111,14 +126,15 @@ auto_execution_mode: 3
 
 ### 6. Development Workflow
 
-- ต้องรัน `/run-verify` ก่อน `/run-dev`
+- รัน `bunx slidev {project}/slides.md` ที่ root directory
 - ติดตามและแก้ไข errors ทันที
 - ตรวจสอบว่า dev server ทำงานได้
 - Export slides เมื่อพร้อมแชร์
 
 ## Expected Outcome
 
-- Slidev project สร้างใน `D:/newkub/slides`
+- Slidev project สร้างใน `D:/newkub/slides/{project-name}/`
+- ไม่มี `package.json` ของแต่ละ project — ใช้ root `package.json` อย่างเดียว
 - Dev server ทำงานได้ที่ port 3030
 - Slides แสดงผลได้ถูกต้องใน browser
 - สามารถ export เป็น PDF หรือ build เป็น static site

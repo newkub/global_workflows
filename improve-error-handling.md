@@ -3,8 +3,9 @@ title: Improve Error Handling
 description: ปรับปรุง error handling และ resilience ครบวงจร
 auto_execution_mode: 3
 related_workflows:
-  - improve-codebase
-  - improve-monitoring
+  - /improve-codebase
+  - /improve-monitoring
+  - /improve-side-effect
 ---
 
 ## Goal
@@ -71,6 +72,15 @@ related_workflows:
 4. Group similar errors
 5. ตั้งค่า error alerts
 6. Link errors กับ traces และ logs
+
+### 6. Improve Side Effects
+
+ปรับปรุงการจัดการ side effects
+
+1. ทำ `/improve-side-effect` เพื่อจัดการ side effects ด้วย Effect-TS
+2. Wrap error-prone operations ด้วย Effect-TS patterns
+3. ใช้ `Effect.try` สำหรับ error handling
+4. ใช้ `Effect.retry` สำหรับ transient failures
 
 ## Rules
 

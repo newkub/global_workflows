@@ -3,7 +3,7 @@ title: Convert OOP to Functional
 description: แปลง OOP code เป็น functional programming patterns
 auto_execution_mode: 3
 related_workflows:
-  - /refactor-functions
+  - /refactor
   - /follow-functional-core-imperative-shell
   - /follow-functional-programming
   - /follow-composables

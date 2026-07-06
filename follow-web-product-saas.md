@@ -1,0 +1,162 @@
+---
+title: Follow Web Product SaaS
+description: ปรับปรุง web SaaS product ครบวงจรเพื่อความสมบูรณ์และ scalability
+auto_execution_mode: 3
+related_workflows:
+  - /improve-web-performance
+  - /improve-uxui
+  - /improve-seo
+  - /improve-integrations
+  - /improve-security
+  - /improve-scalability
+  - /improve-database
+  - /improve-error-handling
+  - /improve-monitoring
+  - /improve-dx
+  - /follow-content-quality
+  - /improve-caching
+  - /improve-rate-limiting
+  - /improve-multi-tenancy
+  - /improve-feature-flags
+  - /improve-audit-trail
+  - /improve-deployment-strategy
+  - /improve-logging
+---
+
+## Goal
+
+ปรับปรุง web SaaS product ครบวงจรเพื่อให้มีประสิทธิภาพ ใช้งานง่าย และ scalable
+
+## Scope
+
+ใช้สำหรับ web SaaS products ทุกประเภท (B2B, B2C, marketplace, platform)
+
+## Execute
+
+### 1. Analyze SaaS Structure
+
+วิเคราะห์โครงสร้าง SaaS ปัจจุบัน
+
+1. ทำ `/analyze-project` เพื่อดูโครงสร้าง
+2. ตรวจสอบ architecture patterns, multi-tenancy, authentication และ billing/subscription logic
+3. ถ้า project มี CLI tools ให้ตรวจสอบ API integration ด้วย
+4. ถ้า project มี SDK ให้ตรวจสอบ developer API surface
+
+### 2. Improve Performance
+
+ปรับปรุง performance ครบวงจร
+
+1. ทำ `/improve-web-performance` สำหรับ web performance
+2. ทำ `/improve-caching` สำหรับ caching strategy
+3. Optimize database queries, API responses และ implement CDN
+
+### 3. Improve UX/UI
+
+ปรับปรุง UX/UI ครบวงจร
+
+1. ทำ `/improve-uxui` สำหรับ UX/UI improvements
+2. ปรับปรุง onboarding flow, user dashboard, settings interface และ notification experience
+
+### 4. Improve SEO
+
+ปรับปรุง SEO ครบวงจร
+
+1. ทำ `/improve-seo` สำหรับ SEO improvements
+2. Optimize landing pages และ content pages
+3. Implement structured data และ monitor search performance
+
+### 5. Improve Integrations
+
+ปรับปรุง integrations ครบวงจร
+
+1. ทำ `/improve-integrations` สำหรับ integrations
+2. Improve third-party integrations, API integrations, webhook handling และ data synchronization
+
+### 6. Improve Security
+
+ปรับปรุง security ครบวงจร
+
+1. ทำ `/improve-security` สำหรับ security improvements
+2. ทำ `/improve-rate-limiting` สำหรับ rate limiting และ DDoS protection
+3. ทำ `/improve-audit-trail` สำหรับ audit logging และ compliance trail
+4. Implement multi-factor authentication, data encryption และ security monitoring
+
+### 7. Improve Scalability
+
+ปรับปรุง scalability
+
+1. ทำ `/improve-scalability` สำหรับ scalability improvements
+2. ทำ `/improve-multi-tenancy` สำหรับ tenant isolation และ resource limits
+3. Optimize database for scale, implement horizontal scaling และ load balancing
+
+### 8. Improve Database
+
+ปรับปรุง database operations
+
+1. ทำ `/improve-database` สำหรับ database improvements
+2. Optimize queries, implement proper indexing, connection pooling และ data archiving
+
+### 9. Improve Error Handling
+
+ปรับปรุง error handling
+
+1. ทำ `/improve-error-handling` สำหรับ error handling
+2. Implement global error handling, error tracking และ error recovery
+
+### 10. Improve Monitoring
+
+ปรับปรุง monitoring และ observability
+
+1. ทำ `/improve-monitoring` สำหรับ monitoring improvements
+2. ทำ `/improve-logging` สำหรับ logging strategy
+3. Implement application monitoring, business metrics และ alerting
+
+### 11. Improve Developer Experience
+
+ปรับปรุง developer experience
+
+1. ทำ `/improve-dx` สำหรับ DX improvements
+2. ทำ `/improve-deployment-strategy` สำหรับ deployment และ rollback strategy
+3. ทำ `/improve-feature-flags` สำหรับ gradual rollout และ kill switches
+4. Improve build times, local development และ documentation
+
+### 12. Verify And Report
+
+ตรวจสอบผลการปรับปรุง
+
+1. ทำ `/check-correctness` เพื่อ verify การเปลี่ยนแปลง
+2. ทำ `/report` เพื่อสรุปการปรับปรุงครบวงจร
+
+## Rules
+
+### 1. SaaS-Specific Requirements
+
+ข้อกำหนดเฉพาะของ SaaS products ที่ไม่ครอบคลุมโดย `/improve-*` workflows
+
+- Billing: integrate payment gateways, subscription management, usage tracking, handle payment failures gracefully
+- Data Privacy: GDPR compliance, data retention policies, data export/deletion, consent management
+- Multi-tenancy: tenant isolation, tenant-aware data access, tenant-specific configurations
+
+### 2. Performance Targets
+
+ทำตามเป้าหมาย performance สำหรับ SaaS products
+
+- Page load time: < 2s
+- API response time: < 200ms
+- Database query time: < 100ms
+- Uptime: > 99.9%
+- Error rate: < 0.1%
+
+## Expected Outcome
+
+- Performance ดีและเร็ว
+- UX/UI ใช้งานง่ายและเป็นมิตร
+- SEO ดีและ ranking สูง
+- Integrations stable และ reliable
+- Security เข้มงวด
+- Scalable และ handle growth ได้
+- Database operations efficient
+- Error handling robust
+- Monitoring ครบถ้วน
+- Developer experience ดี
+- SaaS product พร้อมสำหรับ production

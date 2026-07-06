@@ -6,6 +6,7 @@ related_workflows:
   - /analyze-project
   - /prioritize
   - /improve-architecture
+  - /improve-dependencies
   - /improve-foundation
   - /improve-backend
   - /improve-security
@@ -33,37 +34,41 @@ related_workflows:
 
 ### 1. Architecture And Structure
 
-1. ทำ `/improve-architecture` เพื่อปรับปรุง architecture, dependencies, file structure, routing
+1. ทำ `/improve-architecture` เพื่อปรับปรุง architecture, file structure, routing
 
-### 2. Foundation And Code Quality
+### 2. Dependencies And Security
+
+1. ทำ `/improve-dependencies` เพื่อปรับปรุง dependencies ครบวงจร inventory, validation, security, cleanup, update, optimization
+
+### 3. Foundation And Code Quality
 
 1. ทำ `/improve-foundation` เพื่อปรับปรุง type safety, code quality, state management
 
-### 3. Backend And Data
+### 4. Backend And Data
 
 1. ทำ `/improve-backend` เพื่อปรับปรุง database, data quality, API, backend services, network, payment, email
 
-### 4. Security And Compliance
+### 5. Security And Compliance
 
 1. ทำ `/improve-security` เพื่อปรับปรุง security, compliance, privacy
 
-### 5. Reliability And Testing
+### 6. Reliability And Testing
 
 1. ทำ `/improve-reliability` เพื่อปรับปรุง error handling, observability, testing, coverage
 
-### 6. Performance And Caching
+### 7. Performance And Caching
 
 1. ทำ `/improve-performance` เพื่อปรับปรุง web performance, rendering, scalability, caching
 
-### 7. Frontend And Platform
+### 8. Frontend And Platform
 
 1. ทำ `/improve-frontend` เพื่อปรับปรุง UI/UX, accessibility, forms, i18n, platform, mobile
 
-### 8. Operations
+### 9. Operations
 
 1. ทำ `/improve-operations` เพื่อปรับปรุง integrations, realtime, DevOps, deployment, feature flags, monitoring, cost
 
-### 9. Delivery And Documentation
+### 10. Delivery And Documentation
 
 1. ทำ `/improve-delivery` เพื่อปรับปรุง SEO, content, DX, docs, versioning
 
@@ -72,7 +77,7 @@ related_workflows:
 ### 1. Priority-Based Execution
 
 - ทำทีละ sub-workflow และตรวจสอบ
-- ทำ `Architecture` → `Foundation` → `Backend` → `Security` → `Reliability` → `Performance` → `Frontend` → `Operations` → `Delivery`
+- ทำ `Architecture` → `Dependencies` → `Foundation` → `Backend` → `Security` → `Reliability` → `Performance` → `Frontend` → `Operations` → `Delivery`
 - ถ้าพบ issues ทำ `/resolve-errors` ก่อนดำเนินต่อ
 - ทำ `/update-reference` หลังแต่ละ sub-workflow
 - รัน tests หลังแต่ละ improvement และตรวจสอบ coverage ไม่ลดลง
@@ -87,7 +92,8 @@ related_workflows:
 ## Expected Outcome
 
 - Project ถูกวิเคราะห์อย่างครบถ้วนก่อนเริ่มปรับปรุง
-- Architecture, dependencies, file structure, routing ถูกปรับปรุง
+- Architecture, file structure, routing ถูกปรับปรุง
+- Dependencies ถูก inventory, validate, cleanup, update, optimize
 - Foundation, type safety, code quality ถูกปรับปรุง
 - Database, API, backend, network, payment, email ถูกปรับปรุง
 - Security, compliance, privacy ถูกปรับปรุง

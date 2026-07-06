@@ -1,17 +1,16 @@
 ---
 title: Learn
-description: เรียนรู้ concept, tool, หรือ library อย่างเป็นระบบ ด้วย research, visualize และ practice
+description: เรียนรู้ concept, tool, หรือ library อย่างเป็นระบบ ด้วย research และ practice
 auto_execution_mode: 3
 related_workflows:
   - /deep-research
   - /learn-from-web
-  - /visualize
   - /follow-best-practice
 ---
 
 ## Goal
 
-เรียนรู้ concept, tool, หรือ library อย่างเป็นระบบ โดยใช้ research, visualization และ practice เพื่อให้เข้าใจอย่างลึกซึ้ง
+เรียนรู้ concept, tool, หรือ library อย่างเป็นระบบ โดยใช้ research และ practice เพื่อให้เข้าใจอย่างลึกซึ้ง
 
 ## Scope
 
@@ -28,16 +27,7 @@ related_workflows:
 3. ระบุคำถามหลักที่ต้องการคำตอบ
 4. กำหนดเวลาและขอบเขตการเรียนรู้
 
-### 2. Visualize Available Workflows
-
-ดู global workflows ที่เกี่ยวข้องกับเป้าหมาย:
-
-1. ทำ `/visualize` สร้าง visual ของ global workflows ทั้งหมดเพื่อเห็นภาพรวม
-2. ระบุ workflows ที่เกี่ยวข้องกับเป้าหมายการเรียนรู้
-3. เลือก workflows ที่จะใช้ในการเรียนรู้
-4. วางลำดับการใช้ workflows ตามความสำคัญ
-
-### 3. Deep Research
+### 2. Deep Research
 
 ทำ `/deep-research` เพื่อค้นหาข้อมูลลึก:
 
@@ -47,7 +37,7 @@ related_workflows:
 4. ค้นหา examples และ tutorials
 5. ตรวจสอบ version compatibility กับ project
 
-### 4. Learn From Web
+### 3. Learn From Web
 
 ทำ `/learn-from-web` สำหรับเรียนรู้จากเว็บไซต์หลัก:
 
@@ -56,16 +46,7 @@ related_workflows:
 3. ใช้ Web Search สำหรับ fallback
 4. บันทึก code examples และ configuration examples
 
-### 5. Visualize Concepts
-
-ทำ `/visualize` เพื่อสร้าง visual ให้เข้าใจง่าย:
-
-1. สร้าง diagram ของ concept หรือ architecture ที่เรียนรู้
-2. ใช้ ANSI mode สำหรับ concept ง่ายๆ
-3. ใช้ Web mode สำหรับ concept ซับซ้อนที่ต้องการ interaction
-4. สร้างไฟล์ใน OS temp directory
-
-### 6. Apply Best Practices
+### 4. Apply Best Practices
 
 ทำ `/follow-best-practice` เพื่อนำความรู้ไปใช้:
 
@@ -74,7 +55,7 @@ related_workflows:
 3. ทดสอบด้วย examples ที่เรียนรู้มา
 4. ปรับปรุงตาม feedback
 
-### 7. Practice And Validate
+### 5. Practice And Validate
 
 ฝึกและตรวจสอบความเข้าใจ:
 
@@ -89,7 +70,6 @@ related_workflows:
 
 - เริ่มจาก overview ก่อน deep dive
 - ใช้ multiple sources เพื่อ cross-reference
-- ทำ `/visualize` เพื่อเห็นภาพรวมของ workflows ที่เกี่ยวข้อง
 - ฝึกปฏิบัติจริง ไม่ใช่แค่อ่าน
 
 ### 2. Research Standards
@@ -99,20 +79,13 @@ related_workflows:
 - ตรวจสอบ credibility และ freshness ของข้อมูล
 - บันทึก code examples และ configuration examples
 
-### 3. Visualization
-
-- ทำ `/visualize` เพื่อสร้าง visual ของ concept ที่เรียนรู้
-- ใช้ ANSI mode สำหรับ concept ง่ายๆ ดูใน terminal
-- ใช้ Web mode สำหรับ concept ซับซ้อน ต้องการ interaction
-- ไฟล์ชั่วคราวใน OS temp directory
-
-### 4. Best Practices
+### 3. Best Practices
 
 - ทำ `/follow-best-practice` เพื่อนำความรู้ไปใช้ตามมาตรฐาน
 - ตรวจสอบความถูกต้องด้วย linter และ typecheck
 - รัน tests เพื่อยืนยันความถูกต้อง
 
-### 5. Knowledge Retention
+### 4. Knowledge Retention
 
 - บันทึกหลักการสำคัญและ core concepts
 - บันทึก edge cases และ common pitfalls
@@ -122,7 +95,6 @@ related_workflows:
 ## Expected Outcome
 
 - เข้าใจ concept, tool, หรือ library อย่างลึกซึ้ง
-- Visual ของ global workflows ที่เกี่ยวข้อง
 - ข้อมูลครบถ้วนจาก multiple sources
 - Code examples และ best practices ที่บันทึกไว้
 - การนำความรู้ไปใช้จริงพร้อม validation

@@ -1,52 +1,36 @@
 ﻿---
 title: Try Again
-description: ทำงานซ้ำตาม user prompt ครั้งก่อนหน้าเพื่อ recheck
+description: ทำตาม user prompt ล่าสุดอีกครั้ง
 auto_execution_mode: 3
 ---
 
 ## Goal
 
-ทำงานซ้ำตาม user prompt ครั้งก่อนหน้าเพื่อตรวจสอบและแก้ไข
+ทำตาม user prompt ล่าสุดอีกครั้ง
 
 ## Scope
 
-ใช้เมื่อต้องการทำงานซ้ำเพื่อ recheck หรือ fix ปัญหาที่เกิดขึ้น
+ใช้เมื่อต้องการทำงานซ้ำตาม user prompt ล่าสุด
 
 ## Execute
 
-### 1. Identify Previous Task
+### 1. Identify Latest Prompt
 
-ระบุ task ครั้งก่อนหน้าที่ต้องทำซ้ำ
+1. อ่าน user prompt ล่าสุดจาก conversation history
+2. ถ้าไม่พบ ให้ถามผู้ใช้
 
-1. ตรวจสอบ user prompt ครั้งก่อนหน้า
-2. ระบุ `workflow` หรือ `skill` ที่ใช้ไป
-3. ระบุสิ่งที่ต้องทำซ้ำ
+### 2. Re-Execute
 
-### 2. Execute Previous Task
-
-ทำงานซ้ำตาม workflow หรือ skill ที่ระบุ
-
-1. ทำตาม workflow หรือ skill ที่ระบุ
-2. ตรวจสอบผลลัพธ์
-3. แก้ไขปัญหาที่เกิดขึ้น (ถ้ามี)
-
-### 3. Verify Result
-
-ตรวจสอบผลลัพธ์
-
-1. ทำ `/run-verify` เพื่อตรวจสอบความถูกต้อง
-2. ทำ `/run-test` เพื่อทดสอบการใช้งาน
-3. ทำ `/report` เพื่อรายงานผลลัพธ์
+1. ทำตาม user prompt ล่าสุดอีกครั้ง
+2. แก้ไขปัญหาที่ root cause
 
 ## Rules
 
-- ต้องระบุ `workflow` หรือ `skill` ที่ใช้ไปชัดเจน
-- ต้องทำตาม `workflow` หรือ `skill` ที่ระบุเท่านั้น
-- ต้องตรวจสอบผลลัพธ์หลังทำเสร็จ
-- ต้องรายงานผลลัพธ์ชัดเจน
+- ทำตาม user prompt ล่าสุดเท่านั้น
+- แก้ที่ root cause ไม่ใช่ symptoms
+- ใช้ minimal changes เสมอ
 
 ## Expected Outcome
 
-- งานที่ทำซ้ำผ่านการตรวจสอบ
-- ปัญหาที่เกิดขึ้นถูกแก้ไข
-- ผลลัพธ์ถูกต้องตามที่คาดหวัง
+- งานที่ทำซ้ำเสร็จสมบูรณ์
+- ปัญหาถูกแก้ไขที่ root cause

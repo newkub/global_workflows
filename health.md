@@ -3,8 +3,12 @@ title: Health
 description: วิเคราะห์สุขภาพโปรเจกต์อย่างครบถ้วนและรายงานผลในรูปแบบตารางที่อ่านง่าย
 auto_execution_mode: 3
 related_workflows:
-  - /analyze-project
+  - /deep-analyze-with-use-scripts
   - /report-format-table
+  - /improve-code-quality
+  - /refactor
+  - /analyze-code-quality
+  - /realize-implementation
 ---
 
 ## Goal
@@ -30,36 +34,13 @@ related_workflows:
 
 ### 2. Prepare Data
 
-1. แยกข้อมูลเป็น categories หลัก:
-   - Structure & Architecture
-   - Dependencies & Security
-   - Code Quality
-   - Testing & Coverage
-   - Performance
-   - Documentation
-   - Code Organization
-   - Configuration Management
-   - CI/CD Pipeline
-   - Git Workflow
-   - Error Handling
-   - Logging & Monitoring
-   - API Design
-   - State Management
-   - Security Best Practices
-   - Accessibility
-   - Internationalization (i18n)
-   - Performance Monitoring
-   - Code Duplication
-   - Technical Debt
+1. แยกข้อมูลเป็น categories หลัก (40+ categories ครอบคลุม structure, dependencies, code quality, testing, performance, documentation, configuration, CI/CD, git, error handling, logging, API, state, security, accessibility, i18n, monitoring, duplication, technical debt, separation of concerns, type safety, circular dependencies, hard code, naming, reusability, side effects, SRP, constants, types, utils, workspace, shared packages, import alias, barrel files, mock detection, production readiness, schema, database, API, UX/UI, type flow, infrastructure)
 2. กำหนด metrics และ status indicators สำหรับแต่ละ category
-3. คำนวณ scores หรือ ratings ถ้าจำเป็น
-4. วิเคราะห์ข้อมูลลึกซึ้งด้วย tools ต่างๆ (knip, taze, biome, oxlint, vitest)
-5. ตรวจสอบ TODO, FIXME, HACK comments ทั่วทั้ง project
-6. ตรวจสอบ console.log, console.error, console.warn usage
-7. ตรวจสอบ test coverage และ test files
-8. ตรวจสอบ README files และ documentation
-9. ตรวจสอบ configuration files (tsconfig, biome, turbo, etc.)
-10. ตรวจสอบ build configuration (bunup.config.ts)
+3. วิเคราะห์ข้อมูลลึกซึ้งด้วย tools (knip, taze, biome, oxlint, vitest, madge, ast-grep)
+4. ตรวจสอบ code quality: TODO/FIXME/HACK, console logs, test coverage, README, config files, build config
+5. ตรวจสอบ code structure: MOCK/FAKE/STUB, hardcoded values, circular dependencies, file sizes, function sizes, `any` types
+6. ตรวจสอบ production readiness: type flow (DB→Zod→API→UI), DB schema, API handlers, UX/UI components
+7. ทำ `/analyze-code-quality` เพื่อตรวจสอบ SRP, SoC, type safety, hard code, anti-patterns, code smells, dead code, side effects, naming conventions
 
 ### 3. Format Table
 
@@ -122,7 +103,7 @@ related_workflows:
 
 ## Expected Outcome
 
-- รายงานสุขภาพโปรเจกต์ที่ครบถ้วนครอบคลุม 18 categories
+- รายงานสุขภาพโปรเจกต์ที่ครบถ้วนครอบคลุม 40+ categories
 - ตารางที่มีโครงสร้างสอดคล้องและจัดกลุ่มชัดเจน
 - Content ที่จัดรูปแบบอย่างชัดเจนด้วย metrics ที่เฉพาะเจาะจง
 - ตารางที่อ่านง่ายบนทุก device โดยไม่มี column Category ซ้ำซ้อน
@@ -130,3 +111,16 @@ related_workflows:
 - Recommendations สำหรับ improvements ตาม priority และ impact
 - Health score โดยรวมเพื่อวัดสุขภาพโดยรวมของ project
 - Action items ที่สามารถดำเนินการได้ทันที
+- Metrics ครอบคลุมทั้ง code quality, refactoring, และ production readiness
+
+## Example Table
+
+ตัวอย่างรายงานสุขภาพโปรเจกต์ในรูปแบบตาราง:
+
+| No. | Metric | Value | Status | Severity | Location | Recommendation |
+|-----|--------|-------|--------|----------|----------|----------------|
+| 1 | File size limit | 3 files > 250 lines | ❌ | High | `src/modules/analytics/` | Split per `/refactor` |
+| 2 | `any` types usage | 12 occurrences | ❌ | High | Multiple files | Replace with proper types |
+| 3 | MOCK implementations | 3 MOCK classes | ❌ | High | `src/mocks/` | Replace with real DB queries |
+| 4 | Type flow completeness | DB → Zod → API → UI | ✅ | - | - | No action needed |
+| 5 | SRP violations | 2 files with "และ" | ❌ | High | `src/modules/provider/` | Split via `/refactor` |

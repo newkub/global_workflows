@@ -6,37 +6,25 @@ auto_execution_mode: 3
 
 ## Goal
 
-สร้างไอเดีย UX/UI improvements ใหม่และปรับปรุง UX/UI ที่มีอยู่ วิเคราะห์ usability gaps, user experience และ design trends ด้วย continuous numbering และ scope ที่ชัดเจน
-
-## Plan
-
-วิเคราะห์ UX/UI ปัจจุบัน วิจัย design trends สร้างไอเดีย improvements และจัดลำดับตาม impact
-
-## Scope
-
-ครอบคลุมการวิเคราะห์ UX/UI การวิจัย design trends การสร้างไอเดีย improvements และการจัดลำดับตาม impact
+สร้างตาราง UX/UI improvements 40 รายการ (Extends + New) พร้อม continuous numbering และ scope ที่ชัดเจน
 
 ## Execute
 
-### 1. Analyze UX/UI
+### 1. Deep Analyze
 
-วิเคราะห์ UX/UI ปัจจุบันและ component structure
+วิเคราะห์โปรเจกต์อย่างลึกซึ้งครบทุกมิติ
 
-- ทำ `/analyze-project` เพื่อดูภาพรวมโปรเจกต์
-- ทำ `/refactor-to-workspace` เพื่อวิเคราะห์โครงสร้าง components
-- สำรวจ UX/UI ทั้งหมดในโปรเจกต์
+- ทำ `/deep-analyze` เพื่อวิเคราะห์ architecture, code quality, features, dependencies, performance, security
+- วิเคราะห์ UX/UI ปัจจุบันและ component structure
 - ระบุ usability gaps และ missing design elements
-- ระบุ UI components ที่สามารถ reuse ได้จาก packages ที่มีอยู่
-- ระบุ boundary ของแต่ละ component เพื่อกำหนด scope ของ UX/UI improvements
+- ระบุ UI components ที่สามารถ reuse ได้
 
-### 2. Define Scope and Research
+### 2. Research Design Trends
 
-กำหนด scope และวิจัย design trends
+วิจัย design trends และ best practices
 
-- กำหนด scope ของแต่ละ UX/UI improvement ให้ชัดเจน
-- ตรวจสอบว่า improvement ไม่ over-scope จนเกินความสามารถของ components
 - ศึกษา UX/UI patterns ยอดนิยมใน similar products
-- วิเคราะห์ emerging design trends และ best practices
+- วิเคราะห์ emerging design trends
 - หา user feedback จาก usability testing, reviews, analytics
 - ศึกษา design systems และ accessibility guidelines (WCAG)
 
@@ -49,13 +37,11 @@ auto_execution_mode: 3
 - ระบุ usability problem ที่แต่ละ improvement จะ solve
 - กำหนด target users และ use cases
 - ระบุ component type (button, form, layout, navigation, etc)
-- จัดกลุ่ม UX/UI improvements ตาม design areas
 
-### 4. Create Task Document
+### 4. Output to Chat
 
-สร้างไฟล์ task document พร้อมตาราง UX/UI improvements
+ตอบตาราง UX/UI improvements ในแชท
 
-- สร้างไฟล์ `.agents/task/<name>-DD-MM-YYYY.md` ใน workspace
 - สร้างตารางเดียวรวม 40 UX/UI improvements (Extends + New)
 - แต่ละ improvement มี continuous numbering 1-40
 - ระบุ หมายเลข, ชื่อ UX/UI Improvement, คำอธิบาย, ปัญหาที่แก้, วิธีทำ, Dependencies, Component/Category, ประเภท, ความยาก, ผลกระทบ, Interface, หัวข้อ, Scope
@@ -71,14 +57,11 @@ auto_execution_mode: 3
 
 จัดลำดับและเสนอ roadmap
 
-- จัดลำดับตาม value vs effort
-- ใช้ framework เช่น RICE (Reach, Impact, Confidence, Effort)
+- จัดลำดับตาม value vs effort (RICE framework)
 - ระบุ quick wins และ strategic improvements
 - กำหนด MVP scope สำหรับแต่ละ UX/UI improvement
 - เสนอ roadmap สำหรับ implement UX/UI improvements
 - แนะนำ phasing strategy (MVP → v2 → v3)
-- ให้ resource estimates และ timeline
-- สร้าง criteria สำหรับ validate UX/UI improvement success
 
 ## Rules
 
@@ -135,21 +118,9 @@ auto_execution_mode: 3
 
 ### 7. Output Format
 
-สร้างไฟล์ task document พร้อมตาราง UX/UI improvements
+ตอบตาราง UX/UI improvements ในแชท
 
-- สร้างไฟล์ `.agents/task/<name>-DD-MM-YYYY.md` ใน workspace
-- บันทึกตาราง UX/UI improvements ในไฟล์
 - ใช้ markdown table สำหรับแสดง UX/UI improvements
 - ตารางรวมทั้งหมด 40 อันดับ เรียงตาม Impact
 - ตารางเป็นภาษาไทยทั้งหมด
-
-## Expected Outcome
-
-- ตารางเดียวรวม 40 UX/UI improvements (Extends + New) พร้อม continuous numbering
-- Column Type ระบุ Extends หรือ New
-- เรียงลำดับตาม Impact (สูง → ปานกลาง → ต่ำ)
-- Column order: #, UX/UI Improvement, Description, Problem/Solves, How To, Dependencies, Component/Category, Type, Difficult, Impact, Interface, Topics, Scope
-- Interface ระบุประเภท: component, layout, pattern, interaction, animation, etc
-- Topics ระบุหัวข้อ เช่น accessibility, responsive, dark-mode, etc
-- Scope ระบุขอบเขต: component-level, page-level, app-level, cross-app
 

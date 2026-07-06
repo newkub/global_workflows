@@ -84,7 +84,6 @@ related_workflows:
 - รัน `lint` เพื่อตรวจสอบว่าผ่าน linting rules
 - รัน `test` เพื่อตรวจสอบว่าไม่มี regressions
 - ตรวจสอบ manually สำหรับ changes ที่สำคัญ
-- ใช้ `/run-verify` สำหรับ verification อัตโนมัติ
 
 ### 4. Source-Specific Guidelines
 

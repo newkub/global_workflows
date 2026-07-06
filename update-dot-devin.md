@@ -6,6 +6,8 @@ related_workflows:
   - /update-devin-rules
   - /update-agents
   - /check-monorepo
+  - /write-ast-grep-rules
+  - /follow-ast-grep
 ---
 
 ## Goal
@@ -117,14 +119,24 @@ integrations/<workspace>/
 2. อ่าน https://docs.devin.ai/cli/extensibility/mcp/overview เพื่อเข้าใจ MCP
 3. ตั้งค่า skills และ MCP servers ตามความจำเป็นของ project
 
-### 7. Remove Workflows Directory
+### 7. Write Ast-Grep Rules
+
+เขียน ast-grep rules ใน `.devin/rules/` ตาม devin rules ที่สร้างขึ้น
+
+1. ทำ `/write-ast-grep-rules` เพื่อแปลง devin rules เป็น ast-grep YAML format
+2. สร้าง ast-grep rules ใน `.devin/rules/always-on/` และ `.devin/rules/model_decision/`
+3. อัพเดท `sgconfig.yml` ให้ `ruleDirs` ชี้ไปที่ `.devin/rules/always-on` และ `.devin/rules/model_decision`
+4. รัน `bunx ast-grep scan --inspect summary` เพื่อตรวจสอบว่า rules parse ได้
+5. รัน `bun run scan` เพื่อ scan ทั้ง codebase
+
+### 8. Remove Workflows Directory
 
 ลบ `.devin/workflows/` directory ถ้ามีอยู่
 
 1. ตรวจสอบว่า `.devin/workflows/` directory มีอยู่หรือไม่
 2. ถ้ามี ให้ลบทิ้งทั้ง directory
 
-### 8. Test And Validate
+### 9. Test And Validate
 
 ทดสอบและตรวจสอบ
 
@@ -132,6 +144,7 @@ integrations/<workspace>/
 2. ตรวจสอบ exit codes และ output
 3. ตรวจสอบ JSON configuration ถูกต้อง
 4. ตรวจสอบว่าไม่มี `.devin/workflows/` directory
+5. ตรวจสอบว่า ast-grep rules ใน `.devin/rules/` ทำงานได้
 
 ## Rules
 
@@ -179,6 +192,12 @@ integrations/<workspace>/
 - รันด้วย `bun .devin/hooks/run-lint.ts`
 - Parse JSON input จาก stdin
 
+### 9. Ast-Grep Rules
+
+- ใช้ `/write-ast-grep-rules` สำหรับสร้าง ast-grep rules ใน `.devin/rules/`
+- `sgconfig.yml` ต้องชี้ `ruleDirs` ไปที่ `.devin/rules/always-on` และ `.devin/rules/model_decision`
+- ast-grep rules (YAML) และ devin rules (Markdown) อยู่ใน `.devin/rules/` ที่เดียวกัน
+
 ## Expected Outcome
 
 - `.devin` มี rules และ hooks ครบถ้วน ไม่มี `workflows/` directory
@@ -186,3 +205,4 @@ integrations/<workspace>/
 - Root `AGENTS.md` บอกให้ทำตาม workspace `AGENTS.md`
 - Rules จัดรูปแบบถูกต้องตามมาตรฐาน
 - Hooks ทำงานตาม events ที่กำหนด
+- ast-grep rules อยู่ใน `.devin/rules/` และ `sgconfig.yml` ชี้ไปที่ถูกต้อง

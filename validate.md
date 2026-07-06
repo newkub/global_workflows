@@ -4,7 +4,7 @@ description: ตรวจสอบความถูกต้อง คุณภ
 auto_execution_mode: 3
 related_workflows:
   - /check-correctness
-  - /check-maintainability
+  - /analyze-code-quality
   - /check-configuration
 ---
 

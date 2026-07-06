@@ -1,87 +1,62 @@
 ---
-description: แปล function และ code ต่างๆ เป็นประโยคที่เข้าใจง่าย
+title: Translate Code
+description: แปล function และ code เป็นประโยคที่เข้าใจง่าย
 auto_execution_mode: 3
 ---
 
-## 1. Code Analysis
+## Goal
 
-1. อ่านไฟล์ที่ต้องการแปล
+แปล code และ functions เป็นประโยคภาษาไทยที่เข้าใจง่าย พร้อมอธิบาย input/output และ logic
 
-- ตรวจสอบโครงสร้างไฟล์
-- จดบันทึก functions และ logic สำคัญ
+## Scope
 
-2. วิเคราะห์ code structure
+ใช้สำหรับอธิบาย code ให้ผู้ที่ไม่ใช่ developer เข้าใจการทำงานของ functions
 
-- ระบุ input/output ของแต่ละ function
-- จำแนกประเภทของ operations
+## Execute
 
-3. สรุป functionality หลัก
+### 1. Code Analysis
 
-- บันทึกวัตถุประสงค์ของ code
-- จดความสัมพันธ์ระหว่าง functions
+วิเคราะห์ code ที่ต้องการแปล:
 
-## 2. Translation Process
+1. อ่านไฟล์และตรวจสอบโครงสร้าง
+2. ระบุ input/output ของแต่ละ function
+3. จำแนกประเภทของ operations
+4. สรุป functionality หลักและความสัมพันธ์ระหว่าง functions
 
-1. แปล function names
+### 2. Translation Process
 
-- แปลชื่อเป็นภาษาที่เข้าใจง่าย
-- รักษาความหมายเดิมไว้
+แปล code เป็นประโยคที่เข้าใจง่าย:
 
-2. อธิบาย function logic
+1. แปล function names เป็นภาษาไทยโดยรักษาความหมาย
+2. อธิบาย input parameters และ return values
+3. อธิบาย process ภายใน function
+4. ให้ตัวอย่างการใช้งานและ edge cases ถ้ามี
 
-- อธิบาย input parameters
-- อธิบาย process ภายใน
-- อธิบาย return values
+### 3. Format Output
 
-3. สรุปการทำงาน
+จัดรูปแบบผลลัพธ์:
 
-- เขียนประโยคสรุป functionality
-- ให้ตัวอย่างการใช้งาน
-- อธิบาย edge cases ถ้ามี
+1. เขียนประโยคสรุป functionality หนึ่งบรรทัด
+2. แสดง input/output เป็น bullet points
+3. แสดง code block เดิมคู่กับคำอธิบาย
 
-## 3. Example Usage
+## Rules
 
-1. แปล function ง่ายๆ
+### 1. Translation Style
 
-```typescript
-function calculateSum(a: number, b: number): number {
-  return a + b;
-}
-```
+- แปลเป็นภาษาไทยที่เข้าใจง่าย ไม่ใช้ศัพท์เทคนิคเกินจำเป็น
+- รักษาความหมายเดิมของ code
+- ไม่แปล code, commands, หรือ configuration
+- รักษา formatting ของ code blocks
 
-→ "ฟังก์ชันคำนวณผลรวมของตัวเลขสองตัว"
+### 2. Output Format
 
-- input: a (ตัวเลขแรก), b (ตัวเลขที่สอง)
-- output: ผลรวมของ a และ b
+- ประโยคสรุปขึ้นต้นด้วย "ฟังก์ชัน..." หรือ "เมธอด..."
+- input/output แสดงเป็น bullet points
+- ใช้ code block สำหรับตัวอย่าง code
 
-2. แปล function ซับซ้อน
+## Expected Outcome
 
-```typescript
-async function fetchUserData(userId: string): Promise<User | null> {
-  const user = await db.users.findById(userId);
-  return user;
-}
-```
-
-→ "ฟังก์ชันดึงข้อมูลผู้ใช้จาก database โดยใช้ userId"
-
-- input: userId (รหัสผู้ใช้)
-- process: ค้นหาใน database และคืนค่าข้อมูลผู้ใช้
-- output: object ข้อมูลผู้ใช้ หรือ null ถ้าไม่พบ
-
-3. แปล class methods
-
-```typescript
-class EmailValidator {
-  validateEmail(email: string): boolean {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
-}
-```
-
-→ "เมธอดตรวจสอบรูปแบบอีเมลว่าถูกต้องหรือไม่"
-
-- input: email (อีเมลที่ต้องการตรวจสอบ)
-- output: true ถ้ารูปแบบถูกต้อง, false ถ้าไม่ถูกต้อง
-
+- Code ถูกแปลเป็นประโยคภาษาไทยที่เข้าใจง่าย
+- Input/output และ logic อธิบายชัดเจน
+- ผู้ที่ไม่ใช่ developer เข้าใจการทำงานของ code

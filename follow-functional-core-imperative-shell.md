@@ -4,7 +4,7 @@ description: แยก pure functions จาก side effects ด้วย Functi
 auto_execution_mode: 3
 related_workflows:
   - /follow-functional-programming
-  - /refactor-functions
+  - /refactor
   - /refactor-modules
 ---
 

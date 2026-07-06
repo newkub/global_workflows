@@ -1,207 +1,169 @@
 ---
 title: Realize Implementation
-description: แปลง TODO, MOCK, placeholder เป็น production code จริง
+description: แปลงทุกอย่างเป็น production code จริง ครบทุกมิติ
 auto_execution_mode: 3
 related_workflows:
-  - /analyze-project
+  - /analyze-missing-implementation
   - /implement-comment-todo
-  - /loop-until-complete
   - /refactor
   - /edit-relative
-  - /run-verify
 ---
 
 ## Goal
 
-แปลง TODO, MOCK, placeholder เป็น production code จริงที่เชื่อมต่อกับ infrastructure จริง
+แปลงทุกอย่างเป็น production code จริงที่ใช้งานได้จริง ครบทุกมิติ
 
 ## Scope
 
-ครอบคลุมการแปลง TODO, MOCK, FAKE, STUB implementations และ placeholder code เป็น production code ที่เชื่อมต่อกับ database, API, และ external services จริง รวมถึงการตรวจสอบ infrastructure และการทดสอบ end-to-end
+แปลง TODO, MOCK, FAKE, STUB, placeholder เป็น production code ครบทุกมิติ: database, API, UX/UI, schema, types, external services พร้อมเชื่อมต่อ infrastructure จริง end-to-end
 
 ## Execute
 
-### 1. Project Analysis
+### 1. Analyze Missing Implementation
 
-วิเคราะห์โปรเจกต์ก่อนเริ่ม implement เพื่อเข้าใจโครงสร้างและ dependencies
+วิเคราะห์สิ่งที่ขาดหายไปก่อนเริ่ม implement
 
-1. ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์อย่างละเอียด
-2. ระบุ TODO, MOCK, placeholder ทั้งหมดที่ต้องแปลง
-3. จัดลำดับความสำคัญของงานตาม critical path
-4. ตรวจสอบ dependencies ที่จำเป็นสำหรับ production
+1. ทำ `/analyze-missing-implementation` เพื่อวิเคราะห์และระบุสิ่งที่ขาดหายไปครบทุกมิติ
+2. จัดลำดับตาม critical path: schema → data → API → UX/UI
 
-### 2. Infrastructure Verification
+### 2. Verify Infrastructure
 
-ตรวจสอบว่า `infrastructure` พร้อมสำหรับ `production` ถ้า project มี database, API server, หรือ external services
+ตรวจสอบว่า infrastructure พร้อมสำหรับ production
 
-1. ตรวจสอบ `Database` ถ้า project มี: connection pool, indexes, migrations, backup strategy
-2. ตรวจสอบ `API Server` ถ้า project มี: endpoints, rate limiting, CORS, authentication
-3. ตรวจสอบ `Environment Variables`: required variables, secrets, correct values
-4. ตรวจสอบ `External Services` ถ้า project มี: credentials, API keys, rate limits
-5. ตรวจสอบ `Monitoring`: metrics collection, alerting rules
-6. ตรวจสอบ `Health Checks`: health endpoints, graceful shutdown
-7. ตรวจสอบ `Network`: connectivity, firewall rules, DNS resolution
-8. ตรวจสอบ `SSL/TLS`: certificates validity, HTTPS enforcement
+1. ตรวจสอบ Database: connection pool, indexes, migrations, backup strategy
+2. ตรวจสอบ API Server: endpoints, rate limiting, CORS, authentication
+3. ตรวจสอบ Environment Variables: required variables, secrets, correct values
+4. ตรวจสอบ External Services: credentials, API keys, rate limits
+5. ตรวจสอบ Monitoring: metrics collection, alerting rules
+6. ตรวจสอบ Health Checks: health endpoints, graceful shutdown
 
-### 3. Seed Database
+### 3. Implement Schema And Types
 
-สร้างและรัน `seed script` เพื่อเติมข้อมูลจำลองสำหรับการทดสอบ ถ้า project มี database
+Implement schema, validation schemas, และ types ให้สมบูรณ์
 
-1. สร้าง `seed script` สำหรับทุก `database tables`
-2. เพิ่ม `bcrypt` หรือ `password hashing library` ถ้ามี user data
-3. ติดตั้ง `dependencies` ที่จำเป็น
-4. รัน `seed script` เพื่อเติมข้อมูลจำลอง
-5. ตรวจสอบว่าข้อมูลถูกเติมอย่างถูกต้อง
-6. สร้าง backup ก่อน seed ถ้า database มีข้อมูลจริง
+1. เพิ่ม schema สำหรับ data models ที่ขาด
+2. สร้าง validation schemas สำหรับ API input/output
+3. สร้าง types จาก schema และ validation schemas
+4. ตรวจสอบ type flow: schema → validation schema → API types → UI types
+5. สร้างและรัน migrations สำหรับ schema changes
+6. ทำ `/improve-type-safety`
 
-### 4. Implement Todo
+### 4. Implement Data Layer
 
-แปลง `TODO`, `FIXME`, `HACK` และ `placeholder code` เป็น `production code`
+แทนที่ mock queries ด้วย real data queries และ repositories
 
-1. ทำ `/implement-comment-todo` เพื่อแปลง `TODO comments` และ `placeholder functions`
-2. ทำ `/loop-until-complete` จนกว่าจะไม่มี `TODO` เหลือ
-3. ทำ `/run-test` เพื่อทดสอบว่าผ่านทั้งหมด
-4. ทำ `/run-typecheck` เพื่อตรวจสอบ type safety
+1. แทนที่ mock data ด้วย real data queries
+2. Implement repository/queries layer สำหรับทุก data models
+3. เพิ่ม error handling สำหรับ data operations
+4. รัน migrations ให้ล่าสุด
+5. สร้างและรัน seed script สำหรับ testing
+6. ตรวจสอบ data integrity หลัง seed
 
-### 5. Realize Missing Features
+### 5. Implement API Layer
 
-แปลง `missing features` ที่ยังไม่ได้ implement เป็น `production code`
+Implement API handlers ที่เชื่อม data source จริง ด้วย validation
 
-1. ระบุ features ที่ยังไม่ได้ implement จาก requirements
-2. จัดลำดับความสำคัญของ missing features
-3. Implement missing features ตามลำดับความสำคัญ
-4. ทำ `/loop-until-complete` จนกว่าทุก features ถูก implement
-5. ทำ `/run-test` เพื่อทดสอบว่าผ่านทั้งหมด
+1. Implement API handlers ที่ query data source จริง
+2. เพิ่ม validation สำหรับ input/output ทุก endpoint
+3. Implement auth middleware สำหรับ protected endpoints
+4. Implement rate limiting สำหรับ API endpoints
+5. เพิ่ม error handling ที่ return structured error responses
+6. ตรวจสอบว่า API types ตรงกับ schema และ validation schemas
 
-### 6. Implementation
+### 6. Implement UX/UI Layer
 
-Implement `production code` - เชื่อมต่อกับ `infrastructure` จริง
+เชื่อม UX/UI components กับ real API และ data source
 
-1. แทนที่ `Database` mock ด้วย connection pool, migrations, repositories ถ้า project มี
-2. แทนที่ `Server API` mock ด้วย routes, handlers, validation, rate limiting ถ้า project มี
-3. แทนที่ `Client` mock ด้วย API calls, loading states, retry ถ้า project มี
-4. แทนที่ `External services` mock ด้วย production endpoints, authentication, circuit breaker ถ้า project มี
-5. เพิ่ม `Error handling`: try-catch blocks, error boundaries, user-friendly messages
-6. เพิ่ม `Security`: authentication, authorization, encryption ถ้าจำเป็น
-7. เพิ่ม `Configuration`: environment variables, config validation, secrets management
-8. เพิ่ม `Logging`: structured logging, log levels, log aggregation
+1. แทนที่ mock data ใน components ด้วย real API calls
+2. Implement loading, error, empty states สำหรับทุก data-driven components
+3. Implement form validation ด้วย validation schemas ที่ตรงกับ API validation
+4. ตรวจสอบว่า UI types ตรงกับ API response types
+5. Implement optimistic updates สำหรับ mutations ที่เหมาะสม
+6. เชื่อม auth UI กับ auth service จริง
 
-### 7. Refactor Code
+### 7. Convert TODO And Missing Features
 
-ปรับปรุงคุณภาพโค้ดด้วย `systematic refactoring`
+แปลง TODO, FIXME, HACK และ missing features เป็น production code
+
+1. ทำ `/implement-comment-todo` เพื่อแปลง TODO comments
+2. ระบุและ implement missing features จาก requirements
+
+### 8. Refactor And Verify
+
+ปรับปรุงคุณภาพโค้ดและตรวจสอบ
 
 1. ทำ `/refactor` เพื่อปรับปรุงคุณภาพโค้ดครบวงจร
-2. ทำ `/restructure` เพื่อปรับ `physical file/folder structure`
-3. ทำ `/separate-of-concern` เพื่อแยก `logical concerns`
-4. ทำ `/edit-relative` เพื่ออัปเดท references ทั้งหมด
-5. ทำ `/improve-type-safety` เพื่อเพิ่ม type safety
-
-### 8. Final Verification
-
-ตรวจสอบว่าไม่มีสิ่งใดเหลือเป็น `mock`
-
-1. ค้นหา `MOCK`, `FAKE`, `STUB implementations` อีกครั้ง
-2. ทดสอบ `end-to-end flows` ว่าใช้ `production endpoints`
-3. Verify `monitoring` แล `alerting` ทำงาน
-4. ทดสอบ `graceful shutdown`
-5. Verify `security policies` แล `compliance`
-6. ทำ `/run-lint` เพื่อตรวจสอบว่าทุกไฟล์ถูกใช้
-7. ทำ `/check-unsued-files` เพื่อตรวจสอบว่าไม่มีไฟล์ที่ไม่ได้ใช้
-8. ทำ `/run-verify` เพื่อตรวจสอบความถูกต้องครบถ้วน
+2. ทำ `/edit-relative` เพื่ออัปเดท references ทั้งหมด
+3. ทำ `/improve-type-safety` เพื่อเพิ่ม type safety
 
 ## Rules
 
-### 1. No Mocks in Production
+### 1. No Mock Implementations
 
-แทนที่ทุก `mock implementations` ด้วย `real database queries` และ `actual API calls`
+- ไม่มี mock implementations ใน production code
+- แทนที่ทุก mock data ด้วย real data queries
+- แทนที่ทุก simulated delay ด้วย actual API calls
+- แทนที่ทุก in-memory stores ด้วย real databases หรือ caches
+- UX/UI components ต้องใช้ real API calls ไม่ใช่ hardcoded data
+- ไม่มี hardcoded data ใน components ที่ควรดึงจาก API
+- ไม่ silently fall back ไปใช้ mock data
 
-- ไม่มี `mock implementations` ใน `production code`
-- แทนที่ทุก `mock data` ด้วย `real database queries`
-- แทนที่ทุก `simulated delay` ด้วย `actual API calls`
-- แทนที่ทุก `in-memory stores` ด้วย `real databases` หรือ `caches`
+### 2. Type Flow
 
-### 2. Fail Fast on Missing Config
+- Types ต้อง flow ตลอดทั้ง chain: schema → validation schema → API types → UI types
+- ใช้ type inference จาก schema และ validation schemas ไม่ประกาศ type ซ้ำ
+- API response types ต้องตรงกับ UI component props
+- หลีกเลี่ยง `any` ใช้ `unknown` แทน
+- ใช้ validation schemas สำหรับ runtime validation ที่ทุก boundary
+- เริ่มจาก schema ก่อน เพราะเป็น source of truth
+- สร้าง validation schemas จาก schema types
+- สร้าง API types จาก validation schemas
+- สร้าง UI types จาก API types
+- ถ้า schema เปลี่ยน types ทุก layer ต้องอัปเดท
 
-Throw error ถ้า `required environment variables` ไม่มี และห้าม `silently fall back`
+### 3. Configuration And Environment
 
-- Throw error ถ้า `required environment variables` ไม่มี
-- ไม่ `silently fall back` ไปใช้ `mock data`
+- Throw error ถ้า required environment variables ไม่มี
 - Clear error messages บอกว่าต้องตั้งค่าอะไร
-- Validate config ที่ startup time
-- ใช้ `zod` หรือ schema validation สำหรับ config
+- Validate config ที่ startup time ด้วย validation schemas
+- HTTPS/TLS เท่านั้นสำหรับ production
+- API keys ต้อง encrypted หรือใช้ secrets manager
+- No credentials ใน codebase
 
-### 3. Graceful Degradation
+### 4. Error Handling And Resilience
 
-ไม่ crash ทั้ง `application` เมื่อ `service` ล่ม และ `return cached data` ถ้าเป็นไปได้
-
-- ไม่ crash ทั้ง `application` เมื่อ `service` ล่ม
-- Return `cached data` ถ้าเป็นไปได้
-- แสดง `user-friendly error messages`
+- ไม่ crash ทั้ง application เมื่อ service ล่ม
+- Return cached data ถ้าเป็นไปได้
+- แสดง user-friendly error messages ใน UI
 - Implement retry logic ด้วย exponential backoff
 - Use circuit breaker pattern สำหรับ external services
 
-### 4. Security by Default
+### 5. Security
 
-ใช้ `HTTPS/TLS` เท่านั้นสำหรับ `production` และ `API keys` ต้อง `encrypted`
-
-- `HTTPS/TLS` เท่านั้นสำหรับ `production`
-- `API keys` ต้อง `encrypted` หรือใช้ `secrets manager`
-- No credentials ใน `codebase`
-- Use environment variables สำหรับ secrets
-- Implement rate limiting สำหรับ API endpoints
 - Validate และ sanitize ทุก user inputs
+- Implement rate limiting สำหรับ API endpoints
 
-### 5. Observability
+### 6. Observability
 
-ใช้ `structured logging` และ `metrics` สำหรับทุก `external call`
-
-- `Structured logging` สำหรับทุก `external call`
-- `Metrics` สำหรับ `response times`, `error rates`
+- Structured logging สำหรับทุก external call
+- Metrics สำหรับ response times, error rates
 - Log correlation IDs สำหรับ distributed tracing
-- Monitor health endpoints อย่างต่อเนื่อง
 - Alert on critical errors และ performance degradation
 
-### 6. Production Best Practices
+### 7. UX/UI
 
-จัดการ errors, retry logic, และ data validation
-
-- `Try-catch blocks` สำหรับทุก `async operations`
-- `Error boundaries` สำหรับ `UI components`
-- `User-friendly error messages`
-- `Exponential backoff` สำหรับ `transient errors`
-- `Max retries limit`
-- `Circuit breaker pattern`
-- `Input validation` ที่ `client` แล `server`
-- `Schema validation` สำหรับ `API requests`
-- `SQL injection prevention`
-- `XSS prevention`
-- `CSRF protection` สำหรับ state-changing operations
-- `Content Security Policy` สำหรับ web applications
-
-### 7. Type Safety
-
-ใช้ TypeScript strict mode และ proper typing
-
-- Enable `strict mode` ใน `tsconfig.json`
-- หลีกเลี่ยง `any` type ใช้ `unknown` แทน
-- Use type guards สำหรับ runtime type checking
-- Define proper types สำหรับ API responses
-- Use `zod` สำหรับ runtime validation และ type inference
-
-### 8. Report Format
-
-ระบุรูปแบบรายงาน
-
-- ทำ `/report-format-terminal` สำหรับรายงานความคืบหน้า
-- ทำ `/report-format-table` สำหรับสรุปผลลัพธ์
+- ทุก data-driven component ต้องมี loading, error, empty states
+- Form validation ด้วย validation schemas ที่ตรงกับ API validation
+- แสดง error messages ที่ user-friendly ไม่ใช่ technical errors
+- Implement optimistic updates สำหรับ mutations ที่เหมาะสม
 
 ## Expected Outcome
 
-- `TODO`, `MOCK`, `placeholder` ถูกแปลงเป็น `production code`
-- `Missing features` ถูก implement ครบถ้วน
-- เชื่อมต่อกับ `server API`, `database`, และ `external services` จริง
-- ไม่มี `mock implementations` ใน `production code`
-- ทุกไฟล์ถูกใช้ ไม่มีไฟล์ที่ไม่ได้ใช้
-- `Infrastructure` พร้อมสำหรับ `production`
-- Type safety และ error handling ครบถ้วน
-- Security best practices ถูกนำไปใช้
+- ทุกอย่างเป็น production code จริง ใช้งานได้จริง
+- Schema, validation schemas, TypeScript types สมบูรณ์และเชื่อมต่อกัน
+- API handlers เชื่อม data source จริง
+- UX/UI components เชื่อม API จริง ไม่มี mock data
+- Type flow ครบ: schema → validation → API → UI
+- TODO, MOCK, placeholder ถูกแปลงเป็น production code ครบถ้วน
+- Infrastructure พร้อมสำหรับ production
+- Security, error handling, observability ครบถ้วน

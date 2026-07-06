@@ -9,6 +9,7 @@ related_workflows:
   - /review-test-case
   - /review-codebase-and-fix
   - /health
+  - /analyze-code-quality
   - /validate
   - /deep-research
   - /report-format-table
@@ -48,7 +49,7 @@ Review code quality อย่างละเอียด
 
 1. ทำ `/use-ast-grep` หา anti-patterns และ code smells
 2. ทำ `/check-duplication`, `/check-unsued-files`, `/check-unused-deps` แบบ parallel
-3. ทำ `/check-long-files` และ `/check-maintainability`
+3. ทำ `/check-long-files` และ `/analyze-code-quality` เพื่อตรวจสอบ SRP, SoC, type safety, anti-patterns, code smells, dead code, side effects, naming conventions
 4. ตรวจสอบ naming conventions และ consistency
 5. ตรวจสอบ error handling และ edge case coverage
 6. ระบุ technical debt และ severity

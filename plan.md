@@ -1,18 +1,24 @@
 ---
 title: Plan
-description: วางแผนงานและ architecture อย่างเป็นระบบก่อนเริ่ม implement
+description: วางแผนงานและ architecture
 auto_execution_mode: 3
 related_workflows:
-  - /plan-task
-  - /plan-code
-  - /report-plan
+  - /analyze-project
+  - /use-lib-better
+  - /use-lib-effective
+  - /prioritize
+  - /deep-research
+  - /use-scripts
   - /follow-content-quality
-  - /follow-best-practice
+  - /recommend-architecture
+  - /follow-architecture
+  - /report-format-table
+  - /report-format-file-structure
 ---
 
 ## Goal
 
-วางแผนงานและ architecture อย่างเป็นระบบก่อนเริ่ม implement โดยแบ่งเป็น task planning และ code planning
+วางแผนงานและ architecture อย่างเป็นระบบก่อนเริ่ม implement
 
 ## Scope
 
@@ -20,105 +26,128 @@ related_workflows:
 
 ## Execute
 
-### 1. Prepare Planning Context
+### 1. Analyze And Research
 
-เตรียม context ก่อนเริ่มวางแผน
+วิเคราะหาโปรเจกต์และสำรวจ libraries
 
-1. ทำ `/analyze-project` เพื่อเข้าใจ project structure และ dependencies ปัจจุบัน
+1. ทำ `/analyze-project` เพื่อวิเคราะหา project structure และ dependencies
 2. ระบุ scope และ requirements ของงานที่ต้องทำ
 3. ระบุ constraints และ assumptions
 4. ถ้า project มี `AGENTS.md` ให้อ่านและทำตาม
+5. ทำ `/use-lib-better` เพื่อสำรวจ library alternatives
+6. ทำ `/use-lib-effective` เพื่อวิเคราะหา dependencies ที่มีอยู่
+7. สำรวจ alternatives อย่างน้อย 2-3 ตัวเลือก
+8. ประเมินแต่ละ candidate ตามเกณฑ์: modern, type safety, performance, DX, maintenance
+9. บันทึก library ที่เลือกใช้พร้อมเหตุผล
 
-### 2. Plan Tasks
+### 2. Define Implementation Path
 
-วางแผนงานและ tasks อย่างละเอียด
+กำหนดลำดับการ implement ตาม impact order
 
-1. ทำ `/plan-task` เพื่อวางแผนงานและ tasks
-2. รอให้ `/plan-task` เสร็จสิ้น
-3. ตรวจสอบ task document ที่สร้างขึ้นใน `.agents/task/`
-4. ตรวจสอบ task document มีรายละเอียดครบ: tasks, library choices, milestones, timeline, test strategy
+1. ทำ `/prioritize` เพื่อจัดลำดับ tasks ตาม impact และ effort
+2. จัดลำดับ priority: foundation ก่อน, high risk เพื่อ fail fast
+3. ระบุ critical path และ dependencies ระหว่าง tasks
+4. กำหนด milestones และ timeline พร้อม buffer
+5. ระบุ tasks ที่สามารถทำ parallel ได้
 
 ### 3. Plan Architecture
 
-วางแผน architecture และ structure อย่างละเอียด
+วางแผน architecture และ structure
 
-1. อ่าน task document จากขั้นตอนที่ 2
-2. ทำ `/plan-code` เพื่อวางแผน architecture
-3. รอให้ `/plan-code` เสร็จสิ้น
-4. ตรวจสอบ architecture document ที่สร้างขึ้นใน `.agents/architecture/`
-5. ตรวจสอบ architecture document มีรายละเอียดครบ: file architecture, module structure, interfaces, integration plan
+1. ทำ `/refactor` เพื่อขอไอเดียโครงสร้างไฟล์
+2. ทำ `/recommend-architecture` เพื่อแนะนำ architecture ที่เหมาะสม
+3. วางแผน file architecture โดยจัดกลุ่มตาม responsibility
+4. กำหนด naming conventions สำหรับ files และ directories
+5. ระบุ barrel files และ entry points
+6. วางแผน directory structure แบบ tree พร้อม comment
+7. สร้าง file pattern table: File Pattern, Description, Naming, Import
+8. แยก modules ตาม domain หรือ feature
+9. กำหนด dependencies ระหว่าง modules (high-level → low-level)
+10. ระบุ public APIs ของแต่ละ module
+11. วางแผน data flow ระหว่าง modules
+12. กำหนด module boundaries ชัดเจน
+13. ระบุ shared modules และ common utilities
+14. กำหนด interfaces สำหรับ module communication
+15. กำหนด data contracts (DTOs, entities, value objects)
+16. กำหนด API contracts ถ้ามี
+17. กำหนด event contracts ถ้ามี
+18. ออกแบบ interfaces ตาม interface segregation principle
+19. วางแผน integration กับ external services ถ้ามี
+20. กำหนด integration patterns (adapters, facades, repositories)
+21. วางแผน error handling และ retry logic
+22. กำหนด caching strategy
+23. วางแผน transaction boundaries
+24. ระบุ data validation points
 
-### 4. Cross-Validate Documents
+### 4. Plan Test Strategy
 
-ตรวจสอบความสอดคล้องระหว่าง task document และ architecture document
+วางแผน test strategy
 
-1. ตรวจสอบ tasks ใน task document สอดคล้องกับ file architecture ใน architecture document
-2. ตรวจสอบ library choices ใน task document สอดคล้องกับ module structure ใน architecture document
-3. ตรวจสอบ milestones ใน task document สอดคล้องกับ integration plan ใน architecture document
-4. ตรวจสอบไม่มี contradictions ระหว่างสอง documents
+1. ตัดสินใจว่าจะใช้ DDD หรือไม่
+2. ออกแบบ test case ที่ครอบคลุม: unit, integration, e2e
+3. กำหนด test coverage requirements
+4. วางแผน test execution strategy
+5. ระบุ test data และ fixtures
+6. วางแผน regression test strategy
 
-### 5. Validate Plan
+### 5. Create Documents
 
-ตรวจสอบและยืนยันแผนงานก่อน implement
+สร้าง task document และ architecture document
 
-1. สรุปแผนงานทั้งหมดให้ user อ่าน
-2. ระบุ risks และ mitigation strategies
-3. ระบุ success criteria สำหรับแต่ละ milestone
-4. รอยืนยันจาก user ก่อนเริ่ม implement
-5. ถ้า user มี feedback ให้แก้ไข documents แล้ว validate ใหม่
+1. สร้างไฟล์ `.agents/task/<name>-DD-MM-YYYY.md`
+2. บันทึก tasks ทั้งหมดพร้อม expected outcome
+3. บันทึก library choices พร้อมเหตุผล
+4. บันทึก milestones และ timeline พร้อม success criteria
+5. บันทึก test strategy และ coverage requirements
+6. บันทึก assumptions, constraints, และ risks
+7. บันทึก migration plan ถ้ามี breaking changes
+8. สร้างไฟล์ `.agents/architecture/<name>-DD-MM-YYYY.md`
+9. บันทึก file architecture diagram แบบ tree
+10. บันทึก module dependencies และ data flow
+11. บันทึก interfaces และ contracts ทั้งหมด
+12. บันทึก integration plan และ patterns
+13. บันทึก architectural decisions พร้อมเหตุผล
+14. บันทึก assumptions และ constraints
 
-### 6. Report Plan
+### 6. Validate And Report
 
-รายงานแผนงานทั้งหมดก่อนลงมือทำ
+ตรวจสอบและรายงานแผนงาน
 
-1. ทำ `/report-plan` เพื่อรายงานแผนงานพร้อม task table และ file structure
-2. แสดง task breakdown เป็นตารางตาม `/report-format-table`
-3. แสดง file structure ที่จะกระทบตาม `/report-format-file-structure`
-4. ลงมือทำทันทีหลังรายงาน
+1. ยืนยัน dependencies ไม่ conflict กับ existing versions
+2. ทบทวน plan กับ task document เพื่อตรวจสอบความครบถ้วน
+3. ตรวจสอบ timeline realistic หรือไม่
+4. ตรวจสอบทุก task มี single responsibility และ test ได้
+5. ตรวจสอบไม่มี missing tasks หรือ gaps
+6. รอยืนยันจาก user ก่อนเริ่ม implement
+7. แบ่งงานเป็น tasks ย่อยๆ ตาม `single responsibility`
+8. จัดลำดับ tasks ตาม `impact order`
+9. ระบุไฟล์ที่จะสร้างใหม่, แก้ไข, หรือลบ
+10. ระบุ dependencies ระหว่าง tasks
+11. ระบุ risks และ mitigation strategies
+12. จัดรูปแบบตาราง tasks ตาม `/report-format-table`
+13. แสดง file structure ตาม `/report-format-file-structure`
+14. ลงมือทำทันทีหลังรายงาน
 
 ## Rules
 
-### 1. Planning Sequence
-
-ลำดับการวางแผนต้องเป็นระบบ
-
 - ทำ task planning ก่อน code planning เสมอ
-- แต่ละขั้นตอนต้องใช้ผลลัพธ์จากขั้นตอนก่อนหน้า
-- ห้ามข้ามขั้นตอนใดๆ
-- ถ้ามี feedback ให้กลับไปแก้ไขแล้ว validate ใหม่
-
-### 2. Document Standards
-
-เอกสารที่สร้างต้องมีคุณภาพตาม `/follow-content-quality`
-
-- เขียน documents ให้ชัดเจน อ่านง่าย ไม่กำกวม
-- ใช้ numbered list สำหรับ steps ที่ต้องทำตามลำดับ
-- ระบุ subject และ object ชัดเจนในทุกประโยค
-- ไม่ซ้ำซ้อนระหว่าง task document และ architecture document
-
-### 3. User Confirmation
-
-ต้องได้รับการยืนยันจาก user ก่อน implement
-
-- อธิบายแผนงานและ risks อย่างชัดเจน
-- รอ feedback จาก user ก่อนดำเนินการ
-- ถ้า user ไม่ยืนยัน ให้แก้ไข documents ตาม feedback
-
-### 4. Report Before Execute
-
-ต้อง report plan ก่อนลงมือทำเสมอ
-
-- ทำ `/report-plan` หลัง validate plan เสร็จเสมอ
-- แสดง task table และ file structure ก่อนเริ่ม implement
-- ลงมือทำทันทีหลังรายงาน ไม่ต้องรอยืนยัน
+- สำรวจ libraries ก่อน implement
+- จัดลำดับ implement ตาม impact order: foundation ก่อน, high risk เพื่อ fail fast
+- วางโครงสร้างไฟล์ทั้งหมดก่อนเขียน code
+- แต่ละ module ต้องมี single responsibility
+- Dependencies ควรไปในทิศทางเดียว (high-level → low-level)
+- หลีกเลี่ยย circular dependencies
+- บันทึก architectural decisions พร้อมเหตุผล
+- ต้อง report plan ก่อนลงมือทำ
+- ต้องได้รับการยืนยันจาก user ก่อน implement
 
 ## Expected Outcome
 
 - Task document ที่ครอบคลุมใน `.agents/task/`
 - Architecture document ที่ครอบคลุมใน `.agents/architecture/`
-- Implementation roadmap ที่ชัดเจน
-- Cross-validation ระหว่าง documents
-- ระบุ risks และ mitigation strategies
-- ระบุ success criteria สำหรับแต่ละ milestone
-- ยืนยันจาก user ก่อน implement
-- Report plan พร้อม task table และ file structure ก่อนลงมือทำ
+- Library choices ที่มีเหตุผล
+- Implementation roadmap ที่ practical และ prioritized
+- Timeline ที่ realistic พร้อม buffer
+- Test strategy ที่ครอบคลุม
+- Risks และ mitigation strategies ที่ชัดเจน
+- Report plan พร้อม task table และ file structure

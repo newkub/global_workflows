@@ -8,7 +8,7 @@ related_workflows:
   - /improve-accessibility
   - /improve-form
   - /improve-user-features
-  - /improve-web-saas
+  - /follow-web-product-saas
   - /improve-website
   - /improve-platform
   - /improve-compatibility
@@ -40,7 +40,7 @@ related_workflows:
 5. ถ้า project มี search ทำ `/improve-search` เพื่อปรับปรุง search experience
 6. ถ้า project มี list views ทำ `/improve-pagination` เพื่อปรับปรุง pagination UX
 7. ทำ `/improve-error-messages` เพื่อปรับปรุง user-facing error messages
-8. ถ้า project เป็น web SaaS ทำ `/improve-web-saas`
+8. ถ้า project เป็น web SaaS ทำ `/follow-web-product-saas`
 9. ถ้า project เป็น website ทำ `/improve-website`
 
 ### 2. Platform And Mobile

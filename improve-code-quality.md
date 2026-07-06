@@ -5,13 +5,15 @@ auto_execution_mode: 3
 related_workflows:
   - /follow-content-quality
   - /follow-workflows
-  - /separate-of-concern
+  - /refactor
+  - /analyze-code-quality
   - /improve-type-safety
   - /fix-circular-dependencies
   - /no-hard-code
   - /improve-naming-convention
   - /improve-reuseables
   - /improve-debugging
+  - /improve-side-effect
 ---
 
 ## Goal
@@ -28,9 +30,10 @@ related_workflows:
 
 วิเคราะห์คุณภาพโค้ดปัจจุบัน
 
-1. ทำ `/separate-of-concern` เพื่อ check separation of concerns
-2. ทำ `/fix-circular-dependencies` เพื่อ identify circular dependencies
-3. ทำ `/improve-type-safety` เพื่อ check type safety
+1. ทำ `/refactor` เพื่อ check separation of concerns
+2. ทำ `/analyze-code-quality` เพื่อระบุ SRP, SoC, type safety, hard code, anti-patterns, code smells, dead code, side effects, naming conventions
+3. ทำ `/fix-circular-dependencies` เพื่อ identify circular dependencies
+4. ทำ `/improve-type-safety` เพื่อ check type safety
 
 ### 2. Apply Rules
 
@@ -41,6 +44,7 @@ related_workflows:
 3. ทำ `/no-hard-code` เพื่อลบ hard code
 4. ทำ `/improve-naming-convention` เพื่อปรับปรุง naming conventions
 5. ทำ `/improve-reuseables` เพื่อปรับปรุง reusability
+6. ทำ `/improve-side-effect` เพื่อปรับปรุงการจัดการ side effects
 
 ### 3. Verify Quality
 
@@ -55,7 +59,7 @@ related_workflows:
 
 ทำตาม workflows เฉพาะสำหรับแต่ละด้าน
 
-- ทำ `/separate-of-concern` สำหรับ separation of concerns
+- ทำ `/refactor` สำหรับ separation of concerns
 - ทำ `/fix-circular-dependencies` สำหรับ circular dependencies
 - ทำ `/improve-type-safety` สำหรับ type safety
 - ทำ `/no-hard-code` สำหรับลบ hard code

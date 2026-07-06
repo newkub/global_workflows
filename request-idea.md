@@ -1,61 +1,63 @@
 ---
 title: Request Idea
-description: สร้างไอเดียทั่วไปสำหรับทุกประเภท วิเคราะห์ gaps, needs และ opportunities
+description: สร้างไอเดียตาม user context วิเคราะห์ gaps และ opportunities
 auto_execution_mode: 3
+related_workflows:
+  - /report
+  - /report-format-table
 ---
 
 ## Goal
 
-สร้างไอเดียทั่วไปสำหรับทุกประเภท (features, UX/UI, refactor, improvements, etc) วิเคราะห์ gaps, needs และ opportunities
+สร้างไอเดียตาม user context วิเคราะห์ gaps, needs และ opportunities แล้วรายงานเป็นตาราง
 
 ## Scope
 
-ครอบคลุมการวิเคราะห์โปรเจกต์ การสร้างไอเดียทั้งหมด และการจัดลำดับตาม impact
+ใช้เมื่อผู้ใช้บอกว่า "ขอ idea" หรือต้องการไอเดียสำหรับงานใดๆ
 
 ## Execute
 
-### 1. Analyze Project
+### 1. Analyze Context
 
-วิเคราะห์โปรเจกต์เพื่อเข้าใจโครงสร้างและ gaps
+วิเคราะห์ context จาก user request:
 
-- ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์
-- ระบุ gaps และ improvement opportunities
+1. ระบุประเภทไอเดียที่ต้องการ (features, UX/UI, refactor, improvements)
+2. ระบุ scope จาก user context (project, module, file, workflow)
+3. ระบุ pain points และ gaps จาก context
 
 ### 2. Generate Ideas
 
-สร้างไอเดียทั้ง Extends และ New
+สร้างไอเดียตาม context:
 
-- สร้างไอเดียปรับปรุงจากเดิม (Extends)
-- สร้างไอเดียใหม่ที่ยังไม่มี (New)
-- ระบุ problem ที่แต่ละไอเดียจะ solve
-- จัดกลุ่มไอเดียตาม topics
+1. สร้างไอเดียปรับปรุงจากเดิม (Extends)
+2. สร้างไอเดียใหม่ที่ยังไม่มี (New)
+3. ระบุ problem ที่แต่ละไอเดียจะ solve
+4. จัดกลุ่มตาม topics
 
-### 3. Prioritize
+### 3. Prioritize And Report
 
-จัดลำดับตาม impact
+จัดลำดับและรายงาน:
 
-- จัดลำดับตาม value vs effort
-- ระบุ quick wins และ strategic ideas
-- เรียงลำดับตาม Impact: 🔴 สูง → 🟡 ปานกลาง → 🟢 ต่ำ
+1. จัดลำดับตาม value vs effort
+2. ระบุ quick wins และ strategic ideas
+3. ทำ `/report` พร้อม `/report-format-table` เพื่อแสดงผลเป็นตาราง
+4. ใช้ Impact: 🔴 สูง → 🟡 ปานกลาง → 🟢 ต่ำ
 
 ## Rules
 
-### 1. Define Problem First
+### 1. Context-Based
 
-ทุกไอเดียต้อง solve real problem
-
+- สร้างไอเดียตาม user context ไม่ใช่ generic
 - ทุกไอเดียต้อง solve real problem
 - ไม่สร้างไอเดียเพราะเท่ห์อย่างเดียว
-- Focus บน pain points ที่มี impact สูง
 
 ### 2. Direct Execution
-
-ทำงานอัตโนมัติโดยไม่หยุดถาม
 
 - ถ้าผู้ใช้บอกว่า "ทำ ... ให้" ให้ทำตาม `/realize-implementation` เลย
 - ไม่ต้องทำตาม workflow ปกติถ้าผู้ใช้สั่งโดยตรง
 
 ## Expected Outcome
 
-- ไอเดียทั้งหมด (Extends + New) พร้อมจัดลำดับตาม Impact
+- ไอเดียตาม user context พร้อมจัดลำดับตาม Impact
+- รายงานเป็นตารางตาม `/report`
 - ทุกไอเดีย solve real problem

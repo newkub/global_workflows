@@ -15,7 +15,7 @@ related_workflows:
 
 ## Scope
 
-ครอบคลุมการปรับปรุง physical file/folder structure (naming, organization, grouping) ไม่ใช่ logical concern separation สำหรับ logical concern separation ให้ใช้ `/separate-of-concern`
+ครอบคลุมการปรับปรุง physical file/folder structure (naming, organization, grouping) สำหรับ logical concern separation ให้ใช้ `/refactor`
 
 ## Execute
 
@@ -124,4 +124,4 @@ related_workflows:
 - import paths ที่กระชับและถูกต้อง
 - โฟลเดอร์ที่จัดกลุ่มอย่างเหมาะสมตาม responsibility
 - ไม่มี orphan files หรือ circular dependencies
-- สำหรับ logical concern separation ให้ใช้ `/separate-of-concern`
+- สำหรับ logical concern separation ให้ใช้ `/refactor`

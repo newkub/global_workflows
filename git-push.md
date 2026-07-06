@@ -6,6 +6,7 @@ related_workflows:
   - /commit-and-push
   - /refactor-commit
   - /watch-github-actions
+  - /open-web
 ---
 
 ## Goal
@@ -35,7 +36,7 @@ Push commits จาก local repository และ git submodules ไปยัง
 
 ### 3. Push Commits
 
-// turbo
+
 1. ทำ `git push origin <branch>` และ `git submodule foreach --recursive git push origin <branch>`
 2. ถ้า push ถูก reject เพราะ remote มี commits ใหม่กว่า ให้หยุดและแจ้งผู้ใช้ (ไม่ force push)
 3. ตรวจสอบว่าไม่มี error messages จาก git
@@ -49,6 +50,12 @@ Push commits จาก local repository และ git submodules ไปยัง
 
 1. ทำ `gh workflow list` เพื่อตรวจสอบว่ามี GitHub Actions ใน repository ไหม
 2. ถ้ามี GitHub Actions ให้ทำ `/watch-github-actions` เพื่อตรวจสอบและรันจนกว่าจะผ่าน
+
+### 6. Open Repo
+
+1. ทำ `git remote get-url origin` เพื่อดู remote URL
+2. แปลง URL เป็น HTTPS URL (ถ้าเป็น SSH format ให้แปลงเป็น HTTPS)
+3. ทำ `/open-web` เพื่อเปิด repo ใน browser
 
 ## Rules
 
@@ -77,4 +84,5 @@ Push commits จาก local repository และ git submodules ไปยัง
 - Local repository และ remote อยู่ในสถานะ sync กัน
 - ทีมสามารถดู commits ใหม่บน remote ได้
 - GitHub Actions ผ่านทั้งหมด
+- Repo เปิดใน browser อัตโนมัติหลัง push สำเร็จ
 

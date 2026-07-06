@@ -1,13 +1,10 @@
 ---
 title: Improve Architecture
-description: ปรับปรุง architecture, dependencies, file structure และ routing
+description: ปรับปรุง architecture, file structure และ routing
 auto_execution_mode: 3
 related_workflows:
   - /read-all-files
   - /plan-task
-  - /use-lib-better
-  - /update-dependencies-latest
-  - /refactor-packages
   - /improve-config
   - /improve-file-structure
   - /improve-naming-convention
@@ -19,11 +16,11 @@ related_workflows:
 
 ## Goal
 
-ปรับปรุง architecture, dependencies, file structure, naming, routing และ reusability ของ codebase
+ปรับปรุง architecture, file structure, naming, routing และ reusability ของ codebase
 
 ## Scope
 
-ใช้สำหรับการปรับปรุงโครงสร้าง architecture ของ codebase ทั้ง dependencies, config, file structure และ routing
+ใช้สำหรับการปรับปรุงโครงสร้าง architecture ของ codebase ทั้ง config, file structure และ routing
 
 ## Execute
 
@@ -33,12 +30,9 @@ related_workflows:
 2. ทำ `/plan-task` เพื่อวางแผนการปรับปรุง
 3. รอยืนยันจาก user ก่อนเริ่มทำ
 
-### 2. Dependencies And Config
+### 2. Config
 
-1. ทำ `/use-lib-better` เพื่อวิเคราะห์ dependencies และ alternatives
-2. ทำ `/update-dependencies-latest` เพื่ออัพเดท dependencies
-3. ทำ `/refactor-packages` เพื่อลบ packages ที่ไม่ได้ใช้
-4. ทำ `/improve-config` เพื่อปรับปรุง configuration files
+1. ทำ `/improve-config` เพื่อปรับปรุง configuration files
 
 ### 3. Structure And Naming
 
@@ -65,7 +59,6 @@ related_workflows:
 ## Expected Outcome
 
 - Architecture ถูกปรับปรุงและทันสมัย
-- Dependencies อัพเดทและไม่มี unused packages
 - File structure และ naming conventions สม่ำเสมอ
 - Routing architecture ถูกปรับปรุง
 - ลดความซ้ำซ้อนและเพิ่ม reusability

@@ -2,6 +2,10 @@
 title: Use Workflows
 description: หลักการใช้ global workflows ใน workspace
 auto_execution_mode: 3
+related_workflows:
+  - /follow-workflows
+  - /follow-principles
+  - /at-windsurf-global-rules
 ---
 
 ## Goal
