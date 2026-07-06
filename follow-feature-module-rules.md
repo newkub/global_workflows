@@ -4,6 +4,7 @@ description: Rules and guidelines for implementing feature modules in Clean Arch
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ตรวจสอบว่าแต่ละ layer ใน feature module เป็นไปตามมาตรฐาน Clean Architecture 2

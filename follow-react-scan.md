@@ -4,6 +4,7 @@ description: ตรวจจับและแก้ไข React performance iss
 auto_execution_mode: 3
 ---
 
+
 ตรวจหา render ที่ไม่จำเป็นและปัญหาความเร็วใน React ได้ทันทีโดยไม่แก้โค้ด พร้อมดูปัญหาและแก้ไขตามข้อมูลที่เห็น
 
 ## Goal

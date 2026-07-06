@@ -77,7 +77,7 @@ related_workflows:
 
 ทำตาม workflows ที่เกี่ยวข้องตาม context
 
-- Code: `/improve-code-quality`, `/ship`
+- Code: `/follow-code-quality`, `/ship`
 - Content: `/follow-content-quality`
 - Config: `/follow-config`
 - Workflow: `/follow-workflows`

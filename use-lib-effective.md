@@ -8,6 +8,7 @@ related_workflows:
   - /use-lib-better
   - /check-type-declarations
   - /analyze-project
+  - /follow-code-quality
 ---
 
 ## Goal

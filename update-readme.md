@@ -12,7 +12,7 @@ related_workflows:
 
 ## Goal
 
-สร้าง `README.md` ที่มีเนื้อหาครบถ้วนด้วย template มาตรฐานและข้อมูลจริงจากการวิเคราะห์โปรเจกต์ สำหรับ root และ workspaces ใน monorepo
+สร้าง `README.md` ครบถ้วนด้วย template มาตรฐานและข้อมูลจริงจากโปรเจกต์ สำหรับ root และ workspaces ใน monorepo
 
 ## Scope
 
@@ -34,7 +34,7 @@ related_workflows:
 ### 3. Update Workspaces READMEs
 
 1. ทำ `/all-workspaces` เพื่อ update README ทุก workspaces
-2. ไม่ต้องมี `License` และ `History` sections (ใช้ของ root)
+2. ไม่ต้องมี `License` section (ใช้ของ root)
 
 ### 4. Validate
 
@@ -43,68 +43,60 @@ related_workflows:
 
 ## Rules
 
-### 1. Section Order
+### 1. Section Order And Format
 
 จัดเรียง sections ตามลำดับต่อไปนี้:
 
 - `Status Callout`: ด้านบนสุด - ใช้ `> 🚀` หรือ emoji ที่เหมาะสม
 - `Hero Section`: Title, Description, Badges (ชิดซ้าย, รวม License MIT badge)
-- `## Project`: `<details>`/`<summary>` accordion ลำดับ Goal, Scope, When To Use, Key Concepts, Core Principles, Best Practices (อยู่เหนือ Features)
-- `## Features`: Markdown table 5 columns (Icon, Feature, Description, Benefit, Usage) พร้อม icon จาก iconify - เขียนให้ครอบคลุมที่สุด, maximize coverage
-- `## Quick Start`: Installation ด้วย numbered steps ไม่มี indent, มี filename ใน codeblock, มี file structure
-- `## Usage`: HTML 2-column layout (ซ้าย: code block + filename, ขวา: 2 ส่วน - description ตรงกลาง + ANSI preview, ยืดสูงเท่า col ซ้าย)
-- `## API References`: `<details>`/`<summary>` accordion สำหรับ subsections พร้อมตาราง (ไม่มี file structure)
+- `## Quick Start`: numbered steps ด้านบน, แต่ละ step มี heading + description ก่อน codeblock
+- `## Features`: Markdown table 5 columns (Icon, Feature, Description, Benefit, Usage) พร้อม colored icon จาก iconify CDN
+- `## Usage`: `### filename.ts` heading + code block เท่านั้น
+- `## Project`: `<details>`/`<summary>` accordion ลำดับ Goal, Scope, When To Use, Key Concepts, Core Principles, Best Practices
+- `## API References`: `<details>`/`<summary>` accordion สำหรับ subsections พร้อม Markdown table (ไม่มี file structure)
 - `## Development`: `<details>`/`<summary>` accordion ลำดับ Tech Stack, How It Work, Architecture, Scripts, Workflows, Skills
 - `## License`: Section แยกด้านล่างสุด พร้อม MIT badge (root เท่านั้น)
 
-### 2. Usage Format
+### 2. Table Column Specs
 
-- ซ้าย: `### filename.ts` heading + `typescript` codeblock
-- ขวา: `<p align="center">` description ตรงกลาง + `ansi` codeblock preview
-- ใช้ `<table><tr><td width="50%" valign="top">` ทั้ง 2 คอลัมน์ กว้างเท่ากัน
+- `Features`: 5 columns (Icon, Feature, Description, Benefit, Usage)
+- `Project > Goal`: 4 columns (Icon, Goal, Status, Description)
+- `Project > Scope`: 4 columns (Icon, Scope, Status, Description)
+- `Project > When To Use`: 3 columns (Icon, Use Case, Description)
+- `Project > Key Concepts`/`Core Principles`/`Best Practices`: 3 columns (Icon, Name, Description)
+- `Development > Tech Stack`: 4 columns (Layer, Technology, Version, Description)
+- `Development > How It Work`: ภาพ diagram แบบ text codeblock (ไม่ใช่ ANSI)
+- `Development > Architecture`/`Workflows`/`Skills`: codeblock
+- `Development > Scripts`: JSON codeblock พร้อม comment
 
-### 3. API References Format
-
-- แต่ละ subsection เป็น `<details>`/`<summary>` accordion พร้อม Markdown table
-- ไม่มี file structure (file structure อยู่ใน Development > Architecture)
-
-### 4. Project Format
-
-- `Goal`: 4 columns (Icon, Goal, Status, Description) - รวม ✓ Goal / ✗ Not Goal
-- `Scope`: 4 columns (Icon, Scope, Status, Description) - รวม ✓ In Scope / ✗ Out of Scope
-- `When To Use`: 3 columns (Icon, Use Case, Description) - แสดงว่าปกติใช้ยังไงและถ้าใช้จะเป็นยังไง
-- `Key Concepts`, `Core Principles`, `Best Practices`: 3 columns (Icon, Name, Description)
-
-### 5. Development Format
-
-- `Tech Stack`: 4 columns (Layer, Technology, Version, Description) จาก `package.json`
-- `How It Work`: ANSI visual workflow diagram พร้อม icons (📦 🔧 ✅ ❌ etc.) จัด layout ให้อยู่ตรงกลาง
-- `Architecture`, `Workflows`, `Skills`: codeblock แสดง structure
-- `Scripts`: แสดงเป็น JSON codeblock จาก `package.json` scripts object จริงๆ พร้อม comment ในแต่ละบรรทัด
-
-### 6. Quick Start Format
-
-- HTML 2-column layout: ซ้ายแสดง steps (code blocks + filenames), ขวาแสดง ANSI preview
-- คอลัมน์กว้างเท่ากัน 50%/50%
-- ซ้าย: แต่ละ step มี heading + description อธิบายสั้นๆ ก่อน codeblock พร้อม filename ใน heading
-- ขวา: `<p align="center">` description ตรงกลาง + `ansi` codeblock preview (เหมือน Usage format)
-- Step headings เขียนให้เข้าใจง่าย (เช่น Install Package, Import Utilities, Use In Your App)
-- ใช้ `<table><tr><td width="50%" valign="top">` ทั้ง 2 คอลัมน์
-
-### 7. Content Standards
+### 3. Content Standards
 
 - ทำ `/use-lang-en` — README.md ทั้งหมดเป็นภาษาอังกฤษ
 - ใช้ข้อมูลจริงจาก `/analyze-project`, code รันได้จริง
 - ไม่ใช้ placeholder ยกเว้น banner image
-- README.md: Headers/List ภาษาอังกฤษ, Workflow: ภาษาไทย
 - ไม่มี `## Information`, `## Key Concepts`, `## Tech Stack` เป็น section แยก
 
-### 8. Features Writing Standards
+### 4. Features Writing Standards
 
 - Coverage: ครอบคลุมทุก features จาก source code ไม่มีการข้าม
-- Concise Rows: แต่ละ row กระชับ ไม่ใช่เขียน Description ให้ยาว แต่มี row ให้ครบ
+- Concise Rows: แต่ละ row กระชับ มี row ให้ครบ ไม่เขียน Description ยาว
 - Business-Focused: เขียน business value ไม่ใช่แค่ technical details
-- Icons: ใช้ icon จาก iconify ที่เหมาะสม
+
+### 5. Icons
+
+- ใช้ iconify CDN: `![icon](https://api.iconify.design/<set>:<name>.svg?color=<hex>)`
+- ห้ามใช้ icon ขาวดำ (ไม่มี color parameter) ทุก icon ต้องมี `?color=<hex>`
+- ห้ามใช้ emoji ในตารางทั้งหมด
+- เลือก icon set ที่เหมาะสม: `mdi`, `lucide`, `material-symbols`, `tabler`, `ph`, `iconoir`
+- แต่ละ icon ต้องมี color ที่แตกต่างกันตามเหมาะสม - ไม่ใช้สีเดียวทั้งหมด
+- กำหนด color ด้วย `?color=<hex>` (ไม่มี `#`) เช่น `?color=1976d2`
+- คอลัมน์ Icon ในตารางต้องจัดให้อยู่ตรงกลางของ cell เสมอ ใช้ `:---:` ใน header row
+- แนวทางสี (เลือกตาม context ของแต่ละ icon):
+  - `1976d2` (ฟ้า) — core, utility, primary | `388e3c` (เขียว) — success, in scope | `d32f2f` (แดง) — negative, out of scope, security
+  - `f57c00` (ส้ม) — warning, highlight | `7b1fa2` (ม่วง) — design, UI | `c2185b` (ชมพู) — features, testing
+  - `303f9f` (คราม) — concepts, web | `0097a7` (ฟ้าขี้ม้า) — development, CLI | `00796b` (เขียวเข้ม) — build, tools | `ffa000` (เหลือวอำพัน) — file, content
+- ตัวอย่าง: `![rocket](https://api.iconify.design/mdi:rocket.svg?color=303f9f)`
+- ห้ามใช้ ANSI codeblock ใน README ทั้งหมด ใช้ codeblock ธรรมดาแทน
 
 ## Example Template
 
@@ -114,49 +106,7 @@ related_workflows:
 Longer description.
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Project
-<details><summary>Goal</summary>
-| Icon | Goal | Status | Description |
-|------|------|--------|-------------|
-| ![icon](url) | Goal item | ✓ Goal | Desc |
-| ![icon](url) | Non-goal | ✗ Not Goal | Desc |
-</details>
-<details><summary>Scope</summary>
-| Icon | Scope | Status | Description |
-|------|-------|--------|-------------|
-| ![icon](url) | In scope | ✓ In Scope | Desc |
-| ![icon](url) | Out of scope | ✗ Out of Scope | Desc |
-</details>
-<details><summary>Key Concepts</summary>
-| Icon | Concept | Description |
-|------|---------|-------------|
-| ![icon](url) | Concept | Desc |
-</details>
-<details><summary>Core Principles</summary>
-| Icon | Principle | Description |
-|------|-----------|-------------|
-| ![icon](url) | Principle | Desc |
-</details>
-<details><summary>When To Use</summary>
-| Icon | Use Case | Description |
-|------|----------|-------------|
-| ![icon](url) | Use case | When to use and what happens |
-</details>
-<details><summary>Best Practices</summary>
-| Icon | Practice | Description |
-|------|----------|-------------|
-| ![icon](url) | Practice | Desc |
-</details>
-
-## Features
-| Icon | Feature | Description | Benefit | Usage |
-|------|---------|-------------|---------|-------|
-| ![icon](url) | Name | What it does | Why it matters | `func()` |
-
 ## Quick Start
-<table>
-<tr>
-<td width="50%" valign="top">
 
 1. **Install Package** — `terminal`
    Install the package to your project
@@ -174,51 +124,39 @@ Longer description.
    func();
    ```
 
-</td>
-<td width="50%" valign="top">
-
-<p align="center">Preview shows the result of running the steps.</p>
-
-```ansi
-┌─────────────────────────┐
-│  ✓ Installed            │
-│  ✓ Imported             │
-│  ✓ Running              │
-│                         │
-│  Output: hello          │
-└─────────────────────────┘
-```
-
-</td>
-</tr>
-</table>
+## Features
+| :---: | Feature | Description | Benefit | Usage |
+|------|---------|-------------|---------|-------|
+| ![icon](https://api.iconify.design/mdi:rocket.svg?color=303f9f) | Name | What it does | Why it matters | `func()` |
 
 ## Usage
+
 ### example.ts
-<table>
-<tr>
-<td width="50%" valign="top">
 
 ```typescript
 import { func } from '@wrikka/package-name';
 func('hello');
 ```
 
-</td>
-<td width="50%" valign="top">
-
-<p align="center">Preview shows terminal output.</p>
-
-```ansi
-┌─────────────────────────┐
-│  Result output here     │
-│  ✓ Done                 │
-└─────────────────────────┘
-```
-
-</td>
-</tr>
-</table>
+## Project
+<details><summary>Goal</summary>
+| :---: | Goal | Status | Description |
+|------|------|--------|-------------|
+| ![icon](https://api.iconify.design/mdi:target.svg?color=388e3c) | Goal item | ✓ Goal | Desc |
+| ![icon](https://api.iconify.design/mdi:close.svg?color=d32f2f) | Non-goal | ✗ Not Goal | Desc |
+</details>
+<details><summary>Scope</summary>
+| :---: | Scope | Status | Description |
+|------|-------|--------|-------------|
+| ![icon](https://api.iconify.design/mdi:check.svg?color=388e3c) | In scope | ✓ In Scope | Desc |
+| ![icon](https://api.iconify.design/mdi:close.svg?color=d32f2f) | Out of scope | ✗ Out of Scope | Desc |
+</details>
+<details><summary>Key Concepts</summary>
+| :---: | Concept | Description |
+|------|---------|-------------|
+| ![icon](https://api.iconify.design/mdi:lightbulb.svg?color=303f9f) | Concept | Desc |
+</details>
+<!-- Core Principles, When To Use, Best Practices: same 3-column pattern as Key Concepts -->
 
 ## API References
 <details><summary>Functions</summary>
@@ -233,12 +171,11 @@ func('hello');
 |-------|-------------|---------|-------------|
 | Runtime | Bun | >= 1.3.10 | JavaScript runtime |
 | Language | TypeScript | 6.0.3 | Type-safe development |
-| Build | bunup | latest | Bundling with Bun |
 </details>
 <details><summary>How It Work</summary>
-```ansi
+```text
       ┌─────────┐         ┌─────────┐         ┌─────────┐
-      │ 📦 Input │  ─────▶ │ 🔧 Process │  ─────▶ │ ✅ Output │
+      │ Input   │  ─────▶ │ Process │  ─────▶ │ Output  │
       └─────────┘         └─────────┘         └─────────┘
 ```
 </details>
@@ -253,49 +190,23 @@ src/
 <details><summary>Scripts</summary>
 ```json
 {
-  "scripts": {
-    "dev": "bun run src/index.ts",              // Run in development mode
-    "build": "bunup",                            // Build with bunup
-    "build:watch": "bunup --watch",               // Build in watch mode
-    "test": "vitest run",                         // Run tests with Vitest
-    "test:watch": "vitest",                       // Watch mode tests
-    "test:coverage": "vitest run --coverage",     // Tests with coverage report
-    "lint": "biome check",                        // Lint with Biome
-    "lint:fix": "biome check --write",            // Auto-fix lint issues
-    "typecheck": "tsgo --noEmit",                 // Type check with tsgo
-    "typecheck:watch": "tsgo --noEmit --watch",   // Type check in watch mode
-    "scan": "sg scan",                            // AST scan with ast-grep
-    "check": "bun run lint && bun run typecheck && bun run scan",  // Lint + typecheck + scan
-    "verify": "bun run check && bun run test",    // Check + test
-    "ci": "bun run verify && bun run build",      // Verify + build
-    "clean": "rm -rf node_modules",               // Remove node_modules
-    "security": "bun audit"                       // Security audit
-  }
+  "dev": "bun run src/index.ts",              // Run in development mode
+  "build": "bunup",                            // Build with bunup
+  "test": "vitest run",                         // Run tests with Vitest
+  "lint": "biome check",                        // Lint with Biome
+  "typecheck": "tsgo --noEmit",                 // Type check with tsgo
+  "verify": "bun run lint && bun run test",    // Check + test
+  "ci": "bun run verify && bun run build"      // Verify + build
 }
-```
-</details>
-<details><summary>Workflows</summary>
-```
-.devin/
-├── rules/
-├── scripts/
-├── workflows/
-└── hooks/
-```
-</details>
-<details><summary>Skills</summary>
-```
-(No skills needed for this package)
 ```
 </details>
 ```
 
 ## Expected Outcome
 
-- README.md ครบถ้วน ไม่มี placeholder
-- Project อยู่เหนือ Features, ไม่มี Information/Tech Stack section แยก
-- Features: row กระชับ ครอบคลุมทุก feature ไม่ใช่ Description ยาว
-- Quick Start: ไม่มี indent, มี filename, มี file structure
-- Usage: col ขวา 2 ส่วน (description ตรงกลาง + ANSI), กว้างเท่ากัน
-- API References: ไม่มี file structure
-- Development: Tech Stack, How It Work (visual ANSI), Architecture, Scripts, Workflows, Skills
+- README.md ครบถ้วน ใช้ข้อมูลจริงจาก `/analyze-project` ไม่มี placeholder ยกเว้น banner image
+- Section order: Quick Start > Features > Usage > Project > API References > Development > License
+- Features: row กระชับ ครอบคลุมทุก feature จาก source code เขียน business value
+- ตารางทั้งหมดใช้ colored icon จาก iconify CDN (มี `?color=<hex>`) คอลัมน์ Icon จัดกึ่งกลางด้วย `:---:`
+- ไม่มี ANSI codeblock ใน README ทั้งหมด
+- ภาษาอังกฤษทั้งหมดตาม `/use-lang-en`

@@ -4,6 +4,7 @@ description: จัดโครงสร้างโปรเจกต์ Nuxt 3
 auto_execution_mode: 3
 ---
 
+
 จัดโครงสร้างโปรเจกต์ Nuxt ตามมาตรฐานสำหรับ Universal Rendering, Nitro server, Layers และ Modules
 
 ## Execute
@@ -359,7 +360,8 @@ Pages → Components → Composables → Stores → API → Services → Reposit
 
 - ใช้ title อธิบายชื่อ workflow ชัดเจน
 - ใช้ description อธิบายงานที่ทำและ scope
-- ใช้ auto_execution_mode: 3 เสมอ
+- ใช้ auto_execution_mode: 3
+related_workflows: เสมอ
 - ไม่เพิ่ม field อื่นนอกเหนือจากนี้โดยไม่จำเป็น
 
 2. Layer Structure Guidelines

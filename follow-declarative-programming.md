@@ -4,6 +4,7 @@ description: พัฒนาโปรเจกต์ด้วย declarative pro
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 พัฒนาโปรเจกต์ด้วย declarative programming เพื่อเขียน code ที่อ่านง่าย maintain ได้ง่าย

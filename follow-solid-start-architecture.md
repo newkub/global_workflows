@@ -4,6 +4,7 @@ description: จัดโครงสร้างโปรเจกต์ SolidS
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 จัดโครงสร้างโปรเจกต์ SolidStart ตาม best practices ที่รองรับ SSR, SSG, CSR และ Islands Architecture

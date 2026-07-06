@@ -4,6 +4,7 @@ description: ค้นหา skills ด้วย command `skills find <keyword>`
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ค้นหา skills ที่เกี่ยวข้องกับ keyword ด้วย `skills find` command เพื่อหา skills ที่เหมาะสมสำหรับงาน

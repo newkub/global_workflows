@@ -12,6 +12,7 @@ related_workflows:
   - /improve-redundancy
   - /improve-reuseables
   - /review-architecture
+  - /follow-code-quality
 ---
 
 ## Goal

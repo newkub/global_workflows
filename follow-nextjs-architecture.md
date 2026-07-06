@@ -4,6 +4,7 @@ description: จัดโครงสร้างโปรเจกต์ Next.j
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 จัดโครงสร้างโปรเจกต์ Next.js ตาม best practices และ App Router patterns

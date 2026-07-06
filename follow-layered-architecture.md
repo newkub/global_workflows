@@ -1,31 +1,34 @@
 ---
 title: Follow Layered Architecture
-description: Implement Layered Architecture สำหรับ Frontend projects, Vue/Nuxt applications, โปรเจกต์ขนาดเล็ก-กลาง
+description: Implement Layered Architecture สำหรับ Frontend projects ขนาดเล็ก-กลาง
 auto_execution_mode: 3
+related_workflows:
+  - /follow-architecture
+  - /follow-clean-architecture
+  - /follow-vite
+  - /follow-vitest
+  - /follow-code-quality
 ---
 
 ## Goal
 
-Implement Layered Architecture สำหรับ Frontend projects, Vue/Nuxt applications, โปรเจกต์ขนาดเล็ก-กลาง
+Implement Layered Architecture สำหรับ Frontend projects โดยแยก concerns ตาม layers และ enforce dependency rules
+
+## Scope
+
+ใช้สำหรับ Frontend projects (Vue/Nuxt/React/Solid) ขนาดเล็ก-กลาง ที่ต้องการโครงสร้างแบบ layered หรือ feature-based
 
 ## Execute
 
-### 1. Analyze Frontend Requirements
+### 1. Select Pattern
 
-1. ระบุประเภทโปรเจกต์ (Vue/Nuxt/React)
-2. ระบุจำนวน features
-3. ระบุความซับซ้อนของ state management
-4. ระบุ framework ที่ใช้
-5. ระบุ team size
+เลือก pattern ตาม Pattern Selection ในส่วน Rules
 
-### 2. Choose Architecture Pattern
+### 2. Create Structure
 
-1. เริ่มต้นด้วย `traditional layered` สำหรับโปรเจกต์ใหม่หรือขนาดเล็ก
-2. พิจารณา migrate ไป `feature-based` เมื่อโปรเจกต์เติบโตและมี features ชัดเจน
-3. พิจารณา team experience และ maintainability
-4. เลือก pattern ที่เหมาะกับ project lifecycle
+สร้าง folder structure ตาม pattern ที่เลือก
 
-### 3. Create Traditional Layered Structure
+**Traditional Layered** (โปรเจกต์ขนาดเล็ก หรือ classic):
 
 ```
 src/
@@ -33,15 +36,14 @@ src/
 ├── composables/      // Vue composables / React hooks
 ├── stores/           // state management (Pinia/Zustand)
 ├── services/         // API calls and business logic
-├── utils/            // utility functions
+├── utils/            // pure utility functions
 ├── types/            // TypeScript types
 ├── constants/        // app constants
 ├── middleware/       // route middleware
-├── plugins/          // framework plugins
-└── helpers/          // helper functions
+└── plugins/          // framework plugins
 ```
 
-### 4. Create Feature Structure
+**Feature-Based** (features ชัดเจน แยกกันได้):
 
 ```
 src/
@@ -60,68 +62,108 @@ src/
     ├── stores/ (optional)     // global state
     ├── plugins/ (optional)    // framework plugins
     ├── constants/ (optional)  // app constants
-    ├── types/ (optional)      // shared types
-    └── helpers/ (optional)    // helper functions
+    └── types/ (optional)      // shared types
 ```
 
-### 5. Setup Folder Structure
+**4-Layer** (separation of concerns แบบชัดเจน):
 
-1. สร้าง folder structure ตาม pattern ที่เลือก
-2. สร้าง barrel export files (index.ts ในทุก folder)
-3. ย้าย code ตาม pattern ที่เลือก
-4. ตั้งค่า import alias
-5. ทำตาม `/refactor-workspace` หลังจากเสร็จ
+```
+src/
+├── presentation/     // UI components, pages, routing, layout
+│   ├── components/   // reusable UI (Button, Card)
+│   ├── pages/        // page-level components
+│   └── hooks/        // UI-specific hooks
+├── application/      // state orchestration, workflows
+│   ├── stores/       // TanStack Query, Zustand, Pinia
+│   ├── useCases/     // application workflows
+│   └── utils/        // app-wide utilities
+├── domain/           // business entities and pure logic
+│   ├── entities/     // models (User, Product)
+│   ├── repositories/ // interfaces for data access
+│   └── services/     // pure business logic functions
+├── infrastructure/   // external integrations
+│   ├── api/          // API clients
+│   ├── storage/      // LocalStorage, IndexedDB wrappers
+│   └── config/       // environment configs
+└── shared/           // cross-layer utilities (types, constants)
+```
+
+### 3. Enforce Dependencies And Public APIs
+
+ดู Dependency Discipline แลง Public API Rules ในส่วน Rules
+
+### 4. Align Tests With Layers
+
+- `Domain` tests: pure functions และ policies
+- `Application` tests: use cases กับ fake repositories
+- `Infrastructure` tests: adapters และ mapping (contract tests)
+- `Presentation` tests: behavior และ composition
+- ถ้า project มี `Vitest` → ทำตาม `/follow-vitest`
+
+### 5. Setup And Migrate
+
+- สร้าง folder structure ตาม pattern ที่เลือก
+- ตั้งค่า import alias ใน `tsconfig` หรือ `nuxt.config`
+- ย้าย code ทีละ feature เพื่อลด risk
+- ถ้า project มี `Nuxt Layers` → ใช้ `extends` ใน `nuxt.config.ts`
+- ทำ `/refactor` หลังจากเสร็จ
+- ถ้า project โตขึ้น (3+ devs) → migrate ไป `/follow-clean-architecture`
 
 ## Rules
 
 ### 1. Pattern Selection
 
-เลือก architecture pattern ตามความเหมาะสมของโปรเจกต์
-
+- `traditional layered` เหมาะกับโปรเจกต์ขนาดเล็ก หรือต้องการโครงสร้าง classic
 - `feature-based` เหมาะกับโปรเจกต์ที่มี features ชัดเจนและแยกกันได้
-- `traditional layered` เหมาะกับโปรเจกต์ขนาดเล็กหรือต้องการโครงสร้างแบบ classic
-- พิจารณา team experience และ maintainability
-- เลือก pattern ที่เหมาะกับ project lifecycle
+- `4-layer` เหมาะกับโปรเจกต์ที่ต้องการ separation of concerns แบบชัดเจน
+- `hybrid` (vertical slices + internal layering) เหมาะกับโปรเจกต์ขนาดใหญ่
+- พิจารณา team experience และ project lifecycle
 
-### 2. Feature-Based Organization
+### 2. Dependency Discipline
 
-ใช้สำหรับ Frontend projects ที่ต้องการโครงสร้างแบบ feature-based
+- `Presentation` → `Application` / `Domain` เท่านั้น
+- `Application` → `Domain` เท่านั้น
+- `Infrastructure` → `Domain` (สำหรับ mapping) เท่านั้น
+- `Domain` ห้าม import จาก layer อื่นทั้งหมด
+- ใช้ path aliases (`@/domain/...`, `@/application/...`) เพื่อให้ layer transitions ชัดเจน
+- ถ้า project มี `Biome` → เพิ่ม restricted import rules
+- ถ้า project มี CI → เพิ่ม dependency graph checks สำหรับ cycle detection
+- หลีกเลี่ยง circular dependencies โดยใช้ dependency injection ผ่าน interfaces
 
-- แยกตาม feature/domain ไม่ใช่ technical layer
-- ทุก folder ต้องมี `index.ts` สำหรับ re-export
+### 3. Public API Rules
+
+- แต่ละ layer/feature ต้องมี `index.ts` เป็น public API entry point
+- ห้าม deep imports ข้าม layer (ใช้ `@/domain/order` ไม่ใช่ `@/domain/order/entities/User`)
 - ใช้ barrel export pattern ทั้งหมด
 - composables ใช้ prefix `use` เสมอ
 - import ผ่าน alias ไม่ใช้ relative path
 
-### 3. Traditional Layered Organization
+### 4. Nuxt-Specific Guidelines
 
-ใช้สำหรับ Frontend projects ที่ต้องการโครงสร้างแบบ traditional layered
+- ใช้ `Nuxt Layers` สำหรับ share configuration, components, และ composables ข้ามโปรเจกต์
+- `srcDir` ค่าเริ่มต้นคือ `app/` ใน Nuxt 4
+- auto-imported directories: `components/`, `composables/`, `utils/`
+- ใช้ `shared/` สำหรับ code ที่ใช้ร่วมระหว่าง app และ server
+- ลำดับ priority: project files > auto-scanned layers > `extends` config layers
 
-- แยกตาม technical layer (components, services, utils)
-- `components/` - UI components (global)
-- `composables/` - Vue composables / React hooks
-- `stores/` - state management (Pinia/Zustand)
-- `services/` - API calls และ business logic
-- `utils/` - pure utility functions
-- `types/` - TypeScript types
-- `constants/` - app constants
-- `middleware/` - route middleware
-- `plugins/` - framework plugins
+### 5. Common Pitfalls
 
-### 4. Best Practices
+- หลีกเลี่ยง `shared/` กลายเป็น escape hatch — shared ต้องมีเฉพาะ code ที่ใช้จริงข้าม layers
+- หลีกเลี่ยง business layer กลายเป็น mega-service — แยก use cases ให้เล็กและ focused
+- หลีกเลี่ยง features กระจายข้าม layers จนค้นหายาก — ใช้ `feature-based` ถ้าจำเป็น
+- หลีกเลี่ยง manual enforcement โดยไม่มี lint หรือ CI checks
 
-- ใช้ barrel export pattern ทั้งหมด (`index.ts`)
-- ตั้งค่า import alias ใน `tsconfig`/`nuxt.config`
-- หลีกเลี่ยง circular dependencies
-- เขียน composables ให้ reusable และ testable
-- แยก concerns ตาม Single Responsibility Principle
+### 6. Migration Path
+
+- ถ้า project โตขึ้น (3+ devs, high testability) → migrate ไป `/follow-clean-architecture`
+- ถ้า project ต้องการ modular boundaries → migrate ไป `/follow-modular-monolith`
+- Domain logic ต้อง framework-agnostic เพื่อให้ migrate ได้ง่าย
 
 ## Expected Outcome
 
-- เลือก architecture pattern ที่เหมาะสมกับโปรเจกต์
-- Feature-based หรือ traditional layered folder structure
+- เลือก pattern ที่เหมาะสมกับโปรเจกต์
+- Folder structure ชัดเจนตาม pattern ที่เลือก
+- Dependency rules ถูก enforce ผ่าน aliases และ lint
 - Code แยกตาม domain หรือ technical layer
-- Import ผ่าน alias ง่ายและชัดเจน
-- Code สามารถ test และ maintain ได้ง่าย
-- Reusable composables และ components
-
+- Tests จัดเรียงตาม layers
+- Migration path ชัดเจนเมื่อ project โตขึ้น

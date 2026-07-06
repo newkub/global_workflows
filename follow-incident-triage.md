@@ -4,6 +4,7 @@ description: จัดลำดับความสำคัญของ incide
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 จัดลำดับความสำคัญของ incident และกำหนด action ที่เหมาะสมตามความรุนแรงและผลกระทบ

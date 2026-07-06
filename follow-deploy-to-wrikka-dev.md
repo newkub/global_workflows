@@ -2,8 +2,8 @@
 title: Deploy To Wrikka Dev
 description: Deploy จนกว่า domain *wrikka.dev จะเชื่อมต่อและเห็นเว็บไซต์จริง
 auto_execution_mode: 3
-
 ---
+
 
 ## Goal
 

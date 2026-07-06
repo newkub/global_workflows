@@ -6,6 +6,7 @@ related_workflows:
   - /write-test
   - /write-docs
   - /improve-seo
+  - /follow-code-quality
 ---
 
 ## Goal

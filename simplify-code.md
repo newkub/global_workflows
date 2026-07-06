@@ -3,7 +3,7 @@ title: Simplify Code
 description: ทำให้โค้ดเรียบง่าย อ่านง่าย และบำรุงรักษาได้
 auto_execution_mode: 3
 related_workflows:
-  - /improve-code-quality
+  - /follow-code-quality
 ---
 
 ## Goal

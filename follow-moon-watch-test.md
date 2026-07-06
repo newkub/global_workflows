@@ -4,6 +4,7 @@ description: Watch และแก้ไข test errors ด้วย moonrepo
 auto_execution_mode: 3
 ---
 
+
 Run test task ด้วย moonrepo และแก้ไข errors จนไม่มีเหลือ
 
 ## Goal

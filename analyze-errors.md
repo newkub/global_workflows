@@ -2,6 +2,12 @@
 title: Analyze Errors
 description: วิเคราะห์ errors จาก run- commands เพื่อหา root cause และจัดลำดับการแก้ไข
 auto_execution_mode: 3
+related_workflows:
+  - /run-check
+  - /debug-issue
+  - /resolve-errors
+  - /incident-triage
+  - /use-scripts
 ---
 
 ## Goal

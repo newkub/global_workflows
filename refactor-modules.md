@@ -6,6 +6,7 @@ related_workflows:
   - /refactor-packages
   - /refactor
   - /edit-relative
+  - /follow-code-quality
 ---
 
 ## Goal

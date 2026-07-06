@@ -4,6 +4,7 @@ description: เพิ่ม workflow ไปยัง global_workflows ที่
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 เพิ่ม workflow ใหม่ไปยัง global_workflows ตามมาตรฐาน `/write-windsurf-global-workflows`

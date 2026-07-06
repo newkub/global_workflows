@@ -4,6 +4,7 @@ description: สรุปและจัดระบบ features ในรูป
 auto_execution_mode: 3
 ---
 
+
 ## Prompt
 
 ใช้ workflow นี้เมื่อต้องการสรุป features หรือ functionalities ของระบบ/โปรเจกต์ในรูปแบบตารางที่มีหลายคอลัมน์ ช่วยให้เห็นภาพรวม feature, รายละเอียด, ปัญหาที่แก้, และ solutions ได้ชัดเจน

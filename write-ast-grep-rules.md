@@ -8,6 +8,7 @@ related_workflows:
   - /deep-research
   - /follow-best-practice
   - /write-windsurf-global-workflows
+  - /validate-ast-grep-rules
 ---
 
 ## Goal
@@ -16,7 +17,7 @@ related_workflows:
 
 ## Scope
 
-เขียน ast-grep rules สำหรับไฟล์ที่มีใน `.devin/rules` (`always-on/`, `model_decision/`, `glob/`) ครอบคลุม atomic, relational, และ composite rules โดยสร้าง ast-grep rules ใน `.devin/rules/` ภายใน structure ของ `/update-dot-devin`
+เขียน ast-grep rules สำหรับไฟล์ที่มีใน `.devin/rules` (`always-on/`, `model_decision/`, `glob/`) ครอบคลุม atomic, relational, และ composite rules โดยสร้าง ast-grep rules ใน `rules/` directory ที่ project root (แยกจาก `.devin/rules/`)
 
 ## Execute
 
@@ -29,10 +30,9 @@ related_workflows:
 
 ### 2. Setup Ast-Grep Project
 
-1. สร้าง ast-grep rules ใน `.devin/rules/always-on/` และ `.devin/rules/model_decision/` (ภายใน `.devin` structure ที่ `/update-dot-devin` สร้างขึ้น)
-2. อัพเดท `sgconfig.yml` ให้ `ruleDirs` ชี้ไปที่ `.devin/rules/always-on` และ `.devin/rules/model_decision`
-3. เพิ่ม `testConfigs` ใน `sgconfig.yml` สำหรับ test rules
-4. ใช้ `bunx ast-grep new` สำหรับ scaffold ได้ถ้าต้องการ
+1. ทำ `/follow-ast-grep` สำหรับการตั้งค่า `sgconfig.yml` และ project structure
+2. สร้าง ast-grep rules ใน `rules/always-on/` และ `rules/model_decision/` ที่ project root
+3. เพิ่ม `testConfigs` ใน `sgconfig.yml` สำหรับ test rules ใน `rule-tests/`
 
 ### 3. Convert Rules To Ast-Grep Format
 
@@ -48,19 +48,13 @@ related_workflows:
 10. ใช้ `utils` สำหรับ reusable utility rules ถ้าต้องการซ้ำซ้อน
 11. เขียน comment ในแต่ละ .yml file อธิบายสิ่งที่ rule ตรวจสอบ, เหตุผล, และตัวอย่าง
 
-### 4. Test And Verify Rules
+### 4. Validate Rules
 
-1. รัน `bunx ast-grep scan --inspect summary` เพื่อตรวจสอบว่า rules parse ได้
-2. รัน `bun run scan` เพื่อ scan ทั้ง codebase
-3. ตรวจสอบ false positives และปรับ `ignores` หรือ `constraints`
-4. ตรวจสอบ false negatives และปรับ `pattern` หรือเพิ่ม `any` patterns
-5. ถ้ามี `testConfigs` รัน `bunx ast-grep test` เพื่อ verify rules
-6. ตรวจสอบว่า `fix` ไม่ทำให้ code เสีย โดยรัน `--interactive` เพื่อตรวจสอบ
-7. ใช้ `bunx ast-grep scan --filter 'RULE_ID'` เพื่อ test rule เฉพาะ
+ทำ `/validate-ast-grep-rules` เพื่อตรวจสอบ rules ครบทุก dimension: parse, false positives, false negatives, fix safety, และ test suite
 
 ### 5. Integrate With Development
 
-1. เพิ่ม `scan` script ใน `package.json` ถ้ายังไม่มี
+1. ทำ `/follow-ast-grep` สำหรับการเพิ่ม `scan` script และ CLI usage
 2. รวม `ast-grep scan` ใน CI/CD pipeline ได้
 3. ตั้งค่า IDE integration ด้วย LSP ได้
 
@@ -75,9 +69,8 @@ related_workflows:
 
 ### 2. Ast-Grep Setup
 
-- `.devin/rules/` สำหรับ ast-grep rules (YAML) และ devin rules (Markdown) ในที่เดียวกัน
-- `sgconfig.yml` ต้องชี้ `ruleDirs` ไปที่ `.devin/rules/always-on` และ `.devin/rules/model_decision`
-- ใช้ `testConfigs` สำหรับ test rules ใน `rule-tests/`
+- ทำ `/follow-ast-grep` สำหรับ setup ทั้งหมด
+- `rules/` สำหรับ ast-grep rules (YAML) ที่ project root แยกจาก `.devin/rules/` ที่เก็บ devin rules (Markdown)
 - rule files ใช้ `kebab-case` filename
 
 ### 3. Atomic Rules
@@ -156,7 +149,7 @@ related_workflows:
 
 ## Expected Outcome
 
-- `sgconfig.yml` ตั้งค่า `ruleDirs` ไปที่ `.devin/rules/` subdirectories
+- `sgconfig.yml` ตั้งค่า `ruleDirs` ไปที่ `rules/` subdirectories
 - Devin rules แปลงเป็น ast-grep YAML format สำเร็จ ครอบคลุม atomic, relational, composite
 - `bunx ast-grep scan --inspect summary` แสดง rules ทั้งหมด effective
 - `bun run scan` ทำงานได้และ report ผลลัพธ์

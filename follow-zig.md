@@ -4,6 +4,7 @@ description: เขียน Zig ตาม best practices และ language con
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 เขียน Zig ตาม best practices และ language conventions

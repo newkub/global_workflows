@@ -4,6 +4,7 @@ description: สรุป project ปัจจุบัน features และ so
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 สรุป project ปัจจุบัน features และ solutions ที่ตอบโจทย์

@@ -21,6 +21,10 @@ related_workflows:
   - /improve-audit-trail
   - /improve-deployment-strategy
   - /improve-logging
+  - /improve-email
+  - /improve-queue
+  - /improve-idempotency
+  - /improve-reliability
 ---
 
 ## Goal
@@ -71,6 +75,7 @@ related_workflows:
 
 1. ทำ `/improve-integrations` สำหรับ integrations
 2. Improve third-party integrations, API integrations, webhook handling และ data synchronization
+3. ทำ `/improve-email` สำหรับ transactional email service (booking confirmations, receipts, password reset, email templates, deliverability)
 
 ### 6. Improve Security
 
@@ -78,8 +83,9 @@ related_workflows:
 
 1. ทำ `/improve-security` สำหรับ security improvements
 2. ทำ `/improve-rate-limiting` สำหรับ rate limiting และ DDoS protection
-3. ทำ `/improve-audit-trail` สำหรับ audit logging และ compliance trail
-4. Implement multi-factor authentication, data encryption และ security monitoring
+3. ทำ `/improve-audit-trail` สำหรับ audit logging และ compliance trail (who/what/when สำหรับทุก data mutation)
+4. ทำ `/improve-idempotency` สำหรับ idempotency keys ป้องกัน duplicate bookings/payments เมื่อ retry
+5. Implement multi-factor authentication, data encryption และ security monitoring
 
 ### 7. Improve Scalability
 
@@ -87,7 +93,8 @@ related_workflows:
 
 1. ทำ `/improve-scalability` สำหรับ scalability improvements
 2. ทำ `/improve-multi-tenancy` สำหรับ tenant isolation และ resource limits
-3. Optimize database for scale, implement horizontal scaling และ load balancing
+3. ทำ `/improve-queue` สำหรับ background jobs และ task queue (async notifications, report generation, refund processing, dead letter handling)
+4. Optimize database for scale, implement horizontal scaling และ load balancing
 
 ### 8. Improve Database
 
@@ -101,7 +108,8 @@ related_workflows:
 ปรับปรุง error handling
 
 1. ทำ `/improve-error-handling` สำหรับ error handling
-2. Implement global error handling, error tracking และ error recovery
+2. ทำ `/improve-reliability` สำหรับ external error tracking (Sentry/Datadog) สำหรับ production real-time error alerts
+3. Implement global error handling, error tracking และ error recovery
 
 ### 10. Improve Monitoring
 
@@ -136,6 +144,12 @@ related_workflows:
 - Billing: integrate payment gateways, subscription management, usage tracking, handle payment failures gracefully
 - Data Privacy: GDPR compliance, data retention policies, data export/deletion, consent management
 - Multi-tenancy: tenant isolation, tenant-aware data access, tenant-specific configurations
+- Transactional Email: booking confirmations, receipts, password reset, email templates, deliverability (SPF/DKIM/DMARC)
+- Background Jobs: async task queue สำหรับ notifications, report generation, refund processing, dead letter handling
+- Audit Trail: log ทุก data mutation พร้อม who/what/when สำหรับ compliance และ forensic
+- Idempotency: idempotency keys ป้องกัน duplicate operations เมื่อ retry (bookings, payments, webhooks)
+- Error Tracking: external service (Sentry/Datadog) สำหรับ production real-time error alerts
+- Feature Flags: gradual rollout, kill switches, A/B testing สำหรับ safe deployment
 
 ### 2. Performance Targets
 
@@ -153,10 +167,14 @@ related_workflows:
 - UX/UI ใช้งานง่ายและเป็นมิตร
 - SEO ดีและ ranking สูง
 - Integrations stable และ reliable
-- Security เข้มงวด
+- Transactional email ส่งได้ครบทุกประเภท
+- Security เข้มงวด พร้อม audit trail
 - Scalable และ handle growth ได้
+- Background jobs ประมวลผล async ได้
 - Database operations efficient
-- Error handling robust
+- Error handling robust พร้อม external tracking
 - Monitoring ครบถ้วน
 - Developer experience ดี
+- Idempotency ป้องกัน duplicate operations
+- Feature flags สำหรับ safe deployment
 - SaaS product พร้อมสำหรับ production

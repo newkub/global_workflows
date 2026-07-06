@@ -2,6 +2,8 @@
 title: Fix Circular Dependencies
 description: ตรวจสอบและแก้ไข circular dependencies ป้องกันโค้ดที่ยุ่งเหยิง
 auto_execution_mode: 3
+related_workflows:
+  - /follow-code-quality
 ---
 
 ## Goal

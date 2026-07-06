@@ -4,6 +4,7 @@ description: รัน build แบบ watch mode เพื่อตรวจส
 auto_execution_mode: 3
 ---
 
+
 ## Prompt
 
 ใช้ workflow นี้เมื่อต้องการรัน build แบบ watch mode เพื่อตรวจสอบ build errors และ optimization อย่างต่อเนื่องขณะพัฒนา

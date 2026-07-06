@@ -4,6 +4,7 @@ description: พัฒนาโปรเจกต์ด้วย imperative prog
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 พัฒนาโปรเจกต์ด้วย imperative programming เพื่อควบคุม flow ของโปรแกรมอย่างชัดเจน

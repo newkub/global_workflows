@@ -10,6 +10,7 @@ related_workflows:
   - /review-test-case
   - /review-test-result
   - /report
+  - /follow-code-quality
 ---
 
 ## Goal

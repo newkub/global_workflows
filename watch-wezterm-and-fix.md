@@ -4,6 +4,7 @@ description: เปิดเบราว์เซอร์และ watch termin
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 Monitor terminal process ที่เปิดอยู่อย่างต่อเนื่อง และแก้ไข errors ที่เกิดขึ้นอัตโนมัติด้วย /resolve-errors

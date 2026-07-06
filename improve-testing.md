@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /improve-test-coverage
   - /write-test
+  - /follow-code-quality
 ---
 
 ## Goal

@@ -4,6 +4,7 @@ description: Deploy, commit, push และ watch browser จนกว่า dep
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 Deploy application, commit และ push changes, และ watch browser จนกว่า deployment จะ live สำเร็จ

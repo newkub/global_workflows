@@ -2,6 +2,7 @@
 title: Nuxt Modules
 description: สร้าง Nuxt modules ตาม best practices และมาตรฐาน
 auto_execution_mode: 3
+related_workflows:
 url: https://nuxt.com/docs/4.x/guide/modules/best-practices
 ---
 

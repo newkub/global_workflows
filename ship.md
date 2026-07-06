@@ -1,57 +1,82 @@
 ---
 title: Ship
-description: Ship code ครบวงจร ทดสอบ และรัน development server
+description: Ship code ครบวงจร ทดสอบ release และ deploy
 auto_execution_mode: 3
 related_workflows:
+  - /ask-requirement
+  - /read-related-workflows
+  - /follow-workflows
+  - /follow-skills
   - /plan
   - /update-project
   - /implement-features-to-mvp
+  - /follow-monorepo
+  - /analyze-project
   - /refactor
+  - /follow-best-practice
+  - /realize-implementation
+  - /update-references
+  - /review-codebase
+  - /resolve-errors
+  - /cleanup-files
   - /run-verify
   - /validate-test
-  - /cleanup-files
   - /run-dev
+  - /test-usage
+  - /run-release
+  - /run-deploy
+  - /follow-agents-md
+  - /follow-deploy
   - /report
   - /report-format-table
   - /report-format-terminal
   - /suggest-next-action
+  - /follow-code-quality
 ---
 
 ## Goal
 
-Ship code ครบวงจรตั้งแต่ planning ไปจนถึง development server พร้อมรายงานผล
+Ship code ครบวงจรตั้งแต่ planning ไปจนถึง release และ deploy พร้อมรายงานผล
 
 ## Scope
 
-ครอบคลุมการวางแผน ตั้งค่าพื้นฐาน refactor ปรับปรุงคุณภาพ verify และรัน development server
+ครอบคลุมการวางแผน ตั้งค่าพื้นฐาน refactor ปรับปรุงคุณภาพ verify release และ deploy
 
 ## Execute
 
 ### 1. Read Related Workflows
 
 1. ทำ `/read-related-workflows` เพื่ออ่าน workflows ที่เกี่ยวข้องก่อนเริ่มทำงาน
+2. ทำ `/follow-workflows` เพื่ออ่านและทำตาม workflows ทั้ง global และ project
+3. ทำ `/follow-skills` เพื่ออ่านและใช้ skills ที่เหมาะสมกับ task
 
-### 2. Planning
+### 2. Clarify Requirement
+
+1. ตรวจสอบว่า requirement จาก user ชัดเจนหรือไม่
+2. ถ้า requirement ไม่ชัดเจน ให้ทำ `/ask-requirement` เพื่อถามความต้องการผ่าน CLI หรือ Web UI
+3. ถ้า requirement ชัดเจนแล้ว ให้ข้ามขั้นตอนนี้
+
+### 3. Planning
 
 1. ทำ `/plan` เพื่อวางแผนงานและ architecture อย่างเป็นระบบ
-2. รอยืนยันจาก user ก่อนเริ่มทำ
+2. ถ้า plan มีความเสี่ยงสูง (เช่น เปลี่ยน architecture, ลบไฟล์จำนวนมาก) ให้รอยืนยันจาก user ก่อนเริ่มทำ
+3. ถ้า plan มีความเสี่ยงต่ำ ให้ดำเนินการได้เลย
 
-### 3. Define MVP Scope (Optional)
+### 4. Define MVP Scope (Optional)
 
 1. ถ้า project อยู่ใน MVP phase ให้ทำ `/implement-features-to-mvp` เพื่อจัดลำดับ features
 
-### 4. Update Project
+### 5. Update Project
 
 1. ทำ `/update-project` เพื่ออัพเดท `.devin`, `README`, `AGENTS.md`, และ documentation
-
-### 5. Setup Deployment (Optional)
-
-1. ถ้า project ต้องการ deployment ให้ทำ `/follow-deploy` เพื่อตั้งค่า CI/CD และ deployment configuration
+2. ถ้า project ต้องการ deployment ให้ทำ `/follow-deploy` เพื่อตั้งค่า CI/CD และ deployment configuration
 
 ### 6. Setup Monorepo
 
 1. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo` และ `/analyze-project` เพื่อดู workspace configuration
-2. ทำขั้นตอน 7-15 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
+2. ทำ steps 7-15 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน (shared packages → apps → integrations)
+3. Steps 16-17 (Release, Deploy) เป็น global ทำครั้งเดียวหลังจบทุก workspace
+4. ถ้าไม่ใช่ monorepo ให้ทำ steps 7-17 แบบ single project
 
 ### 7. Refactor
 
@@ -68,7 +93,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ### 10. Code Review
 
-1. ทำ `/review-codebase-and-fix` เพื่อตรวจสอบคุณภาพโค้ด
+1. ทำ `/review-codebase` เพื่อตรวจสอบคุณภาพโค้ด
 2. ถ้าพบ issues ทำ `/resolve-errors` และทำซ้ำขั้นตอน 7-9 จนกว่าจะผ่าน
 
 ### 11. Cleanup
@@ -87,16 +112,33 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 1. ทำ `/run-dev` เพื่อรัน development server จนกว่าจะผ่าน
 
-### 15. Report Ship
+### 15. Test Usage
 
-รายงานผลลัพธ์การ ship code ครบวงจร:
+1. ทำ `/test-usage` เพื่อทดสอบการใช้งานจริงของผู้ใช้ผ่าน interface ต่างๆ (CLI, API, Browser, SDK, TUI, Mobile, Extension, Bot)
+2. ถ้าพบ issues ให้ทำ `/resolve-errors` และทำซ้ำขั้นตอน 7-9 จนกว่าจะผ่าน
 
-1. รวบรวมสถานะของทุก step (planning, update-project, refactor, best practices, make real, code review, cleanup, verify, dev server)
-2. ทำ `/report` พร้อม `/report-format-table` สำหรับตารางสถานะแต่ละขั้นตอน
-3. ใช้ symbols: ✅ ผ่าน, ❌ ไม่ผ่าน, ⏭️ ข้าม, ⚠️ มี warning
-4. แสดง metrics สำคัญ: lint, typecheck, test, build, dev server
-5. จัดลำดับ issues ที่เหลือตามความรุนแรง (critical, high, medium, low)
-6. ทำ `/suggest-next-action` เพื่อแนะนำ action ถัดไป
+### 16. Release (Optional)
+
+1. ทำ `/run-release` เพื่อ auto-detect platforms และ release ไปยัง npm, crates.io, VSCode, Chrome Web Store, Docker Hub
+2. ถ้า project ไม่มี packages ที่ต้อง release ให้ข้ามขั้นตอนนี้
+
+### 17. Deploy (Optional)
+
+1. ทำ `/run-deploy` เพื่อ deploy ไปยัง Vercel, Cloudflare, Railway หรือ platform อื่น
+2. ถ้า project ไม่ต้องการ deployment ให้ข้ามขั้นตอนนี้
+
+### 18. Check Completion
+
+1. ตรวจสอบสถานะของทุก step (2-17) ว่าทำเสร็จแล้วทั้งหมด ถ้ายังมี step ที่ไม่เสร็จ ให้กลับไปทำ step นั้นก่อน
+2. ถ้าทุก step เสร็จแล้ว ให้ทำ `/follow-agents-md` เพื่อตรวจสอบว่า `AGENTS.md` ทำตามครบถ้วน
+3. ถ้า `/follow-agents-md` ก็ทำเสร็จแล้ว ให้บอกผู้ใช้ว่า "ทำหมดแล้ว" และแนะนำให้ทำ `/idea-features`
+
+### 19. Report Ship
+
+1. รวบรวมสถานะของทุก step และทำ `/report` พร้อม `/report-format-table` สำหรับตารางสถานะ
+2. ใช้ symbols: ✅ ผ่าน, ❌ ไม่ผ่าน, ⏭️ ข้าม, ⚠️ มี warning
+3. แสดง metrics สำคัญ: lint, typecheck, test, build, dev server, usage test, release, deploy
+4. ทำ `/suggest-next-action` เพื่อแนะนำ action ถัดไป
 
 ## Rules
 
@@ -108,7 +150,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 ### 2. Quality Over Speed
 
 - ทำ `/refactor` ก่อน `/follow-best-practice`
-- ทำ `/review-codebase-and-fix` ก่อน cleanup
+- ทำ `/review-codebase` ก่อน cleanup
 - แปลง TODO, MOCK เป็น production code ก่อน verify
 
 ### 3. MVP Discipline
@@ -119,15 +161,14 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ### 4. Error Resolution
 
-- ทำ `/resolve-errors` เมื่อพบ error
-- ทำซ้ำขั้นตอน 7-10 จนกว่าจะผ่าน code review
+- ทำ `/resolve-errors` เมื่อพบ error แล้วทำซ้ำ steps 7-9 จนกว่าจะผ่าน code review
 - ห้ามข้าม errors หรือทำ workaround
 
 ### 5. Execution Order
 
-- ทำตามลำดับ: planning → refactor → verify → dev server
-- ห้ามข้ามขั้นตอน
-- ทำงานอัตโนมัติโดยไม่หยุดถาม
+- ทำตามลำดับ steps ใน Execute ห้ามข้ามขั้นตอน
+- ทำงานอัตโนมัติโดยไม่หยุดถาม ยกเว้นกรณีเสี่ยงสูง
+- Release และ deploy เป็น optional ตาม project configuration
 
 ### 6. Monorepo Workspace Processing
 
@@ -137,13 +178,12 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ## Expected Outcome
 
-- Plan ครอบคลุมและได้รับการยืนยันจาก user
+- Requirement ชัดเจน และ plan ได้รับการยืนยันจาก user
 - Configuration ตั้งค่าถูกต้อง พร้อม `.devin` structure
-- Code ผ่าน refactor, best practices, และ review
-- TODO, MOCK, placeholder แปลงเป็น production code
-- Code ผ่านการ verify ทุกด้าน (scan, lint, typecheck, test, build)
-- Test quality ผ่านการ verify ครบวงจร (ถ้าใช้)
+- Code ผ่าน refactor, best practices, review และแปลง TODO/MOCK เป็น production code
+- Code ผ่าน verify ทุกด้าน (scan, lint, typecheck, test, build) และ test quality (ถ้ามี)
+- Usage test ผ่านทุก interface ที่เกี่ยวข้อง
 - Development server ทำงานได้ ไม่มี critical errors
-- References อัพเดทครบถ้วน ไม่มี references เสียหาย
+- Packages ถูก release และ application ถูก deploy (ถ้ามี)
 - Codebase สะอาด ไม่มีไฟล์หรือ dependencies ที่ไม่จำเป็น
 - รายงานผลลัพธ์การ ship code ครบวงจรตาม `/report`

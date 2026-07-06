@@ -2,6 +2,8 @@
 title: Check Duplication
 description: ตรวจสอบ code duplication ด้วย jscpd
 auto_execution_mode: 3
+related_workflows:
+  - /follow-code-quality
 ---
 
 ## Goal

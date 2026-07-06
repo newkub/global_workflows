@@ -4,6 +4,7 @@ description: ค้นหาข้อมูลจาก NPM, GitHub, DeepWiki, C
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ค้นหาข้อมูลลึกจาก multiple sources เพื่อให้ได้คำตอบที่ครบถ้วนและถูกต้อง

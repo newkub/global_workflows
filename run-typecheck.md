@@ -6,6 +6,7 @@ related_workflows:
   - /config
   - /analyze-errors
   - /resolve-errors
+  - /follow-code-quality
 ---
 
 ## Goal

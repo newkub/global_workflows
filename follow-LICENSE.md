@@ -1,3 +1,8 @@
+---
+title: Follow LICENSE
+description: TODO
+---
+
 # MIT License
 
 Copyright (c) 2024 Veerapong

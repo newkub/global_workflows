@@ -5,8 +5,8 @@ title: Example Workflow
 description: ตัวอย่าง workflow file ที่ถูกต้อง
 
 auto_execution_mode: 3
-
 ---
+
 
 ## Goal
 

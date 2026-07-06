@@ -4,6 +4,7 @@ description: จัดโครงสร้างโปรเจกต์ Svelte
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 จัดโครงสร้างโปรเจกต์ SvelteKit ตาม best practices และ reactive programming patterns

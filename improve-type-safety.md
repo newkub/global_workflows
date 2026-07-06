@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /follow-typescript
   - /follow-ts
+  - /follow-code-quality
 ---
 
 ## Goal

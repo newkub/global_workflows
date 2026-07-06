@@ -4,6 +4,7 @@ description: ตั้งค่า scripts ใน package.json หรือ Carg
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ตั้งค่า scripts ใน `package.json` หรือ `Cargo.toml` ตามมาตรฐานที่กำหนด รองรับทั้ง Minimal, Standard และ Complete levels

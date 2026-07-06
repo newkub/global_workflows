@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - improve-content
   - improve-api-design
-  - improve-code-quality
+  - follow-code-quality
   - improve-uxui
   - follow-content-quality
 ---

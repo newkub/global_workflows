@@ -4,6 +4,7 @@ description: สร้าง Bun scripts สำหรับ automate งาน
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 สร้าง Bun scripts เพื่อ automate งานและประมวลผลไฟล์

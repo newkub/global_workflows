@@ -12,6 +12,7 @@ related_workflows:
   - /improve-logging
   - /improve-deployment-strategy
   - /improve-error-messages
+  - /follow-code-quality
 ---
 
 ## Goal

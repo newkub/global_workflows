@@ -6,6 +6,7 @@ related_workflows:
   - /write-windsurf-global-workflows
   - /dont-over-engineer
   - /analyze-features
+  - /follow-code-quality
 ---
 
 ## Goal

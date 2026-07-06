@@ -3,6 +3,7 @@ title: Improve All Workflows
 description: ปรับปรุง global workflows ทั้งหมดให้สมบูรณ์และสม่ำเสมอ
 auto_execution_mode: 3
 related_workflows:
+  - /read-related-workflows
   - /write-windsurf-global-workflows
   - /follow-content-quality
   - /follow-consistency
@@ -21,21 +22,22 @@ related_workflows:
 
 ## Execute
 
-### 1. Analyze Current State
+### 1. Read Related Workflows
 
-วิเคราะห์สถานะปัจจุบันของ workflows
+อ่าน workflows ที่เกี่ยวข้องทั้งหมดก่อนเริ่มปรับปรุง
 
-1. ทำ `/check-reference` เพื่อตรวจสอบ references ที่เสียหาย
-2. ถ้าอยู่ใน workspace ตรวจสอบว่ามี `.devin/workflows` หรือ `.windsurf/workflows`
-3. ระบุ workflows ที่ต้องปรับปรุง (structure, content, references)
-4. จัดลำดับความสำคัญตาม impact (workflows ที่ใช้บ่อยก่อน)
-5. ตรวจสอบไฟล์ที่เกิน 250 บรรทัด
+1. ทำ `/read-related-workflows` เพื่ออ่านและสร้าง dependency graph ของ workflows ทั้งหมด
+2. ทำ `/check-reference` เพื่อตรวจสอบ references ที่เสียหาย
+3. ถ้าอยู่ใน workspace ตรวจสอบว่ามี `.devin/workflows` หรือ `.windsurf/workflows`
+4. ระบุ workflows ที่ต้องปรับปรุง (structure, content, references)
+5. จัดลำดับความสำคัญตาม impact (workflows ที่ใช้บ่อยก่อน)
+6. ตรวจสอบไฟล์ที่เกิน 250 บรรทัด
 
 ### 2. Apply Structure Improvements
 
-ปรับปรุง structure ตาม `/write-windsurf-global-workflows`
+ปรับปรุง structure ตาม `/write-windsurf-global-workflows` สำหรับทุก workflow
 
-1. ตรวจสอบ frontmatter ถูกต้อง (title, description, auto_execution_mode)
+1. ตรวจสอบ frontmatter ถูกต้อง (title, description, auto_execution_mode, related_workflows)
 2. ตรวจสอบ sections ครบถ้วน (Goal, Scope, Execute, Rules, Expected Outcome)
 3. ปรับ heading ใน Execute เป็น English Title Case
 4. ปรับ Rules เป็นภาษาไทย
@@ -70,6 +72,10 @@ related_workflows:
 2. ตรวจสอบ workflow structure สอดคล้องกับ markdown best practices
 3. อ้างอิง official documentation สำหรับ tools/libraries เฉพาะเจาะจง
 4. ปรับให้สอดคล้องกับ execution guidelines
+5. ตรวจสอบว่า `analyze-*` workflows มี report step ที่เหมาะสม (เช่น `/report-format-table`)
+6. ตรวจสอบว่า `review-*` workflows มี report step ที่เหมาะสม (เช่น `/report-review` หรือ `/report-format-table`)
+7. ตรวจสอบว่า `update-docs` ทำตาม `/follow-project-docs` และไม่เรียก `/follow-vitepress` แยก
+8. ตรวจสอบว่า `update-docs` มี report requirements สำหรับ `analyze-*` และ `review-*` workflows
 
 ### 6. Batch Update Workflows
 
@@ -126,6 +132,10 @@ related_workflows:
 - อ้างอิง official documentation สำหรับ tools/libraries
 - ปรับให้สอดคล้องกับ execution guidelines
 - ทำตาม `/follow-best-practice` สำหรับ topics ที่เกี่ยวข้อง
+- `analyze-*` workflows ต้องมี report step ที่เหมาะสม
+- `review-*` workflows ต้องมี report step ที่เหมาะสม
+- `update-docs` ต้องทำตาม `/follow-project-docs` ไม่เรียก `/follow-vitepress` แยก
+- `update-docs` ต้องมี report requirements สำหรับ `analyze-*` และ `review-*` workflows
 
 ## Expected Outcome
 

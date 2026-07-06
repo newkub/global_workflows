@@ -4,6 +4,7 @@ description: สรุปการสนทนาเป็น instruction prompt
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 สรุปการสนทนาเป็น instruction prompt ที่ชัดเจน กระชับ และนำไปใช้ได้จริง

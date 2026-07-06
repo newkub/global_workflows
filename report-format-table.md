@@ -4,6 +4,7 @@ description: จัดรูปแบบตาราง สรุปข้อม
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 จัดรูปแบบ structured data output (ตาราง, สรุป, metrics) ให้สอดคล้องและอ่านง่าย

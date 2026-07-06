@@ -4,6 +4,7 @@ description: Setup TypeScript configuration with tsconfig.json for single projec
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ตั้งค่า TypeScript configuration ด้วย tsconfig.json สำหรับ type safety สูงสุด รองรับทั้ง single project และ monorepo

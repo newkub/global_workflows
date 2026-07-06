@@ -14,6 +14,8 @@ related_workflows:
 
 ใช้สำหรับสัมภาษณ์ผู้ใช้เพื่อเก็บข้อมูล preferences, coding style, และ habits
 
+ใช้ `ask_user_question` tool จาก Windsurf system prompt **เท่านั้น** สำหรับการถามคำถาม และใช้ `create_memory` tool สำหรับบันทึกคำตอบ
+
 ## Execute
 
 ### 1. Prepare Questions
@@ -27,12 +29,12 @@ related_workflows:
 
 ### 2. Conduct Interview
 
-ดำเนินการสัมภาษณ์ผู้ใช้
+ดำเนินการสัมภาษณ์ผู้ใช้โดยใช้ `ask_user_question` tool
 
 1. เริ่มด้วยคำถาม `general` เพื่อสร้าง `context`
-2. ถามคำถามตาม `priority` ที่กำหนด
-3. ใช้ `follow-up questions` เพื่อลึกซึ้งขึ้น
-4. สังเกต `non-verbal cues` จากการตอบ
+2. ถามคำถามตาม `priority` ที่กำหนด ทีละคำถามผ่าน `ask_user_question` tool
+3. ใช้ `follow-up questions` ผ่าน `ask_user_question` tool เพื่อลึกซึ้งขึ้น
+4. วิเคราะห์คำตอบจาก `ask_user_question` response
 
 ### 3. Analyze Responses
 

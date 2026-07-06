@@ -7,6 +7,7 @@ related_workflows:
   - /improve-content
   - /improve-codebase
   - /resolve-errors
+  - /follow-code-quality
 ---
 
 ## Goal

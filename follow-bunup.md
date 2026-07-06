@@ -4,6 +4,7 @@ description: ตั้งค่าและใช้งาน Bunup สำหร
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ตั้งค่า Bunup เป็น library bundler ที่ใช้ Bun's native bundler สำหรับ TypeScript libraries ที่ต้องการความเร็วสูงและ type declarations generation

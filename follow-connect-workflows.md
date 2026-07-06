@@ -4,6 +4,7 @@ description: วิเคราะห์และเชื่อมโยง wor
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 สำรวจและวิเคราะห์ workflows ทั้งหมดใน `global_workflows/` เพื่อเพิ่มการอ้างอิง `/workflows` ใน frontmatter และปรับปรุง discoverability

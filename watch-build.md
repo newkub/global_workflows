@@ -4,6 +4,7 @@ description: watch build และแก้ไข error ทั้งหมดจ
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 watch build แล้ว fix error ทั้งหมดจนไม่มีเหลือ

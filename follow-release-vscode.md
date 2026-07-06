@@ -4,6 +4,7 @@ description: ตั้งค่า VS Code extensions สำหรับ automat
 auto_execution_mode: 3
 ---
 
+
 ตั้งค่า VS Code extensions สำหรับ automated releases
 
 ## Goal

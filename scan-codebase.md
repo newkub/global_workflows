@@ -6,6 +6,7 @@ related_workflows:
   - /use-scripts
   - /analyze-project
   - /write-ast-grep-rules
+  - /follow-code-quality
 ---
 
 ## Goal

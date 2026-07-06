@@ -4,6 +4,7 @@ description: พัฒนาโปรเจกต์ด้วย OOP principles 
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 พัฒนาโปรเจกต์ด้วย object-oriented programming principles เพื่อเพิ่มความสามารถในการ reuse, maintainability และ scalability

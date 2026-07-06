@@ -4,6 +4,7 @@ description: แก้ปัญหาที่ซับซ้อนด้วย 
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 แก้ปัญหาที่ซับซ้อนด้วย dynamic programming เพื่อลด time complexity และ space complexity

@@ -6,6 +6,7 @@ related_workflows:
   - /follow-javascript
   - /follow-best-practice
   - /follow-vitest
+  - /follow-code-quality
 ---
 
 ## Goal

@@ -1,6 +1,8 @@
 ---
 description: เขียนเป็นหลักการตาม principles ที่กำหนด
 auto_execution_mode: 3
+related_workflows:
+  - /follow-code-quality
 ---
 
 ## Goal

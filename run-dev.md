@@ -3,6 +3,7 @@ title: Run Dev
 description: รัน development server และแก้ไขข้อผิดพลาด
 auto_execution_mode: 3
 related_workflows:
+  - /open-web
   - /watch-terminal
   - /watch-browser
   - /resolve-errors
@@ -39,19 +40,24 @@ related_workflows:
 2. ตรวจจับ errors และ warnings ใหม่ๆ อัตโนมัติ
 3. ถ้าพบ errors ให้ทำ `/resolve-errors` ทันที
 
-### 4. Watch Browser (ถ้าเป็น web)
+### 4. Open Web (ถ้าเป็น web)
+
+1. ถ้าเป็น web project ให้ทำ `/open-web` เพื่อเปิด browser ที่ dev server URL
+2. ตรวจสอบว่า website เปิดได้และแสดงผลถูกต้อง
+
+### 5. Watch Browser (ถ้าเป็น web)
 
 1. ถ้าเป็น web project ให้ทำ `/watch-browser` เพื่อตรวจสอบ browser
 2. ตรวจสอบว่า dev server ทำงานได้จริงผ่าน browser
 3. ทดสอบ features หลักทำงานได้
 
-### 5. Verify
+### 6. Verify
 
 1. ยืนยันว่าไม่มี critical errors ที่ขัดขวางการทำงาน
 2. ตรวจสอบว่า services ที่เกี่ยวข้องทำงานปกติ
 3. ยืนยันว่าไม่มี runtime errors ใน console
 
-### 6. Report
+### 7. Report
 
 1. ทำ `/report-format-terminal` เพื่อแสดง terminal output
 2. สรุปสถานะ dev server และ issues ที่เหลือ
@@ -71,6 +77,7 @@ related_workflows:
 
 ### 3. Watch Strategy
 
+- ทำ `/open-web` เฉพาะ web project เพื่อเปิด browser ที่ dev server URL
 - ทำ `/watch-terminal` สำหรับทุก project
 - ทำ `/watch-browser` เฉพาะ web project
 - ถ้าพบ errors ระหว่าง watch ให้ทำ `/resolve-errors` ทันที

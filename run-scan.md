@@ -5,9 +5,11 @@ auto_execution_mode: 3
 related_workflows:
   - /follow-ast-grep
   - /write-ast-grep-rules
+  - /validate-ast-grep-rules
   - /resolve-errors
   - /loop-until-complete
   - /report-format-terminal
+  - /follow-code-quality
 ---
 
 ## Goal
@@ -25,6 +27,7 @@ related_workflows:
 1. ทำ `/follow-ast-grep` เพื่อติดตั้งและตั้งค่า `ast-grep`
 2. ตรวจสอบ `sgconfig.yml` มี `ruleDirs: rules` และมี `scan` script ใน `package.json`
 3. ถ้ายังไม่มี rules ให้ทำ `/write-ast-grep-rules` เพื่อสร้าง rules ใน `rules/` directory
+4. ทำ `/validate-ast-grep-rules` เพื่อตรวจสอบ rules ก่อนรัน scan
 
 ### 2. Run Scan
 

@@ -4,6 +4,7 @@ description: รัน browser tests ด้วย Playwright หรือ Cypres
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 รัน browser tests สำหรับ E2E testing ด้วย Playwright หรือ Cypress

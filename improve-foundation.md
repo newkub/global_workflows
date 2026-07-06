@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /improve-architecture
   - /improve-type-safety
-  - /improve-code-quality
+  - /follow-code-quality
   - /improve-comment
   - /improve-correctness
   - /improve-completeness
@@ -27,7 +27,7 @@ related_workflows:
 ### 1. Type Safety And Code Quality
 
 1. ทำ `/improve-type-safety` เพื่อปรับปรุง type safety
-2. ทำ `/improve-code-quality` เพื่อปรับปรุงคุณภาพโค้ด
+2. ทำ `/follow-code-quality` เพื่อปรับปรุงคุณภาพโค้ด
 3. ทำ `/improve-comment` เพื่อปรับปรุงคุณภาพ comments
 4. ทำ `/improve-correctness` เพื่อปรับปรุงความถูกต้อง
 5. ทำ `/improve-completeness` เพื่อปรับปรุงความครบถ้วน

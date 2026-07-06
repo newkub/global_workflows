@@ -4,6 +4,7 @@ description: เปิด website ด้วย open command
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 เปิด website ด้วย open command

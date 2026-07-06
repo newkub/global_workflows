@@ -1,13 +1,15 @@
 ---
 title: Resolve Errors
-description: Systematic error resolution by identifying root cause, applying minimal changes, and verifying solutions
+description: แก้ไข error อย่างเป็นระบบโดยระบุ root cause แก้ไขน้อยที่สุด และตรวจสอบผลลัพธ์
 auto_execution_mode: 3
 related_workflows:
   - /refactor
+  - /read-related-workflows
   - /analyze-errors
   - /no-use-ignore
   - /use-scripts
   - /check-long-files
+  - /follow-code-quality
 ---
 
 ## Goal
@@ -79,30 +81,7 @@ related_workflows:
 
 ## Rules
 
-### 1. Root Cause Analysis
-
-- อ่าน error message อย่างละเอียด อย่าข้าม stack trace
-- ติดตาม call stack ย้อนกลับเพื่อหาจุดเริ่มต้น
-- ระบุสาเหตุที่แท้จริง ไม่ใช่แก้เฉพาะ symptom
-- ใช้ debugging tools (`debugger`, `logging`, `breakpoints`) ตามความเหมาะสม
-- ตรวจสอบ data flow และ dependencies ที่เกี่ยวข้อง
-
-### 2. Minimal Change Principle
-
-- แก้ไขที่จุดเดียวที่เป็นปัญหาจริง
-- ทำการเปลี่ยนแปลงน้อยที่สุดที่จำเป็น
-- หลีกเลี่ยงการแก้หลายจุดพร้อมกัน
-- รักษา consistency กับ code style ที่มีอยู่
-- ตรวจสอบว่าไม่สร้าง side effects ใหม่
-
-### 3. Verification Standards
-
-- ตรวจสอบว่าการแก้ไขแก้ root cause โดยตรง
-- ตรวจสอบว่าการแก้ไขไม่สร้าง side effects ใหม่
-- ตรวจสอบว่า code style เหมาะสมและ consistent
-- ตรวจสอบว่ามี comments อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
-
-### 4. Error Classification
+### 1. Error Classification
 
 | Type | Approach |
 |------|----------|
@@ -112,16 +91,9 @@ related_workflows:
 | `Logic Error` | ตรวจสอบ algorithm, conditions, data transformations |
 | `Network Error` | ตรวจสอบ API calls, endpoints, request/response format |
 
-### 5. No Ignore Patterns
+### 2. No Ignore Patterns
 
 - ทำตาม `/no-use-ignore`
-
-### 6. Documentation
-
-- เขียน comment อธิบายสาเหตุของการแก้ไขถ้าจำเป็น
-- เพิ่ม error handling หรือ validation ถ้าจำเป็น
-- บันทึก pattern ของปัญหาเพื่อใช้อ้างอิง
-- พิจารณาเพิ่ม test case เพื่อป้องกัน regression
 
 ## Expected Outcome
 

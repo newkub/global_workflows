@@ -6,7 +6,8 @@ related_workflows:
   - /restructure
   - /analyze-project
   - /check-architecture
-  - /analyze-structure
+  - /analyze-code-structure
+  - /follow-code-quality
 ---
 
 ## Goal
@@ -23,7 +24,7 @@ related_workflows:
 
 วิเคราะห์โครงสร้างปัจจุบัน
 
-1. ทำ `/analyze-structure` เพื่อดูโครงสร้างไฟล์และ folders
+1. ทำ `/analyze-code-structure` เพื่อดูโครงสร้างไฟล์และ folders
 2. ทำ `/analyze-project` เพื่อดูภาพรวม
 3. ระบุไฟล์ที่ตั้งชื่อไม่เหมาะสม
 4. ตรวจสอบจำนวนไฟล์ในแต่ละโฟลเดอร์ (มากกว่า 10-15 ไฟล์)

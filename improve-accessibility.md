@@ -13,7 +13,7 @@ related_workflows:
 
 ## Scope
 
-ใช้สำหรับปรับปรุง accessibility ของ web applications, mobile apps, และ desktop applications
+ใช้สำหรับปรับปรุง accessibility ของ web applications, mobile apps, desktop applications, CLI tools, และ TUI applications
 
 ## Execute
 
@@ -39,7 +39,19 @@ related_workflows:
 5. ทดสอบ ARIA attributes
 6. ทดสอบ images และ media
 
-### 3. Fix Issues
+### 3. Improve CLI And TUI Accessibility
+
+ปรับปรุง accessibility สำหรับ CLI และ TUI
+
+1. สำหรับ CLI: รองรับ `NO_COLOR` environment variable สำหรับปิด color output
+2. สำหรับ CLI: ไม่พึ่ง color อย่างเดียวในการสื่อสาร ใช้ text markers ด้วย
+3. สำหรับ CLI: ใช้ exit codes ที่มาตรฐาน สำหรับ screen reader compatibility
+4. สำหรับ TUI: รองรับ screen readers (NVDA, VoiceOver) ด้วย text-only mode
+5. สำหรับ TUI: จัดการ text-only mode สำหรับ non-color terminals
+6. สำหรับ TUI: ตรวจสอบ color contrast สำหรับ colorblind users
+7. สำหรับ TUI: ใช้ keyboard-only navigation อย่างเดียวได้
+
+### 4. Fix Issues
 
 แก้ไข issues ที่พบ
 

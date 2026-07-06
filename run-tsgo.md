@@ -2,6 +2,8 @@
 title: Run Tsgo
 description: รัน tsgo อย่างมีระบบ พร้อมแก้ไข errors จนผ่าน
 auto_execution_mode: 3
+related_workflows:
+  - /follow-code-quality
 ---
 
 ## Goal

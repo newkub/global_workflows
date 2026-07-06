@@ -4,8 +4,9 @@ description: ตรวจสอบความถูกต้อง คุณภ
 auto_execution_mode: 3
 related_workflows:
   - /check-correctness
-  - /analyze-code-quality
+  - /analyze-codebase-quality
   - /check-configuration
+  - /follow-code-quality
 ---
 
 ## Goal

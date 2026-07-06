@@ -4,6 +4,7 @@ description: แปล function และ code เป็นประโยคท
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 แปล code และ functions เป็นประโยคภาษาไทยที่เข้าใจง่าย พร้อมอธิบาย input/output และ logic

@@ -4,6 +4,7 @@ description: สร้าง TUI ด้วย Ratatui library สำหรับ
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 สร้าง Terminal User Interface (TUI) ด้วย Ratatui library สำหรับ Rust

@@ -4,6 +4,7 @@ description: เปิด website ของ dependencies จาก package manif
 auto_execution_mode: 3
 ---
 
+
 เปิด website ของ dependencies จาก package manifest เพื่อดูข้อมูลและเอาค่า config
 
 ## Goal

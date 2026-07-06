@@ -4,6 +4,7 @@ description: จัดรูปแบบ code blocks, diffs, JSON และ mark
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 จัดรูปแบบ code/text output (codeblocks, diffs, JSON, markdown) ให้สวยงามและอ่านง่าย

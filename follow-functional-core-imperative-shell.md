@@ -6,6 +6,7 @@ related_workflows:
   - /follow-functional-programming
   - /refactor
   - /refactor-modules
+  - /follow-code-quality
 ---
 
 ## Goal

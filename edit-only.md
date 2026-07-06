@@ -4,6 +4,7 @@ description: แก้ไขโค้ดโดยไม่ต้องรัน 
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 กำหนดกฎสำหรับการแก้ไขโค้ดโดยไม่ต้องรัน task หรือ terminal ใดๆ

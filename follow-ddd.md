@@ -2,6 +2,8 @@
 title: Follow DDD
 description: Implement Domain-Driven Design สำหรับโปรเจกต์ที่มี business logic ซับซ้อนมาก
 auto_execution_mode: 3
+related_workflows:
+  - /follow-code-quality
 ---
 
 ## Goal

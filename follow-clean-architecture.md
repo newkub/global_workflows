@@ -9,6 +9,7 @@ related_workflows:
   - /follow-layered-architecture
   - /refactor-modules
   - /write-test
+  - /follow-code-quality
 ---
 
 ## Goal

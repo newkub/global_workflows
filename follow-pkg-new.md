@@ -4,6 +4,7 @@ description: ตั้งค่า pkg.pr.new สำหรับ continuous prev
 auto_execution_mode: 3
 ---
 
+
 ตั้งค่า pkg.pr.new สำหรับ continuous (preview) releases สำหรับ libraries ด้วยการ publish อัตโนมัติทุก commit และ pull request
 
 ## Goal

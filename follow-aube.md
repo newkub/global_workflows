@@ -4,6 +4,7 @@ description: แนวทางการใช้งาน Aube package manager 
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ใช้ Aube เป็น Node.js package manager หลักสำหรับโปรเจกต์ที่ต้องการความเร็วสูง ความปลอดภัย และประสิทธิภาพสูงสุด

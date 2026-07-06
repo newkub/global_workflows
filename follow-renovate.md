@@ -4,6 +4,7 @@ description: ตั้งค่า Renovate สำหรับ auto update depen
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ตั้งค่า Renovate เพื่ออัปเดต dependencies อัตโนมัติผ่าน GitHub Actions

@@ -4,6 +4,7 @@ description: merge ไฟล์และลบไฟล์เดิม
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 merge ไฟล์เข้าด้วยกันและลบไฟล์เดิม

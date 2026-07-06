@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /create-github-issue
   - /fix-my-github-issue
-  - /review-issue
+  - /review-codebase
   - /report
 ---
 
@@ -98,7 +98,7 @@ related_workflows:
 
 - แยกแยะระหว่าง review (workflow นี้) และ fix (`/fix-my-github-issue`)
 - ห้ามแก้ไขโค้ดในขั้นตอน review เด็ดขาด
-- ใช้ `/review-issue` สำหรับ script-based codebase scanning เพิ่มเติม
+- ใช้ `/review-codebase` สำหรับ script-based codebase scanning เพิ่มเติม
 - ใช้ `/code-search` สำหรับค้นหาไฟล์ที่เกี่ยวข้องใน codebase
 
 ### 3. Duplicate Detection

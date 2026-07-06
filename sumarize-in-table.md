@@ -4,6 +4,7 @@ description: สรุปเนื้อหา workflow หรือไฟล์
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 สรุปเนื้อหา workflow หรือไฟล์ในรูปแบบตารางที่อ่านง่ายและเข้าใจได้ทันที

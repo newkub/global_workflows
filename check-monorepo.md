@@ -4,6 +4,7 @@ description: ตรวจสอบว่า project เป็น monorepo หร
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ตรวจสอบว่า project เป็น monorepo หรือไม่ เพื่อกำหนด structure ที่เหมาะสม

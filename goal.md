@@ -5,8 +5,8 @@ title: Goal
 description: ตั้งเป้าหมายและวางแผนงานอย่างเป็นระบบ
 
 auto_execution_mode: 3
-
 ---
+
 
 ## Goal
 

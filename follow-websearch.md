@@ -2,7 +2,7 @@
 title: Web Search
 description: ใช้ CRW สำหรับ web search อย่างมีประสิทธิภาพ
 auto_execution_mode: 3
----
+
 
 ## Goal
 

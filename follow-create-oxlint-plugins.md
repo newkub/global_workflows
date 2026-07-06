@@ -4,6 +4,7 @@ description: ตั้งค่าและใช้งาน Oxlint plugins ท
 auto_execution_mode: 3
 ---
 
+
 ตั้งค่าและใช้งาน Oxlint plugins ทั้ง built-in และ JavaScript plugins
 
 ## Goal

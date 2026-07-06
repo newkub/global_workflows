@@ -5,8 +5,8 @@ title: At Windsurf Global Rules
 description: ระบุ location ของ global rules file สำหรับ Windsurf
 
 auto_execution_mode: 3
-
 ---
+
 
 ## Goal
 

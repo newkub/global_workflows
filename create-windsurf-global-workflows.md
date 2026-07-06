@@ -7,7 +7,7 @@ related_workflows:
   - /read-related-workflows
   - /check-reference
   - /edit-relative
-  - /use-in-another
+  - /use-in-another-workflows
 ---
 
 ## Goal
@@ -65,7 +65,7 @@ related_workflows:
 
 ### 6. Update Cross-References
 
-1. ทำ `/use-in-another` เพื่อวิเคราะห์ว่า workflow ใหม่ควรถูกอ้างอิงในไฟล์ใดบ้าง
+1. ทำ `/use-in-another-workflows` เพื่อวิเคราะห์ว่า workflow ใหม่ควรถูกอ้างอิงในไฟล์ใดบ้าง
 2. ทำ `/edit-relative` เพื่อเพิ่ม references ในไฟล์ที่เกี่ยวข้อง เช่น `AGENTS.md`, `global_rules.md`
 3. ตรวจสอบว่าไม่เพิ่ม reference ในไฟล์ที่ไม่เกี่ยวข้อง
 

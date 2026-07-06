@@ -1,8 +1,9 @@
-﻿---
+---
 title: Try Again
 description: ทำตาม user prompt ล่าสุดอีกครั้ง
 auto_execution_mode: 3
 ---
+
 
 ## Goal
 

@@ -4,6 +4,7 @@ description: ตั้งค่า linter สำหรับ project
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ตั้งค่า linter สำหรับ project

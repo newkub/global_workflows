@@ -1,6 +1,10 @@
+---
 title: Run Program
 description: รันโปรแกรมหลักและทำให้ทำงานได้จริง
 auto_execution_mode: 3
+related_workflows:
+---
+
 ## Purpose
 
 รันโปรแกรมหลักของโปรเจกต์และทำให้ทำงานได้จริง พร้อมแก้ไขปัญหาที่พบ

@@ -1,6 +1,10 @@
+---
 title: Follow Dioxus
 description: ตั้งค่าและพัฒนา Desktop, Web และ Mobile Applications ด้วย Dioxus Rust framework
 auto_execution_mode: 3
+related_workflows:
+---
+
 ## Purpose
 
 ตั้งค่า Dioxus สำหรับสร้าง cross-platform applications (Desktop, Web, Mobile) ด้วย Rust และ React-like components

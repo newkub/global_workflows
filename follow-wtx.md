@@ -4,6 +4,7 @@ description: แนวทางการพัฒนา Web Extensions ด้ว
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 กำหนดแนวทางการพัฒนา Web Extensions ด้วย WXT framework ให้มีประสิทธิภาพและเป็นมาตรฐาน

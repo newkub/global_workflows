@@ -6,6 +6,7 @@ related_workflows:
   - /refactor-modules
   - /refactor-packages
   - /all-workspaces
+  - /follow-code-quality
 ---
 
 ## Goal

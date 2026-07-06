@@ -4,6 +4,7 @@ description: แสดง template shell script list projects ใน drive D ท
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 สร้าง shell script template สำหรับ list projects ใน drive D ที่มี `.git` directory

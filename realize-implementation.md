@@ -11,6 +11,7 @@ related_workflows:
   - /improve-type-safety
   - /refactor
   - /edit-relative
+  - /follow-code-quality
 ---
 
 ## Goal

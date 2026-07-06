@@ -4,6 +4,7 @@ description: ตรวจสอบไฟล์ที่ยาวกว่า thr
 auto_execution_mode: 3
 related_workflows:
   - /use-scripts
+  - /follow-code-quality
 ---
 
 ## Goal

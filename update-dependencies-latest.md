@@ -4,6 +4,7 @@ description: อัพเดท dependencies ในทุก workspace ให้
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 อัพเดท dependencies ในทุก workspace/package ให้เป็น latest version ทั้งหมด ไม่ว่าจะเป็น major, minor หรือ patch updates

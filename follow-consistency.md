@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /improve-redundancy
   - /improve-content
+  - /follow-code-quality
 ---
 
 ## Goal

@@ -4,6 +4,7 @@ description: สร้าง Tauri plugins ด้วย Rust และ JavaScrip
 auto_execution_mode: 3
 ---
 
+
 สร้าง Tauri plugins ด้วย Rust และ JavaScript/TypeScript เพื่อเพิ่ม functionality ให้ Tauri apps
 
 ## Goal

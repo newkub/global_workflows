@@ -1,5 +1,5 @@
 ---
-title: Analyze Structure
+title: Analyze Code Structure
 description: วิเคราะห์โครงสร้างไฟล์และ folders ของโปรเจกต์ด้วย tree view และ ast-grep outline
 auto_execution_mode: 3
 related_workflows:

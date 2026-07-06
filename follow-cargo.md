@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /follow-mutants-rs
   - /follow-nextest
+  - /follow-code-quality
 ---
 
 ## Goal

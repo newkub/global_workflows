@@ -4,6 +4,7 @@ description: ตั้งค่าและพัฒนา SvelteKit project ด
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ตั้งค่าและพัฒนา SvelteKit application ด้วย meta-framework ที่รองรับ SSR, SSG และ CSR

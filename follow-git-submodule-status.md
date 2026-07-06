@@ -4,6 +4,7 @@ description: ตรวจสอบสถานะของ git submodules ทั
 auto_execution_mode: 3
 ---
 
+
 ตรวจสอบสถานะของ git submodules ทั้งหมดเพื่อดูว่า submodules อยู่ใน commit ที่ตรงกับที่บันทึกไว้ใน superproject หรือไม่
 
 ## Execute

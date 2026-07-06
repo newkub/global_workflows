@@ -4,6 +4,7 @@ description: ตั้งค่า Docker images สำหรับ automated re
 auto_execution_mode: 3
 ---
 
+
 ตั้งค่า Docker images สำหรับ automated releases
 
 ## Goal

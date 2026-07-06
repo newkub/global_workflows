@@ -4,6 +4,7 @@ description: แปลง MOCK, FAKE, STUB implementations เป็น producti
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 แปลง mock implementations ทั้งหมดให้เป็น production code ที่เชื่อมต่อกับ infrastructure จริง ไม่ใช้ mock data หรือ simulation

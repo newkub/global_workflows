@@ -1,7 +1,13 @@
 ---
-title: Follow Microservices
+title: Microservices Architecture
 description: พัฒนา distributed systems ด้วย Microservices Architecture สำหรับ scalability และ independence
 auto_execution_mode: 3
+related_workflows:
+  - /follow-architecture
+  - /follow-clean-architecture
+  - /follow-event-driven
+  - /follow-modular-monolith
+  - /follow-code-quality
 ---
 
 ## Goal
@@ -22,7 +28,7 @@ auto_execution_mode: 3
 1. กำหนด service boundaries ชัดเจน
 2. ระบุ APIs และ contracts ระหว่าง services
 3. กำหนด data isolation strategy
-4. ทำ `/architecture` สำหรับแต่ละ service
+4. ทำ `/follow-architecture` สำหรับแต่ละ service
 
 ### 3. Implement API Gateway
 
@@ -43,7 +49,7 @@ auto_execution_mode: 3
 1. เลือก communication pattern: REST, gRPC, message queues
 2. ตั้งค่า inter-service communication
 3. กำหนด retry logic แล circuit breakers
-4. ทำ `/event-drive-architecture` สำหรับ async communication
+4. ทำ `/follow-event-driven` สำหรับ async communication
 
 ### 6. Implement Data Isolation
 
@@ -57,7 +63,7 @@ auto_execution_mode: 3
 1. ตรวจสอบ service independence
 2. ทดสอบ fault tolerance แล resilience
 3. ตรวจสอบ scalability
-4. ทำ `/refactor-workspace` หลังจาก implement เสร็จ
+4. ทำ `/restructure` หลังจาก implement เสร็จ
 
 ## Rules
 

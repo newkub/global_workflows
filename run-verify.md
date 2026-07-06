@@ -11,6 +11,7 @@ related_workflows:
   - /run-build
   - /resolve-errors
   - /run-dev
+  - /follow-code-quality
 ---
 
 ## Goal

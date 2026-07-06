@@ -4,7 +4,7 @@ description: สร้าง .devin structure ครบถ้วนรวม rul
 auto_execution_mode: 3
 related_workflows:
   - /update-devin-rules
-  - /update-agents
+  - /update-agents-md
   - /check-monorepo
   - /write-ast-grep-rules
   - /follow-ast-grep
@@ -108,8 +108,8 @@ integrations/<workspace>/
 2. สำหรับแต่ละ workspace:
    1. สร้าง `<workspace>/.devin/rules/` พร้อม subdirectories: `always-on/`, `model_decision/`, `glob/`
    2. ทำ `/update-devin-rules` สำหรับ workspace นั้น โดยอ้างอิง dependencies ใน `<workspace>/package.json`
-   3. ทำ `/update-agents` สำหรับ workspace นั้น เพื่อเขียน `AGENTS.md`
-3. ทำ `/update-agents` สำหรับ root `AGENTS.md` โดยระบุว่าให้ทำตาม `AGENTS.md` ของแต่ละ workspace
+   3. ทำ `/update-agents-md` สำหรับ workspace นั้น เพื่อเขียน `AGENTS.md`
+3. ทำ `/update-agents-md` สำหรับ root `AGENTS.md` โดยระบุว่าให้ทำตาม `AGENTS.md` ของแต่ละ workspace
 
 ### 6. Setup Skills And MCP (Optional)
 
@@ -176,7 +176,7 @@ integrations/<workspace>/
 
 ### 6. AGENTS.md Update
 
-- ใช้ `/update-agents` สำหรับเขียน `AGENTS.md` ทั้ง root และ workspace
+- ใช้ `/update-agents-md` สำหรับเขียน `AGENTS.md` ทั้ง root และ workspace
 - Root `AGENTS.md` ต้องระบุว่าให้ทำตาม `AGENTS.md` ของแต่ละ workspace
 - แต่ละ workspace ต้องมี `AGENTS.md` ของตัวเอง
 

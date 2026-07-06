@@ -4,6 +4,7 @@ description: สร้าง CLI tools ที่รองรับทั้ง i
 auto_execution_mode: 3
 ---
 
+
 ## Prompt
 
 ใช้ workflow นี้เมื่อต้องการสร้าง CLI tools ที่มีทั้ง interactive mode และ argument mode

@@ -3,7 +3,7 @@ title: Improve Concurrency
 description: ปรับปรุง race conditions, deadlocks, async patterns, shared state
 auto_execution_mode: 3
 related_workflows:
-  - improve-code-quality
+  - follow-code-quality
   - improve-error-handling
   - improve-testing
   - improve-observability

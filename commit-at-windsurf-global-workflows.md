@@ -4,6 +4,7 @@ description: Commit ทุกไฟล์ที่มีการเปลี่
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 Commit ทุกไฟล์ที่มีการเปลี่ยนแปลงใน global workflows directory ตามมาตรฐาน conventional commits

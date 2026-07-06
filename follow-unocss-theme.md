@@ -2,17 +2,25 @@
 title: Setup UnoCSS Theme
 description: ตั้งค่า theme colors และ Design System ด้วย UnoCSS แบบ HSL variables
 auto_execution_mode: 3
+related_workflows:
+  - /follow-unocss
+  - /follow-create-biome-plugins
+  - /follow-design-system
 ---
 
 ## Goal
 
-สร้าง theme colors สำหรับ UnoCSS ด้วย HSL CSS variables พร้อมรองรับ light/dark mode
+สร้าง theme colors สำหรับ UnoCSS ด้วย HSL CSS variables พร้อมรองรับ light/dark mode และ validator
+
+## Scope
+
+ใช้สำหรับตั้งค่า theme colors ด้วย HSL variables ในโปรเจกต์ที่ใช้ UnoCSS (ติดตั้งผ่าน `/follow-unocss`)
 
 ## Execute
 
 ### 1. Prepare
 
-1. ตรวจสอบว่า UnoCSS ติดตั้งแล้ว (จาก `/unocss`)
+1. ตรวจสอบว่า UnoCSS ติดตั้งแล้วโดยทำ `/follow-unocss`
 2. อ่าน `uno.config.ts` ที่มีอยู่
 3. ระบุตำแหน่ง `theme.css` ตาม framework:
    - Nuxt: `app/assets/theme.css`
@@ -37,10 +45,22 @@ auto_execution_mode: 3
 2. Next.js: ใน `app/layout.tsx` import `./theme.css`
 3. Vite: ใน `main.ts` import `./theme.css`
 
-### 5. Verify
+### 5. Create Biome Validator Plugin
+
+1. ทำ `/follow-create-biome-plugins` สำหรับสร้าง GritQL plugin
+2. สร้างไฟล์ `theme-validator.grit` ที่ root ของโปรเจกต์
+3. เขียน GritQL patterns สำหรับตรวจสอบ:
+   - ทุก color variable ที่กำหนดใน `uno.config.ts` มีใน `:root` และ `.dark`
+   - HSL format ถูกต้อง (`hue saturation% lightness%`)
+   - ทุก color มี states ครบ: `DEFAULT`, `hover`, `active`, `foreground`
+4. เพิ่ม plugin path ใน `biome.jsonc` ผ่าน `plugins` array
+5. รัน `bunx biome lint` เพื่อทดสอบ validator
+
+### 6. Verify
 
 1. ทดสอบ theme classes เช่น `bg-primary`, `text-foreground`
 2. ทดสอบ dark mode ด้วย class `.dark` บน html element
+3. รัน `bunx biome lint` เพื่อตรวจสอบ theme validator ผ่าน
 
 ## Rules
 
@@ -58,6 +78,26 @@ auto_execution_mode: 3
 
 - ใช้ class `.dark` บน html element
 - สร้าง variables สำหรับ dark mode ใน `.dark` selector
+- ทุก color ที่มีใน `:root` ต้องมีใน `.dark` ด้วย
+
+### Required Colors
+
+กำหนด colors ที่จำเป็นต้องมี
+
+- primary, secondary, success, warning, destructive
+- background, foreground, surface, muted, accent
+- border, focus, overlay, skeleton
+
+### Validator
+
+กำหนดการตรวจสอบด้วย Biome plugin
+
+- สร้าง Biome plugin ด้วย `/follow-create-biome-plugins`
+- ตรวจสอบ missing CSS variables ใน `:root` และ `.dark`
+- ตรวจสอบ HSL format ถูกต้อง
+- ตรวจสอบ required states ครบ
+- กำหนด plugin ใน `biome.jsonc` ผ่าน `plugins` array
+- รัน `bunx biome lint` เพื่อตรวจสอบ
 
 ### Example Variables
 
@@ -140,4 +180,6 @@ auto_execution_mode: 3
 - CSS variables ทำงานใน light/dark mode
 - Colors เปลี่ยนตาม class `.dark`
 - ใช้ร่วมกับ UnoCSS utilities ได้
+- Biome validator ตรวจสอบ theme variables ได้
+- Missing variables และ invalid HSL format ถูกจับได้ด้วย `bunx biome lint`
 

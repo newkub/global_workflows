@@ -1,6 +1,10 @@
+---
 title: Follow Framework Agnostic
 description: แนวทางการพัฒนาโค้ดที่ทำงานได้บน multiple frameworks โดยไม่ผูกติดกับ framework ใด framework หนึ่ง
 auto_execution_mode: 3
+related_workflows:
+---
+
 ## Purpose
 
 พัฒนาโค้ดที่สามารถทำงานได้บน multiple frameworks (React, Vue, Svelte, Solid) โดยไม่ผูกติดกับ framework ใด framework หนึ่งเป็นพิเศษ

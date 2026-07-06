@@ -4,6 +4,7 @@ description: ตั้งค่า Ultracite กับ Biome สำหรับ 
 auto_execution_mode: 3
 ---
 
+
 ตั้งค่า Ultracite กับ Biome สำหรับ linting และ formatting แบบ zero-config
 
 ## Goal

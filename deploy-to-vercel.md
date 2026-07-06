@@ -4,6 +4,7 @@ description: Deploy application ไปยัง Vercel ด้วย nitro build 
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 Deploy application ไปยัง Vercel ด้วย nitro build deploy จนกว่าจะ live สำเร็จ

@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /update-dot-devin
   - /update-readme
-  - /update-agents
+  - /update-agents-md
   - /update-docs
 ---
 
@@ -35,7 +35,7 @@ related_workflows:
 
 อัพเดท AGENTS.md สำหรับ project
 
-1. ทำ `/update-agents` เพื่ออัพเดท AGENTS.md ครบถ้วน
+1. ทำ `/update-agents-md` เพื่ออัพเดท AGENTS.md ครบถ้วน
 
 ### 4. Update Documentation
 
@@ -52,7 +52,7 @@ related_workflows:
 
 - ทำ `/update-dot-devin` ก่อนเสมอ เพื่อตั้งค่าพื้นฐาน
 - ทำ `/update-readme` หลังจากตั้งค่าพื้นฐาน
-- ทำ `/update-agents` หลังจากอัพเดท README
+- ทำ `/update-agents-md` หลังจากอัพเดท README
 - ทำ `/update-docs` เป็นลำดับสุดท้าย (ถ้ามี docs/)
 
 ### 2. Conditional Execution

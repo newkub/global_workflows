@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /use-scripts
   - /analyze-project
+  - /follow-code-quality
 ---
 
 ## Goal

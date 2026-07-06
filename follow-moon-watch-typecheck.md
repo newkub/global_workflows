@@ -4,6 +4,7 @@ description: Watch และแก้ไข typecheck errors ด้วย moonre
 auto_execution_mode: 3
 ---
 
+
 Run typecheck task ด้วย moonrepo และแก้ไข errors จนไม่มีเหลือ
 
 ## Goal

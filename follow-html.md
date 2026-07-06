@@ -4,6 +4,7 @@ description: สร้าง single HTML ด้วย Vue 3 ผ่าน unpkg C
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 สร้าง HTML ไฟล์เดียวที่รวม Vue 3 ผ่าน unpkg CDN พร้อม Tailwind CSS สำหรับ dark mode

@@ -4,6 +4,7 @@ description: สร้าง MCP server ด้วย Bun และ TypeScript SD
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 สร้าง MCP server ด้วย Bun runtime และ TypeScript SDK ที่ใช้งานได้จริง

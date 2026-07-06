@@ -3,7 +3,7 @@ title: Improve State Management
 description: ปรับปรุง state patterns, store organization, และ data flow
 auto_execution_mode: 3
 related_workflows:
-  - improve-code-quality
+  - follow-code-quality
   - improve-type-safety
   - improve-redundancy
   - improve-debugging
@@ -50,7 +50,7 @@ related_workflows:
 3. ตั้งค่า memoization สำหรับ expensive computations
 4. ตรวจสอบ side effects isolation
 5. ทำ `/improve-debugging` สำหรับ state debugging tools
-6. ทำ `/improve-code-quality` สำหรับ code organization
+6. ทำ `/follow-code-quality` สำหรับ code organization
 
 ## Rules
 

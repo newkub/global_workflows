@@ -7,6 +7,7 @@ related_workflows:
   - /follow-config
   - /follow-taze
   - /follow-tsgo
+  - /follow-infisical
   - /use-scripts
 ---
 
@@ -64,6 +65,13 @@ related_workflows:
 - ตรวจสอบ dependencies และ config files ใน project
 - เช็ค global workflows และ skills ว่ามีอะไรให้ทำตามบ้าง
 - รันเฉพาะที่จำเป็น ไม่รันทุก workflow
+
+### 5.1. Setup Secrets Management
+
+- ถ้ามี `.infisical.json` หรือใช้ Infisical ใน project ให้ทำ `/follow-infisical`
+- ตรวจสอบว่า scripts ที่เกี่ยวข้องกับ secrets (เช่น `dev`, `build`, `deploy`) ใช้ `infisical run` ครอบหรือไม่
+- ตรวจสอบว่า `INFISICAL_TOKEN` ตั้งค่าใน CI/CD แล้ว
+- ใช้ `infisical run -- <command>` สำหรับ scripts ที่ต้องการ secrets injection
 
 ### 6. Validate
 

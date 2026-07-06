@@ -8,6 +8,7 @@ related_workflows:
   - /write-spec
   - /follow-stryker-mutator
   - /follow-mutants-rs
+  - /follow-code-quality
 ---
 
 ## Goal

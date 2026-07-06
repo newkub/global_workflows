@@ -1,8 +1,9 @@
 ---
-title: Use In Another
+title: Use In Another Workflows
 description: วิเคราะห์ว่า workflow หรือ skill ควรถูกอ้างอิงในไฟล์ไหนบ้าง
 auto_execution_mode: 3
 related_workflows:
+  - /write-windsurf-global-workflows
   - /analyze-project
   - /code-search
   - /scan-codebase
@@ -25,8 +26,8 @@ related_workflows:
 ### 1. Identify Target
 
 1. ระบุ workflow หรือ skill ที่ต้องการวิเคราะห์
-2. ระบุ scope ของการค้นหา (ทั้ง project, เฉพาะ workspace, หรือเฉพาะ directory)
-3. ระบุประเภทของไฟล์ที่เกี่ยวข้อง (`.md`, `.ts`, `.json`, ฯลฯ)
+2. ระบุ scope ของการค้นหา: ทั้ง project, เฉพาะ workspace, หรือเฉพาะ directory
+3. ระบุประเภทไฟล์เป้าหมาย: `.md` (docs, workflows, skills), `.ts` (code), `.json` (config)
 
 ### 2. Analyze Current Usage
 
@@ -58,27 +59,20 @@ related_workflows:
 
 ## Rules
 
-### 1. Analysis Scope
+### Analysis Scope
 
-- ตรวจสอบทุก workspace ใน monorepo
+- ถ้า project เป็น monorepo ตรวจสอบทุก workspace
 - ตรวจสอบ `AGENTS.md` ใน root และแต่ละ workspace
 - ตรวจสอบ `README.md` ของ project
-- ตรวจสอบ workflow files ที่เกี่ยวข้องใน `global_workflows`
-- ตรวจสอบ skill files ที่เกี่ยวข้อง
+- ถ้า project มี `global_workflows` ตรวจสอบ workflow files
+- ถ้า project มี skills directory ตรวจสอบ skill files
 
-### 2. Reference Quality
+### Reference Quality
 
 - เพิ่ม reference เฉพาะไฟล์ที่เกี่ยวข้องจริง
 - ไม่เพิ่ม reference ในไฟล์ที่ไม่เกี่ยวข้อง
 - ตรวจสอบว่า reference มีอยู่จริงก่อนเพิ่ม
 - ใช้ `/check-reference` หลังเพิ่ม reference
-
-### 3. Conditional Checks
-
-- ถ้า project เป็น monorepo ตรวจสอบทุก workspace
-- ถ้า project มี `AGENTS.md` ในแต่ละ workspace ตรวจสอบทุกไฟล์
-- ถ้า project มี `global_workflows` ตรวจสอบ workflow files
-- ถ้า project มี skills directory ตรวจสอบ skill files
 
 ## Expected Outcome
 

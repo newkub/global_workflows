@@ -4,6 +4,7 @@ description: ตรวจสอบ OS, shell, environment variables และ gl
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ตรวจสอบ system environment ของ Windsurf รวมถึง OS, shell, environment variables และ global root paths

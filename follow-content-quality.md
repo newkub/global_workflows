@@ -7,6 +7,7 @@ related_workflows:
   - /improve-correctness
   - /improve-file-structure
   - /dont-over-engine
+  - /follow-code-quality
 ---
 
 ## Goal

@@ -2,6 +2,10 @@
 title: Event Driven
 description: Implement Event-Driven Architecture สำหรับ async workflows และ loose coupling
 auto_execution_mode: 3
+related_workflows:
+  - /follow-clean-architecture
+  - /follow-modular-monolith
+  - /follow-microservices-architecture
 ---
 
 ## Goal
@@ -195,7 +199,7 @@ async fn handle_event(event: Event) -> Result<()> {
 
 ## References
 
-- ทำ `/modular-monolith` สำหรับ base architecture
-- ทำ `/microservices` สำหรับ distributed event-driven systems
-- ทำ `/clean-architecture` สำหรับ event handler structure
+- ทำ `/follow-modular-monolith` สำหรับ base architecture
+- ทำ `/follow-microservices-architecture` สำหรับ distributed event-driven systems
+- ทำ `/follow-clean-architecture` สำหรับ event handler structure
 

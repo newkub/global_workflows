@@ -4,6 +4,7 @@ description: ตั้งค่า Vite + React + TypeScript พร้อม ESL
 auto_execution_mode: 3
 ---
 
+
 ## 1. Setup
 
 ### 1.1. Vite Config

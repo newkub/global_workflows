@@ -4,6 +4,7 @@ description: พัฒนาโปรเจกต์ด้วย deterministic p
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 พัฒนาโปรเจกต์ด้วย deterministic programming เพื่อให้โค้ดให้ผลลัพธ์เหมือนกันเสมอเมื่อ input เดิม

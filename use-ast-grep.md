@@ -6,6 +6,7 @@ url: https://ast-grep.github.io/
 related_workflows:
   - /write-ast-grep-rules
   - /run-scan
+  - /follow-code-quality
 ---
 
 ## Goal

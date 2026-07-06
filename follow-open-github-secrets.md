@@ -4,6 +4,7 @@ description: เปิดหน้า GitHub Secrets สำหรับตั้
 auto_execution_mode: 3
 ---
 
+
 เปิดหน้า GitHub Secrets สำหรับตั้งค่า environment variables และ secrets
 
 ## Goal

@@ -4,7 +4,7 @@ description: ค้นหา code patterns, symbols, และ references ด้
 auto_execution_mode: 3
 related_workflows:
   - /use-ast-grep
-  - /analyze-structure
+  - /analyze-code-structure
   - /scan-codebase
 ---
 

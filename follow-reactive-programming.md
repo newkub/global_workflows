@@ -4,6 +4,7 @@ description: พัฒนาโปรเจกต์ด้วย reactive progra
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 พัฒนาโปรเจกต์ด้วย reactive programming เพื่อจัดการ data ที่เปลี่ยนแปลงตามเวลาอย่างมีประสิทธิภาพ

@@ -2,6 +2,9 @@
 title: Follow Gitignore
 description: สร้างและจัดการ .gitignore ตามประเภทโปรเจกต์
 auto_execution_mode: 3
+related_workflows:
+  - /use-scripts
+  - /follow-content-quality
 ---
 
 ## Goal
@@ -74,6 +77,13 @@ vitest.config.ts.timestamp-*
 .DS_Store
 Thumbs.db
 
+# Temporary files
+*.tmp
+*.temp
+.cache/
+.**/temp/
+.devin/scripts/temp/
+
 # IDE
 .vscode/
 .idea/
@@ -81,9 +91,9 @@ Thumbs.db
 
 ### 3. Validate
 
-1. ทำ `/content-quality` เพื่อตรวจสอบคุณภาพเนื้อหา
+1. ทำ `/follow-content-quality` เพื่อตรวจสอบคุณภาพเนื้อหา
 2. ทดสอบด้วย `git check-ignore <file>`
-3. ทำ `/update-references` หากมี file operations
+3. ทำ `/update-reference` หากมี file operations
 
 ## Rules
 
@@ -102,6 +112,7 @@ Thumbs.db
 
 ### 3. Patterns by Tools
 
+- Temporary: *.tmp, *.temp, .cache/, .**/temp/, .devin/scripts/temp/ (จาก `/use-scripts`)
 - Build: dist/, build/, .next/, .nuxt/, .vite/, .turbo/, .swc/
 - Framework: .svelte-kit/, .astro/, .remix/, .parcel-cache/
 - Deployment: .vercel/, .netlify/, .wrangler/, .sst/, .amplify/, .firebase/

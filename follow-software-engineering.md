@@ -2,6 +2,8 @@
 title: Software Engineering
 description: ออกแบบ architecture ที่ test ง่าย scale ง่าย, เขียน code ที่ debug ง่าย test ง่าย, ออกแบบให้ใช้งานง่าย
 auto_execution_mode: 3
+related_workflows:
+  - /follow-code-quality
 ---
 
 ## Goal

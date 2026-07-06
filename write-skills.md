@@ -5,8 +5,8 @@ title: Write Windsurf Skills
 description: เขียน skill file ให้เป็นมาตรฐานเดียวกัน
 
 auto_execution_mode: 3
-
 ---
+
 
 ## Goal
 
@@ -113,7 +113,8 @@ auto_execution_mode: 3
 1. ทำตาม `/write-windsurf-global-workflows` สำหรับโครงสร้าง
 2. เขียน `title` เป็น Title Case ตรงกับ skill name
 3. เขียน `description` กระชับไม่เกิน 100 ตัวอักษร
-4. ตั้ง `auto_execution_mode: 3` เสมอ
+4. ตั้ง `auto_execution_mode: 3
+related_workflows:` เสมอ
 5. เพิ่ม `url` (optional) ถ้ามี external documentation
 
 ### 4. Create Directory Structure

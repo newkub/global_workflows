@@ -1,152 +1,124 @@
 ---
 title: Plan
-description: วางแผนงานและ architecture
+description: วางแผนงานและ architecture อย่างเป็นระบบก่อนเริ่ม implement
 auto_execution_mode: 3
 related_workflows:
   - /analyze-project
   - /use-lib-better
   - /use-lib-effective
   - /prioritize
-  - /deep-research
-  - /use-scripts
-  - /follow-content-quality
+  - /ship
+  - /update-dot-devin
   - /recommend-architecture
-  - /follow-architecture
   - /report-format-table
   - /report-format-file-structure
 ---
 
 ## Goal
 
-วางแผนงานและ architecture อย่างเป็นระบบก่อนเริ่ม implement
+วางแผนงานและ architecture อย่างเป็นระบบก่อนเริ่ม implement พร้อม metrics สำหรับวัดคุณภาพแผน
 
 ## Scope
 
-ครอบคลุมการวางแผน tasks, libraries, implementation path, file architecture, module structure, interfaces, และการ validate แผนงานก่อน implement
+ครอบคลุมการวางแผน tasks, libraries, implementation path, file architecture, module structure และการ validate แผนงาน ถ้า tasks เยอะมาก (>10) ให้สร้างใน `.devin/tasks/`
 
 ## Execute
 
 ### 1. Analyze And Research
 
-วิเคราะหาโปรเจกต์และสำรวจ libraries
-
-1. ทำ `/analyze-project` เพื่อวิเคราะหา project structure และ dependencies
-2. ระบุ scope และ requirements ของงานที่ต้องทำ
-3. ระบุ constraints และ assumptions
-4. ถ้า project มี `AGENTS.md` ให้อ่านและทำตาม
-5. ทำ `/use-lib-better` เพื่อสำรวจ library alternatives
-6. ทำ `/use-lib-effective` เพื่อวิเคราะหา dependencies ที่มีอยู่
-7. สำรวจ alternatives อย่างน้อย 2-3 ตัวเลือก
-8. ประเมินแต่ละ candidate ตามเกณฑ์: modern, type safety, performance, DX, maintenance
-9. บันทึก library ที่เลือกใช้พร้อมเหตุผล
+1. ทำ `/analyze-project` เพื่อวิเคราะห์ project structure และ dependencies
+2. ระบุ scope, constraints, และ assumptions
+3. ถ้า project มี `AGENTS.md` ให้อ่านและทำตาม
+4. ทำ `/use-lib-better` และ `/use-lib-effective` เพื่อสำรวจและวิเคราะห์ libraries
+5. บันทึก library ที่เลือกพร้อมเหตุผล (modern, type safety, performance, DX, maintenance)
 
 ### 2. Define Implementation Path
 
-กำหนดลำดับการ implement ตาม impact order
-
 1. ทำ `/prioritize` เพื่อจัดลำดับ tasks ตาม impact และ effort
-2. จัดลำดับ priority: foundation ก่อน, high risk เพื่อ fail fast
-3. ระบุ critical path และ dependencies ระหว่าง tasks
-4. กำหนด milestones และ timeline พร้อม buffer
-5. ระบุ tasks ที่สามารถทำ parallel ได้
+2. จัดลำดับ: foundation ก่อน, high risk เพื่อ fail fast
+3. ระบุ critical path, dependencies ระหว่าง tasks, และ parallelizable tasks
+4. กำหนด milestones พร้อม timeline และ buffer
+5. คำนวณ planning metrics (ดู Metrics section)
 
 ### 3. Plan Architecture
 
-วางแผน architecture และ structure
-
-1. ทำ `/refactor` เพื่อขอไอเดียโครงสร้างไฟล์
-2. ทำ `/recommend-architecture` เพื่อแนะนำ architecture ที่เหมาะสม
-3. วางแผน file architecture โดยจัดกลุ่มตาม responsibility
-4. กำหนด naming conventions สำหรับ files และ directories
-5. ระบุ barrel files และ entry points
-6. วางแผน directory structure แบบ tree พร้อม comment
-7. สร้าง file pattern table: File Pattern, Description, Naming, Import
-8. แยก modules ตาม domain หรือ feature
-9. กำหนด dependencies ระหว่าง modules (high-level → low-level)
-10. ระบุ public APIs ของแต่ละ module
-11. วางแผน data flow ระหว่าง modules
-12. กำหนด module boundaries ชัดเจน
-13. ระบุ shared modules และ common utilities
-14. กำหนด interfaces สำหรับ module communication
-15. กำหนด data contracts (DTOs, entities, value objects)
-16. กำหนด API contracts ถ้ามี
-17. กำหนด event contracts ถ้ามี
-18. ออกแบบ interfaces ตาม interface segregation principle
-19. วางแผน integration กับ external services ถ้ามี
-20. กำหนด integration patterns (adapters, facades, repositories)
-21. วางแผน error handling และ retry logic
-22. กำหนด caching strategy
-23. วางแผน transaction boundaries
-24. ระบุ data validation points
+1. ทำ `/recommend-architecture` เพื่อแนะนำ architecture ที่เหมาะสม
+2. วางแผน file architecture โดยจัดกลุ่มตาม responsibility พร้อม tree diagram
+3. สร้าง file pattern table: File Pattern, Description, Naming, Import
+4. กำหนด module boundaries, dependencies (high-level → low-level), และ public APIs
+5. ระบุ shared modules, data contracts, และ integration patterns
+6. วางแผน error handling, caching strategy, และ data validation points
 
 ### 4. Plan Test Strategy
 
-วางแผน test strategy
-
-1. ตัดสินใจว่าจะใช้ DDD หรือไม่
-2. ออกแบบ test case ที่ครอบคลุม: unit, integration, e2e
-3. กำหนด test coverage requirements
-4. วางแผน test execution strategy
-5. ระบุ test data และ fixtures
-6. วางแผน regression test strategy
+1. ออกแบบ test case ที่ครอบคลุม: unit, integration, e2e
+2. กำหนด test coverage requirements และ test data fixtures
+3. วางแผน regression test strategy
 
 ### 5. Create Documents
 
-สร้าง task document และ architecture document
-
-1. สร้างไฟล์ `.agents/task/<name>-DD-MM-YYYY.md`
-2. บันทึก tasks ทั้งหมดพร้อม expected outcome
-3. บันทึก library choices พร้อมเหตุผล
-4. บันทึก milestones และ timeline พร้อม success criteria
-5. บันทึก test strategy และ coverage requirements
-6. บันทึก assumptions, constraints, และ risks
-7. บันทึก migration plan ถ้ามี breaking changes
-8. สร้างไฟล์ `.agents/architecture/<name>-DD-MM-YYYY.md`
-9. บันทึก file architecture diagram แบบ tree
-10. บันทึก module dependencies และ data flow
-11. บันทึก interfaces และ contracts ทั้งหมด
-12. บันทึก integration plan และ patterns
-13. บันทึก architectural decisions พร้อมเหตุผล
-14. บันทึก assumptions และ constraints
+1. ถ้า tasks > 10 ให้สร้าง `.devin/tasks/<name>-DD-MM-YYYY.md` พร้อม tasks ทั้งหมด
+2. ถ้า tasks > 10 ให้สร้าง `.devin/tasks/<name>-arch-DD-MM-YYYY.md` พร้อม architecture
+3. บันทึก: tasks, library choices, milestones, test strategy, assumptions, risks, migration plan
+4. ถ้า tasks <= 10 ให้บันทึกใน chat report เท่านั้น
+5. ทำ `/update-dot-devin` ถ้ามีการเปลี่ยนแปลง package manifest
 
 ### 6. Validate And Report
 
-ตรวจสอบและรายงานแผนงาน
-
 1. ยืนยัน dependencies ไม่ conflict กับ existing versions
-2. ทบทวน plan กับ task document เพื่อตรวจสอบความครบถ้วน
-3. ตรวจสอบ timeline realistic หรือไม่
-4. ตรวจสอบทุก task มี single responsibility และ test ได้
-5. ตรวจสอบไม่มี missing tasks หรือ gaps
-6. รอยืนยันจาก user ก่อนเริ่ม implement
-7. แบ่งงานเป็น tasks ย่อยๆ ตาม `single responsibility`
-8. จัดลำดับ tasks ตาม `impact order`
-9. ระบุไฟล์ที่จะสร้างใหม่, แก้ไข, หรือลบ
-10. ระบุ dependencies ระหว่าง tasks
-11. ระบุ risks และ mitigation strategies
-12. จัดรูปแบบตาราง tasks ตาม `/report-format-table`
-13. แสดง file structure ตาม `/report-format-file-structure`
-14. ลงมือทำทันทีหลังรายงาน
+2. ตรวจสอบทุก task มี single responsibility และ test ได้
+3. ตรวจสอบไม่มี missing tasks หรือ gaps
+4. ระบุไฟล์ที่จะสร้างใหม่, แก้ไข, หรือลบ และ risks พร้อม mitigation
+5. จัดรูปแบบตาราง tasks ตาม `/report-format-table` และ file structure ตาม `/report-format-file-structure`
+6. รอยืนยันจาก user ก่อนเริ่ม implement แล้วทำ `/ship` ต่อ
+
+## Metrics
+
+วัดคุณภาพแผนด้วย metrics ต่อไปนี้:
+
+| Metric | คำอธิบาย | Scale |
+|--------|----------|-------|
+| `task_count` | จำนวน tasks ทั้งหมด | number |
+| `effort_estimate` | ความพยายามต่อ task | `S` / `M` / `L` / `XL` |
+| `impact_score` | ผลกระทบต่อ project | 1-5 |
+| `risk_score` | ความเสี่ยงต่อ task | 1-5 (Low→High) |
+| `dependency_depth` | ระดับ dependencies ของ task | 1-5 |
+| `parallelizable_count` | จำนวน tasks ที่ทำ parallel ได้ | number |
+| `critical_path_length` | ความยาว critical path | number |
+| `file_impact` | ไฟล์ที่กระทบ | `C:M:D` (create:modify:delete) |
+| `test_coverage_target` | เป้าหมาย test coverage | percentage |
+| `buffer_ratio` | สัดส่วน buffer time | `buffer / total` |
 
 ## Rules
 
+### 1. Planning Order
+
 - ทำ task planning ก่อน code planning เสมอ
 - สำรวจ libraries ก่อน implement
-- จัดลำดับ implement ตาม impact order: foundation ก่อน, high risk เพื่อ fail fast
+- จัดลำดับ: foundation ก่อน, high risk เพื่อ fail fast
 - วางโครงสร้างไฟล์ทั้งหมดก่อนเขียน code
+
+### 2. Module Design
+
 - แต่ละ module ต้องมี single responsibility
-- Dependencies ควรไปในทิศทางเดียว (high-level → low-level)
-- หลีกเลี่ยย circular dependencies
+- Dependencies ไปในทิศทางเดียว (high-level → low-level)
+- หลีกเลี่ยง circular dependencies
 - บันทึก architectural decisions พร้อมเหตุผล
+
+### 3. Document Handling
+
+- ถ้า tasks > 10 สร้างใน `.devin/tasks/` และทำ `/update-dot-devin`
+- ถ้า tasks <= 10 บันทึกใน chat report เท่านั้น
 - ต้อง report plan ก่อนลงมือทำ
 - ต้องได้รับการยืนยันจาก user ก่อน implement
+- หลังยืนยันให้ทำ `/ship` ต่อ
 
 ## Expected Outcome
 
-- Task document ที่ครอบคลุมใน `.agents/task/`
-- Architecture document ที่ครอบคลุมใน `.agents/architecture/`
-- Library choices ที่มีเหตุผล
-- Implementation roadmap ที่ practical และ prioritized
+- Task document ใน `.devin/tasks/` (ถ้า tasks > 10)
+- Architecture document ใน `.devin/tasks/` (ถ้า tasks > 10)
+- Library choices ที่มีเหตุผลพร้อม metrics
+- Implementation roadmap ที่ prioritized พร้อม planning metrics
 - Timeline ที่ realistic พร้อม buffer
 - Test strategy ที่ครอบคลุม
 - Risks และ mitigation strategies ที่ชัดเจน

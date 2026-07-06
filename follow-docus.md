@@ -2,7 +2,7 @@
 title: Follow Docus
 description: ตั้งค่า Docus สำหรับ documentation site ด้วย Nuxt Content และ Nuxt UI
 auto_execution_mode: 3
----
+
 
 ตั้งค่า Docus documentation framework ที่ใช้ Nuxt 4, Nuxt Content และ Nuxt UI พร้อม MDC syntax
 

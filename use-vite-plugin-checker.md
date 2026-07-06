@@ -4,6 +4,7 @@ description: ตั้งค่าและใช้งาน vite-plugin-checke
 auto_execution_mode: 3
 ---
 
+
 ใช้ vite-plugin-checker เพื่อรวม type checking และ linting เข้ากับ Vite dev server โดยอัตโนมัติ
 
 ## Goal

@@ -4,6 +4,7 @@ title: Follow FEDA-Lite
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ใช้ FEDA-Lite (Functional Event Data Architecture Lite) ร่วมกับ Monorepo เพื่อสร้าง architecture ที่ production-ready โดย balance ระหว่าง simplicity, testability, scalability, แล maintainability

@@ -1,8 +1,9 @@
 ---
-title: Create Bun CLI
+title: Follow Create Bun CLI
 description: สร้าง CLI applications ด้วย Bun runtime ตาม best practices
 auto_execution_mode: 3
 ---
+
 
 ## Goal
 

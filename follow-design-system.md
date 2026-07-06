@@ -3,7 +3,8 @@ title: Design System
 description: Design system principles พื้นฐานที่ใช้ได้กับทุก platform (TUI, Web, Desktop, Mobile)
 auto_execution_mode: 3
 related_workflows:
-  - /web-design
+  - /follow-web-design
+  - /follow-unocss-theme
 ---
 
 ## Goal
@@ -16,36 +17,40 @@ related_workflows:
 
 ## Execute
 
-### 1. กำหนด Design Tokens
+### 1. Define Design Tokens
 
-- **Visual Consistency** - Colors, typography, spacing สม่ำเสมอ
-- **Interaction Consistency** - Patterns ซ้ำๆ ใช้วิธีเดียวกัน
-- **Language Consistency** - Terminology, tone of voice สม่ำเสมอ
+1. กำหนด visual tokens: colors, typography, spacing, shadows, borders
+2. กำหนด interaction tokens: transitions, animations, cursors
+3. กำหนด language tokens: terminology, tone of voice, iconography
+4. ถ้า project ใช้ UnoCSS ทำ `/follow-unocss-theme` สำหรับ HSL theme variables
 
-### 2. สร้าง Component Guidelines
+### 2. Create Component Guidelines
 
-- **Component-Based** - สร้าง reusable components
-- **Token-Based** - ใช้ design tokens (colors, spacing, etc.)
-- **Documentation** - Document ทุก component และ pattern
+1. สร้าง reusable components ด้วย atomic design (atoms → molecules → organisms)
+2. ใช้ design tokens สำหรับทุก component
+3. Document ทุก component และ pattern
+4. กำหนด component variants (sizes, states, colors)
 
-### 3. นำไปใช้กับ Platform ต่างๆ
+### 3. Apply To Platforms
 
-- **WCAG Compliance** - ทำตามมาตรฐาน accessibility
-- **Keyboard Navigation** - รองรับ keyboard
-- **Screen Reader Support** - รองรับ screen readers
-- **Color Contrast** - contrast ratio ถูกต้อง
+1. แปลง tokens ตาม platform constraints (ดูตารางด้านล่าง)
+2. ถ้า project เป็น web ทำ `/follow-web-design` สำหรับ web-specific guidelines
+3. ถ้า project มี mobile ทำ `/improve-mobile-experience`
+4. ถ้า project มี TUI ทำ `/improve-tui`
 
-### 4. Document Components และ Patterns
+### 4. Ensure Accessibility
 
-- **Mobile-First** - เริ่มจาก mobile ก่อน
-- **Adaptive Layouts** - layout ปรับตาม screen size
-- **Breakpoints** - กำหนด breakpoints ชัดเจน
+1. ทำตาม WCAG guidelines สำหรับทุก platform
+2. รองรับ keyboard navigation
+3. รองรับ screen readers
+4. ตรวจสอบ color contrast ratio
 
-### 5. Test และ Validate
+### 5. Test And Validate
 
-- **Lazy Loading** - load เฉพาะที่จำเป็น
-- **Optimized Assets** - compress images, fonts
-- **Minimal Dependencies** - ไม่ใช้ dependencies ที่ไม่จำเป็น
+1. ทดสอบ visual consistency ทุก platform
+2. ทดสอบ component reusability
+3. ทดสอบ accessibility compliance
+4. ทดสอบ responsive behavior
 
 ## Rules
 
@@ -77,6 +82,13 @@ related_workflows:
 | Desktop | full RGB | platform units | system fonts | native layouts |
 | Mobile | full RGB | touch-friendly | system fonts | responsive |
 
+### 5. Naming Conventions
+
+- PascalCase สำหรับ components
+- camelCase สำหรับ props และ variables
+- kebab-case สำหรับ CSS classes
+- UPPER_SNAKE_CASE สำหรับ constants
+
 ## Expected Outcome
 
 - Design tokens ที่สม่ำเสมอ
@@ -85,119 +97,12 @@ related_workflows:
 - Cross-platform consistency
 - Accessibility compliance
 
-```typescript
-// Primary colors
-const primary = {
-  50: '#f0f9ff',
-  100: '#e0f2fe',
-  500: '#0ea5e9',
-  900: '#0c4a6e',
-}
-
-// Semantic colors
-const semantic = {
-  success: '#22c55e',
-  warning: '#f59e0b',
-  error: '#ef4444',
-  info: '#3b82f6',
-}
-```
-
-### Typography
-
-```typescript
-const typography = {
-  fontFamily: {
-    sans: 'Inter, system-ui, sans-serif',
-    mono: 'JetBrains Mono, monospace',
-  },
-  fontSize: {
-    xs: '0.75rem',
-    sm: '0.875rem',
-    base: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem',
-  },
-  fontWeight: {
-    normal: 400,
-    medium: 500,
-    semibold: 600,
-    bold: 700,
-  },
-}
-```
-
-### Spacing
-
-```typescript
-const spacing = {
-  1: '0.25rem',
-  2: '0.5rem',
-  3: '0.75rem',
-  4: '1rem',
-  6: '1.5rem',
-  8: '2rem',
-}
-```
-
 ## Common Mistakes
 
 - ไม่กำหนด design tokens ก่อนสร้าง components
 - สร้าง components โดยไม่ document
 - ไม่ test accessibility
 - ไม่พิจารณา platform differences
-
-## Platform-Specific Guidelines
-
-### TUI (Terminal UI)
-- จำกัด 16 colors (terminal colors)
-- ใช้ character spacing
-- ใช้ monospace fonts เท่านั้น
-- grid-based layouts
-
-### Web
-- full RGB support
-- rem/em units
-- web fonts
-- flexbox, grid layouts
-
-### Desktop
-- full RGB support
-- platform-specific units
-- system fonts
-- native layouts
-
-### Mobile
-- full RGB support
-- touch-friendly spacing
-- system fonts
-- responsive layouts
-
-- **Atoms** - พื้นฐานสุด (buttons, inputs, labels)
-- **Molecules** - รวม atoms (form fields, cards)
-- **Organisms** - รวม molecules (forms, headers)
-- **Templates** - layouts
-- **Pages** - หน้าเต็ม
-
-### 2. Component Props
-
-```typescript
-interface ButtonProps {
-  variant: 'primary' | 'secondary' | 'ghost'
-  size: 'sm' | 'md' | 'lg'
-  disabled?: boolean
-  loading?: boolean
-  icon?: React.ReactNode
-  children: React.ReactNode
-}
-```
-
-### 3. Naming Conventions
-
-- **PascalCase** สำหรับ components
-- **camelCase** สำหรับ props
-- **kebab-case** สำหรับ CSS classes
-- **UPPER_SNAKE_CASE** สำหรับ constants
 
 ## References
 

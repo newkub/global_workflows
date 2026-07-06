@@ -4,6 +4,7 @@ description: Sync git submodules ใน D drive กับ remote repositories
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 Sync git submodules ใน D drive กับ remote repositories อัตโนมัติ

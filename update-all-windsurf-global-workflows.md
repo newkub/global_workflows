@@ -4,6 +4,7 @@ description: อัพเดททุกไฟล์ใน windsurf global workf
 auto_execution_mode: 3
 ---
 
+
 อัพเดททุกไฟล์ใน windsurf global workflows ให้สอดคล้องกับ `/write-windsurf-global-workflows`
 
 ## Goal

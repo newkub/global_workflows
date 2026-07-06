@@ -2,6 +2,7 @@
 title: Follow GitHub Actions
 description: ตั้งค่า GitHub Actions สำหรับ CI/CD ครบถ้วน
 auto_execution_mode: 3
+related_workflows:
 url: https://docs.github.com/en/actions
 ---
 

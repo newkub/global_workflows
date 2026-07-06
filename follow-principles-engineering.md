@@ -6,6 +6,7 @@ related_workflows:
   - /check-correctness
   - /analyze-consistency
   - /check-quality
+  - /follow-code-quality
 ---
 
 ## Goal

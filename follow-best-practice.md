@@ -6,6 +6,7 @@ related_workflows:
   - learn-from-web
   - deep-research
   - /write-windsurf-global-workflows
+  - /follow-code-quality
 ---
 
 ## Goal

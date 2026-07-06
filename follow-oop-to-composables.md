@@ -4,6 +4,7 @@ description: แปลง OOP เป็น composables function style
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 แปลง OOP code เป็น composables function style คล้าย Vue composables

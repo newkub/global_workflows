@@ -4,6 +4,7 @@ title: follow-vite-plugin-checker
 auto_execution_mode: 3
 ---
 
+
 ## 1. ติดตั้ง
 
 1. ติดตั้ง vite-plugin-checker ผ่าน Bun

@@ -4,6 +4,7 @@ description: ตั้งค่า Unlighthouse CLI และ CI สำหรั
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 ตั้งค่าและใช้ Unlighthouse CLI และ CI เพื่อ audit performance, accessibility, SEO ของ website ทั้งเว็บไซต์

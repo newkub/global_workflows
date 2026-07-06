@@ -6,6 +6,7 @@ related_workflows:
   - /write-test
   - /run-test-coverage
   - /report
+  - /follow-code-quality
 ---
 
 ## Goal

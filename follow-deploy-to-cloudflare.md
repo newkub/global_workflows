@@ -4,6 +4,7 @@ description: Deploy Nitro application ไปยัง Cloudflare Pages หรื
 auto_execution_mode: 3
 ---
 
+
 ## Goal
 
 Deploy Nitro application ไปยัง Cloudflare Pages หรือ Workers ด้วย wrangler จนกว่าจะ live สำเร็จ
