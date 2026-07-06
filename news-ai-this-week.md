@@ -1,6 +1,6 @@
 ---
-title: Update News Today
-description: รวบรวมข่าว AI และ open source projects รายวันด้วย deep research
+title: News AI This Week
+description: รวบรวมข่าว AI และ open source projects รายสัปดา์ด้วย deep research
 auto_execution_mode: 3
 related_workflows:
   - /deep-research
@@ -11,7 +11,7 @@ related_workflows:
 
 ## Goal
 
-รวบรวมและสรุปข่าวสารล่าสุดเกี่ยวกับ AI และ open source projects ประจำวัน เพื่อให้ผู้ใช้ติดตามเทรนด์และการเปลี่ยนแปลงที่สำคัญ
+รวบรวมและสรุปข่าวสารล่าสุดเกี่ยวกับ AI และ open source projects ประจำสัปดา์ เพื่อให้ผู้ใช้ติดตามเทรนด์และการเปลี่ยนแปลงที่สำคัญ
 
 ## Scope
 
@@ -29,15 +29,15 @@ related_workflows:
 
 1. ระบุหมวดข่าว AI: models, frameworks, tools, research papers, industry news
 2. ระบุหมวดข่าว Open Source: new releases, major updates, trending repositories, community news
-3. กำหนด time range เป็น "วันนี้" หรือ "สัปดาห์นี้" ตามความต้องการ
+3. กำหนด time range เป็น "สัปดาห์นี้" หรือ "สัปดาห์ที่แล้ว" ตามความต้องการ
 4. ระบุ keywords สำคัญสำหรับแต่ละหมวด
 
 ### 2. Research AI News
 
 ทำ `/deep-research` สำหรับข่าว AI
 
-1. ทำ `/deep-research` ด้วย keywords: `AI news today`, `AI latest releases`, `AI breakthroughs`
-2. ค้นหาด้วย `search_web` ใช้ query ที่ระบุปีและเดือนปัจจุบัน เช่น `AI news July 2026`
+1. ทำ `/deep-research` ด้วย keywords: `AI news this week`, `AI latest releases`, `AI breakthroughs`
+2. ค้นหาด้วย `search_web` ใช้ query ที่ระบุปีและสัปดา์ เช่น `AI news July 2026 week 2`
 3. ค้นหา AI model releases จาก `GitHub` ด้วย `mcp7_search_repositories` ใช้ query `AI model sort:updated`
 4. ค้นหา AI framework updates จาก `NPM Registry` และ `GitHub releases`
 5. ใช้ `mcp7_list_releases` สำหรับ repositories ที่ติดตาม
@@ -47,11 +47,11 @@ related_workflows:
 
 ทำ `/deep-research` สำหรับข่าว open source
 
-1. ทำ `/deep-research` ด้วย keywords: `open source releases today`, `trending GitHub repositories`
+1. ทำ `/deep-research` ด้วย keywords: `open source releases this week`, `trending GitHub repositories`
 2. ค้นหา trending repositories ด้วย `mcp7_search_repositories` ใช้ query `stars:>1000 sort:updated`
 3. ค้นหา major releases ด้วย `mcp7_list_releases` จาก repositories ที่สนใจ
 4. ค้นหา open source community news ด้วย `search_web`
-5. ตรวจสอบ `GitHub trending` ผ่าน `search_web` ด้วย query `GitHub trending repositories today`
+5. ตรวจสอบ `GitHub trending` ผ่าน `search_web` ด้วย query `GitHub trending repositories this week`
 6. กรองเฉพาะข่าวที่เป็นปัจจุบันตาม time range ที่กำหนด
 
 ### 4. Research AI Research Papers
@@ -74,7 +74,7 @@ related_workflows:
 
 ### 6. Compile News Report
 
-สร้างรายงานข่าวรายวัน
+สร้างรายงานข่าวรายสัปดา์
 
 1. ทำ `/report-format-table` สร้างตารางข่าว
 2. กำหนด columns: No., Category, Title, Source, Date, Impact, Summary
@@ -103,8 +103,8 @@ related_workflows:
 
 ### 3. Freshness Requirements
 
-- ข่าวต้องเป็นปัจจุบันตาม time range ที่กำหนด (วันนี้ หรือ สัปดาห์นี้)
-- ใช้ query ที่ระบุปีและเดือนปัจจุบัน เช่น `AI news July 2026`
+- ข่าวต้องเป็นปัจจุบันตาม time range ที่กำหนด (สัปดาห์นี้ หรือ สัปดาห์ที่แล้ว)
+- ใช้ query ที่ระบุปีและสัปดา์ เช่น `AI news July 2026 week 2`
 - ตรวจสอบ publish dates และ release dates ทุก item
 - เลือกข่าวที่มี date ใหม่ล่าสุดเป็น primary
 - ทำตาม `/deep-research` Rules ข้อ 6 Information Freshness
@@ -121,13 +121,13 @@ related_workflows:
 - ใช้ `/report-format-table` สำหรับ structured output
 - จัดกลุ่มตามหมวดและจัดลำดับตาม impact
 - ใช้ `/report` สำหรับ executive summary
-- สรุป top 5 highlights ของวัน
+- สรุป top 5 highlights ของสัปดา์
 
 ## Expected Outcome
 
-- รายงานข่าว AI และ open source ที่เป็นปัจจุบัน
+- รายงานข่าว AI และ open source ประจำสัปดา์
 - ข่าวจัดกลุ่มตามหมวดและจัดลำดับตาม impact
 - แหล่งที่มาของแต่ละข่าวชัดเจน
 - Executive summary พร้อม top highlights
 - ข่าวผ่านการ cross-reference จาก multiple sources
-- สามารถใช้เป็น daily briefing สำหรับผู้ใช้
+- สามารถใช้เป็น weekly briefing สำหรับผู้ใช้

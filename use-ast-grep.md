@@ -4,7 +4,7 @@ description: ใช้งาน ast-grep สำหรับ code search, linting
 auto_execution_mode: 3
 url: https://ast-grep.github.io/
 related_workflows:
-  - /write-ast-grep-rules
+  - /update-ast-grep-rules
   - /run-scan
   - /follow-code-quality
 ---
@@ -32,7 +32,7 @@ related_workflows:
 - กำหนด id, language, rule, fix, message
 - ใช้ meta variables ($VAR) สำหรับ capture nodes
 - ใช้ atomic rules: pattern, kind, regex, nthChild, range
-- ทำ `/write-ast-grep-rules` สำหรับเขียน rules ที่ซับซ้อน
+- ทำ `/update-ast-grep-rules` สำหรับเขียน rules ที่ซับซ้อน
 
 ### 3. Advanced Rules
 

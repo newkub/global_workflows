@@ -7,6 +7,7 @@ related_workflows:
   - /update-readme
   - /update-agents-md
   - /update-docs
+  - /update-ast-grep-rules
 ---
 
 ## Goal
@@ -44,6 +45,13 @@ related_workflows:
 1. ตรวจสอบว่ามี docs/ directory หรือไม่
 2. ถ้ามี docs/ ให้ทำ `/update-docs` เพื่ออัพเดท documentation ครบถ้วน
 
+### 5. Update Ast-Grep Rules
+
+อัพเดท ast-grep rules สำหรับ project (ถ้ามี sgconfig.yml)
+
+1. ตรวจสอบว่ามี `sgconfig.yml` และ `rules/` directory หรือไม่
+2. ถ้ามี ให้ทำ `/update-ast-grep-rules` เพื่ออัพเดท ast-grep rules ให้สอดคล้องกับ `.devin/rules/`
+
 ## Rules
 
 ### 1. Execution Order
@@ -54,6 +62,7 @@ related_workflows:
 - ทำ `/update-readme` หลังจากตั้งค่าพื้นฐาน
 - ทำ `/update-agents-md` หลังจากอัพเดท README
 - ทำ `/update-docs` เป็นลำดับสุดท้าย (ถ้ามี docs/)
+- ทำ `/update-ast-grep-rules` หลังจาก update docs (ถ้ามี `sgconfig.yml`)
 
 ### 2. Conditional Execution
 
@@ -61,6 +70,8 @@ related_workflows:
 
 - ทำ `/update-docs` เฉพาะเมื่อมี docs/ directory
 - ถ้าไม่มี docs/ ให้ข้าม step นี้
+- ทำ `/update-ast-grep-rules` เฉพาะเมื่อมี `sgconfig.yml` และ `rules/` directory
+- ถ้าไม่มี ให้ข้าม step นี้
 
 ### 3. Consistency
 
@@ -76,4 +87,5 @@ related_workflows:
 - README.md อัพเดทครบถ้วน
 - AGENTS.md อัพเดทครบถ้วน
 - Documentation อัพเดทครบถ้วน (ถ้ามี docs/)
+- Ast-grep rules อัพเดทครบถ้วน (ถ้ามี `sgconfig.yml`)
 - Project documentation และ configuration สอดคล้องกัน

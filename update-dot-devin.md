@@ -6,7 +6,7 @@ related_workflows:
   - /update-devin-rules
   - /update-agents-md
   - /check-monorepo
-  - /write-ast-grep-rules
+  - /update-ast-grep-rules
   - /follow-ast-grep
 ---
 
@@ -119,11 +119,11 @@ integrations/<workspace>/
 2. อ่าน https://docs.devin.ai/cli/extensibility/mcp/overview เพื่อเข้าใจ MCP
 3. ตั้งค่า skills และ MCP servers ตามความจำเป็นของ project
 
-### 7. Write Ast-Grep Rules
+### 7. Update Ast-Grep Rules
 
 เขียน ast-grep rules ใน `.devin/rules/` ตาม devin rules ที่สร้างขึ้น
 
-1. ทำ `/write-ast-grep-rules` เพื่อแปลง devin rules เป็น ast-grep YAML format
+1. ทำ `/update-ast-grep-rules` เพื่อแปลง devin rules เป็น ast-grep YAML format
 2. สร้าง ast-grep rules ใน `.devin/rules/always-on/` และ `.devin/rules/model_decision/`
 3. อัพเดท `sgconfig.yml` ให้ `ruleDirs` ชี้ไปที่ `.devin/rules/always-on` และ `.devin/rules/model_decision`
 4. รัน `bunx ast-grep scan --inspect summary` เพื่อตรวจสอบว่า rules parse ได้
@@ -194,7 +194,7 @@ integrations/<workspace>/
 
 ### 9. Ast-Grep Rules
 
-- ใช้ `/write-ast-grep-rules` สำหรับสร้าง ast-grep rules ใน `.devin/rules/`
+- ใช้ `/update-ast-grep-rules` สำหรับสร้าง ast-grep rules ใน `.devin/rules/`
 - `sgconfig.yml` ต้องชี้ `ruleDirs` ไปที่ `.devin/rules/always-on` และ `.devin/rules/model_decision`
 - ast-grep rules (YAML) และ devin rules (Markdown) อยู่ใน `.devin/rules/` ที่เดียวกัน
 

@@ -1,6 +1,6 @@
 ---
-title: Write Ast-grep Rules
-description: เขียน ast-grep rules ตามไฟล์ที่มีใน .devin/rules ให้ครอบคลุมและถูกต้อง
+title: Update Ast-grep Rules
+description: อัปเดต ast-grep rules ตามไฟล์ที่มีใน .devin/rules ให้ครอบคลุมและถูกต้อง
 auto_execution_mode: 3
 url: https://ast-grep.github.io/guide/rule-config.html
 related_workflows:

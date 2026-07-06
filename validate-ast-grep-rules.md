@@ -5,7 +5,7 @@ auto_execution_mode: 3
 url: https://ast-grep.github.io/guide/rule-config.html
 related_workflows:
   - /follow-ast-grep
-  - /write-ast-grep-rules
+  - /update-ast-grep-rules
   - /run-scan
   - /resolve-errors
   - /loop-until-complete
@@ -98,7 +98,7 @@ related_workflows:
 
 ### Non-Duplication
 
-- ใช้ `/write-ast-grep-rules` สำหรับเขียน rules ใหม่
+- ใช้ `/update-ast-grep-rules` สำหรับเขียน rules ใหม่
 - ใช้ `/run-scan` สำหรับ scan codebase และแก้ไข issues
 - Workflow นี้เน้นเฉพาะ validation ของ rules
 

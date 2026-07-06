@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /use-scripts
   - /analyze-project
-  - /write-ast-grep-rules
+  - /update-ast-grep-rules
   - /follow-code-quality
 ---
 
@@ -109,7 +109,7 @@ Scan codebase อย่างรวดเร็วเพื่อเข้าใ
 - Phase 4: `check-duplication`, `biome/gritql` สำหรับ quality
 - Phase 5: `/use-scripts` สำหรับ structured data generation
 - Phase 6: AI สำหรับ summarization
-- ทำ `/write-ast-grep-rules` สำหรับสร้าง ast-grep rules
+- ทำ `/update-ast-grep-rules` สำหรับสร้าง ast-grep rules
 
 ### 3. AI Token Minimization
 

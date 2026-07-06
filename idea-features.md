@@ -71,7 +71,7 @@ related_workflows:
 - แยกเป็น 2 ตาราง: Required Features และ Optional Features
 - Required Features: features ที่จำเป็นสำหรับ MVP
 - Optional Features: features ที่เพิ่ม value แต่ไม่จำเป็นสำหรับ MVP
-- แต่ละตารางมี continuous numbering เริ่มจาก 1 ไม่เกิน 15 row
+- แต่ละตารางมี continuous numbering เริ่มจาก 1 ไม่เกิน 20 row
 - ไม่แบ่งแยกระหว่าง Extends และ New
 - เรียงตามลำดับ Impact ก่อน (🔴 สูง → 🟡 ปานกลาง → 🟢 ต่ำ) แล้วตามลำดับเลข
 - Type column ระบุ: Extends (ปรับปรุงจากเดิม) หรือ New (ใหม่)
@@ -131,7 +131,7 @@ related_workflows:
 
 ## Expected Outcome
 
-- 2 ตาราง (Required Features และ Optional Features) พร้อม continuous numbering ไม่เกิน 15 row ต่อตาราง
+- 2 ตาราง (Required Features และ Optional Features) พร้อม continuous numbering ไม่เกิน 20 row ต่อตาราง
 - เรียงลำดับตาม Impact (สูง → ปานกลาง → ต่ำ)
 - Column order และค่าต่างๆ ตาม Rule 1 และ Rule 2
 - Roadmap และ architecture แสดงในแชท
