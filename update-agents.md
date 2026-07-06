@@ -107,6 +107,7 @@ related_workflows:
   - Read all workflows, skills, and references, and follow them all
   - Run `/refactor` after completing work
   - Run `/realize-implementation` after completing work
+  - Run `/ship` after completing work
 - ใช้เพื่อเน้นว่าต้องทำทุกครั้ง
 
 ### 5. Project Format

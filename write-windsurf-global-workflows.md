@@ -11,6 +11,8 @@ related_workflows:
   - /use-in-another
   - /learn-from-web
   - /edit-relative
+  - /deep-analyze-with-use-scripts
+  - /follow-monorepo
 ---
 
 ## Goal
@@ -69,7 +71,8 @@ related_workflows:
 
 - ใช้ workflows ที่ขึ้นต้นด้วย "use-" สำหรับ tools/libraries ที่เฉพาะเจาะจง
 - ใช้ `/scan-codebase` สำหรับ scan codebase อย่างรวดเร็ว
-- ใช้ `/analyze-project` ใน Execute สำหรับ workflows ที่มี step วิเคราะห์
+- ใช้ `/deep-analyze-with-use-scripts` ใน Execute สำหรับ workflows ที่มี step วิเคราะห์โปรเจกต์
+- ถ้าเป็น monorepo: ทำ `/follow-monorepo` เพื่อตรวจสอบ monorepo structure และ conventions
 - พยายามใช้ `/use-scripts` ในการ `/deep-analyze` ก่อนเสมอ ถ้าเป็นไปได้ สำหรับ workflows ที่มี step วิเคราะห์โปรเจกต์
 
 ### 7. Report Formatting

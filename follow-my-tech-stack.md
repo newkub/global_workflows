@@ -1,15 +1,20 @@
 ---
-
 title: My Tech Stack
-
 description: สรุป tech stack ที่ใช้ในการพัฒนา จัดกลุ่มตาม ecosystem
-
 auto_execution_mode: 3
-
 related_workflows:
   - /use-lib-better
-  - /analyze-project
-
+  - /deep-analyze-with-use-scripts
+  - /follow-monorepo
+  - /follow-tanstack-ai
+  - /follow-turborepo
+  - /follow-moonrepo
+  - /follow-biome
+  - /follow-vitest
+  - /follow-drizzle
+  - /follow-vite
+  - /follow-tauri
+  - /follow-capacitor
 ---
 
 ## Goal
@@ -18,142 +23,126 @@ related_workflows:
 
 ## Scope
 
-ครอบคลุม runtime, frameworks, libraries, tools และ utilities ที่ใช้ในการพัฒนา
+ครอบคลุม runtime, frameworks, libraries, tools และ utilities ที่ใช้ในการพัฒนา ทั้ง TypeScript/JavaScript และ Rust ecosystems
 
 ## Execute
 
 ### 1. Identify Tech Stack
 
-ระบุ tools และ frameworks ที่ใช้:
+ระบุ tools และ frameworks ที่ใช้
 
-1. ระบุ runtime และ build tools (Bun, tsdown, Rolldown)
-2. ระบุ backend frameworks และ ORM (ElysiaJS, Hono, Nitro, Drizzle)
-3. ระบุ frontend frameworks และ state management (Vue, Nuxt, Pinia, TanStack)
-4. ระบุ ecosystem libraries (VueUse, Nuxt UI, shadcn-vue)
-5. ระบุ development tools (Biome, Vitest, Playwright, Moonrepo)
+1. ทำ `/deep-analyze-with-use-scripts` เพื่อวิเคราะห์ dependencies และ tools ที่ใช้
+2. ระบุ ecosystem: TypeScript/JavaScript หรือ Rust หรือทั้งสองอย่าง
+3. ระบุ runtime, build tools, frameworks, ORM, และ ecosystem libraries
+4. ถ้าเป็น monorepo: ทำ `/follow-monorepo` เพื่อตรวจสอบ workspace dependencies
+5. ถ้ามี desktop app: ระบุ Tauri และ Rust backend
+6. ถ้ามี mobile app: ระบุ Capacitor และ native plugins
+7. ถ้ามี AI features: ระบุ TanStack AI และ AI providers
 
 ### 2. Document Tech Stack
 
-สร้างรายการสรุป:
+สร้างรายการสรุปเป็นตารางเดียวโดยใช้ ecosystem เป็น columns
 
-1. จัดกลุ่มตาม ecosystem ใน Rules
-2. เพิ่ม description และ use case สำหรับแต่ละ tool
-3. อัปเดตเมื่อมีการเปลี่ยนแปลง
+1. ใช้ตาราง Category | TypeScript | Rust ใน Rules
+2. จัดกลุ่มตาม domain: Runtime, Framework, Data, Frontend, Dev Tools, Infrastructure, Services
+3. ระบุ default must-have libraries สำหรับโปรเจกต์ใหม่
+4. อัปเดตเมื่อมีการเปลี่ยนแปลง
 
 ## Rules
 
-### 1. Runtime And Build Tools
+### 1. Tech Stack
 
-จัดกลุ่ม runtime และ build tools:
+| Category | TypeScript | Rust |
+|---|---|---|
+| Runtime | `Bun` | `Rust` |
+| Package Manager | `Bun` | `Cargo` |
+| Build Tool | `tsdown`, `Rolldown` | `Cargo` |
+| Bundler | `Vite` (with Rolldown) | - |
+| Type Checker | `tsgo` | `rustc` |
+| Web Framework | `ElysiaJS`, `Hono`, `Nitro` | `Axum`, `Actix Web` |
+| Full-stack Framework | `TanStack Start`, `Nuxt 3` | - |
+| Frontend Framework | `Vue 3` | - |
+| Desktop App | `Tauri` | `Tauri` (Rust backend) |
+| Mobile App | `Capacitor` | - |
+| ORM | `Drizzle` | `SQLx`, `SeaORM` |
+| Database | `TanStack DB`, `Cloudflare D1` | - |
+| Database Migration | `drizzle-kit` | `SQLx` migrations |
+| Data Schema | `Drizzle Schema` | `SQLx` migrations |
+| API Schema | `oRPC`, `Zod` | `Serde` + `Axum` extractors |
+| Validator | `Zod` | `Garage`, `Serde` |
+| Serialization | - | `Serde` |
+| Router | `TanStack Router`, `Vue Router` | `Axum` router |
+| State Management | `TanStack Store`, `Pinia` | - |
+| Data Fetching | `TanStack Query` | `reqwest` |
+| Caching | `TanStack Query` cache | `moka` |
+| Table | `TanStack Table` | - |
+| Form | `TanStack Form` | - |
+| Virtual | `TanStack Virtual` | - |
+| Hotkeys | `TanStack Hotkeys` | - |
+| Parser | `TanStack Parser` | - |
+| UI Library | `Nuxt UI`, `shadcn-vue` | - |
+| Styling | `UnoCSS`, `TailwindCSS` | - |
+| Icons | `@iconify-json/*` | - |
+| Utilities | `VueUse` | - |
+| i18n | `@intlify/vuex-i18n`, `vue-i18n` | `fluent` |
+| Markdown | `marked`, `shiki` | `pulldown-cmark` |
+| CLI | `TanStack CLI`, `Wrangler`, `Clap` | `Clap` |
+| TUI | - | `Ratatui` |
+| Async Runtime | - | `Tokio` |
+| HTTP Client | - | `reqwest` |
+| Logging | `pino` | `tracing` |
+| AI | `TanStack AI` (ดู `/follow-tanstack-ai`), `Workers AI` | - |
+| MCP Server | `@modelcontextprotocol/sdk` | `rmcp` |
+| Web Scraping | `fastCRW` | `scraper` |
+| Linter | `Biome` | `Clippy` |
+| Formatter | `Biome` | `rustfmt` |
+| Code Search | `ast-grep` | `ast-grep` |
+| Unused Code Detection | `Knip` | - |
+| Circular Dependency | `madge` | - |
+| Testing | `Vitest`, `Playwright` | `cargo-nextest` |
+| Mutation Testing | - | `cargo-mutants` |
+| Code Coverage | `v8` (via Vitest) | `tarpaulin` |
+| Build System | `Turborepo`, `Moonrepo` | `Cargo` workspaces |
+| Git Hooks | `Lefthook` | `Lefthook` |
+| CI/CD | `GitHub Actions` | `GitHub Actions` |
+| Documentation | `Docus`, `VitePress` | - |
+| Release | `Auto` | - |
+| Deployment | `NuxtHub`, `Cloudflare Workers` | - |
+| Storage | `Cloudflare KV`, `Cloudflare R2` | - |
+| Secrets Management | `Infisical`, `Phase.dev` | - |
+| Auth | `Supabase`, `Better Auth`, `WorkOS`, `Auth.js` | `jsonwebtoken` |
+| Payment | `Stripe` | `stripe-rust` |
+| Email | `Resend`, `Nodemailer` | `lettre` |
+| Feature Flags | `PostHog`, `Vercel Flags` | - |
+| Error Monitoring | `Sentry` | `Sentry` |
+| Image Optimization | `Cloudflare Images` | - |
 
-- Runtime: `Bun` - Fast JavaScript runtime
-- Build Tool: `tsdown` - TypeScript bundler with Rolldown
-- Build Tool: `Rolldown` - Fast bundler by Rollup
+### 2. Default Must-Have Libraries
 
-### 2. Backend Frameworks
+ระบุ default libraries ที่จำเป็นต้องมีสำหรับทุกโปรเจกต์
 
-จัดกลุ่ม backend frameworks:
-
-- Framework: `ElysiaJS` - Bun-first ergonomic framework
-- Framework: `Hono` - Edge-first web framework
-- Framework: `Nitro` - Universal server adapter
-- ORM: `Drizzle` - Headless TypeScript ORM
-
-### 3. Deployment Platforms
-
-จัดกลุ่ม deployment platforms:
-
-- Deployment: `NuxtHub` - Nuxt deployment platform
-- Runtime: `Cloudflare Workers` - Edge computing platform
-- CLI: `Wrangler` - Cloudflare CLI tool
-- Storage: `Cloudflare KV` - Key-value storage
-- Database: `Cloudflare D1` - SQLite database
-- Storage: `Cloudflare R2` - Object storage
-- AI: `Workers AI` - AI inference at edge
-
-### 4. Vue Ecosystem
-
-จัดกลุ่ม Vue ecosystem:
-
-- Framework: `Vue 3` - Progressive JavaScript framework
-- Framework: `Nuxt 3` - Vue meta-framework
-- State Management: `Pinia` - Vue state management
-- Utilities: `VueUse` - Vue composition utilities
-- UI Library: `Nuxt UI` - Vue component library
-- UI Library: `shadcn-vue` - Vue component system
-
-### 5. TanStack Ecosystem
-
-จัดกลุ่ม TanStack ecosystem:
-
-- State Management: `TanStack Query` - Async state management
-- State Management: `TanStack Store` - Client state management
-- Router: `TanStack Router` - Type-safe router
-- Table: `TanStack Table` - Headless table component
-- Form: `TanStack Form` - Form state management
-- Virtual: `TanStack Virtual` - Virtual scrolling
-- Hotkeys: `TanStack Hotkeys` - Keyboard shortcuts
-- Parser: `TanStack Parser` - SQL parser
-- CLI: `TanStack CLI` - Developer tools
-- Database: `TanStack DB` - Type-safe database ORM
-- Framework: `TanStack Start` - Full-stack framework
-
-### 6. Development Tools
-
-จัดกลุ่ม development tools:
-
-- Linter: `Biome` - Fast linter and formatter
-- Linter: `ESLint` - JavaScript linter
-- Testing: `Vitest` - Unit testing framework
-- Testing: `Playwright` - E2E testing framework
-- Build System: `Moonrepo` - Build system for monorepos
-- Build System: `Turborepo` - Monorepo build system
-
-### 7. Documentation And Quality
-
-จัดกลุ่ม documentation และ quality:
-
-- Documentation: `Docus` - Documentation site generator
-- Type Safety: `Zod` - Schema validation
-- Type Safety: `Valibot` - Modular schema validation
-- Release: `Auto` - Automated releases
-
-### 8. Security And Authentication
-
-จัดกลุ่ม security และ authentication:
-
-- Auth: `WorkOS` - Enterprise auth platform
-- Auth: `Better Auth` - TypeScript authentication
-- Auth: `Auth.js` - Flexible auth library
-
-### 9. AI SDKs
-
-จัดกลุ่ม AI SDKs:
-
-- AI SDK: `Mastra` - AI agent framework
+- ทุกโปรเจกต์ต้องมี: Database ORM, Validator, Linter, Testing, Package Manager, Git Hooks
+- ถ้าเป็น web app: เพิ่ม Router, State Management, Styling, UI Library, Data Fetching
+- ถ้าเป็น API: เพิ่ม API Schema, HTTP Client, Auth
+- ถ้าเป็น monorepo: เพิ่ม Build System, Documentation
+- ถ้ามี AI: เพิ่ม `TanStack AI` (ดู `/follow-tanstack-ai`)
+- ถ้ามี desktop: เพิ่ม `Tauri`
+- ถ้ามี mobile: เพิ่ม `Capacitor`
 
 ## Expected Outcome
 
-- รายการสรุป tech stack ที่ครบถ้วน
-- จัดกลุ่มตาม ecosystem อย่างชัดเจน
+- รายการสรุป tech stack ที่ครบถ้วนครอบคลุมทั้ง TypeScript และ Rust
+- จัดกลุ่มตาม ecosystem อย่างชัดเจนในตารางเดียว
 - ง่ายต่อการอ้างอิงและอัปเดต
-- เห็นภาพรวมของ tools ที่ใช้
+- เห็นภาพรวมของ tools ที่ใช้ทุก domain
+- Default must-have libraries ชัดเจนสำหรับทุกโปรเจกต์
+- รองรับหลาย project types: web, API, desktop, mobile, AI, monorepo
 
 ## Common Mistakes
 
-ข้อผิดพลาดที่พบบ่อย:
-
 - ไม่อัปเดตรายการเมื่อเปลี่ยน tech stack
-- จัดกลุ่ม tools ไม่ถูกต้อง
-- ไม่ระบุ use case ชัดเจน
-- ทิ้ง tools ที่ไม่ได้ใช้ไว้ในรายการ
-
-## Anti-Patterns
-
-รูปแบบที่ไม่ควรทำ:
-
-- ❌ ไม่อัปเดตรายการเป็นปัจจุบัน
-- ❌ จัดกลุ่ม tools แบบสุ่ม
-- ❌ ไม่ระบุ description หรือ use case
-- ❌ ทิ้ง tools ที่ obsolete ไว้ในรายการ
+- จัดกลุ่ม tools ไม่ถูกต้องตาม domain
+- ทิ้ง tools ที่ obsolete ไว้ในรายการ
+- ไม่ระบุ Rust equivalents เมื่อใช้หลาย ecosystems
+- ลืม conditional libraries สำหรับ project types เฉพาะ (desktop, mobile, AI)
 
