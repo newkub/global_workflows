@@ -3,7 +3,7 @@ title: Use In Another Workflows
 description: วิเคราะห์ว่า workflow หรือ skill ควรถูกอ้างอิงในไฟล์ไหนบ้าง
 auto_execution_mode: 3
 related_workflows:
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
   - /analyze-project
   - /code-search
   - /scan-codebase

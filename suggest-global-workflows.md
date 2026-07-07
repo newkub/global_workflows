@@ -3,7 +3,7 @@ title: Suggest Global Workflows
 description: แนะนำ global workflows ที่ควรใช้ต่อจาก workflow ปัจจุบัน
 auto_execution_mode: 3
 related_workflows:
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
   - /use-in-another-workflows
   - /read-related-workflows
   - /suggest-next-action

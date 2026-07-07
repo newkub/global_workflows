@@ -3,9 +3,11 @@ title: What Do You Do
 description: วิเคราะห์สถานการณ์และแนะนำสิ่งที่ควรทำถัดไป
 auto_execution_mode: 3
 related_workflows:
-  - follow-suggest-next-action
-  - prioritize
-  - follow-incident-triage
+  - /suggest-next-action
+  - /prioritize
+  - /follow-incident-triage
+  - /report-format-table
+  - /analyze-project
 ---
 
 ## Goal
@@ -53,10 +55,9 @@ related_workflows:
 แนะนำ action ถัดไปที่ควรทำ
 
 1. เลือก action ที่มี priority สูงสุด
-2. อธิบายเหตุผลที่ควรทำ action นั้น
-3. แสดงผลลัพธ์ที่คาดหวัง
-4. แสดงในรูปแบบตาราง 5 columns: Number, Action, Priority, Why, Expected Result
-5. ถามผู้ใช้ว่าต้องการทำ action นั้นไหม
+2. ทำ `/suggest-next-action` เพื่อแนะนำ actions แบบครบถ้วน
+3. ทำ `/report-format-table` เพื่อจัดรูปแบบ: #, Action, Priority, Why, Expected Result
+4. ถามผู้ใช้ว่าต้องการทำ action นั้นไหม
 
 ### 5. Execute Or Adjust
 
@@ -69,55 +70,29 @@ related_workflows:
 
 ## Rules
 
-### 1. Analysis
+### 1. Non-Duplication
 
-วิเคราะห์สถานการณ์อย่างครบถ้วน
+- ใช้ `/suggest-next-action` สำหรับการแนะนำ action แบบครบถ้วน
+- Workflow นี้เน้นการวิเคราะห์สถานการณ์ก่อนแนะนำ
+- ไม่ซ้ำซ้อนกับ Execute — ใช้ reference แทนการ duplicate
 
-- ต้องวิเคราะห์ project state ก่อน
-- ต้องตรวจสอบ conversation history
-- ต้องตรวจสอบ TODO list ถ้ามี
-- ต้องตรวจสอบ errors และ issues
-- ต้องพิจารณา context ของงาน
+### 2. Analysis Before Action
 
-### 2. Identification
+- ต้องวิเคราะห์ project state ก่อนเสมอ
+- ต้องตรวจสอบ errors และ issues ก่อนแนะนำ
+- ต้องพิจารณา context ของงานปัจจุบัน
 
-ระบุสิ่งที่ควรทำอย่างถูกต้อง
+### 3. User Decision
 
-- ต้องระบุ tasks ที่ค้างอยู่
-- ต้องระบุ issues ที่ต้องแก้ไข
-- ต้องระบุ dependencies ที่ขาด
-- ต้องระบุ improvements ที่สามารถทำได้
-- ต้องระบุ risks ที่ต้องจัดการ
-
-### 3. Prioritization
-
-จัดลำดับความสำคัญอย่างถูกต้อง
-
-- ต้องใช้ `/prioritize` เพื่อจัดลำดับ
-- ต้องประเมิน impact และ effort
-- ต้องกำหนด priority อย่างชัดเจน
-- ต้องพิจารณา dependencies
-- ต้องเลือก action ที่มี priority สูงสุด
-
-### 4. Suggestion
-
-แนะนำ action อย่างชัดเจน
-
-- ต้องแนะนำ action ที่มี priority สูงสุด
-- ต้องอธิบายเหตุผลอย่างชัดเจน
-- ต้องแสดงผลลัพธ์ที่คาดหวัง
-- ต้องแสดงในรูปแบบตาราง
 - ต้องถามผู้ใช้ก่อนดำเนินการ
-
-### 5. Execution
-
-ดำเนินการตามแผน
-
-- ต้องดำเนินการตาม action ที่แนะนำ
 - ต้องปรับแผนตาม feedback
-- ต้องทำซ้ำจนกว่างานเสร็จ
-- ต้องอัพเดท progress อย่างสม่ำเสมอ
-- ต้องตรวจสอบผลลัพธ์
+- ต้องแสดงผลในรูปแบบตารางด้วย `/report-format-table`
+
+### 4. Iteration
+
+- ทำซ้ำจนกว่างานเสร็จ
+- อัพเดท progress อย่างสม่ำเสมอ
+- ตรวจสอบผลลัพธ์หลังดำเนินการ
 
 ## Expected Outcome
 

@@ -3,7 +3,7 @@ title: Create GitHub Issue
 description: สร้าง GitHub issue ใหม่พร้อม template, labels, assignees, และ milestones
 auto_execution_mode: 3
 related_workflows:
-  - /review-github-issue
+  - /analyze-github-issue
   - /fix-my-github-issue
 ---
 

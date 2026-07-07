@@ -5,11 +5,11 @@ auto_execution_mode: 3
 ---
 
 
-อัพเดททุกไฟล์ใน windsurf global workflows ให้สอดคล้องกับ `/write-windsurf-global-workflows`
+อัพเดททุกไฟล์ใน windsurf global workflows ให้สอดคล้องกับ `/write-global-workflows`
 
 ## Goal
 
-ทุก workflow ใน global_workflows สอดคล้องกับ `/write-windsurf-global-workflows`
+ทุก workflow ใน global_workflows สอดคล้องกับ `/write-global-workflows`
 
 ## Execute
 
@@ -21,11 +21,11 @@ auto_execution_mode: 3
 ### 2. Validate Each Workflow
 
 1. อ่านไฟล์ workflow แต่ละไฟล์
-2. ตรวจสอบตาม `/write-windsurf-global-workflows`
+2. ตรวจสอบตาม `/write-global-workflows`
 
 ### 3. Update Non-Compliant Workflows
 
-1. แก้ไขให้สอดคล้องกับ `/write-windsurf-global-workflows`
+1. แก้ไขให้สอดคล้องกับ `/write-global-workflows`
 2. ลบเนื้อหาที่ซ้ำซ้อน
 3. ใช้ `/workflow-name` อ้างอิงแทนการเขียนซ้ำ
 
@@ -36,9 +36,9 @@ auto_execution_mode: 3
 
 ## Rules
 
-ทำตาม `/write-windsurf-global-workflows`
+ทำตาม `/write-global-workflows`
 
 ## Expected Outcome
 
-ทุก workflow ใน global_workflows สอดคล้องกับ `/write-windsurf-global-workflows`
+ทุก workflow ใน global_workflows สอดคล้องกับ `/write-global-workflows`
 

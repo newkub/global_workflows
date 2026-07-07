@@ -3,7 +3,7 @@ title: Write Solutions
 description: เขียน solution documents และ problem-solving workflows
 auto_execution_mode: 3
 related_workflows:
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
   - /follow-root-cause-analysis
   - /resolve-errors
 ---
@@ -46,7 +46,7 @@ related_workflows:
 
 เขียน solution document ตามมาตรฐาน
 
-1. ทำ `/write-windsurf-global-workflows` สำหรับ structure
+1. ทำ `/write-global-workflows` สำหรับ structure
 2. เขียน problem statement, solution approach, และ implementation plan
 3. เพิ่ม examples และ edge cases
 

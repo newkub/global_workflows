@@ -3,7 +3,7 @@ title: Improve Features Coverage
 description: วิเคราะห์และเติมเต็ม features ที่ยังไม่มี coverage ด้วย minimal approach
 auto_execution_mode: 3
 related_workflows:
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
   - /dont-over-engineer
   - /analyze-features
   - /follow-code-quality

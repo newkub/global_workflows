@@ -7,9 +7,10 @@ related_workflows:
   - /deep-analyze
   - /review-architecture
   - /review-test-case
-  - /review-codebase
+  - /analyze-bug-prone
+  - /resolve-issue
   - /report-health
-  - /analyze-codebase-quality
+  - /analyze-code-quality
   - /validate
   - /deep-research
   - /report-format-table
@@ -50,10 +51,11 @@ Review code quality อย่างละเอียด
 
 1. ทำ `/use-ast-grep` หา anti-patterns และ code smells
 2. ทำ `/check-duplication`, `/check-unsued-files`, `/check-unused-deps` แบบ parallel
-3. ทำ `/check-long-files` และ `/analyze-codebase-quality` เพื่อตรวจสอบ SRP, SoC, type safety, anti-patterns, code smells, dead code, side effects, naming conventions
-4. ตรวจสอบ naming conventions และ consistency
-5. ตรวจสอบ error handling และ edge case coverage
-6. ระบุ technical debt และ severity
+3. ทำ `/check-long-files` และ `/analyze-code-quality` เพื่อตรวจสอบ SRP, SoC, type safety, anti-patterns, code smells, dead code, side effects, naming conventions
+4. ทำ `/analyze-bug-prone` วิเคราะห์ code ที่มีแนวโน้มก่อให้เกิด bug ก่อนเกิดปัญหา
+5. ตรวจสอบ naming conventions และ consistency
+6. ตรวจสอบ error handling และ edge case coverage
+7. ระบุ technical debt และ severity
 
 ### 4. Architecture Review
 
@@ -158,7 +160,7 @@ Review configuration และ environment setup
 - ทำ review เท่านั้น ไม่แก้ไข code ระหว่าง review
 - ใช้ `/comment-todo` สำหรับระบุ issues ใน code
 - แยก review process จาก fix process
-- ถ้าต้องแก้ไข ให้ทำ `/review-codebase` หลัง review
+- ถ้าต้องแก้ไข ให้ทำ `/resolve-issue` หลัง review
 
 ### 4. Evidence-Based Findings
 

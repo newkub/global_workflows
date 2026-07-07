@@ -3,10 +3,9 @@ title: Report Health
 description: วิเคราะห์สุขภาพโปรเจกต์ 60+ categories พร้อม health score และ action items
 auto_execution_mode: 3
 related_workflows:
-  - /analyze-codebase-quality
+  - /analyze-code-quality
   - /report-format-table
   - /use-scripts
-  - /improve-health-check
 ---
 
 ## Goal
@@ -29,7 +28,7 @@ related_workflows:
 
 1. กำหนด metrics และ status indicators สำหรับแต่ละ category (ดูรายการใน step 7)
 2. ทำ `/use-scripts` เพื่อวิเคราะห์ข้อมูลลึกซึ้งด้วย tools (`knip`, `taze`, `biome`, `vitest`, `madge`, `ast-grep`, `jscpd`)
-3. ทำ `/analyze-codebase-quality` เพื่อวิเคราะห์ codebase ครบทุกด้าน ผ่าน analyze-* sub-workflows
+3. ทำ `/analyze-code-quality` เพื่อวิเคราะห์ codebase ครบทุกด้าน ผ่าน analyze-* sub-workflows
 
 ### 3. Calculate Health Score
 
@@ -83,16 +82,6 @@ related_workflows:
 ### 2. Table Formatting
 
 ทำตาม `/report-format-table` สำหรับโครงสร้างและการจัดรูปแบบตาราง
-
-### 3. Operational Health
-
-ทำตาม `/improve-health-check` สำหรับ operational health checks
-
-- Liveness: process ยัง running หรือไม่ (ไม่ตรวจสอบ dependencies)
-- Readiness: พร้อมรับ traffic หรือไม่ (ตรวจสอบ dependencies)
-- Dependency health: แต่ละ dependency แยกตรวจ พร้อม latency และ circuit breaker
-- Graceful degradation: non-critical dependency fail ไม่ crash application
-- Health check ตอบ < 100ms ไม่ block main thread
 
 ## Expected Outcome
 

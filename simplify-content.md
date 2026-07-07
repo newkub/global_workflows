@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /dont-over-engineer
   - /follow-content-quality
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
 ---
 
 ## Goal
@@ -47,7 +47,7 @@ related_workflows:
 
 ปรับปรุง workflows ให้ง่ายขึ้น
 
-1. ทำ `/write-windsurf-global-workflows` เพื่อทำตามมาตรฐาน
+1. ทำ `/write-global-workflows` เพื่อทำตามมาตรฐาน
 2. ลบ workflows ที่ซ้ำซ้อนหรือไม่จำเป็น
 
 ## Rules

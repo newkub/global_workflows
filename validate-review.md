@@ -6,7 +6,7 @@ related_workflows:
   - /deep-review
   - /review-pr
   - /review-test-case
-  - /review-test-result
+  - /analyze-test-result
   - /check-correctness
   - /validate
   - /report-health
@@ -36,7 +36,7 @@ related_workflows:
 ตรวจสอบว่า review ครอบคลุม testing dimension
 
 1. ทำ `/review-test-case` เพื่อตรวจสอบคุณภาพ test cases
-2. ทำ `/review-test-result` เพื่อตรวจสอบผล test execution
+2. ทำ `/analyze-test-result` เพื่อตรวจสอบผล test execution
 3. ตรวจสอบว่า tests ครอบคลุม code ที่เปลี่ยนแปลง
 4. ถ้า test coverage ไม่เพียงพอ ให้เพิ่ม tests ก่อน merge
 

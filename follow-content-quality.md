@@ -3,7 +3,7 @@ title: Follow Content Quality
 description: จัดรูปแบบและคุณภาพเนื้อหาให้ถูกต้อง อ่านง่าย สอดคล้องกัน
 auto_execution_mode: 3
 related_workflows:
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
   - /improve-correctness
   - /improve-file-structure
   - /dont-over-engine

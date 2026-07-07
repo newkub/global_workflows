@@ -5,12 +5,12 @@ auto_execution_mode: 3
 related_workflows:
   - /follow-tasks
   - /update-readme
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
 ---
 
 ## Goal
 
-ตั้งค่า workspace ใน monorepo ให้ทำตาม `/follow-tasks` และ `/update-readme` ด้วย `/write-windsurf-global-workflows`
+ตั้งค่า workspace ใน monorepo ให้ทำตาม `/follow-tasks` และ `/update-readme` ด้วย `/write-global-workflows`
 
 ## Scope
 

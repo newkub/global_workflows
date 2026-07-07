@@ -82,7 +82,7 @@ related_workflows:
 ตรวจสอบว่าไม่มี hard code เหลืออยู่
 
 - ทำ `/run-lint` เพื่อตรวจสอบด้วย lint rules สำหรับ detect hard code
-- ทำ `/review-codebase` เพื่อ Review code อย่าง manual
+- ทำ `/resolve-issue` เพื่อตรวจสอบ code อย่าง manual
 - ตรวจสอบใน environments ต่างๆ
 - ตรวจสอบว่า configuration ถูกต้อง
 - ทำ `/update-docs` เพื่อ Document configuration ทั้งหมด

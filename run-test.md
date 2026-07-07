@@ -6,7 +6,7 @@ related_workflows:
   - /write-test
   - /run-test-coverage
   - /improve-test-coverage
-  - /review-test-result
+  - /analyze-test-result
   - /validate-test
   - /report
   - /follow-code-quality
@@ -95,7 +95,7 @@ related_workflows:
 
 ### 6. Review Test Results
 
-1. ทำ `/review-test-result` เพื่อวิเคราะห์ผล test execution และหา root cause ของ failures
+1. ทำ `/analyze-test-result` เพื่อวิเคราะห์ผล test execution และหา root cause ของ failures
 
 ### 7. Check Coverage
 

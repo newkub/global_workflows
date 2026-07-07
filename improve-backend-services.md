@@ -1,20 +1,19 @@
 ---
 title: Improve Backend Services
-description: ปรับปรุง backend services ครบวงจร webhooks, queue, health-check, file-upload
+description: ปรับปรุง backend services ครบวงจร webhooks, queue, file-upload
 auto_execution_mode: 3
 related_workflows:
   - /improve-observability
   - /improve-queue
-  - /improve-health-check
 ---
 
 ## Goal
 
-ปรับปรุง backend services ทั้ง webhooks, background queue, health checks, และ file upload ให้ reliable และ scalable
+ปรับปรุง backend services ทั้ง webhooks, background queue, และ file upload ให้ reliable และ scalable
 
 ## Scope
 
-ใช้สำหรับ project ที่มี backend services เช่น webhook handling, job queues, health endpoints, และ file upload processing
+ใช้สำหรับ project ที่มี backend services เช่น webhook handling, job queues, และ file upload processing
 
 ## Execute
 
@@ -38,15 +37,7 @@ related_workflows:
 3. ตั้งค่า queue monitoring และ alerting
 4. ทำ `/improve-observability` สำหรับ queue metrics
 
-### 3. Health Check
-
-ปรับปรุง health checks และ readiness probes
-
-1. ทำ `/improve-health-check` เพื่อปรับปรุง health check system ครบวงจร
-2. ตรวจสอบ dependency health (database, cache, external APIs)
-3. ตั้งค่า graceful shutdown handling
-
-### 4. File Upload
+### 3. File Upload
 
 ปรับปรุง file upload handling และ validation
 
@@ -63,7 +54,6 @@ related_workflows:
 
 - Webhooks ต้องมี signature verification เสมอ
 - Queue jobs ต้อง idempotent
-- Health checks ต้องตรวจสอจริง ไม่ใช่ return 200 เสมอ
 - File uploads ต้อง validate ทั้ง type และ size
 
 ### 2. Error Handling
@@ -84,6 +74,5 @@ related_workflows:
 
 - Webhook handling reliable พร้อม signature verification และ idempotency
 - Background queue มี retry, dead letter, และ monitoring
-- Health checks ครอบคลุมทุก dependencies
 - File upload secure พร้อม validation และ streaming
 - ทุก services มี error handling และ logging ครบถ้วน

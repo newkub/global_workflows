@@ -3,7 +3,7 @@ title: Improve Workflows
 description: ปรับปรุง workflow ให้ถูกต้อง ครอบคลุม และเป็นไปตาม best practices
 auto_execution_mode: 3
 related_workflows:
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
   - /check-correctness
   - /improve-correctness
   - /improve-completeness
@@ -139,7 +139,7 @@ related_workflows:
 
 ## Expected Outcome
 
-- Workflow ถูกต้องตามมาตรฐาน `/write-windsurf-global-workflows`
+- Workflow ถูกต้องตามมาตรฐาน `/write-global-workflows`
 - ไม่มี broken references
 - เนื้อหาครอบคลุมและเป็นไปตาม best practices
 - ไฟล์ไม่เกิน 250 บรรทัด

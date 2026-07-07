@@ -81,7 +81,7 @@ related_workflows:
 
 ### 7. Review And Report
 
-1. ทำ `/review-test-result` เพื่อวิเคราะห์ผล test execution
+1. ทำ `/analyze-test-result` เพื่อวิเคราะห์ผล test execution
 2. ทำ `/report` สรุปผลลัพธ์:
    - `/report-format-table` สำหรับ command test results
    - `/report-format-terminal` สำหรับ terminal output ที่สำคัญ

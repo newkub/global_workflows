@@ -149,4 +149,4 @@ related_workflows:
 - Content quality สูงและชัดเจน ไม่ซับซ้อนเกินจำเป็น
 - ไม่มี broken references
 - ทุกไฟล์ไม่เกิน 250 บรรทัด
-- สอดคล้องกับ best practices และ `/write-windsurf-global-workflows`
+- สอดคล้องกับ best practices และ `/write-global-workflows`

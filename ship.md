@@ -3,35 +3,33 @@ title: Ship
 description: Ship code ครบวงจร ทดสอบ release และ deploy
 auto_execution_mode: 3
 related_workflows:
-  - /ask-requirement
   - /read-related-workflows
   - /follow-workflows
   - /follow-skills
+  - /ask-requirement
   - /plan
-  - /update-project
   - /implement-features-to-mvp
+  - /update-project
   - /follow-monorepo
-  - /analyze-project
   - /refactor
   - /follow-best-practice
   - /realize-implementation
-  - /update-references
-  - /review-codebase
-  - /resolve-errors
+  - /deep-review
+  - /analyze-bug-prone
+  - /resolve-issue
+  - /follow-your-suggestion
   - /cleanup-files
+  - /check-vulnerability
   - /run-verify
-  - /validate-test
-  - /run-dev
-  - /test-usage
+  - /analyze-bundle
+  - /watch-github-actions
+  - /validate-migration
+  - /commit
   - /run-release
   - /run-deploy
   - /follow-agents-md
-  - /follow-deploy
   - /report
-  - /report-format-table
-  - /report-format-terminal
   - /suggest-next-action
-  - /follow-code-quality
 ---
 
 ## Goal
@@ -44,146 +42,129 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 ## Execute
 
-### 1. Read Related Workflows
+### 1. Prepare
 
-1. ทำ `/read-related-workflows` เพื่ออ่าน workflows ที่เกี่ยวข้องก่อนเริ่มทำงาน
-2. ทำ `/follow-workflows` เพื่ออ่านและทำตาม workflows ทั้ง global และ project
-3. ทำ `/follow-skills` เพื่ออ่านและใช้ skills ที่เหมาะสมกับ task
+เตรียมความพร้อมก่อนเริ่ม ship
 
-### 2. Clarify Requirement
+1. ทำ `/read-related-workflows` และ `/follow-workflows` เพื่ออ่าน workflows ที่เกี่ยวข้อง
+2. ตรวจสอบ working tree clean, ไม่อยู่บน `main`/`master`, `bun install` ผ่าน
+3. ถ้า requirement ไม่ชัดเจน ให้ทำ `/ask-requirement`
+4. ทำ `/plan` เพื่อวางแผนงาน (ถ้าเสี่ยงสูงให้รอยืนยัน user)
+5. ถ้า MVP phase ให้ทำ `/implement-features-to-mvp`
+6. ทำ `/update-project` เพื่ออัพเดท `.devin`, `README`, `AGENTS.md`
+7. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo` และทำ phases 2-5 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
+8. ถ้า project ต้องการ deployment ให้ทำ `/follow-deploy` เพื่อตั้งค่า CI/CD
 
-1. ตรวจสอบว่า requirement จาก user ชัดเจนหรือไม่
-2. ถ้า requirement ไม่ชัดเจน ให้ทำ `/ask-requirement` เพื่อถามความต้องการผ่าน CLI หรือ Web UI
-3. ถ้า requirement ชัดเจนแล้ว ให้ข้ามขั้นตอนนี้
+### 2. Code Quality
 
-### 3. Planning
-
-1. ทำ `/plan` เพื่อวางแผนงานและ architecture อย่างเป็นระบบ
-2. ถ้า plan มีความเสี่ยงสูง (เช่น เปลี่ยน architecture, ลบไฟล์จำนวนมาก) ให้รอยืนยันจาก user ก่อนเริ่มทำ
-3. ถ้า plan มีความเสี่ยงต่ำ ให้ดำเนินการได้เลย
-
-### 4. Define MVP Scope (Optional)
-
-1. ถ้า project อยู่ใน MVP phase ให้ทำ `/implement-features-to-mvp` เพื่อจัดลำดับ features
-
-### 5. Update Project
-
-1. ทำ `/update-project` เพื่ออัพเดท `.devin`, `README`, `AGENTS.md`, และ documentation
-2. ถ้า project ต้องการ deployment ให้ทำ `/follow-deploy` เพื่อตั้งค่า CI/CD และ deployment configuration
-
-### 6. Setup Monorepo
-
-1. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo` และ `/analyze-project` เพื่อดู workspace configuration
-2. ทำ steps 7-15 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน (shared packages → apps → integrations)
-3. Steps 16-17 (Release, Deploy) เป็น global ทำครั้งเดียวหลังจบทุก workspace
-4. ถ้าไม่ใช่ monorepo ให้ทำ steps 7-17 แบบ single project
-
-### 7. Refactor
+ปรับปรุงคุณภาพโค้ดก่อน verify
 
 1. ทำ `/refactor` เพื่อ refactor ทั้ง monorepo และ workspaces
+2. ทำ `/follow-best-practice` เพื่อ apply best practices
+3. ทำ `/realize-implementation` เพื่อแปลง TODO, MOCK, placeholder เป็น production code
+4. ทำ `/deep-review` เพื่อตรวจสอบคุณภาพโค้ด
+5. ทำ `/analyze-bug-prone` เพื่อ scan bug-prone patterns ก่อน release
+6. ทำ `/follow-your-suggestion` เพื่อ apply suggestions จากการวิเคราะห์
+7. ถ้าพบ issues ให้ทำ `/resolve-errors` แล้วทำซ้ำขั้นตอน 1-6 จนกว่าจะผ่าน
+8. ทำ `/cleanup-files` เพื่อลบไฟล์และ dead code ที่ไม่จำเป็น
 
-### 8. Apply Best Practices
+### 3. Security And Verify
 
-1. ทำ `/follow-best-practice` เพื่อ apply best practices ของ language, runtime, และ library
+ตรวจสอบ security และ quality gates ก่อน ship
 
-### 9. Make Real
+1. ทำ `/check-vulnerability` เพื่อตรวจสอบ vulnerabilities ใน dependencies
+2. ตรวจสอบว่าไม่มี secrets หลุดเข้า code
+3. ถ้าพบ critical vulnerabilities ให้ทำ `/resolve-errors` ก่อนดำเนินการต่อ
+4. ทำ `/run-verify` จนกว่าจะผ่าน
+5. ถ้าเป็น web app ให้ทำ `/analyze-bundle` และ `/improve-web-performance` ถ้าพบ issues
+6. ทำ `/watch-github-actions` เพื่อตรวจสอบว่า CI ผ่านทุก checks
+7. ถ้าพบ CI failures ให้ทำ `/resolve-errors` ก่อนดำเนินการต่อ
 
-1. ทำ `/realize-implementation` เพื่อแปลง TODO, MOCK, placeholder เป็น production code
-2. ทำ `/update-references` เพื่ออัพเดท references
+### 4. Test And Validate
 
-### 10. Code Review
-
-1. ทำ `/review-codebase` เพื่อตรวจสอบคุณภาพโค้ด
-2. ถ้าพบ issues ทำ `/resolve-errors` และทำซ้ำขั้นตอน 7-9 จนกว่าจะผ่าน
-
-### 11. Cleanup
-
-1. ทำ `/cleanup-files` เพื่อลบไฟล์ โฟลเดอร์ dependencies และ dead code ที่ไม่จำเป็น
-
-### 12. Run Verify
-
-1. ทำ `/run-verify` เพื่อรัน verify จนกว่าจะผ่าน (scan, lint, typecheck, test, build)
-
-### 13. Verify Test Quality (Optional)
+ทดสอบการใช้งานจริงและตรวจสอบ database
 
 1. ถ้า project มี tests ให้ทำ `/validate-test` เพื่อตรวจสอบ test quality
+2. ทำ `/test-usage` เพื่อทดสอบการใช้งานผ่าน interface ต่างๆ
+3. ถ้าพบ issues ให้ทำ `/resolve-errors` แล้วกลับไปทำ Phase 2 ขั้นตอน 1-4 จนกว่าจะผ่าน
+4. ตรวจสอบว่าไม่มี pending database migrations
+5. ทำ `/validate-migration` เพื่อตรวจสอบ migration reversibility
+6. ถ้าพบ issues ให้ทำ `/resolve-errors` ก่อนดำเนินการต่อ
 
-### 14. Run Dev
+### 5. Ship
 
-1. ทำ `/run-dev` เพื่อรัน development server จนกว่าจะผ่าน
+Git operations, release และ deploy
 
-### 15. Test Usage
+1. ทำ `/commit` เพื่อ commit ทุกการเปลี่ยนแปลง
+2. ทำ `/git-push` เพื่อ push ไปยัง remote
+3. ทำ `/create-pr` ถ้าจำเป็นต้องสร้าง pull request
+4. ทำ `/run-release` (optional — auto-detect platforms และ release)
+5. ทำ `/run-deploy` (optional — รวม post-deploy validation และ rollback)
+6. ทำ `/update-readme` เพื่ออัพเดท docs ให้ตรงกับ version ใหม่
 
-1. ทำ `/test-usage` เพื่อทดสอบการใช้งานจริงของผู้ใช้ผ่าน interface ต่างๆ (CLI, API, Browser, SDK, TUI, Mobile, Extension, Bot)
-2. ถ้าพบ issues ให้ทำ `/resolve-errors` และทำซ้ำขั้นตอน 7-9 จนกว่าจะผ่าน
+### 6. Finalize
 
-### 16. Release (Optional)
+ตรวจสอบความครบถ้วนและรายงานผล
 
-1. ทำ `/run-release` เพื่อ auto-detect platforms และ release ไปยัง npm, crates.io, VSCode, Chrome Web Store, Docker Hub
-2. ถ้า project ไม่มี packages ที่ต้อง release ให้ข้ามขั้นตอนนี้
-
-### 17. Deploy (Optional)
-
-1. ทำ `/run-deploy` เพื่อ deploy ไปยัง Vercel, Cloudflare, Railway หรือ platform อื่น
-2. ถ้า project ไม่ต้องการ deployment ให้ข้ามขั้นตอนนี้
-
-### 18. Check Completion
-
-1. ตรวจสอบสถานะของทุก step (2-17) ว่าทำเสร็จแล้วทั้งหมด ถ้ายังมี step ที่ไม่เสร็จ ให้กลับไปทำ step นั้นก่อน
-2. ถ้าทุก step เสร็จแล้ว ให้ทำ `/follow-agents-md` เพื่อตรวจสอบว่า `AGENTS.md` ทำตามครบถ้วน
-3. ถ้า `/follow-agents-md` ก็ทำเสร็จแล้ว ให้บอกผู้ใช้ว่า "ทำหมดแล้ว" และแนะนำให้ทำ `/idea-features`
-
-### 19. Report Ship
-
-1. รวบรวมสถานะของทุก step และทำ `/report` พร้อม `/report-format-table` สำหรับตารางสถานะ
-2. ใช้ symbols: ✅ ผ่าน, ❌ ไม่ผ่าน, ⏭️ ข้าม, ⚠️ มี warning
-3. แสดง metrics สำคัญ: lint, typecheck, test, build, dev server, usage test, release, deploy
-4. ทำ `/suggest-next-action` เพื่อแนะนำ action ถัดไป
+1. ตรวจสอบสถานะของทุก phase (1-5) ว่าทำเสร็จแล้วทั้งหมด
+2. ทำ `/follow-agents-md` เพื่อตรวจสอบว่า `AGENTS.md` ทำตามครบถ้วน
+3. รวบรวมสถานะและทำ `/report` พร้อม `/report-format-table`
+4. ใช้ symbols: ✅ ผ่าน, ❌ ไม่ผ่าน, ⏭️ ข้าม, ⚠️ มี warning
+5. ทำ `/suggest-next-action` เพื่อแนะนำ action ถัดไป
 
 ## Rules
 
 ### 1. Foundation First
 
 - ทำ `/update-project` ก่อนเพื่อตั้งค่า configuration และ structure
-- ตั้งค่า `CI/CD` และ monorepo structure ก่อน refactor
-
-### 2. Quality Over Speed
-
+- ตั้งค่า CI/CD และ monorepo structure ก่อน refactor
 - ทำ `/refactor` ก่อน `/follow-best-practice`
-- ทำ `/review-codebase` ก่อน cleanup
+- ทำ `/deep-review` ก่อน cleanup
+- ทำ `/follow-your-suggestion` เพื่อ apply suggestions จากการวิเคราะห์
 - แปลง TODO, MOCK เป็น production code ก่อน verify
 
-### 3. MVP Discipline
+### 2. Safety
 
-- ใช้ `/implement-features-to-mvp` ถ้า project อยู่ใน MVP phase
-- ทำเฉพาะ must-have features ใน MVP
-- หยุดเมื่อ MVP requirements ครบถ้วน
+- ตรวจสอบ working tree clean และ branch ก่อนเริ่ม
+- ทำ security scan ก่อน verify เพื่อตรวจจับ vulnerabilities ก่อน ship
+- ตรวจสอบ secrets ไม่หลุดเข้า code
+- ถ้าพบ critical vulnerabilities ให้ห้าม deploy จนกว่าจะแก้ไข
 
-### 4. Error Resolution
+### 3. Error Resolution
 
-- ทำ `/resolve-errors` เมื่อพบ error แล้วทำซ้ำ steps 7-9 จนกว่าจะผ่าน code review
+- ทำ `/resolve-errors` เมื่อพบ error แล้วทำซ้ำ Phase 2 ขั้นตอน 1-4 จนกว่าจะผ่าน
 - ห้ามข้าม errors หรือทำ workaround
 
-### 5. Execution Order
+### 4. Execution Order
 
-- ทำตามลำดับ steps ใน Execute ห้ามข้ามขั้นตอน
+- ทำตามลำดับ phases ห้ามข้าม phase
+- แต่ละ phase เป็น gate condition ถ้าไม่ผ่านไม่ต้องไป phase ถัดไป
 - ทำงานอัตโนมัติโดยไม่หยุดถาม ยกเว้นกรณีเสี่ยงสูง
 - Release และ deploy เป็น optional ตาม project configuration
 
-### 6. Monorepo Workspace Processing
+### 5. Monorepo Workspace Processing
 
 - ทำ workspaces ที่เป็น foundation ก่อน (shared packages, utilities)
 - ทำ workspaces ที่มี dependencies ซับซ้อนทีหลัง
 - หลีกเลี่ยง circular dependencies ระหว่าง workspaces
 
+### 6. MVP Discipline
+
+- ใช้ `/implement-features-to-mvp` ถ้า project อยู่ใน MVP phase
+- ทำเฉพาะ must-have features ใน MVP
+- หยุดเมื่อ MVP requirements ครบถ้วน
+
+### 7. Non-Redundancy
+
+- ห้าม duplicate รายละเอียดที่มีอยู่ใน sub-workflows
+- Orchestrator อ้างถึง sub-workflow โดยไม่ระบุรายละเอียดภายใน
+- รายละเอียด verify, release, deploy อยู่ใน `/run-verify`, `/run-release`, `/run-deploy` แล้ว
+
 ## Expected Outcome
 
 - Requirement ชัดเจน และ plan ได้รับการยืนยันจาก user
-- Configuration ตั้งค่าถูกต้อง พร้อม `.devin` structure
 - Code ผ่าน refactor, best practices, review และแปลง TODO/MOCK เป็น production code
-- Code ผ่าน verify ทุกด้าน (scan, lint, typecheck, test, build) และ test quality (ถ้ามี)
-- Usage test ผ่านทุก interface ที่เกี่ยวข้อง
-- Development server ทำงานได้ ไม่มี critical errors
-- Packages ถูก release และ application ถูก deploy (ถ้ามี)
-- Codebase สะอาด ไม่มีไฟล์หรือ dependencies ที่ไม่จำเป็น
+- Code ผ่าน security scan, verify, performance check และ CI/CD
+- Usage test ผ่านทุก interface และ database migrations ไม่มี pending
+- Git operations สำเร็จ, packages ถูก release และ application ถูก deploy (ถ้ามี)
 - รายงานผลลัพธ์การ ship code ครบวงจรตาม `/report`

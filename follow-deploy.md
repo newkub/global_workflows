@@ -2,8 +2,14 @@
 title: Follow Deploy
 description: ตั้งค่า deployment configuration และ CI/CD ครบถ้วน
 auto_execution_mode: 3
+related_workflows:
+  - /follow-cloudflare-worker
+  - /follow-wrangler-cli
+  - /follow-vercel
+  - /follow-vercel-cli
+  - /deploy-to-railway
+  - /follow-github-actions
 ---
-
 
 ## Goal
 
@@ -15,7 +21,7 @@ auto_execution_mode: 3
 
 ## Execute
 
-### 1. เลือก Platform
+### 1. Select Platform
 
 เลือก platform ที่เหมาะสมกับ project
 
@@ -23,8 +29,7 @@ auto_execution_mode: 3
 2. เลือก platform ที่เหมาะสม:
    - Cloudflare Workers/Pages: ทำ `/follow-cloudflare-worker` และ `/follow-wrangler-cli`
    - Vercel: ทำ `/follow-vercel` และ `/follow-vercel-cli`
-   - Railway: ทำ `/use-railway`
-   - Docker: ทำ `/follow-docker`
+   - Railway: ทำ `/deploy-to-railway`
 3. ตรวจสอบว่า platform configuration พร้อม
 
 ### 2. Setup Environment Variables
@@ -35,7 +40,7 @@ auto_execution_mode: 3
 2. ตั้งค่า environment variables ใน platform:
    - Cloudflare: ใช้ `wrangler secret put`
    - Vercel: ใช้ Vercel dashboard หรือ CLI
-   - Railway: ใช้ Railway dashboard
+   - Railway: ใช้ `railway variables set KEY=value` หรือ Railway dashboard
 3. ตรวจสอบว่า environment variables ครบถ้วนและถูกต้อง
 
 ### 3. Setup CI/CD
@@ -54,10 +59,9 @@ auto_execution_mode: 3
 
 ตั้งค่า configuration ตาม platform ที่เลือก
 
-- Cloudflare: ตั้งค่า `wrangler.jsonc`, `toml` สำหรับ Workers/Pages
+- Cloudflare: ตั้งค่า `wrangler.jsonc` สำหรับ Workers/Pages
 - Vercel: ตั้งค่า `vercel.json` หรือ `next.config.js`
 - Railway: ตั้งค่า `railway.json` หรือ environment variables
-- Docker: สร้าง `Dockerfile` และ `docker-compose.yml`
 
 ### 5. Test Deployment
 
@@ -76,7 +80,6 @@ auto_execution_mode: 3
 - Cloudflare: เหมาะกับ edge computing, serverless
 - Vercel: เหมาะกับ Next.js, React applications
 - Railway: เหมาะกับ full-stack applications ที่ต้องการ database
-- Docker: เหมาะกับ containerized applications
 
 ### 2. Environment Variables
 
@@ -111,4 +114,3 @@ auto_execution_mode: 3
 - Environment variables ตั้งค่าครบถ้วน
 - CI/CD pipeline ทำงานอัตโนมัติ
 - Deployment ทำงานได้ใน staging environment
-

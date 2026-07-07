@@ -6,7 +6,7 @@ related_workflows:
   - /analyze-project
   - /all-workspaces
   - /follow-content-quality
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
   - /use-lang-en
 ---
 

@@ -7,7 +7,7 @@ related_workflows:
   - /follow-ast-grep
   - /deep-research
   - /follow-best-practice
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
   - /validate-ast-grep-rules
 ---
 
@@ -31,8 +31,11 @@ related_workflows:
 ### 2. Setup Ast-Grep Project
 
 1. ทำ `/follow-ast-grep` สำหรับการตั้งค่า `sgconfig.yml` และ project structure
-2. สร้าง ast-grep rules ใน `rules/always-on/` และ `rules/model_decision/` ที่ project root
-3. เพิ่ม `testConfigs` ใน `sgconfig.yml` สำหรับ test rules ใน `rule-tests/`
+2. สร้าง ast-grep rules ใน `rules/always-on/`, `rules/model_decision/`, และ `rules/glob/` ที่ project root
+3. ตั้งค่า `sgconfig.yml` ให้ `ruleDirs` ชี้ไปที่ทั้ง 3 directories
+4. ตั้งค่า `sgconfig.yml` `languageAliases` สำหรับ `ts`, `tsx` เป็น `TypeScript` และ `js`, `jsx` เป็น `JavaScript`
+5. ตั้งค่า `sgconfig.yml` `devPaths` สำหรับ source directories ของแต่ละ workspace
+6. เพิ่ม `testConfigs` ใน `sgconfig.yml` สำหรับ test rules ใน `rule-tests/`
 
 ### 3. Convert Rules To Ast-Grep Format
 
@@ -55,8 +58,10 @@ related_workflows:
 ### 5. Integrate With Development
 
 1. ทำ `/follow-ast-grep` สำหรับการเพิ่ม `scan` script และ CLI usage
-2. รวม `ast-grep scan` ใน CI/CD pipeline ได้
-3. ตั้งค่า IDE integration ด้วย LSP ได้
+2. เพิ่ม `scan` script ใน `package.json`: `"scan": "bunx ast-grep scan"`
+3. รวม `ast-grep scan` ใน CI/CD pipeline ได้
+4. ตั้งค่า IDE integration ด้วย LSP ได้
+5. ถ้าเป็น monorepo ให้เพิ่ม `scan` script ในแต่ละ workspace `package.json`
 
 ## Rules
 
@@ -146,14 +151,35 @@ related_workflows:
 - ใช้ `regex` โดยไม่ระบุ `kind` หรือ `pattern`
 - ลืมว่า rule object เป็น unordered ทำให้ `has`/`inside` ไม่ได้ผลตามที่คาด
 - ไม่ทดสอบ `fix` กับ `--interactive` ก่อน apply
+- ลืมระบุ `files` สำหรับ rules ที่ใช้เฉพาะ workspace ใน monorepo
+- ลืมเพิ่ม `rules/glob/` ใน `sgconfig.yml` `ruleDirs`
+- ลืมตั้งค่า `languageAliases` ทำให้ `.tsx` ไม่ถูก scan
+- ลืมตั้งค่า `devPaths` ทำให้ scan ช้าหรือ scan ไฟล์ไม่จำเป็น
+- ใช้ `./` นำหน้า paths ใน `files` และ `ignores` ซึ่งไม่ถูกต้อง
+- สร้าง rule ที่ match เกินไป (false positives) โดยไม่ใช้ `constraints` หรือ `all`
+- ไม่เขียน comment อธิบาย rule ที่ด้านบนของไฟล์
+- ใช้ `severity: error` สำหรับ rules ที่ควรเป็น `warning` หรือ `info`
+
+### 11. Monorepo-Specific Guidelines
+
+- ถ้าเป็น monorepo ให้สร้าง ast-grep rules ที่ project root `rules/` directory เท่านั้น
+- ใช้ `files` field เพื่อจำกัด rule ให้ทำงานเฉพาะ workspace ที่กำหนด
+- ระบุ `devPaths` ใน `sgconfig.yml` สำหรับ source directories ของแต่ละ workspace
+- อย่าสร้าง `rules/` directory แยกในแต่ละ workspace - ใช้ `files` field แทน
+- ตรวจสอบว่า rules ไม่ match ข้าม workspace boundaries โดยไม่ตั้งใจ
+- สำหรับ rules ที่ใช้กับทุก workspace ไม่ต้องระบุ `files` field
 
 ## Expected Outcome
 
-- `sgconfig.yml` ตั้งค่า `ruleDirs` ไปที่ `rules/` subdirectories
+- `sgconfig.yml` ตั้งค่า `ruleDirs` ครบทั้ง 3 directories: `rules/always-on`, `rules/model_decision`, `rules/glob`
+- `sgconfig.yml` มี `languageAliases` สำหรับ `ts`, `tsx`, `js`, `jsx`
+- `sgconfig.yml` มี `devPaths` สำหรับ source directories ของแต่ละ workspace
 - Devin rules แปลงเป็น ast-grep YAML format สำเร็จ ครอบคลุม atomic, relational, composite
 - `bunx ast-grep scan --inspect summary` แสดง rules ทั้งหมด effective
 - `bun run scan` ทำงานได้และ report ผลลัพธ์
 - False positives ถูกปรับด้วย `ignores` และ `constraints`
 - False negatives ถูกปรับด้วย `pattern` และ `any`
 - `fix` templates ทำงานได้โดยไม่ทำให้ code เสีย
+- แต่ละ rule มี comment อธิบายที่ด้านบนของไฟล์
+- Monorepo rules ใช้ `files` field จำกัด scope อย่างถูกต้อง
 

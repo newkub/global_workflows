@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /plan-task
   - /analyze-project
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
 ---
 
 ## Goal
@@ -97,7 +97,7 @@ related_workflows:
 
 - ทำ `/plan-task` เพื่อวางแผน
 - ทำ `/analyze-project` เพื่อวิเคราะห์
-- ทำ `/write-windsurf-global-workflows` เพื่อสร้าง workflow
+- ทำ `/write-global-workflows` เพื่อสร้าง workflow
 
 ## Expected Outcome
 

@@ -6,10 +6,10 @@ related_workflows:
   - /follow-solid-start
   - /follow-unocss
   - /follow-turborepo
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
   - /plan
   - /goal
-  - /request-idea
+  - /idea
   - /compare-and-idea-features
   - /bench-competitors
 ---

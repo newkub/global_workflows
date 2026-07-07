@@ -4,7 +4,7 @@ description: สร้าง skills ที่ขาดจาก dependencies ใ
 auto_execution_mode: 3
 related_workflows:
   - /write-windsurf-skills
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
 ---
 
 ## Goal

@@ -7,6 +7,9 @@ related_workflows:
   - /plan-task
   - /prioritize
   - /what-do-you-do
+  - /report-format-table
+  - /sumarize-in-table
+  - /delete
 ---
 
 ## Goal
@@ -62,15 +65,18 @@ related_workflows:
 4. อธิบาย reason ที่แนะนำ action นั้น
 5. ระบุ dependencies ระหว่าง actions
 6. ให้ estimate effort ถ้าเป็นไปได้
+7. ถ้ามีไฟล์หรือ folder ที่ควรลบ ให้แนะนำ `/delete` พร้อมระบุเหตุผล
+8. ถ้ามีไฟล์ที่ควรสรุปเนื้อหา ให้แนะนำ `/sumarize-in-table`
 
 ### 5. Present Options
 
 นำเสนอ options ให้ผู้ใช้ตัดสินใจ
 
-- แสดง actions ที่แนะนำพร้อม priority
-- ให้ผู้ใช้เลือก action ที่ต้องการ
-- อธิบาย trade-offs ระหว่าง options
-- ระบุว่า action ไหนสามารถทำ parallel ได้
+1. ทำ `/report-format-table` เพื่อจัดรูปแบบ actions เป็นตาราง: #, Action, Priority, Impact, Effort, Workflow, Reason
+2. แสดง actions ที่แนะนำพร้อม priority ในรูปแบบตาราง
+3. ให้ผู้ใช้เลือก action ที่ต้องการ
+4. อธิบาย trade-offs ระหว่าง options เป็นตาราง: Option, Pros, Cons, Risk
+5. ระบุว่า action ไหนสามารถทำ parallel ได้
 
 ## Rules
 

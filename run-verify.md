@@ -20,7 +20,7 @@ related_workflows:
 
 ## Scope
 
-ตรวจสอบคุณภาพโค้ดด้วย verify script ที่รวม scan, typecheck, lint, test, และ build
+ตรวจสอบคุณภาพโค้ดด้วย verify script ที่รวม scan, typecheck, lint, และ test (ไม่รวม build)
 
 ## Execute
 
@@ -47,9 +47,10 @@ related_workflows:
 
 1. ทำ `/run-test` เพื่อรัน test suite และตรวจสอบ coverage
 
-### 6. Run Build
+### 6. Run CI (optional)
 
-1. ทำ `/run-build` เพื่อสร้าง production artifacts
+1. ถ้าต้องการ build artifacts ให้รัน `bun run ci` แทน `bun run verify`
+2. `ci` = `verify && build` รวมทั้งตรวจสอบคุณภาพและสร้าง artifacts
 
 ### 7. Fix Errors
 
@@ -66,7 +67,8 @@ related_workflows:
 ### 1. Verify Script Requirements
 
 - ต้องมี verify script ใน package manifest ก่อนรัน
-- verify script ควรรวม scan, typecheck, lint, test, และ build
+- verify script รวม scan, typecheck, lint, และ test (ไม่รวม build)
+- ci script รวม verify และ build สำหรับ CI/CD pipeline
 - ใช้คำสั่งที่เหมาะสมกับ package manager (`bun`, `npm`, `pnpm`, `yarn`)
 
 ### 2. Error Handling
@@ -82,8 +84,8 @@ related_workflows:
 
 ## Expected Outcome
 
-- Code ผ่าน scan, lint, typecheck, test, และ build ทั้งหมด
-- ไม่มี scan, typecheck, lint, test, หรือ build errors
-- Build artifacts ถูกสร้างอย่างถูกต้อง
+- Code ผ่าน scan, lint, typecheck, และ test ทั้งหมด
+- ไม่มี scan, typecheck, lint, หรือ test errors
+- ถ้ารัน ci: Build artifacts ถูกสร้างอย่างถูกต้อง
 - Development server ทำงานได้ ไม่มี critical runtime errors
 

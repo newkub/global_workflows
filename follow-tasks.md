@@ -25,7 +25,7 @@ related_workflows:
 
 - ตรวจสอบ `package.json` หรือ `Cargo.toml`
 - ตรวจสอบ monorepo (หลาย `package.json`, workspace config, git submodules)
-- ถ้าเป็น monorepo ทำ `/monorepo` ก่อน
+- ถ้าเป็น monorepo ทำ `/follow-monorepo` ก่อน
 - ยืนยัน tools ติดตั้งแล้ว:
   - Node.js/Bun: `biome`, `vitest`
   - Rust: `cargo-nextest`, `cargo-llvm-cov`
@@ -57,11 +57,11 @@ related_workflows:
 
 - ทำ `/use-scripts` ตาม tech stack จากตาราง Rules
 - Single workspace: แก้ไข `package.json` หรือ `Cargo.toml` โดยตรง
-- Multiple workspaces: ทำ `/monorepo` ก่อน แล้วใช้ `/use-bun-scripts`
+- Multiple workspaces: ทำ `/follow-monorepo` ก่อน แล้วใช้ `/use-bun-scripts`
 
 ### 5. Setup Config Files
 
-- ทำ `/config` ตาม tech stack ที่ detect ได้
+- ทำ `/follow-config` ตาม tech stack ที่ detect ได้
 - ตรวจสอบ dependencies และ config files ใน project
 - เช็ค global workflows และ skills ว่ามีอะไรให้ทำตามบ้าง
 - รันเฉพาะที่จำเป็น ไม่รันทุก workflow
@@ -84,7 +84,7 @@ related_workflows:
 ### 1. Scripts Levels
 
 เลือกระดับตามขนาดและความซับซ้อนของโปรเจกต์
-- **Minimal** (Default): dev, build, typecheck, lint, format, test, scan, verify - เหมาะสำหรับโปรเจกต์ส่วนใหญ่
+- **Minimal** (Default): dev, build, typecheck, lint, format, test, scan, verify, ci - เหมาะสำหรับโปรเจกต์ส่วนใหญ่
 - **Standard**: Minimal + test:watch, test:coverage, deps:analyze, clean, security, db scripts, predeploy, deploy:staging - เหมาะสำหรับโปรเจกต์ที่ต้องการ testing และ dependency management เพิ่มเติม
 - **Complete**: Standard + build:watch, typecheck:watch, test:integration, test:e2e, benchmarks, prerelease, release, db:studio - เหมาะสำหรับ infra/tooling team
 
@@ -113,7 +113,8 @@ Scripts พื้นฐานที่ทุกโปรเจกต์ต้อ
 | test | vitest run | vitest run | vitest run | vitest run | vitest run | vitest run | cargo nextest run | pytest | go test ./... |
 | scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | ast-grep scan | cargo clippy --all-targets | ruff check | golangci-lint run |
 | check | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | lint && typecheck && scan | cargo clippy && cargo check | ruff check && mypy | golangci-lint run && go vet |
-| verify | check && test && build | check && test && build | check && test && build | check && test && build | check && test && build | check && test && build | cargo clippy && cargo check && cargo nextest run && cargo build | ruff check && mypy && pytest && python -m build | golangci-lint run && go vet && go test && go build . |
+| verify | check && test | check && test | check && test | check && test | check && test | check && test | cargo clippy && cargo check && cargo nextest run | ruff check && mypy && pytest | golangci-lint run && go vet && go test |
+| ci | verify && build | verify && build | verify && build | verify && build | verify && build | verify && build | cargo clippy && cargo check && cargo nextest run && cargo build | ruff check && mypy && pytest && python -m build | golangci-lint run && go vet && go test && go build . |
 
 ### 3. Watch Mode Scripts
 
@@ -183,7 +184,7 @@ Scripts สำหรับ deployment เพื่อรับประกัน
 
 | Task | Bun | Nuxt | Next.js | Solid Start | SvelteKit | Rust | Python | Go |
 |------|-----|------|---------|------------|----------|------|--------|----|
-| predeploy | bun run verify | bun run verify | bun run verify | bun run verify | bun run verify | cargo clippy && cargo check && cargo build | ruff check && mypy && pytest && python -m build | golangci-lint run && go vet && go test && go build . |
+| predeploy | bun run ci | bun run ci | bun run ci | bun run ci | bun run ci | cargo clippy && cargo check && cargo build | ruff check && mypy && pytest && python -m build | golangci-lint run && go vet && go test && go build . |
 | deploy:staging | bunx wrangler deploy | bunx wrangler deploy | bunx vercel --prebuilt | bunx wrangler deploy | bunx wrangler deploy | cargo publish --dry-run | twine upload --repository testpypi | go release --dry-run |
 
 ### 10. Documentation Scripts
@@ -198,5 +199,5 @@ Scripts สำหรับ documentation เพื่อจัดการ docs 
 
 - `package.json` มี scripts ตาม template ที่เลือก
 - Scripts สอดคล้องกับ tech stack
-- Verify pipeline ทำงานได้ถูกต้อง
+- `verify` และ `ci` pipeline ทำงานได้ถูกต้อง
 

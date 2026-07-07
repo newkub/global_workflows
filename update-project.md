@@ -77,7 +77,7 @@ related_workflows:
 
 รักษาความสม่ำเสมอ
 
-- ทำตาม `/write-windsurf-global-workflows` สำหรับ workflow structure
+- ทำตาม `/write-global-workflows` สำหรับ workflow structure
 - ใช้ references แทนการ duplicate เนื้อหา
 - ตรวจสอบว่า workflows ที่อ้างถึงมีอยู่จริง
 

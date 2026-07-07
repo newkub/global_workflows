@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /analyze-project
   - /analyze-features
-  - /analyze-code-structure
+  - /analyze-structure
   - /analyze-errors
   - /deep-research
   - /deep-thinking
@@ -53,7 +53,7 @@ related_workflows:
 
 ### 3. Structure Analysis
 
-ทำ `/analyze-code-structure` เพื่อวิเคราะห์โครงสร้าง
+ทำ `/analyze-structure` เพื่อวิเคราะห์โครงสร้าง
 
 1. รัน tree command ดู directory structure
 2. รัน ast-grep outline ดู structure ภายในไฟล์
@@ -145,7 +145,7 @@ related_workflows:
 
 เลือก tools ที่เหมาะสมกับแต่ละมิติ
 
-- **Structure**: `/analyze-code-structure`, tree command, ast-grep outline
+- **Structure**: `/analyze-structure`, tree command, ast-grep outline
 - **Architecture**: `/review-architecture`, `Grep`, `/use-ast-grep`
 - **Features**: `/analyze-features`
 - **Code Quality**: `/use-ast-grep`, `Grep`, `/use-scripts`, check workflows

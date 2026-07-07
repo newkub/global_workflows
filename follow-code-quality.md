@@ -6,7 +6,7 @@ related_workflows:
   - /follow-content-quality
   - /follow-workflows
   - /refactor
-  - /analyze-codebase-quality
+  - /analyze-code-quality
   - /improve-type-safety
   - /fix-circular-dependencies
   - /no-hard-code
@@ -31,7 +31,7 @@ related_workflows:
 วิเคราะห์คุณภาพโค้ดปัจจุบัน
 
 1. ทำ `/refactor` เพื่อ check separation of concerns
-2. ทำ `/analyze-codebase-quality` เพื่อระบุ SRP, SoC, type safety, hard code, anti-patterns, code smells, dead code, side effects, naming conventions
+2. ทำ `/analyze-code-quality` เพื่อระบุ SRP, SoC, type safety, hard code, anti-patterns, code smells, dead code, side effects, naming conventions
 3. ทำ `/fix-circular-dependencies` เพื่อ identify circular dependencies
 4. ทำ `/improve-type-safety` เพื่อ check type safety
 

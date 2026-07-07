@@ -8,6 +8,7 @@ related_workflows:
   - /check-monorepo
   - /update-ast-grep-rules
   - /follow-ast-grep
+  - /update-features
 ---
 
 ## Goal
@@ -121,22 +122,32 @@ integrations/<workspace>/
 
 ### 7. Update Ast-Grep Rules
 
-เขียน ast-grep rules ใน `.devin/rules/` ตาม devin rules ที่สร้างขึ้น
+เขียน ast-grep rules ใน `rules/` directory ที่ project root ตาม devin rules ที่สร้างขึ้น
 
 1. ทำ `/update-ast-grep-rules` เพื่อแปลง devin rules เป็น ast-grep YAML format
-2. สร้าง ast-grep rules ใน `.devin/rules/always-on/` และ `.devin/rules/model_decision/`
-3. อัพเดท `sgconfig.yml` ให้ `ruleDirs` ชี้ไปที่ `.devin/rules/always-on` และ `.devin/rules/model_decision`
-4. รัน `bunx ast-grep scan --inspect summary` เพื่อตรวจสอบว่า rules parse ได้
-5. รัน `bun run scan` เพื่อ scan ทั้ง codebase
+2. สร้าง ast-grep rules ใน `rules/always-on/`, `rules/model_decision/`, และ `rules/glob/` ที่ project root (แยกจาก `.devin/rules/` ที่เก็บ devin rules เป็น Markdown)
+3. อัพเดท `sgconfig.yml` ให้ `ruleDirs` ชี้ไปที่ `rules/always-on`, `rules/model_decision`, และ `rules/glob`
+4. ตั้งค่า `sgconfig.yml` `languageAliases` สำหรับ TypeScript และ JavaScript file extensions
+5. ตั้งค่า `sgconfig.yml` `devPaths` สำหรับ source directories ที่ต้องการ scan
+6. รัน `bunx ast-grep scan --inspect summary` เพื่อตรวจสอบว่า rules parse ได้
+7. รัน `bun run scan` เพื่อ scan ทั้ง codebase
 
-### 8. Remove Workflows Directory
+### 8. Update Features
+
+สร้าง features directory และ existing-features.json
+
+1. ทำ `/update-features` เพื่อสร้าง `.devin/features/<workspace>/existing-features.json`
+2. สร้าง `.devin/features/<workspace>/` directory ถ้ายังไม่มี
+3. ถ้าเป็น monorepo ให้สร้างสำหรับทุก workspace
+
+### 9. Remove Workflows Directory
 
 ลบ `.devin/workflows/` directory ถ้ามีอยู่
 
 1. ตรวจสอบว่า `.devin/workflows/` directory มีอยู่หรือไม่
 2. ถ้ามี ให้ลบทิ้งทั้ง directory
 
-### 9. Test And Validate
+### 10. Test And Validate
 
 ทดสอบและตรวจสอบ
 
@@ -144,7 +155,8 @@ integrations/<workspace>/
 2. ตรวจสอบ exit codes และ output
 3. ตรวจสอบ JSON configuration ถูกต้อง
 4. ตรวจสอบว่าไม่มี `.devin/workflows/` directory
-5. ตรวจสอบว่า ast-grep rules ใน `.devin/rules/` ทำงานได้
+5. ตรวจสอบว่า ast-grep rules ใน `rules/` ที่ project root ทำงานได้
+6. ตรวจสอบว่า `.devin/features/<workspace>/existing-features.json` มีอยู่
 
 ## Rules
 
@@ -194,9 +206,37 @@ integrations/<workspace>/
 
 ### 9. Ast-Grep Rules
 
-- ใช้ `/update-ast-grep-rules` สำหรับสร้าง ast-grep rules ใน `.devin/rules/`
-- `sgconfig.yml` ต้องชี้ `ruleDirs` ไปที่ `.devin/rules/always-on` และ `.devin/rules/model_decision`
-- ast-grep rules (YAML) และ devin rules (Markdown) อยู่ใน `.devin/rules/` ที่เดียวกัน
+- ใช้ `/update-ast-grep-rules` สำหรับสร้าง ast-grep rules ใน `rules/` ที่ project root
+- `sgconfig.yml` ต้องชี้ `ruleDirs` ไปที่ `rules/always-on`, `rules/model_decision`, และ `rules/glob`
+- ast-grep rules (YAML) อยู่ใน `rules/` ที่ project root แยกจาก devin rules (Markdown) ใน `.devin/rules/`
+- `sgconfig.yml` ต้องมี `languageAliases` สำหรับ `ts`, `tsx`, `js`, `jsx`
+- `sgconfig.yml` ต้องมี `devPaths` สำหรับ source directories ของแต่ละ workspace
+
+### 10. Sgconfig Configuration
+
+- `sgconfig.yml` ต้องอยู่ที่ project root
+- `ruleDirs` ต้องระบุครบทั้ง 3 directories: `rules/always-on`, `rules/model_decision`, `rules/glob`
+- `languageAliases` ต้อง map `ts` และ `tsx` เป็น `TypeScript`, `js` และ `jsx` เป็น `JavaScript`
+- `devPaths` ต้องระบุ source directories ของแต่ละ workspace สำหรับ scan ที่แม่นยำ
+- `testConfigs` ใช้สำหรับ test directory ของ ast-grep rules
+- ถ้าเป็น monorepo ให้ระบุ `devPaths` ของทุก workspace ที่มี source code
+
+### 11. Workspace-Specific Rules
+
+- ถ้าเป็น monorepo แต่ละ workspace อาจมี ast-grep rules เฉพาะใน `rules/` ที่ project root โดยใช้ `files` field เพื่อจำกัด scope
+- ใช้ `files` field ใน ast-grep rules เพื่อระบุ workspace ที่ rule ใช้
+- ใช้ `ignores` field เพื่อยกเว้นไฟล์ที่ไม่ต้องการตรวจสอบ
+- Workspace-specific devin rules อยู่ใน `<workspace>/.devin/rules/` เป็น Markdown
+- Workspace-specific ast-grep rules อยู่ใน `rules/` ที่ project root เป็น YAML โดยใช้ `files` field จำกัด scope
+
+### 12. Hook Scripts Best Practices
+
+- Hook scripts ต้องใช้ `bun` runtime เท่านั้น ไม่ใช้ `node` หรือ `npx`
+- Hook scripts ต้อง parse JSON input จาก stdin
+- Hook scripts ต้องมี `shebang` `#!/usr/bin/env bun`
+- Hook scripts ต้องมี `try/catch` สำหรับ error handling
+- Hook scripts ต้องมี `process.exit(0)` สำหรับ success และ `process.exit(1)` สำหรับ failure
+- `hooks.json` ต้องระบุ `show_output: true` เพื่อแสดง output ใน IDE
 
 ## Expected Outcome
 
@@ -204,5 +244,8 @@ integrations/<workspace>/
 - ถ้าเป็น monorepo แต่ละ workspace มี `.devin/rules/` และ `AGENTS.md` ของตัวเอง
 - Root `AGENTS.md` บอกให้ทำตาม workspace `AGENTS.md`
 - Rules จัดรูปแบบถูกต้องตามมาตรฐาน
-- Hooks ทำงานตาม events ที่กำหนด
-- ast-grep rules อยู่ใน `.devin/rules/` และ `sgconfig.yml` ชี้ไปที่ถูกต้อง
+- Hooks ทำงานตาม events ที่กำหนด ใช้ `bun` runtime
+- ast-grep rules อยู่ใน `rules/` ที่ project root แยกจาก `.devin/rules/`
+- `sgconfig.yml` ครบถ้วน: `ruleDirs`, `languageAliases`, `devPaths`
+- `bunx ast-grep scan --inspect summary` แสดง rules ทั้งหมด effective
+- `bun run scan` ทำงานได้และ report ผลลัพธ์

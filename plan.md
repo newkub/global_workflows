@@ -12,6 +12,7 @@ related_workflows:
   - /recommend-architecture
   - /report-format-table
   - /report-format-file-structure
+  - /report-plan
 ---
 
 ## Goal
@@ -36,9 +37,10 @@ related_workflows:
 
 1. ทำ `/prioritize` เพื่อจัดลำดับ tasks ตาม impact และ effort
 2. จัดลำดับ: foundation ก่อน, high risk เพื่อ fail fast
-3. ระบุ critical path, dependencies ระหว่าง tasks, และ parallelizable tasks
-4. กำหนด milestones พร้อม timeline และ buffer
-5. คำนวณ planning metrics (ดู Metrics section)
+3. จัดกลุ่ม tasks เป็น phases: Foundation → Core → Polish → Test
+4. ระบุ critical path, dependencies ระหว่าง tasks, และ parallelizable tasks
+5. กำหนด milestones พร้อม timeline และ buffer
+6. คำนวณ planning metrics (ดู Metrics section)
 
 ### 3. Plan Architecture
 
@@ -70,7 +72,7 @@ related_workflows:
 3. ตรวจสอบไม่มี missing tasks หรือ gaps
 4. ระบุไฟล์ที่จะสร้างใหม่, แก้ไข, หรือลบ และ risks พร้อม mitigation
 5. จัดรูปแบบตาราง tasks ตาม `/report-format-table` และ file structure ตาม `/report-format-file-structure`
-6. รอยืนยันจาก user ก่อนเริ่ม implement แล้วทำ `/ship` ต่อ
+6. ทำ `/report-plan` เพื่อรายงานแผนในแชทก่อนลงมือทำ แล้วทำงานต่อได้เลย
 
 ## Metrics
 
@@ -109,9 +111,8 @@ related_workflows:
 
 - ถ้า tasks > 10 สร้างใน `.devin/tasks/` และทำ `/update-dot-devin`
 - ถ้า tasks <= 10 บันทึกใน chat report เท่านั้น
-- ต้อง report plan ก่อนลงมือทำ
-- ต้องได้รับการยืนยันจาก user ก่อน implement
-- หลังยืนยันให้ทำ `/ship` ต่อ
+- ต้องทำ `/report-plan` ก่อนลงมือทำ ตอบในแชท แล้วทำต่อได้เลย
+- ไม่ต้องรอยืนยันจาก user ยกเว้นกรณีเสี่ยงสูง
 
 ## Expected Outcome
 

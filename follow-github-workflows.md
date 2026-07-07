@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /analyze-project
   - /follow-github-actions
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
 ---
 
 ## Goal

@@ -13,7 +13,7 @@ auto_execution_mode: 3
 
 ### 1. Research And Prepare
 
-1. ทำ `/write-windsurf-global-workflows` ก่อนเริ่มเขียน
+1. ทำ `/write-global-workflows` ก่อนเริ่มเขียน
 2. อ่าน `/html` เพื่อใช้ Vue 3 CDN อย่างถูกต้อง
 
 ### 2. Setup HTML Structure

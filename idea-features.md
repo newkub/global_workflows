@@ -4,8 +4,15 @@ description: สร้างไอเดีย features ใหม่และป
 auto_execution_mode: 3
 related_workflows:
   - /analyze-project
+  - /plan
+  - /compare-and-idea-features
+  - /implement-features-to-mvp
+  - /validate-features
   - /refactor
   - /realize-implementation
+  - /update-features
+  - /follow-html
+  - /open-web
 ---
 
 ## Goal
@@ -25,26 +32,27 @@ related_workflows:
 1. ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์
 2. บันทึก project structure และ dependencies
 
-### 2. Analyze Package Structure
+### 2. Analyze Package Structure And Define Scope
 
 1. วิเคราะห์โครงสร้าง packages จาก project structure
 2. ระบุ code ที่สามารถ reuse ได้จาก packages ที่มีอยู่
 3. วิเคราะห์ dependencies ระหว่าง packages
 4. ระบุ boundary ของแต่ละ package เพื่อกำหนด scope ของ features
+5. กำหนด scope ของแต่ละ feature: package-level, app-level, หรือ cross-package
+6. ตรวจสอบว่า feature ไม่ over-scope จนเกินความสามารถของ packages
 
-### 3. Define Feature Scope
-
-1. กำหนด scope ของแต่ละ feature ให้ชัดเจน
-2. ตรวจสอบว่า feature ไม่ over-scope จนเกินความสามารถของ packages
-3. ระบุว่า feature ควรอยู่ใน package ไหน
-4. กำหนดว่า feature ควรเป็น part ของ package หรือ standalone app
-
-### 4. Research Market
+### 3. Research Market
 
 1. ศึกษา features ยอดนิยมใน similar products
 2. วิเคราะห์ emerging technologies และ trends
 3. หา user requests จาก forums, reviews, feedback
 4. ศึกษา industry reports และ predictions
+
+### 4. Collect Existing Features
+
+1. ทำ `/update-features` เพื่อสร้าง `existing-features.json`
+2. อ่าน `existing-features.json` เพื่อเข้าใจ features ที่มีอยู่
+3. แสดง existing features ในแชทด้วย
 
 ### 5. Generate Ideas
 
@@ -61,32 +69,53 @@ related_workflows:
 2. ระบุ quick wins และ strategic bets
 3. กำหนด MVP scope สำหรับแต่ละ feature
 4. เสนอ roadmap สำหรับ implement features (MVP → v2 → v3)
-5. ตอบ 2 ตาราง (Required Features และ Optional Features) ในแชทโดยตรง
+5. ตอบ 2 ตาราง (Extends และ New) ในแชทโดยตรง พร้อม col Req และ Opt
 6. แสดง architecture และ roadmap ในแชท
+
+### 7. Generate Output Files
+
+1. สร้าง `.devin/features/<workspace>/idea-features.json` พร้อม features ทั้งหมด
+2. สร้าง `.devin/features/<workspace>/features.html` ตาม `/follow-html` แสดง existing + idea features
+3. ทำ `/open-web` เพื่อเปิด `features.html` ใน browser
+4. แสดง existing features และ idea features ในแชท
 
 ## Rules
 
-### 1. Two Tables (Required & Optional)
+### 1. Group By Type With Required And Optional Columns
 
-- แยกเป็น 2 ตาราง: Required Features และ Optional Features
-- Required Features: features ที่จำเป็นสำหรับ MVP
-- Optional Features: features ที่เพิ่ม value แต่ไม่จำเป็นสำหรับ MVP
+- แยกเป็น 2 ตารางตาม Type: Extends และ New
+- แต่ละตารางมี col Required และ col Optional แทนการแยกตาราง
+- Required: features ที่จำเป็นสำหรับ MVP ระบุเป็น ✅ หรือ -
+- Optional: features ที่เพิ่ม value แต่ไม่จำเป็นสำหรับ MVP ระบุเป็น ✅ หรือ -
 - แต่ละตารางมี continuous numbering เริ่มจาก 1 ไม่เกิน 20 row
-- ไม่แบ่งแยกระหว่าง Extends และ New
-- เรียงตามลำดับ Impact ก่อน (🔴 สูง → 🟡 ปานกลาง → 🟢 ต่ำ) แล้วตามลำดับเลข
-- Type column ระบุ: Extends (ปรับปรุงจากเดิม) หรือ New (ใหม่)
+- Sorting: เรียงตามลำดับเลข (#) ก่อน แล้วตามลำดับ Impact (🔴 สูง → 🟡 ปานกลาง → 🟢 ต่ำ)
+- Description เป็นคำอธิบายปกติ ไม่ต้องมี Topics, Scope, Interface ในนั้น
+- Scope ระบุ: package-level, app-level, หรือ cross-package
 
 ### 2. Column Order
 
-- ลำดับคอลัมน์: # | Feature | Description | Problem/Solves | How To | Dependencies | Parent/Category | Type | Difficult | Impact | จัดลำดับ | Interface | Status | Topics | Scope
-- Type ระบุ: Extends (ปรับปรุงจากเดิม) หรือ New (ใหม่)
-- Difficult ระบุ: 🔴 ยาก, 🟡 ปานกลาง, 🟢 ง่าย
+- ลำดับคอลัมน์ (21 คอลัมน์): # | Impact | Feature | Description | Why | Req | Opt | Scope | Interface | Target | Phase | Effort | Difficult | Topics | Deps | API | DB | Risk | Estimate | MVP Score | UX/UI
+- Description สั้นกระชับ ไม่เกิน 1 บรรทัด เช่น `เพิ่ม OAuth login`
+- Why ระบุเหตุผล/ปัญหาที่แก่ เช่น `ผู้ใช้ login ยาก` หรือ `ลด friction ตอน signup`
+- Req ระบุ: ✅ ถ้าเป็น Required (MVP), - ถ้าไม่ใช่
+- Opt ระบุ: ✅ ถ้าเป็น Optional, - ถ้าไม่ใช่
 - Impact ระบุ: 🔴 สูง, 🟡 ปานกลาง, 🟢 ต่ำ
-- จัดลำดับ ระบุ: 1-N (ต่อเนื่องในแต่ละตาราง)
-- Interface ระบุ: api, cli, web, library, sdk, etc
-- Status ระบุ: ⬜ ยังไม่ทำ, 🔄 กำลังทำ, ✅ เสร็จแล้ว, ❌ ยกเลิก
-- Topics ระบุหัวข้อ เช่น authentication, database, ui, etc
-- Scope ระบุ: package-level, app-level, cross-package
+- Scope ระบุ: package-level, app-level, หรือ cross-package
+- Interface ระบุ: api, cli, web, mobile, library, sdk, etc
+- Target ระบุ: customer, provider, staff, admin, partner, หรือ multiple
+- Phase ระบุ: MVP, v2, v3
+- Effort ระบุ: S, M, L, XL
+- Difficult ระบุ: 🔴 ยาก, 🟡 ปานกลาง, 🟢 ง่าย
+- Topics ระบุหัวข้อ เช่น auth, booking, payment, ui, etc
+- Deps ระบุ dependencies สั้นๆ เช่น `supabase`, `stripe`, `-` ถ้าไม่มี
+- API ระบุ API endpoints เช่น `POST /api/bookings`, `GET /api/waitlist`, `-` ถ้าไม่มี
+- DB ระบุ database tables เช่น `bookings`, `providers`, `waitlist`, `-` ถ้าไม่มี
+- Risk ระบุ: 🔴 สูง, 🟡 ปานกลาง, 🟢 ต่ำ
+- Estimate ระบุเวลาประเมิน เช่น `1d`, `3d`, `1w`, `2w`
+- MVP Score ระบุคะแนน RICE 1-10
+- UX/UI ระบุ: 🔴 ต้องปรับ UX/UI เยอะ, 🟡 ปรับบางส่วน, 🟢 ใช้ existing UI
+- ข้อมูลที่ย้ายไปใน Description: How To, Parent/Category
+- ใช้บรรทัดแยกใน Description ด้วย `<br>` เช่น `เพิ่ม OAuth login<br>**How To:** ใช้ Supabase Auth`
 
 ### 3. Define Problem First
 
@@ -109,30 +138,24 @@ related_workflows:
 - ระบุ technical debt ที่อาจเกิด
 - หา balance ระหว่าง innovation และ stability
 
-### 6. Scope Validation
-
-- ตรวจสอบว่า feature ไม่ over-scope จนเกินความสามารถของ packages
-- กำหนด scope ให้ชัดเจน: package-level, app-level, หรือ cross-package
-- ตรวจสอบว่า feature สอดคล้องกับ boundary ของ packages
-- พิจารณา dependencies ระหว่าง packages ก่อนกำหนด scope
-
-### 7. Direct Execution
+### 6. Direct Execution
 
 - ถ้าผู้ใช้บอกว่า "ทำ ... ให้" ให้ทำตาม `/refactor` และ `/realize-implementation` เลย
 - ไม่ต้องทำตาม workflow ปกติถ้าผู้ใช้สั่งโดยตรง
 - ทำงานอัตโนมัติโดยไม่หยุดถาม
 
-### 8. Output Format
+### 7. Output Format
 
 - ใช้ markdown table สำหรับแสดง features
 - ตารางเป็นภาษาไทยทั้งหมด
 - แสดง architecture และ roadmap ในแชท
-- เมื่อ implement เสร็จ 1 feature ให้ update Status เป็น ✅ ในผลลัพธ์ที่ตอบในแชท
+- เมื่อ implement เสร็จ 1 feature ให้รายงานในแชท
 
 ## Expected Outcome
 
-- 2 ตาราง (Required Features และ Optional Features) พร้อม continuous numbering ไม่เกิน 20 row ต่อตาราง
+- 2 ตาราง (Extends และ New) พร้อม col Req และ Opt, continuous numbering ไม่เกิน 20 row ต่อตาราง
 - เรียงลำดับตาม Impact (สูง → ปานกลาง → ต่ำ)
 - Column order และค่าต่างๆ ตาม Rule 1 และ Rule 2
 - Roadmap และ architecture แสดงในแชท
-
+- `existing-features.json` และ `idea-features.json` ใน `.devin/features/<workspace>/`
+- `features.html` แสดง existing + idea features ใน browser

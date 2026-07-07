@@ -6,6 +6,7 @@ related_workflows:
   - /use-scripts
   - /analyze-project
   - /follow-code-quality
+  - /report
 ---
 
 ## Goal
@@ -18,7 +19,12 @@ related_workflows:
 
 ## Execute
 
-### 1. Prepare And Run Script
+### 1. Analyze Project
+
+1. ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์พื้นฐานด้วย tools ที่เหมาะสม
+2. ใช้ผลลัพธ์จาก `/analyze-project` เป็น foundation สำหรับ deep analysis
+
+### 2. Prepare And Run Script
 
 สร้างและรัน analysis script
 
@@ -27,6 +33,12 @@ related_workflows:
 3. Script aggregate data และคำนวณ health score
 4. Script output เป็น structured format (JSON หรือ markdown table)
 5. รัน `bun run scripts/analyze-project.ts` และ process results
+
+### 3. Report Findings
+
+1. ทำ `/report` เพื่อจัดรูปแบบผลลัพธ์เป็นตารางในแชท
+2. จัดกลุ่มตาม category และเรียงลำดับตาม severity
+3. ระบุ action items จัดลำดับตาม priority
 
 ## Rules
 

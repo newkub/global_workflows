@@ -3,8 +3,8 @@ title: Report Review
 description: รายงานผล review ครบทุกมิติอย่างละเอียดที่สุด พร้อม severity และ recommendations
 auto_execution_mode: 3
 related_workflows:
-  - /review-codebase
   - /deep-review
+  - /resolve-issue
   - /report
   - /report-format-table
   - /report-format-terminal
@@ -18,7 +18,7 @@ related_workflows:
 
 ## Scope
 
-ใช้สำหรับรายงานผลหลังทำ `/review-codebase` หรือ `/deep-review` เสร็จ ครอบคลุมทุกมิติ: code quality, architecture, security, performance, testing, documentation, configuration, dependencies
+ใช้สำหรับรายงานผลหลังทำ `/deep-review` หรือ `/resolve-issue` เสร็จ ครอบคลุมทุกมิติ: code quality, architecture, security, performance, testing, documentation, configuration, dependencies
 
 ## Execute
 

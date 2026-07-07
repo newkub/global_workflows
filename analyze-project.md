@@ -9,7 +9,7 @@ related_workflows:
   - /use-ast-grep
   - /use-scripts
   - /follow-my-cli
-  - /analyze-code-structure
+  - /analyze-structure
 ---
 
 ## Goal
@@ -33,7 +33,7 @@ related_workflows:
 
 1. ทำ `/scan-codebase` เพื่อ scan structure, patterns, และ quality อย่างรวดเร็ว
 2. ใช้ผลลัพธ์จาก `/scan-codebase` เป็น foundation สำหรับขั้นตอนถัดไป
-3. ทำ `/analyze-code-structure` เพื่อดูโครงสร้างไฟล์และ folders เพิ่มเติมถ้าจำเป็น
+3. ทำ `/analyze-structure` เพื่อดูโครงสร้างไฟล์และ folders เพิ่มเติมถ้าจำเป็น
 
 ### 3. Data Collection
 

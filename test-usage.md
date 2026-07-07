@@ -8,7 +8,7 @@ related_workflows:
   - /run-test-browser
   - /run-test-coverage
   - /write-test
-  - /review-test-result
+  - /analyze-test-result
   - /validate-test
   - /record-terminal
   - /capture-terminal
@@ -110,7 +110,7 @@ related_workflows:
 ### 10. Record And Report
 
 1. ทำ `/record-terminal` และ `/capture-terminal` เพื่อบันทึก test execution และ screenshots
-2. ทำ `/review-test-result` เพื่อวิเคราะห์ผล test execution
+2. ทำ `/analyze-test-result` เพื่อวิเคราะห์ผล test execution
 3. ทำ `/report` สรุปผลลัพธ์ด้วย `/report-format-table` และ `/report-format-terminal`
 
 ## Rules

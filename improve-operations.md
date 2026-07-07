@@ -13,7 +13,6 @@ related_workflows:
   - /improve-deployment-strategy
   - /improve-feature-flags
   - /improve-analytics
-  - /improve-health-check
 ---
 
 ## Goal
@@ -39,9 +38,8 @@ related_workflows:
 2. ทำ `/improve-deployment-strategy` เพื่อปรับปรุง deployment และ rollback strategy
 3. ทำ `/improve-feature-flags` สำหรับ gradual rollout และ kill switches
 4. ทำ `/improve-monitoring` เพื่อปรับปรุง monitoring ครบวงจร
-5. ทำ `/improve-health-check` เพื่อปรับปรุง health check endpoints
-6. ถ้า project มี analytics ทำ `/improve-analytics` เพื่อปรับปรุง product analytics
-7. ถ้า project มี cost concerns ทำ `/improve-cost-optimization`
+5. ถ้า project มี analytics ทำ `/improve-analytics` เพื่อปรับปรุง product analytics
+6. ถ้า project มี cost concerns ทำ `/improve-cost-optimization`
 
 ## Rules
 
@@ -56,4 +54,4 @@ related_workflows:
 
 - Integrations, realtime, notifications, webhooks ถูกปรับปรุง
 - DevOps, CI/CD, deployment strategy, feature flags ถูกปรับปรุง
-- Monitoring, health checks, analytics, cost optimization ถูกปรับปรุง
+- Monitoring, analytics, cost optimization ถูกปรับปรุง

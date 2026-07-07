@@ -10,6 +10,9 @@ related_workflows:
   - /all-workspaces
   - /follow-project-docs
   - /follow-content-quality
+  - /write-examples
+  - /write-how-to
+  - /edit-relative
 ---
 
 ## Goal
@@ -84,98 +87,65 @@ For monorepos with many workspaces:
 2. ตรวจสอบความสม่ำเสมอของ formatting, heading structure, และ style
 3. ตรวจสอบว่าเนื้อหาอ่านง่าย สอดคล้องกัน และไม่ซ้ำซ้อน
 
-### 6. Update References
+### 6. Document Workflow Reports
 
-When modifying files, run `/update-reference` to update all references
+เอกสารต้องอธิบาย report output ของ workflows ที่ใช้ใน project
+
+1. ตรวจสอบว่า `analyze-*` workflows มี report step (เช่น `/report-format-table`) และบันทึกใน docs ว่าผลลัพธ์อยู่ในรูปแบบใด
+2. ตรวจสอบว่า `review-*` workflows มี report step (เช่น `/report-review` หรือ `/report-format-table`) และบันทึกใน docs
+3. บันทึกตัวอย่าง report output ใน docs ถ้าจำเป็น
+
+### 7. Update References
+
+เมื่อแก้ไขไฟล์ ให้อัปเดท references ทั้งหมด
+
+1. ทำ `/update-reference` เพื่ออัปเดท references ใน project, workflows, และ skills
+2. ทำ `/edit-relative` เพื่ออัปเดท references ที่เกี่ยวข้องทั้งหมด
+3. ตรวจสอบว่าไม่มี references ที่เสียหาย
 
 ## Rules
 
-### 1. Monorepo Documentation
+### 1. Documentation Principles
 
-- สำหรับ monorepo ต้องมี `docs/` เดียวใน root directory เท่านั้น
-- ห้ามสร้าง `docs/` ในแต่ละ workspace ภายใต้ `packages/`, `apps/`, `framework/`
-- สร้างหน้า workspace documentation ภายใต้ `docs/workspaces/` เช่น `docs/workspaces/core-shared.md`
-- ใช้ VitePress nav ลิงก์ไปยัง workspace pages แทนการเขียนเนื้อหาซ้ำ
-- ใน `project/workspaces.md` เขียนเพียง summary และ link ไปยัง workspace page ไม่ต้องเขียนซ้ำ
-- จัดลำดับ workspaces ตามความสำคัญ (foundation packages ก่อน)
+- เขียนจากข้อมูลจริงใน codebase ไม่ใช่สมมติ
+- ใช้ examples ที่ทำงานได้จริง ไม่ใช่ placeholder
+- ทุกไฟล์ต้องมี frontmatter
+- `index.md` เขียนตาม template ของ `/update-readme`
+- ถ้า project มี `analyze-*` หรือ `review-*` workflows ต้องบันทึก report output format ใน docs
 
 ### 2. Directory Structure
 
 ใช้ structure ตามประเภท project (Library, Product, CLI, Web, Monorepo):
 
-**Required Files**:
-- `index.md` - Project overview (ตาม template `/update-readme`)
-- `.vitepress/config.ts` - VitePress configuration
+- **Required Files**: `index.md`, `.vitepress/config.ts`
+- **Required Directories**: `project/`, `getting-started/`, `.vitepress/`
+- **Optional Directories**: `workspaces/` (monorepo only), `guides/`, `key-concepts/`, `principles/`, `api/`, `examples/`, `reference/`, `templates/`, `workflows/`, `development/`
 
-**Required Directories**:
-- `project/` - Project overview
-- `getting-started/` - Getting started
-- `.vitepress/` - VitePress configuration
+### 3. Monorepo Rules
 
-**Optional Directories**:
-- `workspaces/` - Workspace documentation (monorepo only, one file per workspace)
-- `guides/` - Detailed guides
-- `key-concepts/` - Key concepts and terminology
-- `principles/` - Principles and best practices
-- `api/` - API documentation
-- `examples/` - Examples
-- `reference/` - Reference documentation
-- `templates/` - Templates for project
-- `workflows/` - Project-specific workflows
-- `development/` - Development guides
+- มี `docs/` เดียวใน root directory เท่านั้น
+- ห้ามสร้าง `docs/` ในแต่ละ workspace
+- จัดลำดับ workspaces ตามความสำคัญ (foundation packages ก่อน)
+- ใน `project/workspaces.md` เขียนเพียง summary และ link ไปยัง workspace page
 
-### 3. Project Docs Site
+### 4. Project Docs Site Rules
 
-- ทำ `/follow-project-docs` สำหรับ docs site setup ทั้งหมด (รวม VitePress, Vue components, Bun shell)
-- ไม่ต้องเรียก `/follow-vitepress` แยก เพราะมีใน `/follow-project-docs` แล้ว
-- สำหรับ monorepo ให้สร้าง `docs/` ที่ root ไม่ใช่ `apps/docs/`
-- ใช้ Vue components แทนการเขียน markdown ธรรมดา
-- ใช้ Bun shell scripts ดึงข้อมูลจริงจาก project
+- ทำ `/follow-project-docs` สำหรับ setup ทั้งหมด ไม่ต้องเรียก `/follow-vitepress` แยก
+- สำหรับ monorepo สร้าง `docs/` ที่ root ไม่ใช่ `apps/docs/`
+- ใช้ Vue components แทน markdown ธรรมดา
+- ใช้ Bun shell scripts ดึงข้อมูลจริง
 - ตั้งค่า nav 4 sections: Project, Features, Review, Release
-- สำหรับ monorepo ให้เพิ่ม nav ลิงก์ไปยัง workspace pages ใน `docs/workspaces/`
-
-### 4. References Management
-
-- ทำ `/update-reference` เมื่อแก้ไขไฟล์
-- ตรวจสอบ references ใน project, workflows, และ skills
-- ตรวจสอบว่าไม่มี references ที่เสียหาย
-
-### 5. Workflow Documentation Reports
-
-เอกสารต้องอธิบาย report output ของ workflows ที่ใช้ใน project
-
-- `analyze-*` workflows ต้องมี report step ที่เหมาะสม (เช่น `/report-format-table`) และต้องบันทึกใน docs ว่าผลลัพธ์อยู่ในรูปแบบใด
-- `review-*` workflows ต้องมี report step ที่เหมาะสม (เช่น `/report-review` หรือ `/report-format-table`) และต้องบันทึกใน docs ว่าผลลัพธ์อยู่ในรูปแบบใด
-- เหตุผล: report ที่เหมาะสมช่วยให้ผู้ใช้เข้าใจผลลัพธ์ได้ง่ายและนำไปใช้ต่อได้โดยตรง
-- บันทึกตัวอย่าง report output ใน docs ถ้าจำเป็น
 
 ## Expected Outcome
 
-### Documentation
-
-- Documentation ตามมาตรฐาน
-- Structure สอดคล้องกับ template
-- Content คุณภาพสูง
+- Documentation ตามมาตรฐาน มี structure สอดคล้องกับ template
+- Content คุณภาพสูง เขียนจากข้อมูลจริงใน codebase
 - ไฟล์ทั้งหมดมี frontmatter
 - `index.md` เขียนตาม template ของ `/update-readme`
-- `comparison.md` สร้างโดย `/bench-competitors`
+- `comparison.md` สร้างโดย `/bench-competitors` (ถ้ามี)
 - สำหรับ monorepo: มี `docs/` เดียวใน root ที่รวมทุก workspaces
 - สำหรับ monorepo: workspace pages อยู่ใน `docs/workspaces/` และ nav ลิงก์ไปยังแต่ละ page
-- ไม่มี `docs/` ในแต่ละ workspace
-
-### Project Docs Site
-
-- Docs site พร้อมใช้งานตาม `/follow-project-docs`
-- VitePress config พร้อม nav 4 sections (Project, Features, Review, Release)
-- Vue components สำหรับ visual UX/UI
-- Bun shell scripts ดึงข้อมูลจริงจาก project
-- UnoCSS integrated พร้อม presetWind4
-- Theme custom พร้อมใช้งาน
-- Package scripts พร้อมใช้งาน
-
-### References
-
-- References ใน project ถูกอัพเดททั้งหมด
-- References ใน workflows ถูกอัพเดททั้งหมด
-- References ใน skills ถูกอัพเดททั้งหมด
-- ไม่มี references ที่เสียหาย
+- Docs site พร้อมใช้งานตาม `/follow-project-docs` (VitePress + Vue components + Bun shell)
+- Nav 4 sections: Project, Features, Review, Release
+- Report output ของ `analyze-*` และ `review-*` workflows บันทึกใน docs
+- References ใน project, workflows, และ skills ถูกอัพเดททั้งหมด

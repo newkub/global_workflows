@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /check-monorepo
   - /update-dot-devin
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
 ---
 
 ## Goal
@@ -58,7 +58,7 @@ related_workflows:
 
 เขียน `AGENTS.md` ตาม Rules section
 
-1. ทำ `/write-windsurf-global-workflows` เพื่อเขียนตามมาตรฐาน workflow structure
+1. ทำ `/write-global-workflows` เพื่อเขียนตามมาตรฐาน workflow structure
 2. ทำ `/follow-principles` เพื่อเขียนเป็นหลักการ
 3. ทำ `/follow-consistency` เพื่อรักษาความสม่ำเสมอ
 4. เขียน `AGENTS.md` ตาม Rules section

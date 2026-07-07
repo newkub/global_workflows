@@ -3,7 +3,7 @@ title: Write Content Coverage
 description: เขียน content ครอบคลุมทุก features, APIs, และ use cases
 auto_execution_mode: 3
 related_workflows:
-  - /write-windsurf-global-workflows
+  - /write-global-workflows
   - /write-skills
   - /learn-from-web
   - /follow-content-quality
