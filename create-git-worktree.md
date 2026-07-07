@@ -30,10 +30,9 @@ related_workflows:
 
 ### 3. Create Worktree
 
-1. รัน `git worktree add worktree/<branch-name> <branch-name>` เพื่อสร้าง worktree
-2. ถ้าต้องการสร้าง branch ใหม่ใช้ `git worktree add worktree/<new-branch> -b <new-branch>`
-3. ตรวจสอบว่า worktree ถูกสร้างด้วย `git worktree list`
-4. รัน `cd worktree/<branch-name>` เพื่อเข้าไปทำงานใน worktree
+1. รัน `git worktree add worktree/<branch-name> -b <branch-name>` เพื่อสร้าง worktree พร้อม branch ใหม่เสมอ
+2. ตรวจสอบว่า worktree ถูกสร้างด้วย `git worktree list`
+3. รัน `cd worktree/<branch-name>` เพื่อเข้าไปทำงานใน worktree
 
 ### 4. Verify Worktree
 
@@ -52,8 +51,8 @@ related_workflows:
 ### 2. Branch Naming
 
 - ใช้ branch name ที่สื่อความหมาย (feature/, bugfix/, hotfix/)
-- ตรวจสอบว่า branch มีอยู่จริงบน remote ก่อนสร้าง worktree
-- ถ้าสร้าง branch ใหม่ ให้ใช้ `-b` flag
+- สร้าง branch ใหม่เสมอด้วย `-b` flag
+- ตรวจสอบว่า branch name ไม่ซ้ำกับ branch ที่มีอยู่แล้ว
 
 ### 3. Working Tree Clean
 

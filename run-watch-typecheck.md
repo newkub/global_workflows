@@ -30,7 +30,7 @@ auto_execution_mode: 3
 - ตรวจสอบ type errors ที่เกิดขึ้นทันที
 - แก้ไข type errors ตาม priority
 - อัพเดท type definitions ถ้าจำเป็น
-- รัน `/resolve-errors` สำหรับ errors ที่ซับซ้อน
+- รัน `/resolve-errors` สำหรับ errors ที่ซับซ้อน หรือ `/deep-debug` สำหรับ errors ที่ต้องวางแผนแก้
 
 4. ปรับปรุง Type Safety
 

@@ -106,7 +106,7 @@ related_workflows:
 ### 8. Fix Failures
 
 1. ทำ `/analyze-errors` เพื่อจัดลำดับ failures
-2. ถ้า cascade issues → `/debug-issue` → `/resolve-errors`
+2. ถ้า cascade issues → `/debug-issue` → `/deep-debug` → `/resolve-errors`
 3. ถ้า isolated errors → `/resolve-errors`
 4. แก้ไข code, test assertions, หรือ mock data ตามความจำเป็น
 

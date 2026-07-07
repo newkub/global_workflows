@@ -33,7 +33,7 @@ related_workflows:
 
 1. รัน `/analyze-errors` เพื่อวิเคราะห์และจัดลำดับ errors ที่เกิดจาก typecheck
 2. `/analyze-errors` จะตัดสินใจว่าควรไป workflow ไหนต่อ:
-   - ถ้าเป็น cascade issues → `/debug-issue` → `/resolve-errors`
+   - ถ้าเป็น cascade issues → `/debug-issue` → `/deep-debug` → `/resolve-errors`
    - ถ้าเป็น isolated errors → `/resolve-errors`
 
 ## Rules

@@ -1,125 +1,106 @@
 ---
 title: Review Architecture
-description: Review architecture และ design patterns ของโปรเจกต์
+description: Review architecture และ design patterns พร้อมระบุ issues และ recommendations
 auto_execution_mode: 3
 related_workflows:
-  - /analyze-structure
-  - /restructure
+  - /analyze-architecture
   - /follow-architecture
+  - /deep-analyze-with-use-scripts
+  - /check-duplication
+  - /comment-todo
+  - /report
   - /report-format-table
+  - /improve-architecture
 ---
 
 ## Goal
 
-Review architecture และ design patterns ของโปรเจกต์เพื่อตรวจสอบคุณภาพและระบุ issues
+Review architecture และ design patterns เพื่อระบุ issues จัดลำดับ severity และให้ actionable recommendations
 
 ## Scope
 
-ใช้สำหรับ review architecture ครบวงจร รวมถึง patterns, dependencies, coupling, cohesion, และ design principles
+ใช้สำหรับ review architecture ครบวงจร อ้างถึง `/analyze-architecture` สำหรับการวิเคราะห์เชิงลึก และเพิ่มการตรวจสอบ design principles, anti-patterns พร้อม recommendations
 
 ## Execute
 
-### 1. Analyze Structure
+### 1. Run Architecture Analysis
 
-1. ทำ `/analyze-structure` เพื่อวิเคราะห์โครงสร้างไฟล์และ folders
-2. ทำ `/follow-architecture` เพื่อระบุ architectural pattern
-3. วิเคราะห์ layering (presentation, business, data)
-4. ตรวจสอบ module boundaries และ responsibilities
+1. ทำ `/analyze-architecture` เพื่อวิเคราะห์ architecture แบบครบวงจร (pattern, layers, coupling, domain boundaries, SoC, DI, consistency)
+2. ทำ `/follow-architecture` เพื่อระบุ architecture pattern ที่เหมาะสมกับ project
+3. เก็บ findings จาก `/analyze-architecture` เป็น input สำหรับ review
 
-### 2. Review Dependencies And Coupling
+### 2. Check Design Principles
 
-ตรวจสอบ dependencies และ coupling
+ตรวจสอบ design principles ที่ไม่ครอบคลุมใน `/analyze-architecture`
 
-1. ทำ `/use-scripts` พร้อม parser วิเคราะห์ import dependencies
-2. สร้าง dependency graph ด้วย `graphviz` หรือ ASCII art
-3. ระบุ circular dependencies
-4. วิเคราะห์ coupling levels (tight vs loose)
+1. ตรวจสอบ SOLID principles ทีละข้อ ระบุ violations พร้อม examples
+2. ตรวจสอบ DRY ด้วย `/check-duplication` เพื่อระบุ copy-paste patterns
+3. ตรวจสอบ KISS ระบุ over-engineering และ unnecessary complexity
+4. ตรวจสอบ YAGNI ระบุ features หรือ abstractions ที่ยังไม่จำเป็น
 
-### 3. Evaluate Cohesion And Separation
+### 3. Identify Anti-Patterns
 
-ประเมิน cohesion และ separation of concerns
+ระบุ anti-patterns ที่พบจาก analysis results
 
-1. วิเคราะห์ module cohesion (high vs low)
-2. ตรวจสอบ single responsibility principle
-3. ระบุ modules ที่มีหลาย responsibilities
-4. ตรวจสอบ separation of concerns ระหว่าง layers
+1. ระบุ God Objects จาก modules ที่มี responsibilities มากเกินไป (ใช้ coupling metrics จาก step 1)
+2. ระบุ Spaghetti Code จาก high complexity และ deep dependency chains
+3. ระบุ Golden Hammer จาก pattern ที่ใช้ซ้ำเกินสมควร
+4. ระบุ Copy-Paste Programming จากผลของ `/check-duplication`
 
-### 4. Check Design Principles
+### 4. Classify And Prioritize
 
-ตรวจสอบ design principles
+จัดลำดับ issues ทั้งหมดตาม severity และ impact
 
-1. ตรวจสอบ SOLID principles
-2. ตรวจสอบ DRY (Don't Repeat Yourself)
-3. ตรวจสอบ KISS (Keep It Simple, Stupid)
-4. ตรวจสอบ YAGNI (You Aren't Gonna Need It)
+1. รวบรวม issues จาก `/analyze-architecture` และ steps 2-3
+2. จัดประเภทตาม Severity Classification ใน Rules
+3. จัดลำดับตาม impact: Critical → High → Medium → Low
+4. ระบุ actionable recommendations สำหรับแต่ละ issue
 
-### 5. Identify Anti-Patterns
+### 5. Report Findings
 
-ระบุ anti-patterns ที่พบ
-
-1. ค้นหา God Objects ด้วย `Grep`
-2. ค้นหา Spaghetti Code ด้วย complexity analysis
-3. ค้นหา Golden Hammer (overuse of single pattern)
-4. ค้นหา Copy-Paste Programming ด้วย `/check-duplication`
-
-### 6. Restructure And Document
-
-1. ทำ `/restructure` เพื่อปรับปรุง structure ที่มีปัญหา
-2. รวบรวม architectural issues ทั้งหมด
-3. จัดลำดับความสำคัญตาม impact
-4. ทำ `/report-format-table` เพื่อแสดงผล
-5. สร้าง dependency graph visualization
+1. ทำ `/report` เพื่อรายงานผล review ในแชท
+2. ทำ `/report-format-table` เพื่อจัดรูปแบบตาราง issues พร้อม severity, location, และ recommendations
+3. ทำ `/comment-todo` สำหรับระบุ issues ใน code โดยไม่แก้ไข code
+4. แนะนำขั้นตอนถัดไป: `/improve-architecture` สำหรับแก้ไข issues ที่พบ
 
 ## Rules
 
-### 1. Tool Selection
+### 1. Severity Classification
 
-ใช้เครื่องมือที่เหมาะสมกับงานแต่ละประเภท
+- **Critical**: layer violations, circular dependencies, missing domain boundaries, security-related architectural flaws
+- **High**: high coupling (imports > 10), deep dependency chains (depth > 5), missing SoC, God Objects
+- **Medium**: missing DI, architectural inconsistencies, leaky abstractions, DRY violations
+- **Low**: missing documentation, minor pattern deviations, YAGNI violations
 
-- ใช้ `Grep` สำหรับ pattern matching
-- ใช้ `/use-scripts` พร้อม parser สำหรับ dependency analysis
-- ใช้ `graphviz` สำหรับ dependency graph
-- ทำ Bun scripts สำหรับ custom metrics
+### 2. Review Only
 
-### 2. Dependency Analysis
+- ห้ามแก้ไข code ระหว่าง review ใช้ `/comment-todo` สำหรับระบุ issues
+- รายงาน issues ทั้งหมดพร้อม location และ severity
+- ให้ actionable recommendations ที่นำไป implement ได้โดยตรง
 
-วิเคราะห์ dependencies อย่างละเอียด
+### 3. Non-Redundancy
 
-- สร้าง dependency graph ที่ครอบคลุม
-- ระบุ modules ที่มี dependencies มากเกินไป
-- ตรวจสอบ circular dependencies
-- วิเคราะห์ depth ของ dependency tree
+- อ้างถึง `/analyze-architecture` สำหรับ analysis steps โดยไม่ duplicate
+- ไม่ซ้ำซ้อนระหว่าง Execute และ Rules
+- เพิ่มคุณค่าด้วย design principles และ anti-patterns ที่ `/analyze-architecture` ไม่ครอบคลุม
 
-### 3. Pattern Recognition
+### 4. Tool Selection
 
-ระบุ patterns และ anti-patterns อย่างถูกต้อง
+- ใช้ `madge` สำหรับ dependency graph และ circular dependency detection
+- ใช้ `ast-grep` สำหรับ pattern-based analysis
+- ใช้ `/check-duplication` สำหรับ DRY violations
+- ถ้าเป็น monorepo: วิเคราะห์ workspace boundaries ด้วย
 
-- ใช้ AST-based analysis สำหรับ pattern detection
-- ตรวจสอบว่า patterns ถูกใช้ตาม context
-- ระบุ anti-patterns ที่เป็น risk
-- ให้ recommendations สำหรับ refactoring
+### 5. Conditional Execution
 
-### 4. Principle Validation
-
-ตรวจสอบว่า code ทำตาม design principles
-
-- ตรวจสอบ SOLID principles ทีละข้อ
-- ระบุ violations ของแต่ละ principle
-- ให้ examples ของ violations
-- ให้ recommendations สำหรับการแก้ไข
-
-### 5. No Code Modifications
-
-ห้ามแก้ไข code ระหว่าง review
-
-- เฉพาะ analyze และ document findings
-- ไม่แก้ไข code ระหว่าง review
-- ทำ `/comment-todo` สำหรับระบุ issues
+- ถ้าเป็น monorepo ให้ตรวจสอบ workspace dependency direction และ shared code strategy
+- ถ้าไม่มี database ให้ข้าม data layer review
+- ถ้าไม่มี frontend ให้ข้าม presentation layer review
 
 ## Expected Outcome
 
-- Architectural patterns ถูกระบุและวิเคราะห์
-- Dependency graph แสดง relationships ระหว่าง modules
-- Issues ทั้งหมดถูกระบุและจัดลำดับ
-- Anti-patterns ถูกระบุพร้อม recommendations
-- Recommendations ชัดเจนสำหรับแต่ละ issue
+- Architecture patterns ถูกระบุและวิเคราะห์โดยอ้างถึง `/analyze-architecture`
+- Design principles และ anti-patterns ถูกตรวจสอบพร้อม examples
+- Issues ทั้งหมดถูกระบุ จัดประเภท severity และจัดลำดับตาม impact
+- Actionable recommendations ชัดเจนสำหรับแต่ละ issue
+- พร้อมสำหรับ `/improve-architecture` เพื่อแก้ไข issues

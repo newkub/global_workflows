@@ -6,6 +6,7 @@ related_workflows:
   - /write-global-workflows
   - /follow-root-cause-analysis
   - /resolve-errors
+  - /deep-debug
 ---
 
 ## Goal

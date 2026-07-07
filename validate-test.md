@@ -54,7 +54,22 @@ related_workflows:
 4. ตรวจสอบ test priorities ตาม criticality
 5. ตรวจสอบ test environments (local, staging, production)
 
-### 5. Validate Advanced Testing (Conditional)
+### 5. Gap Analysis
+
+วิเคราะห์ gaps ใน testing strategy
+
+1. ระบุ untested critical paths และ business logic
+2. ระบุ missing edge cases และ error scenarios
+3. ระบุ missing test types ตาม project characteristics:
+   - ถ้ามี API: contract tests, integration tests
+   - ถ้ามี UI: component tests, accessibility tests, E2E tests
+   - ถ้ามี database: migration tests, data integrity tests
+   - ถ้ามี auth: auth flow tests, RBAC tests
+   - ถ้ามี payment: payment flow tests, webhook tests
+4. ระบุ missing test infrastructure: fixtures, mocks, factories
+5. จัดลำดับ gaps ตาม severity: Critical → High → Medium → Low
+
+### 6. Validate Advanced Testing (Conditional)
 
 1. ถ้า project มี critical components ให้ตรวจสอบ formal verification:
    - ระบุ critical components (security-critical, safety-critical, financial, data validation)
@@ -73,18 +88,18 @@ related_workflows:
    - Integration tests < 100ms
    - Load tests และ memory leak tests
 
-### 6. Validate Test Documentation
+### 7. Validate Test Documentation
 
 1. ตรวจสอบ test setup ถูก document สำหรับ tests ที่ซับซ้อน
 2. ตรวจสอบ README ใน `tests/` อธิบายวิธีรัน
 3. ตรวจสอบ test docs ถูกอัพเดทเมื่อ logic เปลี่ยน
 4. ถ้า project มี `SPEC.md` ให้ตรวจสอบว่าอัพเดทด้วย test cases
 
-### 7. Review Test Results
+### 8. Review Test Results
 
 1. ทำ `/analyze-test-result` เพื่อวิเคราะห์ผล test execution และหา root cause ของ failures
 
-### 8. Generate Report
+### 9. Generate Report
 
 1. ทำ `/report` สรุป findings เป็นตาราง
 2. จัดกลุ่มตาม category (structure, coverage, quality, strategy, advanced, documentation)
@@ -106,6 +121,7 @@ related_workflows:
 - ตรวจสอบ formal verification สำหรับ critical components (ถ้ามี)
 - ตรวจสอบ security สำหรับ sensitive code (ถ้ามี)
 - ตรวจสอบ performance สำหรับ bottlenecks (ถ้ามี)
+- ระบุ untested critical paths และ business logic เป็น priority
 
 ### 3. Action-Oriented
 

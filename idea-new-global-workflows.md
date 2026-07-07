@@ -1,6 +1,6 @@
 ---
-title: Suggest Global Workflows
-description: แนะนำ global workflows ที่ควรใช้ต่อจาก workflow ปัจจุบัน
+title: Idea New Global Workflows
+description: แนะนำ global workflows ใหม่ที่ควรสร้างหรือใช้ต่อจาก workflow ปัจจุบัน
 auto_execution_mode: 3
 related_workflows:
   - /write-global-workflows

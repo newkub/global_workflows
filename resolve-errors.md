@@ -10,15 +10,17 @@ related_workflows:
   - /use-scripts
   - /check-long-files
   - /follow-code-quality
+  - /follow-debugging
+  - /deep-debug
 ---
 
 ## Goal
 
-แก้ไข error อย่างมีประสิทธิภาพโดยระบุ root cause แก้ไขที่จุดเดียว และตรวจสอบว่าแก้ไขถูกต้อง
+แก้ไข error อย่างมีประสิทธิภาพโดยระบุ root cause แก้ไขน้อยที่สุด และตรวจสอบว่าแก้ไขถูกต้อง
 
 ## Scope
 
-แก้ไข errors ที่เกิดขึ้นจากการรัน commands, linting, type checking, หรือ testing
+ใช้สำหรับแก้ไข error ที่เกิดจากการรัน commands, linting, type checking, หรือ testing ที่สามารถแก้ได้โดยตรง ไม่ใช่การ debug อย่างเป็นระบบ (ใช้ `/deep-debug`) และไม่ใช่การ debug หาสาเหตุอย่างเดียว (ใช้ `/debug-issue`)
 
 ## Execute
 
@@ -81,7 +83,34 @@ related_workflows:
 
 ## Rules
 
-### 1. Error Classification
+### 1. When To Use Resolve Errors
+
+ใช้ resolve errors เมื่อ:
+
+- Error ชัดเจน ระบุได้ว่าเกิดจากอะไร
+- เป็น isolated error ที่แก้ได้โดยตรง
+- ไม่ต้องวางแผนซับซ้อน แก้ได้ใน 1-2 จุด
+- เกิดจากการรัน lint, typecheck, test, หรือ build
+
+### 2. When Not To Use Resolve Errors
+
+ไม่ใช้ resolve errors เมื่อ:
+
+- Error ซับซ้อน มีหลายจุด ต้องวางแผน (ใช้ `/deep-debug`)
+- ต้อง debug หาสาเหตุก่อน (ใช้ `/debug-issue`)
+- ต้องวิเคราะห์และจัดลำดับ errors มากมาย (ใช้ `/analyze-errors`)
+- เป็น logic error ที่ต้องวิเคราะห์เชิงระบบ (ใช้ `/deep-thinking`)
+
+### 3. Resolve Errors vs Deep Debug vs Debug Issue
+
+- `/resolve-errors` = แก้ error โดยตรง รู้สาเหตุแล้ว แก้น้อยที่สุด
+- `/deep-debug` = debug อย่างเป็นระบบ ตั้งแต่ reproduce → root cause → fix → prevent
+- `/debug-issue` = หา root cause ของปัญหา ยังไม่แก้
+- ใช้ `/resolve-errors` เมื่อรู้ว่าต้องแก้อะไร
+- ใช้ `/deep-debug` เมื่อต้องวางแผนแก้และป้องกันซ้ำ
+- ใช้ `/debug-issue` เมื่อยังไม่รู้สาเหตุ
+
+### 4. Error Classification
 
 | Type | Approach |
 |------|----------|
@@ -90,14 +119,45 @@ related_workflows:
 | `Type Error` | ตรวจสอบ type definitions, type assertions, interfaces |
 | `Logic Error` | ตรวจสอบ algorithm, conditions, data transformations |
 | `Network Error` | ตรวจสอบ API calls, endpoints, request/response format |
+| `Build Error` | ตรวจสอบ config, dependencies, import paths |
+| `Test Error` | ตรวจสอบ assertions, mock data, test setup |
 
-### 2. No Ignore Patterns
+### 5. No Ignore Patterns
 
 - ทำตาม `/no-use-ignore`
+- ห้ามใช้ ignore comments/attributes ทุกภาษาเพื่อ suppress errors หรือ warnings
+- แก้ที่ source ไม่ใช่ซ่อน error
+
+### 6. Fix Principles
+
+- **Root cause over symptom** — แก้ที่สาเหตุ ไม่ใช่ที่อาการ
+- **Minimal over maximal** — แก้น้อยที่สุดที่จำเป็น
+- **Upstream over downstream** — แก้ต้นน้ำดีกว่าปลายน้ำ
+- **Verify before assume** — ยืนยันด้วยการรัน ไม่ใช่คาดการณ์
+- **No ignore** — ห้าม suppress error ด้วย ignore patterns
+
+### 7. Time Budget
+
+- Error เล็ก (single-line fix): ≤ 2 นาที
+- Error กลาง (หลายบรรทัด 1 ไฟล์): ≤ 5 นาที
+- Error ใหญ่ (หลายไฟล์): ≤ 15 นาที หรือใช้ `/deep-debug`
+- ถ้าใช้เวลานานเกินไป ให้ใช้ `/deep-debug` แทน
+
+### 8. Integration With Other Workflows
+
+เชื่อมโยงกับ workflows อื่น:
+
+- ทำ `/analyze-errors` ถ้า errors มีจำนวนมาก ต้องจัดลำดับ
+- ทำ `/debug-issue` ถ้ายังไม่พบ root cause
+- ทำ `/deep-debug` ถ้า error ซับซ้อน ต้องวางแผนแก้และป้องกันซ้ำ
+- ทำ `/no-use-ignore` เพื่อตรวจสอบว่าไม่มี ignore patterns
+- ทำ `/run-test` หลังแก้เพื่อยืนยันว่าไม่ทำลาย test อื่น
+- ทำ `/memorize` เพื่อจดจำบทเรียนจาก error
 
 ## Expected Outcome
 
-- error ถูกแก้ไขอย่างถาวรจาก root cause
+- Error ถูกแก้ไขอย่างถาวรจาก root cause
 - ไม่มี side effects ใหม่เกิดขึ้นจากการแก้ไข
-- code quality รักษาไว้หรือดีขึ้นกว่าเดิม
-- มี documentation หรือ comments อธิบายการแก้ไข
+- Code quality รักษาไว้หรือดีขึ้นกว่าเดิม
+- ไม่มี ignore patterns ถูกเพิ่มเข้ามา
+- มี documentation หรือ comments อธิบายการแก้ไขถ้าจำเป็น

@@ -2,6 +2,10 @@
 title: Debug Issue
 description: หา root cause ของปัญหาอย่างเป็นระบบด้วยการจัดลำดับและตัดสิ่งที่ไม่ใช่
 auto_execution_mode: 3
+related_workflows:
+  - /follow-debugging
+  - /write-test
+  - /resolve-errors
 ---
 
 
@@ -98,9 +102,26 @@ UI (VSCode)
 
 ### 10. Fix And Prevent
 
-- fix ปัญหา
+- fix ปัญหาที่ root cause ไม่ใช่ symptoms
 - document cause
 - prevent recurrence
+
+### 11. Write Regression Tests
+
+ทำ `/write-test` เพื่อสร้าง regression tests จาก reproduction steps
+
+1. สร้าง test จาก reproduction steps ใน step 2
+2. ทดสอบว่า test fail ก่อน fix และ pass หลัง fix
+3. ครอบคลุม edge cases ที่เกี่ยวข้อง
+4. รัน test suite ทั้งหมดเพื่อยืนยันไม่มี regression
+
+### 12. Prevent Recurrence
+
+ป้องกันการเกิดปัญหาซ้ำ
+
+1. ระบุ root cause ในระดับ process: ทำไมปัญหานี้ถึงเกิดขึ้นได้
+2. แนะนำ preventive measures: linter rules, type constraints, code review checklist
+3. บันทึก root cause และ prevention สำหรับ future reference
 
 ## Rules
 
@@ -144,9 +165,18 @@ Debug = Bayesian Search in Hypothesis Space
 6. Repeat
 ```
 
+### 5. Regression Safety
+
+- ทุก bug fix ต้องมี regression test
+- Test ต้อง fail ก่อน fix และ pass หลัง fix
+- รัน test suite ทั้งหมดเพื่อยืนยันไม่มี regression
+- ถ้าปัญหาซับซ้อนหรือเกิดซ้ำๆ ให้ใช้ `/deep-thinking` ก่อน debug
+
 ## Expected Outcome
 
 - หา root cause ได้เร็วขึ้น
 - ลดการเดาและแก้หลายอย่างพร้อมกัน
 - มี systematic approach สำหรับ debug ทุกประเภท
+- Regression tests ที่ป้องกันปัญหาซ้ำ
+- Preventive measures สำหรับ future
 

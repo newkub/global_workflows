@@ -13,6 +13,8 @@ related_workflows:
   - /report-format-table
   - /report-format-file-structure
   - /report-plan
+  - /deep-thinking
+  - /deep-research
 ---
 
 ## Goal
@@ -65,7 +67,18 @@ related_workflows:
 4. ถ้า tasks <= 10 ให้บันทึกใน chat report เท่านั้น
 5. ทำ `/update-dot-devin` ถ้ามีการเปลี่ยนแปลง package manifest
 
-### 6. Validate And Report
+### 6. Stress-Test Plan
+
+ตรวจสอบแผนอย่างละเอียดสำหรับงานที่ซับซ้อนสูง
+
+1. ตรวจสอบ assumptions ทุกข้อในแผน
+2. จำลอง worst-case scenario และตรวจสอบว่าแผนยังทำได้
+3. ระบุ critical path และ bottlenecks
+4. วิเคราะห์ trade-offs ของ architectural decisions พร้อม alternatives ที่ปฏิเสธ
+5. วางแผน rollback strategy สำหรับ high-risk tasks
+6. ถ้างานซับซ้อนสูง: ทำ `/deep-thinking` ก่อน step นี้
+
+### 7. Validate And Report
 
 1. ยืนยัน dependencies ไม่ conflict กับ existing versions
 2. ตรวจสอบทุก task มี single responsibility และ test ได้
@@ -113,6 +126,13 @@ related_workflows:
 - ถ้า tasks <= 10 บันทึกใน chat report เท่านั้น
 - ต้องทำ `/report-plan` ก่อนลงมือทำ ตอบในแชท แล้วทำต่อได้เลย
 - ไม่ต้องรอยืนยันจาก user ยกเว้นกรณีเสี่ยงสูง
+
+### 4. Trade-Off And Risk Analysis
+
+- ทุก architectural decision ต้องมี trade-off analysis พร้อม alternatives ที่ปฏิเสธ
+- ทุก high-risk task ต้องมี mitigation plan และ rollback strategy
+- จัดลำดับ risks ตาม probability × impact
+- ถ้างานซับซ้อนสูง: ทำ `/deep-thinking` และ `/deep-research` ก่อนวางแผน
 
 ## Expected Outcome
 

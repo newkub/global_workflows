@@ -10,6 +10,7 @@ related_workflows:
   - /report-format-table
   - /sumarize-in-table
   - /delete
+  - /my-persona
 ---
 
 ## Goal

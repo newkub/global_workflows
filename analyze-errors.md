@@ -6,6 +6,7 @@ related_workflows:
   - /run-check
   - /debug-issue
   - /resolve-errors
+  - /deep-debug
   - /incident-triage
   - /use-scripts
 ---

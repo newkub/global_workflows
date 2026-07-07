@@ -2,6 +2,8 @@
 title: Use Lang EN
 description: ใช้ภาษาอังกฤษในการสื่อสารและทำงาน
 auto_execution_mode: 3
+related_workflows:
+  - /my-persona
 ---
 
 

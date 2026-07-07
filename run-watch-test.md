@@ -30,7 +30,7 @@ auto_execution_mode: 3
 - ตรวจสอบ test failures ที่เกิดขึ้นทันที
 - แก้ไข failing tests ตาม priority
 - Debug test issues อย่างเป็นระบบ
-- รัน `/resolve-errors` สำหรับ errors ที่ซับซ้อน
+- รัน `/resolve-errors` สำหรับ errors ที่ซับซ้อน หรือ `/deep-debug` สำหรับ errors ที่ต้องวางแผนแก้
 
 4. ตรวจสอบ Test Coverage
 

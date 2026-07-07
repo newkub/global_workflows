@@ -8,6 +8,7 @@ related_workflows:
   - /use-scripts
   - /report-format-table
   - /deep-analyze-with-use-scripts
+  - /follow-debugging
 ---
 
 ## Goal
