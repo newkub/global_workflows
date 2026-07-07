@@ -24,6 +24,7 @@ related_workflows:
   - /analyze-bundle
   - /watch-github-actions
   - /validate-migration
+  - /create-git-worktree
   - /commit
   - /run-release
   - /run-deploy
@@ -47,13 +48,14 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 เตรียมความพร้อมก่อนเริ่ม ship
 
 1. ทำ `/read-related-workflows` และ `/follow-workflows` เพื่ออ่าน workflows ที่เกี่ยวข้อง
-2. ตรวจสอบ working tree clean, ไม่อยู่บน `main`/`master`, `bun install` ผ่าน
-3. ถ้า requirement ไม่ชัดเจน ให้ทำ `/ask-requirement`
-4. ทำ `/plan` เพื่อวางแผนงาน (ถ้าเสี่ยงสูงให้รอยืนยัน user)
-5. ถ้า MVP phase ให้ทำ `/implement-features-to-mvp`
-6. ทำ `/update-project` เพื่ออัพเดท `.devin`, `README`, `AGENTS.md`
-7. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo` และทำ phases 2-5 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
-8. ถ้า project ต้องการ deployment ให้ทำ `/follow-deploy` เพื่อตั้งค่า CI/CD
+2. ตรวจสอบ working tree clean และอยู่บน `main`/`master`, `bun install` ผ่าน
+3. ทำ `/create-git-worktree` เพื่อสร้าง worktree ใน `worktree/` สำหรับ branch ที่จะทำงาน
+4. ถ้า requirement ไม่ชัดเจน ให้ทำ `/ask-requirement`
+5. ทำ `/plan` เพื่อวางแผนงาน (ถ้าเสี่ยงสูงให้รอยืนยัน user)
+6. ถ้า MVP phase ให้ทำ `/implement-features-to-mvp`
+7. ทำ `/update-project` เพื่ออัพเดท `.devin`, `README`, `AGENTS.md`
+8. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo` และทำ phases 2-5 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
+9. ถ้า project ต้องการ deployment ให้ทำ `/follow-deploy` เพื่อตั้งค่า CI/CD
 
 ### 2. Code Quality
 
@@ -95,12 +97,14 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 Git operations, release และ deploy
 
-1. ทำ `/commit` เพื่อ commit ทุกการเปลี่ยนแปลง
+1. ทำ `/commit` เพื่อ commit ทุกการเปลี่ยนแปลงใน worktree
 2. ทำ `/git-push` เพื่อ push ไปยัง remote
 3. ทำ `/create-pr` ถ้าจำเป็นต้องสร้าง pull request
-4. ทำ `/run-release` (optional — auto-detect platforms และ release)
-5. ทำ `/run-deploy` (optional — รวม post-deploy validation และ rollback)
-6. ทำ `/update-readme` เพื่ออัพเดท docs ให้ตรงกับ version ใหม่
+4. กลับไป `main` worktree และ merge branch เข้า `main`
+5. ลบ worktree ด้วย `git worktree remove worktree/<branch-name>`
+6. ทำ `/run-release` (optional — auto-detect platforms และ release)
+7. ทำ `/run-deploy` (optional — รวม post-deploy validation และ rollback)
+8. ทำ `/update-readme` เพื่ออัพเดท docs ให้ตรงกับ version ใหม่
 
 ### 6. Finalize
 
@@ -125,7 +129,9 @@ Git operations, release และ deploy
 
 ### 2. Safety
 
-- ตรวจสอบ working tree clean และ branch ก่อนเริ่ม
+- ตรวจสอบ working tree clean และอยู่บน `main`/`master` ก่อนเริ่ม
+- ใช้ `/create-git-worktree` สร้าง worktree แทนการ checkout branch ใหม่
+- หลัง merge ให้ลบ worktree เสมอเพื่อรักษาความสะอาด
 - ทำ security scan ก่อน verify เพื่อตรวจจับ vulnerabilities ก่อน ship
 - ตรวจสอบ secrets ไม่หลุดเข้า code
 - ถ้าพบ critical vulnerabilities ให้ห้าม deploy จนกว่าจะแก้ไข
