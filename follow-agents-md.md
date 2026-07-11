@@ -6,6 +6,10 @@ related_workflows:
   - /update-agents-md
   - /read-related-workflows
   - /read-related-skills
+  - /follow-workflows
+  - /follow-skills
+  - /use-workflows
+  - /use-skills
 ---
 
 
@@ -35,30 +39,34 @@ related_workflows:
 2. ทำ `/read-related-skills` เพื่ออ่าน skills ที่เกี่ยวข้องแบบ recursive
 3. ทำตาม workflows และ skills ที่อ่านได้ทั้งหมด
 
-### 3. Find AGENTS.md
+### 3. Parse And Execute AGENTS.md
 
-ค้นหาไฟล์ `AGENTS.md` ใน workspace root
+อ่านและ execute workflows/skills ที่ระบุใน `AGENTS.md`
 
-### 4. Parse AGENTS.md
+1. อ่าน `AGENTS.md` ใน workspace root และทุก sub-workspace ถ้าเป็น monorepo
+2. วิเคราะห์ workflows และ skills ที่ระบุในแต่ละ `AGENTS.md`
+3. ทำตาม workflows ที่ระบูใน `AGENTS.md` ตามลำดับ
+4. โหลด skills ที่ระบุใน `AGENTS.md`
+5. ถ้าเป็น monorepo: ทำซ้ำสำหรับแต่ละ workspace ที่มี `AGENTS.md`
 
-อ่านและวิเคราะห์ workflows และ skills ที่ระบุ
+### 4. Verify Execution
 
-### 5. Execute Workflows
+ตรวจสอบว่า workflows และ skills ถูก execute ครบถ้วน
 
-ทำตาม workflows ที่ระบุใน `AGENTS.md` ตามลำดับ
-
-### 6. Load Skills
-
-โหลด skills ที่ระบุใน `AGENTS.md`
+1. ตรวจสอบว่าทุก workflow ใน `AGENTS.md` ถูกเรียกแล้ว
+2. ตรวจสอบว่าทุก skill ถูกโหลดแล้ว
+3. ถ้ามี workflow หรือ skill ที่ไม่มีอยู่ ให้ข้ามและบันทึกไว้
 
 ## Rules
 
-- `AGENTS.md` ต้องอยู่ใน workspace root
+- `AGENTS.md` ต้องอยู่ใน workspace root และ sub-workspaces ถ้าเป็น monorepo
 - ทำตามลำดับที่ระบุใน `AGENTS.md`
 - ตรวจสอบว่า workflows และ skills มีอยู่จริง
 - ข้าม workflows หรือ skills ที่ไม่มีอยู่
+- ถ้าเป็น monorepo: ทำตาม `AGENTS.md` ของทุก workspace
 
 ## Expected Outcome
 
-- Workflows ที่ระบุใน `AGENTS.md` ถูกทำ
+- Workflows ที่ระบุใน `AGENTS.md` ถูก execute ครบถ้วน
 - Skills ที่ระบุใน `AGENTS.md` ถูกโหลด
+- ทุก workspace ใน monorepo ถูกประมวลผลครบ
