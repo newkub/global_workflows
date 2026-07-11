@@ -11,19 +11,11 @@ related_workflows:
   - /implement-features-to-mvp
   - /update-project
   - /follow-monorepo
-  - /refactor
-  - /follow-best-practice
-  - /realize-implementation
-  - /deep-review
-  - /analyze-bug-prone
+  - /review-codebase-everything
   - /resolve-issue
-  - /follow-your-suggestion
-  - /cleanup-files
-  - /check-vulnerability
+  - /loop-until-complete
   - /run-verify
-  - /analyze-bundle
   - /watch-github-actions
-  - /validate-migration
   - /create-git-worktree
   - /commit
   - /run-release
@@ -57,41 +49,27 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 8. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo` และทำ phases 2-5 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
 9. ถ้า project ต้องการ deployment ให้ทำ `/follow-deploy` เพื่อตั้งค่า CI/CD
 
-### 2. Code Quality
+### 2. Review And Fix
 
-ปรับปรุงคุณภาพโค้ดก่อน verify
+ทำ comprehensive review และแก้ไข issues ครบทุกมิติ
 
-1. ทำ `/refactor` เพื่อ refactor ทั้ง monorepo และ workspaces
-2. ทำ `/follow-best-practice` เพื่อ apply best practices
-3. ทำ `/realize-implementation` เพื่อแปลง TODO, MOCK, placeholder เป็น production code
-4. ทำ `/deep-review` เพื่อตรวจสอบคุณภาพโค้ด
-5. ทำ `/analyze-bug-prone` เพื่อ scan bug-prone patterns ก่อน release
-6. ทำ `/follow-your-suggestion` เพื่อ apply suggestions จากการวิเคราะห์
-7. ถ้าพบ issues ให้ทำ `/resolve-errors` แล้วทำซ้ำขั้นตอน 1-6 จนกว่าจะผ่าน
-8. ทำ `/cleanup-files` เพื่อลบไฟล์และ dead code ที่ไม่จำเป็น
+1. ทำ `/review-codebase-everything` เพื่อ review ครบทุกมิติ แก้ไข issues ตาม severity จนครบ
+2. ถ้าพบ issues ให้ทำ `/resolve-issue` แล้วทำ `/loop-until-complete` ขั้นตอน 1 จนกว่าจะผ่าน
 
-### 3. Security And Verify
+### 3. Verify
 
-ตรวจสอบ security และ quality gates ก่อน ship
+ตรวจสอบ quality gates ก่อน ship
 
-1. ทำ `/check-vulnerability` เพื่อตรวจสอบ vulnerabilities ใน dependencies
-2. ตรวจสอบว่าไม่มี secrets หลุดเข้า code
-3. ถ้าพบ critical vulnerabilities ให้ทำ `/resolve-errors` ก่อนดำเนินการต่อ
-4. ทำ `/run-verify` จนกว่าจะผ่าน
-5. ถ้าเป็น web app ให้ทำ `/analyze-bundle` และ `/improve-web-performance` ถ้าพบ issues
-6. ทำ `/watch-github-actions` เพื่อตรวจสอบว่า CI ผ่านทุก checks
-7. ถ้าพบ CI failures ให้ทำ `/resolve-errors` ก่อนดำเนินการต่อ
+1. ทำ `/loop-until-complete` กับ `/run-verify` จนกว่าจะผ่าน
+2. ทำ `/watch-github-actions` เพื่อตรวจสอบว่า CI ผ่านทุก checks
+3. ถ้าพบ CI failures ให้ทำ `/resolve-issue` ก่อนดำเนินการต่อ
 
 ### 4. Test And Validate
 
-ทดสอบการใช้งานจริงและตรวจสอบ database
+ทดสอบการใช้งานจริง
 
-1. ถ้า project มี tests ให้ทำ `/validate-test` เพื่อตรวจสอบ test quality
-2. ทำ `/test-usage` เพื่อทดสอบการใช้งานผ่าน interface ต่างๆ
-3. ถ้าพบ issues ให้ทำ `/resolve-errors` แล้วกลับไปทำ Phase 2 ขั้นตอน 1-4 จนกว่าจะผ่าน
-4. ตรวจสอบว่าไม่มี pending database migrations
-5. ทำ `/validate-migration` เพื่อตรวจสอบ migration reversibility
-6. ถ้าพบ issues ให้ทำ `/resolve-errors` ก่อนดำเนินการต่อ
+1. ทำ `/test-usage` เพื่อทดสอบการใช้งานผ่าน interface ต่างๆ
+2. ถ้าพบ issues ให้ทำ `/resolve-issue` แล้วทำ `/loop-until-complete` กลับไปทำ Phase 2 จนกว่าจะผ่าน
 
 ### 5. Ship
 
@@ -121,24 +99,20 @@ Git operations, release และ deploy
 ### 1. Foundation First
 
 - ทำ `/update-project` ก่อนเพื่อตั้งค่า configuration และ structure
-- ตั้งค่า CI/CD และ monorepo structure ก่อน refactor
-- ทำ `/refactor` ก่อน `/follow-best-practice`
-- ทำ `/deep-review` ก่อน cleanup
-- ทำ `/follow-your-suggestion` เพื่อ apply suggestions จากการวิเคราะห์
-- แปลง TODO, MOCK เป็น production code ก่อน verify
+- ตั้งค่า CI/CD และ monorepo structure ก่อน review
+- Review และ fix issues ก่อน verify
 
 ### 2. Safety
 
 - ตรวจสอบ working tree clean และอยู่บน `main`/`master` ก่อนเริ่ม
 - ใช้ `/create-git-worktree` สร้าง worktree แทนการ checkout branch ใหม่
 - หลัง merge ให้ลบ worktree เสมอเพื่อรักษาความสะอาด
-- ทำ security scan ก่อน verify เพื่อตรวจจับ vulnerabilities ก่อน ship
-- ตรวจสอบ secrets ไม่หลุดเข้า code
+- Security scan และ vulnerability check อยู่ใน `/review-codebase-everything` แล้ว
 - ถ้าพบ critical vulnerabilities ให้ห้าม deploy จนกว่าจะแก้ไข
 
 ### 3. Error Resolution
 
-- ทำ `/resolve-errors` เมื่อพบ error แล้วทำซ้ำ Phase 2 ขั้นตอน 1-4 จนกว่าจะผ่าน
+- ทำ `/resolve-issue` เมื่อพบ error แล้วทำ `/loop-until-complete` ซ้ำจนกว่าจะผ่าน
 - ห้ามข้าม errors หรือทำ workaround
 
 ### 4. Execution Order
@@ -164,13 +138,13 @@ Git operations, release และ deploy
 
 - ห้าม duplicate รายละเอียดที่มีอยู่ใน sub-workflows
 - Orchestrator อ้างถึง sub-workflow โดยไม่ระบุรายละเอียดภายใน
+- Review, refactor, security, test quality, migration validation อยู่ใน `/review-codebase-everything` แล้ว
 - รายละเอียด verify, release, deploy อยู่ใน `/run-verify`, `/run-release`, `/run-deploy` แล้ว
 
 ## Expected Outcome
 
 - Requirement ชัดเจน และ plan ได้รับการยืนยันจาก user
-- Code ผ่าน refactor, best practices, review และแปลง TODO/MOCK เป็น production code
-- Code ผ่าน security scan, verify, performance check และ CI/CD
-- Usage test ผ่านทุก interface และ database migrations ไม่มี pending
+- Code ผ่าน comprehensive review และ issues ถูกแก้ไขครบถ้วน ผ่าน `/review-codebase-everything`
+- Code ผ่าน verify, CI/CD และ usage test
 - Git operations สำเร็จ, packages ถูก release และ application ถูก deploy (ถ้ามี)
 - รายงานผลลัพธ์การ ship code ครบวงจรตาม `/report`
