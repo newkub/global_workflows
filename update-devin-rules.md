@@ -76,7 +76,7 @@ related_workflows:
 
 ตรวจสอบและ finalize rules ทั้งหมด
 
-1. ทำ `/improve-correctness` เพื่อตรวจสอบความถูกต้องของเนื้อหา
+1. ทำ `/review-correctness` เพื่อตรวจสอบความถูกต้องของเนื้อหา
 2. ตรวจสอบ frontmatter ทุกไฟล์ถูกต้องตาม Rules section
 3. ตรวจสอบว่า rules สอดคล้องกับ dependencies ใน `package.json`
 4. ตรวจสอบว่าไม่มี rules ที่ซ้ำซ้อนกัน
@@ -86,6 +86,8 @@ related_workflows:
 
 ### 1. Frontmatter Format
 
+- ทุกไฟล์ต้องมี `title` และ `description` ใน frontmatter
+- `description` ต้องสั้น กระชับ อธิบายว่า rule ครอบคลุมเรื่องอะไร
 - `always-on` rules ต้องมี `trigger: always_on`
 - `model_decision` rules ต้องมี `trigger: model_decision`
 - `glob` rules ต้องมี `trigger: glob` พร้อม `globs:` list
