@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - follow-incident-triage
   - follow-suggest-next-action
+  - /pondering
 ---
 
 ## Goal
@@ -38,6 +39,8 @@ related_workflows:
 ### 3. Calculate Priority
 
 คำนวณ priority จาก impact และ effort
+
+1. ทำ `/pondering` เพื่อทบทวนมุมมองหลายด้านก่อนตัดสินใจ priority
 
 | Impact | Effort | Priority | Rationale |
 |--------|--------|----------|-----------|

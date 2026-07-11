@@ -4,6 +4,7 @@ description: เปรียบเทียบ options, tools, หรือ solu
 auto_execution_mode: 3
 related_workflows:
   - /report-format-table
+  - /pondering
 ---
 
 ## Goal
@@ -44,10 +45,11 @@ related_workflows:
 
 ### 5. Provide Recommendation
 
-1. สรุป findings จากการเปรียบเทียบ
-2. แนะนำ option ที่เหมาะสมที่สุดตาม context
-3. อธิบายเหตุผลสำหรับ recommendation
-4. ระบุ edge cases ที่ option อื่นอาจเหมาะสมกว่า
+1. ทำ `/pondering` เพื่อทบทวน trade-offs และผลกระทบก่อนแนะนำ
+2. สรุป findings จากการเปรียบเทียบ
+3. แนะนำ option ที่เหมาะสมที่สุดตาม context
+4. อธิบายเหตุผลสำหรับ recommendation
+5. ระบุ edge cases ที่ option อื่นอาจเหมาะสมกว่า
 
 ## Rules
 

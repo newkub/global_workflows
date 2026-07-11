@@ -21,6 +21,7 @@ related_workflows:
   - /report-format-terminal
   - /report-format-table
   - /follow-code-quality
+  - /pondering
 ---
 
 ## Goal
@@ -37,7 +38,8 @@ related_workflows:
 
 1. ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์พื้นฐาน
 2. ทำ `/report-health` เพื่อวัด health score ก่อนเริ่มปรับปรุง
-3. ทำ `/prioritize` เพื่อจัดลำดับ improvements ตาม impact และ effort
+3. ทำ `/pondering` เพื่อทบทวนว่าควรปรับปรุงอะไรก่อนและผลกระทบของแต่ละการเปลี่ยนแปลง
+4. ทำ `/prioritize` เพื่อจัดลำดับ improvements ตาม impact และ effort
 
 ### 2. Architecture And Structure
 

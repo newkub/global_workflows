@@ -15,6 +15,7 @@ related_workflows:
   - /report-plan
   - /deep-thinking
   - /deep-research
+  - /pondering
 ---
 
 ## Goal
@@ -46,12 +47,13 @@ related_workflows:
 
 ### 3. Plan Architecture
 
-1. ทำ `/recommend-architecture` เพื่อแนะนำ architecture ที่เหมาะสม
-2. วางแผน file architecture โดยจัดกลุ่มตาม responsibility พร้อม tree diagram
-3. สร้าง file pattern table: File Pattern, Description, Naming, Import
-4. กำหนด module boundaries, dependencies (high-level → low-level), และ public APIs
-5. ระบุ shared modules, data contracts, และ integration patterns
-6. วางแผน error handling, caching strategy, และ data validation points
+1. ทำ `/pondering` เพื่อทบทวน architectural decisions และผลกระทบระยะยาวก่อนเลือก architecture
+2. ทำ `/recommend-architecture` เพื่อแนะนำ architecture ที่เหมาะสม
+3. วางแผน file architecture โดยจัดกลุ่มตาม responsibility พร้อม tree diagram
+4. สร้าง file pattern table: File Pattern, Description, Naming, Import
+5. กำหนด module boundaries, dependencies (high-level → low-level), และ public APIs
+6. ระบุ shared modules, data contracts, และ integration patterns
+7. วางแผน error handling, caching strategy, และ data validation points
 
 ### 4. Plan Test Strategy
 
