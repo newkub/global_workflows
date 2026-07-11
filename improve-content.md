@@ -10,6 +10,7 @@ related_workflows:
   - /improve-completeness
   - /deep-research
   - /check-reference
+  - /improve-redundancy
 ---
 
 ## Goal

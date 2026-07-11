@@ -5,6 +5,7 @@ auto_execution_mode: 3
 url: https://agent-browser.dev
 related_workflows:
   - /watch-browser
+  - /watch-browser-console
   - /resolve-errors
   - /follow-best-practice
 ---

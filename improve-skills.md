@@ -11,6 +11,7 @@ related_workflows:
   - /deep-research
   - /follow-content-quality
   - /check-reference
+  - /improve-redundancy
 ---
 
 ## Goal

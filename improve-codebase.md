@@ -16,6 +16,7 @@ related_workflows:
   - /improve-frontend
   - /improve-operations
   - /improve-delivery
+  - /improve-redundancy
   - /resolve-errors
   - /update-reference
   - /report-format-terminal

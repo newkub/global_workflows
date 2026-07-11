@@ -8,6 +8,7 @@ related_workflows:
   - /use-scripts
   - /edit-relative
   - /check-long-files
+  - /analyze-srp
   - /deep-analyze-with-use-scripts
 ---
 

@@ -5,6 +5,13 @@ auto_execution_mode: 3
 related_workflows:
   - /follow-consistency
   - /improve-content
+  - /analyze-duplication
+  - /code-search
+  - /edit-relative
+  - /check-reference
+  - /run-check
+  - /report-format-table
+  - /use-scripts
 ---
 
 ## Goal
@@ -17,14 +24,15 @@ related_workflows:
 
 ## Execute
 
-### 1. Identify Redundancy
+### 1. Analyze Redundancy
 
 ระบุความซ้ำซ้อนในระบบ
 
-1. ตรวจสอบ duplicate content ทั่วทั้งระบบ (เช่น description ซ้ำกันในหลาย workflows)
-2. ตรวจสอบ duplicate patterns (code patterns, content patterns, configuration patterns)
-3. วิเคราะห์ความซ้ำซ้อนใน configuration
-4. ระบุส่วนที่สามารถรวมได้ (มีความหมายเหมือนกัน, ใช้ใน context เดียวกัน, ไม่มีความแตกต่างเฉพาะ)
+1. ทำ `/analyze-duplication` เพื่อตรวจจับ DRY violations, code clones, duplicate logic
+2. ทำ `/code-search` เพื่อค้นหา duplicate content ทั่วทั้งระบบ (เช่น description ซ้ำกันในหลาย workflows)
+3. ตรวจสอบ duplicate patterns (code patterns, content patterns, configuration patterns)
+4. วิเคราะห์ความซ้ำซ้อนใน configuration
+5. ระบุส่วนที่สามารถรวมได้ (มีความหมายเหมือนกัน, ใช้ใน context เดียวกัน, ไม่มีความแตกต่างเฉพาะ)
 
 ### 2. Consolidate Content
 
@@ -44,14 +52,16 @@ related_workflows:
 3. ตรวจสอบว่า references ถูกต้อง
 4. ทำ `/check-reference` เพื่อตรวจสอบ references มีอยู่จริง
 
-### 4. Verify
+### 4. Verify And Report
 
 ตรวจสอบว่าไม่มีความซ้ำซ้อน
 
-1. ตรวจสอบว่าไม่มี duplicate content (ใช้ search tools เพื่อตรวจสอบ)
-2. ตรวจสอบว่า references ถูกต้อง (ทั้งใน workflows และ skills)
+1. ตรวจสอบว่าไม่มี duplicate content (ใช้ `/code-search` เพื่อตรวจสอบ)
+2. ทำ `/check-reference` เพื่อตรวจสอบ references ถูกต้อง
 3. ตรวจสอบว่า single source of truth ถูกต้อง (ครบถ้วนและอัปเดทล่าสุด)
 4. ตรวจสอบว่าไม่มี orphan content (content ที่ไม่มีใครอ้างอิง)
+5. ทำ `/run-check` เพื่อตรวจสอบ lint และ typecheck ผ่าน
+6. ทำ `/report-format-table` เพื่อสรุปผลลัพธ์
 
 ## Rules
 
@@ -90,6 +100,12 @@ related_workflows:
 - อัปเดท references ทั้งหมดที่เกี่ยวข้อง
 - ตรวจสอบว่าไม่มี circular references
 - ตรวจสอบว่า references สอดคล้องกัน
+
+### 5. Use Scripts For Redundancy Analysis
+
+- ใช้ `/analyze-duplication` สำหรับ code clone detection
+- ใช้ `/code-search` สำหรับ content duplication scan
+- ใช้ `/use-scripts` เมื่อต้อง scan ไฟล์มากกว่า 10 ไฟล์
 
 ## Expected Outcome
 

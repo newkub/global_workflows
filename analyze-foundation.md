@@ -4,6 +4,7 @@ description: วิเคราะห์ structure, patterns และ foundatio
 auto_execution_mode: 3
 related_workflows:
   - /analyze-structure
+  - /analyze-srp
   - /use-ast-grep
   - /check-long-files
   - /check-duplication
@@ -35,9 +36,10 @@ SRP, SoC, type safety, hard code, anti-patterns, code smells, dead code, side ef
 ### 2. Analyze Structure And SRP
 
 1. ทำ `/analyze-structure` เพื่อดูโครงสร้างโปรเจกต์
-2. ทำ `/check-long-files` เพื่อระบุไฟล์ที่ยาวกว่า 250 บรรทัด
-3. รัน `sg outline <file>.ts` เพื่อดูจำนวน functions/classes ในแต่ละไฟล์
-4. จัดประเภท violations: God class, Mixed concerns, Kitchen sink, Fat module, Tight coupling
+2. ทำ `/analyze-srp` เพื่อวิเคราะห์ SRP violations แบบเจาะลึก
+3. ทำ `/check-long-files` เพื่อระบุไฟล์ที่ยาวกว่า 250 บรรทัด
+4. รัน `sg outline <file>.ts` เพื่อดูจำนวน functions/classes ในแต่ละไฟล์
+5. จัดประเภท violations: God class, Mixed concerns, Kitchen sink, Fat module, Tight coupling
 
 ### 3. Analyze Type Safety
 

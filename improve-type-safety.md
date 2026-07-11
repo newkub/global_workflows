@@ -3,6 +3,7 @@ title: Improve Type Safety
 description: ปรับปรุง type safety ด้วย TypeScript strict mode และ proper typing
 auto_execution_mode: 3
 related_workflows:
+  - /analyze-type-safety
   - /follow-typescript
   - /follow-ts
   - /follow-code-quality
@@ -17,6 +18,14 @@ related_workflows:
 ใช้สำหรับปรับปรุง type safety ทั้ง TypeScript projects และ type definitions
 
 ## Execute
+
+### 0. Analyze Type Safety
+
+วิเคราะห์ type safety ก่อนปรับปรุงเพื่อระบุ gaps และจัดลำดับ
+
+1. ทำ `/analyze-type-safety` เพื่อรวบรวม type safety gaps ทั้งหมด
+2. รับ findings พร้อม file:line และ severity (Critical → Low)
+3. จัดลำดับการแก้ไขตาม impact: `any` usage → type assertions → TS config → null safety → exhaustive checks → type inference
 
 ### 1. Enable Strict Mode
 
@@ -121,6 +130,7 @@ related_workflows:
 
 ## Expected Outcome
 
+- Type safety gaps วิเคราะห์ก่อนปรับปรุง (จาก `/analyze-type-safety`)
 - TypeScript strict mode เปิดใช้งาน
 - Type errors แก้ไขครบถ้วน
 - Type annotations ชัดเจนและครบถ้วน

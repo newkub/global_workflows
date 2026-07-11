@@ -16,6 +16,7 @@ related_workflows:
   - /use-scripts
   - /follow-principles
   - /follow-consistency
+  - /improve-redundancy
 ---
 
 ## Goal

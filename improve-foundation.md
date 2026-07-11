@@ -12,6 +12,7 @@ related_workflows:
   - /improve-debugging
   - /improve-state-management
   - /improve-concurrency
+  - /improve-redundancy
 ---
 
 ## Goal

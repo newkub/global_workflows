@@ -11,9 +11,9 @@ related_workflows:
   - /fix-circular-dependencies
   - /no-hard-code
   - /improve-naming-convention
-  - /improve-reuseables
   - /improve-debugging
   - /improve-side-effect
+  - /write-code-smart
 ---
 
 ## Goal
@@ -35,16 +35,15 @@ related_workflows:
 3. ทำ `/fix-circular-dependencies` เพื่อ identify circular dependencies
 4. ทำ `/improve-type-safety` เพื่อ check type safety
 
-### 2. Apply Rules
+### 2. Apply Fixes
 
-ทำตาม Rules ทั้งหมดเพื่อรักษามาตรฐานคุณภาพโค้ด
+แก้ไข issues ที่พบตามลำดับความสำคัญ
 
-1. ทำตาม Rules ทั้งหมดใน section ## Rules
-2. แก้ไข issues ที่พบตามลำดับความสำคัญ
-3. ทำ `/no-hard-code` เพื่อลบ hard code
-4. ทำ `/improve-naming-convention` เพื่อปรับปรุง naming conventions
-5. ทำ `/improve-reuseables` เพื่อปรับปรุง reusability
-6. ทำ `/improve-side-effect` เพื่อปรับปรุงการจัดการ side effects
+1. ทำ `/no-hard-code` เพื่อลบ hard code
+2. ทำ `/improve-naming-convention` เพื่อปรับปรุง naming conventions
+3. ทำ `/improve-side-effect` เพื่อปรับปรุงการจัดการ side effects
+4. ทำ `/improve-debugging` เพื่อปรับปรุง debuggability
+5. แก้ไข issues ที่เหลือตามลำดับความสำคัญ
 
 ### 3. Verify Quality
 
@@ -55,107 +54,37 @@ related_workflows:
 
 ## Rules
 
-### 1. Follow Specific Workflows
+### 1. Use Specific Workflows
 
-ทำตาม workflows เฉพาะสำหรับแต่ละด้าน
+ใช้ workflows เฉพาะสำหรับแต่ละด้าน
 
 - ทำ `/refactor` สำหรับ separation of concerns
 - ทำ `/fix-circular-dependencies` สำหรับ circular dependencies
 - ทำ `/improve-type-safety` สำหรับ type safety
 - ทำ `/no-hard-code` สำหรับลบ hard code
+- ทำ `/write-code-smart` สำหรับเขียน code อย่างชาญฉลาด
 
-### 2. Error Handling
+### 2. Code Principles
 
-จัดการ errors อย่าง systematic
+หลักการเขียน code ที่มีคุณภาพ
 
-- Never swallow errors
-- Use typed error classes
-- Log with context
-- Propagate errors
-- Meaningful error messages
+- ไม่ swallow errors ใช้ typed error classes และ log with context
+- เขียน pure functions แยก side effects และทำให้ predictable
+- Self-documenting code, DRY, consistent patterns, ไฟล์ไม่เกิน 250 บรรทัด
+- Use composition, generic types, และ decouple components
+- JSDoc สำหรับ public functions ไม่ comments สำหรับ self-documenting code
+- ไม่ sensitive data exposure, parameterized queries, และ input validation
+- Hot path optimization, lazy loading, และ memoization
+- Stateless design, async operations, และ caching strategies
+- Abstraction layers, fallback mechanisms, และ loose coupling
 
-### 3. Testability
+### 3. Execution Order
 
-ปรับปรุง testability
+ลำดับการทำงาน
 
-- Use dependency injection
-- Write pure functions
-- Isolate side effects
-- Predictable outputs
-- Small functions
-
-### 4. Maintainability
-
-ทำให้โค้ด maintain ง่าย
-
-- Self-documenting code
-- DRY principle
-- Consistent patterns
-- Meaningful comments
-- Small files (max 250 lines)
-
-### 5. Reusability
-
-ปรับปรุง reusability
-
-- ทำ `/improve-reuseables` เพื่อปรับปรุง reusability
-- Use composition
-- Use generic types
-- Decouple components
-
-### 6. DX & Documentation
-
-ปรับปรุง developer experience และ documentation
-
-- Auto-completion
-- Sensible defaults
-- Input validation
-- Discoverability
-- JSDoc for public functions
-- No comments for self-documenting code
-
-### 7. Security
-
-ทำให้โค้ดปลอดภัย
-
-- Input validation
-- Data sanitization
-- Parameterized queries
-- Authentication and authorization
-- No sensitive data exposure
-
-### 8. Performance
-
-ทำให้โค้ดมีประสิทธิภาพ
-
-- Hot path optimization
-- Lazy loading
-- Avoid unnecessary computations
-- Memoization
-
-### 9. Scalability
-
-ทำให้โค้ด scale ได้
-
-- Stateless design
-- Async operations
-- Caching strategies
-- Horizontal scaling
-
-### 10. Resilience
-
-ทำให้โค้ดทนทานต่อการเปลี่ยนแปลง
-
-- Abstraction layers
-- Fallback mechanisms
-- Loose coupling
-- Interface contracts
-
-### 11. Report Format
-
-ระบุรูปแบบรายงาน
-
-- ทำ `/report-format-table` สำหรับสรุปผลลัพธ์
+- วิเคราะห์ก่อนแก้ไขเสมอ
+- แก้ไขตามลำดับ: security > type errors > performance > code quality
+- ตรวจสอบผลลัพธ์หลังแก้ไขทุกครั้ง
 
 ## Expected Outcome
 

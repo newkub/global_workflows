@@ -8,6 +8,7 @@ related_workflows:
   - follow-code-quality
   - improve-uxui
   - follow-content-quality
+  - /improve-redundancy
 ---
 
 ## Goal

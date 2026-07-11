@@ -13,6 +13,7 @@ related_workflows:
   - /analyze-complexity
   - /analyze-coupling
   - /analyze-cohesion
+  - /analyze-srp
   - /analyze-duplication
   - /analyze-imports
   - /analyze-patterns
@@ -56,6 +57,7 @@ Structure, architecture, foundation, runtime, dead code, type safety, naming, co
 1. ทำ `/analyze-complexity` วิเคราะห์ cyclomatic complexity, cognitive complexity, function/file length, nesting depth
 2. ทำ `/analyze-coupling` วิเคราะห์ module coupling, circular dependencies, dependency direction, import depth
 3. ทำ `/analyze-cohesion` วิเคราะห์ module cohesion, SRP adherence, feature grouping, responsibility analysis
+4. ทำ `/analyze-srp` วิเคราะห์ SRP violations, mixed concerns, God modules แบบเจาะลึก
 
 ### 6. Analyze Code Duplication And Patterns
 
@@ -67,7 +69,7 @@ Structure, architecture, foundation, runtime, dead code, type safety, naming, co
 ### 7. Report Findings
 
 1. ทำ `/report-format-table` เพื่อจัดรูปแบบผลลัพธ์
-2. จัดลำดับตาม impact: architecture → coupling → cohesion → complexity → duplication → patterns → structure → foundation → type safety → imports → standards → naming → dead code
+2. จัดลำดับตาม impact: architecture → coupling → cohesion → SRP → complexity → duplication → patterns → structure → foundation → type safety → imports → standards → naming → dead code
 
 ## Rules
 

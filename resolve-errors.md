@@ -12,6 +12,7 @@ related_workflows:
   - /follow-code-quality
   - /follow-debugging
   - /deep-debug
+  - /watch-browser-console
 ---
 
 ## Goal
@@ -153,6 +154,7 @@ related_workflows:
 - ทำ `/no-use-ignore` เพื่อตรวจสอบว่าไม่มี ignore patterns
 - ทำ `/run-test` หลังแก้เพื่อยืนยันว่าไม่ทำลาย test อื่น
 - ทำ `/memorize` เพื่อจดจำบทเรียนจาก error
+- ทำ `/watch-browser-console` ถ้า error มาจาก browser console เพื่อ watch ต่อเนื่อง
 
 ## Expected Outcome
 

@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /analyze-code-patterns
   - /analyze-structure
+  - /analyze-srp
   - /use-scripts
   - /report-format-table
   - /deep-analyze-with-use-scripts

@@ -11,6 +11,7 @@ related_workflows:
   - /check-reference
   - /improve-readability
   - /improve-correctness
+  - /improve-redundancy
 ---
 
 ## Goal

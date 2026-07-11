@@ -6,6 +6,7 @@ related_workflows:
   - /analyze-quality-dimensions
   - /analyze-patterns
   - /analyze-complexity
+  - /analyze-srp
   - /use-scripts
   - /report-format-table
   - /deep-analyze-with-use-scripts

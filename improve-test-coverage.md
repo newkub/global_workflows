@@ -5,6 +5,7 @@ auto_execution_mode: 3
 related_workflows:
   - /write-test
   - /run-test-coverage
+  - /validate-test
   - /report
   - /follow-code-quality
 ---
@@ -42,18 +43,37 @@ related_workflows:
 3. เขียน tests สำหรับ edge cases และ error paths
 4. ตรวจสอบ coverage ครบทุก code paths
 
-### 4. Set Up Coverage Enforcement
+### 4. Implement Formal Verification (Conditional)
+
+ถ้า project มี critical components ให้ทำ formal verification
+
+1. ระบุ components ที่ต้องการ formal verification:
+   - Security-critical code (auth, encryption, payment)
+   - Safety-critical code (medical, automotive, industrial)
+   - Financial transactions
+   - Data validation and sanitization
+2. ใช้ formal verification tools:
+   - Type systems ที่ strong (TypeScript, Rust, Haskell)
+   - Property-based testing (QuickCheck, Hypothesis, `fast-check`)
+   - Model checking (TLA+, Alloy)
+   - Static analysis (SonarQube, CodeQL)
+   - Theorem provers (Coq, Isabelle)
+3. เขียน formal specifications สำหรับ critical invariants
+4. Verify invariants ด้วย automated tools
+5. Document formal verification results
+
+### 5. Set Up Coverage Enforcement
 
 1. ตั้งค่า coverage targets ใน CI/CD
 2. Block PRs ที่ไม่ผ่าน coverage thresholds
 3. Monitor coverage trends
 
-### 5. Report Results
+### 6. Report Results
 
 1. ทำ `/report` สรุปผลลัพธ์ coverage
-2. ท้า /suggest-next-action เพือแนะนำอก์ชันถัดไป้
-2. แสดง coverage metrics ทุก category
-3. ระบุ areas ที่ยังต้องปรับปรุง
+2. ทำ `/suggest-next-action` เพื่อแนะนำ action ถัดไป
+3. แสดง coverage metrics ทุก category
+4. ระบุ areas ที่ยังต้องปรับปรุง
 
 ## Rules
 
@@ -77,11 +97,13 @@ related_workflows:
 - Coverage targets สอดคล้องกับ `/write-test` และ `/run-test-coverage`
 - ใช้ framework coverage tools ที่เหมาะสม (`vitest run --coverage`, `cargo llvm-cov`, `pytest --cov`)
 - หาก coverage ไม่ถึง 100% ต้องเขียน test เพิ่ม ไม่มีข้อยกเว้น
+- Formal verification สำหรับ critical components เท่านั้น ไม่บังคับสำหรับทุก code
 
 ## Expected Outcome
 
-- Coverage ถึง 100% ทุก category
+- Coverage ถึง 100% ทุก category (lines, branches, functions, statements)
 - Critical code ถูก cover 100%
+- Formal verification ผ่านสำหรับ critical components (ถ้ามี)
 - Coverage report ถูกสร้าง
 - Coverage enforcement ตั้งค่าใน CI/CD
 - Tests มีคุณภาพสูง

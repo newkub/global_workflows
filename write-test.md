@@ -4,8 +4,10 @@ description: เขียน test ที่มีคุณภาพสูง ค
 auto_execution_mode: 3
 related_workflows:
   - /review-architecture
-  - /improve-naming
+  - /improve-naming-convention
   - /write-spec
+  - /improve-test-coverage
+  - /run-test-coverage
   - /follow-stryker-mutator
   - /follow-mutants-rs
   - /follow-code-quality
@@ -35,7 +37,7 @@ related_workflows:
 
 ### 4. Improve Naming
 
-ทำ `/improve-naming` เพื่อปรับปรุง naming conventions ก่อนเขียน test
+ทำ `/improve-naming-convention` เพื่อปรับปรุง naming conventions ก่อนเขียน test
 
 ### 5. Detect Test Framework And Define Strategy
 
@@ -50,48 +52,17 @@ related_workflows:
 7. กำหนด test priorities ตาม criticality
 8. กำหนด test environments (local, staging, production)
 
-### 6. Analyze Uncovered Code
-
-วิเคราะห์ codebase เพื่อหาส่วนที่ยังไม่มี test
-
-1. รัน coverage analysis ตาม framework ที่ใช้
-2. ระบุ files ที่มี coverage ต่ำกว่า 100%
-3. ระบุ functions/lines/branches ที่ยังไม่ถูก test
-4. จัดลำดับ priority ตามความสำคัญของ code
-5. สร้าง list ของ test cases ที่ต้องเขียน
-
-### 7. Write Tests
+### 6. Write Tests
 
 เขียน test ตามประเภทและ conventions ของภาษาที่ใช้ ครอบคลุม happy paths, error paths, edge cases, และ boundary conditions
 
-### 8. Verify Coverage
+### 7. Verify Coverage And Formal Verification
 
-ตรวจสอบว่า coverage ถึง 100% ทุกประเภท
+1. ทำ `/improve-test-coverage` เพื่อวิเคราะห์ coverage gaps และบรรลุ 100%
+2. ทำ `/run-test-coverage` เพื่อ verify coverage ทุก category (lines, branches, functions, statements)
+3. ถ้า project มี critical components ให้ทำ formal verification ตาม `/improve-test-coverage` Rule 4
 
-1. รัน coverage analysis อีกครั้ง
-2. ตรวจสอบ `lines`, `branches`, `functions`, `statements` coverage ถึง 100%
-3. หากไม่ถึง 100% ทำขั้นตอน 6-8 ซ้ำจนกว่าจะครบ
-
-### 9. Implement Formal Verification
-
-ทำ formal verification สำหรับ critical components
-
-1. ระบุ components ที่ต้องการ formal verification:
-   - Security-critical code (auth, encryption, payment)
-   - Safety-critical code (medical, automotive, industrial)
-   - Financial transactions
-   - Data validation and sanitization
-2. ใช้ formal verification tools:
-   - Type systems ที่ strong (TypeScript, Rust, Haskell)
-   - Property-based testing (QuickCheck, Hypothesis)
-   - Model checking (TLA+, Alloy)
-   - Static analysis (SonarQube, CodeQL)
-   - Theorem provers (Coq, Isabelle)
-3. เขียน formal specifications สำหรับ critical invariants
-4. Verify invariants ด้วย automated tools
-5. Document formal verification results
-
-### 10. Sync and Verify
+### 8. Sync and Verify
 
 อัพเดท SPEC.md ด้วย test cases ที่เขียนแล้ว และรัน `/update-references`
 
@@ -178,16 +149,12 @@ tests/
 - ใช้ environment variables สำหรับ secrets
 - ใช้ `test databases` แยกจาก production
 
-### 6. Performance And Coverage
+### 6. Performance
 
 - Unit tests: `< 10ms` ต่อ test
 - Integration tests: `< 100ms` ต่อ test
 - ใช้ `parallel execution` เมื่อ tests ไม่ dependent กัน
-- `100% coverage` สำหรับทุก test cases ที่ระบุใน spec
-- ตรวจสอบ coverage ด้วย tools ตาม framework (`vitest run --coverage`, `cargo llvm-cov`, `pytest --cov`)
-- ตั้งค่า coverage thresholds ใน CI เป็น 100%
-- หาก coverage ไม่ถึง 100% ต้องเขียน test เพิ่ม ไม่มีข้อยกเว้น
-- ทุก branches ต้องถูก test รวมถึง error paths และ boundary conditions
+- Coverage verification และ 100% enforcement อยู่ใน `/improve-test-coverage` และ `/run-test-coverage`
 
 ### 7. Testing Strategy
 
@@ -212,7 +179,7 @@ tests/
 - รัน `lint` ก่อน `test` ใน pipeline
 - Document test setup ใน comments สำหรับ tests ที่ซับซ้อน
 - เขียน `README` ใน `tests/` อธิบายวิธีรัน
-- อัพเดท test docs เมื่อ logic เปลี่ยนี่ยน
+- อัพเดท test docs เมื่อ logic เปลี่ยน
 - รัน mutation tests ใน CI เพื่อตรวจสอบ test quality
 - รัน security tests ใน CI เพื่อตรวจสอบ vulnerabilities
 - รัน performance tests ใน CI เพื่อตรวจสอบ regressions
@@ -222,7 +189,8 @@ tests/
 - Test files อยู่ใน location ที่ถูกต้องตาม conventions
 - Testing strategy ครอบคลุมทุก test types ที่จำเป็น
 - Tests ครอบคลุมทุกกรณีใช้งาน (`happy path`, `edge cases`, `errors`)
-- Formal verification สำหรับ critical components
+- Coverage 100% ผ่าน `/improve-test-coverage` และ `/run-test-coverage`
+- Formal verification สำหรับ critical components ผ่าน `/improve-test-coverage`
 - Tests ไม่ `brittle` และรวดเร็ว
 - โค้ดมีความถูกต้องและเสถียร
 - SPEC.md ถูกอัพเดทด้วย test cases ที่เขียนแล้ว
