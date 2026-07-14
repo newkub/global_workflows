@@ -3,7 +3,8 @@ title: Update Dot Devin
 description: สร้าง .devin structure ครบถ้วนรวม rules และ hooks โดยไม่มี workflows directory
 auto_execution_mode: 3
 related:
-  - /update-devin-rules
+  - /update-devin-project-rules
+  - /update-devin-project-workflows
   - /update-agents-md
   - /check-monorepo
   - /update-ast-grep-rules
@@ -17,7 +18,7 @@ related:
 
 ## Scope
 
-ใช้สำหรับสร้าง `.devin` structure ใน project workspace ใดๆ ถ้าเป็น monorepo ให้แต่ละ workspace มี `.devin/rules/` และ `AGENTS.md` ของตัวเอง
+ใช้สำหรับสร้าง `.devin` structure ใน project workspace ใดๆ ถ้าเป็น monorepo ให้สร้าง `.devin` เฉพาะที่ root เท่านั้น แต่ละ workspace มี `AGENTS.md` ของตัวเอง ไม่สร้าง `.devin/` ใน sub-workspace
 
 ## Directory Structure
 
@@ -50,20 +51,14 @@ related:
 │   ├── run-lint.ts
 │   └── run-typecheck.ts
 apps/<workspace>/
-├── .devin/
-│   └── rules/
-│       ├── always-on/
-│       ├── model_decision/
-│       └── glob/
 ├── AGENTS.md
 integrations/<workspace>/
-├── .devin/
-│   └── rules/
-│       ├── always-on/
-│       ├── model_decision/
-│       └── glob/
+├── AGENTS.md
+tools/<workspace>/
 ├── AGENTS.md
 ```
+
+ไม่สร้าง `.devin/` ใน sub-workspace — rules ทั้งหมดอยู่ที่ root `.devin/rules/` เท่านั้น
 
 ## Execute
 
@@ -88,7 +83,8 @@ integrations/<workspace>/
 
 1. อ่าน https://docs.devin.ai/cli/extensibility/rules เพื่อเข้าใจ rules
 2. สร้าง `.devin/rules` directory พร้อม subdirectories: `always-on/`, `model_decision/`, `glob/`
-3. ทำ `/update-devin-rules` เพื่อเขียน rules ตาม dependencies จริง
+3. ทำ `/update-devin-project-rules` เพื่อเขียน rules ตาม dependencies จริง
+4. ทำ `/update-devin-project-workflows` เพื่อสร้าง project-specific workflows
 4. ทำตาม Rules section ด้านล่างสำหรับ frontmatter และ format
 
 ### 4. Setup Hooks
@@ -101,16 +97,16 @@ integrations/<workspace>/
 4. สร้าง `.devin/hooks/hooks.json` configuration
 5. ทำตาม Rules section ด้านล่างสำหรับ hook format
 
-### 5. Setup Workspace Rules And AGENTS.md (Monorepo Only)
+### 5. Setup Workspace AGENTS.md (Monorepo Only)
 
-ถ้าเป็น monorepo ให้สร้าง `.devin/rules/` และ `AGENTS.md` สำหรับแต่ละ workspace
+ถ้าเป็น monorepo ให้สร้าง `AGENTS.md` สำหรับแต่ละ workspace โดยไม่สร้าง `.devin/` ใน sub-workspace
 
 1. ระบุ workspaces ทั้งหมดจาก root `package.json` `workspaces` field
 2. สำหรับแต่ละ workspace:
-   1. สร้าง `<workspace>/.devin/rules/` พร้อม subdirectories: `always-on/`, `model_decision/`, `glob/`
-   2. ทำ `/update-devin-rules` สำหรับ workspace นั้น โดยอ้างอิง dependencies ใน `<workspace>/package.json`
-   3. ทำ `/update-agents-md` สำหรับ workspace นั้น เพื่อเขียน `AGENTS.md`
+   1. ทำ `/update-agents-md` สำหรับ workspace นั้น เพื่อเขียน `AGENTS.md`
+   2. อ้างอิง dependencies ใน `<workspace>/package.json` เพื่อเขียน workspace-specific instructions
 3. ทำ `/update-agents-md` สำหรับ root `AGENTS.md` โดยระบุว่าให้ทำตาม `AGENTS.md` ของแต่ละ workspace
+4. ตรวจสอบว่าไม่มี `.devin/` directory ใน sub-workspace ใดๆ
 
 ### 6. Setup Skills And MCP (Optional)
 
@@ -173,7 +169,7 @@ integrations/<workspace>/
 
 - ต้องมี `.devin/rules` directory พร้อม subdirectories: `always-on/`, `model_decision/`, `glob/`
 - ตั้งชื่อไฟล์ด้วย `kebab-case.md`
-- ถ้าเป็น monorepo แต่ละ workspace ต้องมี `.devin/rules/` และ `AGENTS.md` ของตัวเอง
+- ถ้าเป็น monorepo แต่ละ workspace ต้องมี `AGENTS.md` ของตัวเอง ไม่สร้าง `.devin/` ใน sub-workspace
 
 ### 4. Frontmatter Validation
 
@@ -183,7 +179,8 @@ integrations/<workspace>/
 
 ### 5. Rules Update
 
-- ใช้ `/update-devin-rules` สำหรับเขียนและอัพเดท rules ทั้ง root และ workspace
+- ใช้ `/update-devin-project-rules` สำหรับเขียนและอัพเดท rules ที่ root เท่านั้น ไม่สร้าง rules ใน sub-workspace
+- ใช้ `/update-devin-project-workflows` สำหรับสร้าง project-specific workflows
 - Rules ต้องสอดคล้องกับ dependencies ใน `package.json`
 
 ### 6. AGENTS.md Update
@@ -226,7 +223,7 @@ integrations/<workspace>/
 - ถ้าเป็น monorepo แต่ละ workspace อาจมี ast-grep rules เฉพาะใน `rules/` ที่ project root โดยใช้ `files` field เพื่อจำกัด scope
 - ใช้ `files` field ใน ast-grep rules เพื่อระบุ workspace ที่ rule ใช้
 - ใช้ `ignores` field เพื่อยกเว้นไฟล์ที่ไม่ต้องการตรวจสอบ
-- Workspace-specific devin rules อยู่ใน `<workspace>/.devin/rules/` เป็น Markdown
+- Workspace-specific devin rules อยู่ใน `.devin/rules/` ที่ root เป็น Markdown ไม่มี `.devin/` ใน sub-workspace
 - Workspace-specific ast-grep rules อยู่ใน `rules/` ที่ project root เป็น YAML โดยใช้ `files` field จำกัด scope
 
 ### 12. Hook Scripts Best Practices
@@ -241,7 +238,7 @@ integrations/<workspace>/
 ## Expected Outcome
 
 - `.devin` มี rules และ hooks ครบถ้วน ไม่มี `workflows/` directory
-- ถ้าเป็น monorepo แต่ละ workspace มี `.devin/rules/` และ `AGENTS.md` ของตัวเอง
+- ถ้าเป็น monorepo แต่ละ workspace มี `AGENTS.md` ของตัวเอง ไม่มี `.devin/` ใน sub-workspace
 - Root `AGENTS.md` บอกให้ทำตาม workspace `AGENTS.md`
 - Rules จัดรูปแบบถูกต้องตามมาตรฐาน
 - Hooks ทำงานตาม events ที่กำหนด ใช้ `bun` runtime

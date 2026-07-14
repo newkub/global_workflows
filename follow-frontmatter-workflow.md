@@ -122,30 +122,30 @@ related:
 
 ### 1. Field Options
 
-| Field | Type | Required | Options |
-|---|---|---|---|
-| `title` | string | yes | Title Case, ตรง filename kebab-case |
-| `description` | string | yes | text <= 100 chars |
-| `auto_execution_mode` | number | yes | `3` |
-| `category` | string | yes | `ask`, `bench`, `capture`, `check`, `cleanup`, `commit`, `compare`, `continue`, `create`, `debug`, `deep`, `delete`, `deploy`, `edit`, `ensure`, `follow`, `git`, `goal`, `idea`, `implement`, `improve`, `learn`, `list`, `loop`, `merge`, `move`, `news`, `open`, `plan`, `prioritize`, `record`, `refactor`, `report`, `resolve`, `review`, `roleplay`, `run`, `scan`, `search`, `ship`, `simplify`, `suggest`, `test`, `update`, `use`, `validate`, `watch`, `write` |
-| `tags` | array | no | lowercase keywords |
-| `risk_level` | string | yes | `low`, `medium`, `high` |
-| `requires` | array | no | tools, files, services, credentials |
-| `idempotent` | boolean | no | `true`, `false` |
-| `scope` | string | no | `global`, `project`, `workspace` |
-| `parallel` | boolean | no | `true`, `false` |
-| `conflicts` | array | no | workflow names like `/run-format` |
-| `deprecated` | boolean | no | `true`, `false` |
-| `replaces` | array | no | workflow names like `/old-workflow` |
-| `language` | string | no | `th`, `en`, `mixed` |
-| `timeout` | number | no | seconds, no limit if omitted |
-| `updated_last` | string | no | ISO 8601 datetime `YYYY-MM-DDTHH:MM:SS+07:00` |
-| `allow` | array | yes | `file-read`, `edit`, `file-write`, `file-delete`, `terminal`, `install`, `network`, `git`, `deploy`, `browser`, `mcp`, `memory` |
-| `interactive` | boolean | no | `true`, `false` |
-| `auto_run` | string | yes | `always`, `confirm`, `never` |
-| `confirm_before` | array | no | actions from `allow` list |
-| `produces` | array | no | output artifacts like `health-report` |
-| `related` | array | yes | workflows called directly |
+| Field | Type | Required | Default | Options |
+|---|---|---|---|---|
+| `title` | string | yes | — | Title Case, ตรง filename kebab-case |
+| `description` | string | yes | — | text <= 100 chars |
+| `auto_execution_mode` | number | yes | `3` | `3` |
+| `category` | string | yes | — | 49 verbs — `ask` `bench` `capture` `check` `cleanup` `commit` `compare` `continue` `create` `debug` `deep` `delete` `deploy` `edit` `ensure` `follow` `git` `goal` `idea` `implement` `improve` `learn` `list` `loop` `merge` `move` `news` `open` `plan` `prioritize` `record` `refactor` `report` `resolve` `review` `roleplay` `run` `scan` `search` `ship` `simplify` `suggest` `test` `update` `use` `validate` `watch` `write` |
+| `tags` | array | no | `[]` | lowercase keywords |
+| `risk_level` | string | yes | — | `low` `medium` `high` |
+| `requires` | array | no | `[]` | tools, files, services, credentials |
+| `idempotent` | boolean | no | `true` | `true` `false` |
+| `scope` | string | no | `global` | `global` `project` `workspace` |
+| `parallel` | boolean | no | `true` | `true` `false` |
+| `conflicts` | array | no | `[]` | workflow names like `/run-format` |
+| `deprecated` | boolean | no | `false` | `true` `false` |
+| `replaces` | array | no | `[]` | workflow names like `/old-workflow` |
+| `language` | string | no | `th` | `th` `en` `mixed` |
+| `timeout` | number | no | — | seconds, no limit if omitted |
+| `updated_last` | string | no | — | ISO 8601 datetime `YYYY-MM-DDTHH:MM:SS+07:00` |
+| `allow` | array | yes | — | `file-read` `edit` `file-write` `file-delete` `terminal` `install` `network` `git` `deploy` `browser` `mcp` `memory` |
+| `interactive` | boolean | no | `false` | `true` `false` |
+| `auto_run` | string | yes | — | `always` `confirm` `never` |
+| `confirm_before` | array | no | `[]` | actions from `allow` list |
+| `produces` | array | no | `[]` | output artifacts like `health-report` |
+| `related` | array | yes | — | workflows called directly |
 
 ### 2. Naming Decisions
 

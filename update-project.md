@@ -8,7 +8,7 @@ related:
   - /update-agents-md
   - /update-docs
   - /update-ast-grep-rules
-  - /follow-create-health
+  - /update-health-cli
 ---
 
 ## Goal
@@ -71,7 +71,7 @@ related:
 - ทำ `/update-agents-md` หลังจากอัพเดท README
 - ทำ `/update-docs` เป็นลำดับสุดท้าย (ถ้ามี docs/)
 - ทำ `/update-ast-grep-rules` หลังจาก update docs (ถ้ามี `sgconfig.yml`)
-- ทำ `/follow-create-health` หลังจาก update ast-grep rules (ถ้ามี `tools/health/`)
+- ทำ `/update-health-cli` หลังจาก update ast-grep rules (ถ้ามี `tools/health/`)
 
 ### 2. Conditional Execution
 
@@ -81,7 +81,7 @@ related:
 - ถ้าไม่มี docs/ ให้ข้าม step นี้
 - ทำ `/update-ast-grep-rules` เฉพาะเมื่อมี `sgconfig.yml` และ `rules/` directory
 - ถ้าไม่มี ให้ข้าม step นี้
-- ทำ `/follow-create-health` เฉพาะเมื่อมี `tools/health/` directory
+- ทำ `/update-health-cli` เฉพาะเมื่อมี `tools/health/` directory
 - ถ้าไม่มี ให้ข้าม step นี้
 
 ### 3. Consistency

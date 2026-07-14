@@ -11,10 +11,10 @@ related:
   - /read-related-workflows
   - /deep-analyze-with-use-scripts
   - /validate
-  - /report-format-table
   - /suggest-next-action
   - /restructure
   - /edit-relative
+  - /check-should-update
 ---
 
 ## Goal
@@ -27,22 +27,18 @@ related:
 
 ## Execute
 
-### 0. Check Should Update
+### 1. Check Should Update
 
 ตรวจสอบว่า CLI ต้องอัปเดทหรือไม่ โดยเช็ค git changes ที่เกี่ยวข้อง
 
-> Goal: รู้ว่า CLI ต้องอัปเดทตาม code changes หรือไม่ ก่อนเริ่มงาน
+> Goal: รู้ว่า CLI ต้องอัปเดทตาม code changes หรือไม่ ก่อนเริ่มงาน ไม่เสียเวลาอัปเดทถ้าไม่มีอะไรเปลี่ยน
 
-1. รัน `git -C <project-root> diff --name-only HEAD~1 -- tools/health/` เพื่อเช็คว่า analyzer source files เปลี่ยนแปลง
-2. รัน `git -C <project-root> diff --name-only HEAD~1 -- .devin/workflows/ apps/*/AGENTS.md AGENTS.md` เพื่อเช็คว่า workflows และ AGENTS.md เปลี่ยนแปลง
-3. รัน `git -C <project-root> diff --name-only HEAD~1 -- apps/website/src/` เพื่อเช็คว่า source code เปลี่ยนแปลง
-4. ถ้าไม่มี git changes เลย → ข้ามไป Step 5 (Validate CLI) เพื่อรัน CLI ที่มีอยู่
-5. ถ้ามี git changes → ทำตาม Step 0.5 ก่อน แล้วทำ Step 1 เป็นต้นไป
-6. ถ้าเป็นการรันครั้งแรก (ไม่มี `tools/health/`) → ทำ Step 1 เป็นต้นไปเลย
+1. ทำ `/check-should-update` โดยระบุ target paths: `tools/health/`, `.devin/workflows/ apps/*/AGENTS.md AGENTS.md`, `apps/website/src/`
+2. ถ้าผลเป็น `skip` → ข้ามไป Step 6 (Validate CLI) เพื่อรัน CLI ที่มีอยู่
+3. ถ้าผลเป็น `update` → ทำตาม Step 2 ก่อน แล้วทำ Step 3 เป็นต้นไป
+4. ถ้าผลเป็น `create` → ทำ Step 3 เป็นต้นไปเลย
 
-> Goal: ไม่เสียเวลาอัปเดท CLI ถ้าไม่มีอะไรเปลี่ยน แต่ถ้ามี changes ให้อัปเดทให้ทันสมัยก่อนรัน
-
-### 0.5. Check AGENTS.md Freshness
+### 2. Check AGENTS.md Freshness
 
 ตรวจสอบว่า AGENTS.md ต้องอัปเดทก่อนหรือไม่ เพื่อให้ reviewWorkflow mapping ถูกต้อง
 
@@ -53,48 +49,47 @@ related:
 3. เช็คว่า `## Review` section อ้างอิง `/review-codebase-everything` และมี workspace-specific reviews ครบ
 4. เช็คว่า `## Skills` section มี skills ที่ map กับ dependencies ครบ
 5. ถ้า AGENTS.md ขาด workflows, skills หรือ reviews ที่ map กับ dependencies ปัจจุบัน → ทำ `/update-agents-md` ก่อน
-6. ถ้า AGENTS.md เป็นปัจจุบัน → ข้ามไป Step 1
+6. ถ้า AGENTS.md เป็นปัจจุบัน → ข้ามไป Step 3
 
-> Goal: analyzers ใช้ reviewWorkflow ที่ถูกต้องตาม AGENTS.md ปัจจุบัน
-
-### 1. Read Context
+### 3. Read Context
 
 อ่าน context ก่อนเริ่มงานเพื่อเข้าใจ categories และ CLI ที่มีอยู่
+
+> Goal: เข้าใจ categories ทั้งหมด CLI structure ที่มีอยู่ และ architecture guidelines
 
 1. ทำ `/report-health` เพื่อดูรายการ 60+ categories จัดกลุ่มตาม 5 domains
 2. ทำ `/read-related-workflows` เพื่ออ่าน workflows ที่เกี่ยวข้องกับ project แบบ recursive
 3. อ่าน `tools/health/` directory ที่ project root เพื่อดู CLI ที่มีอยู่แล้ว
-4. อ่าน `src/analyzers/` เป็น reference implementation
+4. อ่าน `src/domain/analyzers/` เป็น reference implementation
 5. ทำ `/follow-create-bun-cli` เพื่ออ่าน Bun CLI best practices
 6. ทำ `/follow-clean-architecture` เพื่ออ่าน Clean Architecture structure สำหรับ CLI
 
-> Goal: เข้าใจ categories ทั้งหมด CLI structure ที่มีอยู่ และ architecture guidelines
-
-### 2. Build Analyzer Inventory
+### 4. Build Analyzer Inventory
 
 สร้าง mapping ระหว่าง categories และ analyzer modules เพื่อระบุสิ่งที่ต้องทำ
 
+> Goal: รู้ analyzers ที่ต้องสร้าง อัปเดท และลบ
+
 1. สร้าง mapping จาก report-health categories เป็น analyzer module:
-   - แต่ละ domain มี analyzer file: `user-facing.ts`, `security.ts`, `backend-data.ts`, `infrastructure.ts`, `code-arch.ts`
+   - แต่ละ domain มี analyzer file ใน `src/domain/analyzers/`: `user-facing.ts`, `security.ts`, `backend-data.ts`, `infrastructure.ts`, `code-arch.ts`
    - แต่ละ category เป็น `Analyzer` object ใน domain file
 2. ระบุ analyzers ที่มีอยู่แล้ว, ที่ต้องสร้างใหม่, และที่ต้องอัปเดท
 3. ระบุ analyzers ที่ไม่มี category สอดคล้องแล้วเพื่อพิจารณาลบ
 
-> Goal: รู้ analyzers ที่ต้องสร้าง อัปเดท และลบ
-
-### 3. Create Or Update Analyzers
+### 5. Create Or Update Analyzers
 
 สร้างหรืออัปเดท analyzer แต่ละตัวตาม category ใน `/report-health`
+
+> Goal: ทุก category มี analyzer ที่ทำงานได้และสอดคล้องกับ `/report-health`
 
 1. สำหรับแต่ละ category ใน `/report-health`:
    1. อ่าน `/report-health` Step 7 สำหรับรายการ categories ในแต่ละ domain
    2. สร้าง `Analyzer` object ใน domain file ที่เกี่ยวข้อง ถ้ายังไม่มี
    3. อัปเดท analyzer ที่มีอยู่แล้วให้สอดคล้องกับ category ปัจจุบัน
    4. ใช้ `/deep-analyze-with-use-scripts` สำหรับโครงสร้าง analyzer
-2. ทุก analyzer ต้องใช้ shared utilities จาก `src/utils/`:
-   - `file-utils.ts` สำหรับ `walk`, `readText`, `getRel`, `findLine`
-   - `git-grep.ts` สำหรับ `gitGrep`, `gitGrepCount`, `gitGrepFiles`
-   - `format.ts` สำหรับ `formatTable`, `formatJson`, `formatDomainTable`, `formatCategoryTable`
+2. ทุก analyzer ต้องใช้ shared utilities จาก `src/adapters/`:
+   - `file-utils.ts` สำหรับ `walk`, `readText`, `getRel`
+   - `git-grep.ts` สำหรับ `gitGrep`, `gitGrepCount`
 3. แต่ละ analyzer ต้องมี:
    - `name` ตรงกับ category name ใน `/report-health`
    - `domain` ตรงกับ domain ใน `/report-health`
@@ -103,21 +98,21 @@ related:
 4. ใส่ specific checks ตาม scope ของแต่ละ category
 5. ถ้า analyzer ไม่สามารถ implement ทั้งหมดได้ ให้ comment `// TODO` พร้อมรายละเอียดสิ่งที่ต้องทำ
 
-> Goal: ทุก category มี analyzer ที่ทำงานได้และสอดคล้องกับ `/report-health`
-
-### 4. Restructure Analyzers
+### 6. Restructure Analyzers
 
 ปรับโครงสร้างไฟล์ถ้าเกิน 250 บรรทัดและอัปเดท references
 
-1. ทำ `/restructure` สำหรับ `src/analyzers/` ถ้ามีไฟล์ที่ยาวกว่า 250 บรรทัด
+> Goal: ไฟล์ไม่เกิน 250 บรรทัด และ references ถูกต้อง
+
+1. ทำ `/restructure` สำหรับ `src/domain/analyzers/` ถ้ามีไฟล์ที่ยาวกว่า 250 บรรทัด
 2. จัดกลุ่ม analyzers ตาม domain เดียวใน file เดียว
 3. ทำ `/edit-relative` ทุกครั้งหลังย้ายหรือเปลี่ยนชื่อไฟล์
 
-> Goal: ไฟล์ไม่เกิน 250 บรรทัด และ references ถูกต้อง
-
-### 5. Validate CLI
+### 7. Validate CLI
 
 ตรวจสอบว่า CLI รันได้และ output ถูกต้อง
+
+> Goal: CLI ผ่าน typecheck, lint และ output ถูกต้อง
 
 1. รัน `bun --filter @booking/tools-health lint` สำหรับ typecheck และ lint
 2. รัน health CLI ด้วย `bun --filter @booking/tools-health health`
@@ -125,21 +120,17 @@ related:
 4. รัน `bunx biome check tools/health` เพื่อตรวจ lint และ format
 5. ทำ `/validate` เพื่อตรวจสอบความถูกต้อง
 
-> Goal: CLI ผ่าน typecheck, lint และ output ถูกต้อง
-
-### 6. Deep Report
+### 8. Deep Report
 
 สร้าง deep report ตาม `/deep-report` พร้อมตารางละเอียดและสรุปครบทุกมิติ
 
-> Goal: รายงานผลแบบละเอียดครบทุกมิติ พร้อมตารางที่ actionable
+> Goal: deep report ที่ละเอียด actionable และครบทุกมิติ
 
 1. ทำ `/deep-report` เพื่อสร้าง deep report ตาม format ที่กำหนด
 2. แสดงตาราง deep report ด้วย 7 columns ตาม Rules section 9 (Deep Report Table)
 3. จัดกลุ่มตาม `reviewWorkflow` จาก AGENTS.md เพื่อเชื่อมโยงกับ `/review-*` workflows
 4. แสดงสรุปละเอียดครบทุกมิติตาม Rules section 10 (Deep Summary)
 5. ทำ `/suggest-next-action` เพื่อแนะนำ action ถัดไป
-
-> Goal: deep report ที่ละเอียด  actionable และครบทุกมิติ
 
 ## Rules
 
@@ -149,7 +140,7 @@ related:
 - แยก concerns ตาม Clean Architecture: `domain/` (pure logic), `application/` (orchestration), `adapters/` (I/O), `presentation/` (CLI entry point)
 - แยก concerns: analyzers (business logic), services (scorer, reporter), utils, types
 - ชื่อไฟล์ใช้ `kebab-case` เสมอ
-- Entry point: `src/cli.ts` และ `src/index.ts`
+- Entry point: `src/presentation/cli.ts` และ `src/index.ts`
 
 ### 2. Analyzer Structure
 
@@ -157,7 +148,7 @@ related:
 - ใช้ TypeScript สำหรับ type safety
 - ทุก analyzer ต้อง return `CategoryResult` พร้อม `status`, `score`, `findings`
 - ทุก analyzer ต้องมี `reviewWorkflow` ที่ map ไปยัง `/review-*` workflow จาก AGENTS.md
-- ใช้ shared utilities จาก `src/utils/` แทนการ duplicate code
+- ใช้ shared utilities จาก `src/adapters/` แทนการ duplicate code
 - Output เป็น table และ JSON ตาม `--format` flag
 
 ### 3. Category Coverage
