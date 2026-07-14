@@ -2,7 +2,7 @@
 title: Run Check
 description: รัน lint, typecheck และ scan เพื่อตรวจสอบคุณภาพ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /run-lint
   - /run-typecheck
   - /run-scan

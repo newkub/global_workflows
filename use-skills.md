@@ -2,9 +2,9 @@
 title: Use Skills
 description: หลักการใช้ skills จาก skills repository ใน workspace
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-skills
-  - /follow-principles
+  - /follow-principles-engineering
 ---
 
 ## Goal
@@ -47,7 +47,7 @@ related_workflows:
 
 ## Rules
 
-ทำตาม `/follow-principles`
+ทำตาม `/follow-principles-engineering`
 
 - เขียนเป็นหลักการทั่วไป ไม่เจาะจง
 - ใช้ generic terms แทน specific tools

@@ -2,7 +2,7 @@
 title: Run Watch Verify
 description: watch lint, typecheck, test พร้อมกันและแก้ errors ทันที
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-tasks
   - /watch-lint
   - /watch-typecheck

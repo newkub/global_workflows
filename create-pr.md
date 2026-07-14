@@ -2,7 +2,7 @@
 title: Create Pull Request
 description: สร้าง pull request ใหม่จาก branch ปัจจุบัน พร้อม description และ reviewers
 auto_execution_mode: 3
-related_workflows:
+related:
   - /create-github-issue
   - /github-update-pr
   - /github-merge-pr

@@ -2,10 +2,10 @@
 title: News My Tech Stack Update
 description: รวบรวมข่าวและอัปเดต tech stack ที่ใช้ในการพัฒนารายสัปดาห์
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-my-tech-stack
   - /deep-research
-  - /follow-web-search
+  - /follow-websearch
   - /report-format-table
   - /report
 ---

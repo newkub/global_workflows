@@ -2,7 +2,7 @@
 title: Capture Terminal
 description: Capture ภาพจาก terminal output สำหรับ documentation
 auto_execution_mode: 3
-related_workflows:
+related:
   - /record-terminal
   - /test-usage
   - /resolve-errors

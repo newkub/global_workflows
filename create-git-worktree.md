@@ -2,7 +2,7 @@
 title: Create Git Worktree
 description: สร้าง git worktree ใน worktree/ ของ project เพื่อทำงานหลาย branches พร้อมกัน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-worktree
 ---
 

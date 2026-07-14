@@ -2,7 +2,7 @@
 title: Loop Until Complete
 description: ทำซ้ำงานจนกว่าจะเสร็จสมบูรณ์
 auto_execution_mode: 3
-related_workflows:
+related:
   - /try-again
 ---
 

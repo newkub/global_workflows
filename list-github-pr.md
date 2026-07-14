@@ -2,7 +2,7 @@
 title: List Github Pr
 description: แสดง pull requests ของ repo ที่ระบุพร้อม state และ metadata
 auto_execution_mode: 3
-related_workflows:
+related:
   - /report-format-table
 ---
 

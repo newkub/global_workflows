@@ -2,7 +2,7 @@
 title: Follow Tanstack Query
 description: ตั้งค่าและใช้งาน TanStack Query v5 สำหรับ data fetching และ cache management
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-react
   - /follow-solidjs

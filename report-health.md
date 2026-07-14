@@ -2,10 +2,11 @@
 title: Report Health
 description: วิเคราะห์สุขภาพโปรเจกต์ 60+ categories พร้อม health score และ action items
 auto_execution_mode: 3
-related_workflows:
-  - /analyze-code-quality
+related:
+  - /deep-review
   - /report-format-table
   - /use-scripts
+  - /update-health-cli
 ---
 
 ## Goal
@@ -18,17 +19,19 @@ related_workflows:
 
 ## Execute
 
-### 1. Analyze Project
+### 1. Run Health CLI
 
-1. ทำ `/analyze-project` เพื่อวิเคราะห์โปรเจกต์อย่างครบถ้วน
-2. รวบรวมข้อมูลทั้งหมดจากการวิเคราะห์
-3. จัดกลุ่มข้อมูลตามหมวดหมู่ที่เกี่ยวข้อง
+1. ตรวจสอบว่ามี `tools/health/` directory หรือไม่
+2. ถ้ามี ให้รัน `bun --filter @booking/tools-health health` เพื่อสร้าง health report
+3. ถ้าไม่มี ให้ทำ `/update-health-cli` ก่อนเพื่อสร้าง health CLI
+4. รัน `bun --filter @booking/tools-health health:json` ถ้าต้องการ JSON output
+5. รายงานผลลัพธ์จาก CLI โดยตรง — ไม่ต้อง analyze เอง
 
 ### 2. Prepare Data
 
 1. กำหนด metrics และ status indicators สำหรับแต่ละ category (ดูรายการใน step 7)
 2. ทำ `/use-scripts` เพื่อวิเคราะห์ข้อมูลลึกซึ้งด้วย tools (`knip`, `taze`, `biome`, `vitest`, `madge`, `ast-grep`, `jscpd`)
-3. ทำ `/analyze-code-quality` เพื่อวิเคราะห์ codebase ครบทุกด้าน ผ่าน analyze-* sub-workflows
+3. ทำ `/deep-review` เพื่อวิเคราะห์ codebase ครบทุกด้าน ผ่าน analyze-* sub-workflows
 
 ### 3. Calculate Health Score
 

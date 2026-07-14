@@ -2,7 +2,7 @@
 title: Write Missing Skills From Deps
 description: สร้าง skills ที่ขาดจาก dependencies ใน package manifest
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-windsurf-skills
   - /write-global-workflows
 ---

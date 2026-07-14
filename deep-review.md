@@ -2,15 +2,15 @@
 title: Deep Review
 description: Review ครบทุกมิติอย่างลึกซึ้ง พร้อม severity ratings และ actionable recommendations
 auto_execution_mode: 3
-related_workflows:
+related:
   - /deep-thinking
   - /deep-analyze
-  - /review-architecture
-  - /review-test-case
-  - /analyze-bug-prone
-  - /resolve-issue
+  - /deep-review
+  - /deep-review
+  - /deep-review
+  - /fix
   - /report-health
-  - /analyze-code-quality
+  - /deep-review
   - /validate
   - /deep-research
   - /report-format-table
@@ -51,17 +51,17 @@ Review code quality อย่างละเอียด
 
 1. ทำ `/use-ast-grep` หา anti-patterns และ code smells
 2. ทำ `/check-duplication`, `/check-unsued-files`, `/check-unused-deps` แบบ parallel
-3. ทำ `/check-long-files` และ `/analyze-code-quality` เพื่อตรวจสอบ SRP, SoC, type safety, anti-patterns, code smells, dead code, side effects, naming conventions
-4. ทำ `/analyze-bug-prone` วิเคราะห์ code ที่มีแนวโน้มก่อให้เกิด bug ก่อนเกิดปัญหา
+3. ทำ `/check-long-files` และ `/deep-review` เพื่อตรวจสอบ SRP, SoC, type safety, anti-patterns, code smells, dead code, side effects, naming conventions
+4. ทำ `/deep-review` วิเคราะห์ code ที่มีแนวโน้มก่อให้เกิด bug ก่อนเกิดปัญหา
 5. ตรวจสอบ naming conventions และ consistency
 6. ตรวจสอบ error handling และ edge case coverage
 7. ระบุ technical debt และ severity
 
 ### 4. Architecture Review
 
-ทำ `/review-architecture` สำหรับ architecture และ design patterns
+ทำ `/deep-review` สำหรับ architecture และ design patterns
 
-1. ทำ `/review-architecture` วิเคราะห์ architectural patterns
+1. ทำ `/deep-review` วิเคราะห์ architectural patterns
 2. ตรวจสอบ module boundaries และ dependencies
 3. ตรวจสอบ design principles (SOLID, DRY, KISS, YAGNI)
 4. ระบุ anti-patterns และ coupling issues
@@ -91,9 +91,9 @@ Review performance และ optimization
 
 ### 7. Testing Review
 
-ทำ `/review-test-case` สำหรับ test quality
+ทำ `/deep-review` สำหรับ test quality
 
-1. ทำ `/review-test-case` ตรวจสอบ test quality ทีละ case
+1. ทำ `/deep-review` ตรวจสอบ test quality ทีละ case
 2. ตรวจสอบ test coverage และ gaps
 3. ตรวจสอบ test isolation และ reliability
 4. ตรวจสอบ E2E test coverage ถ้ามี
@@ -160,7 +160,7 @@ Review configuration และ environment setup
 - ทำ review เท่านั้น ไม่แก้ไข code ระหว่าง review
 - ใช้ `/comment-todo` สำหรับระบุ issues ใน code
 - แยก review process จาก fix process
-- ถ้าต้องแก้ไข ให้ทำ `/resolve-issue` หลัง review
+- ถ้าต้องแก้ไข ให้ทำ `/fix` หลัง review
 
 ### 4. Evidence-Based Findings
 

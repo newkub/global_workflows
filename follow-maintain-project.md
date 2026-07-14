@@ -2,7 +2,7 @@
 title: Maintain Project
 description: ดูแลรักษาโปรเจกต์ด้วย compliance และ maintenance ที่เป็นระบบ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-code-quality
 ---
 

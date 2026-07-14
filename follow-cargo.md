@@ -2,7 +2,7 @@
 title: Follow Cargo Rules
 description: ตั้งค่า Cargo lint rules และ workspace lint configuration
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-mutants-rs
   - /follow-nextest
   - /follow-code-quality

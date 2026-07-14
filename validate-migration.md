@@ -2,7 +2,7 @@
 title: Validate Migration
 description: ตรวจสอบ database migrations ว่า reversible ปลอดภัย และไม่ทำลายข้อมูล
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-drizzle
   - /check-reference
   - /resolve-errors

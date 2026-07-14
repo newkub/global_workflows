@@ -2,7 +2,7 @@
 title: Run Verify
 description: รัน verify task เพื่อตรวจสอบคุณภาพโค้ดตาม package manifest
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-tasks
   - /run-scan
   - /run-lint

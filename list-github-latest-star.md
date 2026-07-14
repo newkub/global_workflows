@@ -2,7 +2,7 @@
 title: List Github Latest Star
 description: แสดง 50 starred repositories ล่าสุดของ authenticated user
 auto_execution_mode: 3
-related_workflows:
+related:
   - /report-format-table
 ---
 

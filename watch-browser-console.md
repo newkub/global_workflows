@@ -3,7 +3,7 @@ title: Watch Browser Console
 description: Watch browser console อย่างต่อเนื่อง จัดการ errors อัตโนมัติด้วย agent-browser
 auto_execution_mode: 3
 url: https://agent-browser.dev
-related_workflows:
+related:
   - /follow-agent-browser
   - /resolve-errors
   - /watch-browser

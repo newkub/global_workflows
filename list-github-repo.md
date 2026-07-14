@@ -2,7 +2,7 @@
 title: List Github Repo
 description: แสดงรายการ repositories ทั้งหมดที่ผู้ใช้สร้างบน GitHub
 auto_execution_mode: 3
-related_workflows:
+related:
   - /report-format-table
 ---
 

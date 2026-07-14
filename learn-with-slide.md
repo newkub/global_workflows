@@ -2,7 +2,7 @@
 title: Learn With Slide
 description: เรียนรู้และสร้าง Slidev presentation สรุปความรู้ใน D:/newkub/slides/learn/
 auto_execution_mode: 3
-related_workflows:
+related:
   - /learn
   - /create-slide
   - /follow-slidev

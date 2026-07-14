@@ -1,8 +1,8 @@
 ---
 title: Follow LICENSE
 description: TODO
+auto_execution_mode: 3
 ---
-
 # MIT License
 
 Copyright (c) 2024 Veerapong

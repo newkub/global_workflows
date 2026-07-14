@@ -2,8 +2,8 @@
 title: Update Documentation
 description: Write high-quality documentation with VitePress
 auto_execution_mode: 3
-related_workflows:
-  - /analyze-features
+related:
+  - /deep-review
   - /analyze-project
   - /update-reference
   - /bench-competitors
@@ -37,7 +37,7 @@ Check project type to determine documentation strategy
 
 For non-monorepo projects:
 
-1. Run `/analyze-features` and `/analyze-project` to analyze project
+1. Run `/deep-review` and `/analyze-project` to analyze project
 2. Select template based on project type (Library, Product, CLI, Web)
 3. Create `docs/` folder and structure according to template
 4. Write real content in main files:
@@ -53,7 +53,7 @@ For non-monorepo projects:
 
 For monorepos with many workspaces:
 
-1. Run `/analyze-features` and `/analyze-project` to analyze entire project
+1. Run `/deep-review` and `/analyze-project` to analyze entire project
 2. Run `/all-workspaces` to discover and prioritize workspaces
 3. Create single `docs/` folder in root directory only
 4. ห้ามสร้าง `docs/` ในแต่ละ workspace ภายใต้ `packages/`, `apps/`, หรือ `framework/`

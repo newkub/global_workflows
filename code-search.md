@@ -2,9 +2,9 @@
 title: Code Search
 description: ค้นหา code patterns, symbols, และ references ด้วยหลาย tools ตามความเหมาะสม
 auto_execution_mode: 3
-related_workflows:
+related:
   - /use-ast-grep
-  - /analyze-structure
+  - /deep-review
   - /scan-codebase
 ---
 

@@ -2,12 +2,12 @@
 title: Web Design
 description: ออกแบบ web interfaces ด้วย design system principles และ modern best practices
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-design-system
   - /follow-unocss
   - /follow-unocss-theme
-  - /improve-accessibility
-  - /improve-web-performance
+  - /review-frontend
+  - /review-performance
 ---
 
 ## Goal
@@ -86,7 +86,7 @@ related_workflows:
 
 ### 10. Optimize Performance
 
-1. ทำ `/improve-web-performance` สำหรับ Core Web Vitals
+1. ทำ `/review-performance` สำหรับ Core Web Vitals
 2. Optimize images ด้วย modern formats (WebP, AVIF)
 3. ใช้ lazy loading สำหรับ images และ components
 4. ใช้ `content-visibility: auto` สำหรับ long pages

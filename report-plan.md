@@ -2,7 +2,7 @@
 title: Report Plan
 description: รายงานแผนงานในแชทก่อนลงมือทำ พร้อม task table และ file structure
 auto_execution_mode: 3
-related_workflows:
+related:
   - /plan
   - /report-format-table
   - /report-format-file-structure

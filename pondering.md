@@ -2,7 +2,7 @@
 title: Pondering
 description: ครุ่นคิดและทบทวนอย่างลึกซึ้งก่อนตัดสินใจหรือดำเนินการ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /deep-thinking
   - /ask-me
   - /plan

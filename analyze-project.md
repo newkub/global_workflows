@@ -2,14 +2,14 @@
 title: Analyze Project
 description: วิเคราะห์โปรเจกต์พื้นฐานด้วยเลือกใช้ tools ที่เหมาะสมกับงาน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /deep-analyze
   - /scan-codebase
   - /code-search
   - /use-ast-grep
   - /use-scripts
   - /follow-my-cli
-  - /analyze-structure
+  - /deep-review
 ---
 
 ## Goal
@@ -33,7 +33,7 @@ related_workflows:
 
 1. ทำ `/scan-codebase` เพื่อ scan structure, patterns, และ quality อย่างรวดเร็ว
 2. ใช้ผลลัพธ์จาก `/scan-codebase` เป็น foundation สำหรับขั้นตอนถัดไป
-3. ทำ `/analyze-structure` เพื่อดูโครงสร้างไฟล์และ folders เพิ่มเติมถ้าจำเป็น
+3. ทำ `/deep-review` เพื่อดูโครงสร้างไฟล์และ folders เพิ่มเติมถ้าจำเป็น
 
 ### 3. Data Collection
 
@@ -44,7 +44,7 @@ related_workflows:
 
 ### 4. Architecture And Dependencies
 
-1. ทำ `/review-architecture` เพื่อระบุ architectural pattern
+1. ทำ `/deep-review` เพื่อระบุ architectural pattern
 2. ทำ `/code-search` วิเคราะหา data flow
 3. ระบุ tech stack และ dependencies
 

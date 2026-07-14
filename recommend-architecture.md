@@ -2,7 +2,7 @@
 title: Recommend Architecture
 description: แนะนำ architecture และ file structure ที่เหมาะสมสำหรับโปรเจกต์ พร้อม comment และตาราง file pattern
 auto_execution_mode: 3
-related_workflows:
+related:
   - /analyze-project
   - /check-architecture
 ---

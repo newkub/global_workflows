@@ -2,7 +2,7 @@
 title: Compare
 description: เปรียบเทียบ options, tools, หรือ solutions เพื่อตัดสินใจ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /report-format-table
   - /pondering
 ---

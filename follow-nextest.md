@@ -1,8 +1,8 @@
 ---
 description: ตั้งค่าและใช้งาน cargo-nextest สำหรับ test runner ที่รวดเร็วใน Rust projects
 auto_execution_mode: 3
+title: Follow Nextest
 ---
-
 
 ## Goal
 

@@ -2,7 +2,7 @@
 title: Follow Wxt
 description: ตั้งค่าและพัฒนา Web Extensions ด้วย WXT framework ตาม best practices
 auto_execution_mode: 3
-related_workflows:
+related:
   - /vite
   - /typescript
   - /github-actions

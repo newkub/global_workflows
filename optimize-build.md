@@ -2,7 +2,7 @@
 title: Optimize Build
 description: ปรับปรุง build configuration และลดขนาด output
 auto_execution_mode: 3
-related_workflows:
+related:
   - /run-build
   - /run-clean
   - /check-unused-deps
@@ -37,7 +37,7 @@ related_workflows:
 ### 3. Optimize Dependencies
 
 1. ทำ `/check-unused-deps` เพื่อหา dependencies ที่ไม่ได้ใช้
-2. ตรวจสอบ barrel files ที่ทำให้ bundle ใหญ่ขึ้น
+2. ทำ `/follow-barrel-export` เพื่อตรวจสอบ barrel files ที่ทำให้ bundle ใหญ่ขึ้น
 3. ใช้ tree-shaking โดยตั้งค่า `sideEffects: false` ใน `package.json` ถ้าเป็นไปได้
 4. ถ้า project มี dependencies มากกว่า 10 ไฟล์ ให้ใช้ `/use-scripts` สำหรับ batch analysis
 

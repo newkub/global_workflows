@@ -2,12 +2,12 @@
 title: Follow Project Docs
 description: สร้าง project docs site ด้วย VitePress + Vue components + Bun shell ดึงข้อมูลจริง
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-vitepress
   - /follow-vitest
   - /follow-unocss
   - /update-docs
-  - /analyze-features
+  - /deep-review
   - /analyze-project
   - /use-scripts
 ---

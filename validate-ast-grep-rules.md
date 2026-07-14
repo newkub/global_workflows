@@ -3,7 +3,7 @@ title: Validate Ast-grep Rules
 description: ตรวจสอบ ast-grep rules ว่า parse ได้ ไม่มี false positives/negatives และ fix ปลอดภัย
 auto_execution_mode: 3
 url: https://ast-grep.github.io/guide/rule-config.html
-related_workflows:
+related:
   - /follow-ast-grep
   - /update-ast-grep-rules
   - /run-scan

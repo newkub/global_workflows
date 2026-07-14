@@ -2,7 +2,7 @@
 title: Follow Deploy
 description: ตั้งค่า deployment configuration และ CI/CD ครบถ้วน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-cloudflare-worker
   - /follow-wrangler-cli
   - /follow-vercel

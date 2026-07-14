@@ -2,7 +2,7 @@
 title: Validate Dependencies
 description: ตรวจสอบความถูกต้อง ความปลอดภัย และความเหมาะสมของ dependencies ทั้งหมดใน project
 auto_execution_mode: 3
-related_workflows:
+related:
   - /check-unused-deps
   - /check-vulnerability
   - /check-versioning

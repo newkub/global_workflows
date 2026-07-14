@@ -2,7 +2,7 @@
 title: Choose Tech Stack
 description: เลือก tech stack ที่เหมาะสมสำหรับ project ตาม requirements และ constraints
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-rust
   - /follow-best-practice

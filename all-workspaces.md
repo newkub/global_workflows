@@ -2,7 +2,7 @@
 title: All Workspaces
 description: ทำงานกับทุก workspace ใน monorepo จนครบถ้วน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /refactor-modules
   - /refactor-packages
   - /edit-relative

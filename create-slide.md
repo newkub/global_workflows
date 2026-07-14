@@ -2,7 +2,7 @@
 title: Create Slide
 description: สร้าง Slidev project และเปิด browser อัตโนมัติ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-slidev
   - /run-dev
 ---

@@ -2,7 +2,7 @@
 title: Follow Dioxus
 description: ตั้งค่าและพัฒนา Desktop, Web และ Mobile Applications ด้วย Dioxus Rust framework
 auto_execution_mode: 3
-related_workflows:
+related:
 ---
 
 ## Purpose

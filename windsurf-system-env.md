@@ -2,7 +2,7 @@
 title: Windsurf System Environment
 description: ความสามารถและ features ของ Windsurf system environment
 auto_execution_mode: 3
-related_workflows:
+related:
   - /use-workflows
   - /add-windsurf-mcp
 ---
@@ -34,7 +34,7 @@ related_workflows:
 เลือก workflow ตาม task type ที่ต้องการ
 
 1. Development → ใช้ `/run-*` workflows (build, test, lint, dev)
-2. Analysis → ใช้ `/analyze-*` workflows (project, errors, features)
+2. Analysis → ใช้ `/review-*` workflows (project, errors, features)
 3. Review → ใช้ `/review-*` workflows (codebase, security, performance)
 4. Refactoring → ใช้ `/refactor-*` workflows (workspace, restructure, relocation)
 5. Deployment → ใช้ `/deploy-*` workflows (vercel, cloudflare-worker)

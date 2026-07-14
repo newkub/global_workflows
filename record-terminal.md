@@ -2,7 +2,7 @@
 title: Record Terminal
 description: บันทึกวิดีโอและ session จาก terminal สำหรับ CLI testing
 auto_execution_mode: 3
-related_workflows:
+related:
   - /capture-terminal
   - /test-usage
   - /watch-terminal

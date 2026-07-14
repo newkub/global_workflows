@@ -2,7 +2,7 @@
 title: No Use Ignore
 description: ป้องกันการใช้ ignore comments/attributes และ ignore files ทุกประเภท แก้ปัญหาที่ source
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-code-quality
 ---
 

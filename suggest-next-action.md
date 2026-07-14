@@ -2,13 +2,13 @@
 title: Suggest Next Action
 description: วิเคราะห์สถานการณ์และแนะนำ action ถัดไปที่ควรทำ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /plan
   - /plan-task
   - /prioritize
   - /what-do-you-do
   - /report-format-table
-  - /sumarize-in-table
+  - /report-format-table
   - /delete
   - /my-persona
 ---
@@ -67,7 +67,7 @@ related_workflows:
 5. ระบุ dependencies ระหว่าง actions
 6. ให้ estimate effort ถ้าเป็นไปได้
 7. ถ้ามีไฟล์หรือ folder ที่ควรลบ ให้แนะนำ `/delete` พร้อมระบุเหตุผล
-8. ถ้ามีไฟล์ที่ควรสรุปเนื้อหา ให้แนะนำ `/sumarize-in-table`
+8. ถ้ามีไฟล์ที่ควรสรุปเนื้อหา ให้แนะนำ `/report-format-table`
 
 ### 5. Present Options
 

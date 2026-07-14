@@ -2,7 +2,7 @@
 title: Follow Tasks
 description: ตั้งค่า scripts ใน package.json หรือ Cargo.toml ตามมาตรฐาน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-monorepo
   - /follow-config
   - /follow-taze

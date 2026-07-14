@@ -2,8 +2,8 @@
 title: Ensure Compatibility With
 description: ทำให้ a เข้ากับ b สำหรับ versions, APIs, formats, และ structures
 auto_execution_mode: 3
-related_workflows:
-  - /improve-compatibility
+related:
+  - /review-frontend
   - /check-unused-deps
 ---
 

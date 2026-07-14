@@ -2,7 +2,7 @@
 title: Update Dot Devin
 description: สร้าง .devin structure ครบถ้วนรวม rules และ hooks โดยไม่มี workflows directory
 auto_execution_mode: 3
-related_workflows:
+related:
   - /update-devin-rules
   - /update-agents-md
   - /check-monorepo
@@ -156,7 +156,7 @@ integrations/<workspace>/
 3. ตรวจสอบ JSON configuration ถูกต้อง
 4. ตรวจสอบว่าไม่มี `.devin/workflows/` directory
 5. ตรวจสอบว่า ast-grep rules ใน `rules/` ที่ project root ทำงานได้
-6. ตรวจสอบว่า `.devin/features/<workspace>/existing-features.json` มีอยู่
+6. ตรวจสอบว่า `.devin/features/<workspace>/features.md` มีอยู่
 
 ## Rules
 

@@ -2,7 +2,7 @@
 title: Run Audit
 description: Audit dependencies และ security เพื่อตรวจสอบ vulnerabilities
 auto_execution_mode: 3
-related_workflows:
+related:
   - /check-vulnerability
 ---
 

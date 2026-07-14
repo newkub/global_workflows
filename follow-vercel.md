@@ -2,14 +2,26 @@
 title: Follow Vercel
 description: Deploy applications บน Vercel พร้อม serverless และ edge functions
 auto_execution_mode: 3
+related:
+  - /run-build
+  - /watch-browser
+  - /resolve-errors
+  - /loop-until-complete
 ---
 
+## Goal
 
-Deploy applications บน Vercel platform พร้อม auto-build, preview deployments และ serverless functions
+Deploy applications บน Vercel platform พร้อม auto-build, preview deployments, serverless functions และ edge functions
+
+## Scope
+
+ครอบคลุมการติดตั้ง Vercel CLI, link project, configure, build, deploy, environment variables, serverless/edge functions และ CI/CD
 
 ## Execute
 
 ### 1. Install Vercel CLI
+
+ติดตั้งและ authenticate Vercel CLI
 
 1. รัน `bun add -D vercel`
 2. หรือใช้ `bunx vercel` โดยไม่ต้องติดตั้ง
@@ -17,13 +29,17 @@ Deploy applications บน Vercel platform พร้อม auto-build, preview d
 
 ### 2. Link Project
 
+เชื่อมต่อ project กับ Vercel
+
 1. รัน `bunx vercel link` ใน project directory
 2. ยืนยัน project settings
 3. หรือใช้ `VERCEL_ORG_ID` และ `VERCEL_PROJECT_ID` สำหรับ CI/CD
 
 ### 3. Configure vercel.json
 
-`vercel.json`
+กำหนด configuration สำหรับ deployment
+
+`vercel.json`:
 ```json
 {
   "version": 2,
@@ -45,6 +61,7 @@ Deploy applications บน Vercel platform พร้อม auto-build, preview d
 ### 4. Framework Presets
 
 Vercel รองรับ auto-detection สำหรับ frameworks:
+
 - **Next.js**: ใช้ `next` preset อัตโนมัติ
 - **Nuxt**: ใช้ `nuxt` preset พร้อม SSR
 - **SvelteKit**: ใช้ `sveltekit` preset
@@ -52,28 +69,30 @@ Vercel รองรับ auto-detection สำหรับ frameworks:
 - **Astro**: ใช้ `astro` preset
 - **Vite**: ใช้ `vite` preset สำหรับ static build
 
-### 5. Environment Variables
+### 5. Build And Deploy
+
+Build และ deploy application
+
+1. รัน `bun run build` หรือ `nitro build` สำหรับ Nitro projects
+2. ตรวจสอบว่า build สำเร็จและ output พร้อม
+3. รัน `bunx vercel deploy` สำหรับ preview deployment
+4. รัน `bunx vercel deploy --prod` สำหรับ production
+5. สำหรับ Nitro: รัน `nitro build deploy vercel`
+
+### 6. Environment Variables
+
+ตั้งค่า environment variables
 
 1. รัน `bunx vercel env add KEY_NAME`
 2. หรือใช้ dashboard สำหรับ manage variables
 3. ใช้ `vercel env pull .env.local` เพื่อ sync ไปยัง local
 4. กำหนด `NODE_ENV`, `API_URL` และ secrets
 
-### 6. Build Configuration
-
-`vercel.json` สำหรับ custom build
-```json
-{
-  "buildCommand": "bun run build",
-  "outputDirectory": "dist",
-  "installCommand": "bun install",
-  "framework": "vite"
-}
-```
-
 ### 7. Serverless Functions
 
-`api/hello.ts`
+สร้าง serverless functions ใน `api/` directory
+
+`api/hello.ts`:
 ```typescript
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
@@ -84,7 +103,9 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
 ### 8. Edge Functions
 
-`api/edge.ts`
+สร้าง edge functions สำหรับ edge deployment
+
+`api/edge.ts`:
 ```typescript
 export const config = {
   runtime: 'edge'
@@ -95,9 +116,21 @@ export default async function handler(req: Request) {
 }
 ```
 
-### 9. CI/CD Deployment
+### 9. Watch Deployment
 
-`.github/workflows/deploy.yml`
+ตรวจสอบ deployment ด้วย browser preview
+
+1. ทำ `/watch-browser` ด้วย deployment URL
+2. ตรวจสอบว่า page load สำเร็จ
+3. ตรวจสอบ console errors และ network errors
+4. ทำ `/resolve-errors` เมื่อพบปัญหา
+5. ทำ `/loop-until-complete` จนกว่า deployment live สำเร็จ
+
+### 10. CI/CD Deployment
+
+ตั้งค่า automated deployment
+
+`.github/workflows/deploy.yml`:
 ```yaml
 name: Deploy to Vercel
 on:
@@ -113,34 +146,54 @@ jobs:
       - run: bunx vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
 ```
 
-### 10. Preview Deployments
-
-1. ทุก PR จะสร้าง preview deployment อัตโนมัติ
-2. ใช้ `bunx vercel deploy` สำหรับ preview
-3. ใช้ `bunx vercel deploy --prod` สำหรับ production
-4. ตั้งค่า protection rules สำหรับ production deployments
-
 ## Rules
 
-- **Framework Detection**: Vercel จะ auto-detect framework จาก `package.json`
-- **Build Command**: กำหนดใน `package.json` scripts หรือ `vercel.json`
-- **Output Directory**: ระบุ `dist`, `build`, หรือ `.next` ตาม framework
-- **Environment Variables**: ใช้ `vercel env` CLI หรือ dashboard
-- **Serverless Functions**: สร้างใน `api/` directory
-- **Edge Functions**: ใช้ `runtime: 'edge'` สำหรับ edge deployment
-- **Region**: กำหนด `regions` ใน `vercel.json` ถ้าต้องการ
-- **Install Command**: ใช้ `bun install` สำหรับ Bun projects
-- **Ignore Build**: ใช้ `ignoreCommand` สำหรับ skip builds
-- **Rewrites**: กำหนด `rewrites` ใน `vercel.json` สำหรับ URL routing
-- **Headers**: กำหนด `headers` สำหรับ security และ caching
-- **Cron Jobs**: ใช้ `crons` สำหรับ scheduled functions
-- **Preview Protection**: เปิดใช้งานสำหรับ sensitive projects
+### 1. Framework Detection
+
+- Vercel จะ auto-detect framework จาก `package.json`
+- กำหนด `buildCommand` ใน `package.json` scripts หรือ `vercel.json`
+- ระบุ `outputDirectory`: `dist`, `build`, หรือ `.next` ตาม framework
+- ใช้ `bun install` สำหรับ Bun projects
+
+### 2. Build Process
+
+- ใช้ `nitro build` ก่อน deploy เสมอ สำหรับ Nitro projects
+- ตรวจสอบ build output ว่าสำเร็จ
+- ตรวจสอบ bundle size
+
+### 3. Environment Variables
+
+- ใช้ `vercel env` CLI หรือ dashboard
+- ใช้ `vercel env pull` สำหรับ sync ไป local
+- ไม่ hardcode secrets
+
+### 4. Functions
+
+- Serverless functions สร้างใน `api/` directory
+- Edge functions ใช้ `runtime: 'edge'`
+- กำหนด `regions` ใน `vercel.json` ถ้าต้องการ
+
+### 5. Deployment
+
+- ทุก PR จะสร้าง preview deployment อัตโนมัติ
+- ใช้ `bunx vercel deploy` สำหรับ preview
+- ใช้ `bunx vercel deploy --prod` สำหรับ production
+- ตั้งค่า protection rules สำหรับ production deployments
+- ใช้ `/watch-browser` สำหรับ monitoring
+- ทำ `/loop-until-complete` จนกว่า deployment live
+
+### 6. Advanced Configuration
+
+- กำหนด `rewrites` ใน `vercel.json` สำหรับ URL routing
+- กำหนด `headers` สำหรับ security และ caching
+- ใช้ `crons` สำหรับ scheduled functions
+- ใช้ `ignoreCommand` สำหรับ skip builds
 
 ## Expected Outcome
 
-1. Application ที่ deploy บน Vercel ได้สำเร็จ
-2. Auto-build configuration ที่รองรับ multiple frameworks
-3. Serverless และ Edge functions ที่ทำงานได้ถูกต้อง
-4. CI/CD pipeline ที่ deploy อัตโนมัติทั้ง preview และ production
-5. Environment variables ที่จัดการอย่างปลอดภัย
-
+- Application ที่ deploy บน Vercel ได้สำเร็จ
+- Auto-build configuration ที่รองรับ multiple frameworks
+- Serverless และ Edge functions ที่ทำงานได้ถูกต้อง
+- CI/CD pipeline ที่ deploy อัตโนมัติทั้ง preview และ production
+- Environment variables ที่จัดการอย่างปลอดภัย
+- Deployment live และใช้งานได้ ไม่มี console หรือ network errors

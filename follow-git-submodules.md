@@ -2,7 +2,7 @@
 title: Follow Git Submodules
 description: จัดการ git submodules ครอบคลุม add, status, update, sync และ delete
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-submodule-add
   - /follow-git-submodule-status
   - /git-submodule-delete

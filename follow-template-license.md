@@ -6,7 +6,7 @@ description: ตั้งค่าและใช้งาน license ตาม 
 
 auto_execution_mode: 3
 
-related_workflows:
+related:
   - /windsurf-global-workflows
 
 ---

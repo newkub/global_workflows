@@ -2,7 +2,7 @@
 title: Follow VitePress
 description: ตั้งค่า VitePress ด้วย UnoCSS, Shiki Twoslash, Group Icons
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-unocss
   - /follow-gitignore
   - /follow-tsconfig-json

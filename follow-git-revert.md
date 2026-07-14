@@ -2,7 +2,7 @@
 title: Follow Git Revert
 description: revert commits โดยสร้าง commit ใหม่ที่ย้อนการเปลี่ยนแปลง โดยไม่ rewrite history
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-workflows
   - /follow-git-rebase
   - /commit

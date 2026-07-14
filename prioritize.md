@@ -2,7 +2,7 @@
 title: Prioritize
 description: จัดลำดับความสำคัญของ tasks และ improvements ตาม impact และ effort
 auto_execution_mode: 3
-related_workflows:
+related:
   - follow-incident-triage
   - follow-suggest-next-action
   - /pondering

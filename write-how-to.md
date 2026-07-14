@@ -2,7 +2,7 @@
 title: Write How To
 description: เขียน how-to guides และ tutorials อย่างมีประสิทธิภาพ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-content-explicit
 ---
 

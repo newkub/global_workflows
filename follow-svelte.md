@@ -2,9 +2,9 @@
 title: Svelte 5 with Vite
 description: ตั้งค่า Vite + Svelte 5 Runes + TypeScript (client-side only)
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-unocss
-  - /follow-svelte-kit
+  - /follow-svelte-kit-architecture
   - /follow-typescript
   - /follow-vitest
 ---
@@ -16,7 +16,7 @@ related_workflows:
 ## Scope
 
 ใช้สำหรับ Svelte 5 projects ที่ใช้ Vite เป็น build tool (client-side only)
-หมายเหตุ: ถ้าต้องการ fullstack meta-framework ให้ใช้ `/follow-svelte-kit` แทน
+หมายเหตุ: ถ้าต้องการ fullstack meta-framework ให้ใช้ `/follow-svelte-kit-architecture` แทน
 
 ## Execute
 

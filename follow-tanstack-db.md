@@ -2,7 +2,7 @@
 title: Follow Tanstack Db
 description: ตั้งค่า TanStack DB สำหรับ reactive client store และ live queries
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-tanstack-query
 ---

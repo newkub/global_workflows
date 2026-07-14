@@ -2,11 +2,12 @@
 title: Refactor Modules
 description: Refactor modules ให้มี single responsibility ชัดเจน และ maintainability สูง
 auto_execution_mode: 3
-related_workflows:
+related:
   - /refactor-packages
   - /refactor
   - /edit-relative
   - /follow-code-quality
+  - /follow-barrel-export
 ---
 
 ## Goal
@@ -50,7 +51,7 @@ Refactor แต่ละ module ให้มี single responsibility
 
 1. ทำ `/refactor` สำหรับ modules ที่ใหญ่เกินไป
 2. ทำ `/relocation` เพื่อย้าย code ไปยัง modules ที่เหมาะสม
-3. สร้าง barrel exports สำหรับแต่ละ module
+3. ทำ `/follow-barrel-export` เพื่อสร้าง barrel exports สำหรับแต่ละ module
 4. กำหนด interfaces ระหว่าง modules
 5. ใช้ `/use-scripts` สำหรับ file operations จำนวนมาก
 
@@ -67,7 +68,7 @@ Refactor แต่ละ module ให้มี single responsibility
 รวม modules ที่ซ้ำซ้อนหรือมี responsibilities ที่ใกล้เคียง
 
 1. ระบุ modules ที่มี responsibilities ซ้ำกัน
-2. ทำ `/merge` เพื่อรวม modules
+2. ทำ `/merge-to` เพื่อรวม modules
 3. ลบ modules เดิมที่ไม่ใช้แล้ว
 4. ทำ `/edit-relative` เพื่ออัพเดท references
 

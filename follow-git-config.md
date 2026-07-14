@@ -2,7 +2,7 @@
 title: Follow Git Config
 description: จัดการ git configuration ครอบคลุม global, local, .gitconfig และ .gitattributes
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-workflows
   - /follow-config
 ---

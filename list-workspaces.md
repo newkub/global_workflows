@@ -2,7 +2,7 @@
 title: List Workspaces
 description: แสดงรายการ workspaces ทั้งหมดใน monorepo พร้อม dependencies graph
 auto_execution_mode: 3
-related_workflows:
+related:
   - /check-monorepo
   - /analyze-project
   - /report-format-table

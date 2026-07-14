@@ -2,7 +2,7 @@
 title: Follow Git Clone
 description: cloning strategies สำหรับ repositories ขนาดใหญ่ ครอบคลุม shallow, sparse-checkout และ mirror
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-workflows
   - /follow-git-lfs
   - /follow-git-submodules

@@ -2,7 +2,7 @@
 title: List System Environment
 description: แสดงรายการ OS, shell, environment variables และ global root paths
 auto_execution_mode: 3
-related_workflows:
+related:
   - /check-system-env
 ---
 

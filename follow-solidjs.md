@@ -2,8 +2,8 @@
 title: Follow SolidJS
 description: พัฒนา Solid.js applications ด้วย fine-grained reactivity และ performance optimization
 auto_execution_mode: 3
-related_workflows:
-  - /follow-solid-start
+related:
+  - /follow-solid-start-architecture
   - /follow-typescript
   - /follow-vitest
 ---
@@ -199,7 +199,7 @@ related_workflows:
 
 เชื่อมโยงกับ workflows ที่เกี่ยวข้อง:
 
-- ทำ `/follow-solid-start` สำหรับ SolidStart applications
+- ทำ `/follow-solid-start-architecture` สำหรับ SolidStart applications
 - ทำ `/follow-typescript` สำหรับ TypeScript best practices
 - ทำ `/follow-vitest` สำหรับ testing configuration
 

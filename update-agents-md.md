@@ -2,10 +2,12 @@
 title: Update Agents Md
 description: เขียน AGENTS.md ตาม project analysis และ dependencies
 auto_execution_mode: 3
-related_workflows:
+related:
   - /check-monorepo
   - /update-dot-devin
   - /write-global-workflows
+  - /write-workflows
+  - /review-codebase-everything
 ---
 
 ## Goal
@@ -22,6 +24,8 @@ related_workflows:
 
 ตรวจสอบประเภท project
 
+> Goal: รู้ประเภท project เพื่อเลือก flow ที่ถูกต้อง
+
 1. ทำ `/check-monorepo` เพื่อตรวจสอบว่า project เป็น monorepo หรือไม่
 2. ถ้าเป็น monorepo ให้ทำตาม Monorepo section
 3. ถ้าไม่ใช่ monorepo ให้ทำตาม Single Project section
@@ -30,6 +34,8 @@ related_workflows:
 
 เข้าใจมาตรฐานและป้องกันการซ้ำซ้อน
 
+> Goal: เข้าใจมาตรฐานและไม่ซ้ำซ้อนกับ workflows ที่มีอยู่
+
 1. ทำ `/at-windsurf-global-rules` เพื่อดู global rules
 2. อ่าน workflows ที่คล้ายกันหรือเกี่ยวข้อง
 3. ดูตัวอย่างที่ `/example-workflow`
@@ -37,6 +43,8 @@ related_workflows:
 ### 3. Analyze Project
 
 วิเคราะห์ project เพื่อเข้าใจ requirements
+
+> Goal: เข้าใจ tech stack, dependencies และ patterns ของ project
 
 1. ทำ `/analyze-project` เพื่อวิเคราะห์ codebase
 2. อ่าน `package.json` ทั้ง root และ workspace เพื่อดู dependencies
@@ -47,6 +55,8 @@ related_workflows:
 
 ระบุ workflows และ skills ที่ควร follow จาก dependencies
 
+> Goal: รู้ workflows และ skills ที่ต้องเขียนใน AGENTS.md
+
 1. ดู dependencies ใน `package.json` ทั้ง root และ workspace
 2. ทำ `/list-global-workflows` เพื่อดู workflows ที่มีอยู่ทั้งหมด
 3. ทำ `/list-skills` เพื่อดู skills ในเครื่องทั้งหมด
@@ -54,20 +64,35 @@ related_workflows:
 5. ระบุ workflows ที่ควร follow สำหรับแต่ละ dependency
 6. ระบุ skills ที่ควร follow จากผลลัพธ์ของ `/list-skills` และ `/search-skills` (ถ้ามี)
 
-### 5. Write AGENTS.md
+### 5. Identify Reviews
 
-เขียน `AGENTS.md` ตาม Rules section
+ระบุ review-* workflows ที่ควรใช้จาก project characteristics
 
-1. ทำ `/write-global-workflows` เพื่อเขียนตามมาตรฐาน workflow structure
-2. ทำ `/follow-principles` เพื่อเขียนเป็นหลักการ
-3. ทำ `/follow-consistency` เพื่อรักษาความสม่ำเสมอ
-4. เขียน `AGENTS.md` ตาม Rules section
+> Goal: รู้ review-* workflows ที่เกี่ยวข้องกับ workspace
 
-### 6. Validate And Finalize
+1. ทำ `/review-codebase-everything` เพื่อดู review dimensions ทั้งหมดที่มี
+2. เลือก review-* workflows ที่เกี่ยวข้องกับ workspace ตาม dependencies และ project type
+3. ข้าม review-* workflows ที่ไม่เกี่ยวข้องตาม skip conditions ใน `/review-codebase-everything`
+
+### 6. Write AGENTS.md
+
+เขียน `AGENTS.md` ตาม Rules section โดยทำตาม `/write-workflows` ด้วย
+
+> Goal: `AGENTS.md` ที่เขียนตามมาตรฐาน `/write-workflows` และ Rules section
+
+1. ทำ `/write-workflows` เพื่อเขียนตามมาตรฐาน structure, clarity และ high impact content
+2. ทำ `/write-global-workflows` เพื่อเขียนตามมาตรฐาน workflow structure
+3. ทำ `/follow-principles-engineering` เพื่อเขียนเป็นหลักการ
+4. ทำ `/follow-consistency` เพื่อรักษาความสม่ำเสมอ
+5. เขียน `AGENTS.md` ตาม Rules section
+
+### 7. Validate And Finalize
 
 ตรวจสอบและ finalize
 
-1. ทำ `/improve-content` สำหรับปรับปรุงคุณภาพ
+> Goal: AGENTS.md ผ่าน validation และพร้อมใช้งาน
+
+1. ทำ `/review-docs` สำหรับปรับปรุงคุณภาพ
 2. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัด
 3. ตรวจสอบ references ว่ามีอยู่จริง
 
@@ -77,48 +102,49 @@ related_workflows:
 
 ถ้าเป็น monorepo ต้องเขียน `AGENTS.md` ทั้ง root และ workspace level
 
-- Root `AGENTS.md` ต้องมี `## Workspaces` section ที่ระบุว่าให้ทำตาม `AGENTS.md` ของแต่ละ workspace
+- Root `AGENTS.md` ต้องมี `### Workspaces` ใน `## Rules` ที่ระบุว่าให้ทำตาม `AGENTS.md` ของแต่ละ workspace
 - แต่ละ workspace ต้องมี `AGENTS.md` ของตัวเองที่เขียนตาม Rules section ด้านล่าง
-- Root `AGENTS.md` ต้องมี `## Every Task`, `## Project`, `## Workspaces`, `## Workflows`, `## Skills`
-- Workspace `AGENTS.md` ต้องมี `## Every Task`, `## Project`, `## Workflows`, `## Skills`
+- Root `AGENTS.md` ต้องมี `## Goal`, `## Scope`, `## Execute`, `## Rules` (พร้อม `### Workspaces`), `## Expected Outcome`
+- Workspace `AGENTS.md` ต้องมี `## Goal`, `## Scope`, `## Execute`, `## Rules`, `## Expected Outcome`
 
 ### 2. Section Structure
 
-โครงสร้าง sections (เรียงลำดับจากบนลงล่าง):
+โครงสร้าง sections ตาม `/write-workflows` format (เรียงลำดับจากบนลงล่าง):
 
-- `## Every Task`: สิ่งที่ต้องทำทุกครั้ง
-- `## Project`: project environment information
-- `## Workspaces`: (root monorepo เท่านั้น) ระบุว่าให้ทำตาม `AGENTS.md` ของแต่ละ workspace
-- `## Workflows`: workflows ที่ควร follow จาก dependencies
-- `## Skills`: skills ที่ควร follow จาก dependencies
+- `## Goal`: อธิบายว่า workspace ทำอะไรและสอดคล้องกับ workspace name
+- `## Scope`: ระบุขอบเขตว่าใช้กับอะไรและไม่ทับซ้อนกับ workspaces อื่น
+- `## Execute`: steps ที่ต้องทำใน workspace แต่ละ step มี heading → description → `> Goal:` → numbered list
+- `## Rules`: จัดกลุ่มเป็นหัวข้อ single concern รวม Project, Architecture, Commands, Workflows, Skills, Review
+- `## Expected Outcome`: ผลลัพธ์ที่คาดหวังหลังทำงานใน workspace
+
+Root `AGENTS.md` เพิ่ม `### Workspaces` ใน `## Rules` ที่ระบุว่าให้ทำตาม `AGENTS.md` ของแต่ละ workspace
 
 ### 3. Content Language
 
-เนื้อหาใน `AGENTS.md` ต้องเป็นภาษาอังกฤษทั้งหมด
+เนื้อหาใน `AGENTS.md` ต้องเป็นภาษาอังกฤษทั้งหมด ยกเว้น `## Execute` descriptions และ `> Goal:` ที่อนุญาตให้ใช้ภาษาไทยตาม `/write-workflows`
 
-- ทุก section, bullet point, description ต้องเป็นภาษาอังกฤษ
+- `## Goal`, `## Scope`, `## Rules`, `## Expected Outcome` ต้องเป็นภาษาอังกฤษ
+- `## Execute` descriptions และ `> Goal:` ใช้ภาษาไทยได้ตาม `/write-workflows`
 - ใช้ backticks สำหรับ `concepts`, `tools`, `terms`, และ `commands`
-- ห้ามใช้ภาษาไทยใน `AGENTS.md`
+- ห้ามใช้ภาษาไทยใน `## Rules` และ `## Expected Outcome`
 
-### 4. Every Task Format
+### 4. Execute Format
 
-รูปแบบ `## Every Task`:
+รูปแบบ `## Execute` ตาม `/write-workflows`:
 
-- เขียนเป็น bullet points ภาษาอังกฤษ:
-  - Read all workflows, skills, and references, and follow them all
-  - Run `/refactor` after completing work
-  - Run `/realize-implementation` after completing work
-  - Run `/ship` after completing work
-- ใช้เพื่อเน้นว่าต้องทำทุกครั้ง
+- แต่ละ step ใช้ format: `### N. Step Name` → description → `> Goal:` → numbered list
+- ทุก step ต้องมี `> Goal:` ก่อน numbered list
+- Steps ไม่เกิน 10
+- รวม validation step และ ship step เป็น step สุดท้าย
 
-### 5. Project Format
+### 5. Rules Format
 
-รูปแบบ `## Project`:
+รูปแบบ `## Rules` ตาม `/write-workflows`:
 
-- เพิ่ม Project Type: ระบุประเภท project (เช่น `web`, `cli`, `sdk`, `mobile`, `desktop`, `api`, `library`, `monorepo`)
-- เพิ่ม Workspaces: ระบุ workspaces ใน monorepo (ถ้ามี) พร้อมคำอธิบายสั้นๆ
-- ใช้ bullet points พร้อม colon separator
-- ตัวอย่าง: `Package Manager: \`Bun\``
+- จัดกลุ่มเป็นหัวข้อ single concern: `### N. Rule Name`
+- แต่ละ rule รวม Project Configuration, Architecture, Commands, Workflows, Skills, Review
+- ใช้ bullet points พร้อม colon separator สำหรับ Project Configuration
+- ตัวอย่าง: `Project Type: \`cli\``
 - ไม่ใช้ตาราง
 
 ### 6. Workflow Format
@@ -129,7 +155,7 @@ related_workflows:
 - เพิ่มข้อความนำหน้า section: "Workflows used in this project:"
 - ตัวอย่าง: `- Follow \`/follow-biome\``
 - ไม่ใช้ตาราง
-- ลบรายการ workflows ทั้งหมดที่เกี่ยวข้องจาก dependencies ใน `package.json`
+- รวมรายการ workflows ทั้งหมดที่เกี่ยวข้องจาก dependencies ใน `package.json`
 - ตรวจสอบทั้ง root และ workspace `package.json`
 - รวม workflows สำหรับ: runtime, framework, build tool, linter, formatter, test runner, database, ORM, validation, styling, router, state management, auth, payment, API layer, monorepo, git hooks, deployment, code analysis, unused code detection
 
@@ -141,22 +167,46 @@ related_workflows:
 - เพิ่มข้อความนำหน้า section: "Skills used in this project:"
 - ตัวอย่าง: `- Follow \`context7-mcp\``
 - ไม่ใช้ตาราง
-- ลบรายการ skills ทั้งหมดที่เกี่ยวข้องจาก dependencies ใน `package.json`
+- รวมรายการ skills ทั้งหมดที่เกี่ยวข้องจาก dependencies ใน `package.json`
 - Skills ไม่ใช่ optional - ต้องมี section นี้เสมอ
 - ตรวจสอบทั้ง root และ workspace `package.json` สำหรับ dependencies ที่เกี่ยวข้องกับ skills
 - รวม skills สำหรับ MCP servers, AI integrations, หรือ specialized tooling
 - Skills ที่ควรตรวจสอบ: `mcp-builder`, `frontend-design`, `shadcn-vue`, `vueuse`
 - ถ้าไม่มี skills ให้เขียน: `- (No skills needed for this project)`
 
+### 8. Review Format
+
+รูปแบบ `## Review`:
+
+- ใช้ bullet points พร้อมคำว่า "Follow" และ backticks
+- เพิ่มข้อความนำหน้า section: "Review workflows for this project:"
+- ตัวอย่าง: `- Follow \`/review-code-quality\``
+- ไม่ใช้ตาราง
+- เลือก review-* workflows จาก `/review-codebase-everything` ตาม project characteristics
+- ข้าม review-* workflows ที่ไม่เกี่ยวข้องตาม skip conditions ใน `/review-codebase-everything`
+- Root `AGENTS.md` ใน monorepo ให้ระบุว่าให้ดู review-* workflows จาก `/review-codebase-everything` และทำตาม workspace `AGENTS.md` ของแต่ละ workspace
+- ถ้าไม่มี reviews ที่เกี่ยวข้อง ให้เขียน: `- (No reviews needed for this project)`
+
+### 9. Write Workflows Compliance
+
+`AGENTS.md` ที่สร้างต้องทำตาม `/write-workflows` ด้วย
+
+- ทุก bullet ต้องตอบได้ว่า "ถ้าไม่มีแล้วผลลัพธ์เปลี่ยนไหม" — ถ้าไม่เปลี่ยน → ลบ
+- ห้าม TODO, MOCK, placeholder, generic filler หรือคำสวยแต่ไม่ actionable
+- ใช้ active voice ระบุ subject/object ชัดเจน ทุกบรรทัดตีความได้ทางเดียว
+- ลำดับ sections ต้อง fixed และ consistent ทุก workspace
+- ถ้าแก้ไข `AGENTS.md` เดิม → ต้องไม่ทำลาย references เดิม
+
 ## Expected Outcome
 
-- ถ้าเป็น monorepo: root `AGENTS.md` มี `## Workspaces` ที่บอกให้ทำตาม workspace `AGENTS.md`
+- ถ้าเป็น monorepo: root `AGENTS.md` มี `### Workspaces` ใน `## Rules` ที่บอกให้ทำตาม workspace `AGENTS.md`
 - ถ้าเป็น monorepo: แต่ละ workspace มี `AGENTS.md` ของตัวเอง
-- `AGENTS.md` มี `## Every Task`, `## Project`, `## Workflows`, `## Skills` ครบถ้วน
-- เนื้อหาทั้งหมดเป็นภาษาอังกฤษ
-- `## Every Task` เป็น bullet points ภาษาอังกฤษ
-- `## Project` เป็น bullet points พร้อม colon separator
+- `AGENTS.md` มี `## Goal`, `## Scope`, `## Execute`, `## Rules`, `## Expected Outcome` ครบถ้วนตาม `/write-workflows`
+- `## Execute` ทุก step มี `> Goal:` ก่อน numbered list
+- `## Rules` จัดกลุ่มเป็นหัวข้อ single concern รวม Project, Workflows, Skills, Review
 - `## Workflows` เป็น bullet points พร้อม "Follow" และ backticks
 - `## Skills` เป็น bullet points พร้อม "Follow" และ backticks - ห้ามว่างหรือหาย
 - Workflows อิงจาก dependencies ใน `package.json`
 - Skills อิงจาก dependencies ใน `package.json`
+- `## Review` อิงจาก `/review-codebase-everything` และ project characteristics
+- ไฟล์ไม่เกิน 250 บรรทัด

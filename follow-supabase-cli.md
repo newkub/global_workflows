@@ -2,7 +2,7 @@
 title: Supabase CLI
 description: ใช้งาน Supabase CLI สำหรับ local development และ database management
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-drizzle
 url: https://supabase.com/docs/reference/cli/introduction
 ---

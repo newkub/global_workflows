@@ -2,7 +2,7 @@
 title: Follow My CLI
 description: เช็คและใช้ CLI tools ที่ติดตั้งในเครื่อง (mise, scoop, winget)
 auto_execution_mode: 3
-related_workflows:
+related:
   - /use-scripts
 ---
 

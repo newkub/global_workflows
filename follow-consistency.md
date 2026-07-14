@@ -2,9 +2,9 @@
 title: Follow Consistency
 description: ทำให้สม่ำเสมอกันทั่วทั้งระบบด้วยหลักการทั่วไป
 auto_execution_mode: 3
-related_workflows:
-  - /improve-redundancy
-  - /improve-content
+related:
+  - /review-code-quality
+  - /review-docs
   - /follow-code-quality
 ---
 
@@ -40,7 +40,7 @@ related_workflows:
 
 นำมาตรฐานไปใช้จริง
 
-1. ทำ `/improve-naming` สำหรับปรับปรุง naming ทั่วทั้งระบบ
+1. ทำ `/review-code-quality` สำหรับปรับปรุง naming ทั่วทั้งระบบ
 2. ปรับปรุง structure ทั่วทั้งระบบ
 3. ปรับปรุง patterns ให้สม่ำเสมอ
 4. ปรับปรุง format ให้สม่ำเสมอ

@@ -5,6 +5,8 @@ instruction:
   - ต้องมี frontmatter
   - content เขียนตาม example
   - กฏต้องสามารถ VALIDATE และ VERIFY ได้
+title: Follow Ordering
+auto_execution_mode: 3
 ---
 
 ## 1. หลักการ ORDERING (ใช้เสมอ)

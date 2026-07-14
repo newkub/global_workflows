@@ -2,7 +2,7 @@
 title: Ask Me
 description: ถามผู้ใช้คำถามพร้อมตัวเลือกและคำแนะนำเพื่อขอคำยืนยันหรือตัดสินใจ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /ask-requirement
   - /understand-me
   - /deep-thinking

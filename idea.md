@@ -2,7 +2,7 @@
 title: Idea
 description: สร้างไอเดียตาม user context วิเคราะห์ gaps และ opportunities
 auto_execution_mode: 3
-related_workflows:
+related:
   - /report
   - /report-format-table
   - /suggest-next-action

@@ -2,14 +2,14 @@
 title: Improve All Skills
 description: ปรับปรุง skills ทั้ง global และ project ให้สมบูรณ์และสม่ำเสมอ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-skills
   - /write-content-coverage
   - /follow-content-quality
   - /follow-consistency
   - /check-reference
-  - /improve-readability
-  - /improve-correctness
+  - /review-code-quality
+  - /review-code-quality
 ---
 
 ## Goal
@@ -46,14 +46,14 @@ related_workflows:
 
 ### 3. Apply Content Quality And Simplify
 
-ปรับปรุงคุณภาพเนื้อหาทุกไฟล์ตาม `/follow-content-quality` และ `/simplify-content`
+ปรับปรุงคุณภาพเนื้อหาทุกไฟล์ตาม `/follow-content-quality` และ `/simplify`
 
 1. ทำให้เนื้อหา explicit แทน implicit
 2. ลดความซ้ำซ้อนระหว่าง Execute และ Rules
 3. ใช้ references แทนการ duplicate เนื้อหา
 4. ปรับปรุง content dimensions (clarity, completeness, consistency)
 5. ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/skill-name`
-6. ทำ `/simplify-content` เพื่อลดความซับซ้อนของเนื้อหาในทุกไฟล์
+6. ทำ `/simplify` เพื่อลดความซับซ้อนของเนื้อหาในทุกไฟล์
 
 ### 4. Fix References
 
@@ -117,7 +117,7 @@ related_workflows:
 - ไม่ซ้ำซ้อนระหว่าง Execute และ Rules
 - เนื้อหา explicit แทน implicit
 - ใช้ backticks สำหรับ `tools`, `commands`, `file paths`, `/skill-name`
-- ทำ `/simplify-content` เพื่อลดความซับซ้อน
+- ทำ `/simplify` เพื่อลดความซับซ้อน
 - Maintain single source of truth
 
 ### 4. Reference Integrity

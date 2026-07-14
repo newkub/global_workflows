@@ -2,7 +2,7 @@
 title: My Persona
 description: กำหนดและจัดการ personal persona สำหรับ AI assistant interaction
 auto_execution_mode: 3
-related_workflows:
+related:
   - /understand-me
   - /ask-me
   - /use-lang-th

@@ -2,9 +2,10 @@
 title: Relocation
 description: ย้ายไฟล์และโฟลเดอร์ไปยังตำแหน่งที่เหมาะสมตาม domain และ responsibility
 auto_execution_mode: 3
-related_workflows:
+related:
   - use-scripts
   - /edit-relative
+  - /follow-barrel-export
 ---
 
 ## Goal
@@ -42,7 +43,7 @@ related_workflows:
 1. ทำ `use-scripts` เพื่อย้ายไฟล์ไปยังโฟลเดอร์ที่เหมาะสม
 2. ย้ายไฟล์ตามลำดับที่วางแผนไว้
 3. ตรวจสอบว่าไม่มีไฟล์หลงเหลือในตำแหน่งเดิม
-4. สร้าง barrel exports (`index.ts`) สำหรับโฟลเดอร์ใหม่ถ้าจำเป็น
+4. ทำ `/follow-barrel-export` เพื่อสร้าง barrel exports สำหรับโฟลเดอร์ใหม่ถ้าจำเป็น
 
 ### 4. Update Import Paths
 

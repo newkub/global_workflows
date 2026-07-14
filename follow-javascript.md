@@ -2,7 +2,7 @@
 title: Follow JavaScript
 description: เขียน JavaScript ตาม modern best practices และ ES2024+
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-best-practice
   - /follow-code-quality

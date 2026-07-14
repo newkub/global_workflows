@@ -2,10 +2,10 @@
 title: Write Code Smart
 description: เขียน code อย่างชาญฉลาด ตัดสินใจดีก่อนเขียน ลด rework
 auto_execution_mode: 3
-related_workflows:
+related:
   - /dont-over-engineer
   - /follow-code-quality
-  - /simplify-code
+  - /simplify
   - /use-lib-effective
   - /follow-best-practice
   - /follow-architecture
@@ -80,7 +80,7 @@ related_workflows:
 
 ตรวจสอบและทำให้เรียบง่ายหลังเขียนเสร็จ
 
-1. ทำ `/simplify-code` สำหรับ code ที่ซับซ้อน
+1. ทำ `/simplify` สำหรับ code ที่ซับซ้อน
 2. ตรวจสอบว่าไม่มี dead code หรือ unused imports
 3. ตรวจสอบว่า code อ่านง่ายและเข้าใจได้โดยไม่ต้องอ่าน comments
 4. ลบ comments ที่ไม่จำเป็นถ้า code อ่านได้เข้าใจอยู่แล้ว

@@ -1,92 +1,136 @@
 ---
 title: Follow Create Tauri Plugins
-description: สร้าง Tauri plugins ด้วย Rust และ JavaScript/TypeScript
+description: สร้าง custom Tauri plugins ด้วย Rust และ JavaScript API
 auto_execution_mode: 3
+related:
+  - /follow-tauri
 ---
-
-
-สร้าง Tauri plugins ด้วย Rust และ JavaScript/TypeScript เพื่อเพิ่ม functionality ให้ Tauri apps
 
 ## Goal
 
-สร้าง Tauri plugins ด้วย Rust และ JavaScript/TypeScript เพื่อเพิ่ม functionality ให้ Tauri apps
+สร้าง custom Tauri plugins เพื่อขยายความสามารถของ Tauri applications ด้วย Rust backend และ JavaScript API
+
+## Scope
+
+ครอบคลุมการสร้าง plugins สำหรับ desktop และ mobile platforms พร้อม commands, state management, lifecycle events และ mobile native code
 
 ## Execute
 
-### 1. Initialize Plugin
+### 1. Initialize Plugin Project
 
-1. รัน `bunx @tauri-apps/cli plugin new [name]` เพื่อ bootstrap plugin project
-2. เลือกใช้ flags `--android` หรือ `--ios` ถ้าต้องการ mobile support
-3. ใช้ `--no-api` flag ถ้าไม่ต้องการ NPM package
+สร้าง plugin ใหม่ด้วย Tauri CLI
+
+1. รัน `bunx @tauri-apps/cli plugin new <name>` สำหรับสร้าง plugin ใหม่
+2. ใช้ `--no-api` หากไม่ต้องการ NPM package
+3. ใช้ `--android` และ `--ios` สำหรับ mobile support
+4. Plugin จะถูกสร้างใน `tauri-plugin-<name>/`
 
 ### 2. Configure Plugin
+
+กำหนด configuration ของ plugin
 
 1. กำหนด plugin configuration ใน `tauri.conf.json`
 2. กำหนด Config struct ใน Rust code
 3. ใช้ Builder สำหรับ setup plugin ด้วย config
 
-### 3. Add Commands
+### 3. Define Commands
 
-1. กำหนด commands ใน `commands.rs`
-2. Hook commands ผ่าน `invoke_handler()` ใน `lib.rs`
-3. สร้าง binding functions ใน `webview-src/index.ts`
+สร้าง commands สำหรับ webview เรียกใช้
+
+1. สร้าง commands ใน `src/commands.rs` ด้วย `#[tauri::command]` macro
+2. Register commands ใน `src/lib.rs` ผ่าน `invoke_handler(tauri::generate_handler![commands::my_command])`
+3. Commands สามารถ access `AppHandle`, `Window`, state และ input parameters
 
 ### 4. Implement Lifecycle Events
 
-1. Hook ลง lifecycle events: setup, on_navigation, on_webview_ready, on_event, on_drop
-2. Implement logic สำหรับแต่ละ event
-3. จัดการ state ผ่าน lifecycle
+Hook ลง lifecycle events ของ plugin
 
-### 5. Build and Test
+1. Implement lifecycle hooks: `setup`, `on_navigation`, `on_page_load`, `on_webview_ready`, `on_event`, `on_drop`
+2. จัดการ state ใน `setup` hook ผ่าน `app.manage()`
+3. Access state ผ่าน extension trait บน Manager instances
 
-1. รัน `cargo build` เพื่อ build Rust code
-2. Build TypeScript code ใน guest-js
-3. ทดสอบ plugin ใน Tauri application
+### 5. Create JavaScript API
+
+สร้าง bindings สำหรับ JavaScript/TypeScript
+
+1. สร้าง bindings ใน `webview-src/index.ts`:
+
+```typescript
+import { invoke } from '@tauri-apps/api/core'
+export async function myCommand() {
+  await invoke('plugin:<plugin-name>|my_command')
+}
+```
+
+2. Build TypeScript: `bun run build`
+
+### 6. Add Mobile Support
+
+เพิ่ม mobile support สำหรับ Android และ iOS
+
+1. รัน `bunx @tauri-apps/cli plugin android add` สำหรับ Android
+2. รัน `bunx @tauri-apps/cli plugin ios add` สำหรับ iOS
+3. Implement native code ใน Kotlin (Android) และ Swift (iOS)
+4. Trigger mobile code จาก Rust ผ่าน `mobile.rs`
+
+### 7. Test And Publish
+
+ทดสอบและ publish plugin
+
+1. Test plugin ใน Tauri app: ติดตั้งด้วย `tauri add <plugin-name>`
+2. Build plugin: `cargo build`
+3. Publish ไป crates.io และ NPM
 
 ## Rules
 
 ### 1. Naming Convention
 
-- Rust crate name: `tauri-plugin-{plugin-name}`
-- NPM package name: `tauri-plugin-{plugin-name}-api` หรือ `@scope-name/plugin-{plugin-name}`
-- Plugin name ระบุใน tauri.conf.json > plugins
+- Rust crate: `tauri-plugin-<plugin-name>`
+- NPM package: `@scope/plugin-<plugin-name>` หรือ `tauri-plugin-<plugin-name>-api`
+- Plugin name ใน `tauri.conf.json > plugins`
 
 ### 2. Project Structure
 
-- `src/` - Rust code (commands.rs, desktop.rs, error.rs, lib.rs, mobile.rs, models.rs)
-- `permissions/` - Permission files สำหรับ commands
-- `android/` - Android library (Kotlin/Java)
-- `ios/` - Swift package
-- `guest-js/` - JavaScript API bindings source
-- `dist-js/` - Transpiled assets จาก guest-js
-- `Cargo.toml` - Cargo crate metadata
-- `package.json` - NPM package metadata
+```
+tauri-plugin-<name>/
+├── src/
+│   ├── commands.rs - Commands สำหรับ webview
+│   ├── desktop.rs - Desktop implementation
+│   ├── mobile.rs - Mobile implementation
+│   ├── error.rs - Error types
+│   ├── lib.rs - Plugin entry point
+│   └── models.rs - Shared structs
+├── permissions/ - Permission files
+├── android/ - Android library
+├── ios/ - Swift package
+├── guest-js/ - JavaScript API source
+├── dist-js/ - Transpiled JS
+├── Cargo.toml
+└── package.json
+```
 
-### 3. Commands
+### 3. Command Permissions
 
-- กำหนด commands ใน `commands.rs` ด้วย `#[command]` macro
-- Commands สามารถ access AppHandle, Window, state และ input parameters
-- Hook commands ผ่าน `invoke_handler(tauri::generate_handler![commands::upload])`
+- Commands จะถูก generate permissions อัตโนมัติใน `permissions/`
+- Define permissions ใน `tauri.conf.json > capabilities`
+- ใช้ `allow-<command-name>` สำหรับ grant access
 
-### 4. Lifecycle Events
+### 4. State Management
 
-- setup: Plugin initialization
-- on_navigation: Web view navigation attempt
-- on_webview_ready: New window creation
-- on_event: Event loop events
-- on_drop: Plugin deconstruction
+- ใช้ `app.manage()` ใน `setup` hook
+- Access state ผ่าน extension trait บน Manager instances
+- ใช้ `AppHandle`, `App`, `Window` สำหรับ state access
 
 ### 5. Mobile Development
 
-- Android: Kotlin/Java code ใน android/ directory
-- iOS: Swift code ใน ios/ directory
-- ใช้ `plugin android add` และ `plugin ios add` สำหรับ bootstrap mobile libraries
+- Android: Kotlin code ใน `android/`
+- iOS: Swift code ใน `ios/`
+- Trigger mobile code จาก Rust ผ่าน `mobile.rs`
 
 ## Expected Outcome
 
-- Plugin project initialized ด้วย CLI
-- Commands defined และ exposed ถูกต้อง
-- Lifecycle events implemented
-- Plugin สามารถ configure ใน Tauri application
-- Rust และ JavaScript/TypeScript code build สำเร็จ
-
+- Tauri plugin สร้างสำเร็จด้วย CLI
+- Commands และ JavaScript API ทำงานได้
+- Lifecycle events implemented ครบถ้วน
+- Plugin รองรับ desktop และ mobile platforms
+- Plugin สามารถ publish ไป crates.io และ NPM

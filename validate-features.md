@@ -2,7 +2,7 @@
 title: Validate Features
 description: ตรวจสอบและระบุ features ที่ไม่จำเป็นต้องมี เพื่อลดความซับซ้อน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /analyze-project
   - /check-unused-deps
   - /check-unsued-files

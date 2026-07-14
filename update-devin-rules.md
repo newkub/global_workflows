@@ -2,7 +2,7 @@
 title: Update Devin Rules
 description: อัพเดท .devin/rules ตาม project analysis และ dependencies
 auto_execution_mode: 3
-related_workflows:
+related:
   - /update-dot-devin
   - /update-agents-md
   - /analyze-project

@@ -3,7 +3,7 @@ title: Zaidan UI
 description: ShadCN UI registry สำหรับ SolidJS บน Kobalte และ Corvu
 auto_execution_mode: 3
 url: https://zaidan.carere.dev/
-related_workflows:
+related:
   - /follow-solidjs
   - /follow-design-system
   - /follow-web-design

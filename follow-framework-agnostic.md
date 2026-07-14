@@ -2,7 +2,7 @@
 title: Follow Framework Agnostic
 description: แนวทางการพัฒนาโค้ดที่ทำงานได้บน multiple frameworks โดยไม่ผูกติดกับ framework ใด framework หนึ่ง
 auto_execution_mode: 3
-related_workflows:
+related:
 ---
 
 ## Purpose

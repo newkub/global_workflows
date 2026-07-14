@@ -2,7 +2,7 @@
 title: Follow TSGo
 description: ตั้งค่าและใช้งาน TypeScript-Go (tsgo) compiler สำหรับ performance ที่ดีกว่า tsc 10x
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-code-quality
 ---
 

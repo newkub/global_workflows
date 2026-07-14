@@ -2,7 +2,7 @@
 title: Microservices Architecture
 description: พัฒนา distributed systems ด้วย Microservices Architecture สำหรับ scalability และ independence
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-architecture
   - /follow-clean-architecture
   - /follow-event-driven

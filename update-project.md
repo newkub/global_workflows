@@ -2,12 +2,13 @@
 title: Update Project
 description: อัพเดท project documentation และ configuration ครบถ้วน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /update-dot-devin
   - /update-readme
   - /update-agents-md
   - /update-docs
   - /update-ast-grep-rules
+  - /follow-create-health
 ---
 
 ## Goal
@@ -16,7 +17,7 @@ related_workflows:
 
 ## Scope
 
-ใช้สำหรับอัพเดท project ทั้งหมด รวม .devin structure, README, AGENTS.md, และ documentation
+ใช้สำหรับอัพเดท project ทั้งหมด รวม .devin structure, README, AGENTS.md, documentation, ast-grep rules, และ health CLI
 
 ## Execute
 
@@ -52,6 +53,13 @@ related_workflows:
 1. ตรวจสอบว่ามี `sgconfig.yml` และ `rules/` directory หรือไม่
 2. ถ้ามี ให้ทำ `/update-ast-grep-rules` เพื่ออัพเดท ast-grep rules ให้สอดคล้องกับ `.devin/rules/`
 
+### 6. Update Health CLI
+
+อัปเดท health CLI สำหรับ project (ถ้ามี `tools/health/`)
+
+1. ตรวจสอบว่ามี `tools/health/` directory หรือไม่
+2. ถ้ามี ให้ทำ `/update-health-cli` เพื่อสร้าง/อัปเดท health CLI ให้ครอบคลุม 60+ categories ตาม `/report-health`
+
 ## Rules
 
 ### 1. Execution Order
@@ -63,6 +71,7 @@ related_workflows:
 - ทำ `/update-agents-md` หลังจากอัพเดท README
 - ทำ `/update-docs` เป็นลำดับสุดท้าย (ถ้ามี docs/)
 - ทำ `/update-ast-grep-rules` หลังจาก update docs (ถ้ามี `sgconfig.yml`)
+- ทำ `/follow-create-health` หลังจาก update ast-grep rules (ถ้ามี `tools/health/`)
 
 ### 2. Conditional Execution
 
@@ -71,6 +80,8 @@ related_workflows:
 - ทำ `/update-docs` เฉพาะเมื่อมี docs/ directory
 - ถ้าไม่มี docs/ ให้ข้าม step นี้
 - ทำ `/update-ast-grep-rules` เฉพาะเมื่อมี `sgconfig.yml` และ `rules/` directory
+- ถ้าไม่มี ให้ข้าม step นี้
+- ทำ `/follow-create-health` เฉพาะเมื่อมี `tools/health/` directory
 - ถ้าไม่มี ให้ข้าม step นี้
 
 ### 3. Consistency
@@ -88,4 +99,5 @@ related_workflows:
 - AGENTS.md อัพเดทครบถ้วน
 - Documentation อัพเดทครบถ้วน (ถ้ามี docs/)
 - Ast-grep rules อัพเดทครบถ้วน (ถ้ามี `sgconfig.yml`)
+- Health CLI อัพเดทครบถ้วน (ถ้ามี `tools/health/`)
 - Project documentation และ configuration สอดคล้องกัน

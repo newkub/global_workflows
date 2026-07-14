@@ -2,7 +2,7 @@
 title: Report Before After
 description: รายงานแผนการทำงานก่อนดำเนินการ และแสดง before-after comparison
 auto_execution_mode: 3
-related_workflows:
+related:
   - /plan-task
   - /analyze-project
   - /write-global-workflows

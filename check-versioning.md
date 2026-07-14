@@ -2,7 +2,7 @@
 title: Check Versioning
 description: ตรวจสอบ version management และ changelog
 auto_execution_mode: 3
-related_workflows:
+related:
   - /release-npm
   - /release-crates
 ---

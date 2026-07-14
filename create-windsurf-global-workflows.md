@@ -2,7 +2,7 @@
 title: Create Windsurf Global Workflows
 description: สร้าง global workflow ใหม่ตามมาตรฐาน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-global-workflows
   - /read-related-workflows
   - /check-reference

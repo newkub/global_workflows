@@ -2,10 +2,9 @@
 title: Use Lang TH
 description: ใช้ภาษาไทยในการสื่อสารและทำงาน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /my-persona
 ---
-
 
 ## Goal
 

@@ -180,7 +180,7 @@ tests/                  # Test files
 
 เชื่อมโยงกับ workflows ที่เกี่ยวข้อง:
 
-- ทำ `/follow-svelte-kit` สำหรับ SvelteKit setup
+- ทำ `/follow-svelte-kit-architecture` สำหรับ SvelteKit setup
 - ทำ `/unocss` สำหรับ styling
 - ทำ `/follow-vite` สำหรับ Vite configuration
 

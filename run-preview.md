@@ -2,7 +2,7 @@
 title: Run Preview
 description: รัน preview build เพื่อทดสอบก่อน deploy จริง
 auto_execution_mode: 3
-related_workflows:
+related:
   - /run-build
   - /run-dev
   - /run-deploy

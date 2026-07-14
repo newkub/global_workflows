@@ -2,7 +2,7 @@
 title: Next.js Best Practices
 description: แนวทางการจัดโครงสร้างและพัฒนา Next.js 15 applications
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-react
   - /follow-unocss

@@ -2,7 +2,7 @@
 title: Report
 description: ตอบในแชทเป็นตารางพร้อม numbered columns, grouping, sorting
 auto_execution_mode: 3
-related_workflows:
+related:
   - /report-format-table
   - /report-format-terminal
   - /report-status

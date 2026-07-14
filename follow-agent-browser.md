@@ -3,7 +3,7 @@ title: Follow Agent Browser
 description: ใช้ agent-browser CLI สำหรับ browser automation และ web testing อย่างครบถ้วน
 auto_execution_mode: 3
 url: https://agent-browser.dev
-related_workflows:
+related:
   - /watch-browser
   - /watch-browser-console
   - /resolve-errors

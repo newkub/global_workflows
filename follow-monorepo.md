@@ -2,14 +2,14 @@
 title: Follow Monorepo
 description: Implement Monorepo Architecture for large-scale projects with multiple packages or applications
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-architecture
-  - /follow-workspace
   - /follow-turborepo
   - /follow-moonrepo
   - /follow-package-manifest
   - /follow-clean-architecture
   - /run-verify
+  - /update-readme
 ---
 
 ## Goal
@@ -56,7 +56,7 @@ related_workflows:
 1. Root-level TypeScript config
 2. Shared linting, formatting, git hooks configs
 3. Use extends ใน workspace configs
-4. ทำ `/follow-workspace` เพื่อตั้งค่า scripts และ documentation ทุก workspace
+4. ทำ `/follow-package-manifest` เพื่อตั้งค่า scripts และ `/update-readme` สำหรับ documentation ทุก workspace
 
 ## Rules
 

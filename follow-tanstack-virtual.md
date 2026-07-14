@@ -2,7 +2,7 @@
 title: Follow Tanstack Virtual
 description: ตั้งค่า TanStack Virtual สำหรับ virtualized lists และ grids
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-react
   - /follow-solidjs

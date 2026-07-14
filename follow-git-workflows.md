@@ -2,7 +2,7 @@
 title: Follow Git Workflows
 description: แนวทาง Git workflows ครอบคลุม branching, committing, merging, worktree, rebase, stash, submodules, tags, bisect, cherry-pick, hooks, conflict, reflog, revert, config, LFS, blame, filter, clone และ cleanup
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-worktree
   - /create-git-worktree
   - /commit

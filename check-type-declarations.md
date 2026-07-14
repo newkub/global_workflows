@@ -2,7 +2,7 @@
 title: Type Declarations
 description: ค้นหาและวิเคราะห์ d.ts files ทั้งใน project และ node_modules
 auto_execution_mode: 3
-related_workflows:
+related:
   - /typescript
   - /follow-code-quality
 ---

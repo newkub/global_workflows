@@ -2,11 +2,10 @@
 title: Root Cause Analysis
 description: วิเคราะห์หาสาเหตุหลักของปัญหาด้วยวิธีการเป็นระบบ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-debugging
   - /deep-debug
 ---
-
 
 ## Goal
 

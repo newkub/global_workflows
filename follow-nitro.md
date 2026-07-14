@@ -2,9 +2,9 @@
 title: Follow Nitro
 description: ตั้งค่า Nitro framework พร้อม presets และ deployment targets
 auto_execution_mode: 3
-related_workflows:
-  - /follow-deploy-to-cloudflare
-  - /follow-deploy-to-vercel
+related:
+  - /follow-cloudflare-worker
+  - /follow-vercel
 ---
 
 ## Goal

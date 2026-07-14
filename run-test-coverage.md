@@ -2,7 +2,7 @@
 title: Run Test Coverage
 description: รัน test coverage analysis ตรวจสอบ framework และบรรลุ 100% coverage
 auto_execution_mode: 3
-related_workflows:
+related:
   - /run-test
   - /write-test
   - /follow-code-quality

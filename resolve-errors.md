@@ -2,10 +2,10 @@
 title: Resolve Errors
 description: แก้ไข error อย่างเป็นระบบโดยระบุ root cause แก้ไขน้อยที่สุด และตรวจสอบผลลัพธ์
 auto_execution_mode: 3
-related_workflows:
+related:
   - /refactor
   - /read-related-workflows
-  - /analyze-errors
+  - /deep-review
   - /no-use-ignore
   - /use-scripts
   - /check-long-files
@@ -43,7 +43,7 @@ related_workflows:
 
 ### 3. Identify Root Cause
 
-หมายเหตุ: ถ้า errors ซับซ้อนหรือไม่ชัดเจน ให้ทำ `/analyze-errors` ก่อนเพื่อวิเคราะห์และจัดลำดับ
+หมายเหตุ: ถ้า errors ซับซ้อนหรือไม่ชัดเจน ให้ทำ `/deep-review` ก่อนเพื่อวิเคราะห์และจัดลำดับ
 
 1. ติดตาม call stack ย้อนกลับเพื่อหาจุดเริ่มต้น
 2. ระบุสาเหตุที่แท้จริง ไม่ใช่แก้เฉพาะ symptom
@@ -99,7 +99,7 @@ related_workflows:
 
 - Error ซับซ้อน มีหลายจุด ต้องวางแผน (ใช้ `/deep-debug`)
 - ต้อง debug หาสาเหตุก่อน (ใช้ `/debug-issue`)
-- ต้องวิเคราะห์และจัดลำดับ errors มากมาย (ใช้ `/analyze-errors`)
+- ต้องวิเคราะห์และจัดลำดับ errors มากมาย (ใช้ `/deep-review`)
 - เป็น logic error ที่ต้องวิเคราะห์เชิงระบบ (ใช้ `/deep-thinking`)
 
 ### 3. Resolve Errors vs Deep Debug vs Debug Issue
@@ -148,7 +148,7 @@ related_workflows:
 
 เชื่อมโยงกับ workflows อื่น:
 
-- ทำ `/analyze-errors` ถ้า errors มีจำนวนมาก ต้องจัดลำดับ
+- ทำ `/deep-review` ถ้า errors มีจำนวนมาก ต้องจัดลำดับ
 - ทำ `/debug-issue` ถ้ายังไม่พบ root cause
 - ทำ `/deep-debug` ถ้า error ซับซ้อน ต้องวางแผนแก้และป้องกันซ้ำ
 - ทำ `/no-use-ignore` เพื่อตรวจสอบว่าไม่มี ignore patterns

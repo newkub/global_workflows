@@ -2,13 +2,14 @@
 title: Cleanup Files
 description: ตรวจสอบและลบไฟล์ โฟลเดอร์ และ dependencies ที่ไม่จำเป็นในโปรเจกต์
 auto_execution_mode: 3
-related_workflows:
+related:
   - /check-unsued-files
   - /check-unused-deps
-  - /cleanup-unused-files
   - /delete
   - /edit-relative
   - /run-verify
+  - /deep-analyze-with-use-scripts
+  - /update-rules
 ---
 
 ## Goal
@@ -67,7 +68,7 @@ related_workflows:
 
 ลบไฟล์และโฟลเดอร์ที่ไม่จำเป็น
 
-1. ทำ `/cleanup-unused-files` เพื่อลบ unused files และอัพเดท references
+1. ทำ `/cleanup-files` เพื่อลบ unused files และอัพเดท references
 2. ลบ unused dependencies จาก `package.json` หรือ `Cargo.toml`
 3. ลบ dead code ที่ไม่ได้ใช้
 4. ลบ empty directories

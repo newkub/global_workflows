@@ -2,7 +2,7 @@
 title: Don't Over-Engineer
 description: หลีกเลี่ยงการ over-engineering ใช้ minimal changes
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-code-quality
 ---
 

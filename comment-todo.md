@@ -2,7 +2,7 @@
 title: Comment TODO
 description: Add TODO comments to identify issues without making code changes
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-content-quality
 ---
 

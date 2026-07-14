@@ -2,7 +2,7 @@
 title: Use Template Starter
 description: ใช้ templates จาก template-starter repository ด้วย degit
 auto_execution_mode: 3
-related_workflows:
+related:
 url: https://github.com/newkub/template-starter
 ---
 

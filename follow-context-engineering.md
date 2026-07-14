@@ -3,7 +3,7 @@ title: Follow Context Engineering
 description: จัดการ context ของ AI agent อย่างมีประสิทธิภาพ ลด context rot เพิ่มคุณภาพการทำงาน
 auto_execution_mode: 3
 url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
-related_workflows:
+related:
   - /improve-context-rot
   - /follow-best-practice
   - /plan

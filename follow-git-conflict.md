@@ -2,7 +2,7 @@
 title: Follow Git Conflict
 description: resolve merge conflicts อย่างเป็นระบบ ครอบคลุม analysis, resolution และ validation
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-workflows
   - /follow-git-rebase
   - /resolve-errors

@@ -2,7 +2,7 @@
 title: What Do You Do
 description: วิเคราะห์สถานการณ์และแนะนำสิ่งที่ควรทำถัดไป
 auto_execution_mode: 3
-related_workflows:
+related:
   - /suggest-next-action
   - /prioritize
   - /follow-incident-triage

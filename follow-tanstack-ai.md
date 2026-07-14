@@ -2,7 +2,7 @@
 title: Follow Tanstack Ai
 description: ตั้งค่าและใช้งาน TanStack AI สำหรับ type-safe AI chat และ tool calling
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-react
   - /follow-solidjs

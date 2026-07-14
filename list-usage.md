@@ -2,7 +2,7 @@
 title: List Usage
 description: แสดงรายการการใช้งาน dependencies, functions, exports ใน project
 auto_execution_mode: 3
-related_workflows:
+related:
   - /check-unused-deps
   - /check-unsued-files
   - /analyze-project

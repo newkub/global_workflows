@@ -2,8 +2,8 @@
 title: Git File History
 description: ดู git file history ผ่าน @wrikka/git-cli package ที่ release แล้ว แบบ interactive HTML viewer พร้อม split-screen timeline และ diff
 auto_execution_mode: 3
-related_workflows:
-  - /follow-html
+related:
+  - /report-html
   - /open-web
 ---
 

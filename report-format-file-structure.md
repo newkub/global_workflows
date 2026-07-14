@@ -2,11 +2,11 @@
 title: Report Format File Structure
 description: แสดงโครงสร้างไฟล์ โฟลเดอร์ พร้อม metadata สถิติ และคำแนะนำ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /report
   - /report-format-table
   - /scan-codebase
-  - /analyze-structure
+  - /deep-review
   - /use-scripts
 ---
 
@@ -27,7 +27,7 @@ related_workflows:
 ### 1. Scan Project Structure
 
 1. ทำ `/scan-codebase` เพื่อสแกนไฟล์ทั้งหมด
-2. ทำ `/analyze-structure` เพื่อวิเคราะห์โครงสร้าง
+2. ทำ `/deep-review` เพื่อวิเคราะห์โครงสร้าง
 3. กำหนด root directory และ depth สำหรับ tree
 4. กรองไฟล์ที่ไม่จำเป็น (`node_modules`, `.git`, `dist`, `build`)
 

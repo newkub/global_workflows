@@ -6,6 +6,8 @@ instruction:
   - ใช้ ruff สำหรับ lint/format, pyright สำหรับ type checking
   - ใช้ pyproject.toml เป็น single source of truth
   - จัดโครงสร้างตาม Clean Architecture
+title: Follow Python
+auto_execution_mode: 3
 ---
 
 ## 1. Installation (ใช้เสมอ)

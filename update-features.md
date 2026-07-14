@@ -1,8 +1,8 @@
 ---
 title: Update Features
-description: วิเคราะห์และสร้าง existing-features.json สำหรับ workspace
+description: วิเคราะห์ features ที่มีอยู่ใน workspace และสร้าง features.md
 auto_execution_mode: 3
-related_workflows:
+related:
   - /analyze-project
   - /idea-features
   - /use-scripts
@@ -11,7 +11,7 @@ related_workflows:
 
 ## Goal
 
-วิเคราะห์ features ที่มีอยู่ใน project และสร้าง `existing-features.json` สำหรับใช้ใน `/idea-features`
+วิเคราะห์ features ที่มีอยู่ใน project และสร้าง `features.md` สำหรับใช้ใน `/idea-features`
 
 ## Scope
 
@@ -49,11 +49,11 @@ related_workflows:
 2. ระบุ API endpoints และ methods
 3. จัดกลุ่ม endpoints ตาม domain
 
-### 6. Generate Output
+### 6. Generate Output And Present In Chat
 
-1. สร้าง `.devin/features/<workspace>/existing-features.json`
-2. โครงสร้าง JSON: `{ workspace, generatedAt, features: [{ id, name, description, module, route, api, db, topics, status }] }`
-3. แสดง existing features ในแชทเป็นตาราง
+1. สร้าง `.devin/features/<workspace>/features.md` พร้อม features ทั้งหมดในรูปแบบ markdown table
+2. แสดง existing features ในแชทเป็นตาราง
+3. ไม่สร้างไฟล์ .json หรือ .html
 
 ## Rules
 
@@ -63,21 +63,22 @@ related_workflows:
 - แต่ละ feature ต้องมี name, description, และ module
 - ถ้าเป็น monorepo ให้วิเคราะห์ทุก workspace
 
-### 2. JSON Structure
+### 2. Feature Structure
 
-- ไฟล์: `.devin/features/<workspace>/existing-features.json`
 - ฟิลด์บังคับ: `id`, `name`, `description`, `module`, `status`
 - ฟิลด์ optional: `route`, `api`, `db`, `topics`
 - `status` ระบุ: `active`, `partial`, `deprecated`
 
 ### 3. Output Format
 
+- สร้าง `.devin/features/<workspace>/features.md` ในรูปแบบ markdown table
 - แสดง existing features ในแชทเป็นตาราง
 - คอลัมน์: # | Feature | Description | Module | Route | API | DB | Topics | Status
 - เรียงตาม module ก่อน แล้วตามชื่อ feature
 
 ## Expected Outcome
 
-- `existing-features.json` ใน `.devin/features/<workspace>/`
+- `features.md` ใน `.devin/features/<workspace>/` พร้อม markdown table
 - ตาราง existing features ในแชท
 - Features ครอบคลุม routes, modules, schemas, และ API endpoints
+- ไม่สร้างไฟล์ .json หรือ .html

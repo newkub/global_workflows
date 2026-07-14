@@ -2,10 +2,10 @@
 title: News My CLI Update
 description: รวบรวมข่าวและอัปเดต CLI tools ที่ติดตั้งในเครื่องรายสัปดาห์
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-my-cli
   - /deep-research
-  - /follow-web-search
+  - /follow-websearch
   - /report-format-table
   - /report
 ---

@@ -2,7 +2,7 @@
 title: Follow Vue
 description: แนวทางการพัฒนา Vue 3 applications ตาม best practices 2026
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-unocss
   - /follow-vueuse
   - /follow-vitest

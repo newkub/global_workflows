@@ -2,7 +2,7 @@
 title: My Tech Stack
 description: สรุป tech stack ที่ใช้ในการพัฒนา จัดกลุ่มตาม ecosystem
 auto_execution_mode: 3
-related_workflows:
+related:
   - /use-lib-better
   - /deep-analyze-with-use-scripts
   - /follow-monorepo

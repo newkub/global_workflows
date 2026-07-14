@@ -2,9 +2,9 @@
 title: Sketch
 description: วาด UX/UI และ flows แบบเร็วๆ ด้วย ANSI/ASCII art
 auto_execution_mode: 3
-related_workflows:
+related:
   - /idea-uxui
-  - /improve-ui
+  - /review-frontend
   - /follow-web-design
 ---
 

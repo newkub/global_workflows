@@ -2,8 +2,8 @@
 title: Vercel CLI
 description: ใช้งาน Vercel CLI สำหรับ deploy และ manage projects บน Vercel
 auto_execution_mode: 3
-related_workflows:
-  - /deploy-to-vercel
+related:
+  - /follow-vercel
   - /follow-nextjs
 url: https://vercel.com/docs/cli
 ---

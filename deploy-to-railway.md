@@ -2,7 +2,7 @@
 title: Deploy To Railway
 description: Deploy application ไปยัง Railway ด้วย railway up จนกว่าจะ live สำเร็จ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /run-verify
   - /run-build
   - /watch-browser

@@ -2,15 +2,18 @@
 title: Write Test
 description: เขียน test ที่มีคุณภาพสูง ครอบคลุมทุกกรณีใช้งาน ใช้ได้กับทุกภาษา
 auto_execution_mode: 3
-related_workflows:
-  - /review-architecture
-  - /improve-naming-convention
+related:
+  - /deep-review
+  - /review-code-quality
   - /write-spec
-  - /improve-test-coverage
+  - /review-testing
   - /run-test-coverage
   - /follow-stryker-mutator
   - /follow-mutants-rs
   - /follow-code-quality
+  - /follow-testing
+  - /follow-vitest
+  - /follow-playwright
 ---
 
 ## Goal
@@ -25,23 +28,11 @@ related_workflows:
 
 ### 1. Review Architecture
 
-ทำ `/review-architecture` ก่อนเขียน test เพื่อแก้ critical issues
+ทำ `/deep-review` ก่อนเขียน test เพื่อแก้ critical issues
 
-### 2. Organize Test Files
+### 2. Detect Test Framework And Define Strategy
 
-ย้าย test files ที่กระจัดกระจายมาไว้ใน `tests/` ตาม Rule 3
-
-### 3. Write Spec
-
-ทำ `/write-spec` เพื่อสร้างหรืออัพเดท spec ก่อนเขียน test
-
-### 4. Improve Naming
-
-ทำ `/improve-naming-convention` เพื่อปรับปรุง naming conventions ก่อนเขียน test
-
-### 5. Detect Test Framework And Define Strategy
-
-ตรวจสอบ test framework และกำหนด testing strategy
+ตรวจสอบ test framework และกำหนด testing strategy ก่อนเขียน spec
 
 1. ตรวจสอบ `package.json` หรือ `Cargo.toml` สำหรับ test dependencies (`vitest`, `jest`, `pytest`, `go test`)
 2. ตรวจสอบ config files (`vitest.config.ts`, `jest.config.js`, `pytest.ini`)
@@ -52,17 +43,75 @@ related_workflows:
 7. กำหนด test priorities ตาม criticality
 8. กำหนด test environments (local, staging, production)
 
-### 6. Write Tests
+### 3. Analyze Source Code
 
-เขียน test ตามประเภทและ conventions ของภาษาที่ใช้ ครอบคลุม happy paths, error paths, edge cases, และ boundary conditions
+อ่านและวิเคราะห์ source code ที่จะ test ก่อนเขียน
 
-### 7. Verify Coverage And Formal Verification
+1. อ่าน source file ทั้งหมดที่เกี่ยวข้อง (handler, service, utils, types)
+2. ระบุทุก branch และ code path (`if/else`, `try/catch`, `switch`, ternary, optional chaining)
+3. ระบุ external dependencies ที่ต้อง mock (database, API, auth, email, payment)
+4. ระบุ input parameters และ validation rules (Zod schemas, type constraints)
+5. ระบุ output shapes และ error response patterns
+6. ระบุ security-critical logic (auth checks, permission checks, userId injection, sanitization)
+7. สร้าง branch map: นับจำนวน branches ทั้งหมดเพื่อคำนวณ minimum test cases ที่จำเป็น
 
-1. ทำ `/improve-test-coverage` เพื่อวิเคราะห์ coverage gaps และบรรลุ 100%
+### 4. Organize Test Files
+
+ย้าย test files ที่กระจัดกระจายมาไว้ใน location ที่ถูกต้องตาม Rule 3
+
+### 5. Write Spec
+
+ทำ `/write-spec` เพื่อสร้างหรืออัพเดท spec ก่อนเขียน test โดย spec ต้องครอบคลุม test cases ทั้งหมดที่ระบุจาก Step 3
+
+### 6. Improve Naming
+
+ทำ `/review-code-quality` เพื่อปรับปรุง naming conventions ก่อนเขียน test
+
+### 7. Write Tests
+
+เขียน test ตามประเภทและ conventions ของภาษาที่ใช้ ครอบคลุมทุก category ต่อไปนี้:
+
+**Required categories (ทุก handler/function):**
+
+1. **Happy path**: input ที่ถูกต้อง -> expected output
+2. **Error path**: dependency throw -> error response ที่ถูกต้อง
+3. **Edge cases**: empty input, null/undefined, boundary values (min, max, min-1, max+1)
+4. **Unauthorized**: auth missing หรือ invalid -> throw หรือ error response
+5. **Input validation**: invalid input ที่ผิด schema -> validation error
+
+**Conditional categories (เมื่อมี logic ที่เกี่ยวข้อง):**
+
+6. **Permission/RBAC**: user ไม่มี permission -> deny
+7. **IDOR/Ownership**: user เข้าถึง resource ของ user อื่น -> deny
+8. **Sanitization**: user input ที่มี malicious content -> sanitized output
+9. **userId injection**: ตรวจสอบว่า userId มาจาก auth ไม่ใช่จาก input (security)
+10. **Empty results**: query return empty array/undefined -> handle ถูกต้อง
+11. **Boundary values**: ค่า min/max ของ numeric input
+12. **Optional fields**: ส่งและไม่ส่ง optional fields -> ทำงานถูกต้องทั้งคู่
+13. **Concurrency**: race conditions, parallel calls (เฉพาะ stateful operations)
+
+**Use `parameterized tests` (`it.each`, `table-driven`) สำหรับ:**
+
+- Boundary values หลายค่า (เช่น rating 1, 2, 3, 4, 5)
+- Input validation หลายกรณี (เช่น missing required fields แต่ละ field)
+- Permission matrix (role x action)
+
+### 8. Run Tests
+
+รัน tests หลังเขียนเสร็จเพื่อ verify ว่าผ่านทั้งหมด
+
+1. รัน `bun run test` หรือคำสั่งที่เทียบเท่าสำหรับภาษาอื่น
+2. แก้ไข failing tests จนผ่านทั้งหมด
+3. ตรวจสอบว่าไม่มี test ที่ pass เพราะเหตุผลผิด (false positive)
+4. ตรวจสอบว่า error path tests จริงๆ ทดสอบ error ไม่ใช่แค่ทดสอบว่าไม่ throw
+
+### 9. Verify Coverage And Formal Verification
+
+1. ทำ `/review-testing` เพื่อวิเคราะห์ coverage gaps และบรรลุ 100%
 2. ทำ `/run-test-coverage` เพื่อ verify coverage ทุก category (lines, branches, functions, statements)
-3. ถ้า project มี critical components ให้ทำ formal verification ตาม `/improve-test-coverage` Rule 4
+3. ถ้า project มี critical components ให้ทำ formal verification ตาม `/review-testing` Rule 4
 
-### 8. Sync and Verify
+### 10. Sync and Verify
 
 อัพเดท SPEC.md ด้วย test cases ที่เขียนแล้ว และรัน `/update-references`
 
@@ -101,6 +150,13 @@ related_workflows:
 - E2E tests: ใน `tests/e2e/`
 - Test utilities: ใน `tests/utils/`
 - Test data: ใน `tests/fixtures/`
+
+**Colocated vs Separate:**
+
+- **Colocated** (`__tests__/` ข้าง source): เหมาะสำหรับ unit tests ที่ test specific module/handler
+- **Separate** (`tests/` directory): เหมาะสำหรับ integration, e2e, และ shared test utilities
+- **Follow existing pattern**: ถ้า project มี colocated tests อยู่แล้ว ให้ตาม pattern นั้น
+- **Don't mix**: อย่ามีทั้ง colocated และ separate สำหรับ unit tests ในหลายระดับ
 
 ตัวอย่าง folder structure:
 
@@ -154,7 +210,7 @@ tests/
 - Unit tests: `< 10ms` ต่อ test
 - Integration tests: `< 100ms` ต่อ test
 - ใช้ `parallel execution` เมื่อ tests ไม่ dependent กัน
-- Coverage verification และ 100% enforcement อยู่ใน `/improve-test-coverage` และ `/run-test-coverage`
+- Coverage verification และ 100% enforcement อยู่ใน `/review-testing` และ `/run-test-coverage`
 
 ### 7. Testing Strategy
 
@@ -184,14 +240,65 @@ tests/
 - รัน security tests ใน CI เพื่อตรวจสอบ vulnerabilities
 - รัน performance tests ใน CI เพื่อตรวจสอบ regressions
 
+### 9. Test Code Quality
+
+- **DRY**: extract repeated test setup และ handler extraction เป็น helper functions ใน `test-utils.ts`
+- **No type casting**: หลีกเลี่ยง `as unknown as` patterns ซ้ำๆ สร้าง typed helper แทน
+- **Descriptive assertions**: ใช้ `expect.objectContaining` และ `expect.arrayContaining` เพื่อ assert เฉพาะ fields ที่สำคัญ
+- **Test readability**: test code ต้องอ่านได้เหมือน documentation ของ behavior
+- **Avoid test interdependence**: แต่ละ test ต้องรันได้อิสระ ไม่ขึ้นกับ order หรือ state จาก test อื่น
+- **Shared mock factories**: ใช้ shared mock factories จาก `test-utils.ts` ไม่สร้าง mock ใหม่ในแต่ละ test file
+
+### 10. What NOT to Test
+
+- **Trivial getters/setters**: ถ้าไม่มี logic ไม่ต้อง test
+- **Third-party libraries**: test เฉพาะ integration ของเรา ไม่ test library เอง
+- **Implementation details**: test behavior ไม่ใช่ว่าเรียก function อะไรบ้าง (เว้นแต่เป็น security-critical)
+- **Configuration objects**: ถ้าเป็นแค่ data ไม่มี logic
+- **Type-only code**: ถ้า TypeScript types รับประกันแล้ว ไม่ต้อง test runtime
+- **Framework boilerplate**: route registration, middleware chain ที่ framework รับผิดชอบ
+
+### 11. Assertion Quality
+
+- **Assert behavior ไม่ใช่ implementation**: ตรวจสอบ output/result ไม่ใช่ว่าเรียก function อะไร
+- **Assert error shape**: ตรวจสอบ error message และ structure ไม่ใช่แค่ว่ามี error
+- **Use specific matchers**: `toEqual` สำหรับ deep equality, `objectContaining` สำหรับ partial, `toHaveLength` สำหรับ arrays
+- **Assert side effects**: ถ้า function มี side effect (write DB, send email) ต้อง assert ด้วย
+- **Negative assertions**: ใช้ `not.toHaveBeenCalled()` เมื่อต้องยืนยันว่า function ไม่ถูกเรียก
+- **Avoid fragile assertions**: ไม่ assert ค่าที่ non-deterministic (timestamps, UUIDs) ใช้ `expect.any(Date)` หรือ `expect.any(String)`
+
+### 12. Security Test Patterns
+
+- **Auth bypass**: ส่ง request โดยไม่มี auth -> ต้อง reject
+- **IDOR**: user A เข้าถึง resource ของ user B -> ต้อง deny
+- **userId injection**: ตรวจสอบว่า userId มาจาก `auth.userId` ไม่ใช่จาก `input.userId`
+- **Sanitization**: ส่ง XSS/malicious input -> ต้อง sanitized ก่อนเก็บ
+- **Permission matrix**: ทุก role x action ต้องมี test (ใช้ `it.each`)
+- **Rate limiting**: เกิน rate limit -> ต้อง reject
+- **SQL injection**: ส่ง malicious input -> ต้องไม่ทำให้ query break
+- **CSRF**: ส่ง request จาก origin อื่น -> ต้อง reject
+
+### 13. Handler/Router Test Patterns
+
+- **Extract handler**: ดึง handler จาก router object แล้วเรียกโดยตรงใน test
+- **Mock dependencies**: mock service layer, auth, database, external APIs
+- **Test input -> output mapping**: ส่ง input ผ่าน handler แล้วตรวจสอบ output
+- **Test auth context**: ส่ง `context.auth` ที่ถูกต้องและไม่ถูกต้อง
+- **Test error fallback**: เมื่อ service throw ต้อง return fallback ที่ถูกต้องตาม pattern (`safeResult` หรือ `tryHandler`)
+- **Test sanitization call**: ตรวจสอบว่า `sanitizeUserContent` ถูกเรียกเมื่อมี user input
+- **Test optional fields**: ส่งและไม่ส่ง optional fields -> ทั้งคู่ต้องทำงานถูกต้อง
+
 ## Expected Outcome
 
 - Test files อยู่ใน location ที่ถูกต้องตาม conventions
 - Testing strategy ครอบคลุมทุก test types ที่จำเป็น
-- Tests ครอบคลุมทุกกรณีใช้งาน (`happy path`, `edge cases`, `errors`)
-- Coverage 100% ผ่าน `/improve-test-coverage` และ `/run-test-coverage`
-- Formal verification สำหรับ critical components ผ่าน `/improve-test-coverage`
+- Source code ถูก analyze ครบทุก branch และ code path
+- Tests ครอบคลุมทุกกรณีใช้งาน (`happy path`, `edge cases`, `errors`, `security`)
+- Tests รันผ่านทั้งหมด ไม่มี false positive
+- Coverage 100% ผ่าน `/review-testing` และ `/run-test-coverage`
+- Formal verification สำหรับ critical components ผ่าน `/review-testing`
 - Tests ไม่ `brittle` และรวดเร็ว
+- Test code มีคุณภาพ (DRY, readable, typed helpers)
 - โค้ดมีความถูกต้องและเสถียร
 - SPEC.md ถูกอัพเดทด้วย test cases ที่เขียนแล้ว
 - Test quality สูงด้วย mutation testing

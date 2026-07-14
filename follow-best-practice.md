@@ -2,7 +2,7 @@
 title: Follow Best Practice
 description: เขียนตาม best practices จาก context นั้นๆ
 auto_execution_mode: 3
-related_workflows:
+related:
   - learn-from-web
   - deep-research
   - /write-global-workflows

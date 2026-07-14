@@ -2,10 +2,10 @@
 title: Add More
 description: วิเคราะห์ gaps และเพิ่มสิ่งที่ขาดหายไปตาม context
 auto_execution_mode: 3
-related_workflows:
+related:
   - /analyze-project
-  - /analyze-features
-  - /analyze-structure
+  - /deep-review
+  - /deep-review
   - /idea-features
   - /use-scripts
   - /report-format-table
@@ -25,8 +25,8 @@ related_workflows:
 
 1. ระบุ context ของสิ่งที่ต้องการเพิ่ม (features, files, tests, configs, docs, modules, ฯลฯ)
 2. ทำ `/analyze-project` เพื่อเข้าใจโครงสร้างและ characteristics ของ project
-3. ถ้า context เกี่ยวกับ features ให้ทำ `/analyze-features`
-4. ถ้า context เกี่ยวกับ file structure ให้ทำ `/analyze-structure`
+3. ถ้า context เกี่ยวกับ features ให้ทำ `/deep-review`
+4. ถ้า context เกี่ยวกับ file structure ให้ทำ `/deep-review`
 5. บันทึกสิ่งที่มีอยู่ปัจจุบันเป็น baseline
 
 ### 2. Analyze Gaps
@@ -71,7 +71,7 @@ related_workflows:
 - ระบุ context ก่อนเริ่ม (features, files, tests, configs, docs, modules, ฯลฯ)
 - ทำ `/analyze-project` ก่อนเพื่อเข้าใจ project characteristics
 - ถ้า context เกี่ยวกับ features ให้ทำ `/idea-features`
-- ถ้า context เกี่ยวกับ structure ให้ทำ `/analyze-structure`
+- ถ้า context เกี่ยวกับ structure ให้ทำ `/deep-review`
 
 ### 2. Non-Duplication
 

@@ -2,7 +2,7 @@
 title: Follow Tanstack Store
 description: ตั้งค่า TanStack Store สำหรับ lightweight reactive state management
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-react
   - /follow-solidjs

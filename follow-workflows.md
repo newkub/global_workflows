@@ -2,7 +2,7 @@
 title: Follow Workflows
 description: อ่านและทำตาม workflows ทั้ง global และ project
 auto_execution_mode: 3
-related_workflows:
+related:
   - /use-workflows
   - /check-reference
   - /read-related-workflows

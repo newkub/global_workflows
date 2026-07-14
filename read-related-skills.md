@@ -2,7 +2,7 @@
 title: Read Related Skills
 description: อ่านและสรุป skills ที่เกี่ยวข้องแบบ recursive ทุกระดับ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /read-related-workflows
   - /follow-skills
   - /use-skills

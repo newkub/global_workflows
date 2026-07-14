@@ -2,7 +2,7 @@
 title: Follow Migration
 description: วางแผนและ execute migration สำหรับ dependencies, frameworks, และ infrastructure
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-gritql
   - /follow-ast-grep
   - /follow-regression-test

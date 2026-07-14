@@ -2,7 +2,7 @@
 title: Follow Your Suggestion
 description: ทำตามคำแนะนำจากการวิเคราะห์ปัญหาและแก้ไข code ตามที่คุยกันก่อนหน้า
 auto_execution_mode: 3
-related_workflows:
+related:
   - /prioritize
   - /resolve-errors
   - /dont-over-engineer

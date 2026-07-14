@@ -2,7 +2,7 @@
 title: Commit At Global Skills
 description: Commit ทุกไฟล์ที่มีการเปลี่ยนแปลงใน global skills directory ตามมาตรฐาน conventional commits
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-skills
   - /follow-content-quality
 ---

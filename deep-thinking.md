@@ -2,7 +2,7 @@
 title: Deep Thinking
 description: คิดวิเคราะห์ปัญหาอย่างเป็นระบบก่อนทำงาน โดยไม่ใช้ external tools
 auto_execution_mode: 3
-related_workflows:
+related:
   - /pondering
   - /debug-issue
   - /root-cause-analysis

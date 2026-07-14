@@ -2,7 +2,7 @@
 title: Follow Git Rebase
 description: ใช้ git rebase สำหรับ rebase, squash, interactive rebase และ resolve conflicts
 auto_execution_mode: 3
-related_workflows:
+related:
   - /commit
   - /git-merge-commit
   - /resolve-errors

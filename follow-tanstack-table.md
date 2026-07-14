@@ -2,7 +2,7 @@
 title: Follow Tanstack Table
 description: ตั้งค่าและใช้งาน TanStack Table v9 สำหรับ headless table management
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-react
   - /follow-solidjs

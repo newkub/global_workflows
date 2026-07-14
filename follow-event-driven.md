@@ -2,7 +2,7 @@
 title: Event Driven
 description: Implement Event-Driven Architecture สำหรับ async workflows และ loose coupling
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-clean-architecture
   - /follow-modular-monolith
   - /follow-microservices-architecture

@@ -2,17 +2,17 @@
 title: Follow Code Quality
 description: รักษามาตรฐานคุณภาพโค้ดด้วย separation of concerns, type safety, error handling
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-content-quality
   - /follow-workflows
   - /refactor
-  - /analyze-code-quality
-  - /improve-type-safety
+  - /deep-review
+  - /review-code-quality
   - /fix-circular-dependencies
   - /no-hard-code
-  - /improve-naming-convention
-  - /improve-debugging
-  - /improve-side-effect
+  - /review-code-quality
+  - /review-debugging
+  - /review-architecture
   - /write-code-smart
 ---
 
@@ -31,18 +31,18 @@ related_workflows:
 วิเคราะห์คุณภาพโค้ดปัจจุบัน
 
 1. ทำ `/refactor` เพื่อ check separation of concerns
-2. ทำ `/analyze-code-quality` เพื่อระบุ SRP, SoC, type safety, hard code, anti-patterns, code smells, dead code, side effects, naming conventions
+2. ทำ `/deep-review` เพื่อระบุ SRP, SoC, type safety, hard code, anti-patterns, code smells, dead code, side effects, naming conventions
 3. ทำ `/fix-circular-dependencies` เพื่อ identify circular dependencies
-4. ทำ `/improve-type-safety` เพื่อ check type safety
+4. ทำ `/review-code-quality` เพื่อ check type safety
 
 ### 2. Apply Fixes
 
 แก้ไข issues ที่พบตามลำดับความสำคัญ
 
 1. ทำ `/no-hard-code` เพื่อลบ hard code
-2. ทำ `/improve-naming-convention` เพื่อปรับปรุง naming conventions
-3. ทำ `/improve-side-effect` เพื่อปรับปรุงการจัดการ side effects
-4. ทำ `/improve-debugging` เพื่อปรับปรุง debuggability
+2. ทำ `/review-code-quality` เพื่อปรับปรุง naming conventions
+3. ทำ `/review-architecture` เพื่อปรับปรุงการจัดการ side effects
+4. ทำ `/review-debugging` เพื่อปรับปรุง debuggability
 5. แก้ไข issues ที่เหลือตามลำดับความสำคัญ
 
 ### 3. Verify Quality
@@ -60,7 +60,7 @@ related_workflows:
 
 - ทำ `/refactor` สำหรับ separation of concerns
 - ทำ `/fix-circular-dependencies` สำหรับ circular dependencies
-- ทำ `/improve-type-safety` สำหรับ type safety
+- ทำ `/review-code-quality` สำหรับ type safety
 - ทำ `/no-hard-code` สำหรับลบ hard code
 - ทำ `/write-code-smart` สำหรับเขียน code อย่างชาญฉลาด
 

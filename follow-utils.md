@@ -4,6 +4,8 @@ trigger: always_on
 instruction:
   - ใช้ Pure Functional Programming principles
   - จัดโครงสร้าง folder และ imports อย่างเป็นระบบ
+title: Follow Utils
+auto_execution_mode: 3
 ---
 
 ## 1. Folder Rules (ใช้เสมอ)

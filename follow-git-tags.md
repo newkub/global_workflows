@@ -2,7 +2,7 @@
 title: Follow Git Tags
 description: จัดการ git tags สำหรับ semantic versioning, release tagging และ annotated tags
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-workflows
   - /run-release
   - /commit

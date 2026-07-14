@@ -2,7 +2,7 @@
 title: Architecture
 description: เลือก architecture pattern ตาม package manifest
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-clean-architecture
   - /follow-modular-monolith
   - /follow-microservices-architecture
@@ -52,8 +52,8 @@ related_workflows:
 | Nuxt | `nuxt` in dependencies | `/follow-nuxt-architecture` |
 | Next.js | `next` in dependencies | `/follow-nextjs-architecture` |
 | Vue.js | `vue` in dependencies | `/follow-vue` |
-| SolidJS | `solid-js` in dependencies | `/follow-solid-start-architecture` |
-| Svelte | `svelte` in dependencies | `/follow-svelte-kit-architecture` |
+| SolidJS | `solid-js` in dependencies | `/follow-solid-start-architecture-architecture` |
+| Svelte | `svelte` in dependencies | `/follow-svelte-kit-architecture-architecture` |
 | Frontend ขนาดเล็ก-กลาง | 1-2 devs, frontend-only | `/follow-layered-architecture` |
 | Rust | `Cargo.toml` exists | `/follow-clean-architecture` |
 | Bun | `bun` in dependencies | `/follow-clean-architecture` |

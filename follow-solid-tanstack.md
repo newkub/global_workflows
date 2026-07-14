@@ -2,10 +2,10 @@
 title: Follow Solid TanStack
 description: พัฒนา @tanstack/solid-start app ด้วย oRPC, Query, Store, Form และ Vite
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-solidjs
-  - /follow-solid-start
   - /follow-solid-start-architecture
+  - /follow-solid-start-architecture-architecture
   - /follow-tanstack-query
   - /follow-tanstack-router
   - /follow-tanstack-form

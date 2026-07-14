@@ -2,13 +2,13 @@
 title: Benchmark Competitors
 description: ศึกษาคู่แข่งและปรับปรุงจนดีกว่าในทุกมิติ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /deep-research
   - /plan
   - /ship
   - /update-docs
-  - /improve-performance
-  - /improve-uxui
+  - /review-performance
+  - /review-frontend
   - /pondering
 ---
 
@@ -48,8 +48,8 @@ related_workflows:
 1. ทำ `/pondering` เพื่อทบทวนว่าควรปรับปรุงอะไรก่อนและผลกระทบของแต่ละการเปลี่ยนแปลง
 2. ทำ `/plan` เพื่อวางแผนการปรับปรุง
 3. ทำ `/ship` เพื่อ implement จนดีกว่าคู่แข่ง
-4. ทำ `/improve-performance` สำหรับ performance improvements
-5. ทำ `/improve-uxui` สำหรับ UX/UI improvements
+4. ทำ `/review-performance` สำหรับ performance improvements
+5. ทำ `/review-frontend` สำหรับ UX/UI improvements
 6. หยุดเมื่อ project ดีกว่าคู่แข่งทั้งหมมในทุกมิติ
 
 ### 4. Update Progress

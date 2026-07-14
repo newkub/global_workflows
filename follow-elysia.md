@@ -3,7 +3,7 @@ title: Follow Elysia
 description: แนวทางการพัฒนา API ด้วย Elysia บน Bun แบบ type-safe ตาม official best practices
 auto_execution_mode: 3
 url: https://elysiajs.com
-related_workflows:
+related:
   - /follow-bun
   - /follow-zod
   - /follow-best-practice

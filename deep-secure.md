@@ -2,13 +2,13 @@
 title: Deep Secure
 description: Security audit อย่างลึกซึ้ง ครอบคลุม OWASP, dependencies, secrets, auth, API
 auto_execution_mode: 3
-related_workflows:
+related:
   - /deep-thinking
   - /deep-research
   - /check-vulnerability
-  - /analyze-security
-  - /analyze-auth
-  - /improve-security
+  - /deep-review
+  - /deep-review
+  - /review-security
   - /check-configuration
   - /comment-todo
   - /report-format-table
@@ -54,9 +54,9 @@ Security audit อย่างลึกซึ้ง ครอบคลุม OWA
 
 ### 4. Authentication And Authorization
 
-ทำ `/analyze-auth` สำหรับ auth security
+ทำ `/deep-review` สำหรับ auth security
 
-1. ทำ `/analyze-auth` วิเคราะห์ auth flows และ session management
+1. ทำ `/deep-review` วิเคราะห์ auth flows และ session management
 2. ตรวจสอบ JWT validation และ token rotation
 3. ตรวจสอบ RBAC enforcement ที่ route และ API level
 4. ตรวจสอบ password hashing แล<arg_value> MFA implementation
@@ -96,7 +96,7 @@ Security audit อย่างลึกซึ้ง ครอบคลุม OWA
 1. ทำ `/comment-todo` สำหรับระบุ security issues ใน code
 2. ทำ `/report-format-table` สร้างตาราง issues พร้อม severity, location, recommendation
 3. จัดลำดับ: Critical → High → Medium → Low
-4. แนะนำขั้นตอนถัดไป: `/improve-security` สำหรับแก้ไข issues
+4. แนะนำขั้นตอนถัดไป: `/review-security` สำหรับแก้ไข issues
 
 ## Rules
 
@@ -116,8 +116,8 @@ Security audit อย่างลึกซึ้ง ครอบคลุม OWA
 ### 3. Non-Redundancy
 
 - อ้างถึง `/check-vulnerability` สำหรับ dependency scanning ไม่ duplicate
-- อ้างถึง `/analyze-auth` สำหรับ auth analysis
-- อ้างถึง `/analyze-security` สำหรับ security analysis
+- อ้างถึง `/deep-review` สำหรับ auth analysis
+- อ้างถึง `/deep-review` สำหรับ security analysis
 - เพิ่มคุณค่าด้วย OWASP coverage, data protection, current threats
 
 ### 4. Conditional Execution
@@ -134,4 +134,4 @@ Security audit อย่างลึกซึ้ง ครอบคลุม OWA
 - Dependencies ตรวจสอบ vulnerabilities ครบถ้วน
 - Secrets exposure ตรวจสอบทั้ง source code และ config
 - Auth และ API security ผ่านการ audit
-- พร้อมสำหรับ `/improve-security` เพื่อแก้ไข issues
+- พร้อมสำหรับ `/review-security` เพื่อแก้ไข issues

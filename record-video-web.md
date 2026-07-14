@@ -3,7 +3,7 @@ title: Record Video Web
 description: บันทึกวิดีโอจากหน้าเว็บด้วย agent-browser CLI
 auto_execution_mode: 3
 url: https://agent-browser.dev
-related_workflows:
+related:
   - /follow-agent-browser
   - /capture-web
   - /resolve-errors

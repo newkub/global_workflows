@@ -2,7 +2,7 @@
 title: Follow Agents Md
 description: ทำตาม AGENTS.md ใน workspace
 auto_execution_mode: 3
-related_workflows:
+related:
   - /update-agents-md
   - /read-related-workflows
   - /read-related-skills
@@ -11,7 +11,6 @@ related_workflows:
   - /use-workflows
   - /use-skills
 ---
-
 
 ## Goal
 

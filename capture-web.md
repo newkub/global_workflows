@@ -3,7 +3,7 @@ title: Capture Web
 description: Capture ภาพหน้าเว็บด้วย agent-browser CLI
 auto_execution_mode: 3
 url: https://agent-browser.dev
-related_workflows:
+related:
   - /follow-agent-browser
   - /record-video-web
   - /resolve-errors

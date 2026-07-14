@@ -2,7 +2,7 @@
 title: Follow Tanstack Form
 description: ตั้งค่าและใช้งาน TanStack Form v1 สำหรับ type-safe form management
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-react
   - /follow-solidjs

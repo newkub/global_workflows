@@ -3,13 +3,13 @@ title: Follow Agent Evaluation
 description: ประเมิน AI agent ด้วย trace-based evaluation และ episode packages สำหรับ auditable execution
 auto_execution_mode: 3
 url: https://arxiv.org/html/2605.13357
-related_workflows:
+related:
   - /follow-harness-engineering
   - /follow-context-engineering
   - /run-test
   - /validate
-  - /improve-observability
-  - /improve-reliability
+  - /review-logging
+  - /review-error-handling
   - /report
 ---
 

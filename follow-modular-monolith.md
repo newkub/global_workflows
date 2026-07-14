@@ -2,7 +2,7 @@
 title: Modular Monolith
 description: Implement Modular Monolith architecture สำหรับ medium scale systems
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-clean-architecture
   - /follow-event-driven
   - /follow-microservices-architecture

@@ -2,7 +2,7 @@
 title: Setup UnoCSS Theme
 description: ตั้งค่า theme colors และ Design System ด้วย UnoCSS แบบ HSL variables
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-unocss
   - /follow-create-biome-plugins
   - /follow-design-system

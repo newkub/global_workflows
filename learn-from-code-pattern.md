@@ -2,7 +2,7 @@
 title: Learn from Code Pattern
 description: สกัด reusable patterns จาก code จริงเพื่อนำมาประยุกต์ใช้ใน project
 auto_execution_mode: 3
-related_workflows:
+related:
   - /code-search
   - /use-ast-grep
   - /scan-codebase

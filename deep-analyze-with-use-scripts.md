@@ -2,7 +2,7 @@
 title: Deep Analyze With Use Scripts
 description: วิเคราะห์โปรเจกต์อย่างลึกซึ้งด้วย scripts automation
 auto_execution_mode: 3
-related_workflows:
+related:
   - /use-scripts
   - /analyze-project
   - /follow-code-quality
@@ -26,13 +26,14 @@ related_workflows:
 
 ### 2. Prepare And Run Script
 
-สร้างและรัน analysis script
+สร้างและรัน analysis script ใน `.devin/scripts/analyze/`
 
-1. ทำ `/use-scripts` เพื่อสร้าง script ใน `scripts/` directory
-2. Script รวบรวม metrics จาก knip, taze, biome, oxlint, vitest, madge, ast-grep
-3. Script aggregate data และคำนวณ health score
-4. Script output เป็น structured format (JSON หรือ markdown table)
-5. รัน `bun run scripts/analyze-project.ts` และ process results
+1. ทำ `/use-scripts` เพื่อสร้าง script ใน `.devin/scripts/analyze/` directory
+2. ตั้งชื่อไฟล์เป็น `analyze-*.ts` ตาม scope ของ review (เช่น `analyze-code-quality.ts`, `analyze-security.ts`)
+3. Script รวบรวม metrics จาก knip, taze, biome, oxlint, vitest, madge, ast-grep
+4. Script aggregate data และคำนวณ health score
+5. Script output เป็น structured format (JSON หรือ markdown table)
+6. รัน `bun run .devin/scripts/analyze/analyze-*.ts` และ process results
 
 ### 3. Report Findings
 
@@ -44,7 +45,7 @@ related_workflows:
 
 ### Script Structure
 
-- Script อยู่ใน `scripts/` directory
+- Script อยู่ใน `.devin/scripts/analyze/` directory
 - ใช้ Bun native APIs: `Bun.glob`, `Bun.file`, `Bun.$`
 - ใช้ TypeScript สำหรับ type safety
 - Handle errors อย่างเหมาะสม

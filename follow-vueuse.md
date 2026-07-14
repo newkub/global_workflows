@@ -2,7 +2,7 @@
 title: Follow VueUse
 description: ใช้งาน VueUse v14 composables ตาม best practices 2026
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-vue
   - /follow-vitest
 ---

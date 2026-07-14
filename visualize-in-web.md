@@ -2,8 +2,8 @@
 title: Visualize In Web
 description: สร้าง visual แบบ Web ใน browser บน OS temp directory
 auto_execution_mode: 3
-related_workflows:
-  - /follow-html
+related:
+  - /report-html
   - /open-readme-html
   - /open-web
   - /sketch
@@ -31,7 +31,7 @@ related_workflows:
 
 สร้าง visual แบบ HTML ใน browser:
 
-1. ทำ `/follow-html` สำหรับ HTML structure พื้นฐาน
+1. ทำ `/report-html` สำหรับ HTML structure พื้นฐาน
 2. ใช้ Vue 3 ผ่าน unpkg CDN
 3. ใช้ Tailwind CSS สำหรับ styling
 4. ถ้าต้องการ tab system ให้อ้างอิง `/open-readme-html`
@@ -73,7 +73,7 @@ related_workflows:
 
 ### 2. Web Standards
 
-- ทำตาม `/follow-html` สำหรับ HTML structure
+- ทำตาม `/report-html` สำหรับ HTML structure
 - ใช้ Vue 3 ผ่าน unpkg CDN
 - ใช้ Tailwind CSS CDN
 - รองรับ dark mode

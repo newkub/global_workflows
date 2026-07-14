@@ -3,7 +3,7 @@ description: แนวทางการพัฒนา monorepo ด้วย Mo
 title: Moonrepo Best Practices
 auto_execution_mode: 3
 url: https://moonrepo.dev/docs
-related_workflows:
+related:
   - /follow-monorepo
   - /follow-bun
   - /follow-package-manifest

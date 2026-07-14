@@ -1,6 +1,7 @@
 ---
 description: ตั้งค่า Neovim plugins ด้วย lazy.nvim
 title: follow-nvim-plugins
+auto_execution_mode: 3
 ---
 
 ## 1. เตรียมความพร้อม

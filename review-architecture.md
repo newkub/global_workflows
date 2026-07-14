@@ -1,106 +1,99 @@
 ---
 title: Review Architecture
-description: Review architecture และ design patterns พร้อมระบุ issues และ recommendations
+description: Review architecture ครอบคลุม patterns, boundaries, coupling, และ design principles
 auto_execution_mode: 3
-related_workflows:
-  - /analyze-architecture
-  - /follow-architecture
+related:
+  - /scan-codebase
   - /deep-analyze-with-use-scripts
-  - /check-duplication
-  - /comment-todo
+  - /validate
+  - /update-rules
   - /report
   - /report-format-table
-  - /improve-architecture
+  - /suggest-next-action
+  - /comment-todo
+  - /improve-code-structure
 ---
 
 ## Goal
 
-Review architecture และ design patterns เพื่อระบุ issues จัดลำดับ severity และให้ actionable recommendations
+Review architecture ระดับ macro ครอบคลุม design patterns, module boundaries, dependency directions, coupling, และ SOLID principles
 
 ## Scope
 
-ใช้สำหรับ review architecture ครบวงจร อ้างถึง `/analyze-architecture` สำหรับการวิเคราะห์เชิงลึก และเพิ่มการตรวจสอบ design principles, anti-patterns พร้อม recommendations
+architectural patterns, module boundaries, dependency directions, SOLID principles, scalability, concurrency, multi-tenancy, queue architecture, routing, และ side effects
 
 ## Execute
 
-### 1. Run Architecture Analysis
+### 1. Prepare
 
-1. ทำ `/analyze-architecture` เพื่อวิเคราะห์ architecture แบบครบวงจร (pattern, layers, coupling, domain boundaries, SoC, DI, consistency)
-2. ทำ `/follow-architecture` เพื่อระบุ architecture pattern ที่เหมาะสมกับ project
-3. เก็บ findings จาก `/analyze-architecture` เป็น input สำหรับ review
+สแกน codebase เพื่อเข้าใจ architecture ปัจจุบัน
 
-### 2. Check Design Principles
+1. ทำ `/scan-codebase` เพื่อเข้าใจ architecture
+2. ระบุ architectural patterns ที่ใช้
+3. ถ้าสแกนไม่ได้ → stop และ report
 
-ตรวจสอบ design principles ที่ไม่ครอบคลุมใน `/analyze-architecture`
+### 2. Deep Analyze
 
-1. ตรวจสอบ SOLID principles ทีละข้อ ระบุ violations พร้อม examples
-2. ตรวจสอบ DRY ด้วย `/check-duplication` เพื่อระบุ copy-paste patterns
-3. ตรวจสอบ KISS ระบุ over-engineering และ unnecessary complexity
-4. ตรวจสอบ YAGNI ระบุ features หรือ abstractions ที่ยังไม่จำเป็น
+วิเคราะห์ architecture อย่างลึกซึ้งด้วย scripts
 
-### 3. Identify Anti-Patterns
+1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-architecture.ts` ใน `.devin/scripts/analyze/`
+2. Script ตรวจสอบ:
+   - Module boundaries และ import directions
+   - Dependency graph และ circular dependencies
+   - SOLID principles และ design patterns
+   - Scalability และ concurrency issues
+3. Script คำนวณ architecture health score และ output เป็น structured JSON
+4. ถ้า script ไม่ผ่าน → แก้ไข script แล้ว re-run ถ้าไม่ผ่านหลังจาก 3 ครั้ง → stop และ report
 
-ระบุ anti-patterns ที่พบจาก analysis results
+### 3. Validate Findings
 
-1. ระบุ God Objects จาก modules ที่มี responsibilities มากเกินไป (ใช้ coupling metrics จาก step 1)
-2. ระบุ Spaghetti Code จาก high complexity และ deep dependency chains
-3. ระบุ Golden Hammer จาก pattern ที่ใช้ซ้ำเกินสมควร
-4. ระบุ Copy-Paste Programming จากผลของ `/check-duplication`
+ตรวจสอบความถูกต้องของ findings ก่อน report
 
-### 4. Classify And Prioritize
+1. ทำ `/validate` สำหรับ validate issues แต่ละอย่าง
+2. ทำ `/update-rules` เพื่ออัปเดท ast-grep rules ตาม findings
+3. จัดลำดับการ validate ตาม severity
+4. ถ้า validation ไม่ผ่าน → กลับไปแก้ที่ Step 2
 
-จัดลำดับ issues ทั้งหมดตาม severity และ impact
+### 4. Report
 
-1. รวบรวม issues จาก `/analyze-architecture` และ steps 2-3
-2. จัดประเภทตาม Severity Classification ใน Rules
-3. จัดลำดับตาม impact: Critical → High → Medium → Low
-4. ระบุ actionable recommendations สำหรับแต่ละ issue
+รายงานผลการ review ในแชท
 
-### 5. Report Findings
-
-1. ทำ `/report` เพื่อรายงานผล review ในแชท
-2. ทำ `/report-format-table` เพื่อจัดรูปแบบตาราง issues พร้อม severity, location, และ recommendations
-3. ทำ `/comment-todo` สำหรับระบุ issues ใน code โดยไม่แก้ไข code
-4. แนะนำขั้นตอนถัดไป: `/improve-architecture` สำหรับแก้ไข issues ที่พบ
+1. ทำ `/report` พร้อม `/report-format-table`
+2. สร้างตาราง findings: Category, Finding, Severity, Location, Recommendation
+3. จัดกลุ่ม findings ตาม category และเรียงตาม severity
+4. ทำ `/suggest-next-action` เพื่อแนะนำ action ถัดไป
 
 ## Rules
 
 ### 1. Severity Classification
 
-- **Critical**: layer violations, circular dependencies, missing domain boundaries, security-related architectural flaws
-- **High**: high coupling (imports > 10), deep dependency chains (depth > 5), missing SoC, God Objects
-- **Medium**: missing DI, architectural inconsistencies, leaky abstractions, DRY violations
-- **Low**: missing documentation, minor pattern deviations, YAGNI violations
+- **Critical**: broken architecture, circular dependency ระหว่าง modules
+- **High**: violated SOLID principle, tight coupling
+- **Medium**: inconsistent pattern, missing abstraction
+- **Low**: minor pattern improvement
 
-### 2. Review Only
+### 2. Evidence-Based Findings
 
-- ห้ามแก้ไข code ระหว่าง review ใช้ `/comment-todo` สำหรับระบุ issues
-- รายงาน issues ทั้งหมดพร้อม location และ severity
-- ให้ actionable recommendations ที่นำไป implement ได้โดยตรง
+- ทุก finding ต้องมี file path และ line number
+- ไม่เดา ใช้ tools สำหรับ verification
+- ระบุ false positives ที่พบ
 
-### 3. Non-Redundancy
+### 3. Review Independence
 
-- อ้างถึง `/analyze-architecture` สำหรับ analysis steps โดยไม่ duplicate
-- ไม่ซ้ำซ้อนระหว่าง Execute และ Rules
-- เพิ่มคุณค่าด้วย design principles และ anti-patterns ที่ `/analyze-architecture` ไม่ครอบคลุม
+- ทำ review เท่านั้น ไม่แก้ไข code ระหว่าง review
+- ใช้ `/comment-todo` สำหรับระบุ issues ใน code
+- แยก review process จาก fix process
 
-### 4. Tool Selection
+### 4. Scope Boundaries
 
-- ใช้ `madge` สำหรับ dependency graph และ circular dependency detection
-- ใช้ `ast-grep` สำหรับ pattern-based analysis
-- ใช้ `/check-duplication` สำหรับ DRY violations
-- ถ้าเป็น monorepo: วิเคราะห์ workspace boundaries ด้วย
-
-### 5. Conditional Execution
-
-- ถ้าเป็น monorepo ให้ตรวจสอบ workspace dependency direction และ shared code strategy
-- ถ้าไม่มี database ให้ข้าม data layer review
-- ถ้าไม่มี frontend ให้ข้าม presentation layer review
+- ไม่ review code-level structure (symbols, exports, members) ที่ `/improve-code-structure` ทำ
+- ไม่ review filesystem organization ที่ `/review-filesystem` ทำ
+- ไม่ review refactor opportunities ลึกที่ `/review-refactor` ทำ
+- focus ที่ system-level: patterns, boundaries, coupling, SOLID, scalability
+- สำหรับ drill-down ระดับไฟล์ ทำ `/improve-code-structure`
 
 ## Expected Outcome
 
-- Architecture patterns ถูกระบุและวิเคราะห์โดยอ้างถึง `/analyze-architecture`
-- Design principles และ anti-patterns ถูกตรวจสอบพร้อม examples
-- Issues ทั้งหมดถูกระบุ จัดประเภท severity และจัดลำดับตาม impact
-- Actionable recommendations ชัดเจนสำหรับแต่ละ issue
-- พร้อมสำหรับ `/improve-architecture` เพื่อแก้ไข issues
+- รายงานตาราง findings พร้อม severity และ location
+- รายงาน recommended actions พร้อม priority
+- แนะนำ action ถัดไปผ่าน `/suggest-next-action`

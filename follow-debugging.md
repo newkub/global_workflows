@@ -2,12 +2,12 @@
 title: Follow Debugging
 description: หลักการ debug อย่างเป็นระบบ ตั้งแต่ reproduce ถึง fix และ prevent
 auto_execution_mode: 3
-related_workflows:
+related:
   - /debug-issue
   - /follow-root-cause-analysis
   - /resolve-errors
   - /deep-debug
-  - /improve-debugging
+  - /review-debugging
   - /follow-vitest
   - /follow-playwright
 ---
@@ -77,7 +77,7 @@ related_workflows:
 ### 8. Prevent Recurrence
 
 1. เพิ่ม test case สำหรับป้องกัน regression — ทำ `/follow-vitest` หรือ `/follow-playwright`
-2. ทำ `/improve-debugging` ถ้าพบว่า debug ยากเพราะ logging ไม่พอ
+2. ทำ `/review-debugging` ถ้าพบว่า debug ยากเพราะ logging ไม่พอ
 3. อัปเดท documentation ถ้าปัญหาเกี่ยวกับ config หรือ setup
 4. บันทึก root cause และ solution ใน `docs/` หรือ commit message
 
@@ -105,7 +105,7 @@ related_workflows:
 - ใส่ context: function name, input values, state
 - ใช้ log levels: `debug`, `info`, `warn`, `error`
 - หลัง fix ให้ลบ debug logging ที่ไม่จำเป็น
-- รายละเอียดเพิ่มเติมอยู่ใน `/improve-debugging`
+- รายละเอียดเพิ่มเติมอยู่ใน `/review-debugging`
 
 ### 4. Tool Selection
 
@@ -114,14 +114,14 @@ related_workflows:
 - E2E failures → `/follow-playwright`
 - Build errors → `/run-build` + `/resolve-errors`
 - Type errors → `/run-typecheck` + `/follow-tsgo`
-- Performance → `/run-profile` + `/analyze-web-performance`
+- Performance → `/run-profile` + `/deep-review`
 - Git issues → `/follow-git-bisect` + `/follow-git-blame`
 
 ### 5. Non-Redundancy
 
 - รายละเอียด Bayesian approach อยู่ใน `/debug-issue` แล้ว
 - รายละเอียด causal analysis อยู่ใน `/follow-root-cause-analysis` แล้ว
-- รายละเอียด improving debuggability อยู่ใน `/improve-debugging` แล้ว
+- รายละเอียด improving debuggability อยู่ใน `/review-debugging` แล้ว
 - รายละเอียด error resolution อยู่ใน `/resolve-errors` แล้ว
 - workflow นี้เป็น principles และ orchestrator ไม่ duplicate
 

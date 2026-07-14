@@ -2,7 +2,7 @@
 title: Ship
 description: Ship code ครบวงจร ทดสอบ release และ deploy
 auto_execution_mode: 3
-related_workflows:
+related:
   - /read-related-workflows
   - /follow-workflows
   - /follow-skills
@@ -10,9 +10,11 @@ related_workflows:
   - /plan
   - /implement-features-to-mvp
   - /update-project
+  - /follow-agents-md
+  - /update-agents-md
   - /follow-monorepo
   - /review-codebase-everything
-  - /resolve-issue
+  - /fix
   - /loop-until-complete
   - /run-verify
   - /watch-github-actions
@@ -20,7 +22,6 @@ related_workflows:
   - /commit
   - /run-release
   - /run-deploy
-  - /follow-agents-md
   - /report
   - /suggest-next-action
 ---
@@ -46,15 +47,16 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 5. ทำ `/plan` เพื่อวางแผนงาน (ถ้าเสี่ยงสูงให้รอยืนยัน user)
 6. ถ้า MVP phase ให้ทำ `/implement-features-to-mvp`
 7. ทำ `/update-project` เพื่ออัพเดท `.devin`, `README`, `AGENTS.md`
-8. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo` และทำ phases 2-5 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
-9. ถ้า project ต้องการ deployment ให้ทำ `/follow-deploy` เพื่อตั้งค่า CI/CD
+8. ทำ `/follow-agents-md` เพื่ออัพเดตและทำตาม `AGENTS.md` ทุก workspace ก่อนเริ่ม review
+9. ถ้าเป็น monorepo ให้ทำ `/follow-monorepo` และทำ phases 2-5 สำหรับแต่ละ workspace ตามลำดับ foundation ก่อน
+10. ถ้า project ต้องการ deployment ให้ทำ `/follow-deploy` เพื่อตั้งค่า CI/CD
 
 ### 2. Review And Fix
 
 ทำ comprehensive review และแก้ไข issues ครบทุกมิติ
 
 1. ทำ `/review-codebase-everything` เพื่อ review ครบทุกมิติ แก้ไข issues ตาม severity จนครบ
-2. ถ้าพบ issues ให้ทำ `/resolve-issue` แล้วทำ `/loop-until-complete` ขั้นตอน 1 จนกว่าจะผ่าน
+2. ถ้าพบ issues ให้ทำ `/fix` แล้วทำ `/loop-until-complete` ขั้นตอน 1 จนกว่าจะผ่าน
 
 ### 3. Verify
 
@@ -62,14 +64,14 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 1. ทำ `/loop-until-complete` กับ `/run-verify` จนกว่าจะผ่าน
 2. ทำ `/watch-github-actions` เพื่อตรวจสอบว่า CI ผ่านทุก checks
-3. ถ้าพบ CI failures ให้ทำ `/resolve-issue` ก่อนดำเนินการต่อ
+3. ถ้าพบ CI failures ให้ทำ `/fix` ก่อนดำเนินการต่อ
 
 ### 4. Test And Validate
 
 ทดสอบการใช้งานจริง
 
 1. ทำ `/test-usage` เพื่อทดสอบการใช้งานผ่าน interface ต่างๆ
-2. ถ้าพบ issues ให้ทำ `/resolve-issue` แล้วทำ `/loop-until-complete` กลับไปทำ Phase 2 จนกว่าจะผ่าน
+2. ถ้าพบ issues ให้ทำ `/fix` แล้วทำ `/loop-until-complete` กลับไปทำ Phase 2 จนกว่าจะผ่าน
 
 ### 5. Ship
 
@@ -112,7 +114,7 @@ Git operations, release และ deploy
 
 ### 3. Error Resolution
 
-- ทำ `/resolve-issue` เมื่อพบ error แล้วทำ `/loop-until-complete` ซ้ำจนกว่าจะผ่าน
+- ทำ `/fix` เมื่อพบ error แล้วทำ `/loop-until-complete` ซ้ำจนกว่าจะผ่าน
 - ห้ามข้าม errors หรือทำ workaround
 
 ### 4. Execution Order

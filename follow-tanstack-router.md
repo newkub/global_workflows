@@ -2,7 +2,7 @@
 title: Follow Tanstack Router
 description: ตั้งค่าและใช้งาน TanStack Router v1 สำหรับ file-based routing และ type-safe navigation
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-react
   - /follow-solidjs

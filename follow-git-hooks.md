@@ -2,7 +2,7 @@
 title: Follow Git Hooks
 description: จัดการ git hooks ผ่าน Lefthook สำหรับ pre-commit, pre-push และ pre-merge-commit
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-workflows
   - /follow-lefthook
   - /run-check

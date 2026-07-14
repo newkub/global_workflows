@@ -2,7 +2,7 @@
 title: Generate Release
 description: สร้าง RELEASE.md ด้วย Bun Shell
 auto_execution_mode: 3
-related_workflows:
+related:
   - /gen-changelog
   - /use-bun-shell
 ---

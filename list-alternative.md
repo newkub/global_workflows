@@ -1,8 +1,8 @@
 ---
 description: List alternatives ที่ดีกว่าสำหรับ libraries, tools, frameworks หรือ patterns
 auto_execution_mode: 3
+title: List Alternative
 ---
-
 
 ## Goal
 

@@ -2,10 +2,10 @@
 title: Follow Content Quality
 description: จัดรูปแบบและคุณภาพเนื้อหาให้ถูกต้อง อ่านง่าย สอดคล้องกัน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-global-workflows
-  - /improve-correctness
-  - /improve-file-structure
+  - /review-code-quality
+  - /review-architecture
   - /dont-over-engine
   - /follow-code-quality
 ---
@@ -53,7 +53,7 @@ related_workflows:
 ปรับปรุง content ครบวงจร
 
 1. ทำตาม Rules ใน section "Content Dimensions" ทั้งหมด
-2. ทำ `/improve-file-structure` สำหรับโครงสร้างไฟล์
+2. ทำ `/review-architecture` สำหรับโครงสร้างไฟล์
 
 ## Rules
 
@@ -107,9 +107,9 @@ related_workflows:
 
 มิติของ content quality
 
-- ทำตาม `/improve-file-structure` สำหรับโครงสร้างไฟล์
+- ทำตาม `/review-architecture` สำหรับโครงสร้างไฟล์
 - Readability: explanations ชัดเจน, formatting เหมาะสม, หลีกเลี่ยง jargon
-- Completeness: ครอบคลุม use cases, examples, edge cases
+- Completeness: รวม use cases, examples, edge cases
 - Correctness: ตรวจสอบ structure, flow, edge cases, assumptions
 - Accessibility: screen reader friendly, keyboard navigation, alt text
 - Maintainability: organized structure, consistent patterns, documentation
@@ -132,4 +132,4 @@ related_workflows:
 - บำรุงรักษาได้ง่ายขึ้น
 - โครงสร้างไฟล์เป็นระเบียบ สม่ำเสมอ
 - naming ที่สอดคล้องกันทั่วทั้งโปรเจกต์
-- Content ครอบคลุมทุกมิติ quality (readability, completeness, correctness, accessibility, maintainability, relevance, actionability)
+- Content ครบทุกมิติ quality (readability, completeness, correctness, accessibility, maintainability, relevance, actionability)

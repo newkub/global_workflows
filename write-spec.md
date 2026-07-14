@@ -2,7 +2,7 @@
 title: Write Spec
 description: เขียน spec ใน docs/development/spec/ directory ตาม test files ที่มีอยู่
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-test
   - /update-docs
 ---

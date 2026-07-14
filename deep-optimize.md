@@ -2,15 +2,15 @@
 title: Deep Optimize
 description: Performance optimization อย่างลึกซึ้ง ครอบคลุม bundle, queries, rendering, caching
 auto_execution_mode: 3
-related_workflows:
+related:
   - /deep-thinking
   - /deep-analyze
   - /deep-research
-  - /analyze-web-performance
-  - /analyze-bundle
-  - /analyze-database
-  - /analyze-caching
-  - /improve-performance
+  - /deep-review
+  - /deep-review
+  - /deep-review
+  - /deep-review
+  - /review-performance
   - /report-format-table
 ---
 
@@ -20,7 +20,7 @@ Performance optimization อย่างลึกซึ้ง ครอบคล
 
 ## Scope
 
-ใช้สำหรับ optimization ครบวงจร ไม่ใช่การวิเคราะห์เฉพาะ frontend (ใช้ `/analyze-web-performance`) ครอบคลุม: frontend, backend, database, caching, runtime
+ใช้สำหรับ optimization ครบวงจร ไม่ใช่การวิเคราะห์เฉพาะ frontend (ใช้ `/deep-review`) ครอบคลุม: frontend, backend, database, caching, runtime
 
 ## Execute
 
@@ -45,19 +45,19 @@ Performance optimization อย่างลึกซึ้ง ครอบคล
 
 ### 3. Frontend Optimization
 
-ทำ `/analyze-web-performance` และ `/analyze-bundle` สำหรับ frontend
+ทำ `/deep-review` และ `/deep-review` สำหรับ frontend
 
-1. ทำ `/analyze-web-performance` วิเคราะห์ Core Web Vitals
-2. ทำ `/analyze-bundle` วิเคราะห์ bundle size และ tree shaking
+1. ทำ `/deep-review` วิเคราะห์ Core Web Vitals
+2. ทำ `/deep-review` วิเคราะห์ bundle size และ tree shaking
 3. ระบุ render-blocking resources และ lazy loading opportunities
 4. ระบุ code splitting และ vendor chunk optimization
 5. ระบุ image/font/icon optimization opportunities
 
 ### 4. Backend And Database
 
-ทำ `/analyze-database` สำหรับ backend และ data layer
+ทำ `/deep-review` สำหรับ backend และ data layer
 
-1. ทำ `/analyze-database` วิเคราะห์ query patterns และ indexes
+1. ทำ `/deep-review` วิเคราะห์ query patterns และ indexes
 2. ระบุ N+1 queries และ unnecessary queries
 3. ระบุ missing indexes และ slow queries
 4. ระบุ connection pooling issues
@@ -65,9 +65,9 @@ Performance optimization อย่างลึกซึ้ง ครอบคล
 
 ### 5. Caching Strategy
 
-ทำ `/analyze-caching` สำหรับ caching optimization
+ทำ `/deep-review` สำหรับ caching optimization
 
-1. ทำ `/analyze-caching` วิเคราะห์ cache layers และ invalidation
+1. ทำ `/deep-review` วิเคราะห์ cache layers และ invalidation
 2. ระบุ missing cache layers: CDN, application, database
 3. ระบุ cache invalidation issues
 4. ระบุ cache hit ratio และ optimization opportunities
@@ -96,7 +96,7 @@ Performance optimization อย่างลึกซึ้ง ครอบคล
 
 1. ทำ `/report-format-table` สร้างตาราง optimization opportunities พร้อม impact และ effort
 2. จัดลำดับ: high impact + low effort ก่อน
-3. แนะนำขั้นตอนถัดไป: `/improve-performance` สำหรับ implement optimizations
+3. แนะนำขั้นตอนถัดไป: `/review-performance` สำหรับ implement optimizations
 4. วัด metrics หลัง optimization เพื่อเปรียบเทียบ before-after
 
 ## Rules
@@ -116,10 +116,10 @@ Performance optimization อย่างลึกซึ้ง ครอบคล
 
 ### 3. Non-Redundancy
 
-- อ้างถึง `/analyze-web-performance` สำหรับ frontend analysis ไม่ duplicate
-- อ้างถึง `/analyze-bundle` สำหรับ bundle analysis
-- อ้างถึง `/analyze-database` สำหรับ database analysis
-- อ้างถึง `/analyze-caching` สำหรับ caching analysis
+- อ้างถึง `/deep-review` สำหรับ frontend analysis ไม่ duplicate
+- อ้างถึง `/deep-review` สำหรับ bundle analysis
+- อ้างถึง `/deep-review` สำหรับ database analysis
+- อ้างถึง `/deep-review` สำหรับ caching analysis
 - เพิ่มคุณค่าด้วย holistic view, runtime, before-after comparison
 
 ### 4. Conditional Execution
@@ -135,4 +135,4 @@ Performance optimization อย่างลึกซึ้ง ครอบคล
 - Before-after metrics แสดงการปรับปรุง
 - Optimization opportunities จัดลำดับตาม impact และ effort
 - Holistic view ครอบคลุม frontend, backend, database, caching, runtime
-- พร้อมสำหรับ `/improve-performance` เพื่อ implement optimizations
+- พร้อมสำหรับ `/review-performance` เพื่อ implement optimizations

@@ -3,7 +3,7 @@ title: Use Ast-grep
 description: ใช้งาน ast-grep สำหรับ code search, linting และ transformation ด้วย AST-based pattern matching
 auto_execution_mode: 3
 url: https://ast-grep.github.io/
-related_workflows:
+related:
   - /update-ast-grep-rules
   - /run-scan
   - /follow-code-quality

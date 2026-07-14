@@ -2,7 +2,7 @@
 title: No Hard Code
 description: ลบ hard code ออกจาก codebase ด้วย environment variables, config, constants
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-config
   - /follow-content-quality
   - /update-docs
@@ -82,7 +82,7 @@ related_workflows:
 ตรวจสอบว่าไม่มี hard code เหลืออยู่
 
 - ทำ `/run-lint` เพื่อตรวจสอบด้วย lint rules สำหรับ detect hard code
-- ทำ `/resolve-issue` เพื่อตรวจสอบ code อย่าง manual
+- ทำ `/fix` เพื่อตรวจสอบ code อย่าง manual
 - ตรวจสอบใน environments ต่างๆ
 - ตรวจสอบว่า configuration ถูกต้อง
 - ทำ `/update-docs` เพื่อ Document configuration ทั้งหมด

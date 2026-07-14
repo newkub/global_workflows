@@ -2,7 +2,7 @@
 title: Use Library Effectively
 description: วิเคราะห์ dependencies และใช้งาน libraries ให้ครบและครอบคลุม ไม่ reinvent
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-my-tech-stack
   - /deep-analyze-with-use-scripts
   - /use-lib-better

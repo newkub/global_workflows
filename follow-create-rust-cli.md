@@ -2,7 +2,7 @@
 title: Follow Create Rust CLI
 description: สร้าง CLI applications ด้วย Rust ตาม best practices
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-rust
   - /follow-cargo
   - /follow-clippy

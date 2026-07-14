@@ -2,7 +2,7 @@
 title: Follow Astro
 description: พัฒนา Astro 5 applications ด้วย Server Islands, Content Layer และ Actions
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-unocss
   - /follow-vite

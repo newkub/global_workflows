@@ -2,8 +2,9 @@
 title: Use Import Alias
 description: ใช้ import alias แทน relative paths ที่ซับซ้อน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /use-scripts
+  - /follow-barrel-export
 ---
 
 ## Goal
@@ -48,7 +49,7 @@ related_workflows:
 
 ตรวจสอบและอัพเดท barrel exports
 
-1. สร้าง barrel exports (`index.ts`, `__init__.py`, ไฟล์ index ตาม convention) สำหรับ folders ที่มี public API
+1. ทำ `/follow-barrel-export` เพื่อสร้าง barrel exports สำหรับ folders ที่มี public API
 2. export เฉพาะส่วนที่ต้องการให้โมดูลอื่นใช้งาน
 3. อัพเดท imports ให้ใช้ barrel exports
 4. ซ่อน implementation details

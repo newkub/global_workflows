@@ -2,7 +2,7 @@
 title: Follow Git LFS
 description: จัดการ large files ด้วย Git LFS เพื่อลดขนาด repository
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-workflows
   - /follow-git-cleanup
   - /follow-gitignore

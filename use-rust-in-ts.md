@@ -2,7 +2,7 @@
 title: Use Rust In TypeScript
 description: ค้นหาและใช้งาน Rust libraries ที่มี npm packages สำหรับ TypeScript/JavaScript projects
 auto_execution_mode: 3
-related_workflows:
+related:
   - /choose-tech-stack
 ---
 

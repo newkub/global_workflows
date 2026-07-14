@@ -2,7 +2,7 @@
 title: Follow Effect Ts
 description: แนวทางการพัฒนาด้วย Effect-TS v3.x สำหรับ functional programming และ type-safe effects
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-vitest
   - /follow-tsgo

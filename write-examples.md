@@ -2,7 +2,7 @@
 title: Write Examples
 description: เขียน examples ครอบคลุมทุก API ในโปรเจกต์
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-code-explicit
 ---
 

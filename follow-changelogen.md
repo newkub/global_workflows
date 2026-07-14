@@ -2,7 +2,7 @@
 title: Changelogen
 description: สร้าง changelog และจัดการ releases ด้วย changelogen
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-conventional-commits
 url: https://github.com/unjs/changelogen
 ---

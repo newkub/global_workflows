@@ -2,7 +2,7 @@
 title: Follow Functional Core Imperative Shell
 description: แยก pure functions จาก side effects ด้วย Functional Core, Imperative Shell pattern
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-functional-programming
   - /refactor
   - /refactor-modules

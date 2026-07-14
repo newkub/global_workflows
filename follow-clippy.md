@@ -2,7 +2,7 @@
 title: Follow Clippy Rules
 description: ตั้งค่า Clippy lint rules และ error handling standards
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-mutants-rs
   - /follow-nextest
   - /follow-code-quality

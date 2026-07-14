@@ -2,6 +2,9 @@
 title: Idea UX/UI
 description: สร้างไอเดีย UX/UI improvements ใหม่และปรับปรุง UX/UI ที่มีอยู่ วิเคราะห์ usability gaps, user experience และ design trends ด้วย continuous numbering และ scope ที่ชัดเจน
 auto_execution_mode: 3
+related:
+  - /report-uxui-sketch
+  - /report-architecture-diagram
 ---
 
 

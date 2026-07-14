@@ -2,7 +2,7 @@
 title: Follow Skills
 description: อ่านและใช้ skills ที่มีอยู่ตามที่เหมาะสม
 auto_execution_mode: 3
-related_workflows:
+related:
   - /use-skills
   - /check-reference
   - /read-related-workflows

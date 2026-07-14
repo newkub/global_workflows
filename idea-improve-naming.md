@@ -2,12 +2,12 @@
 title: Idea Improve Naming
 description: สร้างไอเดียปรับปรุง naming conventions ทั้ง code, API, database, files พร้อม continuous numbering และ scope
 auto_execution_mode: 3
-related_workflows:
+related:
   - /idea
   - /idea-features
   - /idea-uxui
-  - /analyze-naming
-  - /improve-naming-convention
+  - /deep-review
+  - /review-code-quality
   - /report
   - /report-format-table
   - /suggest-next-action
@@ -19,7 +19,7 @@ related_workflows:
 
 ## Scope
 
-ใช้เมื่อผู้ใช้ต้องการไอเดียปรับปรุง naming ทั่ว codebase ครอบคลุม: variables, functions, files, components, types, API endpoints, database tables/columns, CSS classes, constants ไม่รวมการ implement (ใช้ `/improve-naming-convention`)
+ใช้เมื่อผู้ใช้ต้องการไอเดียปรับปรุง naming ทั่ว codebase ครอบคลุม: variables, functions, files, components, types, API endpoints, database tables/columns, CSS classes, constants ไม่รวมการ implement (ใช้ `/review-code-quality`)
 
 ## Execute
 
@@ -27,7 +27,7 @@ related_workflows:
 
 วิเคราะห์ naming conventions ปัจจุบัน
 
-1. ทำ `/analyze-naming` เพื่อวิเคราะห์ naming patterns และ inconsistencies
+1. ทำ `/deep-review` เพื่อวิเคราะห์ naming patterns และ inconsistencies
 2. ระบุ naming categories ที่ต้องปรับปรุง: variables, functions, files, components, types, API, database, CSS, constants
 3. ระบุ inconsistencies, abbreviations ที่สับสน, และชื่อที่ไม่สื่อความหมาย
 4. บันทึก findings เป็น baseline สำหรับสร้างไอเดีย
@@ -114,8 +114,8 @@ related_workflows:
 
 ### 6. Non-Duplication
 
-- ใช้ `/analyze-naming` สำหรับ analysis
-- ใช้ `/improve-naming-convention` สำหรับ implement
+- ใช้ `/deep-review` สำหรับ analysis
+- ใช้ `/review-code-quality` สำหรับ implement
 - Workflow นี้เน้นเฉพาะการสร้างไอเดียและรายงาน
 
 ### 7. Output Format
@@ -131,4 +131,4 @@ related_workflows:
 - ทุกไอเดียมี Current และ Proposed naming
 - จัดลำดับตาม Impact (🔴 สูง → 🟡 ปานกลาง → 🟢 ต่ำ)
 - ระบุ Category และ Scope ชัดเจน
-- พร้อมสำหรับ `/improve-naming-convention` เพื่อ implement
+- พร้อมสำหรับ `/review-code-quality` เพื่อ implement

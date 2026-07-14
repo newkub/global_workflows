@@ -2,11 +2,11 @@
 title: Write Windsurf Skills
 description: เขียน skill file ให้เป็นมาตรฐานเดียวกัน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-global-workflows
   - /follow-content-quality
   - /check-reference
-  - /improve-content
+  - /review-docs
 ---
 
 ## Goal
@@ -71,7 +71,7 @@ related_workflows:
 
 ตรวจสอบและ finalize skill
 
-1. ทำ `/improve-content` สำหรับปรับปรุงคุณภาพ content ครบวงจร
+1. ทำ `/review-docs` สำหรับปรับปรุงคุณภาพ content ครบวงจร
 2. ตรวจสอบว่าไฟล์ไม่เกิน 250 บรรทัด
 3. ตรวจสอบว่า references มีอยู่จริง
 

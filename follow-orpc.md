@@ -3,7 +3,7 @@ title: Follow oRPC
 description: แนวทางการพัฒนา API ด้วย oRPC แบบ type-safe ตาม official best practices
 auto_execution_mode: 3
 url: https://orpc.dev/docs
-related_workflows:
+related:
   - /follow-zod
   - /follow-solid-tanstack
   - /follow-bun

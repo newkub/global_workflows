@@ -2,7 +2,7 @@
 title: Write Content Coverage
 description: เขียน content ครอบคลุมทุก features, APIs, และ use cases
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-global-workflows
   - /write-skills
   - /learn-from-web

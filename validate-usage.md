@@ -2,7 +2,7 @@
 title: Validate Usage
 description: ตรวจสอบการใช้งาน packages ตามประเภท (CLI, TUI, Web, SDK, Library, Framework)
 auto_execution_mode: 3
-related_workflows:
+related:
   - /list-usage
   - /check-unused-deps
   - /check-unsued-files
@@ -41,7 +41,7 @@ related_workflows:
 2. ถ้าเป็น TUI: ทำ `/follow-desktop-app` เพื่อตรวจสอบ TUI framework, keyboard events, terminal size
 3. ถ้าเป็น Web: ทำ `/follow-web-design` เพื่อตรวจสอบ framework, routing, state management, accessibility
 4. ถ้าเป็น SDK: ตรวจสอบ API design, type definitions, error handling, auth, rate limiting, logging
-5. ถ้าเป็น Library: ตรวจสอบ exports, barrel files, tree-shaking, bundle size, test coverage
+5. ถ้าเป็น Library: ทำ `/follow-barrel-export` เพื่อตรวจสอบ exports, barrel files, tree-shaking, bundle size, test coverage
 6. ถ้าเป็น Framework: ตรวจสอบ plugin system, lifecycle hooks, configuration schema, extensibility
 
 ### 3. Validate Common Patterns

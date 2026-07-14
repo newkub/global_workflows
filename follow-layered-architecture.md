@@ -2,7 +2,7 @@
 title: Follow Layered Architecture
 description: Implement Layered Architecture สำหรับ Frontend projects ขนาดเล็ก-กลาง
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-architecture
   - /follow-clean-architecture
   - /follow-vite

@@ -2,13 +2,13 @@
 title: Validate Test
 description: ตรวจสอบคุณภาพและมาตรฐานของ tests ครบวงจร รวมทั้ง coverage, mutation, security, performance
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-test
   - /run-test
   - /run-test-coverage
-  - /improve-test-coverage
-  - /review-test-case
-  - /analyze-test-result
+  - /review-testing
+  - /deep-review
+  - /deep-review
   - /report
   - /follow-code-quality
 ---
@@ -39,7 +39,7 @@ related_workflows:
 
 ### 3. Validate Test Quality
 
-1. ทำ `/review-test-case` เพื่อตรวจสอบคุณภาพของแต่ละ test case
+1. ทำ `/deep-review` เพื่อตรวจสอบคุณภาพของแต่ละ test case
 2. ตรวจสอบ AAA pattern (Arrange, Act, Assert)
 3. ตรวจสอบ single responsibility ต่อ test case
 4. ตรวจสอบ isolation ระหว่าง tests (no shared state)
@@ -97,7 +97,7 @@ related_workflows:
 
 ### 8. Review Test Results
 
-1. ทำ `/analyze-test-result` เพื่อวิเคราะห์ผล test execution และหา root cause ของ failures
+1. ทำ `/deep-review` เพื่อวิเคราะห์ผล test execution และหา root cause ของ failures
 
 ### 9. Generate Report
 

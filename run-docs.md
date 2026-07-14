@@ -2,10 +2,10 @@
 title: Run Documentation Site
 description: รัน documentation site และแก้ไขข้อผิดพลาด
 auto_execution_mode: 3
-related_workflows:
+related:
   - /run-dev
   - /write-docs
-  - /improve-seo
+  - /review-seo
   - /follow-vitepress
 ---
 
@@ -30,14 +30,14 @@ related_workflows:
 ### 2. Update Documentation
 
 1. ทำ `/write-docs` เพื่อสร้างและอัพเดทเอกสาร
-2. ทำ `/improve-seo` เพื่อปรับปรุง SEO สำหรับ documentation site
+2. ทำ `/review-seo` เพื่อปรับปรุง SEO สำหรับ documentation site
 3. ตรวจสอบว่า documentation ถูกสร้างอย่างถูกต้อง
 
 ### 3. Run Dev Server
 
 1. ดำเนินการรัน dev server ด้วยคำสั่งที่เหมาะสมตาม documentation framework
-2. ถ้ามี errors ให้รัน `/analyze-errors` เพื่อวิเคราะห์และจัดลำดับ
-3. `/analyze-errors` จะตัดสินใจว่าควรไป workflow ไหนต่อ:
+2. ถ้ามี errors ให้รัน `/deep-review` เพื่อวิเคราะห์และจัดลำดับ
+3. `/deep-review` จะตัดสินใจว่าควรไป workflow ไหนต่อ:
    - ถ้าเป็น cascade issues → `/debug-issue` → `/deep-debug` → `/resolve-errors`
    - ถ้าเป็น isolated errors → `/resolve-errors`
 4. ติดตามและแก้ไขข้อผิดพลาดที่เกิดขึ้นทันทีจนกว่าจะผ่าน

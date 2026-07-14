@@ -2,9 +2,9 @@
 title: Run Typecheck
 description: Run typecheck with config check
 auto_execution_mode: 3
-related_workflows:
+related:
   - /config
-  - /analyze-errors
+  - /deep-review
   - /resolve-errors
   - /follow-code-quality
 ---
@@ -31,8 +31,8 @@ related_workflows:
 
 ### 3. Analyze Errors
 
-1. รัน `/analyze-errors` เพื่อวิเคราะห์และจัดลำดับ errors ที่เกิดจาก typecheck
-2. `/analyze-errors` จะตัดสินใจว่าควรไป workflow ไหนต่อ:
+1. รัน `/deep-review` เพื่อวิเคราะห์และจัดลำดับ errors ที่เกิดจาก typecheck
+2. `/deep-review` จะตัดสินใจว่าควรไป workflow ไหนต่อ:
    - ถ้าเป็น cascade issues → `/debug-issue` → `/deep-debug` → `/resolve-errors`
    - ถ้าเป็น isolated errors → `/resolve-errors`
 

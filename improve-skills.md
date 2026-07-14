@@ -2,16 +2,16 @@
 title: Improve Skills
 description: ปรับปรุง skill ให้ถูกต้อง ครอบคลุม และเป็นไปตาม best practices
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-skills
   - /write-global-workflows
   - /check-correctness
-  - /improve-correctness
-  - /improve-completeness
+  - /review-code-quality
+  - /review-code-quality
   - /deep-research
   - /follow-content-quality
   - /check-reference
-  - /improve-redundancy
+  - /review-code-quality
 ---
 
 ## Goal
@@ -58,7 +58,7 @@ related_workflows:
 ปรับปรุง skill ตาม findings
 
 1. แก้ไข issues ตาม priority จาก `/check-correctness` (Critical ก่อน)
-2. ทำ `/improve-correctness` สำหรับ issues ด้านเนื้อหาและ structure
+2. ทำ `/review-code-quality` สำหรับ issues ด้านเนื้อหาและ structure
 3. ปรับปรุง content ตาม `/follow-content-quality` (clarity, completeness, consistency)
 4. อัปเดตเนื้อหาตาม best practices ที่ research ได้
 5. ใช้ references แทนการ duplicate เนื้อหาจาก skills หรือ workflows อื่น
@@ -68,8 +68,8 @@ related_workflows:
 
 ปรับปรุงความครอบคลุมของเนื้อหา
 
-1. ทำ `/improve-coverage` เพื่อตรวจสอบว่า skill ครอบคลุม use cases ครบถ้วน
-2. ทำ `/improve-completeness` เพื่อตรวจสอบ missing sections หรือไฟล์ใน subdirectories
+1. ทำ `/review-testing` เพื่อตรวจสอบว่า skill ครอบคลุม use cases ครบถ้วน
+2. ทำ `/review-code-quality` เพื่อตรวจสอบ missing sections หรือไฟล์ใน subdirectories
 3. ทำ `/write-content-coverage` สำหรับแต่ละ subdirectory ที่ขาดเนื้อหา
 4. เพิ่ม edge cases และ conditional execution ที่ขาดหาย
 5. ตรวจสอบว่า Expected Outcome สอดคล้องกับ Goal
@@ -103,11 +103,11 @@ related_workflows:
 
 ### 3. Coverage Quality
 
-- ครอบคลุม use cases ครบถ้วน (ทำ `/improve-completeness`)
+- ครอบคลุม use cases ครบถ้วน (ทำ `/review-code-quality`)
 - ครอบคลุม edge cases และ conditional execution
 - ทำ `/write-content-coverage` สำหรับ subdirectories ที่ขาดเนื้อหา
 - Expected Outcome สอดคล้องกับ Goal
-- ไม่มี missing sections หรือไฟล์ (ทำ `/improve-completeness`)
+- ไม่มี missing sections หรือไฟล์ (ทำ `/review-code-quality`)
 
 ### 4. Content Quality
 

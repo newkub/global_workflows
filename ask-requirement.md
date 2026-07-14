@@ -2,8 +2,8 @@
 title: Ask Requirement
 description: ถามความต้องการโปรเจกต์ผ่าน CLI และ MCP server สร้าง custom data อัตโนมัติ
 auto_execution_mode: 3
-related_workflows:
-  - /follow-solid-start
+related:
+  - /follow-solid-start-architecture
   - /follow-unocss
   - /follow-turborepo
   - /write-global-workflows

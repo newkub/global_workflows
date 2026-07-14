@@ -2,7 +2,7 @@
 title: Wrangler CLI
 description: ใช้งาน Wrangler CLI สำหรับ Cloudflare Workers และ Developer Platform
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-cloudflare-worker
   - /follow-deploy-to-cloudflare
 url: https://developers.cloudflare.com/workers/wrangler/

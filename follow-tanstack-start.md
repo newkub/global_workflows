@@ -2,7 +2,7 @@
 title: Follow Tanstack Start
 description: ตั้งค่า TanStack Start สำหรับ full-stack React และ Solid พร้อม SSR
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-typescript
   - /follow-react
   - /follow-solidjs

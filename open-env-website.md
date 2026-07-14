@@ -2,7 +2,7 @@
 title: Open Env Website
 description: อ่าน .env.example แล้วเปิด external services websites เพื่อกรอก API keys
 auto_execution_mode: 3
-related_workflows:
+related:
   - /deep-research
 ---
 

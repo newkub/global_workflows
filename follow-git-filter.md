@@ -2,7 +2,7 @@
 title: Follow Git Filter
 description: rewrite git history ด้วย git filter-repo และ BFG เพื่อลบ secrets หรือ large files
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-workflows
   - /follow-git-cleanup
   - /check-vulnerability

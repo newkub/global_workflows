@@ -2,7 +2,7 @@
 title: Deep Research
 description: ค้นหาข้อมูลลึกจาก multiple sources เพื่อให้ได้คำตอบที่ครบถ้วนและถูกต้อง
 auto_execution_mode: 3
-related_workflows:
+related:
   - /learn-from-web
   - /follow-best-practice
   - /follow-crw
@@ -10,7 +10,6 @@ related_workflows:
   - /pondering
   - /ask-me
 ---
-
 
 ## Goal
 

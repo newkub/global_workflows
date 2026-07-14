@@ -3,7 +3,7 @@ title: Create Biome Plugins
 description: สร้าง custom Biome linter plugins ด้วย GritQL
 auto_execution_mode: 3
 url: https://biomejs.dev/linter/plugins/
-related_workflows:
+related:
   - /follow-biome
   - /follow-unocss-theme
 ---

@@ -2,7 +2,7 @@
 title: Understand Me
 description: คิดถามผู้ใช้เพื่อเข้าใจ preferences และ style การทำงาน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-agents-md
   - /my-persona
 ---

@@ -2,7 +2,7 @@
 title: Design System
 description: Design system principles พื้นฐานที่ใช้ได้กับทุก platform (TUI, Web, Desktop, Mobile)
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-web-design
   - /follow-unocss-theme
 ---
@@ -35,8 +35,8 @@ related_workflows:
 
 1. แปลง tokens ตาม platform constraints (ดูตารางด้านล่าง)
 2. ถ้า project เป็น web ทำ `/follow-web-design` สำหรับ web-specific guidelines
-3. ถ้า project มี mobile ทำ `/improve-mobile-experience`
-4. ถ้า project มี TUI ทำ `/improve-tui`
+3. ถ้า project มี mobile ทำ `/review-mobile`
+4. ถ้า project มี TUI ทำ `/review-cli`
 
 ### 4. Ensure Accessibility
 

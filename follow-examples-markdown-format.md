@@ -1,6 +1,8 @@
 ---
 trigger: manual
 description: ตัวอย่างการใช้งาน Markdown Format สำหรับ Workflows
+title: Follow Examples Markdown Format
+auto_execution_mode: 3
 ---
 
 ## 1. Basic Formatting (ใช้สำหรับจัดรูปแบบข้อความพื้นฐาน)

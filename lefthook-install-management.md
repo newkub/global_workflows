@@ -2,7 +2,7 @@
 title: Lefthook Install Management
 description: Manage lefthook install only in root package.json
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-tasks
   - /use-workflows
   - /follow-best-practice

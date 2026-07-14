@@ -2,12 +2,11 @@
 title: Debug Issue
 description: หา root cause ของปัญหาอย่างเป็นระบบด้วยการจัดลำดับและตัดสิ่งที่ไม่ใช่
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-debugging
   - /write-test
   - /resolve-errors
 ---
-
 
 ## Goal
 

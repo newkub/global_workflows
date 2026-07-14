@@ -2,7 +2,7 @@
 title: Follow Git Cherry-Pick
 description: cherry-pick commits ระหว่าง branches เพื่อนำการเปลี่ยนแปลงเฉพาะไปใช้
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-workflows
   - /follow-git-rebase
   - /commit

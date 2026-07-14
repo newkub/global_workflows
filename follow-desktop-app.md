@@ -2,9 +2,9 @@
 title: Follow Desktop App
 description: สร้าง Desktop Applications ด้วย Tauri, SolidStart, และ UnoCSS
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-tauri
-  - /follow-solid-start
+  - /follow-solid-start-architecture
   - /follow-unocss
 ---
 

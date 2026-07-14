@@ -2,7 +2,7 @@
 title: Follow Clean Architecture
 description: Ultra Minimal Clean Architecture - Production-Ready Guidelines for Teams
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-functional-programming
   - /follow-functional-core-imperative-shell
   - /follow-event-driven
@@ -82,7 +82,7 @@ test/                             # Mirror src structure
 - Immutable data structures (`readonly`)
 - ไม่มี side effects
 - ไม่พึ่ง infrastructure
-- ทำ `/review-architecture` เพื่อใช้ patterns ที่เหมาะสมกับ functional core
+- ทำ `/deep-review` เพื่อใช้ patterns ที่เหมาะสมกับ functional core
 
 ### 4. Implement Application Layer
 

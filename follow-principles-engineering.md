@@ -2,9 +2,9 @@
 title: Follow Principles Engineering
 description: ตรวจสอบว่าไฟล์ match กับ software engineering principles
 auto_execution_mode: 3
-related_workflows:
+related:
   - /check-correctness
-  - /analyze-consistency
+  - /review-consistency
   - /check-quality
   - /follow-code-quality
 ---
@@ -30,7 +30,7 @@ related_workflows:
 
 1. อ่านไฟล์ที่ส่งให้ทั้งหมด
 2. ตรวจสอบ structure, logic, และ naming match กับ principle หรือไม่
-3. ทำ `/improve-naming` สำหรับปรับปรุง naming ให้ match กับ principle
+3. ทำ `/review-code-quality` สำหรับปรับปรุง naming ให้ match กับ principle
 
 ### 3. Analyze Violations
 

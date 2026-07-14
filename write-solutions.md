@@ -2,7 +2,7 @@
 title: Write Solutions
 description: เขียน solution documents และ problem-solving workflows
 auto_execution_mode: 3
-related_workflows:
+related:
   - /write-global-workflows
   - /follow-root-cause-analysis
   - /resolve-errors

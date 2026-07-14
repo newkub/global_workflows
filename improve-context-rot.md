@@ -2,7 +2,7 @@
 title: Improve Context Rot
 description: ลด context rot ใน AI conversation เพื่อรักษาคุณภาพการทำงานตลอด long-horizon tasks
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-context-engineering
   - /follow-harness-engineering
   - /continue

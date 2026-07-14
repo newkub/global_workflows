@@ -2,9 +2,9 @@
 title: Use Workflows
 description: หลักการใช้ global workflows ใน workspace
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-workflows
-  - /follow-principles
+  - /follow-principles-engineering
   - /at-windsurf-global-rules
 ---
 
@@ -58,7 +58,7 @@ related_workflows:
 
 ## Rules
 
-ทำตาม `/follow-principles`
+ทำตาม `/follow-principles-engineering`
 
 - เขียนเป็นหลักการทั่วไป ไม่เจาะจง
 - ใช้ generic terms แทน specific tools

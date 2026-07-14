@@ -2,7 +2,7 @@
 title: Refactor Commit
 description: Refactor commits ที่ commit ไปแล้วด้วย interactive rebase (break down, edit, reorganize)
 auto_execution_mode: 3
-related_workflows:
+related:
   - /git-push
   - /follow-git-cleanup
   - /read-related-workflows

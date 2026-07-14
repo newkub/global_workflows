@@ -2,7 +2,7 @@
 title: Follow Git Stash
 description: จัดการ git stash สำหรับเก็บและกู้คืน changes ชั่วคราว
 auto_execution_mode: 3
-related_workflows:
+related:
   - /commit
   - /follow-git-workflows
 ---

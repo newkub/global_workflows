@@ -2,9 +2,9 @@
 title: News AI This Week
 description: รวบรวมข่าว AI และ open source projects รายสัปดา์ด้วย deep research
 auto_execution_mode: 3
-related_workflows:
+related:
   - /deep-research
-  - /follow-web-search
+  - /follow-websearch
   - /report-format-table
   - /report
 ---

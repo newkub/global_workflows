@@ -2,7 +2,7 @@
 title: Implement Features To MVP
 description: Implement features ที่จำเป็นสำหรับ MVP เท่านั้น หยุดเมื่อครบถ้วน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /analyze-project
   - /plan-task
   - /realize-implementation

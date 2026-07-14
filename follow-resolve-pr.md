@@ -2,7 +2,7 @@
 title: Resolve Pull Request
 description: Resolve pull request ด้วยการ merge, squash, หรือ rebase ตาม project conventions
 auto_execution_mode: 3
-related_workflows:
+related:
   - /create-pr
   - /github-update-pr
   - /github-merge-pr

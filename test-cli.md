@@ -2,7 +2,7 @@
 title: Test CLI
 description: ทดสอบ CLI commands ทั้งหมด รวมถึง options, help documentation และ edge cases
 auto_execution_mode: 3
-related_workflows:
+related:
   - /test-usage
   - /run-test-browser
   - /record-terminal
@@ -81,7 +81,7 @@ related_workflows:
 
 ### 7. Review And Report
 
-1. ทำ `/analyze-test-result` เพื่อวิเคราะห์ผล test execution
+1. ทำ `/deep-review` เพื่อวิเคราะห์ผล test execution
 2. ทำ `/report` สรุปผลลัพธ์:
    - `/report-format-table` สำหรับ command test results
    - `/report-format-terminal` สำหรับ terminal output ที่สำคัญ

@@ -2,8 +2,8 @@
 title: Check Configuration
 description: ตรวจสอบ config files และ environment variables
 auto_execution_mode: 3
-related_workflows:
-  - /improve-platform
+related:
+  - /review-frontend
 ---
 
 ## Goal

@@ -1,8 +1,8 @@
 ---
 title: Follow Draw Diagram In Excalidraw
 description: TODO
+auto_execution_mode: 3
 ---
-
 # Draw Diagram in Excalidraw
 
 ## When to Use

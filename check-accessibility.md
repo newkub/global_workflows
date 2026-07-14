@@ -2,8 +2,8 @@
 title: Check Accessibility
 description: ตรวจสอบ accessibility ตามมาตรฐาน WCAG
 auto_execution_mode: 3
-related_workflows:
-  - /improve-ui
+related:
+  - /review-frontend
 ---
 
 ## Goal

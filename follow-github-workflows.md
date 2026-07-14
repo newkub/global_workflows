@@ -2,7 +2,7 @@
 title: Follow GitHub Workflows
 description: วิเคราะหาและเขียน GitHub workflows ที่ควรมีตามที่ควรจะเป็นให้เหมาะสม
 auto_execution_mode: 3
-related_workflows:
+related:
   - /analyze-project
   - /follow-github-actions
   - /write-global-workflows

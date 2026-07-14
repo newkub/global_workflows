@@ -2,7 +2,7 @@
 title: List Github Branch
 description: แสดง branches ทั้งหมดของ repo ที่ระบุบน GitHub
 auto_execution_mode: 3
-related_workflows:
+related:
   - /report-format-table
 ---
 

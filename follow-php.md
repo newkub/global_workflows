@@ -2,7 +2,7 @@
 title: Follow PHP
 description: แนวทางการพัฒนาโปรเจกต์ PHP ด้วย PSR standards และ best practices
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-code-quality
 ---
 

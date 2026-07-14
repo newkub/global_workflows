@@ -2,7 +2,7 @@
 title: Nuxt Best Practices
 description: สร้างหรือปรับปรุง Nuxt 4 project ด้วย Universal Rendering และ Nitro
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-vue
   - /follow-vueuse
   - /follow-typescript

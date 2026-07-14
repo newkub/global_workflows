@@ -2,8 +2,8 @@
 title: Check Performance
 description: ตรวจสอบ performance ด้วย Core Web Vitals และ metrics
 auto_execution_mode: 3
-related_workflows:
-  - /improve-perf
+related:
+  - /review-performance
   - /run-profile
 ---
 

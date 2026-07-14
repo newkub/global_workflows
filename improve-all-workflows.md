@@ -2,16 +2,16 @@
 title: Improve All Workflows
 description: ปรับปรุง global workflows ทั้งหมดให้สมบูรณ์และสม่ำเสมอ
 auto_execution_mode: 3
-related_workflows:
+related:
   - /read-related-workflows
   - /write-global-workflows
-  - /review-global-workflows
+  - /deep-review
   - /follow-content-quality
   - /follow-consistency
   - /check-reference
-  - /improve-readability
-  - /improve-correctness
-  - /improve-redundancy
+  - /review-code-quality
+  - /review-code-quality
+  - /review-code-quality
 ---
 
 ## Goal
@@ -28,7 +28,7 @@ related_workflows:
 
 Review workflows ก่อนปรับปรุง
 
-1. ทำ `/review-global-workflows` เพื่อ review workflows ทั้งหมดและระบุ issues พร้อม severity
+1. ทำ `/deep-review` เพื่อ review workflows ทั้งหมดและระบุ issues พร้อม severity
 2. ทำ `/read-related-workflows` เพื่ออ่านและสร้าง dependency graph
 3. ถ้าอยู่ใน workspace ตรวจสอบว่ามี `.devin/workflows` หรือ `.windsurf/workflows`
 4. จัดลำดับ workflows ที่ต้องปรับปรุงตาม severity จาก review report
@@ -103,7 +103,7 @@ Review workflows ก่อนปรับปรุง
 
 ### 3. Review Before Improve
 
-- ทำ `/review-global-workflows` ก่อนปรับปรุงเสมอ
+- ทำ `/deep-review` ก่อนปรับปรุงเสมอ
 - ปรับปรุงตาม severity จาก review report
 - ไม่แก้ไข workflows ที่ผ่านมาตรฐานแล้ว
 

@@ -2,7 +2,7 @@
 title: Plan
 description: วางแผนงานและ architecture อย่างเป็นระบบก่อนเริ่ม implement
 auto_execution_mode: 3
-related_workflows:
+related:
   - /analyze-project
   - /use-lib-better
   - /use-lib-effective

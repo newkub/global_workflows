@@ -2,7 +2,7 @@
 title: Refactor All Workspaces
 description: Deep refactoring ทุก workspace ใน monorepo ด้วย comprehensive analysis และ safety measures
 auto_execution_mode: 3
-related_workflows:
+related:
   - /refactor-modules
   - /refactor-packages
   - /all-workspaces

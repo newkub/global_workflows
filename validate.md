@@ -2,9 +2,9 @@
 title: Validate
 description: ตรวจสอบความถูกต้อง คุณภาพ และความเหมาะสม
 auto_execution_mode: 3
-related_workflows:
+related:
   - /check-correctness
-  - /analyze-code-quality
+  - /deep-review
   - /check-configuration
   - /follow-code-quality
 ---

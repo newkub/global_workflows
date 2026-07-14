@@ -3,7 +3,7 @@ title: Follow Infisical
 description: ใช้งาน Infisical สำหรับจัดการ secrets และ environment variables อย่างปลอดภัย
 auto_execution_mode: 3
 url: https://infisical.com/docs/cli/usage
-related_workflows:
+related:
   - /follow-best-practice
   - /follow-config
   - /check-configuration

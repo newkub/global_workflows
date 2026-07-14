@@ -2,7 +2,7 @@
 title: Memorize
 description: จดจำสิ่งสำคัญ เช่น การตัดสินใจ ข้อค้นพบ บทเรียน และ context เพื่อใช้ในอนาคต
 auto_execution_mode: 3
-related_workflows:
+related:
   - /pondering
   - /deep-thinking
   - /deep-research

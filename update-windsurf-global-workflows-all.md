@@ -2,7 +2,7 @@
 title: Update Windsurf Global Workflows All
 description: อัปเดท skills, global rules, workflows ให้สอดคล้องกัน
 auto_execution_mode: 3
-related_workflows:
+related:
   - /content-quality
   - /write-global-workflows
   - /write-windsurf-skills

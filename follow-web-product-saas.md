@@ -2,29 +2,29 @@
 title: Follow Web Product SaaS
 description: ปรับปรุง web SaaS product ครบวงจรเพื่อความสมบูรณ์และ scalability
 auto_execution_mode: 3
-related_workflows:
-  - /improve-web-performance
-  - /improve-uxui
-  - /improve-seo
-  - /improve-integrations
-  - /improve-security
-  - /improve-scalability
-  - /improve-database
-  - /improve-error-handling
-  - /improve-monitoring
-  - /improve-dx
+related:
+  - /review-performance
+  - /review-frontend
+  - /review-seo
+  - /review-api
+  - /review-security
+  - /review-architecture
+  - /review-database
+  - /review-error-handling
+  - /review-logging
+  - /review-docs
   - /follow-content-quality
-  - /improve-caching
-  - /improve-rate-limiting
-  - /improve-multi-tenancy
-  - /improve-feature-flags
-  - /improve-audit-trail
-  - /improve-deployment-strategy
-  - /improve-logging
-  - /improve-email
-  - /improve-queue
-  - /improve-idempotency
-  - /improve-reliability
+  - /review-performance
+  - /review-security
+  - /review-architecture
+  - /review-deployment
+  - /review-logging
+  - /review-deployment
+  - /review-logging
+  - /review-realtime
+  - /review-architecture
+  - /review-api
+  - /review-error-handling
 ---
 
 ## Goal
@@ -50,22 +50,22 @@ related_workflows:
 
 ปรับปรุง performance ครบวงจร
 
-1. ทำ `/improve-web-performance` สำหรับ web performance
-2. ทำ `/improve-caching` สำหรับ caching strategy
+1. ทำ `/review-performance` สำหรับ web performance
+2. ทำ `/review-performance` สำหรับ caching strategy
 3. Optimize database queries, API responses และ implement CDN
 
 ### 3. Improve UX/UI
 
 ปรับปรุง UX/UI ครบวงจร
 
-1. ทำ `/improve-uxui` สำหรับ UX/UI improvements
+1. ทำ `/review-frontend` สำหรับ UX/UI improvements
 2. ปรับปรุง onboarding flow, user dashboard, settings interface และ notification experience
 
 ### 4. Improve SEO
 
 ปรับปรุง SEO ครบวงจร
 
-1. ทำ `/improve-seo` สำหรับ SEO improvements
+1. ทำ `/review-seo` สำหรับ SEO improvements
 2. Optimize landing pages และ content pages
 3. Implement structured data และ monitor search performance
 
@@ -73,59 +73,59 @@ related_workflows:
 
 ปรับปรุง integrations ครบวงจร
 
-1. ทำ `/improve-integrations` สำหรับ integrations
+1. ทำ `/review-api` สำหรับ integrations
 2. Improve third-party integrations, API integrations, webhook handling และ data synchronization
-3. ทำ `/improve-email` สำหรับ transactional email service (booking confirmations, receipts, password reset, email templates, deliverability)
+3. ทำ `/review-realtime` สำหรับ transactional email service (booking confirmations, receipts, password reset, email templates, deliverability)
 
 ### 6. Improve Security
 
 ปรับปรุง security ครบวงจร
 
-1. ทำ `/improve-security` สำหรับ security improvements
-2. ทำ `/improve-rate-limiting` สำหรับ rate limiting และ DDoS protection
-3. ทำ `/improve-audit-trail` สำหรับ audit logging และ compliance trail (who/what/when สำหรับทุก data mutation)
-4. ทำ `/improve-idempotency` สำหรับ idempotency keys ป้องกัน duplicate bookings/payments เมื่อ retry
+1. ทำ `/review-security` สำหรับ security improvements
+2. ทำ `/review-security` สำหรับ rate limiting และ DDoS protection
+3. ทำ `/review-logging` สำหรับ audit logging และ compliance trail (who/what/when สำหรับทุก data mutation)
+4. ทำ `/review-api` สำหรับ idempotency keys ป้องกัน duplicate bookings/payments เมื่อ retry
 5. Implement multi-factor authentication, data encryption และ security monitoring
 
 ### 7. Improve Scalability
 
 ปรับปรุง scalability
 
-1. ทำ `/improve-scalability` สำหรับ scalability improvements
-2. ทำ `/improve-multi-tenancy` สำหรับ tenant isolation และ resource limits
-3. ทำ `/improve-queue` สำหรับ background jobs และ task queue (async notifications, report generation, refund processing, dead letter handling)
+1. ทำ `/review-architecture` สำหรับ scalability improvements
+2. ทำ `/review-architecture` สำหรับ tenant isolation และ resource limits
+3. ทำ `/review-architecture` สำหรับ background jobs และ task queue (async notifications, report generation, refund processing, dead letter handling)
 4. Optimize database for scale, implement horizontal scaling และ load balancing
 
 ### 8. Improve Database
 
 ปรับปรุง database operations
 
-1. ทำ `/improve-database` สำหรับ database improvements
+1. ทำ `/review-database` สำหรับ database improvements
 2. Optimize queries, implement proper indexing, connection pooling และ data archiving
 
 ### 9. Improve Error Handling
 
 ปรับปรุง error handling
 
-1. ทำ `/improve-error-handling` สำหรับ error handling
-2. ทำ `/improve-reliability` สำหรับ external error tracking (Sentry/Datadog) สำหรับ production real-time error alerts
+1. ทำ `/review-error-handling` สำหรับ error handling
+2. ทำ `/review-error-handling` สำหรับ external error tracking (Sentry/Datadog) สำหรับ production real-time error alerts
 3. Implement global error handling, error tracking และ error recovery
 
 ### 10. Improve Monitoring
 
 ปรับปรุง monitoring และ observability
 
-1. ทำ `/improve-monitoring` สำหรับ monitoring improvements
-2. ทำ `/improve-logging` สำหรับ logging strategy
+1. ทำ `/review-logging` สำหรับ monitoring improvements
+2. ทำ `/review-logging` สำหรับ logging strategy
 3. Implement application monitoring, business metrics และ alerting
 
 ### 11. Improve Developer Experience
 
 ปรับปรุง developer experience
 
-1. ทำ `/improve-dx` สำหรับ DX improvements
-2. ทำ `/improve-deployment-strategy` สำหรับ deployment และ rollback strategy
-3. ทำ `/improve-feature-flags` สำหรับ gradual rollout และ kill switches
+1. ทำ `/review-docs` สำหรับ DX improvements
+2. ทำ `/review-deployment` สำหรับ deployment และ rollback strategy
+3. ทำ `/review-deployment` สำหรับ gradual rollout และ kill switches
 4. Improve build times, local development และ documentation
 
 ### 12. Verify And Report

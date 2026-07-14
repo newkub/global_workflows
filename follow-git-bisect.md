@@ -2,7 +2,7 @@
 title: Follow Git Bisect
 description: ใช้ git bisect สำหรับหา commit ที่ทำให้เกิด bug ด้วย binary search
 auto_execution_mode: 3
-related_workflows:
+related:
   - /follow-git-workflows
   - /debug-issue
   - /resolve-errors

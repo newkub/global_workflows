@@ -2,7 +2,7 @@
 title: Record Capture Terminal
 description: Record video และ capture ภาพจาก terminal สำหรับ CLI testing
 auto_execution_mode: 3
-related_workflows:
+related:
   - /record-terminal
   - /capture-terminal
   - /test-usage

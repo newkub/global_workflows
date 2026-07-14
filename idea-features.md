@@ -1,8 +1,8 @@
 ---
 title: Idea Features
-description: สร้างไอเดีย features ใหม่และปรับปรุง features ที่มีอยู่ พร้อม continuous numbering และระบุประเภท feature
+description: สร้างไอเดีย features ใหม่และปรับปรุง features ที่มีอยู่ พร้อม continuous numbering และ markdown parser
 auto_execution_mode: 3
-related_workflows:
+related:
   - /analyze-project
   - /plan
   - /compare-and-idea-features
@@ -11,8 +11,8 @@ related_workflows:
   - /refactor
   - /realize-implementation
   - /update-features
-  - /follow-html
-  - /open-web
+  - /report-architecture-diagram
+  - /report-uxui-sketch
 ---
 
 ## Goal
@@ -50,8 +50,8 @@ related_workflows:
 
 ### 4. Collect Existing Features
 
-1. ทำ `/update-features` เพื่อสร้าง `existing-features.json`
-2. อ่าน `existing-features.json` เพื่อเข้าใจ features ที่มีอยู่
+1. ทำ `/update-features` เพื่อวิเคราะห์ features ที่มีอยู่
+2. อ่าน `.devin/features/<workspace>/features.md` และ `.devin/features/<workspace>/modules/*.ts` เพื่อเข้าใจ features ที่มีอยู่
 3. แสดง existing features ในแชทด้วย
 
 ### 5. Generate Ideas
@@ -69,93 +69,88 @@ related_workflows:
 2. ระบุ quick wins และ strategic bets
 3. กำหนด MVP scope สำหรับแต่ละ feature
 4. เสนอ roadmap สำหรับ implement features (MVP → v2 → v3)
-5. ตอบ 2 ตาราง (Extends และ New) ในแชทโดยตรง พร้อม col Req และ Opt
-6. แสดง architecture และ roadmap ในแชท
-
-### 7. Generate Output Files
-
-1. สร้าง `.devin/features/<workspace>/idea-features.json` พร้อม features ทั้งหมด
-2. สร้าง `.devin/features/<workspace>/features.html` ตาม `/follow-html` แสดง existing + idea features
-3. ทำ `/open-web` เพื่อเปิด `features.html` ใน browser
-4. แสดง existing features และ idea features ในแชท
+5. ตอบ 2 ตาราง (Extends และ New) ในแชทโดยตรง พร้อม 24 คอลัมน์
+6. แสดง existing features และ idea features ในแชท
+7. วาด ANSI UX/UI sketch สำหรับแต่ละ feature จาก codebase จริง โดยทำ `/report-uxui-sketch`
+8. วาด ANSI architecture diagram สำหรับระบบที่จะสร้าง โดยทำ `/report-architecture-diagram`
+9. สรุปตาราง DB tables, API endpoints, Components, Files ที่จะสร้างทั้งหมด
+. ไม่สร้างไฟล์ .md, .html หรือ .json
 
 ## Rules
 
-### 1. Group By Type With Required And Optional Columns
+### 1. Group By Type With Continuous Numbering
 
 - แยกเป็น 2 ตารางตาม Type: Extends และ New
-- แต่ละตารางมี col Required และ col Optional แทนการแยกตาราง
-- Required: features ที่จำเป็นสำหรับ MVP ระบุเป็น ✅ หรือ -
-- Optional: features ที่เพิ่ม value แต่ไม่จำเป็นสำหรับ MVP ระบุเป็น ✅ หรือ -
-- แต่ละตารางมี continuous numbering เริ่มจาก 1 ไม่เกิน 20 row
+- Continuous numbering รวมทั้ง 2 ตาราง: Extends เริ่มจาก 1, New ต่อจากเลขสุดท้ายของ Extends
+- แต่ละตาราง 15 row, 2 ตาราง รวมกันไม่เกิน 30 row
 - Sorting: เรียงตามลำดับเลข (#) ก่อน แล้วตามลำดับ Impact (🔴 สูง → 🟡 ปานกลาง → 🟢 ต่ำ)
-- Description เป็นคำอธิบายปกติ ไม่ต้องมี Topics, Scope, Interface ในนั้น
+- Description เป็นคำอธิบายปกติ สั้นกระชับ ไม่เกิน 1 บรรทัด
 - Scope ระบุ: package-level, app-level, หรือ cross-package
 
-### 2. Column Order
+### 2. Column Order (24 คอลัมน์)
 
-- ลำดับคอลัมน์ (21 คอลัมน์): # | Impact | Feature | Description | Why | Req | Opt | Scope | Interface | Target | Phase | Effort | Difficult | Topics | Deps | API | DB | Risk | Estimate | MVP Score | UX/UI
-- Description สั้นกระชับ ไม่เกิน 1 บรรทัด เช่น `เพิ่ม OAuth login`
-- Why ระบุเหตุผล/ปัญหาที่แก่ เช่น `ผู้ใช้ login ยาก` หรือ `ลด friction ตอน signup`
-- Req ระบุ: ✅ ถ้าเป็น Required (MVP), - ถ้าไม่ใช่
-- Opt ระบุ: ✅ ถ้าเป็น Optional, - ถ้าไม่ใช่
-- Impact ระบุ: 🔴 สูง, 🟡 ปานกลาง, 🟢 ต่ำ
-- Scope ระบุ: package-level, app-level, หรือ cross-package
-- Interface ระบุ: api, cli, web, mobile, library, sdk, etc
-- Target ระบุ: customer, provider, staff, admin, partner, หรือ multiple
-- Phase ระบุ: MVP, v2, v3
-- Effort ระบุ: S, M, L, XL
-- Difficult ระบุ: 🔴 ยาก, 🟡 ปานกลาง, 🟢 ง่าย
-- Topics ระบุหัวข้อ เช่น auth, booking, payment, ui, etc
-- Deps ระบุ dependencies สั้นๆ เช่น `supabase`, `stripe`, `-` ถ้าไม่มี
-- API ระบุ API endpoints เช่น `POST /api/bookings`, `GET /api/waitlist`, `-` ถ้าไม่มี
-- DB ระบุ database tables เช่น `bookings`, `providers`, `waitlist`, `-` ถ้าไม่มี
-- Risk ระบุ: 🔴 สูง, 🟡 ปานกลาง, 🟢 ต่ำ
-- Estimate ระบุเวลาประเมิน เช่น `1d`, `3d`, `1w`, `2w`
-- MVP Score ระบุคะแนน RICE 1-10
-- UX/UI ระบุ: 🔴 ต้องปรับ UX/UI เยอะ, 🟡 ปรับบางส่วน, 🟢 ใช้ existing UI
-- ข้อมูลที่ย้ายไปใน Description: How To, Parent/Category
-- ใช้บรรทัดแยกใน Description ด้วย `<br>` เช่น `เพิ่ม OAuth login<br>**How To:** ใช้ Supabase Auth`
+- ลำดับคอลัมน์: # | Impact | Feature | Description | Why | How To | Phase | Effort | Difficult | Scope | Interface | Target | Topics | Deps | Routing | Components | Types | API | DB | Risk | Estimate | MVP Score | UX/UI
+- Description: สั้นกระชับ ไม่เกิน 1 บรรทัด เช่น `เพิ่ม OAuth login`
+- Why: ระบุเหตุผล/ปัญหาที่แก่ เช่น `ผู้ใช้ login ยาก`
+- How To: แนวทาง implement สั้นๆ เช่น `ขยาย pgEnum ใน services.ts`
+- Impact: 🔴 สูง, 🟡 ปานกลาง, 🟢 ต่ำ
+- Phase: MVP, v2, v3
+- Effort: S, M, L, XL
+- Difficult: 🔴 ยาก, 🟡 ปานกลาง, 🟢 ง่าย
+- Scope: package-level, app-level, หรือ cross-package
+- Interface: api, cli, web, mobile, library, sdk, etc
+- Target: customer, provider, staff, admin, partner, หรือ multiple
+- Topics: หัวข้อ เช่น auth, booking, payment, ui, etc
+- Deps: dependencies สั้นๆ เช่น `supabase`, `stripe`, `-` ถ้าไม่มี
+- Routing: route paths เช่น `/provider/$id/services`, `-` ถ้าไม่มี
+- Components: UI components ที่ต้องสร้าง/แก้ เช่น `FormBuilder, FieldEditor`, `-` ถ้าไม่มี
+- Types: TypeScript types/interfaces ที่ต้องสร้าง เช่น `BookingForm, PricingTier`, `-` ถ้าไม่มี
+- API: API endpoints เช่น `POST /api/bookings`, `-` ถ้าไม่มี
+- DB: database tables เช่น `bookings`, `spaces`, `-` ถ้าไม่มี
+- Risk: 🔴 สูง, 🟡 ปานกลาง, 🟢 ต่ำ
+- Estimate: เวลาประมาณ เช่น `1d`, `3d`, `1w`, `2w`
+- MVP Score: คะแนน RICE 1-10
+- UX/UI: 🔴 ต้องปรับ UX/UI เยอะ, 🟡 ปรับบางส่วน, 🟢 ใช้ existing UI
 
-### 3. Define Problem First
+### 3. Summary Tables
+
+- สรุปตาราง DB tables ทั้งหมดที่จะสร้าง/แก้
+- สรุปตาราง API endpoints ทั้งหมดที่จะสร้าง
+- สรุปตาราง Components ทั้งหมดที่จะสร้าง/แก้
+- สรุปตาราง Files ทั้งหมดที่จะสร้าง/แก้
+
+### 4. Define Problem First
 
 - ทุก feature ต้อง solve real problem
 - ไม่สร้าง feature เพราะเท่ห์อย่างเดียว
 - Validate ว่า users ต้องการจริง
 - Focus บน pain points ที่มี impact สูง
 
-### 4. Start with MVP
+### 5. Start with MVP
 
 - เริ่มด้วย minimum viable version
 - Build iteratively ไม่ใช่ big bang
 - รับ feedback early และ often
 - Pivot ได้ถ้าไม่ work
 
-### 5. Assess Technical Feasibility
+### 6. Assess Technical Feasibility
 
 - ประเมิน effort อย่าง realistic
 - พิจารณา long-term maintenance cost
 - ระบุ technical debt ที่อาจเกิด
 - หา balance ระหว่าง innovation และ stability
 
-### 6. Direct Execution
+### 7. Direct Execution
 
 - ถ้าผู้ใช้บอกว่า "ทำ ... ให้" ให้ทำตาม `/refactor` และ `/realize-implementation` เลย
 - ไม่ต้องทำตาม workflow ปกติถ้าผู้ใช้สั่งโดยตรง
 - ทำงานอัตโนมัติโดยไม่หยุดถาม
 
-### 7. Output Format
-
-- ใช้ markdown table สำหรับแสดง features
-- ตารางเป็นภาษาไทยทั้งหมด
-- แสดง architecture และ roadmap ในแชท
-- เมื่อ implement เสร็จ 1 feature ให้รายงานในแชท
-
 ## Expected Outcome
 
-- 2 ตาราง (Extends และ New) พร้อม col Req และ Opt, continuous numbering ไม่เกิน 20 row ต่อตาราง
+- 2 ตาราง (Extends และ New) พร้อม 24 คอลัมน์, continuous numbering รวมทั้ง 2 ตาราง, ตารางละ 15 row รวมกันไม่เกิน 30 row
 - เรียงลำดับตาม Impact (สูง → ปานกลาง → ต่ำ)
-- Column order และค่าต่างๆ ตาม Rule 1 และ Rule 2
+- ANSI UX/UI sketch และ architecture diagram จาก codebase จริง
+- สรุปตาราง DB, API, Components, Files ที่จะสร้างทั้งหมด
 - Roadmap และ architecture แสดงในแชท
-- `existing-features.json` และ `idea-features.json` ใน `.devin/features/<workspace>/`
-- `features.html` แสดง existing + idea features ใน browser
+- ไม่สร้างไฟล์ใดๆ ตอบในแชทเท่านั้น
