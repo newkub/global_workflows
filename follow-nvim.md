@@ -1,8 +1,21 @@
 ---
 trigger: always_on
+description: ตั้งค่า Neovim configuration ด้วย lazy.nvim ตาม best practices
+title: Follow Nvim
+auto_execution_mode: 3
 ---
 
-## 1. หลักการสำคัญ (Core Principles)
+## Goal
+
+ตั้งค่า Neovim configuration ที่ modular, performant, และ testable ด้วย `lazy.nvim`
+
+## Scope
+
+ใช้สำหรับ project ที่ตั้งค่า Neovim configuration
+
+## Execute
+
+### 1. หลักการสำคัญ (Core Principles)
 
 - **Modularity & Single Responsibility**: แต่ละไฟล์ควรทำหน้าที่เพียงอย่างเดียว การตั้งค่าปลั๊กอิน, options, และ keymaps ควรแยกจากกันอย่างชัดเจน เพื่อให้ง่ายต่อการบำรุงรักษาและแก้ไข
 - **Performance First (Lazy Loading)**: ทุกปลั๊กอินควรถูก Lazy Load เป็นค่าเริ่มต้น โหลดเฉพาะเมื่อถูกใช้งานจริงผ่าน `ft`, `cmd`, `keys`, หรือ `event` เพื่อให้ Neovim เปิดได้เร็วที่สุด (< 50ms)
@@ -186,4 +199,22 @@ jobs:
       - name: Run Tests
         run: nvim --headless -c "PlenaryBustedDirectory tests/ { minimal_init = 'init.lua' }"
 ```
+
+## Rules
+
+- ใช้ `lazy.nvim` สำหรับ plugin management
+- ทุก plugin ใช้ lazy loading เป็น default (`ft`, `cmd`, `keys`, `event`)
+- แยกไฟล์: `options.lua`, `keymaps.lua`, `autocmds.lua`, plugins แยกตามหมวด
+- ใช้ `stylua` สำหรับ formatting
+- เขียน unit tests ด้วย `plenary.nvim` สำหรับ utility functions
+- ใช้ CI (GitHub Actions) สำหรับ automated checks
+- Neovim startup time < 50ms
+
+## Expected Outcome
+
+- Neovim config เป็น modular และ performant
+- ทุก plugin lazy load เป็น default
+- มี unit tests สำหรับ utility functions
+- ใช้ `stylua` สำหรับ formatting
+- CI รัน automated checks
 

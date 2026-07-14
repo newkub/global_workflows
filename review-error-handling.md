@@ -3,7 +3,7 @@ title: Review Error Handling
 description: Review error handling ครอบคลุม error boundaries, messages, codes, และ graceful degradation
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ error boundaries, error messages, error codes, try-catch patterns, graceful degr
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-error-handling.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-error-handling.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ error boundaries, try-catch coverage, และ unhandled rejections
 3. Script ตรวจสอบ error messages: user-friendly, actionable, และ localized
 4. Script ตรวจสอบ error codes, graceful degradation, และ error recovery patterns

@@ -3,7 +3,7 @@ title: Separate Of Concerns
 description: แยก concerns ตาม responsibility, enforce boundaries, แล้ว restructure
 auto_execution_mode: 3
 related:
-  - /improve-code-structure
+  - /analyze-code-structure
   - /check-long-files
   - /restructure
   - /deep-review
@@ -26,13 +26,13 @@ Refactor code ให้มี separation of concerns โดยการแยก
 
 ## Scope
 
-ใช้กับโค้ดที่ `improve-code-structure` หรือ `review-refactor` พบ mixed concerns, ไฟล์ที่รวมหลาย responsibility, หรือ boundary ไม่ชัดเจน
+ใช้กับโค้ดที่ `analyze-code-structure` หรือ `review-refactor` พบ mixed concerns, ไฟล์ที่รวมหลาย responsibility, หรือ boundary ไม่ชัดเจน
 
 ## Execute
 
 ### 1. Review Code Structure
 
-1. ทำ `/improve-code-structure` เพื่อระบุ mixed concerns ด้วย `sg outline`
+1. ทำ `/analyze-code-structure` เพื่อระบุ mixed concerns ด้วย `sg outline`
 2. ทำ `/check-long-files` เพื่อระบุไฟล์ที่ยาวกว่า 250 บรรทัด
 3. บันทึก findings ที่ต้อง refactor
 4. ถ้าไม่มี mixed concerns หรือไฟล์ยาว ให้ stop และ report

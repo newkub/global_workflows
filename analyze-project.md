@@ -5,11 +5,12 @@ auto_execution_mode: 3
 related:
   - /deep-analyze
   - /scan-codebase
-  - /code-search
+  - /scan-codebase
   - /use-ast-grep
   - /use-scripts
   - /follow-my-cli
   - /deep-review
+  - /check-duplication
 ---
 
 ## Goal
@@ -18,7 +19,7 @@ related:
 
 ## Scope
 
-ครอบคลุมการวิเคราะห์โปรเจกต์พื้นฐานด้วย 4 tools หลัก: `/code-search`, `/use-ast-grep`, `/use-scripts`, `/follow-my-cli`
+ครอบคลุมการวิเคราะห์โปรเจกต์พื้นฐานด้วย 4 tools หลัก: `/scan-codebase`, `/use-ast-grep`, `/use-scripts`, `/follow-my-cli`
 
 **Note:** ถ้าต้องการวิเคราะห์อย่างลึกซึ้งครบทุกมิติ ให้ทำ `/deep-analyze` แทน
 
@@ -38,28 +39,28 @@ related:
 ### 3. Data Collection
 
 1. อ่าน manifest files แบบ parallel
-2. ทำ `/code-search` ค้นหา code patterns และ symbols
+2. ทำ `/scan-codebase` ค้นหา code patterns และ symbols
 3. ทำ `/use-ast-grep` สำหรับ AST-based code search
 4. ทำ `/use-scripts` สำหรับ data processing ซับซ้อน
 
 ### 4. Architecture And Dependencies
 
 1. ทำ `/deep-review` เพื่อระบุ architectural pattern
-2. ทำ `/code-search` วิเคราะหา data flow
+2. ทำ `/scan-codebase` วิเคราะหา data flow
 3. ระบุ tech stack และ dependencies
 
 ### 5. Code Analysis
 
 1. ทำ `/use-ast-grep` หา patterns, anti-patterns, design patterns
-2. ทำ `/code-search` หา code smells
+2. ทำ `/scan-codebase` หา code smells
 3. ทำ `/use-scripts` คำนวณ metrics
 4. ตรวจสอบ naming conventions
 
 ### 6. Quality And Security
 
-1. ทำ `/check-duplication`, `/check-unsued-files`, `/check-unused-deps` แบบ parallel
+1. ทำ `/check-duplication`, `/check-unused-files`, `/check-unused-deps` แบบ parallel
 2. ทำ `/check-vulnerability` ตรวจสอบ security
-3. ทำ `/code-search` ตรวจหา hardcoded secrets
+3. ทำ `/scan-codebase` ตรวจหา hardcoded secrets
 
 ### 7. Report And Recommendations
 
@@ -69,13 +70,13 @@ related:
 
 ## Rules
 
-- ทำ `/code-search` สำหรับค้นหา code patterns, symbols, และ references
+- ทำ `/scan-codebase` สำหรับค้นหา code patterns, symbols, และ references
 - ใช้ `/use-ast-grep` สำหรับ pattern matching และ structural search
 - ใช้ `/use-scripts` สำหรับ metrics calculation และ complex processing
 - ทำ `/follow-my-cli` สำหรับเช็คและใช้ CLI tools ที่ติดตั้ง
 - อ่าน manifest files พร้อมกัน
 - รัน checks หลายอย่างพร้อมกัน
-- รัน `/code-search` patterns พร้อมกัน
+- รัน `/scan-codebase` patterns พร้อมกัน
 - Long functions: > 50 lines
 - Deep nesting: > 3 levels
 - High complexity: cyclomatic complexity > 10

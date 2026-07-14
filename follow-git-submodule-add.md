@@ -5,7 +5,13 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
 เพิ่ม Git repository อื่นเข้ามาเป็น submodule ของ repository ปัจจุบัน เพื่อจัดการ external dependencies ที่ต้องการ track version แยกจาก main repository
+
+## Scope
+
+ใช้สำหรับ project ที่ต้องการเพิ่ม git submodule
 
 ## Execute
 
@@ -98,4 +104,10 @@ Commit การเพิ่ม submodule
 2. ตรวจสอบว่า submodule อยู่ใน commit ที่ต้องการ
 3. ใช้ `git submodule update --init` เพื่อ initialize submodule เมื่อ clone
 4. ตรวจสอบว่า submodule folder ไม่ถูก ignore ใน .gitignore
+
+## Expected Outcome
+
+- Submodule ถูกเพิ่มเข้าไปใน repository
+- มี .gitmodules ที่ถูกต้อง
+- Submodule ทำงานได้หลัง clone ด้วย `git submodule update --init`
 

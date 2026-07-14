@@ -3,7 +3,7 @@ title: Review Disaster Recovery
 description: Review DR plan ครอบคลุม RPO/RTO, failover, data backup และ recovery procedures
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ RPO/RTO definition, failover strategy, data backup, recovery procedures, DR test
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-disaster-recovery.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-disaster-recovery.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ RPO/RTO targets: definition per service, measurement method, compliance status
 3. Script ตรวจสอบ failover strategy: active-passive vs active-active, failover trigger, failback procedure
 4. Script ตรวจสอบ data backup: backup frequency, backup type, backup storage, backup encryption

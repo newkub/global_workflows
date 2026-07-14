@@ -177,15 +177,15 @@ related:
 
 | Type | Step แรก | Step สุดท้าย | Rules |
 | --- | --- | --- | --- |
-| `analyze-*` | `/deep-analyze-with-use-scripts` | `/report-format-table` | Severity Classification, Analysis Only, Use Scripts For Analysis |
-| `review-*` | `/deep-analyze-with-use-scripts` + `/update-rules` | `/validate` + `/report` + `/report-format-table` | Severity Classification, Evidence-Based Findings, Review Independence |
+| `analyze-*` | `/deep-analyze-codebase` | `/report-format-table` | Severity Classification, Analysis Only, Use Scripts For Analysis |
+| `review-*` | `/deep-analyze-codebase` + `/update-rules` | `/validate` + `/report` + `/report-format-table` | Severity Classification, Evidence-Based Findings, Review Independence |
 | `improve-*` | Review And Inventory | `/report` | Severity Classification, Follow Write Standards, Review Before Improve |
 | `run-*` | Check Configuration | Report | Error Handling, Verification, No Ignore |
 
 **ข้อกำหนดร่วม:**
 
 - `review-*`: ทุก finding ต้องมี evidence — file path, line number, หรือ code snippet
-  - ต้องมี `/deep-analyze-with-use-scripts`, `/update-rules`, และ `/validate` ใน `related` และ Execute steps เสมอ
+  - ต้องมี `/deep-analyze-codebase`, `/update-rules`, และ `/validate` ใน `related` และ Execute steps เสมอ
 - ถ้า workflow มี output → ต้องระบุ `/report-format-*` ที่ใช้
 
 ### 7. Naming And Prefix

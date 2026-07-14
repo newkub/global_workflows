@@ -3,7 +3,7 @@ title: Review Resilience
 description: Review resilience patterns ครอบคลุม circuit breakers, fallbacks, graceful degradation และ retry strategies
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ circuit breaker patterns, fallback mechanisms, graceful degradation, retry strat
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-resilience.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-resilience.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ circuit breaker: threshold config, open/half-open/closed states, fallback on open
 3. Script ตรวจสอบ fallback mechanisms: default responses, cached data fallback, static fallback
 4. Script ตรวจสอบ graceful degradation: partial feature disable, read-only mode, queue-based degradation

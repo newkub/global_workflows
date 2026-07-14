@@ -4,7 +4,7 @@ description: แสดงรายการการใช้งาน dependenc
 auto_execution_mode: 3
 related:
   - /check-unused-deps
-  - /check-unsued-files
+  - /check-unused-files
   - /analyze-project
   - /report-format-table
 ---

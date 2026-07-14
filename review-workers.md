@@ -3,7 +3,7 @@ title: Review Workers
 description: Review background workers ครอบคลุม job patterns, cron, scheduled tasks, และ worker health
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ background job patterns, cron jobs, scheduled tasks, worker health monitoring, w
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-workers.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-workers.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ background job patterns, job lifecycle, และ job error handling
 3. Script ตรวจสอบ cron jobs, schedule configuration, และ timezone handling
 4. Script ตรวจสอบ scheduled tasks, task dependencies, และ task retry

@@ -5,7 +5,26 @@ auto_execution_mode: 3
 ---
 
 
-## 1. Setup
+## Goal
+
+ตั้งค่า Vite + React + TypeScript project พร้อม ESLint และ UnoCSS
+
+## Scope
+
+ใช้สำหรับ project ที่ใช้ Vite + React + TypeScript
+
+## Execute
+
+### 1. Setup
+
+ตั้งค่า Vite, TypeScript, และ ESLint config
+
+> Goal: มี config files ครบและถูกต้อง
+
+1. สร้าง `vite.config.ts` พร้อม `@vitejs/plugin-react` และ `vite-tsconfig-paths`
+2. สร้าง `tsconfig.json` พร้อม `strict: true` และ path aliases
+3. สร้าง `eslint.config.js` พร้อม `typescript-eslint` และ `eslint-plugin-react-hooks`
+4. เพิ่ม scripts ใน `package.json`: `dev`, `build`, `preview`, `lint`
 
 ### 1.1. Vite Config
 
@@ -74,26 +93,37 @@ export default [
 }
 ```
 
-## 2. React Components Development (ใช้เมื่อมีไฟล์ .tsx)
+### 2. React Components
 
-2.1. ทำตาม workflow ที่เกี่ยวข้อง
+พัฒนา React components ตาม best practices
 
-- ทำ /components
-- ทำ /unocss
+> Goal: Components ใช้ TypeScript และ UnoCSS
 
-2.2. ใช้ TypeScript
+1. ใช้ `.tsx` สำหรับ components
+2. กำหนด types สำหรับ props
+3. ใช้ UnoCSS สำหรับ styling — หลีกเลี่ยง CSS modules
+4. ทำ `/follow-react` สำหรับ component patterns
+5. ทำ `/follow-unocss` สำหรับ styling
 
-- ใช้ .tsx สำหรับ components
-- กำหนด types สำหรับ props
+### 3. Refactor
 
-2.3. ใช้ UnoCSS
+Refactor โค้ดให้ถูกต้องตาม framework
 
-- ถ้าเป็นไปได้ให้ใช้ unocss ทั้งหมด
-- หลีกเลี่ยงการใช้ CSS modules
+> Goal: โค้ดสอดคล้องกับ Vite + React best practices
 
-## 3. Code Refactoring (ใช้เสมอ)
+1. ทำ `/refactor` หลัง setup เสร็จ
 
-3.1. ทำ /refactor-workspace
+## Rules
 
-- refactor โค้ดให้ถูกต้องตาม framework
+- ใช้ `@vitejs/plugin-react` สำหรับ React support
+- ใช้ `vite-tsconfig-paths` สำหรับ path resolution
+- ใช้ `strict: true` ใน `tsconfig.json`
+- ใช้ `eslint-plugin-react-hooks` สำหรับ hooks rules
+- ใช้ UnoCSS สำหรับ styling — หลีกเลี่ยง CSS modules
+
+## Expected Outcome
+
+- `vite.config.ts`, `tsconfig.json`, `eslint.config.js` ครบ
+- Scripts: `dev`, `build`, `preview`, `lint` ใน `package.json`
+- Components ใช้ TypeScript และ UnoCSS
 

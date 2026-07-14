@@ -3,7 +3,7 @@ title: Roleplay Competitor
 description: รับบทเป็นคู่แข่งอ่าน code แล้ววิเคราะห์จุดอ่อน ช่องโหว่ และโอกาสที่คู่แข่งจะเอาชนะได้
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /deep-research
   - /pondering
@@ -26,7 +26,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อเข้าใจ project structure
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อเข้าใจ project structure
 2. อ่าน package.json, README, AGENTS.md, docs เพื่อเข้าใจ product และ tech stack
 3. อ่าน routes, API endpoints, database schema, features list
 4. อ่าน config files, environment variables, deployment setup

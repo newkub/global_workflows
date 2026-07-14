@@ -3,7 +3,7 @@ title: Review Logging
 description: Review logging ครอบคลุม log levels, structured logging, sensitive data, และ retention
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ log levels, structured logging, sensitive data in logs, log retention, log forma
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-logging.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-logging.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ log levels, structured logging format, และ log consistency
 3. Script ตรวจสอบ sensitive data exposure, PII in logs, และ secret leakage
 4. Script ตรวจสอบ log retention, rotation, แลand observability integration

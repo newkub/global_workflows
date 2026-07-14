@@ -3,7 +3,7 @@ title: Review Feature Flags
 description: Review feature flag management ครอบคลุม rollout strategy, flag cleanup, default values และ flag governance
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ feature flag definition, flag evaluation, rollout strategy, flag lifecycle manag
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-feature-flags.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-feature-flags.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ flag definition: naming convention, description, default value, flag type
 3. Script ตรวจสอบ flag evaluation: server-side vs client-side, evaluation context, fallback behavior
 4. Script ตรวจสอบ rollout strategy: percentage rollout, user targeting, segment-based rollout

@@ -10,8 +10,7 @@ related:
   - /follow-consistency
   - /check-reference
   - /review-code-quality
-  - /review-code-quality
-  - /review-code-quality
+  - /deep-follow-workflows
 ---
 
 ## Goal
@@ -86,6 +85,15 @@ Review workflows ก่อนปรับปรุง
 4. ตรวจสอบว่า changes รักษาความหมายเดิม
 5. ทำ `/check-reference` หลังแต่ละ batch
 6. ถ้าอยู่ใน workspace ตรวจสอบว่าไม่มี conflicts กับ project-specific workflows
+
+### 7. Verify Improved Workflows
+
+ตรวจสอบ workflows ที่ปรับปรุงแล้วอย่างละเอียดทุกขั้นตอน
+
+1. ทำ `/deep-follow-workflows` เพื่อ verify ว่า workflows ที่ปรับปรุงแล้วทำตามได้จริงทุก step
+2. ตรวจสอบว่าทุก step ใน workflow ที่ปรับปรุงแล้ว deterministic และ idempotent
+3. ตรวจสอบว่า references ทั้งหมดยังใช้งานได้หลังปรับปรุง
+4. ถ้าพบ issue จาก verification → กลับไปแก้ที่ Step 2-6 แล้ว verify ใหม่
 
 ## Rules
 

@@ -4,7 +4,7 @@ description: Review side effects ครอบคลุม impure functions, glob
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /update-rules
   - /validate
   - /report
@@ -37,7 +37,7 @@ side effects ใน functions, components, modules, hooks/composables, state man
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-side-effects.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-side-effects.ts` ใน `.devin/scripts/analyze/`
 2. Script ระบุ functions/files ที่มี side effects จาก patterns:
    - network/API calls, database queries, file I/O, DOM access
    - `console.*`, `alert`, `setTimeout`/`setInterval`, `addEventListener`

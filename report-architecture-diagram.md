@@ -7,7 +7,7 @@ related:
   - /report-format-table
   - /sketch
   - /analyze-project
-  - /code-search
+  - /scan-codebase
 ---
 
 ## Goal
@@ -22,7 +22,7 @@ related:
 
 ### 1. Analyze System Structure
 
-1. ทำ `/code-search` เพื่อหา modules, services, และ entry points
+1. ทำ `/scan-codebase` เพื่อหา modules, services, และ entry points
 2. ระบุ layers หลัก: frontend, API, server, database, external services
 3. ระบุ dependencies ระหว่าง modules และ packages
 4. ระบุ external integrations (Stripe, Supabase, Resend, OpenAI, etc.)

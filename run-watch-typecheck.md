@@ -5,6 +5,14 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
+รัน type checking แบบ watch mode เพื่อตรวจสอบ type errors อย่างต่อเนื่อง
+
+## Scope
+
+ใช้สำหรับ project ที่ต้องการรัน type checking แบบ watch mode ขณะพัฒนา
+
 ## Prompt
 
 ใช้ workflow นี้เมื่อต้องการรัน type checking แบบ watch mode เพื่อตรวจสอบ type errors อย่างต่อเนื่องขณะพัฒนา

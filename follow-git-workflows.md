@@ -27,6 +27,9 @@ related:
   - /follow-git-blame
   - /follow-git-filter
   - /follow-git-clone
+  - /list-git-branch
+  - /list-git-stash
+  - /list-git-tags
 ---
 
 ## Goal

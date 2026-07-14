@@ -3,7 +3,7 @@ title: Review Payment
 description: Review payment ครอบคลุม checkout, subscription, refund, Stripe integration, และ payment security
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ checkout flow, subscription management, refund processing, Stripe Connect integr
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-payment.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-payment.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ checkout flow, payment intent creation, และ confirmation handling
 3. Script ตรวจสอบ subscription lifecycle, billing cycles, และ proration logic
 4. Script ตรวจสอบ refund processing, dispute handling, และ payment state transitions

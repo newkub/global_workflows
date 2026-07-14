@@ -3,7 +3,7 @@ title: Roleplay Product Manager
 description: รับบทเป็น PM มอง code ว่า features ครบไหม priority ถูกไหม MVP ใช้ได้ไหม ขาดอะไรที่ user ต้องการจริง
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /pondering
   - /review-missing-features
@@ -26,7 +26,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อเข้าใจ product
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อเข้าใจ product
 2. อ่าน routes, features, modules, API endpoints, database schema
 3. อ่าน feature flags, config, environment variables
 4. อ่าน README, docs, AGENTS.md เพื่อเข้าใจ product vision

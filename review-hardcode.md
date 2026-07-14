@@ -4,7 +4,7 @@ description: Review hardcode ครอบคลุม magic numbers, hardcoded s
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /update-rules
   - /validate
   - /report
@@ -29,7 +29,7 @@ magic numbers, hardcoded strings ที่ไม่ใช่ messages, hardcoded
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-hardcode.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-hardcode.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ magic numbers ที่ไม่มี named constant (ค่าที่ไม่ใช่ 0, 1, -1 และใช้ซ้ำใน logic)
 3. Script ตรวจสอบ hardcoded strings ที่ไม่ใช่ user messages (identifiers, keys, labels ที่ควรเป็น constants)
 4. Script ตรวจสอบ hardcoded URLs, API endpoints, และ base paths ที่ควรเป็น environment variables

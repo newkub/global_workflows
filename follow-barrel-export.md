@@ -6,7 +6,7 @@ related:
   - /follow-consistency
   - /follow-code-quality
   - /fix-circular-dependencies
-  - /use-import-alias
+  - /follow-import
   - /review-filesystem
   - /separate-of-concerns
 ---

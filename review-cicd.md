@@ -3,7 +3,7 @@ title: Review CI CD
 description: Review CI/CD pipeline ครอบคลุม workflows, jobs, caching, secrets, และ pipeline quality
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ CI/CD workflow files, job dependencies, build caching, test automation, secrets 
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-cicd.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-cicd.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ workflow structure, job dependencies, และ execution order
 3. Script ตรวจสอบ caching strategy, artifact management, และ build optimization
 4. Script ตรวจสอบ secrets handling, environment variables, และ permissions

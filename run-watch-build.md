@@ -5,6 +5,14 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
+รัน build แบบ watch mode เพื่อตรวจสอบ build errors อย่างต่อเนื่อง
+
+## Scope
+
+ใช้สำหรับ project ที่ต้องการรัน build แบบ watch mode ขณะพัฒนา
+
 ## Prompt
 
 ใช้ workflow นี้เมื่อต้องการรัน build แบบ watch mode เพื่อตรวจสอบ build errors และ optimization อย่างต่อเนื่องขณะพัฒนา

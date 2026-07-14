@@ -5,7 +5,13 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
 จัดการ git worktrees เพื่อทำงานหลาย branches พร้อมกันใน working directories แยกกัน โดยใช้ repository เดียวกัน
+
+## Scope
+
+ใช้สำหรับ project ที่ต้องการทำงานหลาย branches พร้อมกัน
 
 ## Execute
 
@@ -109,4 +115,11 @@ auto_execution_mode: 3
 2. หลีกเลี่ยงการ checkout branch เดียวกันในหลาย worktrees
 3. ใช้ worktrees สำหรับ features หรือ bugfixes ที่แยกกัน
 4. ลบ worktrees หลังจาก merge branch เข้ากับ main branch
+
+## Expected Outcome
+
+- สามารถทำงานหลาย branches พร้อมกัน
+- แต่ละ worktree แยกกันชัดเจน
+- ไม่ต้อง clone repository หลายครั้ง
+- worktrees ถูกทำความสะอาดหลังใช้งาน
 

@@ -3,7 +3,7 @@ title: Review State Management
 description: Review state management ครอบคลุม store organization, reactivity, และ data flow
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ store organization, state shape, reactivity patterns, data flow, derived state, 
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-state-management.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-state-management.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ store organization, state shape, และ store boundaries
 3. Script ตรวจสอบ reactivity patterns, unnecessary re-renders, และ derived state
 4. Script ตรวจสอบ side effect management, state synchronization, และ persistence

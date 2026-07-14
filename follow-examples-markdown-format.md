@@ -5,131 +5,68 @@ title: Follow Examples Markdown Format
 auto_execution_mode: 3
 ---
 
-## 1. Basic Formatting (ใช้สำหรับจัดรูปแบบข้อความพื้นฐาน)
+## Goal
 
-### Emphasis
+ตัวอย่างการใช้งาน Markdown Format สำหรับจัดรูปแบบเนื้อหาใน workflows
 
-````markdown
-_This text will be italic_
-_This will also be italic_
+## Scope
 
-**This text will be bold**
-**This will also be bold**
+ใช้สำหรับอ้างอิงเมื่อต้องจัดรูปแบบ Markdown ใน workflow files
 
-_You **can** combine them_
-````
+## Execute
 
-### Strikethrough
+### 1. Basic Formatting
 
-````markdown
-~~This text is strikethrough~~
-````
+จัดรูปแบบข้อความพื้นฐาน
 
-### Blockquotes
+> Goal: รู้วิธี format ข้อความใน Markdown
 
-````markdown
-> This is a blockquote.
-> It can span multiple lines.
-````
+1. ใช้ `_text_` สำหรับ italic, `**text**` สำหรับ bold
+2. ใช้ `~~text~~` สำหรับ strikethrough
+3. ใช้ `> text` สำหรับ blockquote
+4. ใช้ `[text](url)` สำหรับ links
+5. ใช้ `![alt](url)` สำหรับ images
+6. ใช้ `---` สำหรับ horizontal rule
 
-### Links
+### 2. Lists
 
-````markdown
-[Visit Google](https://www.google.com)
-````
+สร้างรายการใน Markdown
 
-### Images
+> Goal: รู้วิธีสร้าง lists ต่างประเภท
 
-````markdown
-![Alt text for image](https://via.placeholder.com/150)
-````
+1. ใช้ `- [x]` และ `- [ ]` สำหรับ task lists
+2. ใช้ `-` หรือ `*` สำหรับ unordered lists
+3. ใช้ `1.` สำหรับ ordered lists
 
-### Horizontal Rule
+### 3. Code And Structures
 
-````markdown
----
----
+แสดงโค้ดและโครงสร้างต่างๆ
 
----
-````
+> Goal: รู้วิธีแสดง code blocks, tables, และ diagrams
 
----
+1. ใช้ ` ```lang ` สำหรับ code blocks
+2. ใช้ `| col | col |` สำหรับ tables
+3. ใช้ ` ```text ` สำหรับ file structures และ diagrams
 
-## 2. Lists (ใช้สำหรับสร้างรายการ)
+### 4. Before And After
 
-### Task Lists
+เปรียบเทียบโค้ดก่อนและหลังการเปลี่ยนแปลง
 
-````markdown
-- [x] Task 1 (Completed)
-- [ ] Task 2 (Incomplete)
-````
+> Goal: รู้วิธีแสดง before/after comparison
 
----
+1. ใช้ `**Before**` และ `**After**` headers
+2. วาง code block ใต้แต่ละ header
 
-## 3. Code & Structures (ใช้สำหรับแสดงโค้ดและโครงสร้างต่างๆ)
+## Rules
 
-### Code Block
+- ใช้ fenced code blocks พร้อม language tag
+- ใช้ backticks สำหรับ inline code
+- ใช้ `---` สำหรับแบ่ง sections เมื่อจำเป็น
 
-````typescript
-export default defineEventHandler(async () => {
-    // This route is protected by the admin-api middleware
-    const allUsers = await db.select().from(users).orderBy(desc(users.createdAt));
-    return allUsers;
-});
-````
+## Expected Outcome
 
-### Table
+- Markdown content จัดรูปแบบถูกต้องตามมาตรฐาน
+- Code blocks มี language tag
+- Tables และ lists ใช้ syntax ถูกต้อง
 
-````markdown
-| Component | Status      |
-|-----------|-------------|
-| Button    | `Completed` |
-| Input     | `In Progress` |
-````
-
-### File Structure
-
-````text
-.windsurf/
-├── workflows/
-│   ├── deploy.md
-│   └── test.md
-└── rules.md
-````
-
-### Markdown Diagram
-
-````text
-[Start] --> [Is it?]
-  |
-  +-- Yes --> [OK] --> [End]
-  |
-  +-- No ---> [KO] --> [End]
-````
-
----
-
-## 4. Before & After Example (ใช้สำหรับเปรียบเทียบโค้ดก่อนและหลังการเปลี่ยนแปลง)
-
-### Refactoring Code
-
-**Before**
-
-```typescript
-function old_function(data) {
-    if (data) {
-        return process(data);
-    } else {
-        return null;
-    }
-}
-```
-
-**After**
-
-```typescript
-function new_function(data) {
-    return data ? process(data) : null;
-}
-```
 

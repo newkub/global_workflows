@@ -3,7 +3,7 @@ title: Roleplay New Developer
 description: รับบทเป็น dev ใหม่ที่เพิ่ง join พยายาม onboard ผ่าน codebase หาสิ่งที่งง ขาด docs ไม่มี context
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /pondering
   - /review-dx
@@ -28,7 +28,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อเข้าใจ project structure
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อเข้าใจ project structure
 2. อ่าน README, AGENTS.md, docs, contributing guides
 3. อ่าน package.json, tsconfig, config files, scripts
 4. อ่าน directory structure, file naming conventions

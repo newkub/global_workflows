@@ -5,6 +5,14 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
+รัน tests แบบ watch mode เพื่อตรวจสอบ test failures อย่างต่อเนื่อง
+
+## Scope
+
+ใช้สำหรับ project ที่ต้องการรัน tests แบบ watch mode ขณะพัฒนา
+
 ## Prompt
 
 ใช้ workflow นี้เมื่อต้องการรัน tests แบบ watch mode เพื่อตรวจสอบ test failures และ coverage อย่างต่อเนื่องขณะพัฒนา

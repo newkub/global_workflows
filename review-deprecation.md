@@ -3,7 +3,7 @@ title: Review Deprecation
 description: Review deprecation ครอบคลุม policy, backward compatibility, migration guides, และ breaking changes
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ deprecation policy, backward compatibility, migration guides, breaking change ma
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-deprecation.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-deprecation.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ deprecation policy, deprecation notices, และ deprecation timeline
 3. Script ตรวจสอบ backward compatibility, compatibility layers, และ breaking change detection
 4. Script ตรวจสอบ migration guides, migration tooling, และ migration path clarity

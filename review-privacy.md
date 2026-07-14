@@ -3,7 +3,7 @@ title: Review Privacy
 description: Review privacy ครอบคลุม GDPR, PII handling, consent, data deletion, และ retention
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ GDPR compliance, PII handling, consent management, data deletion rights, data re
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-privacy.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-privacy.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ PII handling, data classification, และ PII storage patterns
 3. Script ตรวจสอบ consent management, consent tracking, และ consent withdrawal
 4. Script ตรวจสอบ data deletion rights, right-to-be-forgotten, และ data export

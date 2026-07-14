@@ -4,7 +4,7 @@ description: Review naming conventions ครอบคลุม code, API, datab
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -28,7 +28,7 @@ variable naming, function naming, class naming, file naming, directory naming, A
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-naming.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-naming.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ variable, function, class naming consistency ตาม language conventions
 3. Script ตรวจสอบ file naming patterns ครอบคลุม:
    - File naming convention ตาม file type: component files (PascalCase), utility/hook files (camelCase หรือ kebab-case), route files (ตาม framework convention), test files (`.test.ts` / `.spec.ts`), config files

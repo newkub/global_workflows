@@ -3,7 +3,7 @@ title: Review Backup
 description: Review backup ครอบคลุม strategy, restore testing, recovery procedures, และ RPO/RTO
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ backup strategy, backup frequency, restore testing, data recovery procedures, RP
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-backup.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-backup.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ backup strategy, backup types, และ backup frequency
 3. Script ตรวจสอบ restore testing, restore procedures, และ restore verification
 4. Script ตรวจสอบ RPO/RTO compliance, recovery time objectives, และ data loss tolerance

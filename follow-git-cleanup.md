@@ -5,6 +5,14 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
+ล้างและ optimize Git repository เพื่อลดขนาดและเพิ่มประสิทธิภาพ
+
+## Scope
+
+ใช้สำหรับ project ที่ต้องการล้างและ optimize Git repository
+
 ## Prompt
 
 ใช้ workflow นี้เมื่อต้องการล้างและ optimize Git repository

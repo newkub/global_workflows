@@ -4,7 +4,7 @@ description: Review testing ครอบคลุม coverage, test quality, แ
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -28,7 +28,7 @@ unit tests, integration tests, E2E tests, coverage gaps, test quality, test isol
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-testing.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-testing.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ coverage, test file patterns, test isolation
 3. Script ตรวจสอบ untested critical paths, E2E coverage, และ test reliability
 4. Script คำนวณ testing health score และ output เป็น structured JSON

@@ -4,7 +4,7 @@ description: Review frontend ครอบคลุม components, reactivity, ac
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -28,7 +28,7 @@ component structure, reactivity patterns, accessibility (WCAG, ARIA, keyboard na
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-frontend.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-frontend.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ component patterns, reactivity usage, และ accessibility attributes
 3. Script ตรวจสอบ WCAG compliance, ARIA attributes, keyboard navigation, focus management, และ color contrast
 4. Script ตรวจสอบ design tokens: colors, typography, spacing, component variants, และ pattern consistency

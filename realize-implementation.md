@@ -3,7 +3,7 @@ title: Realize Implementation
 description: แปลงทุกอย่างเป็น production code จริง ครบทุกมิติ
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /deep-review
   - /implement-comment-todo
   - /implement-features-to-mvp
@@ -29,7 +29,7 @@ related:
 
 วิเคราะห์สิ่งที่ขาดหายไปก่อนเริ่ม implement ด้วย scripts automation
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อวิเคราะห์โปรเจกต์ครบทุกมิติด้วย scripts automation
+1. ทำ `/deep-analyze-codebase` เพื่อวิเคราะห์โปรเจกต์ครบทุกมิติด้วย scripts automation
 2. ทำ `/deep-review` เพื่อระบุสิ่งที่ขาดหายไปครบทุกมิติ
 3. ทำ `/review-realize-implementation` เพื่อ review TODO, MOCK, FAKE, STUB, placeholder, unfinished features และ missing implementations แบบเจาะจง
 4. จัดลำดับตาม critical path: schema → data → API → UX/UI

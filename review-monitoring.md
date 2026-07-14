@@ -3,7 +3,7 @@ title: Review Monitoring
 description: Review monitoring และ observability ครอบคลุม metrics, alerts, dashboards, และ incident response
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ metrics collection, alert configuration, dashboard design, uptime tracking, inci
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-monitoring.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-monitoring.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ metrics collection, custom metrics, และ metric labeling
 3. Script ตรวจสอบ alert configuration, threshold tuning, และ alert routing
 4. Script ตรวจสอบ dashboard design, metric visualization, และ data freshness

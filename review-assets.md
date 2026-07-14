@@ -3,7 +3,7 @@ title: Review Assets
 description: Review assets ครอบคลุม image optimization, font loading, icons, CDN, และ lazy loading
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ image optimization, font loading strategy, icon management, CDN configuration, l
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-assets.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-assets.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ image optimization, format selection, responsive images, และ compression
 3. Script ตรวจสอบ font loading strategy, font display, preload, และ font subsetting
 4. Script ตรวจสอบ icon management, icon system, และ icon bundling

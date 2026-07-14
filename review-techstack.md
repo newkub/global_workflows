@@ -3,7 +3,7 @@ title: Review Tech Stack
 description: Review tech stack ครอบคลุม framework, library, runtime, และ compatibility
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ framework selection, library versions, runtime compatibility, build tools, packa
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-techstack.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-techstack.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ framework versions, compatibility matrix, และ EOL status
 3. Script ตรวจสอบ library alignment กับ project requirements และ redundancy
 4. Script ตรวจสอบ build tool configuration, package manager consistency, และ runtime requirements

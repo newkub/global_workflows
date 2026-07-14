@@ -3,7 +3,7 @@ title: Review Hooks
 description: Review hooks quality ครอบคลุม composable functions, reactivity, และ reusability
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ composable function design, reactivity usage, lifecycle management, cleanup patt
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-hooks.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-hooks.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ composable function design, parameter validation, และ return value structure
 3. Script ตรวจสอบ reactivity usage, signal/memo patterns, และ effect cleanup
 4. Script ตรวจสอบ lifecycle management, onMount/onCleanup patterns, และ resource disposal

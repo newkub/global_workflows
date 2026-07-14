@@ -4,7 +4,7 @@ description: Review database และ data layer ครอบคลุม schem
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -28,7 +28,7 @@ schema design, indexes, relations, migrations, data integrity, data quality, dat
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-database.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-database.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ schema design, index coverage, relation integrity, และ data types
 3. Script ตรวจสอบ migration safety, rollback capability, connection management, และ query patterns
 4. Script ตรวจสอบ data quality, data integrity constraints, และ data validation

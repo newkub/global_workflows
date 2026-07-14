@@ -62,7 +62,7 @@ auto_execution_mode: 3
 
 - ผ่าน linting rules ทั้งหมด
 - ผ่าน type checking ไม่มี errors
-- ใช้ import alias ตาม `/use-import-alias`
+- ใช้ import strategy ตาม `/follow-import`
 - ทำตาม `/code-quality`
 
 ## Expected Outcome

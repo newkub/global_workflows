@@ -3,7 +3,7 @@ title: Review Realtime
 description: Review realtime และ notification ครอบคลุม SSE, WebSocket, reconnection, notification channels, และ availability updates
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ SSE/WebSocket patterns, connection management, reconnection logic, message order
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-realtime.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-realtime.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ SSE/WebSocket patterns, connection lifecycle, และ error handling
 3. Script ตรวจสอบ reconnection logic, backoff strategy, และ connection state recovery
 4. Script ตรวจสอบ message ordering, data sync, และ availability update patterns

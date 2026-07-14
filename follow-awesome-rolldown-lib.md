@@ -9,7 +9,13 @@ auto_execution_mode: 3
 
 สรุป libraries ที่สร้างด้วย Rolldown bundler เพื่อเป็น reference
 
-## Libraries
+## Scope
+
+ใช้สำหรับ reference เมื่อต้องการเลือก library ที่สร้างด้วย Rolldown
+
+## Execute
+
+### 1. Libraries
 
 ### 1. tsdown (rolldown/tsdown)
 

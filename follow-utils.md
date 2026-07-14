@@ -8,107 +8,86 @@ title: Follow Utils
 auto_execution_mode: 3
 ---
 
-## 1. Folder Rules (ใช้เสมอ)
+## Goal
 
-1.1. `Pure FP` : เขียน utils functions -> ปฏิบัติตามหลักต่อไปนี้
-    - No Side Effects
-    - No State Mutation
-    - Deterministic
-    - Stateless
-    - Small & Focused
+เขียนและจัดโครงสร้าง utils functions ตาม Pure Functional Programming principles
 
-1.2. `การจัดโครงสร้าง folder` : มี utils functions หลายประเภท -> แบ่งเป็น subfolders ตามหมวดหมู่
-    - /utils/format - สำหรับ formatting functions
-    - /utils/validation - สำหรับ validation functions
-    - /utils/conversion - สำหรับ conversion functions
-    - /utils/math - สำหรับ mathematical functions
-    - /utils/string - สำหรับ string manipulation functions
-    - /utils/array - สำหรับ array manipulation functions
-    - /utils/date - สำหรับ date/time functions
+## Scope
 
-1.3. `การตั้งชื่อ folder` : สร้าง folder ใหม่ -> ใช้ชื่อที่สื่อความหมายชัดเจนและเป็นภาษาอังกฤษ
+ใช้สำหรับ project ที่มี utils functions ที่ต้องจัดโครงสร้างและ quality
 
----
+## Execute
 
-## 2. Import Rules (ใช้เสมอ)
+### 1. Folder Rules
 
-2.1. `ลำดับ imports` : import dependencies -> เรียงตามลำดับต่อไปนี้
-    - External libraries (เช่น import { z } from 'zod')
-    - Internal modules (เช่น import { type Config } from '@/types')
-    - Relative imports (เช่น import { helper } from './helper')
+จัดโครงสร้าง utils เป็น subfolders ตามหมวดหมู่
 
-2.2. `การจัดกลุ่ม imports` : imports หลายประเภท -> แบ่งเป็น groups และเว้นบรรทัดว่างระหว่าง groups
+> Goal: utils แบ่งตามหมวดหมู่ชัดเจน
 
-2.3. `การใช้ type imports` : import types เท่านั้น -> ใช้ `import type` เพื่อป้องกัน runtime overhead
+1. แบ่ง subfolders: `format`, `validation`, `conversion`, `math`, `string`, `array`, `date`
+2. ใช้ชื่อ folder ที่สื่อความหมายเป็นภาษาอังกฤษ
 
-2.4. `การตั้งชื่อ imports` : import จาก module เดียวกัน -> ใช้ destructuring และตั้งชื่อให้ชัดเจน
+### 2. Import Rules
 
----
+จัดลำดับ imports อย่างเป็นระบบ
 
-## 3. Function Rules (ใช้เสมอ)
+> Goal: imports เรียงลำดับชัดเจน
 
-3.1. `Pure Functions` : เขียน function -> ต้องเป็น pure function
-    - รับ input และ return output เท่านั้น
-    - ไม่แก้ไข input ที่รับมา
-    - ไม่มี side effects
-    - ใช้ immutable operations
+1. เรียง: external libraries → internal modules → relative imports
+2. แบ่ง groups ด้วยบรรทัดว่าง
+3. ใช้ `import type` สำหรับ type-only imports
 
-3.2. `การตั้งชื่อ function` : ตั้งชื่อ function -> ใช้ verb หรือ verb+noun ที่สื่อความหมายชัดเจน
-    - formatDate
-    - validateEmail
-    - convertToCamelCase
+### 3. Function Rules
 
-3.3. `การเขียน JSDoc` : function มีความซับซ้อน -> เขียน JSDoc อธิบาย
-    - @param - อธิบาย parameters
-    - @returns - อธิบาย return value
-    - @example - ให้ตัวอย่างการใช้งาน
-    - @throws - อธิบาย errors ที่อาจเกิดขึ้น
+เขียน functions ตาม Pure FP principles
 
-3.4. `การจัดการ error` : function อาจเกิด error -> return result object หรือ throw error อย่างชัดเจน
-    - ใช้ Result pattern หรือ Either pattern
-    - ใช้ custom error types
-    - ระบุ error messages ที่ชัดเจน
+> Goal: functions เป็น pure, type-safe, และ testable
 
-3.5. `การเขียน tests` : function สำคัญ -> เขียน unit tests ครอบคลุม
-    - Test happy paths
-    - Test edge cases
-    - Test error cases
-    - ใช้ descriptive test names
+1. เขียน pure functions — no side effects, no state mutation, deterministic
+2. ตั้งชื่อด้วย verb หรือ verb+noun (เช่น `formatDate`, `validateEmail`)
+3. เขียน JSDoc สำหรับ functions ที่ซับซ้อน (`@param`, `@returns`, `@example`)
+4. จัดการ error ด้วย Result pattern หรือ custom error types
+5. เขียน unit tests ครอบคลุม happy paths, edge cases, error cases
+6. ใช้ TypeScript types — type inference, generics, type guards
+7. Validate inputs ก่อนประมวลผล — ใช้ `zod` สำหรับ complex validations
+8. จำกัด function size ไม่เกิน 20-30 lines — extract helpers ถ้าจำเป็น
 
-3.6. `Type Safety` : function มี parameters หรือ return values -> ใช้ TypeScript types อย่างเหมาะสม
-    - ใช้ type inference เมื่อเป็นไปได้
-    - ใช้ generics สำหรับ reusable functions
-    - ใช้ type guards สำหรับ runtime validation
-    - ระบุ return types อย่างชัดเจน
+### 4. Export Rules
 
-3.7. `Parameter Validation` : function รับ parameters -> validate inputs ก่อนประมวลผล
-    - ตรวจสอบ null/undefined
-    - ตรวจสอบ types
-    - ตรวจสอบ value ranges
-    - ใช้ validation libraries เช่น zod สำหรับ complex validations
+จัดการ exports อย่างเป็นระบบ
 
-3.8. `Function Size` : function มีความยาว -> จัดการให้เหมาะสม
-    - Single responsibility
-    - ไม่เกิน 20-30 lines
-    - Extract helper functions ถ้าจำเป็น
+> Goal: exports ใช้ named exports และมี index file
 
----
+1. ใช้ named exports เป็นหลัก
+2. สร้าง `index.ts` เพื่อรวบรวม exports ในแต่ละ folder
+3. ใช้ `export * from` สำหรับ re-export จาก subfolders
 
-## 4. Export Rules (ใช้เสมอ)
+### 5. Performance
 
-4.1. `การ export` : export functions -> ใช้ named exports เป็นหลัก
+ใช้ optimization เมื่อจำเป็น
 
-4.2. `การสร้าง index file` : folder มีหลาย files -> สร้าง index.ts เพื่อรวบรวม exports
+> Goal: functions มี performance ที่เหมาะสม
 
-4.3. `การ re-export` : re-export จาก subfolders -> ใช้ `export * from` เพื่อความสะดวก
+1. ใช้ memoization สำหรับ functions ที่คำนวณซ้ำ
+2. ใช้ lazy evaluation สำหรับข้อมูลจำนวนมาก
+3. ใช้ caching สำหรับ functions ที่มี cost สูง
 
----
+## Rules
 
-## 5. Performance Rules (ใช้เมื่อจำเป็น)
+- ใช้ Pure Functional Programming principles — no side effects, no mutation, deterministic
+- จัดโครงสร้าง utils เป็น subfolders ตามหมวดหมู่
+- เรียง imports: external → internal → relative
+- ใช้ `import type` สำหรับ type-only imports
+- ตั้งชื่อ function ด้วย verb หรือ verb+noun
+- จำกัด function size ไม่เกิน 20-30 lines
+- ใช้ named exports เป็นหลัก
+- สร้าง `index.ts` ในแต่ละ folder
 
-5.1. `Memoization` : function มีการคำนวณซ้ำๆ -> ใช้ memoization
+## Expected Outcome
 
-5.2. `Lazy Evaluation` : ประมวลผลข้อมูลจำนวนมาก -> ใช้ lazy evaluation
+- utils แบ่งเป็น subfolders ตามหมวดหมู่
+- functions เป็น pure, type-safe, และมี unit tests
+- imports เรียงลำดับชัดเจน
+- exports ใช้ named exports พร้อม index files
 
-5.3. `Caching` : function มี cost สูง -> implement caching mechanism
 

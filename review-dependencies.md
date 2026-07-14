@@ -4,7 +4,7 @@ description: Review dependencies ครอบคลุม versions, security, un
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -28,7 +28,7 @@ dependency versions, security vulnerabilities, unused dependencies, transitive d
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-dependencies.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-dependencies.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ outdated dependencies, vulnerabilities, unused packages
 3. Script ตรวจสอบ transitive dependencies, compatibility, และ duplicate packages
 4. Script คำนวณ dependency health score และ output เป็น structured JSON

@@ -4,7 +4,7 @@ description: Review desktop app ครอบคลุม Tauri/Electron patterns
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /update-rules
   - /validate
   - /report
@@ -29,7 +29,7 @@ desktop framework (Tauri, Electron), native API usage, window management, system
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-desktop.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-desktop.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ native API usage, IPC patterns, และ security boundaries ระหว่าง main/renderer processes
 3. Script ตรวจสอบ window management, multi-window patterns, และ window state persistence
 4. Script ตรวจสอบ auto-update mechanism, update signature verification, และ rollback capability

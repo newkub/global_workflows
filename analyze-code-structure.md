@@ -1,12 +1,12 @@
 ---
-title: Improve Code Structure
+title: Analyze Code Structure
 description: วิเคราะห์และปรับปรุง code structure ด้วย sg outline ครอบคลุม symbols, exports, members, และ cohesion
 auto_execution_mode: 3
 related:
   - /scan-codebase
   - /update-rules
   - /use-ast-grep
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -41,7 +41,7 @@ related:
 
 ### 2. Analyze Code Structure
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-code-structure.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-code-structure.ts` ใน `.devin/scripts/analyze/`
 2. Script รัน `sg outline` ด้วย flags ที่เลือก:
    - `sg outline --view expanded --items structure <paths>` สำหรับ top-level symbols และ members
    - `sg outline --view signatures --items exports <paths>` สำหรับ exported surface

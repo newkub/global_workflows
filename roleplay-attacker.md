@@ -3,7 +3,7 @@ title: Roleplay Attacker
 description: รับบทเป็น hacker มองหา vulnerabilities attack surfaces และ exploit paths จาก source code
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /pondering
   - /review-security
@@ -30,7 +30,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา security-relevant code
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา security-relevant code
 2. อ่าน auth flows, API endpoints, input handlers, database queries, file operations, payment flows
 3. อ่าน config files, environment variables, deployment setup, CORS, CSP headers
 4. อ่าน RBAC, permissions, guards, middleware, rate limiting

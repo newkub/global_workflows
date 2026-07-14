@@ -3,7 +3,7 @@ title: Review Audit Log
 description: Review audit trail ครอบคลุม who did what when, compliance logging, และ immutable logs
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ audit log creation, user action tracking, immutable log storage, compliance audi
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-audit-log.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-audit-log.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ audit log coverage: ทุก sensitive action มี audit log หรือไม่
 3. Script ตรวจสอบ user attribution: user_id, session_id, IP address, user agent ใน audit entries
 4. Script ตรวจสอบ timestamp integrity: UTC timestamps, monotonic ordering, clock skew handling

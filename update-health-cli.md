@@ -9,12 +9,13 @@ related:
   - /follow-create-bun-cli
   - /follow-clean-architecture
   - /read-related-workflows
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /suggest-next-action
   - /restructure
   - /edit-relative
   - /check-should-update
+  - /add-task-in-package-manifest
 ---
 
 ## Goal
@@ -33,8 +34,8 @@ related:
 
 > Goal: รู้ว่า CLI ต้องอัปเดทตาม code changes หรือไม่ ก่อนเริ่มงาน ไม่เสียเวลาอัปเดทถ้าไม่มีอะไรเปลี่ยน
 
-1. ทำ `/check-should-update` โดยระบุ target paths: `tools/health/`, `.devin/workflows/ apps/*/AGENTS.md AGENTS.md`, `apps/website/src/`
-2. ถ้าผลเป็น `skip` → ข้ามไป Step 6 (Validate CLI) เพื่อรัน CLI ที่มีอยู่
+1. ทำ `/check-should-update` โดยระบุ target paths: `tools/health/`, `AGENTS.md`, `apps/*/AGENTS.md`, `apps/website/src/`
+2. ถ้าผลเป็น `skip` → ข้ามไป Step 8 (Validate CLI) เพื่อรัน CLI ที่มีอยู่
 3. ถ้าผลเป็น `update` → ทำตาม Step 2 ก่อน แล้วทำ Step 3 เป็นต้นไป
 4. ถ้าผลเป็น `create` → ทำ Step 3 เป็นต้นไปเลย
 
@@ -45,11 +46,9 @@ related:
 > Goal: AGENTS.md เป็นปัจจุบันก่อนอัปเดท analyzers เพราะ analyzers อ้างอิง review-* workflows จาก AGENTS.md
 
 1. อ่าน `AGENTS.md` ที่ root และ workspace level
-2. เช็คว่า `## Workflows` section ครอบคลุม dependencies ใน `package.json` ทั้งหมดหรือไม่
-3. เช็คว่า `## Review` section อ้างอิง `/review-codebase-everything` และมี workspace-specific reviews ครบ
-4. เช็คว่า `## Skills` section มี skills ที่ map กับ dependencies ครบ
-5. ถ้า AGENTS.md ขาด workflows, skills หรือ reviews ที่ map กับ dependencies ปัจจุบัน → ทำ `/update-agents-md` ก่อน
-6. ถ้า AGENTS.md เป็นปัจจุบัน → ข้ามไป Step 3
+2. เช็คว่า `## Workflows`, `## Review`, และ `## Skills` section ครอบคลุม dependencies ใน `package.json` ทั้งหมด
+3. ถ้า AGENTS.md ขาด workflows, skills หรือ reviews ที่ map กับ dependencies ปัจจุบัน → ทำ `/update-agents-md` ก่อน
+4. ถ้า AGENTS.md เป็นปัจจุบัน → ข้ามไป Step 3
 
 ### 3. Read Context
 
@@ -86,7 +85,7 @@ related:
    1. อ่าน `/report-health` Step 7 สำหรับรายการ categories ในแต่ละ domain
    2. สร้าง `Analyzer` object ใน domain file ที่เกี่ยวข้อง ถ้ายังไม่มี
    3. อัปเดท analyzer ที่มีอยู่แล้วให้สอดคล้องกับ category ปัจจุบัน
-   4. ใช้ `/deep-analyze-with-use-scripts` สำหรับโครงสร้าง analyzer
+   4. ใช้ `/deep-analyze-codebase` สำหรับโครงสร้าง analyzer
 2. ทุก analyzer ต้องใช้ shared utilities จาก `src/adapters/`:
    - `file-utils.ts` สำหรับ `walk`, `readText`, `getRel`
    - `git-grep.ts` สำหรับ `gitGrep`, `gitGrepCount`
@@ -98,7 +97,19 @@ related:
 4. ใส่ specific checks ตาม scope ของแต่ละ category
 5. ถ้า analyzer ไม่สามารถ implement ทั้งหมดได้ ให้ comment `// TODO` พร้อมรายละเอียดสิ่งที่ต้องทำ
 
-### 6. Restructure Analyzers
+### 6. Update Package Manifest
+
+ตรวจสอบและอัปเดท scripts ใน `package.json` ของ workspace และ root ให้สอดคล้องกับ CLI ที่อัปเดท
+
+> Goal: scripts ใน `package.json` ครบถ้วนและรันได้ก่อน validate
+
+1. ทำ `/add-task-in-package-manifest` สำหรับ script ที่จำเป็น:
+   - `health` → `bun run src/presentation/cli.ts` ใน `tools/health/package.json`
+   - `health` → `bun --filter @booking/tools-health health` ใน root `package.json`
+2. ถ้ามี script ใหม่ที่ต้อง orchestration → register task ใน `turbo.json`
+3. ถ้า script มีอยู่และถูกต้อง → ข้าม
+
+### 7. Restructure Analyzers
 
 ปรับโครงสร้างไฟล์ถ้าเกิน 250 บรรทัดและอัปเดท references
 
@@ -108,7 +119,7 @@ related:
 2. จัดกลุ่ม analyzers ตาม domain เดียวใน file เดียว
 3. ทำ `/edit-relative` ทุกครั้งหลังย้ายหรือเปลี่ยนชื่อไฟล์
 
-### 7. Validate CLI
+### 8. Validate CLI
 
 ตรวจสอบว่า CLI รันได้และ output ถูกต้อง
 
@@ -120,38 +131,33 @@ related:
 4. รัน `bunx biome check tools/health` เพื่อตรวจ lint และ format
 5. ทำ `/validate` เพื่อตรวจสอบความถูกต้อง
 
-### 8. Deep Report
+### 9. Deep Report
 
 สร้าง deep report ตาม `/deep-report` พร้อมตารางละเอียดและสรุปครบทุกมิติ
 
 > Goal: deep report ที่ละเอียด actionable และครบทุกมิติ
 
 1. ทำ `/deep-report` เพื่อสร้าง deep report ตาม format ที่กำหนด
-2. แสดงตาราง deep report ด้วย 7 columns ตาม Rules section 9 (Deep Report Table)
+2. แสดงตาราง deep report ด้วย 7 columns ตาม Rules section 7 (Deep Report Table)
 3. จัดกลุ่มตาม `reviewWorkflow` จาก AGENTS.md เพื่อเชื่อมโยงกับ `/review-*` workflows
-4. แสดงสรุปละเอียดครบทุกมิติตาม Rules section 10 (Deep Summary)
+4. แสดงสรุปละเอียดครบทุกมิติตาม Rules section 8 (Deep Summary)
 5. ทำ `/suggest-next-action` เพื่อแนะนำ action ถัดไป
 
 ## Rules
 
-### 1. CLI Structure
+### 1. CLI And Analyzer Structure
 
 - ใช้โครงสร้างจาก `/follow-create-bun-cli` และ `/follow-clean-architecture`
 - แยก concerns ตาม Clean Architecture: `domain/` (pure logic), `application/` (orchestration), `adapters/` (I/O), `presentation/` (CLI entry point)
-- แยก concerns: analyzers (business logic), services (scorer, reporter), utils, types
 - ชื่อไฟล์ใช้ `kebab-case` เสมอ
 - Entry point: `src/presentation/cli.ts` และ `src/index.ts`
-
-### 2. Analyzer Structure
-
 - ใช้ Bun native APIs: `Bun.file`, `Bun.spawn`, `Bun.write`
-- ใช้ TypeScript สำหรับ type safety
 - ทุก analyzer ต้อง return `CategoryResult` พร้อม `status`, `score`, `findings`
 - ทุก analyzer ต้องมี `reviewWorkflow` ที่ map ไปยัง `/review-*` workflow จาก AGENTS.md
 - ใช้ shared utilities จาก `src/adapters/` แทนการ duplicate code
 - Output เป็น table และ JSON ตาม `--format` flag
 
-### 3. Category Coverage
+### 2. Category Coverage
 
 - ครอบคลุม 60+ categories จาก `/report-health` Step 7
 - 5 domains: User-Facing, Security & Compliance, Backend & Data, Infrastructure, Code & Architecture
@@ -159,7 +165,7 @@ related:
 - คำนวณ health score: ✅ = 100, ⚠️ = 50, ❌ = 0
 - แสดง progress bar พร้อม grade: A (90+), B (80+), C (70+), D (60+), F (<60)
 
-### 4. Table Output Format
+### 3. Table Output Format
 
 - กรองเฉพาะ categories ที่มี findings (ไม่แสดง pass)
 - จัดกลุ่มตาม `reviewWorkflow` จาก AGENTS.md
@@ -167,33 +173,27 @@ related:
 - แสดง summary ด้านล่าง: domain scores, severity counts, total categories
 - แสดง action items สำหรับ Critical และ High severity
 
-### 5. CLI Help
+### 4. CLI Help
 
 - มี `--help` และ `-h` option ที่แสดง usage, options, exit codes, examples
 - มี error messages สำหรับ invalid arguments
 - มี exit codes: 0 = success, 1 = invalid arguments
 
-### 6. Specific Checks
+### 5. Specific Checks
 
 - อ่าน `## Execute` และ `## Rules` ของ `/report-health`
 - แปลง checks ที่เป็น code patterns เป็น regex หรือ AST-based search
 - ใช้ `gitGrep` สำหรับ pattern-based search
 - อย่า implement checks ที่เป็น process guidelines หรือ require human judgment
 
-### 7. Single Responsibility
-
-- หนึ่งไฟล์ทำหนึ่ง domain ไม่เกิน 250 บรรทัด
-- หนึ่ง analyzer ทำหนึ่ง category
-- ทำ `/edit-relative` ทุกครั้งหลังย้ายหรือเปลี่ยนชื่อไฟล์
-
-### 8. Validation
+### 6. Validation
 
 - ทุก analyzer ต้องผ่าน typecheck ก่อน commit
 - ทุก analyzer ต้องรันได้โดยไม่ error
 - ทุก finding ต้องมี evidence: file path, line number, หรือ code snippet
 - ใช้ `/validate` ก่อนสรุปผล
 
-### 9. Deep Report Table
+### 7. Deep Report Table
 
 ตาราง deep report มี 7 columns จัดกลุ่มตาม `reviewWorkflow`:
 
@@ -212,7 +212,7 @@ related:
 - แต่ละ row ต้องมี evidence ที่ตรวจสอบได้จริง
 - ถ้า finding เป็น false positive ให้ระบุใน column Cause ว่า `False positive: <reason>`
 
-### 10. Deep Summary
+### 8. Deep Summary
 
 สรุปละเอียดครบทุกมิติท้าย report มี 5 ส่วน:
 
@@ -225,7 +225,7 @@ related:
 ## Expected Outcome
 
 - `tools/health` มี health CLI ครอบคลุม 60+ categories ตาม `/report-health`
-- CLI รันได้ด้วย `bun run health` และ `bun run health:json`
+- CLI รันได้ด้วย `bun run health`
 - ไม่มีไฟล์ใดยาวกว่า 250 บรรทัด
 - Deep report แสดงตาราง 7 columns พร้อมสรุปละเอียดครบทุกมิติ
 - ตรวจสอบ git changes และ AGENTS.md freshness ก่อนอัปเดท analyzers

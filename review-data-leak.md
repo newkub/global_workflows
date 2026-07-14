@@ -4,7 +4,7 @@ description: Review data leak ครอบคลุม sensitive data exposure, 
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /update-rules
   - /validate
   - /report
@@ -29,7 +29,7 @@ sensitive data exposure ใน API responses, PII leaks ใน logs และ co
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-data-leak.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-data-leak.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ API responses ที่ expose sensitive fields เกินจำเป็น (over-fetching, missing field selection)
 3. Script ตรวจสอบ log statements และ console output ที่ contain PII, secrets, หรือ sensitive data
 4. Script ตรวจสอบ error messages ที่ reveal internal state, stack traces, หรือ system information ต่อ client

@@ -3,7 +3,7 @@ title: Roleplay Regulatory Audit
 description: รับบทเป็นหน่วยงานภาครัฐตรวจ platform หาช่องโหว่กฎหมายและ compliance gaps ที่อาจถูกดำเนินการ
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /review-security
   - /review-privacy
   - /review-data-leak
@@ -29,7 +29,7 @@ related:
 
 ### 1. Read Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` อ่าน source code, configs, package manifests
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` อ่าน source code, configs, package manifests
 2. อ่านเอกสารที่เกี่ยวข้อง (README, TERMS, PRIVACY, refund policy, license, .env.example) ถ้ามี
 3. ระบุ project type, domain, ตลาด, กลุ่มผู้ใช้, ข้อมูลที่เก็บ, ฟีเจอร์การเงิน/ชำระเงิน
 4. ถ้าไม่ทราบ jurisdiction ให้ถามผู้ใช้ก่อนว่าให้บริการในประเทศ/เขตอำนาจศาลใด

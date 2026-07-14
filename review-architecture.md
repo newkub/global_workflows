@@ -4,14 +4,14 @@ description: Review architecture ครอบคลุม patterns, boundaries, 
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /update-rules
   - /report
   - /report-format-table
   - /suggest-next-action
   - /comment-todo
-  - /improve-code-structure
+  - /analyze-code-structure
 ---
 
 ## Goal
@@ -36,7 +36,7 @@ architectural patterns, module boundaries, dependency directions, SOLID principl
 
 วิเคราะห์ architecture อย่างลึกซึ้งด้วย scripts
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-architecture.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-architecture.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ:
    - Module boundaries และ import directions
    - Dependency graph และ circular dependencies
@@ -86,11 +86,11 @@ architectural patterns, module boundaries, dependency directions, SOLID principl
 
 ### 4. Scope Boundaries
 
-- ไม่ review code-level structure (symbols, exports, members) ที่ `/improve-code-structure` ทำ
+- ไม่ review code-level structure (symbols, exports, members) ที่ `/analyze-code-structure` ทำ
 - ไม่ review filesystem organization ที่ `/review-filesystem` ทำ
 - ไม่ review refactor opportunities ลึกที่ `/review-refactor` ทำ
 - focus ที่ system-level: patterns, boundaries, coupling, SOLID, scalability
-- สำหรับ drill-down ระดับไฟล์ ทำ `/improve-code-structure`
+- สำหรับ drill-down ระดับไฟล์ ทำ `/analyze-code-structure`
 
 ## Expected Outcome
 

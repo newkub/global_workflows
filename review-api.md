@@ -4,7 +4,7 @@ description: Review API layer ครอบคลุม oRPC handlers, Zod valida
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -28,7 +28,7 @@ API handlers, input/output schemas, middleware, error handling, rate limiting, A
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-api.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-api.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ handler patterns, Zod schema coverage, middleware usage
 3. Script ตรวจสอบ error handling, rate limiting, และ input validation gaps
 4. Script คำนวณ API health score และ output เป็น structured JSON

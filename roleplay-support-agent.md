@@ -3,7 +3,7 @@ title: Roleplay Support Agent
 description: รับบทเป็น support/customer service มอง code ว่า user จะติดต่อเรื่องอะไร error ช่วยได้ไหม หา root cause ยากไหม
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /pondering
   - /review-error-handling
@@ -27,7 +27,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา user-facing code
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา user-facing code
 2. อ่าน error messages, error handling, validation messages, toast/notification text
 3. อ่าน logging, error tracking, debug info, audit logs
 4. อ่าน help text, tooltips, FAQs, documentation links

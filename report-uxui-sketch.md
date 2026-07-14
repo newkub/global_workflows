@@ -7,7 +7,7 @@ related:
   - /sketch
   - /idea-features
   - /idea-uxui
-  - /code-search
+  - /scan-codebase
 ---
 
 ## Goal
@@ -22,7 +22,7 @@ related:
 
 ### 1. Analyze Existing Components
 
-1. ทำ `/code-search` เพื่อหา components, routes, และ layouts ที่เกี่ยวข้อง
+1. ทำ `/scan-codebase` เพื่อหา components, routes, และ layouts ที่เกี่ยวข้อง
 2. ระบุ existing UI components ที่จะ reuse หรือ extend
 3. ระบุ route paths และ navigation structure
 4. ระบุ form fields, buttons, และ interactive elements จาก schema

@@ -3,7 +3,7 @@ title: Review Cost
 description: Review cloud cost optimization ครอบคลุม resource usage, billing, และ waste elimination
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ compute resource usage, storage cost, bandwidth cost, third-party API cost, data
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-cost.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-cost.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ compute cost: server sizing, auto-scaling config, idle resource detection
 3. Script ตรวจสอบ storage cost: storage volume, retention policy, duplicate data, orphaned storage
 4. Script ตรวจสอบ bandwidth cost: CDN usage, image optimization, response compression, caching headers

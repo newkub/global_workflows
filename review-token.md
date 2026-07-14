@@ -3,7 +3,7 @@ title: Review Token
 description: Review token management ครอบคลุม JWT expiry, refresh strategy, revocation และ rotation
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ token issuance, token expiry, token refresh, token revocation, token rotation, t
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-token.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-token.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ token issuance: signing algorithm, claims, issuer, audience
 3. Script ตรวจสอบ token expiry: access token TTL, refresh token TTL, expiry validation
 4. Script ตรวจสอบ token refresh: refresh flow, refresh token rotation, reuse detection

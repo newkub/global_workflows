@@ -3,7 +3,7 @@ title: Roleplay UXUI Designer
 description: รับบทเป็น UX/UI designer อ่าน code แล้ววิจารณ์ design quality consistency และ design system compliance
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /pondering
   - /sketch
@@ -30,7 +30,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา UI code
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา UI code
 2. อ่าน components, pages, layouts, templates, design tokens, theme config
 3. อ่าน CSS/styling system, utility classes, design system config (UnoCSS, Tailwind, etc.)
 4. อ่าน icons, typography, spacing, color usage patterns

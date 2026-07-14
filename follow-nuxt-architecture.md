@@ -5,7 +5,13 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
 จัดโครงสร้างโปรเจกต์ Nuxt ตามมาตรฐานสำหรับ Universal Rendering, Nitro server, Layers และ Modules
+
+## Scope
+
+ใช้สำหรับ project ที่พัฒนาด้วย Nuxt 3/4
 
 ## Execute
 
@@ -404,5 +410,14 @@ related_workflows: เสมอ
 - ไม่ใช้ relative path import ใน cross-layer imports
 - ใช้ import alias สำหรับ external modules
 - ตรวจสอบไม่มี circular dependencies
+
+## Expected Outcome
+
+- Nuxt project ใช้ `app/` directory ตามมาตรฐาน Nuxt 4
+- มี `layers/` สำหรับ feature-based architecture
+- มี `modules/` สำหรับ custom modules
+- Components ใช้ PascalCase และแยกตาม feature
+- Composables ใช้ `use` prefix
+- มี barrel exports ในทุก feature folder
 
 

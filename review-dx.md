@@ -3,7 +3,7 @@ title: Review DX
 description: Review developer experience ครอบคลุม onboarding, tooling, documentation, และ workflow
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ onboarding experience, development setup, build tooling, debug tooling, document
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-dx.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-dx.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ onboarding flow: setup scripts, prerequisites, และ first-run experience
 3. Script ตรวจสอบ development tooling: hot reload, debug tools, และ development scripts
 4. Script ตรวจสอบ error message quality for developers, stack traces, และ debuggability

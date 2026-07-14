@@ -3,7 +3,7 @@ title: Review Data Integrity
 description: Review data integrity ครอบคลุม DB constraints, referential integrity, orphaned records และ cascade rules
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ database constraints, foreign key integrity, orphaned record prevention, cascade
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-data-integrity.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-data-integrity.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ primary key constraints: uniqueness, not-null, auto-increment strategy
 3. Script ตรวจสอบ foreign key constraints: referential integrity, cascade rules, SET NULL vs RESTRICT
 4. Script ตรวจสอบ unique constraints: unique columns, composite unique, partial unique indexes

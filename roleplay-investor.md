@@ -3,7 +3,7 @@ title: Roleplay Investor
 description: รับบทเป็น VC/angel investor ทำ technical due diligence จาก code ประเมิน tech risk scalability และ moat
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /deep-research
   - /pondering
@@ -32,7 +32,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อเข้าใจ project
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อเข้าใจ project
 2. อ่าน package.json, README, AGENTS.md, docs เพื่อเข้าใจ product และ tech stack
 3. อ่าน architecture, database schema, API design, deployment config
 4. อ่าน test coverage, CI/CD, monitoring, error handling

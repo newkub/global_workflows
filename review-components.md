@@ -3,7 +3,7 @@ title: Review Components
 description: Review component quality ครอบคลุม structure, props, reactivity, และ reusability
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ component structure, props/emits design, reactivity usage, component composition
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-components.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-components.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ component structure, prop design, และ event emission patterns
 3. Script ตรวจสอบ reactivity usage, memo/computed patterns, และ unnecessary re-renders
 4. Script ตรวจสอบ component composition, slot usage, และ component reusability

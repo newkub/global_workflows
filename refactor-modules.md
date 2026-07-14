@@ -115,7 +115,7 @@ Refactor แต่ละ module ให้มี single responsibility
 - Foundation modules ไม่มี dependency กับ modules อื่น
 - High-level modules พึ่งพา low-level modules เท่านั้น
 - ไม่มี `circular dependencies` ระหว่าง modules
-- ใช้ `import alias` ตาม `/use-import-alias`
+- ใช้ `import strategy` ตาม `/follow-import`
 
 ### 4. Cohesion Vs Coupling
 

@@ -3,7 +3,7 @@ title: Review Image Optimization
 description: Review image optimization ครอบคลุม formats, responsive, lazy load, CDN และ compression
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ image format selection, responsive image sizing, lazy loading, CDN configuration
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-image-optimization.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-image-optimization.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ image format: WebP/AVIF usage, fallback format, format negotiation
 3. Script ตรวจสอบ responsive images: srcset usage, sizes attribute, art direction, breakpoint coverage
 4. Script ตรวจสอบ lazy loading: native lazy loading, intersection observer, above-the-fold handling

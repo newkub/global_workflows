@@ -7,6 +7,8 @@ related:
   - /follow-functional-core-imperative-shell
   - /follow-event-driven
   - /follow-layered-architecture
+  - /follow-validation
+  - /follow-orm
   - /refactor-modules
   - /write-test
   - /follow-code-quality
@@ -31,34 +33,47 @@ src/
 ├── modules/                      # Feature modules (Vertical Slice)
 │   └── [module-name]/            # e.g., booking, payment, user
 │       ├── types/                # Domain type definitions
+│       ├── schemas/              # Input/output Zod schemas
 │       ├── domain/               # Pure business logic (no deps)
 │       │   ├── models/           # Readonly data models
 │       │   ├── operations/       # Pure business functions
 │       │   ├── validators/       # Domain validation
+│       │   ├── policies/         # Reusable business policies
 │       │   └── events/           # Domain event types (no handlers)
 │       ├── application/          # Orchestration layer
-│       │   ├── usecases/         # Flow orchestration
-│       │   └── workflows/        # Complex multi-step workflows
+│       │   ├── usecases/         # Flow orchestration (write side)
+│       │   ├── queries/          # Read-side queries (CQRS read)
+│       │   ├── workflows/        # Complex multi-step workflows
+│       │   └── handlers/         # Domain event handlers
 │       ├── ports/                # Module-specific interfaces
 │       └── index.ts              # Public API exports
 ├── adapters/                     # External systems integration
 │   ├── db/                       # Database implementations
 │   ├── http/                     # HTTP clients
 │   ├── external/                 # External services
-│   └── config/                   # Configuration management
+│   ├── config/                   # Configuration management
+│   ├── cache/                    # Cache implementations (Redis, in-memory)
+│   ├── queue/                    # Message queue adapters (RabbitMQ, SQS, BullMQ)
+│   ├── storage/                  # File/object storage (S3, local filesystem)
+│   └── auth/                     # Authentication adapters (OAuth, JWT, session)
 ├── presentation/                 # Entry points
 │   ├── http/                     # HTTP handlers and routes
+│   ├── graphql/                  # GraphQL resolvers
+│   ├── grpc/                     # gRPC handlers
 │   ├── cli/                      # CLI commands
 │   └── events/                   # Event handlers
 ├── shared/                       # Shared kernel
 │   ├── types/                    # Common types (Result, Option, Either)
 │   ├── utils/                    # Pure utility functions
 │   ├── errors/                   # Error types
-│   └── constants/                # Static constants
+│   ├── constants/                # Static constants
+│   ├── ports/                    # Cross-module shared interfaces (LoggerPort, ClockPort)
+│   └── mappers/                  # Shared mapper functions across modules
 
 test/                             # Mirror src structure
 ├── fixtures/                     # Shared test data and mocks
 ├── helpers/                      # Test utilities and setup
+├── mocks/                        # Mock implementations of ports
 └── modules/                      # Mirror src/modules
 
 // distributed/ - Plugin layer (optional)
@@ -73,6 +88,8 @@ test/                             # Mirror src structure
 - `utils/` - Pure utility functions
 - `errors/` - Error types
 - `constants/` - Constants
+- `ports/` - Cross-module shared interfaces (`LoggerPort`, `ClockPort`, `IdGeneratorPort`)
+- `mappers/` - Shared mapper functions across modules
 
 ### 3. Implement Functional Core
 
@@ -82,30 +99,39 @@ test/                             # Mirror src structure
 - Immutable data structures (`readonly`)
 - ไม่มี side effects
 - ไม่พึ่ง infrastructure
+- ทำ `/follow-validation` เพื่อกำหนด validation strategy ข้าม layers
 - ทำ `/deep-review` เพื่อใช้ patterns ที่เหมาะสมกับ functional core
 
 ### 4. Implement Application Layer
 
 ทำ `/follow-event-driven` เพื่อสร้าง orchestration layer ใน `modules/*/application/`:
 
-- `usecases/` - Flow orchestration
+- `usecases/` - Flow orchestration (write side)
+- `queries/` - Read-side queries (CQRS read)
 - `workflows/` - Complex multi-step workflows
+- `handlers/` - Domain event handlers
 - ใช้ `ports` สำหรับ side effects
 
 ### 5. Implement Adapters
 
 ทำ `/follow-layered-architecture` เพื่อสร้าง adapters layer:
 
-- `adapters/db/` - Database implementations
+- `adapters/db/` - Database implementations — ทำ `/follow-orm` สำหรับ repository ports และ ORM adapters
 - `adapters/http/` - HTTP clients
 - `adapters/external/` - External service adapters
 - `adapters/config/` - Configuration management
+- `adapters/cache/` - Cache implementations (Redis, in-memory)
+- `adapters/queue/` - Message queue adapters (RabbitMQ, SQS, BullMQ)
+- `adapters/storage/` - File/object storage (S3, local filesystem)
+- `adapters/auth/` - Authentication adapters (OAuth, JWT, session)
 
 ### 6. Implement Presentation Layer
 
 ทำ `/follow-layered-architecture` เพื่อสร้าง presentation layer:
 
 - `presentation/http/` - HTTP handlers and routes
+- `presentation/graphql/` - GraphQL resolvers
+- `presentation/grpc/` - gRPC handlers
 - `presentation/cli/` - CLI commands
 - `presentation/events/` - Event handlers
 
@@ -160,12 +186,24 @@ Clean Architecture มี 3 rules หลัก:
 | Folder | Purpose | Style | Side Effects | Required | Naming Convention |
 |--------|---------|-------|--------------|----------|------------------|
 | `modules/*/types/` | Domain type definitions | Pure FP | None | Required | PascalCase types |
+| `modules/*/schemas/` | Input/output Zod schemas | Pure FP | None | Required | camelCase schemas |
 | `modules/*/domain/` | Pure business logic | Pure FP | None | Required | camelCase functions |
-| `modules/*/application/` | Orchestration layer | FP | Via ports | Required | useCase, workflow |
+| `modules/*/domain/policies/` | Reusable business policies | Pure FP | None | Optional | camelCase functions |
+| `modules/*/application/` | Orchestration layer | FP | Via ports | Required | useCase, query, workflow |
+| `modules/*/application/queries/` | Read-side queries (CQRS) | FP | Via ports | Optional | camelCase functions |
+| `modules/*/application/handlers/` | Domain event handlers | FP | Via ports | Optional | camelCase functions |
 | `modules/*/ports/` | Module-specific interfaces | FP | None | Required | I*Port interfaces |
 | `adapters/` | External systems integration | FP | I/O only | Required | kebab-case files |
+| `adapters/cache/` | Cache implementations | FP | I/O only | Optional | kebab-case files |
+| `adapters/queue/` | Message queue adapters | FP | I/O only | Optional | kebab-case files |
+| `adapters/storage/` | File/object storage | FP | I/O only | Optional | kebab-case files |
+| `adapters/auth/` | Authentication adapters | FP | I/O only | Optional | kebab-case files |
 | `presentation/` | Entry points | Functional Core/Imperative Shell | I/O only | Required | kebab-case files |
+| `presentation/graphql/` | GraphQL resolvers | Functional Core/Imperative Shell | I/O only | Optional | camelCase resolvers |
+| `presentation/grpc/` | gRPC handlers | Functional Core/Imperative Shell | I/O only | Optional | camelCase handlers |
 | `shared/` | Common utilities | Pure FP | None | Required | camelCase functions |
+| `shared/ports/` | Cross-module shared interfaces | Pure FP | None | Optional | I*Port interfaces |
+| `shared/mappers/` | Shared mapper functions | Pure FP | None | Optional | camelCase functions |
 | `distributed/` | Cross-module orchestration | FP (Event-Driven) | I/O only | Optional | saga, sagaId |
 
 ### 3. Layer Responsibilities

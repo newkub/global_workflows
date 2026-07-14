@@ -3,7 +3,7 @@ title: Review I18n
 description: Review internationalization ครอบคลุม translation completeness, locale formatting, RTL, และ missing keys
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ translation files, locale coverage, missing translation keys, locale formatting 
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-i18n.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-i18n.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ translation completeness, missing keys, และ locale coverage
 3. Script ตรวจสอบ locale formatting: date, number, currency, และ pluralization rules
 4. Script ตรวจสอบ RTL support, text direction handling, และ layout adaptation

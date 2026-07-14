@@ -3,7 +3,7 @@ title: Roleplay DevOps Engineer
 description: รับบทเป็น DevOps/SRE มอง code ว่า deploy ง่ายไหม monitor ได้ไหม rollback ได้ไหม observability พอไหม
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /pondering
   - /review-deployment
@@ -29,7 +29,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา infra/deploy code
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา infra/deploy code
 2. อ่าน CI/CD configs, Dockerfile, deployment scripts, infrastructure as code
 3. อ่าน monitoring, logging, alerting, health checks, metrics
 4. อ่าน config management, environment variables, secrets management

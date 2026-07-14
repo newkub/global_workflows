@@ -3,8 +3,9 @@ title: Review Refactor
 description: Review refactor opportunities รวม SRP violations, duplication, complexity, coupling, และ code smells
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /scan-codebase
+  - /check-duplication
   - /validate
   - /report
   - /report-format-table
@@ -34,7 +35,7 @@ Review refactor opportunities รวม SRP violations, code duplication, file c
 
 วิเคราะห์ refactor opportunities อย่างลึกซึ้งด้วย scripts
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-refactor.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-refactor.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ SRP violations: mixed concerns, God modules, multiple reasons to change
 3. Script ตรวจสอบ code duplication ด้วย `jscpd` และระบุ duplicate blocks
 4. Script ตรวจสอบ file complexity: files เกิน 250 บรรทัด, functions ที่ซับซ้อนเกินไป

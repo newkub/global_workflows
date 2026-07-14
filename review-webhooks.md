@@ -3,7 +3,7 @@ title: Review Webhooks
 description: Review webhook handling ครอบคลุม signature verification, idempotency, retry, และ payload validation
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ webhook signature verification, idempotency handling, retry logic, event orderin
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-webhooks.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-webhooks.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ signature verification, timestamp validation, และ replay attack prevention
 3. Script ตรวจสอบ idempotency handling, event deduplication, และ event ordering
 4. Script ตรวจสอบ retry logic, backoff strategy, และ dead letter queue

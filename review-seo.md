@@ -3,7 +3,7 @@ title: Review SEO
 description: Review SEO ครอบคลุม metadata, structured data, sitemap, และ search engine optimization
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ meta tags, Open Graph, Twitter Cards, structured data (JSON-LD), sitemap, robots
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-seo.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-seo.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ meta tags coverage, Open Graph, Twitter Cards, และ canonical URLs
 3. Script ตรวจสอบ structured data (JSON-LD), sitemap completeness, และ robots.txt
 4. Script ตรวจสอบ semantic HTML, heading hierarchy, และ image alt texts

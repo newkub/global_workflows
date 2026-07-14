@@ -17,7 +17,7 @@ auto_execution_mode: 3
 
 ### 1. Task Identification
 
-ทำ `/use-import-alias` เพื่อตรวจสอบการใช้ import alias และยืนยันว่า task เป็นการแก้ไขโค้ดเท่านั้น
+ทำ `/follow-import` เพื่อตรวจสอบการใช้ import strategy และยืนยันว่า task เป็นการแก้ไขโค้ดเท่านั้น
 
 ### 2. Code Modification
 

@@ -3,7 +3,7 @@ title: Review Routing
 description: Review routing ครอบคลุม route definitions, navigation guards, lazy loading, และ params validation
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ route definitions, navigation guards, lazy loading, route params validation, rou
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-routing.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-routing.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ route definitions, route structure, และ route naming conventions
 3. Script ตรวจสอบ navigation guards, auth checks, และ permission enforcement
 4. Script ตรวจสอบ lazy loading, code splitting, และ route-level loading states

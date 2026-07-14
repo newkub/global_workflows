@@ -3,7 +3,7 @@ title: Review Analytics
 description: Review analytics ครอบคลุม event tracking, conversion funnels, implementation, และ data accuracy
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ event tracking, conversion funnels, analytics implementation, data accuracy, eve
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-analytics.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-analytics.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ event tracking, event naming, และ event schema consistency
 3. Script ตรวจสอบ conversion funnels, funnel steps, และ funnel tracking completeness
 4. Script ตรวจสอบ analytics implementation, tracking code placement, และ data accuracy

@@ -5,6 +5,14 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
+สรุปเนื้อหาให้อยู่ในรูปแบบ bullet points
+
+## Scope
+
+ใช้สำหรับการสรุปเนื้อหาใดๆ ให้อยู่ในรูปแบบ bullet points
+
 ## Prompt
 
 ใช้ workflow นี้เมื่อต้องการสรุปเนื้อหาให้อยู่ในรูปแบบ bullet points

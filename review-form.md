@@ -3,7 +3,7 @@ title: Review Form
 description: Review form handling ครอบคลุม validation, UX, accessibility, และ state management
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ form validation schemas, field validation, error messages, form state management
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-form.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-form.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ form validation schemas, field rules, และ error message quality
 3. Script ตรวจสอบ form state management, submit handling, และ loading states
 4. Script ตรวจสอบ field accessibility, label association, และ keyboard navigation

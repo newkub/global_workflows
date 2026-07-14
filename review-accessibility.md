@@ -3,7 +3,7 @@ title: Review Accessibility
 description: Review accessibility ครอบคลุม WCAG, ARIA, keyboard nav, screen reader, และ color contrast
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ WCAG compliance, ARIA attributes, keyboard navigation, screen reader support, co
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-accessibility.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-accessibility.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ ARIA attributes, semantic HTML, และ heading hierarchy
 3. Script ตรวจสอบ keyboard navigation, focus management, tab order, และ keyboard traps
 4. Script ตรวจสอบ color contrast, image alt texts, และ screen reader compatibility

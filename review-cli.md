@@ -3,7 +3,7 @@ title: Review CLI
 description: Review CLI และ TUI tools ครอบคลุม commands, options, help text, terminal UI, และ user experience
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ command structure, options/flags, help text, error messages, exit codes, interac
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-cli.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-cli.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ command structure, options, flags, และ argument parsing
 3. Script ตรวจสอบ help text completeness, error messages, และ exit codes
 4. Script ตรวจสอบ interactive mode, autocomplete, และ configuration file support

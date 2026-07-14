@@ -11,6 +11,7 @@ related:
   - /deep-review
   - /deep-review
   - /review-performance
+  - /follow-time-complexity
   - /report-format-table
 ---
 
@@ -58,10 +59,11 @@ Performance optimization อย่างลึกซึ้ง ครอบคล
 ทำ `/deep-review` สำหรับ backend และ data layer
 
 1. ทำ `/deep-review` วิเคราะห์ query patterns และ indexes
-2. ระบุ N+1 queries และ unnecessary queries
-3. ระบุ missing indexes และ slow queries
-4. ระบุ connection pooling issues
-5. ระบุ API response optimization: pagination, field selection, compression
+2. ทำ `/follow-time-complexity` วิเคราะห์ time complexity ของ query และ data processing functions
+3. ระบุ N+1 queries และ unnecessary queries
+4. ระบุ missing indexes และ slow queries
+5. ระบุ connection pooling issues
+6. ระบุ API response optimization: pagination, field selection, compression
 
 ### 5. Caching Strategy
 

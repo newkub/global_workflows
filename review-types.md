@@ -3,7 +3,7 @@ title: Review Types
 description: Review type design ครอบคลุม generics, inference, discriminated unions, branded types, และ narrowing
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ generic types, type inference, discriminated unions, branded types, type narrowi
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-types.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-types.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ generic type usage, type parameter constraints, และ type inference quality
 3. Script ตรวจสอบ discriminated unions, type narrowing, และ type predicate patterns
 4. Script ตรวจสอบ branded types, opaque types, และ nominal typing patterns

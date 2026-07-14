@@ -9,6 +9,10 @@ auto_execution_mode: 3
 
 แปลง mock implementations ทั้งหมดให้เป็น production code ที่เชื่อมต่อกับ infrastructure จริง ไม่ใช้ mock data หรือ simulation
 
+## Scope
+
+ใช้สำหรับ project ที่มี MOCK, FAKE, STUB implementations ที่ต้องแปลงเป็น production code
+
 ## Execute
 
 ### 1. Search Mock Implementations
@@ -109,4 +113,11 @@ Throw error ถ้า required configuration ไม่มี
 - Return user-friendly error messages
 - ไม่ crash application เมื่อ service ล่ม
 - Graceful degradation ถ้าเป็นไปได้
+
+## Expected Outcome
+
+- ไม่มี MOCK, FAKE, STUB ใน production code
+- ทุก implementations เชื่อมต่อกับ infrastructure จริง
+- มี proper error handling สำหรับ external dependencies
+- ไม่มี mock data หรือ simulation ใน codebase
 

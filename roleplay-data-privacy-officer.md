@@ -3,7 +3,7 @@ title: Roleplay Data Privacy Officer
 description: รับบทเป็น DPO มอง code ว่า PII handled ถูกไหม มี data retention ไหม consent management ไหม GDPR compliant ไหม
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /pondering
   - /review-privacy
@@ -28,7 +28,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา privacy-relevant code
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา privacy-relevant code
 2. อ่าน database schema, models, migrations เพื่อหา PII fields
 3. อ่าน API endpoints, serializers, responses เพื่อหา data exposure
 4. อ่าน auth flows, consent flows, user settings, data deletion flows

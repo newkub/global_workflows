@@ -3,7 +3,7 @@ title: Review Search
 description: Review search ครอบคลุม indexing, relevance, filtering, autocomplete, และ search UX
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ search indexing, relevance scoring, filtering, autocomplete, search UX, search p
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-search.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-search.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ search indexing, index coverage, และ index freshness
 3. Script ตรวจสอบ relevance scoring, filtering logic, และ sort options
 4. Script ตรวจสอบ autocomplete, search UX, และ search result rendering

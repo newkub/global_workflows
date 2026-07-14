@@ -3,7 +3,7 @@ title: Review Rate Limiting
 description: Review rate limiting ครอบคลุม middleware config, threshold tuning, bypass protection, และ distributed
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ rate limiting middleware, threshold configuration, bypass protection, distribute
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-rate-limiting.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-rate-limiting.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ rate limiting middleware, threshold values, และ window configuration
 3. Script ตรวจสอบ bypass protection, whitelist safety, และ authentication-based limits
 4. Script ตรวจสอบ distributed rate limiting, shared state, และ race condition prevention

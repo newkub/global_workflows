@@ -3,7 +3,7 @@ title: Review Service
 description: Review service layer ครอบคลุม business logic, data flow, และ service patterns
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ service organization, business logic patterns, data transformation, service-to-s
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-service.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-service.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ service organization, single responsibility, และ boundary clarity
 3. Script ตรวจสอบ business logic patterns, data transformation, และ validation at service layer
 4. Script ตรวจสอบ service communication, transaction boundaries, และ error propagation

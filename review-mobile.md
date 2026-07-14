@@ -3,7 +3,7 @@ title: Review Mobile
 description: Review mobile app ครอบคลุม Capacitor plugins, platform-specific code, และ offline support
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ Capacitor plugins, platform detection, native bridge, offline support, push noti
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-mobile.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-mobile.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ Capacitor plugin usage, platform detection, และ native bridge patterns
 3. Script ตรวจสอบ offline support, push notification handling, และ biometric auth
 4. Script ตรวจสอบ mobile UX: touch targets, safe area, และ responsive layout

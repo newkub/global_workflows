@@ -3,7 +3,7 @@ title: Review Email
 description: Review email ครอบคลุม template rendering, validation, unsubscribe, deliverability, และ SPF/DKIM/DMARC
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ email template rendering, email validation, unsubscribe handling, deliverability
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-email.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-email.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ email template rendering, dynamic content, และ template versioning
 3. Script ตรวจสอบ email validation, bounce handling, และ suppression list management
 4. Script ตรวจสอบ unsubscribe handling, consent management, และ CAN-SPAM compliance

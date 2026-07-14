@@ -124,7 +124,7 @@ Scripts สำหรับ development mode เพื่อเพิ่มปร
 |------|-----|------|---------|------------|----------|-------|------|--------|----|
 | test:watch | vitest | vitest | vitest | vitest | vitest | vitest | cargo nextest run --watch | pytest-watch | go test ./... -watch |
 | typecheck:watch | tsgo --noEmit --watch | nuxt typecheck --watch | tsgo --noEmit --watch | tsgo --noEmit --watch | svelte-check --watch --tsconfig ./tsconfig.json | tsgo --noEmit --watch | cargo watch -x check | - | - |
-| build:watch | bun build --watch | nuxt build --watch | next build --watch | vite build --watch | vite build --watch | tauri build --watch | cargo build --watch | - | - |
+| build:watch | bunup --watch | nuxt build --watch | next build --watch | vite build --watch | vite build --watch | tauri build --watch | cargo build --watch | - | - |
 
 ### 4. Testing Scripts
 

@@ -4,7 +4,7 @@ description: Review RBAC implementation ครอบคลุม roles, permissi
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /update-rules
   - /validate
   - /report
@@ -33,7 +33,7 @@ role definitions, permission lists, role-permission matrix, route permissions, r
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-rbac.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-rbac.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ role definitions, permission lists, role-permission matrix consistency
 3. Script ตรวจสอบ route guards, permission guards, server-side enforcement, และ missing guards
 4. Script ตรวจสอบ role simulation/debug tooling, test coverage, และ RBAC audit logging

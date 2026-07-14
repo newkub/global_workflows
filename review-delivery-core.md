@@ -3,7 +3,7 @@ title: Review Delivery Core
 description: Review delivery ครอบคลุม SEO, content, DX, documentation, และ versioning
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ SEO optimization, content delivery, developer experience (DX), documentation qua
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-delivery.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-delivery.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ SEO readiness, content delivery patterns, และ delivery channel coverage
 3. Script ตรวจสอบ developer experience: onboarding flow, API documentation, และ SDK usability
 4. Script ตรวจสอบ documentation quality, README completeness, และ example coverage

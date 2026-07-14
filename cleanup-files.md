@@ -3,12 +3,12 @@ title: Cleanup Files
 description: ตรวจสอบและลบไฟล์ โฟลเดอร์ และ dependencies ที่ไม่จำเป็นในโปรเจกต์
 auto_execution_mode: 3
 related:
-  - /check-unsued-files
+  - /check-unused-files
   - /check-unused-deps
   - /delete
   - /edit-relative
   - /run-verify
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /update-rules
 ---
 
@@ -26,7 +26,7 @@ related:
 
 ตรวจสอบไฟล์ที่ไม่ได้ใช้
 
-1. ทำ `/check-unsued-files` เพื่อสแกนไฟล์ที่ไม่มี references
+1. ทำ `/check-unused-files` เพื่อสแกนไฟล์ที่ไม่มี references
 2. ตรวจสอบรายงานที่ได้
 3. ยืนยันว่าไฟล์ไม่มี side effects หรือ entry points
 
@@ -80,7 +80,7 @@ related:
 ตรวจสอบว่า cleanup เสร็จสมบูรณ์
 
 1. ทำ `/run-verify` เพื่อตรวจสอบ scan, lint, typecheck, test, build
-2. ทำ `/check-unsued-files` อีกครั้งเพื่อยืนยัน
+2. ทำ `/check-unused-files` อีกครั้งเพื่อยืนยัน
 3. ทำ `/check-unused-deps` อีกครั้งเพื่อยืนยัน
 4. ทำ `/loop-until-complete` จนกว่าจะไม่มีสิ่งที่ไม่จำเป็นเหลือ
 

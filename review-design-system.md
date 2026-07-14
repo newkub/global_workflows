@@ -3,7 +3,7 @@ title: Review Design System
 description: Review design system compliance ครอบคลุม component usage, theme tokens, spacing และ consistency
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ theme token usage, component pattern compliance, spacing system, color system, t
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-design-system.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-design-system.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ theme token usage: hardcoded colors, hardcoded spacing, hardcoded font sizes
 3. Script ตรวจสอบ component pattern compliance: component variants, component composition, component props
 4. Script ตรวจสอบ spacing system: spacing scale usage, margin/padding consistency, gap consistency

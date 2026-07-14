@@ -4,7 +4,7 @@ description: Review browser security ครอบคลุม CSP, CORS, XSS, CS
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /update-rules
   - /validate
   - /report
@@ -29,7 +29,7 @@ CSP configuration, CORS policy, XSS prevention (DOM manipulation, innerHTML, dan
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-browser-security.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-browser-security.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ CSP configuration, missing directives, unsafe-inline, และ unsafe-eval
 3. Script ตรวจสอบ CORS policy, origin validation, credentials configuration, และ wildcard origins
 4. Script ตรวจสอบ XSS prevention: DOM manipulation patterns, innerHTML usage, dangerouslySetInnerHTML, และ missing sanitization

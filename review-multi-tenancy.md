@@ -3,7 +3,7 @@ title: Review Multi Tenancy
 description: Review multi-tenancy isolation ครอบคลุม data partitioning, tenant context, และ cross-tenant leak prevention
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ tenant data isolation, tenant context management, cross-tenant access prevention
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-multi-tenancy.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-multi-tenancy.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ tenant context propagation ผ่านทุก layer: API → service → database
 3. Script ตรวจสอบ data isolation: tenant_id filtering ในทุก query, missing tenant scope, cross-tenant data access
 4. Script ตรวจสอบ tenant-specific configuration: per-tenant settings, feature flags, rate limits

@@ -3,7 +3,7 @@ title: Roleplay QA Tester
 description: รับบทเป็น QA engineer คิด edge cases boundary conditions และ test scenarios จาก code
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /pondering
   - /review-testing
@@ -29,7 +29,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา testable code
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา testable code
 2. อ่าน business logic, state machines, form validations, data transformations
 3. อ่าน existing tests เพื่อเข้าใจ coverage ปัจจุบัน
 4. อ่าน error handling, edge case handling, fallback behavior

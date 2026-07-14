@@ -3,7 +3,7 @@ title: Review Caching
 description: Review caching strategy ครอบคลุม invalidation, key design, TTL, storage, และ stale-while-revalidate
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ cache invalidation, cache key design, TTL configuration, cache storage selection
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-caching.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-caching.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ cache invalidation strategy, key design, และ namespace management
 3. Script ตรวจสอบ TTL configuration, expiration policy, และ cache eviction
 4. Script ตรวจสอบ cache storage selection, memory vs persistent, และ distributed cache

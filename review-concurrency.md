@@ -3,7 +3,7 @@ title: Review Concurrency
 description: Review concurrency ครอบคลุม async/await, race conditions, deadlocks, และ parallel execution
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ async/await patterns, race conditions, deadlocks, parallel execution, mutex/lock
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-concurrency.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-concurrency.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ async/await patterns, promise handling, และ unhandled rejections
 3. Script ตรวจสอบ race conditions, shared state access, และ atomic operations
 4. Script ตรวจสอบ deadlock prevention, lock ordering, และ timeout strategies

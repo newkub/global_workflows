@@ -5,7 +5,11 @@ auto_execution_mode: 3
 related:
 ---
 
-## Purpose
+## Goal
+
+พัฒนาโค้ดที่ทำงานได้บน multiple frameworks โดยไม่ผูกติดกับ framework ใด framework หนึ่ง
+
+## Execute
 
 พัฒนาโค้ดที่สามารถทำงานได้บน multiple frameworks (React, Vue, Svelte, Solid) โดยไม่ผูกติดกับ framework ใด framework หนึ่งเป็นพิเศษ
 

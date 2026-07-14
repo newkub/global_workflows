@@ -3,7 +3,7 @@ title: Review SSR
 description: Review SSR ครอบคลุม server-side rendering, hydration, SSR-compatible code, และ streaming
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ SSR implementation, hydration correctness, SSR-compatible code, streaming SSR, S
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-ssr.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-ssr.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ SSR implementation, server entry, และ render-to-string patterns
 3. Script ตรวจสอบ hydration correctness, hydration mismatch, และ client takeover
 4. Script ตรวจสอบ SSR-compatible code, browser API guards, และ server-only imports

@@ -3,7 +3,7 @@ title: Review Docs
 description: Review documentation ครอบคลุม README, API docs, examples, และ content quality
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ README, API documentation, code examples, setup guides, inline documentation, co
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-docs.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-docs.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ README completeness, setup guide accuracy, และ API documentation coverage
 3. Script ตรวจสอบ code examples: runnable, up-to-date, และ consistent with API
 4. Script ตรวจสอบ content accuracy, broken links, และ missing documentation

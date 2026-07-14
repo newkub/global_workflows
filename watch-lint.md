@@ -5,6 +5,14 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
+ตรวจสอบและ monitor linting ในโปรเจกต์อย่างต่อเนื่อง
+
+## Scope
+
+ใช้สำหรับ project ที่ต้องการ monitor linting อย่างต่อเนื่อง
+
 ## Prompt
 
 ใช้ workflow นี้เมื่อต้องการตรวจสอบและ monitor linting ในโปรเจกต์อย่างต่อเนื่อง

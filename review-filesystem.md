@@ -3,7 +3,7 @@ title: Review Filesystem
 description: Review filesystem ครอบคลุม file structure, directory organization, module boundaries, และ import paths
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -28,7 +28,7 @@ file structure, directory organization, module boundaries, import paths, file na
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-filesystem.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-filesystem.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ file structure, directory organization, และ module grouping
 3. Script ตรวจสอบ module boundaries, circular dependencies, และ import direction
 4. Script ตรวจสอบ import paths, path aliases, และ relative vs absolute imports

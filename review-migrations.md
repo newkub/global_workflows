@@ -3,7 +3,7 @@ title: Review Migrations
 description: Review database migrations ครอบคลุม safety, rollback, data preservation, และ ordering
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ migration files, up/down scripts, data preservation, migration ordering, schema 
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-migrations.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-migrations.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ migration safety: destructive operations, locking, และ data loss risk
 3. Script ตรวจสอบ rollback capability: down scripts completeness และ reversibility
 4. Script ตรวจสอบ data preservation: default values, nullable columns, และ data backfill

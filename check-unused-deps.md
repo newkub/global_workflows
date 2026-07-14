@@ -1,112 +1,104 @@
 ---
 title: Check Unused Dependencies
-description: ตรวจสอบ dependencies ที่ไม่ได้ใช้ในโปรเจกต์
+description: Detect and remove unused dependencies using Knip and ecosystem-specific tools
 auto_execution_mode: 3
+related:
+  - /follow-knip
+  - /check-unused-files
+  - /run-check
+  - /resolve-errors
+  - /cleanup-files
 ---
-
 
 ## Goal
 
-ตรวจสอบและระบุ dependencies ที่ไม่ได้ใช้ในโปรเจกต์
+ตรวจจับและระบุ dependencies ที่ไม่ได้ใช้ในโปรเจกต์ และแก้ไขหรือลบออก
+
+## Scope
+
+ใช้กับทุกโปรเจกต์ที่มี package manifest — รองรับทั้ง single project และ monorepo — ไม่รวมการตรวจสอบ unused files หรือ unused exports (ใช้ `/check-unused-files` และ `/follow-knip` แทน)
 
 ## Execute
 
-### 1. Read Package Manifest
+### 1. Detect Ecosystem
 
-อ่าน package manifest ทั้งหมด
+ระบุ ecosystem และ package manager ที่ใช้
 
-1. อ่าน `package.json` สำหรับ JavaScript/TypeScript
-2. อ่าน `Cargo.toml` สำหรับ Rust
-3. อ่าน `requirements.txt` สำหรับ Python
-4. อ่าน `go.mod` สำหรับ Go
-5. รวบรวม dependencies ทั้งหมด
+> Goal: รู้ ecosystem และ tool ที่จะใช้ตรวจสอบ
 
-### 2. Scan Code Usage
+1. ตรวจสอบ `package.json` → JavaScript/TypeScript ใช้ `knip`
+2. ตรวจสอบ `Cargo.toml` → Rust ใช้ `cargo-udeps`
+3. ตรวจสอบ `requirements.txt` หรือ `pyproject.toml` → Python ใช้ `pip-autoremove` หรือ `ruff`
+4. ตรวจสอบ `go.mod` → Go ใช้ `go mod tidy`
+5. ถ้าไม่ตรวจพบ ecosystem ใด → stop และ report
 
-สแกนการใช้งาน dependencies ใน code
+### 2. Run Dependency Analysis
 
-1. ใช้ `Grep` เพื่อค้นหา import statements
-2. ใช้ `Grep` เพื่อค้นหา require statements
-3. ใช้ `Grep` เพื่อค้นหา use statements
-4. ใช้ `Grep` เพื่อค้นหา dynamic imports
-5. ใช้ `Grep` เพื่อค้นหา configuration references
+รัน tool ตรวจสอบ unused dependencies
 
-### 3. Identify Unused Dependencies
+> Goal: ได้รายการ unused dependencies จาก tool
 
-ระบุ dependencies ที่ไม่ได้ใช้
+1. ถ้าเป็น JavaScript/TypeScript → ทำ `/follow-knip` แล้วรัน `bunx knip --include dependencies`
+2. ถ้าเป็น Rust → รัน `cargo +nightly udeps`
+3. ถ้าเป็น Python → รัน `ruff` หรือ `pip-autoremove`
+4. ถ้าเป็น Go → รัน `go mod tidy -v`
+5. ถ้าเป็น monorepo → รัน `bunx knip -W <workspace>` เพื่อ filter ตาม workspace
 
-1. เปรียบเทียบ dependencies กับ usage
-2. ระบุ dependencies ที่ไม่มีการใช้งาน
-3. ตรวจสอบ transitive dependencies
-4. ตรวจสอบ dev dependencies
-5. ตรวจสอบ peer dependencies
+### 3. Verify Results
 
-### 4. Use Specialized Tools
+ตรวจสอบผลลัพธ์เพื่อแยก false positives
 
-ใช้ tools เฉพาะทางสำหรับตรวจสอบ
+> Goal: รายการ unused dependencies ที่ยืนยันแล้ว
 
-1. ใช้ `knip` สำหรับ JavaScript/TypeScript
-2. ใช้ `cargo-udeps` สำหรับ Rust
-3. ใช้ `pip-autoremove` สำหรับ Python
-4. ใช้ `go mod tidy` สำหรับ Go
-5. ทำ `/use-scripts` เพื่อ parse multiple tool outputs, cross-reference results, และ generate unified report ใน script เดียว
+1. ตรวจสอบ implicit usage — เช่น plugins, runtime config, framework conventions
+2. ตรวจสอบ type-only packages — เช่น `@types/*` ที่อาจไม่ปรากฏใน imports โดยตรง
+3. ตรวจสอบ peer dependencies — อาจจำเป็นแต่ไม่ import โดยตรง
+4. ตรวจสอบ build tools — เช่น `vite`, `biome` ที่ใช้ผ่าน CLI ไม่ใช่ import
+5. ถ้าผลลัพธ์ว่าง → ไม่มี unused dependencies และจบ workflow
 
-### 5. Generate Report
+### 4. Fix Or Remove
 
-สร้างรายงานผลการตรวจสอบ
+แก้ไขหรือลบ unused dependencies
 
-1. รวบรวม dependencies ที่ไม่ได้ใช้
-2. จัดกลุ่มตามประเภท (dev, peer, optional)
-3. แสดงขนาด dependencies
-4. แสดง transitive dependencies
-5. แนะนำการดำเนินการ
+> Goal: ไม่มี unused dependencies เหลือในโปรเจกต์
+
+1. ลบ dependency ออกจาก `package.json` หรือ manifest file
+2. รัน `bun install` หรือคำสั่งเทียบเท่าเพื่อ update lockfile
+3. ถ้า dependency มี implicit usage → ใช้ `ignoreDependencies` ใน `knip.json` สำหรับ JS/TS
+4. ทำ `/resolve-errors` ถ้ามี build errors หลังลบ
+5. รัน `bunx knip --include dependencies` อีกครั้งเพื่อยืนยันว่าไม่มี unused เหลือ
 
 ## Rules
 
-### 1. Package Types
+### 1. Use Knip For JavaScript
 
-ตรวจสอบทุกประเภทของ dependencies
+- ใช้ `knip --include dependencies` สำหรับ JS/TS — ไม่ใช้ `depcheck` หรือ manual grep
+- ใช้ `knip --production --include dependencies` เพื่อตรวจเฉพาะ production dependencies
+- ใช้ `knip --strict --include dependencies` เพื่อตรวจรวม peerDependencies และ type-only imports
+- ใช้ `ignoreDependencies` ใน `knip.json` สำหรับ type packages ที่จำเป็นแต่ไม่ปรากฏใน imports
 
-- ตรวจสอบ production dependencies
-- ตรวจสอบ dev dependencies
-- ตรวจสอบ peer dependencies
-- ตรวจสอบ optional dependencies
-- ตรวจสอบ transitive dependencies
+### 2. Monorepo Handling
 
-### 2. Usage Detection
+- ใช้ `knip -W <workspace>` เพื่อ filter ตาม workspace
+- ตรวจสอบ cross-workspace dependencies — อาจ unused ใน workspace หนึ่งแต่ใช้ในอีก workspace
+- รัน `bunx knip` ที่ root เพื่อตรวจทุก workspace พร้อมกัน
 
-ตรวจสอบการใช้งานอย่างครอบคลุม
+### 3. Safety
 
-- ตรวจสอบ import statements
-- ตรวจสอบ dynamic imports
-- ตรวจสอบ configuration usage
-- ตรวจสอบ build scripts
-- ตรวจสอบ runtime usage
+- ตรวจสอบ implicit usage ก่อนลบเสมอ — framework plugins, runtime config, build tools
+- ห้ามลบ `@types/*` โดยไม่ตรวจสอบ — อาจจำเป็นสำหรับ type inference
+- ทดสอบ build และ test หลังลบ dependency
+- ถ้าลบแล้วมี error → เพิ่มกลับและใช้ `ignoreDependencies` แทน
 
-### 3. Tool Validation
+### 4. Production vs Development
 
-ใช้หลาย tools เพื่อยืนยันผลลัพธ์
-
-- ใช้ tools เฉพาะทางสำหรับแต่ละภาษา
-- เปรียบเทียบผลลัพธ์จากหลาย tools
-- ตรวจสอบ false positives
-- ตรวจสอบ edge cases
-- ยืนยันด้วย manual inspection
-
-### 4. Safety
-
-ระมัดระวังในการตัดสิน
-
-- ตรวจสอบ implicit usage
-- ตรวจสอบ plugin systems
-- ตรวจสอบ framework conventions
-- ตรวจสอบ type definitions
-- ทดสอบหลังลบ
+- รันทั้ง default และ `--production` mode แยกกัน
+- `--production` exclude devDependencies — เหมาะสำหรับตรวจสอบ production bundle
+- default mode รวม devDependencies — เหมาะสำหรับ cleanup ทั่วไป
 
 ## Expected Outcome
 
-- รายการ dependencies ที่ไม่ได้ใช้
-- รายงานจัดกลุ่มตามประเภท
-- ข้อมูลขนาดและผลกระทบ
-- คำแนะนำการดำเนินการ
-- ความมั่นใจในการลบ
+- รายการ unused dependencies ที่ยืนยันแล้ว (หรือไม่มีถ้าผ่าน)
+- Dependencies ที่ไม่ได้ใช้ถูกลบออกจาก manifest
+- Lockfile อัปเดตแล้ว
+- Build และ test ผ่านหลังลบ

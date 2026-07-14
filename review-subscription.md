@@ -3,7 +3,7 @@ title: Review Subscription
 description: Review subscription lifecycle ครอบคลุม billing cycles, renewal, cancellation และ proration
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ subscription creation, billing cycle management, renewal process, cancellation h
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-subscription.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-subscription.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ subscription creation: plan selection, trial period, payment method collection
 3. Script ตรวจสอบ billing cycle: cycle period, billing date, timezone handling, leap year handling
 4. Script ตรวจสอบ renewal process: auto-renewal, failed renewal, dunning management, retry logic

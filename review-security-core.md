@@ -4,7 +4,7 @@ description: Review security ครอบคลุม auth, secrets, input valid
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -28,7 +28,7 @@ auth patterns, RBAC, secrets exposure, input sanitization, dependency vulnerabil
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-security.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-security.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ hardcoded secrets, auth patterns, RBAC enforcement
 3. Script ตรวจสอบ input validation, sanitization, และ dependency vulnerabilities
 4. Script คำนวณ security health score และ output เป็น structured JSON

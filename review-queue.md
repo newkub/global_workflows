@@ -3,7 +3,7 @@ title: Review Queue
 description: Review queue ครอบคลุม job processing, retry, dead letter, worker concurrency, และ backpressure
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ job processing, retry strategies, dead letter queue, worker concurrency, queue b
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-queue.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-queue.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ job processing patterns, job serialization, และ job idempotency
 3. Script ตรวจสอบ retry strategies, backoff configuration, และ max retry limits
 4. Script ตรวจสอบ dead letter queue, failed job handling, และ job recovery

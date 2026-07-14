@@ -11,6 +11,10 @@ auto_execution_mode: 3
 
 รองรับการติดตั้ง Bunup, กำหนดค่า bunup.config.ts, เพิ่ม build scripts ใน package.json, และรองรับ multiple output formats (ESM, CJS)
 
+## Scope
+
+ใช้สำหรับ TypeScript library projects ที่ต้องการ bundling ด้วย Bun's native bundler
+
 ## Execute
 
 ### 1. Analyze Project
@@ -114,4 +118,12 @@ export default defineConfig({
 - `/validate` - ตรวจสอบความถูกต้องก่อนเริ่ม
 - `/connect-workflows` - เชื่อมโยง workflows
 - [Bunup Documentation](https://bunup.dev)
+
+## Expected Outcome
+
+- Bunup ติดตั้งและกำหนดค่าใน project
+- `bunup.config.ts` พร้อม entry points และ output formats
+- `package.json` มี build scripts สำหรับ bunup
+- รองรับ ESM และ CJS formats
+- สร้าง type declarations (dts) อัตโนมัติ
 

@@ -1,10 +1,8 @@
 ---
 title: Deep Report
-description: สร้าง deep report ละเอียดครบทุกมิติ พร้อมตาราง 7 columns และสรุป 5 ส่วน
+description: สร้าง deep report ละเอียดครบทุกมิติ พร้อมตาราง 7 columns และสรุป 4 ส่วน
 auto_execution_mode: 3
 related:
-  - /report-health
-  - /update-health-cli
   - /report-format-table
   - /suggest-next-action
   - /review-codebase-everything
@@ -14,26 +12,25 @@ related:
 
 ## Goal
 
-สร้าง deep report ที่ละเอียด  actionable และครบทุกมิติ พร้อมตาราง 7 columns และสรุป 5 ส่วน
+สร้าง deep report ที่ละเอียด  actionable และครบทุกมิติ พร้อมตาราง 7 columns และสรุป 4 ส่วน
 
 ## Scope
 
-ใช้สำหรับสร้าง deep report หลังจากรัน health CLI หรือ review codebase เพื่อรายงาน findings แบบละเอียด ไม่ใช้สำหรับสร้างหรืออัปเดท analyzers
+ใช้สำหรับสร้าง deep report หลังจาก review codebase หรือวิเคราะห์ระบบ เพื่อรายงาน findings แบบละเอียด ไม่ใช้สำหรับสร้างหรืออัปเดท analyzers
 
 ## Execute
 
 ### 1. Gather Data
 
-รวบรวมข้อมูลจาก health CLI และ review workflows
+รวบรวมข้อมูลจาก review workflows และ codebase analysis
 
 > Goal: มีข้อมูลครบสำหรับสร้าง deep report
 
-1. รัน `bun --filter @booking/tools-health health:json` เพื่อดึง health report ในรูปแบบ JSON
-2. ถ้าไม่มี health CLI → ทำ `/update-health-cli` ก่อน
-3. ทำ `/deep-review` เพื่อวิเคราะห์ codebase ครบทุกด้าน ถ้าต้องการข้อมูลเพิ่มเติม
-4. รวบรวม findings จาก health report และ review results
+1. ทำ `/deep-review` เพื่อวิเคราะห์ codebase ครบทุกด้าน
+2. ทำ `/deep-analyze` เพื่อวิเคราะห์เชิงลึกถ้าต้องการข้อมูลเพิ่มเติม
+3. รวบรวม findings จาก review results และ codebase analysis
 
-> Goal: มีข้อมูลครบจากทั้ง health CLI และ review workflows
+> Goal: มีข้อมูลครบจาก review workflows และ codebase analysis
 
 ### 2. Classify Findings
 
@@ -41,7 +38,7 @@ related:
 
 > Goal: แต่ละ finding มีข้อมูลครบ 7 columns
 
-1. สำหรับแต่ละ finding ใน health report:
+1. สำหรับแต่ละ finding จาก review results:
    1. กำหนด **Scope**: `Domain > Category` (เช่น `Code & Architecture > Completeness`)
    2. กำหนด **File**: ไฟล์และบรรทัดที่มีปัญหา (เช่น `apps/website/src/routes/__root.tsx:26`)
    3. วิเคราะห์ **Cause**: สาเหตุรากของปัญหา (root cause analysis)
@@ -81,20 +78,16 @@ related:
 2. **Severity Distribution** — จำนวน findings ตาม severity:
    - Critical, High, Medium, Low
    - เปรียบเทียบกับครั้งก่อน (ถ้ามีข้อมูล)
-3. **Analyzer Changes** — สรุป analyzers ที่เปลี่ยนแปลง (ถ้าเป็นการอัปเดท CLI):
-   - สร้างใหม่: รายการ analyzers ที่เพิ่ม
-   - อัปเดท: รายการ analyzers ที่แก้ไข พร้อมสิ่งที่เปลี่ยน
-   - ลบ: รายการ analyzers ที่ลบ
-4. **False Positive Analysis** — สรุป false positives ที่พบและแก้:
+3. **False Positive Analysis** — สรุป false positives ที่พบและแก้:
    - รายการ findings ที่เป็น false positive
    - สาเหตุที่เป็น false positive
    - วิธีแก้ที่ใช้
-5. **Recommended Actions** — action items จัดลำดับตาม priority:
+4. **Recommended Actions** — action items จัดลำดับตาม priority:
    - Quick wins: low effort, high impact
    - Major improvements: high effort, high impact
    - แต่ละ action: reviewWorkflow ที่แนะนำ, estimated effort, expected impact
 
-> Goal: สรุป 5 ส่วนที่ครบทุกมิติและนำไป action ได้
+> Goal: สรุป 4 ส่วนที่ครบทุกมิติและนำไป action ได้
 
 ### 5. Suggest Next Actions
 
@@ -104,8 +97,7 @@ related:
 
 1. ทำ `/suggest-next-action` ตาม findings ที่จัดลำดับแล้ว
 2. แนะนำ `/review-*` workflow สำหรับแต่ละ finding ตาม `reviewWorkflow` field
-3. แนะนำ `/update-health-cli` ถ้า CLI ต้องปรับปรุง
-4. แนะนำ `/update-agents-md` ถ้า AGENTS.md ไม่ตรงกับ dependencies ปัจจุบัน
+3. แนะนำ `/update-agents-md` ถ้า AGENTS.md ไม่ตรงกับ dependencies ปัจจุบัน
 
 > Goal: action items ที่ชัดเจนและจัดลำดับตาม priority
 
@@ -157,13 +149,13 @@ related:
 
 ### 7. Summary Completeness
 
-- deep summary ต้องมีครบทั้ง 5 ส่วน: Domain Breakdown, Severity Distribution, Analyzer Changes, False Positive Analysis, Recommended Actions
+- deep summary ต้องมีครบทั้ง 4 ส่วน: Domain Breakdown, Severity Distribution, False Positive Analysis, Recommended Actions
 - ถ้าไม่มีข้อมูลส่วนใด (เช่น ไม่มี false positive) ให้ระบุว่า `None found`
 
 ## Expected Outcome
 
 - ตาราง deep report 7 columns พร้อม evidence ที่ตรวจสอบได้
-- สรุป 5 ส่วน: Domain Breakdown, Severity Distribution, Analyzer Changes, False Positive Analysis, Recommended Actions
+- สรุป 4 ส่วน: Domain Breakdown, Severity Distribution, False Positive Analysis, Recommended Actions
 - จัดกลุ่มตาม `reviewWorkflow` จาก AGENTS.md
 - ทุก finding มี root cause analysis และ actionable solutions
 - action items จัดลำดับตาม priority: quick wins ก่อน, major improvements รองลงมา

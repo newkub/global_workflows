@@ -7,6 +7,7 @@ related:
   - /refactor-packages
   - /all-workspaces
   - /follow-code-quality
+  - /check-duplication
 ---
 
 ## Goal

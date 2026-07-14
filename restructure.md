@@ -11,7 +11,7 @@ related:
   - /relocation
   - /follow-ordering
   - /follow-barrel-export
-  - /use-import-alias
+  - /follow-import
   - /dont-over-engineer
   - /use-scripts
 ---
@@ -67,7 +67,7 @@ related:
 ปรับปรุง entry files และ import paths ให้ใช้ alias แทน relative paths ที่ซับซ้อน
 
 1. ทำ `/follow-barrel-export` เพื่อ refactor entry files
-2. ทำ `/use-import-alias` เพื่อแทนที่ relative paths ที่ซับซ้อน
+2. ทำ `/follow-import` เพื่อแทนที่ relative paths ที่ซับซ้อน
 3. ถ้า barrel files ไม่ต้องปรับ → skip ไป Step 6
 
 ### 6. Validate Single Responsibility

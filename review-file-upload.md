@@ -3,7 +3,7 @@ title: Review File Upload
 description: Review file upload ครอบคลุม validation, size limits, type checking, storage และ virus scan
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ file upload validation, size limit enforcement, MIME type checking, file name sa
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-file-upload.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-file-upload.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ file size validation: max size enforcement, chunked upload, size limit configuration
 3. Script ตรวจสอบ file type validation: MIME type checking, extension validation, magic number verification
 4. Script ตรวจสอบ file name sanitization: path traversal prevention, special character handling, unique naming

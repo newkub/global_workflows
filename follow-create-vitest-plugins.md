@@ -5,6 +5,14 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
+ตั้งค่าและใช้งาน Vitest plugins ตาม Plugin API อย่างถูกต้อง (Vitest 3.1.0+)
+
+## Scope
+
+ใช้สำหรับ project ที่ต้องการสร้างและใช้งาน Vitest plugins
+
 ## Prompt
 
 ใช้ workflow นี้เมื่อต้องการสร้างและใช้งาน Vitest plugins ตาม Plugin API มาตรฐาน

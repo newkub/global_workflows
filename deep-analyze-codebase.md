@@ -1,23 +1,27 @@
 ---
-title: Deep Analyze With Use Scripts
-description: วิเคราะห์โปรเจกต์ด้วย tools/health CLI, @ast-grep/napi และ ast-grep outline
+title: Deep Analyze Codebase
+description: วิเคราะห์ codebase อย่างลึกซึ้งด้วย health CLI, ast-grep และระบุ cross-references ที่ต้องอัปเดต
 auto_execution_mode: 3
 related:
   - /analyze-project
-  - /deep-report
+  - /scan-codebase
   - /update-health-cli
-url:
-  - https://astgrep.com/guide/api-usage/js-api
-  - https://astgrep.com/blog/ast-grep-outline
+  - /deep-report
+  - /edit-relative
+  - /update-reference
+  - /check-reference
+  - /validate
+  - /report-format-table
+  - /suggest-next-action
 ---
 
 ## Goal
 
-วิเคราะห์โปรเจกต์อย่างลึกซึ้งครบทุกมิติด้วย `tools/health` CLI, `@ast-grep/napi` และ `ast-grep outline`
+วิเคราะห์ codebase อย่างลึกซึ้งครบทุกมิติด้วย `tools/health` CLI, `@ast-grep/napi` และ `ast-grep outline` พร้อมระบุ cross-references ที่ต้องอัปเดต
 
 ## Scope
 
-ใช้สำหรับ deep analysis ที่ต้องการ data processing ซับซ้อน หรือ metrics calculation ที่ต้อง aggregation ครอบคลุม structural analysis ด้วย AST — ไม่ใช้สำหรับสร้างหรืออัปเดท analyzers (ใช้ `/update-health-cli`)
+ใช้สำหรับ deep analysis ที่ต้องการ data processing ซับซ้อน หรือ metrics calculation ที่ต้อง aggregation ครอบคลุม structural analysis ด้วย AST และ cross-reference analysis — ไม่ใช้สำหรับสร้างหรืออัปเดท analyzers (ใช้ `/update-health-cli`)
 
 ## Execute
 
@@ -41,7 +45,7 @@ url:
 
 1. รัน `bun --filter @booking/tools-health health:json` เพื่อดึง health report เป็น JSON
 2. ถ้าไม่มี health CLI → ทำ `/update-health-cli` ก่อน แล้วกลับมาทำ step นี้ใหม่
-3. ใช้ `@ast-grep/napi` สำหรับ programmatic AST analysis ใน scripts — **ไม่ต้องติดตั้ง**: Bun auto-install บน `import`
+3. ใช้ `@ast-grep/napi` สำหรับ programmatic AST analysis ใน scripts — Bun auto-install บน `import`
    - `import { Lang, parse, kind } from '@ast-grep/napi'` — Bun ติดตั้งอัตโนมัติเมื่อ import
    - สำหรับ non-Bun environment ใช้ `@ast-grep/wasm` ผ่าน CDN: `import { parse } from 'https://esm.sh/@ast-grep/wasm'`
    - ดู https://astgrep.com/guide/api-usage/js-api สำหรับ API reference
@@ -60,9 +64,34 @@ url:
 3. สร้าง deep summary 5 ส่วน: Domain Breakdown, Severity Distribution, Analyzer Changes, False Positive Analysis, Recommended Actions
 4. ระบุ action items จัดลำดับตาม priority: quick wins ก่อน, major improvements รองลงมา
 
+### 4. Analyze Cross-References
+
+ระบุ workflows และ skills ที่ควรอ้างอิงจากผล deep analysis
+
+> Goal: รู้ว่า findings จาก deep analysis ควรถูกอ้างอิงในไฟล์ใดบ้าง
+
+1. ระบุ workflow หรือ skill ที่เกี่ยวข้องกับ findings จาก step 3
+2. ทำ `/scan-codebase` เพื่อค้นหา references ปัจจุบัน
+3. วิเคราะห์ไฟล์ที่ควรมี reference แต่ยังไม่มี:
+   - `AGENTS.md` ในแต่ละ workspace
+   - `README.md` ของ project
+   - Workflow files และ skill files ที่เกี่ยวข้อง
+4. ตรวจสอบว่าไฟล์ที่ควรอ้างอิงมีเงื่อนไขตรงกับ findings หรือไม่
+
+### 5. Apply References And Report
+
+เพิ่ม references ที่ขาดและรายงานผลลัพธ์
+
+> Goal: References ครบถ้วน ไม่มี broken references
+
+1. ทำ `/edit-relative` เพื่อเพิ่ม references ในไฟล์ที่ขาด
+2. ทำ `/check-reference` เพื่อตรวจสอบว่า references มีอยู่จริง
+3. ทำ `/report-format-table` เพื่อสรุปผลลัพธ์เป็นตาราง: ไฟล์ที่เพิ่ม reference, ไฟล์ที่มีอยู่แล้ว, ไฟล์ที่ไม่จำเป็นต้องมี
+4. ทำ `/suggest-next-action` เพื่อแนะนำ action ถัดไป
+
 ## Rules
 
-### Ast-Grep NAPI Usage
+### 1. Ast-Grep NAPI Usage
 
 - `@ast-grep/napi` เป็น native addon (napi.rs) — Bun auto-install บน `import` โดยไม่ต้อง `bun add`
 - `@ast-grep/wasm` เป็น WASM version — ใช้ผ่าน CDN ได้: `import { parse } from 'https://esm.sh/@ast-grep/wasm'`
@@ -73,7 +102,7 @@ url:
 - `node.range()` ดึง start/end position (line, column, offset — 0-indexed)
 - `node.replace(text)` สร้าง `Edit` object — `node.commitEdits(edits)` apply edits และ return new source string
 
-### Ast-Grep Outline Usage
+### 2. Ast-Grep Outline Usage
 
 - `bunx ast-grep outline <file>` — สรุป functions, classes, imports, exports, members
 - `bunx ast-grep outline <directory>` — สรุป exported surface ของ directory
@@ -81,13 +110,20 @@ url:
 - Outline entries: name, symbolType, source range, first-line signature, AST kind, import/export flags
 - ไม่มี index building, ไม่มี cross-file analysis — parse ใหม่ทุกครั้ง (alpha preview, ast-grep 0.44.0+)
 
-### Health CLI Structure
+### 3. Health CLI Structure
 
 - Health CLI อยู่ใน `tools/health/` workspace — entry point: `tools/health/src/presentation/cli.ts`
 - Analyzers อยู่ใน `tools/health/src/domain/analyzers/` — ใช้ Bun native APIs: `Bun.glob`, `Bun.file`, `Bun.$`, `Bun.spawn`
 - ใช้ `Promise.allSettled` สำหรับ parallel analyzer execution
 
-### Output Format
+### 4. Cross-Reference Quality
+
+- เพิ่ม reference เฉพาะไฟล์ที่เกี่ยวข้องจริง — ไม่เพิ่มในไฟล์ที่ไม่เกี่ยวข้อง
+- ถ้า project เป็น monorepo ตรวจสอบทุก workspace
+- ตรวจสอบ `AGENTS.md` ใน root และแต่ละ workspace
+- ใช้ `/check-reference` หลังเพิ่ม reference
+
+### 5. Output Format
 
 - Health CLI output เป็น JSON หรือ table format
 - Deep report ใช้ตาราง 7 columns: Scope, File, Cause, Solutions, Severity, Review Workflow, Evidence
@@ -99,4 +135,5 @@ url:
 - Structural overview ด้วย `ast-grep outline`
 - Deep report ตาราง 7 columns พร้อม evidence ที่ตรวจสอบได้
 - Deep summary 5 ส่วน: Domain Breakdown, Severity Distribution, Analyzer Changes, False Positive Analysis, Recommended Actions
+- Cross-references ถูกเพิ่มในไฟล์ที่ขาด ไม่มี broken references
 - Action items จัดลำดับตาม priority: quick wins ก่อน, major improvements รองลงมา

@@ -1,8 +1,21 @@
 ---
 trigger: always_on
+description: พัฒนา Flutter applications ด้วย Clean Architecture และ Riverpod
+title: Follow Flutter
+auto_execution_mode: 3
 ---
 
-## 1. Setup และ Dependencies
+## Goal
+
+พัฒนา Flutter applications ด้วย Clean Architecture, Riverpod สำหรับ state management และ GoRouter สำหรับ navigation
+
+## Scope
+
+ใช้สำหรับ project ที่พัฒนาด้วย Flutter framework
+
+## Execute
+
+### 1. Setup และ Dependencies
 
 ### `pubspec.yaml`
 
@@ -327,4 +340,21 @@ void main() {
   });
 }
 ```
+
+## Rules
+
+- ใช้ Clean Architecture แบ่งเป็น data, domain, presentation layers
+- ใช้ Riverpod สำหรับ state management และ DI
+- ใช้ GoRouter สำหรับ navigation
+- ใช้ fpdart สำหรับ error handling (Either<Failure, Success>)
+- ใช้ `freezed` สำหรับ immutable data classes
+- เขียน unit tests สำหรับ repository และ use cases
+
+## Expected Outcome
+
+- Flutter project ใช้ Clean Architecture แบ่ง layers ชัดเจน
+- State management ด้วย Riverpod
+- Navigation ด้วย GoRouter
+- Error handling ด้วย fpdart Either pattern
+- มี unit tests ครอบคลุม
 

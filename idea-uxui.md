@@ -12,6 +12,10 @@ related:
 
 สร้างตาราง UX/UI improvements 40 รายการ (Extends + New) พร้อม continuous numbering และ scope ที่ชัดเจน
 
+## Scope
+
+ใช้สำหรับ project ที่ต้องการวิเคราะห์และปรับปรุง UX/UI
+
 ## Execute
 
 ### 1. Deep Analyze
@@ -126,5 +130,12 @@ related:
 
 - ใช้ markdown table สำหรับแสดง UX/UI improvements
 - ตารางรวมทั้งหมด 40 อันดับ เรียงตาม Impact
+- ตารางเป็นภาษาไทยทั้งหมด
+
+## Expected Outcome
+
+- ตาราง UX/UI improvements 40 รายการพร้อม continuous numbering
+- จัดลำดับตาม Impact และ RICE framework
+- มี scope และ phasing strategy ชัดเจน
 - ตารางเป็นภาษาไทยทั้งหมด
 

@@ -4,7 +4,7 @@ description: Review deployment และ configuration ครอบคลุม 
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -28,7 +28,7 @@ CI/CD pipeline, deployment strategy, rollback, zero-downtime, post-deploy valida
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-deployment.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-deployment.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ CI/CD pipeline, deployment steps, rollback strategy
 3. Script ตรวจสอบ zero-downtime config, post-deploy validation, และ environment promotion
 4. Script ตรวจสอบ env var coverage, missing config, hardcoded values, และ secrets management

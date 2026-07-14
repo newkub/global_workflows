@@ -3,7 +3,7 @@ title: Review UX UI
 description: Review UX/UI ครอบคลุม usability, user flows, interaction design, และ visual consistency
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ user flow design, interaction patterns, visual hierarchy, UX writing, loading/em
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-uxui.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-uxui.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ user flow design, navigation patterns, และ user journey completeness
 3. Script ตรวจสอบ interaction design: loading states, empty states, error states, และ success feedback
 4. Script ตรวจสอบ visual hierarchy, spacing consistency, และ visual design patterns

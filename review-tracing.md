@@ -3,7 +3,7 @@ title: Review Tracing
 description: Review distributed tracing ครอบคลุม request correlation, span propagation และ trace context
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ trace context propagation, span creation, span attributes, trace sampling strate
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-tracing.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-tracing.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ trace context propagation: W3C Trace Context, B3 propagation, header forwarding
 3. Script ตรวจสอบ span creation: span naming, span attributes, span events, span links
 4. Script ตรวจสอบ span coverage: database queries, external API calls, background jobs, error paths

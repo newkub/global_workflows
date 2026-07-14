@@ -3,7 +3,7 @@ title: Review Composables
 description: Review composables ครอบคลุม Vue/Nuxt composables, reactivity, และ reusability
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ Vue composables (use* functions), ref/reactive usage, computed/watch patterns, p
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-composables.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-composables.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ composable design, ref/reactive usage, และ computed/watch patterns
 3. Script ตรวจสอบ provide/inject patterns, composable composition, และ Vue lifecycle integration
 4. Script ตรวจสอบ reactivity correctness, effect scope management, และ cleanup patterns

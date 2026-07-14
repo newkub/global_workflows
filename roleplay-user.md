@@ -3,7 +3,7 @@ title: Roleplay User
 description: รับบทเป็น user อ่าน code แล้วคิดผ่าน user journey เพื่อ review usage และ UX/UI แบบไม่รันอะไรจริง
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /deep-thinking
   - /pondering
   - /sketch
@@ -25,7 +25,7 @@ related:
 
 ### 1. Read Code Context
 
-1. ทำ `/code-search` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา user-facing code
+1. ทำ `/scan-codebase` หรือใช้ `read_file`, `grep_search`, `find_by_name`, `list_dir` เพื่อหา user-facing code
 2. อ่าน routes, pages, components, forms, navigation, dialogs, loading/error/success states
 3. อ่าน state management, handlers, guards, validations ที่มีผลต่อ user interaction
 4. ถ้าหา user-facing code ไม่เจอ ให้ถามผู้ใช้ว่าต้องการ review ส่วนไหน

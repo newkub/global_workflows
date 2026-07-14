@@ -3,7 +3,7 @@ title: Review Session
 description: Review session management ครอบคลุม timeout, refresh, persistence และ concurrent sessions
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ session creation, session timeout, session refresh, session persistence, concurr
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-session.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-session.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ session creation: secure session ID, session payload, session metadata
 3. Script ตรวจสอบ session timeout: idle timeout, absolute timeout, sliding expiration
 4. Script ตรวจสอบ session refresh: refresh token strategy, token rotation, refresh window

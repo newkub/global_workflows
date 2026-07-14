@@ -3,7 +3,7 @@ title: Review Debugging
 description: Review debugging quality ครอบคลุม error messages, logging, traceability, และ debuggability
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ error messages, stack traces, logging context, debug tooling, error reproduction
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-debugging.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-debugging.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ error message clarity, context inclusion, และ actionable guidance
 3. Script ตรวจสอบ stack trace quality, source map coverage, และ error correlation
 4. Script ตรวจสอบ logging context, debug log levels, และ diagnostic data availability

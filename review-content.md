@@ -3,7 +3,7 @@ title: Review Content
 description: Review content ครอบคลุม markdown, rich text, sanitization, XSS prevention, และ rendering
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ markdown rendering, rich text editing, user-generated content sanitization, XSS 
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-content.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-content.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ markdown rendering, parser configuration, และ plugin safety
 3. Script ตรวจสอบ rich text handling, content sanitization, และ XSS prevention
 4. Script ตรวจสอบ user-generated content validation, content limits, และ content filtering

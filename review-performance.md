@@ -4,11 +4,12 @@ description: Review performance ครอบคลุม queries, caching, bundl
 auto_execution_mode: 3
 related:
   - /scan-codebase
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
   - /suggest-next-action
+  - /follow-time-complexity
 ---
 
 ## Goal
@@ -28,11 +29,12 @@ N+1 queries, caching, bundle size, chunk splitting, tree shaking, asset optimiza
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-performance.ts` ใน `.devin/scripts/analyze/`
-2. Script ตรวจสอบ N+1 queries, missing indexes, caching gaps
-3. Script ตรวจสอบ bundle size, chunk splitting, tree shaking, และ asset optimization
-4. Script ตรวจสอบ rendering performance, unnecessary re-renders, และ lazy loading
-5. Script คำนวณ performance health score และ output เป็น structured JSON
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-performance.ts` ใน `.devin/scripts/analyze/`
+2. ทำ `/follow-time-complexity` วิเคราะห์ time complexity ของ critical paths
+3. Script ตรวจสอบ N+1 queries, missing indexes, caching gaps
+4. Script ตรวจสอบ bundle size, chunk splitting, tree shaking, และ asset optimization
+5. Script ตรวจสอบ rendering performance, unnecessary re-renders, และ lazy loading
+6. Script คำนวณ performance health score และ output เป็น structured JSON
 
 ### 3. Validate Findings
 

@@ -3,7 +3,7 @@ title: Learn from Code Pattern
 description: สกัด reusable patterns จาก code จริงเพื่อนำมาประยุกต์ใช้ใน project
 auto_execution_mode: 3
 related:
-  - /code-search
+  - /scan-codebase
   - /use-ast-grep
   - /scan-codebase
   - /generalize
@@ -29,7 +29,7 @@ related:
 
 ### 2. Discover Patterns
 
-1. ทำ `/code-search` เพื่อค้นหา code patterns
+1. ทำ `/scan-codebase` เพื่อค้นหา code patterns
 2. ทำ `/scan-codebase` เพื่อ scan หา recurring structures
 3. ทำ `/use-ast-grep` สำหรับ AST-based pattern discovery
 
@@ -61,7 +61,7 @@ related:
 
 ### Pattern Discovery
 
-- ใช้ `/code-search` สำหรับค้นหา patterns ใน codebase
+- ใช้ `/scan-codebase` สำหรับค้นหา patterns ใน codebase
 - ใช้ `/use-ast-grep` สำหรับ AST-based structural pattern matching
 - ค้นหาทั้ง positive patterns และ anti-patterns
 

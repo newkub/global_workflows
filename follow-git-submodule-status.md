@@ -5,7 +5,13 @@ auto_execution_mode: 3
 ---
 
 
+## Goal
+
 ตรวจสอบสถานะของ git submodules ทั้งหมดเพื่อดูว่า submodules อยู่ใน commit ที่ตรงกับที่บันทึกไว้ใน superproject หรือไม่
+
+## Scope
+
+ใช้สำหรับ project ที่มี git submodules
 
 ## Execute
 
@@ -118,4 +124,10 @@ auto_execution_mode: 3
 2. อธิบายความหมายของเครื่องหมายแต่ละตัว
 3. ระบุ submodules ที่ต้องการ action
 4. แนะนำ action ที่ควรทำสำหรับแต่ละ submodule
+
+## Expected Outcome
+
+- ทุก submodule มีสถานะชัดเจน
+- รู้ว่า submodule ไหนตรงกับ index หรือไม่
+- มี action items สำหรับแก้ไข submodules ที่ไม่ตรง
 

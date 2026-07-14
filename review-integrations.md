@@ -3,7 +3,7 @@ title: Review Integrations
 description: Review third-party integration ครอบคลุม API client, error handling, retry, และ vendor lock-in
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /validate
   - /report
   - /report-format-table
@@ -27,7 +27,7 @@ API client design, external service error handling, retry strategies, circuit br
 
 ### 2. Deep Analyze
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-integrations.ts` ใน `.devin/scripts/analyze/`
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-integrations.ts` ใน `.devin/scripts/analyze/`
 2. Script ตรวจสอบ API client design, timeout configuration, และ connection pooling
 3. Script ตรวจสอบ external service error handling, retry strategies, และ circuit breaker patterns
 4. Script ตรวจสอบ vendor lock-in risk, abstraction layer, และ swappability

@@ -3,7 +3,7 @@ title: Review Realize Implementation
 description: Review implementation completeness รวม TODO, MOCK, STUB, FAKE, placeholder, flows, และ features
 auto_execution_mode: 3
 related:
-  - /deep-analyze-with-use-scripts
+  - /deep-analyze-codebase
   - /update-rules
   - /scan-codebase
   - /validate
@@ -48,7 +48,7 @@ Review implementation completeness ใน codebase เพื่อหา TODO, F
 
 **Goal reminder:** หา implementation ที่ไม่สมบูรณ์ในทุกมิติ
 
-1. ทำ `/deep-analyze-with-use-scripts` เพื่อสร้าง `analyze-implementation` script
+1. ทำ `/deep-analyze-codebase` เพื่อสร้าง `analyze-implementation` script
 2. Script สแกนหา TODO, FIXME, HACK, MOCK, FAKE, STUB, placeholder patterns พร้อม context
 3. Script ตรวจหา unfinished features, unimplemented interfaces, missing error handling
 4. Script ตรวจหา incomplete flows, dead-ends, missing success/error branches, missing recovery path

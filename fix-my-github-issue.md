@@ -5,7 +5,13 @@ auto_execution_mode: 3
 ---
 
 
-Workflow สำหรับการแก้ไข GitHub issue จาก remote repository อย่างเป็นระบบ เพื่อให้มั่นใจว่าการแก้ไขเป็นไปอย่างถูกต้อง ครบถ้วน และตรงตามความต้องการของ issue
+## Goal
+
+แก้ไข GitHub issue จาก remote repository อย่างเป็นระบบ ตั้งแต่การระบุปัญหา การวิเคราะห์ การแก้ไข การทดสอบ ไปจนถึงการ commit และ push changes
+
+## Scope
+
+ใช้สำหรับ project ที่ต้องการแก้ไข GitHub issue อย่างเป็นระบบ
 
 ## Execute
 
@@ -211,4 +217,11 @@ Merge PR และปิด issue
 3. ต้อง merge PR เข้าไปใน target branch
 4. ต้องปิด issue ด้วย comment ที่อธิบาย
 5. ต้องลบ branch ที่ใช้ทำงานหลังจาก merge เสร็จ
+
+## Expected Outcome
+
+- Issue ถูกแก้ไขอย่างเป็นระบบ ครบถ้วน และตรงตามความต้องการ
+- มี commit และ push changes พร้อม conventional commits format
+- มี tests ครอบคลุม
+- PR ถูก merge และ issue ถูกปิด
 
