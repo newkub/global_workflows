@@ -3,7 +3,7 @@ title: Follow Git Rebase
 description: ใช้ git rebase สำหรับ rebase, squash, interactive rebase และ resolve conflicts
 auto_execution_mode: 3
 related:
-  - /commit
+  - /git-commit
   - /git-merge-commit
   - /resolve-errors
 ---
@@ -22,7 +22,7 @@ related:
 
 1. ตรวจสอบ working tree clean ด้วย `git status`
 2. ตรวจสอบ branch ปัจจุบันและ target branch
-3. ทำ `/commit` หรือ stash uncommitted changes ก่อน
+3. ทำ `/git-commit` หรือ stash uncommitted changes ก่อน
 4. ตรวจสอบว่าไม่ได้ rebase branch ที่ shared กับผู้อื่น
 
 ### 2. Interactive Rebase
@@ -78,7 +78,7 @@ related:
 
 ### 4. Non-Redundancy
 
-- รายละเอียด commit format อยู่ใน `/commit` แล้ว
+- รายละเอียด commit format อยู่ใน `/git-commit` แล้ว
 - รายละเอียด merge strategies อยู่ใน `/git-merge-commit` แล้ว
 
 ## Expected Outcome

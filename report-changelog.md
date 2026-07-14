@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related:
   - /report-format-table
   - /follow-git-tags
-  - /commit
+  - /git-commit
 ---
 
 ## Goal

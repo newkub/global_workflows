@@ -31,14 +31,14 @@ related:
 2. รัน `git lfs track "*.psd"` เพื่อ track file type
 3. รัน `git lfs track "*.zip"` สำหรับ archives
 4. ตรวจสอบ `.gitattributes` ว่า LFS rules ถูกเพิ่มแล้ว
-5. ทำ `/commit` เพื่อ commit `.gitattributes`
+5. ทำ `/git-commit` เพื่อ commit `.gitattributes`
 
 ### 3. Add Large Files
 
 1. รัน `git add <large-file>` เพื่อเพิ่มไฟล์
 2. Git LFS จะจัดการไฟล์โดยอัตโนมัติ
 3. รัน `git lfs ls-files` เพื่อดูไฟล์ที่ track โดย LFS
-4. ทำ `/commit` เพื่อ commit
+4. ทำ `/git-commit` เพื่อ commit
 
 ### 4. Clone With LFS
 

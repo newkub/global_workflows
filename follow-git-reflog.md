@@ -37,7 +37,7 @@ related:
 1. รัน `git reflog` เพื่อหา commit ล่าสุดของ branch ที่ถูกลบ
 2. รัน `git branch <branch-name> <commit-hash>` เพื่อสร้าง branch ใหม่ที่ commit นั้น
 3. ตรวจสอบว่า branch ถูกสร้างด้วย `git branch -a`
-4. ทำ `/commit` ถ้าจำเป็น
+4. ทำ `/git-commit` ถ้าจำเป็น
 
 ### 4. Expire Old Reflog
 

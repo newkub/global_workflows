@@ -5,8 +5,8 @@ auto_execution_mode: 3
 related:
   - /follow-git-worktree
   - /create-git-worktree
-  - /commit
-  - /commit-and-push
+  - /git-commit
+  - /git-commit-and-push
   - /git-push
   - /git-merge-commit
   - /create-pr
@@ -59,7 +59,7 @@ related:
 2. Types: `feat`, `fix`, `hotfix`, `refactor`, `chore`, `docs`, `test`, `perf`, `ci`, `build`
 3. เขียน description เป็น imperative mood ภาษาอังกฤษ ไม่เกิน 72 ตัวอักษร
 4. ถ้ามี breaking change ให้เพิ่ม `!` หลัง type/scope เช่น `feat(api)!: change response format`
-5. ใช้ `/commit` เพื่อ commit ตาม conventional commits standard
+5. ใช้ `/git-commit` เพื่อ commit ตาม conventional commits standard
 
 ### 3. Merge Strategy
 
@@ -89,7 +89,7 @@ related:
 2. ก่อน push ให้ตรวจสอบว่า local branch อยู่หน้า remote ไม่เกินจำเป็น
 3. ถ้า remote มี commits ใหม่ให้ `git pull --rebase` เพื่อหลีกเลี่ยง merge commits ที่ไม่จำเป็น
 4. หลีกเลี่ยง force push ไปยัง shared branches โดยไม่จำเป็น
-5. ใช้ `/commit-and-push` เพื่อ commit และ push ในครั้งเดียว
+5. ใช้ `/git-commit-and-push` เพื่อ commit และ push ในครั้งเดียว
 
 ### 6. Rebase And Stash
 
@@ -97,7 +97,7 @@ related:
 
 1. ทำ `/follow-git-rebase` เพื่อ squash commits หรือ rebase ไปยัง base ใหม่
 2. ทำ `/follow-git-stash` เพื่อเก็บ changes ชั่วคราวเมื่อต้องสลับ context
-3. ใช้ stash เฉพาะเมื่อต้องการเก็บ changes ชั่วคราว ถ้าพร้อมให้ `/commit` แทน
+3. ใช้ stash เฉพาะเมื่อต้องการเก็บ changes ชั่วคราว ถ้าพร้อมให้ `/git-commit` แทน
 4. ถ้าต้องการทำงานหลาย branches ให้ใช้ `/create-git-worktree` แทน stash
 
 ### 7. Submodules
@@ -221,7 +221,7 @@ Resolve merge conflicts อย่างเป็นระบบ
 ### 5. Non-Redundancy
 
 - รายละเอียดแต่ละ topic อยู่ใน sub-workflow แล้ว: `/follow-git-worktree`, `/follow-git-rebase`, `/follow-git-stash`, `/follow-git-submodules`, `/follow-gitignore`, `/follow-git-tags`, `/follow-git-bisect`, `/follow-git-cherry-pick`, `/follow-git-hooks`, `/follow-git-conflict`, `/follow-git-reflog`, `/follow-git-revert`, `/follow-git-config`, `/follow-git-lfs`, `/follow-git-blame`, `/follow-git-filter`, `/follow-git-clone`, `/follow-git-cleanup`
-- รายละเอียด commit format อยู่ใน `/commit` แล้ว
+- รายละเอียด commit format อยู่ใน `/git-commit` แล้ว
 - Orchestrator workflow อ้างถึง sub-workflow โดยไม่ duplicate รายละเอียด
 
 ## Expected Outcome

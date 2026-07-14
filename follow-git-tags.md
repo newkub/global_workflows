@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related:
   - /follow-git-workflows
   - /run-release
-  - /commit
+  - /git-commit
 ---
 
 ## Goal
@@ -77,7 +77,7 @@ related:
 ### 4. Non-Redundancy
 
 - รายละเอียด release process อยู่ใน `/run-release` แล้ว
-- รายละเอียด commit format อยู่ใน `/commit` แล้ว
+- รายละเอียด commit format อยู่ใน `/git-commit` แล้ว
 
 ## Expected Outcome
 

@@ -15,7 +15,7 @@ related:
 
 ## Scope
 
-ใช้สำหรับการรายงาน git diff ทั้ง staged, unstaged, ระหว่าง commits, และระหว่าง branches — ไม่รวมการ commit หรือ stage changes (ใช้ `/commit` แทน)
+ใช้สำหรับการรายงาน git diff ทั้ง staged, unstaged, ระหว่าง commits, และระหว่าง branches — ไม่รวมการ commit หรือ stage changes (ใช้ `/git-commit` แทน)
 
 ## Execute
 
@@ -124,13 +124,13 @@ related:
 
 ### Safety
 
-- ไม่แก้ไข ไม่ stage ไม่ commit ใดๆ — ใช้ `/commit` สำหรับการ commit
+- ไม่แก้ไข ไม่ stage ไม่ commit ใดๆ — ใช้ `/git-commit` สำหรับการ commit
 - ไม่รันคำสั่งที่มี side effects
 - รายงานเท่านั้น — read-only operation
 
 ### Non-Redundancy
 
-- การ commit และ stage อยู่ใน `/commit` แล้ว
+- การ commit และ stage อยู่ใน `/git-commit` แล้ว
 - การดู file history อยู่ใน `/follow-git-blame` แล้ว
 - การจัดรูปแบบ code blocks อยู่ใน `/report-format-code` แล้ว
 - การจัดรูปแบบตารางอยู่ใน `/report-format-table` แล้ว

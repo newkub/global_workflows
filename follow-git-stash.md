@@ -3,7 +3,7 @@ title: Follow Git Stash
 description: จัดการ git stash สำหรับเก็บและกู้คืน changes ชั่วคราว
 auto_execution_mode: 3
 related:
-  - /commit
+  - /git-commit
   - /follow-git-workflows
 ---
 
@@ -47,8 +47,8 @@ related:
 
 1. ใช้ stash เมื่อต้องการสลับ branch โดยไม่ commit
 2. ใช้ stash เมื่อต้องการ pull โดยไม่มี conflicts
-3. หลัง apply stash ให้ทำ `/commit` ถ้า changes พร้อม
-4. หลีกเลี่ยงการมี stashes มากเกินไป — ใช้ `/commit` แทนถ้า changes พร้อม
+3. หลัง apply stash ให้ทำ `/git-commit` ถ้า changes พร้อม
+4. หลีกเลี่ยงการมี stashes มากเกินไป — ใช้ `/git-commit` แทนถ้า changes พร้อม
 
 ## Rules
 
@@ -62,7 +62,7 @@ related:
 ### 2. Stash Over Commit
 
 - ใช้ stash เฉพาะเมื่อต้องการเก็บ changes ชั่วคราว
-- ถ้า changes พร้อมให้ทำ `/commit` แทน stash
+- ถ้า changes พร้อมให้ทำ `/git-commit` แทน stash
 - ถ้าต้องการทำงานหลาย branches ให้ใช้ `/create-git-worktree` แทน stash
 
 ### 3. Conflict Safety
@@ -73,7 +73,7 @@ related:
 
 ### 4. Non-Redundancy
 
-- รายละเอียด commit อยู่ใน `/commit` แล้ว
+- รายละเอียด commit อยู่ใน `/git-commit` แล้ว
 - รายละเอียด worktree อยู่ใน `/create-git-worktree` แล้ว
 
 ## Expected Outcome

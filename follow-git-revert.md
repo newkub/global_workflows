@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related:
   - /follow-git-workflows
   - /follow-git-rebase
-  - /commit
+  - /git-commit
 ---
 
 ## Goal
@@ -37,7 +37,7 @@ related:
 1. รัน `git revert <hash1> <hash2>` เพื่อ revert หลาย commits
 2. รัน `git revert <start-hash>..<end-hash>` เพื่อ revert range
 3. ใช้ `--no-commit` เพื่อ stage changes โดยไม่ commit อัตโนมัติ
-4. ทำ `/commit` หลังจากตรวจสอบ changes
+4. ทำ `/git-commit` หลังจากตรวจสอบ changes
 
 ### 4. Revert Merge Commit
 
@@ -78,7 +78,7 @@ related:
 ### 4. Non-Redundancy
 
 - รายละเอียด rebase อยู่ใน `/follow-git-rebase` แล้ว
-- รายละเอียด commit อยู่ใน `/commit` แล้ว
+- รายละเอียด commit อยู่ใน `/git-commit` แล้ว
 
 ## Expected Outcome
 

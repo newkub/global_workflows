@@ -29,14 +29,14 @@ related:
 1. ทำ `/follow-git-submodule-add` เพื่อเพิ่ม submodule ใหม่
 2. ระบุ repository URL และ path ที่จะวาง submodule
 3. ตรวจสอบว่า `.gitmodules` ถูกอัปเดตถูกต้อง
-4. Commit การเปลี่ยนแปลงด้วย `/commit`
+4. Commit การเปลี่ยนแปลงด้วย `/git-commit`
 
 ### 3. Update Submodules
 
 1. รัน `git submodule update --remote --merge` เพื่อ update submodules จาก remote
 2. ตรวจสอบว่า updates ไม่ทำลาย compatibility กับ main project
 3. ถ้ามี breaking changes ให้ pin submodule ไปยัง commit เฉพาะ
-4. Commit การอัปเดตด้วย `/commit`
+4. Commit การอัปเดตด้วย `/git-commit`
 
 ### 4. Sync Submodules
 
@@ -48,7 +48,7 @@ related:
 
 1. ทำ `/git-submodule-delete` เพื่อลบ submodule อย่างสมบูรณ์
 2. ตรวจสอบว่าไม่มี code ที่ depend บน submodule นั้น
-3. Commit การลบด้วย `/commit`
+3. Commit การลบด้วย `/git-commit`
 
 ## Rules
 

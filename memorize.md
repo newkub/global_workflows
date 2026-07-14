@@ -8,7 +8,9 @@ related:
   - /deep-research
   - /write-personal-journal
   - /suggest-next-action
-  - /ask-me
+  - /resolve-errors
+  - /learn
+  - /deep-review
 ---
 
 ## Goal
@@ -136,6 +138,9 @@ related:
 - ทำ `/pondering` ก่อน memorize เพื่อทบทวนว่าควรจดจำไหม
 - ทำ `/deep-research` แล้ว memorize ข้อค้นพบสำคัญ
 - ทำ `/deep-thinking` แล้ว memorize การตัดสินใจ
+- ทำ `/resolve-errors` แล้ว memorize บทเรียนจาก error
+- ทำ `/learn` แล้ว memorize สิ่งที่เรียนรู้
+- ทำ `/deep-review` แล้ว memorize ข้อค้นพบสำคัญจากการ review
 - ทำ `/write-personal-journal` สำหรับ reflection ยาวกว่า
 - ทำ `/suggest-next-action` หลัง memorize เพื่อรู้ว่าควรทำอะไรต่อ
 

@@ -5,7 +5,7 @@ auto_execution_mode: 3
 related:
   - /follow-git-workflows
   - /follow-git-rebase
-  - /commit
+  - /git-commit
 ---
 
 ## Goal
@@ -36,7 +36,7 @@ related:
 1. รัน `git cherry-pick <hash1> <hash2> <hash3>` เพื่อ cherry-pick หลาย commits
 2. รัน `git cherry-pick <start-hash>..<end-hash>` เพื่อ cherry-pick range
 3. ใช้ `--no-commit` เพื่อ stage changes โดยไม่ commit อัตโนมัติ
-4. ทำ `/commit` หลังจากตรวจสอบ changes แล้ว
+4. ทำ `/git-commit` หลังจากตรวจสอบ changes แล้ว
 
 ### 4. Resolve Conflicts
 
@@ -70,13 +70,13 @@ related:
 ### 3. Hotfix Workflow
 
 - สำหรับ hotfix: cherry-pick จาก `main` ไป release branch
-- ทำ `/commit` บน `main` ก่อน แล้ว cherry-pick ไป release branch
+- ทำ `/git-commit` บน `main` ก่อน แล้ว cherry-pick ไป release branch
 - ตรวจสอบว่า hotfix ทำงานบน release branch ด้วย
 
 ### 4. Non-Redundancy
 
 - รายละเอียด rebase อยู่ใน `/follow-git-rebase` แล้ว
-- รายละเอียด commit อยู่ใน `/commit` แล้ว
+- รายละเอียด commit อยู่ใน `/git-commit` แล้ว
 
 ## Expected Outcome
 

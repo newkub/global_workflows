@@ -50,7 +50,7 @@ related:
 
 1. รัน `git bisect reset` เพื่อกลับไป branch เดิม
 2. ตรวจสอบว่าอยู่บน branch ที่ถูกต้อง
-3. แก้ไข bug และทำ `/commit`
+3. แก้ไข bug และทำ `/git-commit`
 
 ## Rules
 

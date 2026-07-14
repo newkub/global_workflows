@@ -22,7 +22,7 @@ related:
 
 ### 1. Commit Changes
 
-1. ทำ `/commit` เพื่อ commit changes ที่มีอยู่
+1. ทำ `/git-commit` เพื่อ commit changes ที่มีอยู่
 2. ตรวจสอบ working directory สะอาด
 
 ### 2. Analyze Structure

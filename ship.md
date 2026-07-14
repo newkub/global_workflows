@@ -19,7 +19,7 @@ related:
   - /run-verify
   - /watch-github-actions
   - /create-git-worktree
-  - /commit
+  - /git-commit
   - /run-release
   - /run-deploy
   - /report
@@ -77,7 +77,7 @@ Ship code ครบวงจรตั้งแต่ planning ไปจนถึ
 
 Git operations, release และ deploy
 
-1. ทำ `/commit` เพื่อ commit ทุกการเปลี่ยนแปลงใน worktree
+1. ทำ `/git-commit` เพื่อ commit ทุกการเปลี่ยนแปลงใน worktree
 2. ทำ `/git-push` เพื่อ push ไปยัง remote
 3. ทำ `/create-pr` ถ้าจำเป็นต้องสร้าง pull request
 4. กลับไป `main` worktree และ merge branch เข้า `main`

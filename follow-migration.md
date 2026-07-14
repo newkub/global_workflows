@@ -7,7 +7,7 @@ related:
   - /follow-ast-grep
   - /follow-regression-test
   - /run-test
-  - /commit
+  - /git-commit
 ---
 
 ## Goal
@@ -73,7 +73,7 @@ Migration ทุกประเภท: dependencies, frameworks, databases, APIs
 
 ### 7. Commit Changes
 
-1. ทำตาม `/commit` เพื่อ commit migration changes
+1. ทำตาม `/git-commit` เพื่อ commit migration changes
 2. ใช้ conventional commit format (เช่น `feat(migration): migrate from X to Y`)
 3. รวม breaking changes และ migration notes ใน commit body
 4. Push ไปยัง remote และสร้าง pull request
