@@ -153,7 +153,6 @@ related:
 - ใช้ `updated_last` แทน `since` เพราะบอกวันที่แก้ล่าสุด ไม่ใช่วันที่สร้างอย่างเดียว และใช้ ISO 8601 datetime พร้อม timezone
 - ใช้ `allow` เป็น array แทน boolean หลายตัว เช่น `allow_terminal`, `allow_git`, `allow_network` เพื่อลด field explosion
 - ใช้ `requires` เท่านั้น ห้ามใช้ `require` เพราะ `requires` สื่อว่าเป็น prerequisites หลายรายการ
-- ใช้ `ai_tools` ไม่ใช้ `ai-tools` เพราะ YAML key แบบ snake_case consistent กับ fields อื่น
 - ใช้ `confirm_before` แยกจาก `interactive` เพราะ `interactive` บอกว่าต้องรอ user ระหว่างทำงาน, `confirm_before` บอก action ที่ต้อง confirm ก่อนทำ
 
 ### 3. Safety Mapping
